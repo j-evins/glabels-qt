@@ -135,17 +135,12 @@ namespace glabels
 			{
 				QString dStr = StrUtil::formatFraction( 2 * mR1.in() );
 
-				return QString().sprintf( "%s %s %s",
-				                          qPrintable(dStr),
-				                          qPrintable(units.toTrName()),
-				                          qPrintable(tr("diameter")) );
+				return QString("%1 %2 %3").arg(dStr).arg(units.toTrName()).arg(tr("diameter"));
 			}
 			else
 			{
-				return QString().sprintf( "%.5g %s %s",
-				                          2 * mR1.inUnits(units),
-				                          qPrintable(units.toTrName()),
-				                          qPrintable(tr("diameter")) );
+				return QString("%1 %2 %3").arg(2 * mR1.inUnits(units), 0, 'g', 5)
+				                          .arg(units.toTrName()).arg(tr("diameter"));
 			}
 		}
 

@@ -372,7 +372,7 @@ namespace glabels
 			//
 			// Simple path data parser
 			//
-			QStringList tokens = node.attribute( name, "" ).split( " ", QString::SkipEmptyParts );
+			QStringList tokens = node.attribute( name, "" ).split( " ", Qt::SkipEmptyParts );
 
 			enum { CMD, MX, MY, MDX, MDY, LX, LY, LDX, LDY, HX, HDX, VY, VDY } state = CMD;
 			Distance x  = 0;

@@ -407,7 +407,7 @@ namespace glabels
 			return new ModelBoxObject( x0, y0, w, h, lockAspectRatio,
 			                           lineWidth, lineColorNode,
 			                           fillColorNode,
-			                           QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+			                           QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 			                           shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 		}
 
@@ -461,7 +461,7 @@ namespace glabels
 			return new ModelEllipseObject( x0, y0, w, h, lockAspectRatio,
 			                               lineWidth, lineColorNode,
 			                               fillColorNode,
-			                               QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+			                               QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 			                               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 		}
 
@@ -507,7 +507,7 @@ namespace glabels
 
 			return new ModelLineObject( x0, y0, dx, dy,
 			                            lineWidth, lineColorNode,
-			                            QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+			                            QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 			                            shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 		}
 
@@ -556,7 +556,7 @@ namespace glabels
 			{
 				return new ModelImageObject( x0, y0, w, h, lockAspectRatio,
 				                             filenameNode,
-				                             QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+				                             QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 				                             shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 			}
 			else
@@ -567,14 +567,14 @@ namespace glabels
 				{
 					return new ModelImageObject( x0, y0, w, h, lockAspectRatio,
 					                             filename, data.getImage( fn ),
-					                             QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+					                             QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 					                             shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 				}
 				else if ( data.hasSvg( fn ) )
 				{
 					return new ModelImageObject( x0, y0, w, h, lockAspectRatio,
 					                             filename, data.getSvg( fn ),
-					                             QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+					                             QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 					                             shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 				}
 				else
@@ -586,7 +586,7 @@ namespace glabels
 					}
 					return new ModelImageObject( x0, y0, w, h, lockAspectRatio,
 					                             filenameNode,
-					                             QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+					                             QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 					                             shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 				}
 			}
@@ -629,7 +629,7 @@ namespace glabels
 
 			return new ModelBarcodeObject( x0, y0, w, h, lockAspectRatio,
 			                               bcStyle, bcTextFlag, bcChecksumFlag, bcData, bcColorNode,
-			                               QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ) );
+			                               QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ) );
 		}
 
 
@@ -714,7 +714,7 @@ namespace glabels
 			                            fontFamily, fontSize, fontWeight, fontItalicFlag, fontUnderlineFlag,
 			                            textColorNode, textHAlign, textVAlign, textWrapMode, textLineSpacing,
 			                            textAutoShrink,
-			                            QMatrix( a[0], a[1], a[2], a[3], a[4], a[5] ),
+			                            QTransform( a[0], a[1], a[2], a[3], a[4], a[5] ),
 			                            shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode );
 		}
 

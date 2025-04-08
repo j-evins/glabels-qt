@@ -95,7 +95,7 @@ namespace glabels
 		                                        bool                  bcChecksumFlag,
 		                                        QString               bcData,
 		                                        const ColorNode&      bcColorNode,
-		                                        const QMatrix&        matrix )
+		                                        const QTransform&     matrix )
 		: ModelObject( x0, y0, w, h, lockAspectRatio, matrix )
 		{
 			mOutline = new Outline( this );

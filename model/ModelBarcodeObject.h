@@ -57,7 +57,7 @@ namespace glabels
 			                    bool                  bcChecksumFlag,
 			                    QString               bcData,
 			                    const ColorNode&      bcColorNode,
-			                    const QMatrix&        matrix = QMatrix() );
+			                    const QTransform&     matrix = QTransform() );
 
 			ModelBarcodeObject( const ModelBarcodeObject* object );
 

@@ -92,17 +92,17 @@ int main( int argc, char *argv[] )
 
 	QTextStream out( stdout );
 
-	out << "// Automatically generated with " << app.arguments().at(0) << endl;
-	out << "//" << endl;
-	out << "// Sources:" << endl;
+	out << "// Automatically generated with " << app.arguments().at(0) << Qt::endl;
+	out << "//" << Qt::endl;
+	out << "// Sources:" << Qt::endl;
 	foreach ( QString filename, filenameList )
 	{
-		out << "//         " << filename << endl;
+		out << "//         " << filename << Qt::endl;
 	}
-	out << "//" << endl;
+	out << "//" << Qt::endl;
 		
 	foreach ( QString string, stringList )
 	{
-		out << "QT_TRANSLATE_NOOP( \"XmlStrings\", \"" << string << "\" );" << endl;
+		out << "QT_TRANSLATE_NOOP( \"XmlStrings\", \"" << string << "\" );" << Qt::endl;
 	}
 }

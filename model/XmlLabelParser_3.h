@@ -74,7 +74,7 @@ namespace glabels
 			static QFont::Weight getWeightAttr( const QDomElement& node,
 					 const QString& name, const QFont::Weight default_value );
 
-			static QMatrix parseAffineTransformation(const QDomElement &node);
+			static QTransform parseAffineTransformation(const QDomElement &node);
 
 		};
 

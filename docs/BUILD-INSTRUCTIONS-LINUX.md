@@ -6,7 +6,7 @@ gLabels Linux Build Instructions
 
 - g++
 - CMake 2.8.12+
-- Qt5 5.6+ Development Packages ( Qt5Core, Qt5Widgets, Qt5PrintSupport, Qt5Xml, Qt5Svg )
+- Qt5 5.15+ Development Packages ( Qt5Core, Qt5Widgets, Qt5PrintSupport, Qt5Xml, Qt5Svg )
 - zlib 1.2+ Development Package
 
 > Even if the above library packages are installed, their corresponding development packages
@@ -66,4 +66,31 @@ $ cd build
 $ cmake ..
 $ make
 $ sudo make install
+```
+## Example: Fedora 35
+
+### Installing Prerequisites
+We assume the build system already has things like cmake and the GNU C++ suite installed.
+
+```
+$ sudo dnf install qt5-qtbase-devel qt5-qtsvg-devel qt5-linguist qt5-qttools
+```
+These installs will pull in additional packages to fill out their prerequisites.
+Fedora has a different package naming scheme that Ubuntu. This is to distinguish the QT5
+packages from the QT3 and QT4 packages that they still support for compatibility.
+If the Cmake pass or build has missing package errors or warnings, you can search for the needed
+package with:
+```
+$ sudo dnf search qt5 |grep <package name substring>
+```
+
+### Compile and Install gLabels into /usr/local
+```
+$ cd glabels-qt
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+
 ```

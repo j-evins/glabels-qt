@@ -117,7 +117,7 @@ namespace glabels
 				QString name = XmlUtil::getStringAttr( node, "name", "" );
 				if ( name != "" )
 				{
-					QStringList fields = name.split( " ", QString::SkipEmptyParts );
+					QStringList fields = name.split( " ", Qt::SkipEmptyParts );
 					brand = fields[0];
 					part  = fields[1];
 				}

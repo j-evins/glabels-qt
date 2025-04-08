@@ -34,7 +34,7 @@
 
 #include <QObject>
 #include <QFont>
-#include <QMatrix>
+#include <QTransform>
 #include <QPainter>
 
 
@@ -66,7 +66,7 @@ namespace glabels
 			             const Distance&  w,
 			             const Distance&  h,
 			             bool             lockAspectRatio = false,
-			             const QMatrix&   matrix = QMatrix(),
+			             const QTransform& matrix = QTransform(),
 			             bool             shadowState = false,
 			             const Distance&  shadowX = 0,
 			             const Distance&  shadowY = 0,
@@ -148,8 +148,8 @@ namespace glabels
 			//
 			// Transformation Matrix Property
 			//
-			QMatrix matrix() const;
-			void setMatrix( const QMatrix& value );
+			QTransform matrix() const;
+			void setMatrix( const QTransform& value );
 
 
 			//
@@ -464,7 +464,7 @@ namespace glabels
 			static int msNextId;
 			int        mId;
 
-			QMatrix    mMatrix;
+			QTransform mMatrix;
 
 		};
 

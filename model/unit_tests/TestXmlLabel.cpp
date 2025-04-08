@@ -98,7 +98,7 @@ void TestXmlLabel::serializeDeserialize()
 
 	bool lock = true, noLock = false, shadow = true, noShadow = false;
 	ColorNode black( Qt::black ), white( Qt::white ), red( Qt::red ), green( Qt::green ), blue( Qt::blue );
-	QMatrix tMatrix( 1, 0, 0, 1, 50.0, 50.0 ), sMatrix( 0.5, 0, 0, 1.0, 0, 0 );
+	QTransform tMatrix( 1, 0, 0, 1, 50.0, 50.0 ), sMatrix( 0.5, 0, 0, 1.0, 0, 0 );
 	Style bcStyle = Backends::defaultStyle();
 
 	objects << new ModelBoxObject( 0, 1, 10, 20, lock, 2, red, green, tMatrix, shadow, 1, 2, 0.7, black );
@@ -252,7 +252,7 @@ void TestXmlLabel::writeReadFile()
 
 	bool lock = true, noLock = false, shadow = true, noShadow = false;
 	ColorNode black( Qt::black ), white( Qt::white ), red( Qt::red ), green( Qt::green ), blue( Qt::blue );
-	QMatrix tMatrix( 1, 0, 0, 1, 50.0, 50.0 ), sMatrix( 0.5, 0, 0, 1.0, 0, 0 );
+	QTransform tMatrix( 1, 0, 0, 1, 50.0, 50.0 ), sMatrix( 0.5, 0, 0, 1.0, 0, 0 );
 	Style bcStyle = Backends::defaultStyle();
 
 	///
@@ -537,7 +537,7 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( modelTextObject0->y0().in(), 0.2625 );
 	// Width and height set to naturalSize()
 	QCOMPARE( modelTextObject0->lockAspectRatio(), false );
-	QCOMPARE( modelTextObject0->matrix(), QMatrix( 1, 0, 0, 1, 0, 0 ) );
+	QCOMPARE( modelTextObject0->matrix(), QTransform( 1, 0, 0, 1, 0, 0 ) );
 	QCOMPARE( modelTextObject0->shadow(), false );
 	QCOMPARE( modelTextObject0->text(), QString( "Hello, my name is" ) );
 	QCOMPARE( modelTextObject0->fontFamily(), QString( "Sans" ) );
@@ -555,7 +555,7 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( modelTextObject1->y0().in(), 0.645 );
 	// Width and height set to naturalSize()
 	QCOMPARE( modelTextObject1->lockAspectRatio(), false );
-	QCOMPARE( modelTextObject1->matrix(), QMatrix( 1, 0, 0, 1, 0, 0 ) );
+	QCOMPARE( modelTextObject1->matrix(), QTransform( 1, 0, 0, 1, 0, 0 ) );
 	QCOMPARE( modelTextObject1->shadow(), false );
 	QCOMPARE( modelTextObject1->text(), QString( "${Name}" ) );
 	QCOMPARE( modelTextObject1->fontFamily(), QString( "Sans" ) );
@@ -573,7 +573,7 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( modelTextObject2->y0().in(), 1.14 );
 	// Width and height set to naturalSize()
 	QCOMPARE( modelTextObject2->lockAspectRatio(), false );
-	QCOMPARE( modelTextObject2->matrix(), QMatrix( 1, 0, 0, 1, 0, 0 ) );
+	QCOMPARE( modelTextObject2->matrix(), QTransform( 1, 0, 0, 1, 0, 0 ) );
 	QCOMPARE( modelTextObject2->shadow(), false );
 	QCOMPARE( modelTextObject2->text(), QString( "Department: ${Department}" ) );
 	QCOMPARE( modelTextObject2->fontFamily(), QString( "Sans" ) );
@@ -592,7 +592,7 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( modelBarcodeObject3->w().in(), 3.06944 );
 	QCOMPARE( modelBarcodeObject3->h().in(), 0.847222 );
 	QCOMPARE( modelBarcodeObject3->lockAspectRatio(), false );
-	QCOMPARE( modelBarcodeObject3->matrix(), QMatrix( 1, 0, 0, 1, 0, 0 ) );
+	QCOMPARE( modelBarcodeObject3->matrix(), QTransform( 1, 0, 0, 1, 0, 0 ) );
 	QCOMPARE( modelBarcodeObject3->shadow(), false );
 
 	QCOMPARE( modelBarcodeObject3->bcData(), QString( "${SN}" ) );
