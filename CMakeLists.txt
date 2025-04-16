@@ -18,6 +18,7 @@ set (WEBSITE  "glabels.org")
 set (BUG_WEBSITE  "https://github.com/j-evins/glabels-qt/issues")
 
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git symbolic-ref --short HEAD
   RESULT_VARIABLE BRANCH_VALID
   OUTPUT_VARIABLE BRANCH
@@ -28,6 +29,7 @@ if (NOT ${BRANCH_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git rev-list --count ${BRANCH}
   RESULT_VARIABLE COMMIT_COUNT_VALID
   OUTPUT_VARIABLE COMMIT_COUNT
@@ -38,6 +40,7 @@ if (NOT ${COMMIT_COUNT_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git log -1 --format=%h
   RESULT_VARIABLE COMMIT_HASH_VALID
   OUTPUT_VARIABLE COMMIT_HASH
@@ -48,6 +51,7 @@ if (NOT ${COMMIT_HASH_VALID} STREQUAL "0")
 endif ()
   
 execute_process(
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   COMMAND git log -1 --format=%cd --date=short
   RESULT_VARIABLE COMMIT_DATE_VALID
   OUTPUT_VARIABLE COMMIT_DATE
