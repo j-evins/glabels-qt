@@ -5,7 +5,7 @@ gLabels MacOS Build Instructions
 
 ```
 brew install cmake
-brew install qt
+brew install qt@5
 ```
 
 ## Compile and Install
