@@ -95,7 +95,7 @@ namespace glabels
 		                                  QTextOption::WrapMode textWrapMode,
 		                                  double                textLineSpacing,
 		                                  bool                  textAutoShrink,
-		                                  const QMatrix&        matrix,
+		                                  const QTransform&     matrix,
 		                                  bool                  shadowState,
 		                                  const Distance&       shadowX,
 		                                  const Distance&       shadowY,

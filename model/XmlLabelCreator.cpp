@@ -437,7 +437,7 @@ namespace glabels
 		void
 		XmlLabelCreator::createAffineAttrs( QDomElement &node, const ModelObject* object )
 		{
-			QMatrix a = object->matrix();
+			QTransform a = object->matrix();
 	
 			XmlUtil::setDoubleAttr( node, "a0", a.m11() );
 			XmlUtil::setDoubleAttr( node, "a1", a.m12() );

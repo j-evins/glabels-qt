@@ -450,7 +450,7 @@ namespace glabels
 		}
 
 
-		QMatrix
+		QTransform
 		XmlLabelParser_3::parseAffineTransformation(const QDomElement &node)
 		{
 			return {XmlUtil::getDoubleAttr( node, "a0", 1.0 ),

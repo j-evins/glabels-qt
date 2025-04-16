@@ -85,7 +85,7 @@ namespace glabels
 		                                    const Distance&  h,
 		                                    bool             lockAspectRatio,
 		                                    const TextNode&  filenameNode,
-		                                    const QMatrix&   matrix,
+		                                    const QTransform& matrix,
 		                                    bool             shadowState,
 		                                    const Distance&  shadowX,
 		                                    const Distance&  shadowY,
@@ -130,7 +130,7 @@ namespace glabels
 		                                    bool             lockAspectRatio,
 		                                    const QString&   filename,
 		                                    const QImage&    image,
-		                                    const QMatrix&   matrix,
+		                                    const QTransform& matrix,
 		                                    bool             shadowState,
 		                                    const Distance&  shadowX,
 		                                    const Distance&  shadowY,
@@ -172,7 +172,7 @@ namespace glabels
 		                                    bool              lockAspectRatio,
 		                                    const QString&    filename,
 		                                    const QByteArray& svg,
-		                                    const QMatrix&    matrix,
+		                                    const QTransform& matrix,
 		                                    bool              shadowState,
 		                                    const Distance&   shadowX,
 		                                    const Distance&   shadowY,
@@ -316,7 +316,7 @@ namespace glabels
 				}
 
 				mImage = new QImage(value);
-				quint16 cs = qChecksum( (const char*)mImage->constBits(), mImage->byteCount() );
+				quint16 cs = qChecksum( (const char*)mImage->constBits(), mImage->sizeInBytes() );
 				mFilenameNode = TextNode( false, QString("%image_%1%").arg( cs ) );
 
 				emit changed();

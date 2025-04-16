@@ -49,7 +49,7 @@ namespace glabels
 			                 const Distance&  h,
 			                 const Distance&  lineWidth,
 			                 const ColorNode& lineColorNode,
-			                 const QMatrix&   matrix = QMatrix(),
+			                 const QTransform& matrix = QTransform(),
 			                 bool             shadowState = false,
 			                 const Distance&  shadowX = 0,
 			                 const Distance&  shadowY = 0,
