@@ -5,454 +5,451 @@
     <name>AboutDialog</name>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni su gLabels</translation>
     </message>
     <message>
         <source>&amp;License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licenza</translation>
     </message>
     <message>
         <source>&amp;Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Sito web</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
 </context>
 <context>
     <name>Color name</name>
     <message>
         <source>Light Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rosso Scarlatto Chiaro</translation>
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Arancione chiaro</translation>
     </message>
     <message>
         <source>Light Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Burro Leggero</translation>
     </message>
     <message>
         <source>Light Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Camaleonte chiaro</translation>
     </message>
     <message>
         <source>Light Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Azzurro cielo</translation>
     </message>
     <message>
         <source>Light Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Prugna chiara</translation>
     </message>
     <message>
         <source>Light Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Cioccolato Chiaro</translation>
     </message>
     <message>
         <source>Light Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alluminio leggero 1</translation>
     </message>
     <message>
         <source>Light Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Alluminio leggero 2</translation>
     </message>
     <message>
         <source>Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rosso scarlatto</translation>
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished">arancione</translation>
+        <translation>Arancione</translation>
     </message>
     <message>
         <source>Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Burro</translation>
     </message>
     <message>
         <source>Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Camaleonte</translation>
     </message>
     <message>
         <source>Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Blu Cielo</translation>
     </message>
     <message>
         <source>Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Prugna</translation>
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Cioccolato</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alluminio 1</translation>
     </message>
     <message>
         <source>Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Alluminio 2</translation>
     </message>
     <message>
         <source>Dark Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Rosso Scarlatto Scuro</translation>
     </message>
     <message>
         <source>Dark Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Arancione Scuro</translation>
     </message>
     <message>
         <source>Dark Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Burro Scuro</translation>
     </message>
     <message>
         <source>Dark Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Camaleonte Scuro</translation>
     </message>
     <message>
         <source>Dark Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Blu Cielo Scuro</translation>
     </message>
     <message>
         <source>Dark Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Prugna Scura</translation>
     </message>
     <message>
         <source>Dark Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Cioccolatao Scuro</translation>
     </message>
     <message>
         <source>Dark Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Alluminio Scuro 1</translation>
     </message>
     <message>
         <source>Dark Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Alluminio Scuro 2</translation>
     </message>
     <message>
         <source>Black</source>
-        <translation type="unfinished">nero</translation>
+        <translation>Nero</translation>
     </message>
     <message>
         <source>Very Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio Molto Scuro</translation>
     </message>
     <message>
         <source>Darker Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio Scuro</translation>
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio Scuro</translation>
     </message>
     <message>
         <source>Medium Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio Medio</translation>
     </message>
     <message>
         <source>Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio Leggero</translation>
     </message>
     <message>
         <source>Lighter Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio più Chiaro</translation>
     </message>
     <message>
         <source>Very Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Grigio Molto Chiaro</translation>
     </message>
     <message>
         <source>White</source>
-        <translation type="unfinished">bianco</translation>
+        <translation>Bianco</translation>
     </message>
 </context>
 <context>
     <name>Db</name>
     <message>
         <source>Other</source>
-        <translation type="unfinished">Altro</translation>
+        <translation>Altro</translation>
     </message>
 </context>
 <context>
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished">Nessuno</translation>
+        <translation>Nessuno</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Testo: valori separati da virgola (CSV)</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo: valori Separati da Virgola (CSV), chiavi sulla riga 1</translation>
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Testo: Valori Separati da Tabulazione (TSV)></translation>
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo: Valori Separati da Tabulazione (TSV), chiavi sulla riga 1</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo: valori separati da due punti</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo: valori separati da due punti, chiavi sulla riga 1</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo: valori separati da punto e virgola</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Testo: valori separati da punto e virgola, chiavi alla riga 1</translation>
     </message>
 </context>
 <context>
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 x %2 (%3 per foglio)</translation>
     </message>
     <message>
         <source>%1 per sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 per foglio</translation>
     </message>
 </context>
 <context>
     <name>FrameCd</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished">%s %s diametro</translation>
+        <translation>Diametro</translation>
     </message>
 </context>
 <context>
     <name>FrameRound</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished">%s %s diametro</translation>
+        <translation>Diametro</translation>
     </message>
 </context>
 <context>
     <name>MergeView</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">Sorgente</translation>
+        <translation>Sorgente</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Posizione</translation>
     </message>
     <message>
         <source>Format:</source>
-        <translation type="unfinished">Formato:</translation>
+        <translation>Formato:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished">Posizione:</translation>
+        <translation>Posizione:</translation>
     </message>
     <message>
         <source>Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Records</translation>
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished">Seleziona tutto</translation>
+        <translation>Seleziona tutto</translation>
     </message>
     <message>
         <source>Unselect all</source>
-        <translation type="unfinished">Deseleziona·tutto</translation>
+        <translation>Deseleziona·tutto</translation>
     </message>
 </context>
 <context>
     <name>ObjectEditor</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Object properties</source>
-        <translation type="unfinished">Proprietà oggetto</translation>
+        <translation>Proprietà oggetto</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Testo</translation>
+        <translation>Testo</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Layout</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="unfinished">Allineamento:</translation>
+        <translation>Allineamento:</translation>
     </message>
     <message>
         <source>Line spacing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Interlinea:</translation>
     </message>
     <message>
         <source>Wrap mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Modalita' avvolgimento:</translation>
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>Word</translation>
     </message>
     <message>
         <source>Anywhere</source>
-        <translation type="unfinished"></translation>
+        <translation>Dovunque</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Nessuno</translation>
+        <translation>Nessuno</translation>
     </message>
     <message>
         <source>Allow printing to shrink text to fit object</source>
-        <translation type="unfinished"></translation>
+        <translation>Consenti alla stampa di ridurre il testo per adattarlo all'oggetto</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Font</translation>
     </message>
     <message>
         <source>Family:</source>
-        <translation type="unfinished">Famiglia:</translation>
+        <translation>Famiglia:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Dimensione:</translation>
+        <translation>Dimensione:</translation>
     </message>
     <message>
         <source>Style:</source>
-        <translation type="unfinished">Stile:</translation>
+        <translation>Stile:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished">Colore:</translation>
+        <translation>Colore:</translation>
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished">_Codice a barre</translation>
+        <translation>Codice a barre</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished">Stile</translation>
+        <translation>Stile</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>Show text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra testo</translation>
     </message>
     <message>
         <source>Checksum</source>
-        <translation type="unfinished">Checksum</translation>
+        <translation>Checksum</translation>
     </message>
     <message>
         <source>Barcode data</source>
-        <translation type="unfinished">_Codice a barre</translation>
+        <translation>Dati del codice a barre</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished">Immagine</translation>
+        <translation>Immagine</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>File</translation>
     </message>
     <message>
         <source>Select File...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona File...</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"></translation>
+        <translation>o</translation>
     </message>
     <message>
         <source>Select Merge Field...</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona unisci campo...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Linea/Riempimento</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Linea</translation>
+        <translation>Linea</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">Larghezza:</translation>
+        <translation>Larghezza:</translation>
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished">Riempimento</translation>
+        <translation>Riempimento</translation>
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Posizione/Dimensione</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished">Posizione</translation>
+        <translation>Posizione</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished">X:</translation>
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished">Y:</translation>
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Dimensioni</translation>
+        <translation>Dimensioni</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished">Lunghezza:</translation>
+        <translation>Lunghezza:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished">Angolo:</translation>
+        <translation>Angolo:</translation>
     </message>
     <message>
         <source>Original size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Misura originale:</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reset</translation>
     </message>
     <message>
         <source>Lock aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Blocca proporzioni</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">Altezza:</translation>
+        <translation>Altezza:</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Ombra</translation>
     </message>
     <message>
         <source>X offset:</source>
@@ -464,44 +461,42 @@
     </message>
     <message>
         <source>Opacity:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Opacità</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>gLabels - Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Preferenze</translation>
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">Impostazioni nazionali</translation>
+        <translation>Locale</translation>
     </message>
     <message>
         <source>Select locale specific behavior.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Seleziona il comportamento specifico locale.</translation>
     </message>
     <message>
         <source>Units</source>
-        <translation type="unfinished">Senza nome</translation>
+        <translation>Unità</translation>
     </message>
     <message>
         <source>Points</source>
-        <translation type="unfinished">Punti</translation>
+        <translation>Punti</translation>
     </message>
     <message>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>Centimetri</translation>
     </message>
     <message>
         <source>Millimeters</source>
-        <translation type="unfinished">Millimetri</translation>
+        <translation>Millimetri</translation>
     </message>
     <message>
         <source>Inches</source>
-        <translation type="unfinished">Pollici</translation>
+        <translation>Pollici</translation>
     </message>
     <message>
         <source>Picas</source>
@@ -512,887 +507,870 @@
     <name>PrintView</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Pagina</translation>
     </message>
     <message>
         <source>of</source>
-        <translation type="unfinished"></translation>
+        <translation>di</translation>
     </message>
     <message>
         <source>nn</source>
-        <translation type="unfinished"></translation>
+        <translation>n</translation>
     </message>
     <message>
         <source>Copies</source>
-        <translation type="unfinished">Copie</translation>
+        <translation>Copie</translation>
     </message>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished">Copie:</translation>
+        <translation>Copie:</translation>
     </message>
     <message>
         <source>Start on position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Inizia in posizione:</translation>
     </message>
     <message>
         <source>on 1st page</source>
-        <translation type="unfinished"></translation>
+        <translation>dalla prima pagina</translation>
     </message>
     <message>
         <source>Print options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opzioni di stampa</translation>
     </message>
     <message>
         <source>print outlines</source>
-        <translation type="unfinished"></translation>
+        <translation>Contorni di stampa</translation>
     </message>
     <message>
         <source>print crop marks</source>
-        <translation type="unfinished">stampa segni di taglio</translation>
+        <translation>Stampa indicatori di ritaglio</translation>
     </message>
     <message>
         <source>print in reverse (i.e. a mirror image)</source>
-        <translation type="unfinished">stampa al contrario (es. un&apos;immagine riflessa)</translation>
+        <translation>stampa al contrario (ad es. un'immagine speculare)</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa</translation>
     </message>
 </context>
 <context>
     <name>PropertiesView</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Prodotto</translation>
     </message>
     <message>
         <source>Vendor:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Venditore:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Etichetta di testo</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished">Parte #:</translation>
+        <translation>Parte #:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished">Descrizione:</translation>
+        <translation>Descrizione:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished">Dimensioni·pagina:</translation>
+        <translation>Dimensione·pagina:</translation>
     </message>
     <message>
         <source>Label size:</source>
-        <translation type="unfinished">Dimensioni etichetta:</translation>
+        <translation>Dimensione etichetta:</translation>
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished">Layout:</translation>
+        <translation>Layout:</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select another product for this gLabels project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;testa/&gt;&lt;corpo&gt;&lt;p&gt;Seleziona un altro prodotto per questo progetto gLabels.&lt;/p&gt;&lt;/corpo&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Change product</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia prodotto</translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientamento</translation>
     </message>
     <message>
         <source>Select horizontal or vertical orientation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona l'orientamento orizzontale o verticale.</translation>
     </message>
     <message>
         <source>Horizontal orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientamento orizzontale</translation>
     </message>
     <message>
         <source>Vertical orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Orientamento Verticale</translation>
     </message>
     <message>
         <source>Similar Products</source>
-        <translation type="unfinished"></translation>
+        <translation>Prodotti Simili</translation>
     </message>
 </context>
 <context>
     <name>SelectProductDialog</name>
     <message>
         <source>gLabels - Select Product</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Seleziona il prodotto</translation>
     </message>
     <message>
         <source>Search all</source>
-        <translation type="unfinished">Seleziona tutto</translation>
+        <translation>Cerca tutto</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <source>Filter by paper size</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtra per formato carta</translation>
     </message>
     <message>
         <source>ISO sizes</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensioni ISO</translation>
     </message>
     <message>
         <source>US sizes</source>
-        <translation type="unfinished"></translation>
+        <translation>Taglie USA</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">Altro</translation>
+        <translation>Altro</translation>
     </message>
     <message>
         <source>Filter by category</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtra per categoria</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutto</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Selezionato</translation>
     </message>
     <message>
         <source>Search entire product database.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca nell'intero database dei prodotti.</translation>
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished">_File Recenti</translation>
+        <translation>Recente</translation>
     </message>
     <message>
         <source>Select from recently used products.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona dai prodotti usati di recente.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancella</translation>
     </message>
 </context>
 <context>
     <name>StartupView</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Welcome to gLabels.  Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Benvenuto in gLabels. Cominciamo:</translation>
     </message>
     <message>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuovo Progetto</translation>
     </message>
     <message>
         <source>Create a new blank gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Crea un nuovo progetto gLabels vuoto</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri Progetto</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri un progetto gLabels esistente</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerApplyPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>You have completed the gLabels Product Template Designer.  If you wish to accept and save your product template, click &quot;Save.&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Hai completato la progettazione dei modelli di prodotto gLabels. Se si desidera accettare e salvare il modello del prodotto, fare clic su Salva.</translation>
     </message>
     <message>
         <source>Otherwise, you may click &quot;Cancel&quot; to abandon your design or &quot;Back&quot; to review or continue editing this product template.</source>
-        <translation type="unfinished"></translation>
+        <translation>Altrimenti, è possibile fare clic su Cancella per abbandonare il disegno o Indietro per rivedere o continuare a modificare questo modello di prodotto.</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerCdPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>6. Margine:</translation>
     </message>
     <message>
         <source>1. Outer radius:</source>
-        <translation type="unfinished">1. raggio esterno:</translation>
+        <translation>1. raggio esterno:</translation>
     </message>
     <message>
         <source>4. Clipping height:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<4. Altezza di ritaglio:</translation>
     </message>
     <message>
         <source>2. Inner radius:</source>
-        <translation type="unfinished">2. raggio interno:</translation>
+        <translation>2. raggio interno:</translation>
     </message>
     <message>
         <source>3. Clipping width:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<3. Larghezza del ritaglio:</translation>
     </message>
     <message>
         <source>5. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. Rifiuto:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerEllipsePage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>2. Height:</source>
-        <translation type="unfinished">2. Altezza:</translation>
+        <translation>2. Altezza:</translation>
     </message>
     <message>
         <source>1. Width:</source>
-        <translation type="unfinished">1. Larghezza:</translation>
+        <translation>1. Larghezza:</translation>
     </message>
     <message>
         <source>3. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Rifiuto:</translation>
     </message>
     <message>
         <source>4. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>Margine:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerIntroPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This dialog will help you create a custom product template. Let&apos;s get started:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Questa finestra di dialogo ti aiuterà a creare un modello di prodotto personalizzato.Cominciamo:&lt;/p&gt;&lt;/corpo&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Copy/Edit Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia/Modifica prodotto</translation>
     </message>
     <message>
         <source>Copy and edit an existing product template</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia e modifica un modello di prodotto esistente</translation>
     </message>
     <message>
         <source>New Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuovo Prodotto</translation>
     </message>
     <message>
         <source>Create a new product template from scratch</source>
-        <translation type="unfinished"></translation>
+        <translation>Crea un nuovo modello di prodotto da zero</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerNLayoutsPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>A layout is a set of labels or cards that can be arranged in a simple grid.  Most products only need one layout, as in the first example below.  The second example illustrates when two layouts are needed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un layout è un insieme di etichette o carte che possono essere disposte in una griglia semplice. La maggior parte dei prodotti richiede solo un layout, come nel primo esempio di seguito. Il secondo esempio illustra quando sono necessari due layout.</translation>
     </message>
     <message>
         <source>Products needing only one layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prodotti che richiedono solo un layout.</translation>
     </message>
     <message>
         <source>Products needing two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prodotti che richiedono due layout.</translation>
     </message>
     <message>
         <source>Note: if more than two layouts are required, the product template must be edited manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: se sono necessari più di due layout, il modello del prodotto deve essere modificato manualmente.</translation>
     </message>
     <message>
         <source>One layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Un layout</translation>
     </message>
     <message>
         <source>Two layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Due layout</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerNamePage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>(e.g. &quot;Mailing Labels,&quot; &quot;Business Cards,&quot; ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>e.s. &quot;Etichette postali,&quot; &quott;Biglietti da visita,&quot;...</translation>
     </message>
     <message>
         <source>Brand:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Marca</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished">Parte #:</translation>
+        <translation>Parte #:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished">Descrizione:</translation>
+        <translation>Descrizione:</translation>
     </message>
     <message>
         <source>(e.g. 8163A)</source>
-        <translation type="unfinished"></translation>
+        <translation>es. 8163A)</translation>
     </message>
     <message>
         <source>(e.g. Avery, Acme, ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(ad es. Avery, Acme, ...)</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerOneLayoutPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Numero attraverso (nx):</translation>
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Numero giù (ny):</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation type="unfinished">Distanza dal bordo sinistro (x0):</translation>
+        <translation>Distanza dal bordo sinistro (x0):</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Passo orizzontale (dx):</translation>
     </message>
     <message>
-        <source>Vertical pitch (dy):</source>
-        <translation type="unfinished">
-            </translation>
+      <source>Vertical pitch (dy)::</source>
+        <translation<Passo verticale (dy):</translation>
     </message>
     <message>
         <source>Print test sheet</source>
-        <translation type="unfinished">Stampa foglio di prova</translation>
+        <translation>Stampa foglio di prova</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Distanza dal bordo superiore (y0):</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerPageSizePage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished">Dimensioni·pagina:</translation>
+        <translation>Dimensioni·pagina:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">Larghezza:</translation>
+        <translation>Larghezza:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">Altezza:</translation>
+        <translation>Altezza:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerRectPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>2. Height:</source>
-        <translation type="unfinished">2. Altezza:</translation>
+        <translation>2. Altezza:</translation>
     </message>
     <message>
         <source>1. Width:</source>
-        <translation type="unfinished">1. Larghezza:</translation>
+        <translation>1. Larghezza:</translation>
     </message>
     <message>
         <source>4. Horizontal waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Rifiuto orizzontale:</translation>
     </message>
     <message>
         <source>3. Corner radius</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Corner radius</translation>
     </message>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>Margine:</translation>
     </message>
     <message>
         <source>5. Vertical waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rifiuto verticale:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerRoundPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>3. Margin</source>
-        <translation type="unfinished">3. Margine</translation>
+        <translation>3. Margine</translation>
     </message>
     <message>
         <source>1. Radius:</source>
-        <translation type="unfinished">Raggio:</translation>
+        <translation>Raggio:</translation>
     </message>
     <message>
         <source>2. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rifiuto:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerShapePage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Rectangular or square (can have rounded corners)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Rettangolare o quadrato (può avere angoli arrotondati)</translation>
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished">Rotonda</translation>
+        <translation>Rotonda</translation>
     </message>
     <message>
         <source>Elliptical</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellittico</translation>
     </message>
     <message>
         <source>CD/DVD (including credit card CDs)</source>
-        <translation type="unfinished">CD/DVD (inclusa copertina dei ringraziamenti)</translation>
+        <translation>CD / DVD (compresi i CD delle carte di credito)</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerTwoLayoutPage</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulo</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation type="unfinished">Distanza dal bordo sinistro (x0):</translation>
+        <translation>Distanza dal bordo sinistro (x0):</translation>
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Numero giù (ny):</translation>
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Numero attraverso (nx):</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Passo orizzontale (dx):</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Passo verticale (dy):</translation>
     </message>
     <message>
         <source>Print test sheet</source>
-        <translation type="unfinished">Stampa foglio di prova</translation>
+        <translation>Stampa foglio di prova</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Distanza dal bordo superiore (y0):</translation>
     </message>
 </context>
 <context>
     <name>Units</name>
     <message>
         <source>points</source>
-        <translation type="unfinished">punti</translation>
+        <translation>punti</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished">pollici</translation>
+        <translation>pollici</translation>
     </message>
     <message>
         <source>mm</source>
-        <translation type="unfinished">mm</translation>
+        <translation>mm</translation>
     </message>
     <message>
         <source>cm</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<cm</translation>
     </message>
     <message>
         <source>picas</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"</translation>
     </message>
 </context>
 <context>
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versione</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un programma per creare etichette e biglietti da visita.</translation>
     </message>
     <message>
         <source>gLabels is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels è un software gratuito: è possibile ridistribuirlo e/o modificarlo secondo i termini della GNU General Public License come pubblicato dalla Free Software Foundation, sia la versione 3 della Licenza, sia (a propria scelta) qualsiasi versione successiva.</translation>
     </message>
     <message>
         <source>gLabels is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels è distribuito nella speranza che possa essere utile, ma SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ A UN PARTICOLARE SCOPO. Vedi la GNU General Public License per maggiori dettagli.</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Custom color...</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore personalizzato...</translation>
     </message>
     <message>
         <source>Merge key...</source>
-        <translation type="unfinished"></translation>
+        <translation>Unisci chiave ...</translation>
     </message>
     <message>
         <source>Custom Color</source>
-        <translation type="unfinished">Colore personalizzato:</translation>
+        <translation>Colore personalizzato</translation>
     </message>
     <message>
         <source>Custom color #%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore personalizzato #%1</translation>
     </message>
 </context>
 <context>
     <name>glabels::File</name>
     <message>
         <source>gLabels - Open Project</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Apri Progetto</translation>
     </message>
     <message>
         <source>glabels files (*.glabels);;All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>file glabels (*.glabels);Tutti i file (*)</translation>
     </message>
     <message>
         <source>Unable to open &quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile aprire &quot;</translation>
     </message>
     <message>
         <source>&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;.</translation>
     </message>
     <message>
         <source>gLabels - Save Project As</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Salva progetto come</translation>
     </message>
     <message>
         <source>Save Label As</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva etichetta come</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 esiste già.</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Vuoi sostituirlo?</translation>
     </message>
 </context>
 <context>
     <name>glabels::LabelEditor</name>
     <message>
         <source>Move</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Sposta</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Cancella</translation>
+        <translation>Cancella</translation>
     </message>
 </context>
 <context>
     <name>glabels::MainWindow</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation<Benvenuto</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica</translation>
     </message>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Proprietà</translation>
     </message>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Unisci</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Stampa</translation>
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nuovo..</translation>
     </message>
     <message>
         <source>Create a new gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Crea un nuovo progetto gLabels</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Apri...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri un progetto gLabels esistente</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Salva</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva il progetto gLabels corrente</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva &amp;Come...</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva il progetto gLabels corrente con un nome diverso</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Modifica</translation>
     </message>
     <message>
         <source>Select project Edit mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona la modalità Modifica progetto</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>P&amp;roprietà</translation>
     </message>
     <message>
         <source>Select project Properties mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona la modalità Proprietà del progetto</translation>
     </message>
     <message>
         <source>&amp;Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Unisci</translation>
     </message>
     <message>
         <source>Select project Merge mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona la modalità Unisci progetto</translation>
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stampa</translation>
     </message>
     <message>
         <source>Select project Print mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona la modalità Stampa progetto</translation>
     </message>
     <message>
         <source>Product Template &amp;Designer...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Designer Modello Prodotto ..</translation>
     </message>
     <message>
         <source>Create custom templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Crea modelli personalizzati</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Chiudi</translation>
     </message>
     <message>
         <source>Close the current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi la finestra corrente</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>Esci</translation>
     </message>
     <message>
         <source>Exit glabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Esci dai glabel</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Annulla</translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">Ripeti</translation>
+        <translation>Ripeti</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">Taglia</translation>
+        <translation>Taglia</translation>
     </message>
     <message>
         <source>Cut the selection</source>
-        <translation type="unfinished">Taglia la selezione</translation>
+        <translation>Taglia la selezione</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Copia</translation>
     </message>
     <message>
         <source>Copy the selection</source>
-        <translation type="unfinished">Copia la selezione</translation>
+        <translation>Copia la selezione</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Incolla</translation>
     </message>
     <message>
         <source>Paste the clipboard</source>
-        <translation type="unfinished">Incolla gli appunti</translation>
+        <translation>Incolla gli appunti</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cancella</translation>
     </message>
     <message>
         <source>Delete the selected objects</source>
-        <translation type="unfinished">Cancella gli oggetti selezionati</translation>
+        <translation>Cancella gli oggetti selezionati</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona tutto</translation>
     </message>
     <message>
         <source>Select all objects</source>
-        <translation type="unfinished">Seleziona tutti gli oggetti</translation>
+        <translation>Seleziona tutti gli oggetti</translation>
     </message>
     <message>
         <source>Un-select All</source>
-        <translation type="unfinished">Deseleziona·tutto</translation>
+        <translation>Deseleziona·tutto</translation>
     </message>
     <message>
         <source>Remove all selections</source>
-        <translation type="unfinished">Rimuovi tutte le selezioni</translation>
+        <translation>Rimuovi tutte le selezioni</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">Preferenze</translation>
+        <translation>Preferenze</translation>
     </message>
     <message>
         <source>Configure the application</source>
-        <translation type="unfinished">Configura l&apos;applicazione</translation>
+        <translation>Configura l'applicazione</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>File</translation>
     </message>
     <message>
         <source>Change visibility of file toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia la visibilità della barra degli strumenti dei file nella finestra corrente</translation>
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <source>Change visibility of editor toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia la visibilità della barra degli strumenti dell'editor nella finestra corrente</translation>
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished">_Griglia</translation>
+        <translation>Griglia</translation>
     </message>
     <message>
         <source>Change visibility of the grid in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia la visibilità della griglia nella finestra corrente</translation>
     </message>
     <message>
         <source>Markup</source>
-        <translation type="unfinished">Marcatori</translation>
+        <translation>Marcatori</translation>
     </message>
     <message>
         <source>Change visibility of markup lines in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia la visibilità delle linee di markup nella finestra corrente</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom in avanti</translation>
     </message>
     <message>
         <source>Increase magnification</source>
-        <translation type="unfinished">Incrementa ingradimento</translation>
+        <translation>Incrementa ingradimento</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom indietro</translation>
     </message>
     <message>
         <source>Decrease magnification</source>
-        <translation type="unfinished">Decrementa ingrandimento</translation>
+        <translation>Decrementa ingrandimento</translation>
     </message>
     <message>
         <source>Zoom &amp;1 to 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom 1 a 1</translation>
     </message>
     <message>
         <source>Restore scale to 100%</source>
-        <translation type="unfinished">Ripristina la scala al 100%</translation>
+        <translation>Ripristina la scala al 100%</translation>
     </message>
     <message>
         <source>Zoom to &amp;Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Adatta &amp;Zoom</translation>
     </message>
     <message>
         <source>Set scale to fit window</source>
@@ -1400,169 +1378,167 @@
     </message>
     <message>
         <source>Select Mode</source>
-        <translation type="unfinished">Modalità di _selezione</translation>
+        <translation>Seleziona Modalità</translation>
     </message>
     <message>
         <source>Select, move and modify objects</source>
-        <translation type="unfinished">Seleziona, muovi e modifica oggetti</translation>
+        <translation>Seleziona, muovi e modifica oggetti</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Testo</translation>
+        <translation>Testo</translation>
     </message>
     <message>
         <source>Create text object</source>
-        <translation type="unfinished">Crea oggeto testo</translation>
+        <translation>Crea oggeto testo</translation>
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished">_Area</translation>
+        <translation>_Area</translation>
     </message>
     <message>
         <source>Create box object</source>
-        <translation type="unfinished">Crea oggeto testo</translation>
+        <translation>Crea oggeto testo</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Linea</translation>
+        <translation>Linea</translation>
     </message>
     <message>
         <source>Create line object</source>
-        <translation type="unfinished">Crea oggetto linea</translation>
+        <translation>Crea oggetto linea</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished">_Ellisse</translation>
+        <translation>Ellisse</translation>
     </message>
     <message>
         <source>Create ellipse/circle object</source>
-        <translation type="unfinished">Crea oggetto ellisse/cerchio</translation>
+        <translation>Crea oggetto ellisse/cerchio</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished">Immagine</translation>
+        <translation>Immagine</translation>
     </message>
     <message>
         <source>Create image object</source>
-        <translation type="unfinished">Crea oggetto immagine</translation>
+        <translation>Crea oggetto immagine</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished">_Codice a barre</translation>
+        <translation>Codice a barre</translation>
     </message>
     <message>
         <source>Create barcode object</source>
-        <translation type="unfinished">Crea oggetto codice a barre</translation>
+        <translation>Crea oggetto codice a barre</translation>
     </message>
     <message>
         <source>Bring To Front</source>
-        <translation type="unfinished"></translation>
+        <translation>Portare in primo piano</translation>
     </message>
     <message>
         <source>Raise selection to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumenta la selezione verso l'alto</translation>
     </message>
     <message>
         <source>Send To Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Manda indietro</translation>
     </message>
     <message>
         <source>Lower selection to bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbassa la selezione verso il basso</translation>
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota a Sinistra</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees counter-clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota gli oggetti di 90 gradi in senso antiorario</translation>
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota a Destra</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota gli oggetti di 90 gradi in senso orario</translation>
     </message>
     <message>
         <source>Flip Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Capovolgi orizzontalmente</translation>
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Capovolgi gli oggetti in orizzontale</translation>
     </message>
     <message>
         <source>Flip Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Capovolgi verticalmente</translation>
     </message>
     <message>
         <source>Flip object(s) vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Capovolgi gli oggetti in verticale</translation>
     </message>
     <message>
         <source>Align Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea a sinistra</translation>
     </message>
     <message>
         <source>Align objects to left edges</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Allinea gli oggetti ai bordi di sinistra</translation>
     </message>
     <message>
         <source>Align Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea al Centro</translation>
     </message>
     <message>
         <source>Align objects to horizontal centers</source>
-        <translation type="unfinished">Allinea gli oggetti nel centro orizzontale</translation>
+        <translation>Allinea gli oggetti nel centro orizzontale</translation>
     </message>
     <message>
         <source>Align Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea a destra</translation>
     </message>
     <message>
         <source>Align objects to right edges</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Allinea gli oggetti ai bordi giusti</translation>
     </message>
     <message>
         <source>Align Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea in Alto</translation>
     </message>
     <message>
         <source>Align objects to top edges</source>
-        <translation type="unfinished">Allinea gli oggetti in basso</translation>
+        <translation>Allinea gli oggetti ai bordi superiori</translation>
     </message>
     <message>
         <source>Align Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea al centro</translation>
     </message>
     <message>
         <source>Align objects to vertical centers</source>
-        <translation type="unfinished">Allinea gli oggetti al centro verticale</translation>
+        <translation>Allinea gli oggetti ai centri verticali</translation>
     </message>
     <message>
         <source>Align Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Allinea in basso</translation>
     </message>
     <message>
         <source>Align objects to bottom edges</source>
-        <translation type="unfinished">Allinea gli oggetti in basso</translation>
+        <translation>Allinea gli oggetti ai bordi inferiori</translation>
     </message>
     <message>
         <source>Center Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Centra orizzontalmente</translation>
     </message>
     <message>
         <source>Horizontally center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrare orizzontalmente gli oggetti nell'etichetta</translation>
     </message>
     <message>
         <source>Center Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Centra verticalmente</translation>
     </message>
     <message>
         <source>Vertically center objects in label</source>
@@ -1836,8 +1812,7 @@
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1849,8 +1824,7 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"</translation>
     </message>
 </context>
 <context>
@@ -1883,8 +1857,7 @@
     <name>glabels::SimplePreview</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished"</translation>
     </message>
 </context>
 <context>
@@ -1895,7 +1868,7 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copia</translation>
+        <translation>Copia</translation>
     </message>
 </context>
 <context>
