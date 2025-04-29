@@ -5,419 +5,419 @@
     <name>XmlStrings</name>
     <message>
         <source>Address labels</source>
-        <translation type="unfinished">Étiquettes d&apos;adresses</translation>
+        <translation>Étiquettes d&apos;adresses</translation>
     </message>
     <message>
         <source>Any card</source>
-        <translation type="unfinished">Toute carte</translation>
+        <translation>Toute carte</translation>
     </message>
     <message>
         <source>Any label</source>
-        <translation type="unfinished">Toute étiquette</translation>
+        <translation>Toute étiquette</translation>
     </message>
     <message>
         <source>Arch file inserts</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Arch file labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour classeurs à arceaux</translation>
     </message>
     <message>
         <source>Barcode labels</source>
-        <translation type="unfinished">Étiquettes pour codes-barres</translation>
+        <translation>Étiquettes pour codes-barres</translation>
     </message>
     <message>
         <source>Bookplate labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquettes d&apos;ex-libris</translation>
     </message>
     <message>
         <source>Bottle/jar labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour bouteilles/bocaux</translation>
     </message>
     <message>
         <source>Business card CD labels</source>
-        <translation type="unfinished">Étiquettes CD carte de visite</translation>
+        <translation>Étiquettes CD carte de visite</translation>
     </message>
     <message>
         <source>Business card size labels</source>
-        <translation type="unfinished">Étiquettes de carte de visite</translation>
+        <translation>Étiquettes de carte de visite</translation>
     </message>
     <message>
         <source>Business cards</source>
-        <translation type="unfinished">Cartes de visite</translation>
+        <translation>Cartes de visite</translation>
     </message>
     <message>
         <source>CD/DVD booklet</source>
-        <translation type="unfinished"></translation>
+        <translation>Livret CD/DVD</translation>
     </message>
     <message>
         <source>CD/DVD case (rightside up)</source>
-        <translation type="unfinished"></translation>
+        <translation>Boîtier du CD/DVD (côté droit vers le haut)</translation>
     </message>
     <message>
         <source>CD/DVD case (upside down)</source>
-        <translation type="unfinished"></translation>
+        <translation>Boîtier de CD/DVD (à l&apos;envers)</translation>
     </message>
     <message>
         <source>CD/DVD case booklet</source>
-        <translation type="unfinished"></translation>
+        <translation>Livret du boîtier du CD/DVD</translation>
     </message>
     <message>
         <source>CD/DVD case labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour boîtiers de CD/DVD</translation>
     </message>
     <message>
         <source>CD/DVD center hub labels</source>
-        <translation type="unfinished">Étiquettes de cercle central de CD/DVD</translation>
+        <translation>Étiquettes de cercle central de CD/DVD</translation>
     </message>
     <message>
         <source>CD/DVD insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert CD/DVD</translation>
     </message>
     <message>
         <source>CD/DVD insert (back)</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert CD/DVD (arrière)</translation>
     </message>
     <message>
         <source>CD/DVD insert (front)</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert CD/DVD (avant)</translation>
     </message>
     <message>
         <source>CD/DVD labels</source>
-        <translation type="unfinished">Étiquettes de CD/DVD</translation>
+        <translation>Étiquettes de CD/DVD</translation>
     </message>
     <message>
         <source>CD/DVD labels (disc labels)</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour CD/DVD (étiquettes de disque)</translation>
     </message>
     <message>
         <source>CD/DVD labels (disc only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de CD/DVD (disque uniquement)</translation>
     </message>
     <message>
         <source>CD/DVD labels (rectangles)</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour CD/DVD (rectangles)</translation>
     </message>
     <message>
         <source>CD/DVD labels (spine labels)</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour CD/DVD (étiquettes de dos)</translation>
     </message>
     <message>
         <source>CD/DVD labels (spine only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour CD/DVD (dos seulement)</translation>
     </message>
     <message>
         <source>CD/DVD or other media</source>
-        <translation type="unfinished">CD/DVD ou autre support</translation>
+        <translation>CD/DVD ou autre support</translation>
     </message>
     <message>
         <source>CD/DVD tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Plateau CD/DVD</translation>
     </message>
     <message>
         <source>Candle labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de bougies</translation>
     </message>
     <message>
         <source>Candy labels</source>
-        <translation type="unfinished">Étiquettes pour bougies</translation>
+        <translation>Étiquettes pour bougies</translation>
     </message>
     <message>
         <source>Cassette labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de cassettes</translation>
     </message>
     <message>
         <source>Classification labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de classification</translation>
     </message>
     <message>
         <source>Coffee and tea labels</source>
-        <translation type="unfinished">Étiquettes pour café et thé</translation>
+        <translation>Étiquettes pour café et thé</translation>
     </message>
     <message>
         <source>Correction labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de correction</translation>
     </message>
     <message>
         <source>DLT labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes DLT</translation>
     </message>
     <message>
         <source>DVD insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert DVD</translation>
     </message>
     <message>
         <source>Digital media labels</source>
-        <translation type="unfinished">Étiquettes pour support numérique</translation>
+        <translation>Étiquettes pour support numérique</translation>
     </message>
     <message>
         <source>Digital video labels</source>
-        <translation type="unfinished">Étiquettes pour vidéos numériques</translation>
+        <translation>Étiquettes pour vidéos numériques</translation>
     </message>
     <message>
         <source>Diskette labels</source>
-        <translation type="unfinished">Étiquettes de disquette</translation>
+        <translation>Étiquettes de disquette</translation>
     </message>
     <message>
         <source>Divider labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de séparation</translation>
     </message>
     <message>
         <source>Elliptical labels</source>
-        <translation type="unfinished">Étiquettes elliptiques</translation>
+        <translation>Étiquettes elliptiques</translation>
     </message>
     <message>
         <source>File folder labels</source>
-        <translation type="unfinished">Étiquettes de dossier d&apos;archives</translation>
+        <translation>Étiquettes de dossier d&apos;archives</translation>
     </message>
     <message>
         <source>File labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de dossier</translation>
     </message>
     <message>
         <source>Filing labels</source>
-        <translation type="unfinished">Étiquettes de classement</translation>
+        <translation>Étiquettes de classement</translation>
     </message>
     <message>
         <source>Floppy disk labels</source>
-        <translation type="unfinished">Étiquettes pour disquettes</translation>
+        <translation>Étiquettes pour disquettes</translation>
     </message>
     <message>
         <source>Flyer paper</source>
-        <translation type="unfinished">Papier flyer</translation>
+        <translation>Papier flyer</translation>
     </message>
     <message>
         <source>Foldable business cards</source>
-        <translation type="unfinished">Cartes de visite pliables</translation>
+        <translation>Cartes de visite pliables</translation>
     </message>
     <message>
         <source>Foldable cards</source>
-        <translation type="unfinished">Cartes pliables</translation>
+        <translation>Cartes pliables</translation>
     </message>
     <message>
         <source>Full face CD/DVD labels</source>
-        <translation type="unfinished">Étiquettes de CD/DVD pleine face</translation>
+        <translation>Étiquettes de CD/DVD pleine face</translation>
     </message>
     <message>
         <source>Full-page labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pleine page</translation>
     </message>
     <message>
         <source>Full-page labels with back slit</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pleine page avec fente arrière</translation>
     </message>
     <message>
         <source>Greeting cards</source>
-        <translation type="unfinished">Cartes de salutations</translation>
+        <translation>Cartes de salutations</translation>
     </message>
     <message>
         <source>Hanging folder labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour dossiers suspendus</translation>
     </message>
     <message>
         <source>ID labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes d&apos;identification</translation>
     </message>
     <message>
         <source>Index cards</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartes d&apos;index</translation>
     </message>
     <message>
         <source>Labels</source>
-        <translation type="unfinished">Étiquettes</translation>
+        <translation>Étiquettes</translation>
     </message>
     <message>
         <source>Large address labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Grandes étiquettes d&apos;adresse</translation>
     </message>
     <message>
         <source>Large arch file labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour grands dossiers</translation>
     </message>
     <message>
         <source>Large round labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Grandes étiquettes rondes</translation>
     </message>
     <message>
         <source>Lever arch file labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour dossiers à levier</translation>
     </message>
     <message>
         <source>Magnet stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Autocollants magnétiques</translation>
     </message>
     <message>
         <source>Mailing labels</source>
-        <translation type="unfinished">Étiquettes de publipostage</translation>
+        <translation>Étiquettes de publipostage</translation>
     </message>
     <message>
         <source>Mailing/shipping products</source>
-        <translation type="unfinished">Produits pour publipostage ou expédition</translation>
+        <translation>Produits pour publipostage ou expédition</translation>
     </message>
     <message>
         <source>Medical chart labels</source>
-        <translation type="unfinished">Étiquettes pour dossiers médicaux</translation>
+        <translation>Étiquettes pour dossiers médicaux</translation>
     </message>
     <message>
         <source>Membership cards</source>
-        <translation type="unfinished">Cartes de membre</translation>
+        <translation>Cartes de membre</translation>
     </message>
     <message>
         <source>Metal tin container labels</source>
-        <translation type="unfinished">Étiquettes pour boîtes métalliques</translation>
+        <translation>Étiquettes pour boîtes métalliques</translation>
     </message>
     <message>
         <source>Mini CD/DVD labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour mini CD/DVD</translation>
     </message>
     <message>
         <source>Mini Disc labels</source>
-        <translation type="unfinished">Étiquettes pour mini-disques</translation>
+        <translation>Étiquettes pour mini-disques</translation>
     </message>
     <message>
         <source>Mini address labels</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Mini labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Mini étiquettes</translation>
     </message>
     <message>
         <source>Multipurpose labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes multi-usages</translation>
     </message>
     <message>
         <source>Name badge labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour badges</translation>
     </message>
     <message>
         <source>Name badges</source>
-        <translation type="unfinished"></translation>
+        <translation>Badges nominatifs</translation>
     </message>
     <message>
         <source>Name plates</source>
-        <translation type="unfinished">Porte-nom</translation>
+        <translation>Porte-nom</translation>
     </message>
     <message>
         <source>Nutritional labels</source>
-        <translation type="unfinished">Étiquettes pour nourriture</translation>
+        <translation>Étiquettes pour nourriture</translation>
     </message>
     <message>
         <source>Paper hole reinforcement labels</source>
-        <translation type="unfinished">Étiquettes pour œillets de renforcement</translation>
+        <translation>Étiquettes pour œillets de renforcement</translation>
     </message>
     <message>
         <source>Passport photo labels</source>
-        <translation type="unfinished">Étiquettes pour photos passeport</translation>
+        <translation>Étiquettes pour photos passeport</translation>
     </message>
     <message>
         <source>Photo labels</source>
-        <translation type="unfinished">Étiquettes pour photos</translation>
+        <translation>Étiquettes pour photos</translation>
     </message>
     <message>
         <source>Photo products</source>
-        <translation type="unfinished">Produits photos</translation>
+        <translation>Produits photos</translation>
     </message>
     <message>
         <source>Post cards</source>
-        <translation type="unfinished">Cartes postales</translation>
+        <translation>Cartes postales</translation>
     </message>
     <message>
         <source>Printable mousepad</source>
-        <translation type="unfinished">Tapis de souris imprimable</translation>
+        <translation>Tapis de souris imprimable</translation>
     </message>
     <message>
         <source>Rectangular labels</source>
-        <translation type="unfinished">Étiquettes rectangulaires</translation>
+        <translation>Étiquettes rectangulaires</translation>
     </message>
     <message>
         <source>Return address labels</source>
-        <translation type="unfinished">Étiquettes d’adresse de retour</translation>
+        <translation>Étiquettes d’adresse de retour</translation>
     </message>
     <message>
         <source>Round labels</source>
-        <translation type="unfinished">Étiquettes circulaires</translation>
+        <translation>Étiquettes circulaires</translation>
     </message>
     <message>
         <source>SD card labels</source>
-        <translation type="unfinished">Étiquettes pour cartes SD</translation>
+        <translation>Étiquettes pour cartes SD</translation>
     </message>
     <message>
         <source>Seal labels</source>
-        <translation type="unfinished">Étiquettes de sceau</translation>
+        <translation>Étiquettes de sceau</translation>
     </message>
     <message>
         <source>Shipping labels</source>
-        <translation type="unfinished">Étiquettes postales</translation>
+        <translation>Étiquettes postales</translation>
     </message>
     <message>
         <source>Square labels</source>
-        <translation type="unfinished">Étiquettes carrées</translation>
+        <translation>Étiquettes carrées</translation>
     </message>
     <message>
         <source>Target stickers</source>
-        <translation type="unfinished">Autocollants circulaires</translation>
+        <translation>Autocollants circulaires</translation>
     </message>
     <message>
         <source>Tent cards</source>
-        <translation type="unfinished"></translation>
+        <translation>Cartes de vœux</translation>
     </message>
     <message>
         <source>Trapezoid labels</source>
-        <translation type="unfinished">Étiquettes trapèze</translation>
+        <translation>Étiquettes trapèze</translation>
     </message>
     <message>
         <source>Triangular labels</source>
-        <translation type="unfinished">Étiquettes triangulaires</translation>
+        <translation>Étiquettes triangulaires</translation>
     </message>
     <message>
         <source>Tube labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes pour tubes</translation>
     </message>
     <message>
         <source>VHS face labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquettes frontales VHS</translation>
     </message>
     <message>
         <source>VHS insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert VHS</translation>
     </message>
     <message>
         <source>VHS labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquettes VHS</translation>
     </message>
     <message>
         <source>VHS-C insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert VHS-C</translation>
     </message>
     <message>
         <source>Video labels (face only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes vidéo (face uniquement)</translation>
     </message>
     <message>
         <source>Video tape face labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquettes frontales pour bandes vidéo</translation>
     </message>
     <message>
         <source>Video tape spine labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Étiquettes de dos de bandes vidéo</translation>
     </message>
     <message>
         <source>Video-8 insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion vidéo 8</translation>
     </message>
     <message>
         <source>Window stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Autocollants pour fenêtres</translation>
     </message>
     <message>
         <source>Zip disc insert</source>
-        <translation type="unfinished"></translation>
+        <translation>Insertion d&apos;un disque Zip</translation>
     </message>
     <message>
         <source>Zip disc labels</source>
-        <translation type="unfinished">Étiquettes pour disques Zip</translation>
+        <translation>Étiquettes pour disques Zip</translation>
     </message>
 </context>
 </TS>
