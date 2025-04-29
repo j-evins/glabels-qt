@@ -107,9 +107,9 @@ set (glabels_resource_files
   images.qrc
 )
 
-qt5_wrap_cpp (glabels_moc_sources ${glabels_qobject_headers})
-qt5_wrap_ui (glabels_forms_headers ${glabels_forms})
-qt5_add_resources (glabels_qrc_sources ${glabels_resource_files})
+qt6_wrap_cpp (glabels_moc_sources ${glabels_qobject_headers})
+qt6_wrap_ui (glabels_forms_headers ${glabels_forms})
+qt6_add_resources (glabels_qrc_sources ${glabels_resource_files})
 
 if (WIN32)
   # Windows resource file
@@ -137,7 +137,7 @@ target_include_directories (glabels-qt
 
 target_link_libraries (glabels-qt
   Model
-  Qt5::Widgets
+  Qt6::Widgets
 )
 
 #=======================================

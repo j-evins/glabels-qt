@@ -39,7 +39,7 @@ set (barcode_qobject_headers
   Backends.h
 )
 
-qt5_wrap_cpp (barcode_moc_sources ${barcode_qobject_headers})
+qt6_wrap_cpp (barcode_moc_sources ${barcode_qobject_headers})
 
 #=====================================
 # Target
@@ -60,7 +60,7 @@ target_include_directories (Barcode
 
 target_link_libraries (Barcode
   glbarcode
-  Qt5::Core
+  Qt6::Core
   ${OPTIONAL_GNUBARCODE}
   ${OPTIONAL_ZINT}
   ${OPTIONAL_QRENCODE}

@@ -233,11 +233,11 @@ namespace glabels
 			// Private data
 			/////////////////////////////////
 		private:
-			int                       mUntitledInstance;
-			bool                      mModified;
+			int                       mUntitledInstance{0};
+			bool                      mModified{true};
 			QString                   mFileName;
 			Template                  mTmplate;
-			bool                      mRotate;
+			bool                      mRotate{false};
 
 			QList<ModelObject*>       mObjectList;
 

@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.9)
+cmake_minimum_required (VERSION 3.28)
 
 ###############################################################################
 # gLabels Label Designer Project
@@ -111,12 +111,8 @@ if (MINGW)
    set (CMAKE_PREFIX_PATH ${MINGW_BASE_DIR} )
 endif ()
 
-find_package (Qt5Core 5.15 REQUIRED)
-find_package (Qt5Widgets 5.15 REQUIRED)
-find_package (Qt5PrintSupport 5.15 REQUIRED)
-find_package (Qt5Xml 5.15 REQUIRED)
-find_package (Qt5Svg 5.15 REQUIRED)
-find_package (Qt5LinguistTools)
+find_package (Qt6 REQUIRED COMPONENTS Core Gui Widgets PrintSupport Xml Svg LinguistTools)
+find_package (Qt6 REQUIRED COMPONENTS Core5Compat) # TEMPORARY
 
 if (WIN32)
    # Locate Qt directories
@@ -132,7 +128,7 @@ find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
 find_package (LibZint 2.6 EXACT QUIET)
 # Unit testing support
-find_package (Qt5Test 5.6 QUIET)
+find_package (Qt6 QUIET OPTIONAL_COMPONENTS Test)
 
 
 #=======================================
@@ -153,7 +149,7 @@ endif ()
 #=======================================
 # Unit Testing
 #=======================================
-if (Qt5Test_FOUND)
+if (Qt6Test_FOUND)
   enable_testing ()
 endif ()
 
@@ -181,7 +177,7 @@ message (STATUS "Installation prefix ..... " ${CMAKE_INSTALL_PREFIX})
 message (STATUS "Source code location .... " ${glabels_SOURCE_DIR})
 message (STATUS "CMake version ........... " ${CMAKE_VERSION})
 message (STATUS "C++ Compiler ............ " ${CMAKE_CXX_COMPILER_ID} " " ${CMAKE_CXX_COMPILER} " " ${CMAKE_CXX_COMPILER_VERSION})
-message (STATUS "Qt version .............. " ${Qt5Core_VERSION})
+message (STATUS "Qt version .............. " ${Qt6Core_VERSION})
 
 if (ZLIB_FOUND)
   message (STATUS "zlib (optional).......... " ${ZLIB_VERSION_STRING})
@@ -207,11 +203,11 @@ else (LIBZINT_FOUND)
   message (STATUS "libzint (optional)....... No.")
 endif (LIBZINT_FOUND)
 
-if (Qt5Test_FOUND)
-  message (STATUS "QtTest (optional)........ " ${Qt5Test_VERSION})
-else (Qt5Test_FOUND)
+if (Qt6Test_FOUND)
+  message (STATUS "QtTest (optional)........ " ${Qt6Test_VERSION})
+else (Qt6Test_FOUND)
   message (STATUS "QtTest (optional)........ No.")
-endif (Qt5Test_FOUND)
+endif (Qt6Test_FOUND)
 
 if (MSVC)
    message (STATUS "MSVC Qt location ........ " ${QT_BASE_DIR})

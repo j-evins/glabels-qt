@@ -23,7 +23,7 @@ set (merge_qobject_headers
   Merge.h
 )
 
-qt5_wrap_cpp (merge_moc_sources ${merge_qobject_headers})
+qt6_wrap_cpp (merge_moc_sources ${merge_qobject_headers})
 
 #=====================================
 # Target
@@ -43,5 +43,5 @@ target_include_directories (Merge
 )
 
 target_link_libraries (Merge
-  Qt5::Core
+  Qt6::Core
 )

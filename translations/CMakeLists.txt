@@ -9,14 +9,14 @@ include (TRANSLATION_FILES.txt)
 #
 # Update strings in C-locale translation files (lupdate+lrelease)
 #
-qt5_create_translation (glabels_C_qm_file
+qt6_create_translation (glabels_C_qm_file
   ${CMAKE_SOURCE_DIR}/glabels
   ${CMAKE_SOURCE_DIR}/model
   ${CMAKE_SOURCE_DIR}/backends
   glabels_C.ts
   OPTIONS -no-obsolete -locations none
 )
-qt5_create_translation (templates_C_qm_file
+qt6_create_translation (templates_C_qm_file
   ${CMAKE_CURRENT_BINARY_DIR}/template-strings.h
   templates_C.ts
   OPTIONS -no-obsolete -locations none
@@ -25,7 +25,7 @@ qt5_create_translation (templates_C_qm_file
 #
 # Generate QM files from all other language translation files (lrelease only)
 #
-qt5_add_translation (language_qm_files
+qt6_add_translation (language_qm_files
   ${GLABELS_TS_FILES}
   ${TEMPLATES_TS_FILES}
 )
@@ -50,8 +50,8 @@ target_compile_features (Model
 )
 
 target_link_libraries (XmlStrings
-  Qt5::Core
-  Qt5::Xml
+  Qt6::Core
+  Qt6::Xml
 )
 
 #=======================================

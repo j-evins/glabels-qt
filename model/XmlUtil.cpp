@@ -22,7 +22,8 @@
 
 #include <QTextStream>
 #include <QCoreApplication>
-#include <QtDebug>
+#include <QDebug>
+#include <QIODevice>
 
 
 namespace glabels

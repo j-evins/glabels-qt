@@ -21,7 +21,8 @@
 #include "Distance.h"
 
 #include <QTextStream>
-#include <QtDebug>
+#include <QDebug>
+#include <QIODevice>
 
 
 namespace glabels

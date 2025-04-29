@@ -55,7 +55,6 @@ namespace glabels
 		/// Default constructor.
 		///
 		Model::Model()
-			: mUntitledInstance(0), mModified(true), mRotate(false)
 		{
 			mVariables = new Variables();
 			mMerge = new merge::None();
@@ -65,7 +64,6 @@ namespace glabels
 
 
 		Model::Model( merge::Merge* merge, Variables* variables )
-			: mUntitledInstance(0), mModified(true), mRotate(false)
 		{
 			mVariables = variables; // Shared
 			mMerge = merge; // Shared
@@ -235,8 +233,10 @@ namespace glabels
 		///
 		Distance Model::w() const
 		{
-			if ( auto* frame = mTmplate.frames().constFirst() )
+			auto& frames = mTmplate.frames();
+			if ( !frames.isEmpty() )
 			{
+				auto* frame = mTmplate.frames().constFirst();
 				return mRotate ? frame->h() : frame->w();
 			}
 			else
@@ -251,8 +251,10 @@ namespace glabels
 		///
 		Distance Model::h() const
 		{
-			if ( auto* frame = mTmplate.frames().constFirst() )
+			auto& frames = mTmplate.frames();
+			if ( !frames.isEmpty() )
 			{
+				auto* frame = mTmplate.frames().constFirst();
 				return mRotate ? frame->w() : frame->h();
 			}
 			else

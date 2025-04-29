@@ -26,7 +26,7 @@
 #include "merge/Record.h"
 
 #include <QString>
-#include <QStringRef>
+#include <QStringRef> // TEMPORARY
 
 
 namespace glabels

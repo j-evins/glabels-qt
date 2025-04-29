@@ -120,7 +120,7 @@ namespace glabels
 	///
 	/// Enter Event
 	///
-	void ColorPaletteItem::enterEvent( QEvent* event )
+	void ColorPaletteItem::enterEvent( QEnterEvent* event )
 	{
 		mHover = true;
 		update();

@@ -134,7 +134,7 @@ namespace glbarcode
 			font.setPointSizeF( FONT_SCALE*size );
 
 			QFontMetricsF fm( font );
-			double xCorner = x - fm.width( QString::fromStdString(text) )/2.0;
+			double xCorner = x - fm.horizontalAdvance( QString::fromStdString(text) )/2.0;
 			double yCorner = y - fm.ascent();
 		
 			QTextLayout layout( QString::fromStdString(text), font );
