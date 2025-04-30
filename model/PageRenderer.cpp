@@ -47,9 +47,6 @@ namespace glabels
 
 
 		PageRenderer::PageRenderer( const Model* model )
-			: mModel(nullptr), mMerge(nullptr), mVariables(nullptr), mNCopies(0), mStartItem(0), mLastItem(0),
-			  mPrintOutlines(false), mPrintCropMarks(false), mPrintReverse(false),
-			  mIPage(0), mIsMerge(false), mNPages(0), mNItemsPerPage(0)
 		{
 			if ( model )
 			{

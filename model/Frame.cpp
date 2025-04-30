@@ -60,6 +60,15 @@ namespace glabels
 		}
 
 
+		Frame::~Frame()
+		{
+			while ( !mMarkups.isEmpty() )
+			{
+				delete mMarkups.takeFirst();
+			}
+		}
+
+
 		QString Frame::id() const
 		{
 			return mId;

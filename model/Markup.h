@@ -35,6 +35,8 @@ namespace glabels
 		class Markup
 		{
 		public:
+			virtual ~Markup() = default;
+
 			virtual Markup* dup() const = 0;
 
 			virtual QPainterPath path( const Frame* frame ) const;

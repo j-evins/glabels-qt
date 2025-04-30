@@ -327,22 +327,22 @@ namespace glabels
 		connect( fileSaveAsAction, SIGNAL(triggered()), this, SLOT(fileSaveAs()) );
 
 		fileShowEditorPageAction = new QAction( tr("&Edit") , this );
-		fileShowEditorPageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_1 ) );
+		fileShowEditorPageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_1 ) );
 		fileShowEditorPageAction->setStatusTip( tr("Select project Edit mode") );
 		connect( fileShowEditorPageAction, SIGNAL(triggered()), this, SLOT(fileShowEditorPage()) );
 
 		fileShowPropertiesPageAction = new QAction( tr("P&roperties") , this );
-		fileShowPropertiesPageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_2 ) );
+		fileShowPropertiesPageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_2 ) );
 		fileShowPropertiesPageAction->setStatusTip( tr("Select project Properties mode") );
 		connect( fileShowPropertiesPageAction, SIGNAL(triggered()), this, SLOT(fileShowPropertiesPage()) );
 
 		fileShowMergePageAction = new QAction( tr("&Merge") , this );
-		fileShowMergePageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_3 ) );
+		fileShowMergePageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_3 ) );
 		fileShowMergePageAction->setStatusTip( tr("Select project Merge mode") );
 		connect( fileShowMergePageAction, SIGNAL(triggered()), this, SLOT(fileShowMergePage()) );
 
 		fileShowVariablesPageAction = new QAction( tr("&Variables") , this );
-		fileShowVariablesPageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_4 ) );
+		fileShowVariablesPageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_4 ) );
 		fileShowVariablesPageAction->setStatusTip( tr("Select project Variables mode") );
 		connect( fileShowVariablesPageAction, SIGNAL(triggered()), this, SLOT(fileShowVariablesPage()) );
 

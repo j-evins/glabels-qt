@@ -52,6 +52,7 @@ namespace glabels
 			Frame( const Frame& other );
 
 		public:
+			virtual ~Frame();
 			virtual Frame* dup() const = 0;
 
 			QString id() const;

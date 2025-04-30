@@ -80,7 +80,7 @@ namespace glbarcode
 	{
 		for (char c : rawData)
 		{
-			if ( (c < 0) || (c > 0x7F) )
+			if ( c < 0 )
 			{
 				return false;
 			}

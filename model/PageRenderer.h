@@ -111,29 +111,29 @@ namespace glabels
 			// Private Data
 			/////////////////////////////////
 		private:
-			const Model*        mModel;
-			const merge::Merge* mMerge;
-			Variables*          mVariables;
+			const Model*        mModel{ nullptr };
+			const merge::Merge* mMerge{ nullptr };
+			Variables*          mVariables{ nullptr };
 	
-			int               mNCopies;
-			int               mStartItem;
-			int               mLastItem;
-			int               mNGroups;
-			int               mNItemsPerGroup;
-			int               mNPagesPerGroup;
-			int               mIPage;
+			int               mNCopies{ 0 };
+			int               mStartItem{ 0 };
+			int               mLastItem{ 0 };
+			int               mNGroups{ 0 };
+			int               mNItemsPerGroup{ 0 };
+			int               mNPagesPerGroup{ 0 };
+			int               mIPage{ 0 };
 
-			bool              mIsMerge;
+			bool              mIsMerge{ false };
 
-			int               mNItems;
-			int               mNPages;
-			int               mNItemsPerPage;
+			int               mNItems{ 0 };
+			int               mNPages{ 0 };
+			int               mNItemsPerPage{ 0 };
 
-			bool              mIsCollated;
-			bool              mAreGroupsContiguous;
-			bool              mPrintOutlines;
-			bool              mPrintCropMarks;
-			bool              mPrintReverse;
+			bool              mIsCollated{ false };
+			bool              mAreGroupsContiguous{ false };
+			bool              mPrintOutlines{ false };
+			bool              mPrintCropMarks{ false };
+			bool              mPrintReverse{ false };
 
 			QVector<Point>    mOrigins;
 		};

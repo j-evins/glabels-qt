@@ -51,7 +51,7 @@ int main( int argc, char **argv )
 	// Setup translators
 	//
 	QLocale locale = QLocale::system();
-	QString qtTranslationsDir = QLibraryInfo::location( QLibraryInfo::TranslationsPath );
+	QString qtTranslationsDir = QLibraryInfo::path( QLibraryInfo::TranslationsPath );
 	QString myTranslationsDir = glabels::model::FileUtil::translationsDir().canonicalPath();
 	
 	QTranslator qtTranslator;

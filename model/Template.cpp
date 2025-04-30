@@ -46,10 +46,7 @@ namespace glabels
 			  mPageWidth(pageWidth),
 			  mPageHeight(pageHeight),
 			  mRollWidth(rollWidth),
-			  mIsUserDefined(isUserDefined),
-			  mIsSizeIso(false),
-			  mIsSizeUs(false),
-			  mName("")
+			  mIsUserDefined(isUserDefined)
 		{
 			mName.append( brand ).append( " " ).append( part );
 

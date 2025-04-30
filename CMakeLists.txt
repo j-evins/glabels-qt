@@ -139,7 +139,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
    # Uncomment to compile everything with aggressively pedantic options
    # (not recommended -- only for testing -- also not portable)
    #
-   #add_compile_options("-Wall" "-Werror" "-Wpedantic")
+   #add_compile_options("-Wall" "-Wextra" "-Wpedantic" "-Wno-unused-parameter" "-Werror")
 
    # Uncomment to always compile with debug symbols
    add_compile_options("-g")
