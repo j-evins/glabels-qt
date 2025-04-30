@@ -18,9 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "RawText.h"
 
+#include "ParserState.h"
+
 #include <QRegularExpression>
+
 
 namespace glabels
 {
@@ -112,8 +116,8 @@ namespace glabels
 		{
 			Token token;
 
-			QStringRef s = &mString;
-			while ( s.size() )
+			ParserState s( mString );
+			while ( s.charsLeft() )
 			{
 				SubstitutionField field;
 				if ( SubstitutionField::parse( s, field ) )
@@ -134,7 +138,7 @@ namespace glabels
 				else
 				{
 					token.text += s[0];
-					s = s.mid(1);
+					s.advanceChars(1);
 				}
 			}
 

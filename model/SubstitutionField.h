@@ -21,12 +21,13 @@
 #ifndef model_SubstitutionField_h
 #define model_SubstitutionField_h
 
+
+#include "ParserState.h"
 #include "Variables.h"
 
 #include "merge/Record.h"
 
 #include <QString>
-#include <QStringRef> // TEMPORARY
 
 
 namespace glabels
@@ -48,19 +49,19 @@ namespace glabels
 			QChar   formatType() const;
 			bool    newLine() const;
 
-			static bool parse( QStringRef& s, SubstitutionField& field );
+			static bool parse( ParserState& s, SubstitutionField& field );
 
 		private:
-			static bool parseFieldName( QStringRef& s, SubstitutionField& field );
-			static bool parseModifier( QStringRef& s, SubstitutionField& field );
-			static bool parseDefaultValueModifier( QStringRef& s, SubstitutionField& field );
-			static bool parseFormatModifier( QStringRef& s, SubstitutionField& field );
-			static bool parseFormatFlags( QStringRef& s, SubstitutionField& field );
-			static bool parseFormatWidth( QStringRef& s, SubstitutionField& field );
-			static bool parseFormatPrecision( QStringRef& s, SubstitutionField& field );
-			static bool parseFormatType( QStringRef& s, SubstitutionField& field );
-			static bool parseNaturalInteger( QStringRef& s, SubstitutionField& field );
-			static bool parseNewLineModifier( QStringRef& s, SubstitutionField& field );
+			static bool parseFieldName( ParserState& s, SubstitutionField& field );
+			static bool parseModifier( ParserState& s, SubstitutionField& field );
+			static bool parseDefaultValueModifier( ParserState& s, SubstitutionField& field );
+			static bool parseFormatModifier( ParserState& s, SubstitutionField& field );
+			static bool parseFormatFlags( ParserState& s, SubstitutionField& field );
+			static bool parseFormatWidth( ParserState& s, SubstitutionField& field );
+			static bool parseFormatPrecision( ParserState& s, SubstitutionField& field );
+			static bool parseFormatType( ParserState& s, SubstitutionField& field );
+			static bool parseNaturalInteger( ParserState& s, SubstitutionField& field );
+			static bool parseNewLineModifier( ParserState& s, SubstitutionField& field );
 
 			QString formatValue( const QString& value ) const;
 

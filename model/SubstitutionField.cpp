@@ -37,7 +37,7 @@ namespace glabels
 		SubstitutionField::SubstitutionField( const QString& string )
 			: mFormatType(0), mNewLine(false)
 		{
-			QStringRef s(&string);
+			ParserState s(string);
 			parse( s, *this );
 		}
 
@@ -107,28 +107,28 @@ namespace glabels
 		}
 
 
-		bool SubstitutionField::parse( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parse( ParserState& s, SubstitutionField& field )
 		{
-			QStringRef sTmp = s;
+			ParserState sTmp = s;
 		
-			if ( sTmp.startsWith( "${" ) )
+			if ( sTmp.isNextSubString( "${" ) )
 			{
-				sTmp = sTmp.mid(2);
+				sTmp.advanceChars( 2 );
 
 				if ( parseFieldName( sTmp, field ) )
 				{
-					while ( sTmp.size() && sTmp[0] == ':' )
+					while ( sTmp.charsLeft() && sTmp[0] == ':' )
 					{
-						sTmp = sTmp.mid(1);
+						sTmp.advanceChars( 1 );
 						if ( !parseModifier( sTmp, field ) )
 						{
 							return false;
 						}
 					}
 
-					if ( sTmp.size() && sTmp[0] == '}' )
+					if ( sTmp.charsLeft() && sTmp[0] == '}' )
 					{
-						sTmp = sTmp.mid(1);
+						sTmp.advanceChars( 1 );
 
 						// Success.  Update s.
 						s = sTmp;
@@ -141,14 +141,14 @@ namespace glabels
 		}
 
 
-		bool SubstitutionField::parseFieldName( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseFieldName( ParserState& s, SubstitutionField& field )
 		{
 			bool success = false;
 		
-			while ( s.size() && (s[0].isPrint() && s[0] != ':' && s[0] != '}') )
+			while ( s.charsLeft() && (s[0].isPrint() && s[0] != ':' && s[0] != '}') )
 			{
 				field.mFieldName.append( s[0] );
-				s = s.mid(1);
+				s.advanceChars( 1 );
 
 				success = true;
 			}
@@ -157,23 +157,23 @@ namespace glabels
 		}
 
 	
-		bool SubstitutionField::parseModifier( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseModifier( ParserState& s, SubstitutionField& field )
 		{
 			bool success = false;
 		
-			if ( s.size() && s[0] == '%' )
+			if ( s.charsLeft() && s[0] == '%' )
 			{
-				s = s.mid(1);
+				s.advanceChars( 1 );
 				success = parseFormatModifier( s, field );
 			}
-			else if ( s.size() && s[0] == '=' )
+			else if ( s.charsLeft() && s[0] == '=' )
 			{
-				s = s.mid(1);
+				s.advanceChars( 1 );
 				success = parseDefaultValueModifier( s, field );
 			}
-			else if ( s.size() && s[0] == 'n' )
+			else if ( s.charsLeft() && s[0] == 'n' )
 			{
-				s = s.mid(1);
+				s.advanceChars( 1 );
 				success = parseNewLineModifier( s, field );
 			}
 
@@ -181,25 +181,25 @@ namespace glabels
 		}
 
 	
-		bool SubstitutionField::parseDefaultValueModifier( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseDefaultValueModifier( ParserState& s, SubstitutionField& field )
 		{
 			field.mDefaultValue.clear();
 
-			while ( s.size() && !QString( ":}" ).contains( s[0] ) )
+			while ( s.charsLeft() && !QString( ":}" ).contains( s[0] ) )
 			{
 				if ( s[0] == '\\' )
 				{
-					s = s.mid(1); // Skip escape
-					if ( s.size() )
+					s.advanceChars( 1 ); // Skip escape
+					if ( s.charsLeft() )
 					{
 						field.mDefaultValue.append( s[0] );
-						s = s.mid(1);
+						s.advanceChars( 1 );
 					}
 				}
 				else
 				{
 					field.mDefaultValue.append( s[0] );
-					s = s.mid(1);
+					s.advanceChars( 1 );
 				}
 			}
 
@@ -207,17 +207,17 @@ namespace glabels
 		}
 
 	
-		bool SubstitutionField::parseFormatModifier( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseFormatModifier( ParserState& s, SubstitutionField& field )
 		{
 			field.mFormat = "%";
 
 			parseFormatFlags( s, field );
 			parseFormatWidth( s, field );
 		
-			if ( s.size() && s[0] == '.' )
+			if ( s.charsLeft() && s[0] == '.' )
 			{
 				field.mFormat += ".";
-				s = s.mid(1);
+				s.advanceChars( 1 );
 				parseFormatPrecision( s, field );
 			}
 
@@ -227,39 +227,39 @@ namespace glabels
 		}
 
 	
-		bool SubstitutionField::parseFormatFlags( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseFormatFlags( ParserState& s, SubstitutionField& field )
 		{
-			while ( s.size() && QString( "-+ 0" ).contains( s[0] ) )
+			while ( s.charsLeft() && QString( "-+ 0" ).contains( s[0] ) )
 			{
 				field.mFormat += s[0];
-				s = s.mid(1);
+				s.advanceChars( 1 );
 			}
 
 			return true;
 		}
 
 	
-		bool SubstitutionField::parseFormatWidth( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseFormatWidth( ParserState& s, SubstitutionField& field )
 		{
 			return parseNaturalInteger( s, field );
 		}
 
 
-		bool SubstitutionField::parseFormatPrecision( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseFormatPrecision( ParserState& s, SubstitutionField& field )
 		{
 			return parseNaturalInteger( s, field );
 		}
 
 	
-		bool SubstitutionField::parseFormatType( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseFormatType( ParserState& s, SubstitutionField& field )
 		{
 			bool success = false;
 
-			if ( s.size() && QString( "diufFeEgGxXos" ).contains( s[0] ) )
+			if ( s.charsLeft() && QString( "diufFeEgGxXos" ).contains( s[0] ) )
 			{
 				field.mFormatType = s[0];
 				field.mFormat += s[0];
-				s = s.mid(1);
+				s.advanceChars( 1 );
 				success = true;
 			}
 
@@ -267,19 +267,19 @@ namespace glabels
 		}
 
 	
-		bool SubstitutionField::parseNaturalInteger( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseNaturalInteger( ParserState& s, SubstitutionField& field )
 		{
 			bool success = false;
 
-			if ( s.size() && s[0] >= '1' && s[0] <= '9' )
+			if ( s.charsLeft() && s[0] >= '1' && s[0] <= '9' )
 			{
 				field.mFormat += s[0];
-				s = s.mid(1);
+				s.advanceChars( 1 );
 
-				while ( s.size() && s[0].isDigit() )
+				while ( s.charsLeft() && s[0].isDigit() )
 				{
 					field.mFormat += s[0];
-					s = s.mid(1);
+					s.advanceChars( 1 );
 				}
 
 				success = true;
@@ -289,7 +289,7 @@ namespace glabels
 		}
 	
 
-		bool SubstitutionField::parseNewLineModifier( QStringRef& s, SubstitutionField& field )
+		bool SubstitutionField::parseNewLineModifier( ParserState& s, SubstitutionField& field )
 		{
 			field.mNewLine = true;
 			return true;

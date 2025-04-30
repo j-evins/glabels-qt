@@ -46,6 +46,7 @@ set (Model_sources
   Outline.cpp
   PageRenderer.cpp
   Paper.cpp
+  ParserState.cpp
   Point.cpp
   RawText.cpp
   Region.cpp
