@@ -112,7 +112,6 @@ target_link_libraries (Model
   Qt6::PrintSupport
   Qt6::Xml
   Qt6::Svg
-  Qt6::Core5Compat
   ${OPTIONAL_ZLIB}
 )
 

@@ -112,7 +112,6 @@ if (MINGW)
 endif ()
 
 find_package (Qt6 REQUIRED COMPONENTS Core Gui Widgets PrintSupport Xml Svg LinguistTools)
-find_package (Qt6 REQUIRED COMPONENTS Core5Compat) # TEMPORARY
 
 if (WIN32)
    # Locate Qt directories
