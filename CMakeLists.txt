@@ -111,7 +111,7 @@ if (MINGW)
    set (CMAKE_PREFIX_PATH ${MINGW_BASE_DIR} )
 endif ()
 
-find_package (Qt6 REQUIRED COMPONENTS Core Gui Widgets PrintSupport Xml Svg LinguistTools)
+find_package (Qt6 REQUIRED COMPONENTS Core Gui Widgets PrintSupport Xml Svg LinguistTools Test)
 
 if (WIN32)
    # Locate Qt directories
@@ -126,8 +126,6 @@ find_package (ZLIB 1.2 QUIET)
 find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
 find_package (LibZint 2.6 EXACT QUIET)
-# Unit testing support
-find_package (Qt6 QUIET OPTIONAL_COMPONENTS Test)
 
 
 #=======================================
@@ -172,6 +170,8 @@ add_subdirectory (data)
 message (STATUS "")
 message (STATUS "Project name ............ " ${CMAKE_PROJECT_NAME})
 message (STATUS "Project version ......... " ${LONG_VERSION_STRING})
+message (STATUS "Host system ............. " ${CMAKE_HOST_SYSTEM} " " ${CMAKE_HOST_SYSTEM_PROCESSOR})
+message (STATUS "Target system ........... " ${CMAKE_SYSTEM} " " ${CMAKE_SYSTEM_PROCESSOR})
 message (STATUS "Installation prefix ..... " ${CMAKE_INSTALL_PREFIX})
 message (STATUS "Source code location .... " ${glabels_SOURCE_DIR})
 message (STATUS "CMake version ........... " ${CMAKE_VERSION})
@@ -201,12 +201,6 @@ if (LIBZINT_FOUND)
 else (LIBZINT_FOUND)
   message (STATUS "libzint (optional)....... No.")
 endif (LIBZINT_FOUND)
-
-if (Qt6Test_FOUND)
-  message (STATUS "QtTest (optional)........ " ${Qt6Test_VERSION})
-else (Qt6Test_FOUND)
-  message (STATUS "QtTest (optional)........ No.")
-endif (Qt6Test_FOUND)
 
 if (MSVC)
    message (STATUS "MSVC Qt location ........ " ${QT_BASE_DIR})
