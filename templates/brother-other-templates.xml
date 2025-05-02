@@ -76,6 +76,145 @@
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-continuous>
   </Template>
+  <Template brand="Brother" part="TZe-151" size="roll" width="24mm" height="24mm" description="Laminated Black on Clear 24mm">
+	<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-251" size="roll" width="24mm" height="24mm" description="Laminated Black on White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-252" size="roll" width="24mm" height="24mm" description="Laminated Red on White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-354" size="roll" width="24mm" height="24mm" description="Laminated Gold on Black 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-355" size="roll" width="24mm" height="24mm" description="Laminated White on Black 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-451" size="roll" width="24mm" height="24mm" description="Laminated Black on Red 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-551" size="roll" width="24mm" height="24mm" description="Laminated Black on Blue 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-555" size="roll" width="24mm" height="24mm" description="Laminated White on Blue 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-651" size="roll" width="24mm" height="24mm" description="Laminated Black on Yellow 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-751" size="roll" width="24mm" height="24mm" description="Laminated Black on Green 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZ-B51" size="roll" width="24mm" height="24mm" description="Laminated Black on Flu Orange 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-C51" size="roll" width="24mm" height="24mm" description="Laminated Black on Flu Yellow 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-FX251" size="roll" width="24mm" height="24mm" description="Flexible ID Black on White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="5000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-FX651" size="roll" width="24mm" height="24mm" description="Flexible ID Black on Yellow 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="5000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-M951" size="roll" width="24mm" height="24mm" description="Laminated Black on Matte Silver 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-N251" size="roll" width="24mm" height="24mm" description="Non-Laminated Black on White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-PR254" size="roll" width="24mm" height="24mm" description="Laminated Gold on Premium White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="4000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-PR851" size="roll" width="24mm" height="24mm" description="Laminated Black on Premium Gold 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="4000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-PR955" size="roll" width="24mm" height="24mm" description="Laminated White on Premium Silver 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="4000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-S151" size="roll" width="24mm" height="24mm" description="Strong Adhesive Black on Clear 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-S251" size="roll" width="24mm" height="24mm" description="Strong Adhesive Black on White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-S651" size="roll" width="24mm" height="24mm" description="Strong Adhesive Black on Yellow 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+	<Template brand="Brother" part="TZe-SE51" size="roll" width="24mm" height="24mm" description="Security Tape Black on White 24mm">
+		<Label-continuous id="0" width="24mm" min_height="0mm" max_height="8000mm" default_height="30mm">
+			<Markup-margin y_size="-11mm" x_size="1mm"/>
+			<Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="24mm" dy="24mm"/>
+		</Label-continuous>
+	</Template>
+</Glabels-templates>
 
 
 </Glabels-templates>
