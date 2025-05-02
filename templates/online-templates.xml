@@ -5,7 +5,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL28.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol28.htm"/>
     <Label-rectangle id="0" width="0.75in" height="1in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="9" ny="10" x0="0.4026in" y0="0.5in" dx="0.8681in" dy="1in"/>
     </Label-rectangle>
@@ -14,7 +14,7 @@
   <Template brand="Online Labels" part="OL2525" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2525.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2525.htm"/>
     <Label-rectangle id="0" width="0.9375in" height="9.0625in" round="0.03125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="7" ny="1" x0="0.46875in" y0="0.96875in" dx="1.10416in" dy="9.0625in"/>
     </Label-rectangle>
@@ -23,7 +23,7 @@
   <Template brand="Online Labels" part="OL5400" size="US-Letter" _description="Barcode labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5400.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5400.htm"/>
     <Label-rectangle id="0" width="1in" height="0.375in" round="0.0625in" x_waste="0.05in" y_waste="0.045in">
       <Layout nx="7" ny="22" x0="0.45in" y0="0.346in" dx="1.1in" dy="0.473in"/>
     </Label-rectangle>
@@ -32,7 +32,7 @@
   <Template brand="Online Labels" part="OL114" size="US-Letter" _description="Classification labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL114.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol114.htm"/>
     <Label-rectangle id="0" width="1in" height="2in" round="0.09375in" x_waste="0in" y_waste="0in">
       <Layout nx="8" ny="5" x0="0.25in" y0="0.5in" dx="1in" dy="2in"/>
     </Label-rectangle>
@@ -41,7 +41,7 @@
   <Template brand="Online Labels" part="OL2520" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2520.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2520.htm"/>
     <Label-rectangle id="0" width="1in" height="8.25in" round="0.03125in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="7" ny="1" x0="0.25in" y0="1.375in" dx="1.16666in" dy="8.25in"/>
     </Label-rectangle>
@@ -50,7 +50,7 @@
   <Template brand="Online Labels" part="OL2680" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2680.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2680.htm"/>
     <Label-rectangle id="0" width="1.25in" height="9.75in" round="0.0625in" x_waste="0.1in" y_waste="0.1in">
       <Layout nx="5" ny="1" x0="0.325in" y0="0.625in" dx="1.65in" dy="9.75in"/>
     </Label-rectangle>
@@ -59,7 +59,7 @@
   <Template brand="Online Labels" part="OL2530" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2530.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2530.htm"/>
     <Label-rectangle id="0" width="1.25in" height="10.125in" round="0.03125in" x_waste="0.04in" y_waste="0.04in">
       <Layout nx="6" ny="1" x0="0.25in" y0="0.4375in" dx="1.35in" dy="10.125in"/>
     </Label-rectangle>
@@ -68,7 +68,7 @@
   <Template brand="Online Labels" part="OL223" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL223.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol223.htm"/>
     <Label-rectangle id="0" width="1.3125in" height="2.75in" round="0.125in" x_waste="0.1in" y_waste="0.1in">
       <Layout nx="5" ny="3" x0="0.25in" y0="0.25in" dx="1.671875in" dy="3.875in"/>
     </Label-rectangle>
@@ -77,7 +77,7 @@
   <Template brand="Online Labels" part="OL6300" size="US-Letter" _description="Medical chart labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6300.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6300.htm"/>
     <Label-rectangle id="0" width="1.5in" height="1.5in" round="0.0625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="4" ny="6" x0="0.875in" y0="1in" dx="1.75in" dy="1.5in"/>
     </Label-rectangle>
@@ -86,7 +86,7 @@
   <Template brand="Online Labels" part="OL2681" size="US-Letter" _description="Medical chart labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2681.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2681.htm"/>
     <Label-rectangle id="0" width="1.5in" height="1.5in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="4" ny="6" x0="0.7812in" y0="0.5in" dx="1.8125in" dy="1.7in"/>
     </Label-rectangle>
@@ -95,7 +95,7 @@
   <Template brand="Online Labels" part="OL864" size="US-Letter" _description="Tube labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL864.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol864.htm"/>
     <Label-rectangle id="0" width="1.625in" height="1.8125in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="4" ny="5" x0="0.8125in" y0="0.7187in" dx="1.75in" dy="1.9375in"/>
     </Label-rectangle>
@@ -107,7 +107,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL25.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol25.htm"/>
     <Label-rectangle id="0" width="1.75in" height="0.5in" round="0.046875in" x_waste="0.05in" y_waste="0in">
       <Layout nx="4" ny="20" x0="0.328125in" y0="0.5in" dx="2.03125in" dy="0.5in"/>
     </Label-rectangle>
@@ -117,7 +117,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL385.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol385.htm"/>
     <Label-rectangle id="0" width="1.75in" height="0.666in" round="0.078125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="4" ny="15" x0="0.3075in" y0="0.505in" dx="2.045in" dy="0.666in"/>
     </Label-rectangle>
@@ -126,7 +126,7 @@
   <Template brand="Online Labels" part="OL1905" size="US-Letter" _description="Barcode labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1905.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1905.htm"/>
     <Label-rectangle id="0" width="1.75in" height="1.25in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="4" ny="8" x0="0.468in" y0="0.5in" dx="1.9375in" dy="1.25in"/>
     </Label-rectangle>
@@ -136,7 +136,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1050.htm"/>
     <Label-rectangle id="0" width="1.8125in" height="0.5in" round="0.125in" x_waste="0.05in" y_waste="0.5in">
       <Layout nx="4" ny="16" x0="0.4375in" y0="0.5625in" dx="1.9375in" dy="0.625in"/>
     </Label-rectangle>
@@ -145,7 +145,7 @@
   <Template brand="Online Labels" part="OL2083" size="US-Letter" _description="Tube labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2083.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2083.htm"/>
     <Label-rectangle id="0" width="1.875in" height="0.9375in" round="0.25in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="3" ny="9" x0="1.3125in" y0="0.78125in" dx="2in" dy="1.0625in"/>
     </Label-rectangle>
@@ -154,7 +154,7 @@
   <Template brand="Online Labels" part="OL5051" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5051.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5051.htm"/>
     <Label-rectangle id="0" width="1.9in" height="2.5in" round="0.0625in" x_waste="0.03in" y_waste="0.03in">
       <Layout nx="4" ny="4" x0="0.3563in" y0="0.4063in" dx="1.9625in" dy="2.5625in"/>
     </Label-rectangle>
@@ -163,7 +163,7 @@
   <Template brand="Online Labels" part="OL3016" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3016.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3016.htm"/>
     <Label-rectangle id="0" width="2in" height="2in" round="0.125in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="3" ny="4" x0="0.25in" y0="0.25in" dx="3in" dy="2.8333in"/>
     </Label-rectangle>
@@ -172,7 +172,7 @@
   <Template brand="Online Labels" part="OL330" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL330.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol330.htm"/>
     <Label-rectangle id="0" width="2in" height="2in" round="0.0625in" x_waste="0in" y_waste="0.05in">
       <Layout nx="4" ny="5" x0="0.25in" y0="0.25in" dx="2in" dy="2.125in"/>
     </Label-rectangle>
@@ -181,7 +181,7 @@
   <Template brand="Online Labels" part="OL2679" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2679.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2679.htm"/>
     <Label-rectangle id="0" width="2in" height="2in" round="0.03125in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="3" ny="4" x0="0.625in" y0="0.645in" dx="2.625in" dy="2.57in"/>
     </Label-rectangle>
@@ -190,7 +190,7 @@
   <Template brand="Online Labels" part="OL8250" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL8250.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol8250.htm"/>
     <Label-rectangle id="0" width="2in" height="5in" round="0.1736in" x_waste="0in" y_waste="0in">
       <Layout nx="4" ny="2" x0="0.25in" y0="0.501in" dx="2in" dy="5in"/>
     </Label-rectangle>
@@ -199,7 +199,7 @@
   <Template brand="Online Labels" part="OL663" size="US-Letter" _description="Tube labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL663.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol663.htm"/>
     <Label-rectangle id="0" width="2.0625in" height="2.15in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Markup-line x1="0in" y1="0.375in" x2="2.0625in" y2="0.375in"/>
       <Layout nx="3" ny="4" x0="0.6562in" y0="0.825in" dx="2.5625in" dy="2.4in"/>
@@ -211,7 +211,7 @@
   <Template brand="Online Labels" part="OL421" size="US-Letter" _description="Tube labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL421.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol421.htm"/>
     <Label-rectangle id="0" width="2.125in" height="1.6875in" round="0.0625in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="3" ny="5" x0="0.5in" y0="0.5in" dx="2.6875in" dy="2.078125in"/>
     </Label-rectangle>
@@ -223,7 +223,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9600.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9600.htm"/>
     <Label-rectangle id="0" width="2.1667in" height="1.6167in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="3" x0="1.95in" y0="0.905in" dx="2.4167in" dy="3.167in"/>
     </Label-rectangle>
@@ -232,7 +232,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9600.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9600.htm"/>
     <Label-rectangle id="0" width="3.8667in" height="0.3333in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="3" x0="2.31665in" y0="3.14in" dx="3.8667in" dy="3.167in"/>
       <Layout nx="1" ny="3" x0="2.31665in" y0="3.723in" dx="3.8667in" dy="3.167in"/>
@@ -243,7 +243,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6950.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6950.htm"/>
     <Label-rectangle id="0" width="2.25in" height="0.75in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="3" ny="10" x0="0.375in" y0="0.625in" dx="2.75in" dy="1in"/>
     </Label-rectangle>
@@ -252,7 +252,7 @@
   <Template brand="Online Labels" part="OL160" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL160.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol160.htm"/>
     <Label-rectangle id="0" width="2.375in" height="1.25in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="3" ny="6" x0="0.3725in" y0="1.125in" dx="2.69in" dy="1.5in"/>
     </Label-rectangle>
@@ -261,7 +261,7 @@
   <Template brand="Online Labels" part="OL1555" size="US-Letter" _description="Candy labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1555.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1555.htm"/>
     <Label-rectangle id="0" width="2.375in" height="3in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="3" ny="3" x0="0.5625in" y0="0.875in" dx="2.5in" dy="3.125in"/>
     </Label-rectangle>
@@ -270,7 +270,7 @@
   <Template brand="Online Labels" part="OL2319" size="US-Letter" _description="Window stickers">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2319.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2319.htm"/>
     <Label-rectangle id="0" width="2.375in" height="10in" round="0.0625in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="1" x0="0.2295in" y0="0.5in" dx="2.833in" dy="10in"/>
     </Label-rectangle>
@@ -279,7 +279,7 @@
   <Template brand="Online Labels" part="OL800" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL800.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol800.htm"/>
     <Label-rectangle id="0" width="2.5in" height="1.5625in" round="0.0625in" x_waste="0.5in" y_waste="0.5in">
       <Layout nx="3" ny="6" x0="0.375in" y0="0.5in" dx="2.625in" dy="1.6875in"/>
     </Label-rectangle>
@@ -288,7 +288,7 @@
   <Template brand="Online Labels" part="OL291" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL291.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol291.htm"/>
     <Label-rectangle id="0" width="2.5in" height="2.5in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="3" ny="4" x0="0.375in" y0="0.25in" dx="2.625in" dy="2.6666667in"/>
     </Label-rectangle>
@@ -297,7 +297,7 @@
   <Template brand="Online Labels" part="OL9350" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9350.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9350.htm"/>
     <Label-rectangle id="0" width="2.5in" height="5in" round="0.125in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="3" ny="2" x0="0.25in" y0="0.375in" dx="2.75in" dy="5.25in"/>
     </Label-rectangle>
@@ -307,7 +307,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL875.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol875.htm"/>
     <Label-rectangle id="0" width="2.5935in" height="1in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="3" ny="10" x0="0.21975in" y0="0.5in" dx="2.7335in" dy="1in"/>
     </Label-rectangle>
@@ -316,46 +316,46 @@
   <Template brand="Online Labels" part="OL950" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL950.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol950.htm"/>
     <Label-rectangle id="0" width="2.625in" height="0.875in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="3" ny="11" x0="0.1875in" y0="0.6875in" dx="2.75in" dy="0.875in"/>
     </Label-rectangle>
   </Template>
 
-  <Template brand="Online Labels" part="OL775" size="US-Letter" _description="Floppy disk labels">
+  <Template brand="Online Labels" part="OL775" size="US-Letter" _description="3.5&quot; Floppy Disk, front only">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL775.htm"/>
-    <Label-rectangle id="0" width="2.675in" height="2in" round="0.125in" x_waste="0.03in" y_waste="0.05in">
+    <Meta product_url="https://www.onlinelabels.com/ol775.htm"/>
+    <Label-rectangle id="0" width="2.675in" height="2in" round="0.125in" x_waste="0.035in" y_waste="0.06in">
       <Layout nx="3" ny="5" x0="0.1625in" y0="0.25in" dx="2.75in" dy="2.125in"/>
     </Label-rectangle>
   </Template>
 
-  <Template brand="Online Labels" part="OL1649" size="US-Letter" _description="Floppy disk labels">
+  <Template brand="Online Labels" part="OL1649" size="US-Letter" _description="5.25&quot; Floppy Disk">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="media"/>
     <Meta product_url="https://www.onlinelabels.com/products/ol1649"/>
-    <Label-rectangle id="0" width="1.000in" height="5.000in" round="0.000in" x_waste="0.00in" y_waste="0.00in">
-      <Layout nx="7" ny="2" x0="0.375in" y0="0.475in" dx="1.125in" dy="5.125in"/>
+    <Label-rectangle id="0" width="1.000in" height="5.000in" round="0.000in" x_waste="0.06in" y_waste="0.06in">
+      <Layout nx="7" ny="2" x0="0.375in" y0="0.4375in" dx="1.125in" dy="5.125in"/>
     </Label-rectangle>
   </Template>
   
-  <Template brand="Online Labels" part="OL225 (main)" size="US-Letter" _description="Floppy disk labels">
+  <Template brand="Online Labels" part="OL225 (main)" size="US-Letter" _description="3.5&quot; Floppy Disk, wrap around">
     <Meta category="label"/>
     <Meta category="square-label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL225.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol225.htm"/>
     <Label-rectangle id="0" width="2.75in" height="2.75in" round="0.109375in" x_waste="0in" y_waste="0.05in">
       <Layout nx="3" ny="3" x0="0.125in" y0="0.5in" dx="2.75in" dy="3in"/>
     </Label-rectangle>
   </Template>
-  <Template brand="Online Labels" part="OL225 (secondary)" size="US-Letter" _description="Floppy disk labels">
+  <Template brand="Online Labels" part="OL225 (secondary)" size="US-Letter" _description="3.5&quot; Floppy Disk, write-protect">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL225.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol225.htm"/>
     <Label-rectangle id="0" width="1.375in" height="0.5in" round="0.065in" x_waste="0in" y_waste="0.05in">
       <Layout nx="6" ny="2" x0="0.125in" y0="9.382in" dx="1.375in" dy="0.625in"/>
     </Label-rectangle>
@@ -367,7 +367,7 @@
   <Template brand="Online Labels" part="OL173" size="US-Letter" _description="Medical chart labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL173.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol173.htm"/>
     <Label-rectangle id="0" width="3in" height="0.625in" round="0.09375in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="16" x0="0.8415in" y0="0.5in" dx="3.817in" dy="0.625in"/>
     </Label-rectangle>
@@ -376,7 +376,7 @@
   <Template brand="Online Labels" part="OL1115" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1115.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1115.htm"/>
     <Label-rectangle id="0" width="3in" height="1in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="9" x0="1.1875in" y0="0.5in" dx="3.125in" dy="1.125in"/>
     </Label-rectangle>
@@ -385,7 +385,7 @@
   <Template brand="Online Labels" part="OL996" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL996.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol996.htm"/>
     <Label-rectangle id="0" width="3in" height="2in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="5" x0="1.1875in" y0="0.25in" dx="3.125in" dy="2.125in"/>
     </Label-rectangle>
@@ -394,7 +394,7 @@
   <Template brand="Online Labels" part="OL1125" size="US-Letter" _description="VHS face labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1125.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1125.htm"/>
     <Label-rectangle id="0" width="3.0625in" height="1.8375in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="5" x0="1.0625in" y0="0.90625in" dx="3.3125in" dy="1.8375in"/>
     </Label-rectangle>
@@ -403,7 +403,7 @@
   <Template brand="Online Labels" part="OL1543" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1543.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1543.htm"/>
     <Label-rectangle id="0" width="3.125in" height="0.5in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="20" x0="0.5in" y0="0.5in" dx="4.375in" dy="0.5in"/>
     </Label-rectangle>
@@ -412,7 +412,7 @@
   <Template brand="Online Labels" part="OL5030" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5030.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5030.htm"/>
     <Label-rectangle id="0" width="3.375in" height="2.3125in" round="0.171875in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="4" x0="0.688in" y0="0.594in" dx="3.75in" dy="2.5in"/>
     </Label-rectangle>
@@ -421,7 +421,7 @@
   <Template brand="Online Labels" part="OL200" size="US-Letter" _description="File folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL200.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol200.htm"/>
     <Label-rectangle id="0" width="3.434in" height="0.669in" round="0.0625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="15" x0="0.53475in" y0="0.4825in" dx="3.9965in" dy="0.669in"/>
     </Label-rectangle>
@@ -430,7 +430,7 @@
   <Template brand="Online Labels" part="OL157" size="US-Letter" _description="File folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL157.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol157.htm"/>
     <Label-rectangle id="0" width="3.4375in" height="0.9375in" round="0.09375in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="9" x0="0.49755in" y0="0.51125in" dx="4.0674in" dy="1.13in"/>
     </Label-rectangle>
@@ -439,7 +439,7 @@
   <Template brand="Online Labels" part="OL850" size="US-Letter" _description="File folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL850.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol850.htm"/>
     <Label-rectangle id="0" width="3.5in" height="0.75in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="12" x0="0.1875in" y0="0.3125in" dx="4.625in" dy="0.875in"/>
     </Label-rectangle>
@@ -448,7 +448,7 @@
   <Template brand="Online Labels" part="OL6450" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6450.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6450.htm"/>
     <Label-rectangle id="0" width="3.5in" height="1.75in" round="0.125in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="2" ny="5" x0="0.625in" y0="0.625in" dx="3.75in" dy="2in"/>
     </Label-rectangle>
@@ -457,7 +457,7 @@
   <Template brand="Online Labels" part="OL3043" size="US-Letter" _description="Metal tin container labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3043.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3043.htm"/>
     <Label-rectangle id="0" width="3.5in" height="2.125in" round="0.5in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="2" ny="4" x0="0.5in" y0="0.5in" dx="4in" dy="2.625in"/>
     </Label-rectangle>
@@ -466,7 +466,7 @@
   <Template brand="Online Labels" part="OL5100" size="US-Letter" _description="Bookplate labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5100.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5100.htm"/>
     <Label-rectangle id="0" width="3.5in" height="5in" round="0.0625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="2" x0="0.5in" y0="0.5in" dx="4in" dy="5in"/>
     </Label-rectangle>
@@ -475,7 +475,7 @@
   <Template brand="Online Labels" part="OL2590 (first)" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2590.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2590.htm"/>
     <Label-rectangle id="0" width="3.5in" height="5in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="1" x0="0.25in" y0="0.5in" dx="3.5in" dy="5in"/>
     </Label-rectangle>
@@ -483,7 +483,7 @@
   <Template brand="Online Labels" part="OL2590 (second)" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2590.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2590.htm"/>
     <Label-rectangle id="0" width="6.75in" height="4.5in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="1" x0="0.25in" y0="5.75in" dx="6.75in" dy="4.5in"/>
     </Label-rectangle>
@@ -492,7 +492,7 @@
   <Template brand="Online Labels" part="OL161" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL161.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol161.htm"/>
     <Label-rectangle id="0" width="3.75in" height="1.25in" round="0.09375in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="6" x0="0.375in" y0="1.1595in" dx="4in" dy="1.4862in"/>
     </Label-rectangle>
@@ -501,7 +501,7 @@
   <Template brand="Online Labels" part="OL1809" size="US-Letter" _description="Candy labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1809.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1809.htm"/>
     <Label-rectangle id="0" width="3.75in" height="1.4375in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="6" x0="0.4in" y0="0.5in" dx="3.95in" dy="1.7125in"/>
     </Label-rectangle>
@@ -510,7 +510,7 @@
   <Template brand="Online Labels" part="OL171" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL171.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol171.htm"/>
     <Label-rectangle id="0" width="3.75in" height="2in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="4" x0="0.375in" y0="1.125in" dx="4in" dy="2.25in"/>
     </Label-rectangle>
@@ -519,7 +519,7 @@
   <Template brand="Online Labels" part="OL575" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL575.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol575.htm"/>
     <Label-rectangle id="0" width="3.75in" height="2.438in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="4" x0="0.4375in" y0="0.4375in" dx="3.875in" dy="2.5625in"/>
     </Label-rectangle>
@@ -528,7 +528,7 @@
   <Template brand="Online Labels" part="OL172" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL172.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol172.htm"/>
     <Label-rectangle id="0" width="3.75in" height="3in" round="0.09375in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="3" x0="0.375in" y0="0.625in" dx="4in" dy="3.375in"/>
     </Label-rectangle>
@@ -537,7 +537,7 @@
   <Template brand="Online Labels" part="OL162" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL162.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol162.htm"/>
     <Label-rectangle id="0" width="3.75in" height="4.75in" round="0.125in" x_waste="0.07in" y_waste="0.07in">
       <Layout nx="2" ny="2" x0="0.375in" y0="0.625in" dx="4in" dy="5in"/>
     </Label-rectangle>
@@ -546,7 +546,7 @@
   <Template brand="Online Labels" part="OL75" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL75.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol75.htm"/>
     <Label-rectangle id="0" width="4in" height="1in" round="0.0625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="10" x0="0.175in" y0="0.5in" dx="4.15625in" dy="1in"/>
     </Label-rectangle>
@@ -555,7 +555,7 @@
   <Template brand="Online Labels" part="OL100" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL100.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol100.htm"/>
     <Label-rectangle id="0" width="4in" height="1.33in" round="0.09375in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="7" x0="0.1525in" y0="0.88in" dx="4.195in" dy="1.32in"/>
     </Label-rectangle>
@@ -564,7 +564,7 @@
   <Template brand="Online Labels" part="OL725" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL725.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol725.htm"/>
     <Label-rectangle id="0" width="4in" height="1.4375in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="7" x0="0.1875in" y0="0.4688in" dx="4.125in" dy="1.4375in"/>
     </Label-rectangle>
@@ -573,7 +573,7 @@
   <Template brand="Online Labels" part="OL250" size="US-Letter" _description="Digital media labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL250.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol250.htm"/>
     <Label-rectangle id="0" width="4in" height="1.5in" round="0.0625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="6" x0="0.1725in" y0="1.015in" dx="4.155in" dy="1.495in"/>
     </Label-rectangle>
@@ -582,7 +582,7 @@
   <Template brand="Online Labels" part="OL700" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL700.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol700.htm"/>
     <Label-rectangle id="0" width="4in" height="1.75in" round="0.125in" x_waste="0in" y_waste="0in">
       <Layout nx="2" ny="6" x0="0.25in" y0="0.25in" dx="4in" dy="1.75in"/>
     </Label-rectangle>
@@ -591,7 +591,7 @@
   <Template brand="Online Labels" part="OL125" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL125.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol125.htm"/>
     <Label-rectangle id="0" width="4in" height="2in" round="0.171875in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="5" x0="0.18in" y0="0.5in" dx="4.14in" dy="2in"/>
     </Label-rectangle>
@@ -600,7 +600,7 @@
   <Template brand="Online Labels" part="OL600" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL600.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol600.htm"/>
     <Label-rectangle id="0" width="4in" height="2.5in" round="0.125in" x_waste="0.04in" y_waste="0.04in">
       <Layout nx="2" ny="4" x0="0.18in" y0="0.5in" dx="4.14in" dy="2.5in"/>
     </Label-rectangle>
@@ -609,7 +609,7 @@
   <Template brand="Online Labels" part="OL500" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL500.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol500.htm"/>
     <Label-rectangle id="0" width="4in" height="3in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="3" x0="0.1875in" y0="1in" dx="4.125in" dy="3in"/>
     </Label-rectangle>
@@ -618,7 +618,7 @@
   <Template brand="Online Labels" part="OL525" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL525.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol525.htm"/>
     <Label-rectangle id="0" width="4in" height="3.25in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="3" x0="0.156in" y0="0.5in" dx="4.1875in" dy="3.375in"/>
     </Label-rectangle>
@@ -627,7 +627,7 @@
   <Template brand="Online Labels" part="OL150" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL150.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol150.htm"/>
     <Label-rectangle id="0" width="4in" height="3.33in" round="0.15625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="3" x0="0.156in" y0="0.5in" dx="4.1875in" dy="3.33in"/>
     </Label-rectangle>
@@ -636,7 +636,7 @@
   <Template brand="Online Labels" part="OL475" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL475.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol475.htm"/>
     <Label-rectangle id="0" width="4in" height="5in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="2" x0="0.1563in" y0="0.5in" dx="4.1875in" dy="5in"/>
     </Label-rectangle>
@@ -645,7 +645,7 @@
   <Template brand="Online Labels" part="OL432" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL432.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol432.htm"/>
     <Label-rectangle id="0" width="4in" height="6in" round="0.125in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="1" x0="4in" y0="0.25in" dx="4in" dy="6in"/>
     </Label-rectangle>
@@ -654,7 +654,7 @@
   <Template brand="Online Labels" part="OL394" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL394.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol394.htm"/>
     <Label-rectangle id="0" width="4.5in" height="2in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="5" x0="2in" y0="0.25in" dx="4.5in" dy="2.125in"/>
     </Label-rectangle>
@@ -663,7 +663,7 @@
   <Template brand="Online Labels" part="OL2510" size="US-Letter" _description="Metal tin container labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2510.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2510.htm"/>
     <Label-rectangle id="0" width="5in" height="0.5in" round="0.03125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="16" x0="1.75in" y0="0.25in" dx="5in" dy="0.66667in"/>
     </Label-rectangle>
@@ -672,7 +672,7 @@
   <Template brand="Online Labels" part="OL6675" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6675.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6675.htm"/>
     <Label-rectangle id="0" width="5in" height="3in" round="0.0625in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="1" ny="3" x0="1.75in" y0="0.5in" dx="5in" dy="3.5in"/>
     </Label-rectangle>
@@ -681,7 +681,7 @@
   <Template brand="Online Labels" part="OL685" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL685.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol685.htm"/>
     <Label-rectangle id="0" width="5.3125in" height="5.25in" round="0.0625in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="2" x0="1.5937in" y0="0.25in" dx="5.3125in" dy="5.25in"/>
     </Label-rectangle>
@@ -690,7 +690,7 @@
   <Template brand="Online Labels" part="OL1150" size="US-Letter" _description="VHS labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1150.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1150.htm"/>
     <Label-rectangle id="0" width="5.85in" height="0.6689in" round="0.09375in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="15" x0="1.325in" y0="0.45475in" dx="5.85in" dy="0.6727in"/>
     </Label-rectangle>
@@ -699,7 +699,7 @@
   <Template brand="Online Labels" part="OL5550" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5550.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5550.htm"/>
     <Label-rectangle id="0" width="6in" height="2.5in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="4" x0="1.25in" y0="0.5in" dx="6in" dy="2.5in"/>
     </Label-rectangle>
@@ -708,7 +708,7 @@
   <Template brand="Online Labels" part="OL1417" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1417.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1417.htm"/>
     <Label-rectangle id="0" width="6in" height="5in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="2" x0="1.25in" y0="0.4375in" dx="6in" dy="5.125in"/>
     </Label-rectangle>
@@ -717,7 +717,7 @@
   <Template brand="Online Labels" part="OL1499" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1499.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1499.htm"/>
     <Label-rectangle id="0" width="6.5in" height="4.5in" round="0.125in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="2" x0="1in" y0="0.66in" dx="6.5in" dy="5.18in"/>
     </Label-rectangle>
@@ -726,7 +726,7 @@
   <Template brand="Online Labels" part="OL2515" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2515.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2515.htm"/>
     <Label-rectangle id="0" width="6.5625in" height="0.875in" round="0.03125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="10" x0="0.968in" y0="0.5625in" dx="6.5625in" dy="1in"/>
     </Label-rectangle>
@@ -735,7 +735,7 @@
   <Template brand="Online Labels" part="OL243" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL243.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol243.htm"/>
     <Label-rectangle id="0" width="6.75in" height="4.25in" round="0.09375in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="1" ny="2" x0="0.875in" y0="0.875in" dx="6.75in" dy="5in"/>
     </Label-rectangle>
@@ -744,7 +744,7 @@
   <Template brand="Online Labels" part="OL8500" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL8500.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol8500.htm"/>
     <Label-rectangle id="0" width="7in" height="1in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="10" x0="0.75in" y0="0.5in" dx="7in" dy="1in"/>
     </Label-rectangle>
@@ -753,7 +753,7 @@
   <Template brand="Online Labels" part="OL7000" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL7000.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol7000.htm"/>
     <Label-rectangle id="0" width="7in" height="2in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="5" x0="0.75in" y0="0.5in" dx="7in" dy="2in"/>
     </Label-rectangle>
@@ -762,7 +762,7 @@
   <Template brand="Online Labels" part="OL6200" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6200.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6200.htm"/>
     <Label-rectangle id="0" width="7in" height="2.5in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="4" x0="0.75in" y0="0.5in" dx="7in" dy="2.5in"/>
     </Label-rectangle>
@@ -771,7 +771,7 @@
   <Template brand="Online Labels" part="OL5925" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5925.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5925.htm"/>
     <Label-rectangle id="0" width="7in" height="3in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="3" x0="0.75in" y0="1in" dx="7in" dy="3in"/>
     </Label-rectangle>
@@ -780,7 +780,7 @@
   <Template brand="Online Labels" part="OL2921" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2921.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2921.htm"/>
     <Label-rectangle id="0" width="7.375in" height="3.125in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="3" x0="0.5625in" y0="0.5625in" dx="7.375in" dy="3.375in"/>
     </Label-rectangle>
@@ -789,7 +789,7 @@
   <Template brand="Online Labels" part="OL369" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL369.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol369.htm"/>
     <Label-rectangle id="0" width="7.375in" height="4.5in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="2" x0="0.607in" y0="0.75in" dx="7.375in" dy="5in"/>
     </Label-rectangle>
@@ -798,7 +798,7 @@
   <Template brand="Online Labels" part="OL5450" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5450.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5450.htm"/>
     <Label-rectangle id="0" width="7.5in" height="1.5in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="7" x0="0.5in" y0="0.25in" dx="7.5in" dy="1.5in"/>
     </Label-rectangle>
@@ -807,7 +807,7 @@
   <Template brand="Online Labels" part="OL9800" size="US-Letter" _description="Window stickers">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9800.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9800.htm"/>
     <Label-rectangle id="0" width="7.5in" height="10in" round="0.125in" x_waste="0in" y_waste="0in">
       <Layout nx="1" ny="1" x0="0.5in" y0="0.5in" dx="7.5in" dy="10in"/>
     </Label-rectangle>
@@ -816,7 +816,7 @@
   <Template brand="Online Labels" part="OL9805" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9805.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9805.htm"/>
     <Label-rectangle id="0" width="7.5in" height="10in" round="0.125in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="1" ny="1" x0="0.5in" y0="0.5in" dx="7.5in" dy="10in"/>
     </Label-rectangle>
@@ -826,7 +826,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL131.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol131.htm"/>
     <Label-rectangle id="0" width="8in" height="5in" round="0.125in" x_waste="0.08in" y_waste="0.08in">
       <Layout nx="1" ny="2" x0="0.25in" y0="0.25in" dx="8in" dy="5.5in"/>
     </Label-rectangle>
@@ -835,7 +835,7 @@
   <Template brand="Online Labels" part="OL159" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL159.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol159.htm"/>
     <Label-rectangle id="0" width="8.12992in" height="5in" round="0.125in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="2" x0="0.18504in" y0="0.5in" dx="8.12992in" dy="5in"/>
     </Label-rectangle>
@@ -844,7 +844,7 @@
   <Template brand="Online Labels" part="OL435" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL435.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol435.htm"/>
     <Label-rectangle id="0" width="8.1875in" height="1.375in" round="0.0625in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="7" x0="0.1562in" y0="0.3in" dx="8.1875in" dy="1.5041667in"/>
     </Label-rectangle>
@@ -856,7 +856,7 @@
   <Template brand="Online Labels" part="OL2050" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2050.htm"/>
     <Label-rectangle id="0" width="0.5in" height="0.5in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="13" ny="17" x0="0.25in" y0="0.2505in" dx="0.625in" dy="0.625in"/>
     </Label-rectangle>
@@ -865,7 +865,7 @@
   <Template brand="Online Labels" part="OL3008" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3008.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3008.htm"/>
     <Label-rectangle id="0" width="0.75in" height="0.75in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="10" ny="14" x0="0.5in" y0="0.25in" dx="0.75in" dy="0.75in"/>
     </Label-rectangle>
@@ -874,7 +874,7 @@
   <Template brand="Online Labels" part="OL1930" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1930.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1930.htm"/>
     <Label-rectangle id="0" width="1in" height="0.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="8" ny="20" x0="0.25in" y0="0.5in" dx="1in" dy="0.5in"/>
     </Label-rectangle>
@@ -883,7 +883,7 @@
   <Template brand="Online Labels" part="OL5425" size="US-Letter" _description="Medical chart labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5425.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5425.htm"/>
     <Label-rectangle id="0" width="1in" height="1in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="8" ny="10" x0="0.25in" y0="0.5in" dx="1in" dy="1in"/>
     </Label-rectangle>
@@ -892,7 +892,7 @@
   <Template brand="Online Labels" part="OL340" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL340.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol340.htm"/>
     <Label-rectangle id="0" width="1.25in" height="2.25in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="5" ny="4" x0="0.35in" y0="0.625in" dx="1.6375in" dy="2.5in"/>
     </Label-rectangle>
@@ -901,7 +901,7 @@
   <Template brand="Online Labels" part="OL1075" size="US-Letter" _description="Medical chart labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1075.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1075.htm"/>
     <Label-rectangle id="0" width="1.41667in" height="1in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="6" ny="11" x0="0in" y0="0in" dx="1.41667in" dy="1in"/>
     </Label-rectangle>
@@ -910,7 +910,7 @@
   <Template brand="Online Labels" part="OL1100" size="US-Letter" _description="Medical chart labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1100.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1100.htm"/>
     <Label-rectangle id="0" width="1.5in" height="0.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="5" ny="20" x0="0.5in" y0="0.5in" dx="1.5in" dy="0.5in"/>
     </Label-rectangle>
@@ -919,7 +919,7 @@
   <Template brand="Online Labels" part="OL975" size="US-Letter" _description="Barcode labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL975.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol975.htm"/>
     <Label-rectangle id="0" width="1.5in" height="1in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="5" ny="10" x0="0.5in" y0="0.5in" dx="1.5in" dy="1in"/>
     </Label-rectangle>
@@ -928,7 +928,7 @@
   <Template brand="Online Labels" part="OL5175" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5175.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5175.htm"/>
     <Label-rectangle id="0" width="1.8in" height="1.8in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="4" ny="5" x0="0.65in" y0="1in" dx="1.8in" dy="1.8in"/>
     </Label-rectangle>
@@ -937,7 +937,7 @@
   <Template brand="Online Labels" part="OL5125" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5125.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5125.htm"/>
     <Label-rectangle id="0" width="2in" height="1in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="4" ny="10" x0="0.25in" y0="0.5in" dx="2in" dy="1in"/>
     </Label-rectangle>
@@ -946,7 +946,7 @@
   <Template brand="Online Labels" part="OL5225" size="US-Letter" _description="Barcode labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5225.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5225.htm"/>
     <Label-rectangle id="0" width="2in" height="1.25in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="4" ny="8" x0="0.25in" y0="0.5in" dx="2in" dy="1.25in"/>
     </Label-rectangle>
@@ -955,7 +955,7 @@
   <Template brand="Online Labels" part="OL1502" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1502.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1502.htm"/>
     <Label-rectangle id="0" width="2in" height="1.5in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="3" ny="6" x0="0.9in" y0="0.5in" dx="2.35in" dy="1.7in"/>
     </Label-rectangle>
@@ -964,7 +964,7 @@
   <Template brand="Online Labels" part="OL3089" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3089.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3089.htm"/>
     <Label-rectangle id="0" width="2.5in" height="3in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="3" x0="0.5in" y0="1in" dx="2.5in" dy="3in"/>
     </Label-rectangle>
@@ -973,7 +973,7 @@
   <Template brand="Online Labels" part="OL5350" size="US-Letter" _description="Address labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5350.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5350.htm"/>
     <Label-rectangle id="0" width="2.83333in" height="1.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="7" x0="0in" y0="0.25in" dx="2.83333in" dy="1.5in"/>
     </Label-rectangle>
@@ -982,7 +982,7 @@
   <Template brand="Online Labels" part="OL675" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL675.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol675.htm"/>
     <Label-rectangle id="0" width="2.83333in" height="2.75in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="4" x0="0in" y0="0in" dx="2.83333in" dy="2.75in"/>
     </Label-rectangle>
@@ -991,7 +991,7 @@
   <Template brand="Online Labels" part="OL900" size="US-Letter" _description="Address labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL900.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol900.htm"/>
     <Label-rectangle id="0" width="2.83333in" height="1in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="11" x0="0in" y0="0in" dx="2.83333in" dy="1in"/>
     </Label-rectangle>
@@ -1000,7 +1000,7 @@
   <Template brand="Online Labels" part="OL870" size="US-Letter" _description="Mailing labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL870.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol870.htm"/>
     <Label-rectangle id="0" width="2.83333in" height="1.375in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="8" x0="0in" y0="0in" dx="2.83333in" dy="1.375in"/>
     </Label-rectangle>
@@ -1009,7 +1009,7 @@
   <Template brand="Online Labels" part="OL750" size="US-Letter" _description="Nutritional labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL750.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol750.htm"/>
     <Label-rectangle id="0" width="2.83333in" height="2.2in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="3" ny="5" x0="0in" y0="0in" dx="2.83333in" dy="2.2in"/>
     </Label-rectangle>
@@ -1018,7 +1018,7 @@
   <Template brand="Online Labels" part="OL248" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL248.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol248.htm"/>
     <Label-rectangle id="0" width="3in" height="1.5in" round="0in" x_waste="0.05in" y_waste="0in">
       <Layout nx="2" ny="7" x0="1in" y0="0.25in" dx="3.5in" dy="1.5in"/>
     </Label-rectangle>
@@ -1027,7 +1027,7 @@
   <Template brand="Online Labels" part="OL805" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL805.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol805.htm"/>
     <Label-rectangle id="0" width="3in" height="3in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="3" x0="1.1875in" y0="0.875in" dx="3.125in" dy="3.125in"/>
     </Label-rectangle>
@@ -1036,7 +1036,7 @@
   <Template brand="Online Labels" part="OL1825" size="US-Letter" _description="CD/DVD case labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1825.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1825.htm"/>
     <Label-rectangle id="0" width="3.5in" height="0.25in" round="0in" x_waste="0.02in" y_waste="0in">
       <Layout nx="2" ny="40" x0="0.5835in" y0="0.5in" dx="3.833in" dy="0.25in"/>
     </Label-rectangle>
@@ -1045,7 +1045,7 @@
   <Template brand="Online Labels" part="OL3072" size="US-Letter" _description="Business card size labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3072.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3072.htm"/>
     <Label-rectangle id="0" width="3.5in" height="2in" round="0in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="2" ny="4" x0="0.5in" y0="0.75in" dx="4in" dy="2.5in"/>
     </Label-rectangle>
@@ -1054,7 +1054,7 @@
   <Template brand="Online Labels" part="OL338" size="US-Letter" _description="Window stickers">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL338.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol338.htm"/>
     <Label-rectangle id="0" width="3.75in" height="10.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="2" ny="1" x0="0.25in" y0="0.25in" dx="4.25in" dy="10.5in"/>
     </Label-rectangle>
@@ -1063,7 +1063,7 @@
   <Template brand="Online Labels" part="OL3027" size="US-Letter" _description="Square labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3027.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3027.htm"/>
     <Label-rectangle id="0" width="4in" height="4in" round="0in" x_waste="0in" y_waste="0.05in">
       <Layout nx="2" ny="2" x0="0.25in" y0="1.35in" dx="4in" dy="4.25in"/>
     </Label-rectangle>
@@ -1072,7 +1072,7 @@
   <Template brand="Online Labels" part="OL625" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL625.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol625.htm"/>
     <Label-rectangle id="0" width="4.25in" height="2in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="2" ny="5" x0="0in" y0="0.5in" dx="4.25in" dy="2in"/>
     </Label-rectangle>
@@ -1081,7 +1081,7 @@
   <Template brand="Online Labels" part="OL550" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL550.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol550.htm"/>
     <Label-rectangle id="0" width="4.25in" height="2.75in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="2" ny="4" x0="0in" y0="0in" dx="4.25in" dy="2.75in"/>
     </Label-rectangle>
@@ -1090,7 +1090,7 @@
   <Template brand="Online Labels" part="OL450" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL450.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol450.htm"/>
     <Label-rectangle id="0" width="4.25in" height="5.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="2" ny="2" x0="0in" y0="0in" dx="4.25in" dy="5.5in"/>
     </Label-rectangle>
@@ -1099,7 +1099,7 @@
   <Template brand="Online Labels" part="OL178" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL178.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol178.htm"/>
     <Label-rectangle id="0" width="4.25in" height="11in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="2" ny="1" x0="0in" y0="0in" dx="4.25in" dy="11in"/>
     </Label-rectangle>
@@ -1108,7 +1108,7 @@
   <Template brand="Online Labels" part="OL145" size="US-Letter" _description="Coffee and tea labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL145.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol145.htm"/>
     <Label-rectangle id="0" width="6in" height="4in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="2" x0="1.25in" y0="1.375in" dx="6in" dy="4.25in"/>
     </Label-rectangle>
@@ -1117,7 +1117,7 @@
   <Template brand="Online Labels" part="OL1258" size="US-Letter" _description="Shipping labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1258.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1258.htm"/>
     <Label-rectangle id="0" width="7.75in" height="4.75in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="2" x0="0.375in" y0="0.625in" dx="7.75in" dy="5in"/>
     </Label-rectangle>
@@ -1126,7 +1126,7 @@
   <Template brand="Online Labels" part="OL1159" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1159.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1159.htm"/>
     <Label-rectangle id="0" width="8in" height="2in" round="0in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="5" x0="0.25in" y0="0.5in" dx="8in" dy="2in"/>
     </Label-rectangle>
@@ -1135,7 +1135,7 @@
   <Template brand="Online Labels" part="OL5950" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5950.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5950.htm"/>
     <Label-rectangle id="0" width="8in" height="2.5in" round="0in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="4" x0="0.25in" y0="0.5in" dx="8in" dy="2.5in"/>
     </Label-rectangle>
@@ -1144,7 +1144,7 @@
   <Template brand="Online Labels" part="OL351" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL351.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol351.htm"/>
     <Label-rectangle id="0" width="8in" height="3.5in" round="0in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="3" x0="0.25in" y0="0.25in" dx="8in" dy="3.5in"/>
     </Label-rectangle>
@@ -1153,7 +1153,7 @@
   <Template brand="Online Labels" part="OL1985" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1985.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1985.htm"/>
     <Label-rectangle id="0" width="8.5in" height="2in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="1" ny="5" x0="0in" y0="0.5in" dx="8.5in" dy="2in"/>
     </Label-rectangle>
@@ -1162,7 +1162,7 @@
   <Template brand="Online Labels" part="OL7800" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL7800.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol7800.htm"/>
     <Label-rectangle id="0" width="8.5in" height="2.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="1" ny="4" x0="0in" y0="0.5in" dx="8.5in" dy="2.5in"/>
     </Label-rectangle>
@@ -1172,7 +1172,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL425.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol425.htm"/>
     <Label-rectangle id="0" width="8.5in" height="3.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="1" ny="3" x0="0in" y0="0.25in" dx="8.5in" dy="3.5in"/>
     </Label-rectangle>
@@ -1182,7 +1182,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL400.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol400.htm"/>
     <Label-rectangle id="0" width="8.5in" height="5.5in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="1" ny="2" x0="0in" y0="0in" dx="8.5in" dy="5.5in"/>
     </Label-rectangle>
@@ -1191,7 +1191,7 @@
   <Template brand="Online Labels" part="OL175" size="US-Letter" _description="Full-page labels with back slit">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL175.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol175.htm"/>
     <Label-rectangle id="0" width="8.5in" height="11in" round="0in" x_waste="0in" y_waste="0in">
       <Markup-line x1="4.25in" y1="0in" x2="4.25in" y2="11in"/>
       <Layout nx="1" ny="1" x0="0in" y0="0in" dx="8.5in" dy="11in"/>
@@ -1201,7 +1201,7 @@
   <Template brand="Online Labels" part="OL176" size="US-Letter" _description="Full-page labels with back slit">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL176.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol176.htm"/>
     <Label-rectangle id="0" width="8.5in" height="11in" round="0in" x_waste="0in" y_waste="0in">
       <Markup-line x1="0in" y1="1.44in" x2="8.5in" y2="1.44in"/>
       <Layout nx="1" ny="1" x0="0in" y0="0in" dx="8.5in" dy="11in"/>
@@ -1211,7 +1211,7 @@
   <Template brand="Online Labels" part="OL177" size="US-Letter" _description="Full-page labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL177.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol177.htm"/>
     <Label-rectangle id="0" width="8.5in" height="11in" round="0in" x_waste="0in" y_waste="0in">
       <Layout nx="1" ny="1" x0="0in" y0="0in" dx="8.5in" dy="11in"/>
     </Label-rectangle>
@@ -1220,7 +1220,7 @@
   <Template brand="Online Labels" part="OL179" size="US-Letter" _description="Full-page labels with back slit">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL179.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol179.htm"/>
     <Label-rectangle id="0" width="8.5in" height="11in" round="0in" x_waste="0in" y_waste="0in">
       <Markup-line x1="2.83333in" y1="0in" x2="2.83333in" y2="11in"/>
       <Markup-line x1="5.66667in" y1="0in" x2="5.66667in" y2="11in"/>
@@ -1231,7 +1231,7 @@
   <Template brand="Online Labels" part="OL713" size="US-Letter" _description="Full-page labels with back slit">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL713.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol713.htm"/>
     <Label-rectangle id="0" width="8.5in" height="11in" round="0in" x_waste="0in" y_waste="0in">
       <Markup-line x1="3in" y1="0in" x2="0in" y2="4.15in"/>
       <Markup-line x1="6.5in" y1="0in" x2="0in" y2="8.86in"/>
@@ -1244,7 +1244,7 @@
   <Template brand="Online Labels" part="OL32" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL32.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol32.htm"/>
     <Label-round id="0" radius="0.25in" waste="0.05in">
       <Layout nx="11" ny="14" x0="0.25in" y0="0.375in" dx="0.75in" dy="0.75in"/>
     </Label-round>
@@ -1253,7 +1253,7 @@
   <Template brand="Online Labels" part="OL229" size="US-Letter" _description="Paper hole reinforcement labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL229.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol229.htm"/>
     <Label-cd id="0" radius="0.28125in" hole="0.129in" waste="0.05in">
       <Layout nx="12" ny="13" x0="0.1875in" y0="0.3438in" dx="0.6875in" dy="0.8125in"/>
     </Label-cd>
@@ -1262,7 +1262,7 @@
   <Template brand="Online Labels" part="OL1575" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1575.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1575.htm"/>
     <Label-round id="0" radius="0.3125in" waste="0.02in">
       <Layout nx="11" ny="14" x0="0.5125in" y0="0.735in" dx="0.685in" dy="0.685in"/>
     </Label-round>
@@ -1271,7 +1271,7 @@
   <Template brand="Online Labels" part="OL5275" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5275.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5275.htm"/>
     <Label-round id="0" radius="0.375in" waste="0.02in">
       <Layout nx="9" ny="12" x0="0.625in" y0="0.656in" dx="0.813in" dy="0.813in"/>
     </Label-round>
@@ -1280,7 +1280,7 @@
   <Template brand="Online Labels" part="OL1245" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1245.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1245.htm"/>
     <Label-round id="0" radius="0.4375in" waste="0.05in">
       <Layout nx="8" ny="10" x0="0.3125in" y0="0.5625in" dx="1in" dy="1in"/>
     </Label-round>
@@ -1289,7 +1289,7 @@
   <Template brand="Online Labels" part="OL889" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL889.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol889.htm"/>
     <Label-ellipse id="0" width="1in" height="0.5in" waste="0.05in">
       <Layout nx="7" ny="16" x0="0.375in" y0="0.375in" dx="1.125in" dy="0.65in"/>
     </Label-ellipse>
@@ -1298,7 +1298,7 @@
   <Template brand="Online Labels" part="OL1025" size="US-Letter" _description="Candle labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1025.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1025.htm"/>
     <Label-round id="0" radius="0.5in" waste="0.05in">
       <Layout nx="7" ny="9" x0="0.375in" y0="0.5in" dx="1.125in" dy="1.125in"/>
     </Label-round>
@@ -1307,7 +1307,7 @@
   <Template brand="Online Labels" part="OL6000" size="US-Letter" _description="Candle labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6000.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6000.htm"/>
     <Label-round id="0" radius="0.6in" waste="0.02in">
       <Layout nx="6" ny="8" x0="0.25in" y0="0.5075in" dx="1.36in" dy="1.255in"/>
     </Label-round>
@@ -1316,7 +1316,7 @@
   <Template brand="Online Labels" part="OL3012" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3012.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3012.htm"/>
     <Label-round id="0" radius="0.625in" waste="0.02in">
       <Layout nx="6" ny="8" x0="0.3438in" y0="0.2813in" dx="1.3125in" dy="1.3125in"/>
     </Label-round>
@@ -1325,7 +1325,7 @@
   <Template brand="Online Labels" part="OL6025" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6025.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6025.htm"/>
     <Label-ellipse id="0" width="1.5in" height="0.75in" waste="0.02in">
       <Layout nx="5" ny="11" x0="0.375in" y0="0.5in" dx="1.5625in" dy="0.925in"/>
     </Label-ellipse>
@@ -1334,7 +1334,7 @@
   <Template brand="Online Labels" part="OL2088" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2088.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2088.htm"/>
     <Label-round id="0" radius="0.75in" waste="0.05in">
       <Layout nx="5" ny="6" x0="0.25in" y0="0.6875in" dx="1.625in" dy="1.625in"/>
     </Label-round>
@@ -1343,7 +1343,7 @@
   <Template brand="Online Labels" part="OL158" size="US-Letter" _description="Seal labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL158.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol158.htm"/>
     <Label-round id="0" radius="0.75in" waste="0.05in">
       <Markup-line x1="0in" y1="0.75in" x2="1.5in" y2="0.75in"/>
       <Layout nx="4" ny="5" x0="0.5in" y0="0.75in" dx="2in" dy="2in"/>
@@ -1353,7 +1353,7 @@
   <Template brand="Online Labels" part="OL325" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL325.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol325.htm"/>
     <Label-round id="0" radius="0.8125in" waste="0.01in">
       <Layout nx="4" ny="6" x0="0.412in" y0="0.5063in" dx="2.017in" dy="1.6725in"/>
     </Label-round>
@@ -1362,7 +1362,7 @@
   <Template brand="Online Labels" part="OL914" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL914.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol914.htm"/>
     <Label-round id="0" radius="0.875in" waste="0.05in">
       <Layout nx="4" ny="5" x0="0.4453in" y0="0.4in" dx="1.95312in" dy="2.1125in"/>
     </Label-round>
@@ -1371,7 +1371,7 @@
   <Template brand="Online Labels" part="OL9815" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9815.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9815.htm"/>
     <Label-ellipse id="0" width="2in" height="1in" waste="0.05in">
       <Layout nx="3" ny="9" x0="1in" y0="0.5in" dx="2.25in" dy="1.125in"/>
     </Label-ellipse>
@@ -1380,7 +1380,7 @@
   <Template brand="Online Labels" part="OL5375" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5375.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5375.htm"/>
     <Label-round id="0" radius="1in" waste="0.02in">
       <Layout nx="4" ny="5" x0="0.15625in" y0="0.375in" dx="2.0625in" dy="2.0625in"/>
     </Label-round>
@@ -1389,7 +1389,7 @@
   <Template brand="Online Labels" part="OL2682" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2682.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2682.htm"/>
     <Label-round id="0" radius="1in" waste="0.05in">
       <Layout nx="3" ny="4" x0="0.625in" y0="0.6in" dx="2.625in" dy="2.6in"/>
     </Label-round>
@@ -1398,7 +1398,7 @@
   <Template brand="Online Labels" part="OL8750" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL8750.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol8750.htm"/>
     <Label-round id="0" radius="1.125in" waste="0.05in">
       <Layout nx="3" ny="4" x0="0.75in" y0="0.8125in" dx="2.375in" dy="2.375in"/>
     </Label-round>
@@ -1407,7 +1407,7 @@
   <Template brand="Online Labels" part="OL350" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL350.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol350.htm"/>
     <Label-round id="0" radius="1.21875in" waste="0.01in">
       <Layout nx="3" ny="4" x0="0.343in" y0="0.579in" dx="2.6875in" dy="2.46875in"/>
     </Label-round>
@@ -1416,7 +1416,7 @@
   <Template brand="Online Labels" part="OL9830" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9830.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9830.htm"/>
     <Label-ellipse id="0" width="2.5in" height="1.375in" waste="0.02in">
       <Layout nx="3" ny="7" x0="0.44in" y0="0.5in" dx="2.56in" dy="1.4375in"/>
     </Label-ellipse>
@@ -1425,7 +1425,7 @@
   <Template brand="Online Labels" part="OL2684" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2684.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2684.htm"/>
     <Label-ellipse id="0" width="2.5in" height="1.5in" waste="0.05in">
       <Layout nx="3" ny="6" x0="0.375in" y0="0.6875in" dx="2.625in" dy="1.625in"/>
     </Label-ellipse>
@@ -1434,7 +1434,7 @@
   <Template brand="Online Labels" part="OL885" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL885.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol885.htm"/>
     <Label-ellipse id="0" width="2.5in" height="1.75in" waste="0.05in">
       <Layout nx="3" ny="5" x0="0.3125in" y0="0.75in" dx="2.6875in" dy="1.9375in"/>
     </Label-ellipse>
@@ -1443,7 +1443,7 @@
   <Template brand="Online Labels" part="OL2683" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2683.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2683.htm"/>
     <Label-round id="0" radius="1.25in" waste="0.05in">
       <Layout nx="3" ny="3" x0="0.3125in" y0="0.625in" dx="2.6875in" dy="3.625in"/>
     </Label-round>
@@ -1452,7 +1452,7 @@
   <Template brand="Online Labels" part="OL895" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL895.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol895.htm"/>
     <Label-ellipse id="0" width="2.5in" height="4.25in" waste="0.05in">
       <Layout nx="3" ny="2" x0="0.375in" y0="1.125in" dx="2.625in" dy="4.5in"/>
     </Label-ellipse>
@@ -1461,7 +1461,7 @@
   <Template brand="Online Labels" part="OL224" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL224.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol224.htm"/>
     <Label-round id="0" radius="1.375in" waste="0.05in">
       <Layout nx="2" ny="3" x0="1.25in" y0="0.25in" dx="3.25in" dy="3.875in"/>
     </Label-round>
@@ -1470,7 +1470,7 @@
   <Template brand="Online Labels" part="OL5525" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5525.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5525.htm"/>
     <Label-round id="0" radius="1.4375in" waste="0.05in">
       <Layout nx="2" ny="3" x0="1.3125in" y0="1.0625in" dx="3in" dy="3in"/>
     </Label-round>
@@ -1479,7 +1479,7 @@
   <Template brand="Online Labels" part="OL892" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL892.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol892.htm"/>
     <Label-ellipse id="0" width="3in" height="1.5in" waste="0.05in">
       <Layout nx="2" ny="6" x0="1.125in" y0="0.375in" dx="3.25in" dy="1.75in"/>
     </Label-ellipse>
@@ -1488,7 +1488,7 @@
   <Template brand="Online Labels" part="OL2279" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2279.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2279.htm"/>
     <Label-round id="0" radius="1.5in" waste="0.05in">
       <Layout nx="2" ny="3" x0="0.75in" y0="0.5in" dx="4in" dy="3.5in"/>
     </Label-round>
@@ -1497,7 +1497,7 @@
   <Template brand="Online Labels" part="OL894" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL894.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol894.htm"/>
     <Label-ellipse id="0" width="3.25in" height="2in" waste="0.05in">
       <Layout nx="2" ny="5" x0="0.9375in" y0="0.25in" dx="3.375in" dy="2.125in"/>
     </Label-ellipse>
@@ -1506,7 +1506,7 @@
   <Template brand="Online Labels" part="OL893" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL893.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol893.htm"/>
     <Label-ellipse id="0" width="3.25in" height="4.25in" waste="0.05in">
       <Layout nx="2" ny="2" x0="0.9375in" y0="1.1875in" dx="3.375in" dy="4.375in"/>
     </Label-ellipse>
@@ -1515,7 +1515,7 @@
   <Template brand="Online Labels" part="OL375" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL375.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol375.htm"/>
     <Label-round id="0" radius="1.65625in" waste="0.01in">
       <Layout nx="2" ny="3" x0="0.6406in" y0="0.4844in" dx="3.9063in" dy="3.3594in"/>
     </Label-round>
@@ -1524,7 +1524,7 @@
   <Template brand="Online Labels" part="OL2685" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL2685.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol2685.htm"/>
     <Label-ellipse id="0" width="3.33in" height="2in" waste="0.05in">
       <Layout nx="2" ny="4" x0="0.75in" y0="1in" dx="3.67in" dy="2.33333in"/>
     </Label-ellipse>
@@ -1533,7 +1533,7 @@
   <Template brand="Online Labels" part="OL3282" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3282.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3282.htm"/>
     <Label-round id="0" radius="1.729in" waste="0.05in">
       <Layout nx="2" ny="3" x0="0.667in" y0="0.2505in" dx="3.708in" dy="3.5205in"/>
     </Label-round>
@@ -1542,7 +1542,7 @@
   <Template brand="Online Labels" part="OL6050" size="US-Letter" _description="Nutritional labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6050.htm"/>
     <Label-ellipse id="0" width="3.91in" height="1.326in" waste="0.05in">
       <Layout nx="2" ny="7" x0="0.2535in" y0="0.337in" dx="4.083in" dy="1.5in"/>
     </Label-ellipse>
@@ -1551,7 +1551,7 @@
   <Template brand="Online Labels" part="OL9810" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9810.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9810.htm"/>
     <Label-ellipse id="0" width="3.9375in" height="1.9375in" waste="0.02in">
       <Layout nx="2" ny="5" x0="0.28125in" y0="0.53125in" dx="4in" dy="2in"/>
     </Label-ellipse>
@@ -1560,7 +1560,7 @@
   <Template brand="Online Labels" part="OL7425" size="US-Letter" _description="Bottle/jar labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL7425.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol7425.htm"/>
     <Label-round id="0" radius="1.96875in" waste="0.02in">
       <Layout nx="2" ny="2" x0="0.28125in" y0="1.53125in" dx="4in" dy="4in"/>
     </Label-round>
@@ -1569,7 +1569,7 @@
   <Template brand="Online Labels" part="OL5475" size="US-Letter" _description="Target stickers">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5475.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5475.htm"/>
     <Label-round id="0" radius="2.25in" waste="0.06in">
       <Layout nx="1" ny="2" x0="2in" y0="0.5in" dx="4.5in" dy="5.5in"/>
     </Label-round>
@@ -1578,7 +1578,7 @@
   <Template brand="Online Labels" part="OL9950" size="US-Letter" _description="Target stickers">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9950.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9950.htm"/>
     <Label-round id="0" radius="2.5in" waste="0.03in">
       <Layout nx="1" ny="2" x0="1.75in" y0="0.4455in" dx="5in" dy="5.109in"/>
     </Label-round>
@@ -1587,7 +1587,7 @@
   <Template brand="Online Labels" part="OL320 (round)" size="US-Letter" _description="Round labels">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL320.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol320.htm"/>
     <Label-round id="0" radius="2.75in" waste="0.01in">
       <Layout nx="1" ny="1" x0="0.25in" y0="0.25in" dx="5.5in" dy="5.5in"/>
       <Layout nx="1" ny="1" x0="2.75in" y0="5.25in" dx="5.5in" dy="5.5in"/>
@@ -1596,7 +1596,7 @@
   <Template brand="Online Labels" part="OL320 (rectangle)" size="US-Letter" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL320.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol320.htm"/>
     <Label-rectangle id="0" width="2.125in" height="4.25in" round="in" x_waste="0.03in" y_waste="0.03in">
       <Layout nx="1" ny="1" x0="0.375in" y0="0.5in" dx="2.125in" dy="4.25in"/>
       <Layout nx="1" ny="1" x0="6in" y0="6.25in" dx="2.125in" dy="4.25in"/>
@@ -1606,7 +1606,7 @@
   <Template brand="Online Labels" part="OL317" size="US-Letter" _description="Target stickers">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL317.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol317.htm"/>
     <Label-round id="0" radius="3.5in" waste="0.08in">
       <Layout nx="1" ny="1" x0="0.75in" y0="2in" dx="7in" dy="7in"/>
     </Label-round>
@@ -1615,7 +1615,7 @@
   <Template brand="Online Labels" part="OL896" size="US-Letter" _description="Elliptical labels">
     <Meta category="label"/>
     <Meta category="elliptical-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL896.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol896.htm"/>
     <Label-ellipse id="0" width="8in" height="4.75in" waste="0.06in">
       <Layout nx="1" ny="2" x0="0.25in" y0="0.625in" dx="8in" dy="5in"/>
     </Label-ellipse>
@@ -1624,7 +1624,7 @@
   <Template brand="Online Labels" part="OL3033" size="US-Letter" _description="Target stickers">
     <Meta category="label"/>
     <Meta category="round-label"/>
-    <Meta product_url="http://www.onlinelabels.com/OL3033.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol3033.htm"/>
     <Label-round id="0" radius="4in" waste="0.08in">
       <Layout nx="1" ny="1" x0="0.25in" y0="1.5in" dx="8in" dy="8in"/>
     </Label-round>
@@ -1633,7 +1633,7 @@
   <Template brand="Online Labels" part="OL9990" size="US-Letter" _description="CD/DVD center hub labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9990.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9990.htm"/>
     <Label-cd id="0" radius="0.785in" hole="0.2955in" waste="0.05in">
       <Layout nx="4" ny="5" x0="0.75in" y0="1.1in" dx="1.81in" dy="1.8075in"/>
     </Label-cd>
@@ -1642,7 +1642,7 @@
   <Template brand="Online Labels" part="OL5575" size="US-Letter" _description="Business card CD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5575.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5575.htm"/>
     <Label-cd id="0" radius="1.53075in" width="2.322in" hole="0.3345in" waste="0.05in">
       <Layout nx="3" ny="3" x0="0.52in" y0="0.64in" dx="2.5695in" dy="3.3292in"/>
     </Label-cd>
@@ -1651,7 +1651,7 @@
   <Template brand="Online Labels" part="OL5600" size="US-Letter" _description="Mini CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9990.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9990.htm"/>
     <Label-cd id="0" radius="1.5in" hole="0.3345in" waste="0.05in">
       <Layout nx="2" ny="3" x0="1in" y0="0.75in" dx="3.5in" dy="3.25in"/>
     </Label-cd>
@@ -1662,7 +1662,7 @@
   <Template brand="Online Labels" part="OL1200" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL1200.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol1200.htm"/>
     <Label-cd id="0" radius="2.25in" hole="0.8125in" waste="0.05in">
       <Layout nx="1" ny="2" x0="2in" y0="0.5in" dx="4.5in" dy="5.5in"/>
     </Label-cd>
@@ -1671,7 +1671,7 @@
   <Template brand="Online Labels" part="OL9325 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5050.htm"/>
     <Label-cd id="0" radius="2.26in" hole="0.8125in" waste="0.01in">
       <Layout nx="1" ny="2" x0="0.25in" y0="0.25in" dx="4.52in" dy="5.98in"/>
       <Layout nx="1" ny="1" x0="3.73in" y0="3.24in" dx="4.52in" dy="4.52in"/>
@@ -1680,7 +1680,7 @@
   <Template brand="Online Labels" part="OL9325 (case first)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5050.htm"/>
     <Label-rectangle id="0" width="2.75in" height="1.97in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="2" x0="5.2in" y0="0.75in" dx="2.75in" dy="7.53in"/>
     </Label-rectangle>
@@ -1688,7 +1688,7 @@
   <Template brand="Online Labels" part="OL9325 (case second)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5050.htm"/>
     <Label-rectangle id="0" width="3.15in" height="1in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="1" x0="0.34in" y0="5in" dx="3.15in" dy="1in"/>
     </Label-rectangle>
@@ -1697,7 +1697,7 @@
   <Template brand="Online Labels" part="OL5000 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5000.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5000.htm"/>
     <Label-cd id="0" radius="2.295in" hole="0.807in" waste="0.05in">
       <Layout nx="1" ny="2" x0="1.955in" y0="0.6785in" dx="4.59in" dy="5.05875in"/>
     </Label-cd>
@@ -1705,7 +1705,7 @@
   <Template brand="Online Labels" part="OL5000 (case)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5000.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5000.htm"/>
     <Label-rectangle id="0" width="1in" height="3.125in" round="0.139in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="1" x0="0.795in" y0="3.9375in" dx="5.91in" dy="3.125in"/>
     </Label-rectangle>
@@ -1714,7 +1714,7 @@
   <Template brand="Online Labels" part="OL5075 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5075.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5075.htm"/>
     <Label-cd id="0" radius="2.31in" hole="0.811in" waste="0.05in">
       <Layout nx="1" ny="2" x0="1.94in" y0="0.6875in" dx="4.62in" dy="4.995in"/>
     </Label-cd>
@@ -1722,7 +1722,7 @@
   <Template brand="Online Labels" part="OL5075 (case)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5075.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5075.htm"/>
     <Label-rectangle id="0" width="0.2188in" height="4.6875in" round="0.063in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="2" x0="0.5in" y0="0.6875in" dx="0.4702in" dy="4.8765in"/>
     </Label-rectangle>
@@ -1731,7 +1731,7 @@
   <Template brand="Online Labels" part="OL6775 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6775.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6775.htm"/>
     <Label-cd id="0" radius="2.3125in" hole="0.8125in" waste="0.05in">
       <Layout nx="1" ny="2" x0="1.9375in" y0="0.6541in" dx="4.625in" dy="5.0667in"/>
     </Label-cd>
@@ -1739,7 +1739,7 @@
   <Template brand="Online Labels" part="OL6775 (hub)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6775.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6775.htm"/>
     <Label-cd id="0" radius="0.782in" hole="0.28125in" waste="0.05in">
       <Layout nx="1" ny="2" x0="0.48in" y0="0.812in" dx="1.625in" dy="7.811in"/>
     </Label-cd>
@@ -1747,7 +1747,7 @@
   <Template brand="Online Labels" part="OL6775 (case)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL6775.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol6775.htm"/>
     <Label-rectangle id="0" width="0.25in" height="4.5in" round="0.125in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="2" x0="7.021in" y0="0.716in" dx="0.75in" dy="5.068in"/>
     </Label-rectangle>
@@ -1756,7 +1756,7 @@
   <Template brand="Online Labels" part="OL5050 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5050.htm"/>
     <Label-cd id="0" radius="2.32in" hole="0.807in" waste="0.01in">
       <Layout nx="1" ny="1" x0="0.5in" y0="0.625in" dx="4.64in" dy="4.64in"/>
       <Layout nx="1" ny="1" x0="3.36in" y0="5.735in" dx="4.64in" dy="4.64in"/>
@@ -1765,7 +1765,7 @@
   <Template brand="Online Labels" part="OL5050 (case first)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5050.htm"/>
     <Label-rectangle id="0" width="2.375in" height="1.9531in" round="0in" x_waste="0.05in" y_waste="0in">
       <Layout nx="1" ny="2" x0="5.625in" y0="1in" dx="2.375in" dy="1.9531in"/>
       <Layout nx="1" ny="2" x0="0.5in" y0="6.0938in" dx="2.375in" dy="1.9531in"/>
@@ -1774,7 +1774,7 @@
   <Template brand="Online Labels" part="OL5050 (case second)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5050.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5050.htm"/>
     <Label-rectangle id="0" width="4in" height="0.25in" round="0in" x_waste="0in" y_waste="0.01in">
       <Layout nx="2" ny="1" x0="0.25in" y0="5.375in" dx="4in" dy="0.25in"/>
     </Label-rectangle>
@@ -1783,7 +1783,7 @@
   <Template brand="Online Labels" part="OL9985 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9985.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9985.htm"/>
     <Label-cd id="0" radius="2.3203in" hole="0.2955in" waste="0in">
       <Markup-margin size="1.5133in"/>
       <Layout nx="1" ny="1" x0="0.525in" y0="0.62in" dx="4.6406in" dy="4.6406in"/>
@@ -1793,7 +1793,7 @@
   <Template brand="Online Labels" part="OL9985 (case first)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9985.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9985.htm"/>
     <Label-rectangle id="0" width="1.7813in" height="4.6406in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="1" x0="6.2007in" y0="0.6in" dx="1.7813in" dy="4.6406in"/>
       <Layout nx="1" ny="1" x0="0.518in" y0="5.7594in" dx="1.7813in" dy="4.6406in"/>
@@ -1802,7 +1802,7 @@
   <Template brand="Online Labels" part="OL9985 (case second)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9985.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9985.htm"/>
     <Label-rectangle id="0" width="0.24in" height="4.6406in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="1" x0="5.611in" y0="0.6in" dx="0.24in" dy="4.6406in"/>
       <Layout nx="2" ny="1" x0="2.649in" y0="5.7594in" dx="0.24in" dy="4.6406in"/>
@@ -1812,7 +1812,7 @@
   <Template brand="Online Labels" part="OL5025 (medium)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5025.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5025.htm"/>
     <Label-cd id="0" radius="2.328in" hole="0.81in" waste="0.05in">
       <Layout nx="1" ny="1" x0="0.5312in" y0="0.625in" dx="4.656in" dy="4.656in"/>
       <Layout nx="1" ny="1" x0="3.3128in" y0="5.688in" dx="4.656in" dy="4.656in"/>
@@ -1821,7 +1821,7 @@
   <Template brand="Online Labels" part="OL5025 (case first)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5025.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5025.htm"/>
     <Label-rectangle id="0" width="1.79in" height="4.656in" round="0.115in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="1" ny="1" x0="6.186in" y0="0.64in" dx="1.79in" dy="4.656in"/>
       <Layout nx="1" ny="1" x0="0.524in" y0="5.704in" dx="1.79in" dy="4.656in"/>
@@ -1830,7 +1830,7 @@
   <Template brand="Online Labels" part="OL5025 (case second)" size="US-Letter" _description="CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5025.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5025.htm"/>
     <Label-rectangle id="0" width="0.25in" height="4.656in" round="0.083in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="1" x0="5.55in" y0="0.64in" dx="0.25in" dy="4.656in"/>
       <Layout nx="2" ny="1" x0="2.7in" y0="5.704in" dx="0.25in" dy="4.656in"/>
@@ -1840,7 +1840,7 @@
   <Template brand="Online Labels" part="OL5625 (medium)" size="US-Letter" _description="Full face CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5625.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5625.htm"/>
     <Label-cd id="0" radius="2.328in" hole="0.3345in" waste="0.05in">
       <Layout nx="1" ny="2" x0="1.922in" y0="0.656in" dx="4.656in" dy="5.031in"/>
     </Label-cd>
@@ -1848,7 +1848,7 @@
   <Template brand="Online Labels" part="OL5625 (case)" size="US-Letter" _description="Full face CD/DVD labels">
     <Meta category="label"/>
     <Meta category="media"/>
-    <Meta product_url="http://www.onlinelabels.com/OL5625.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol5625.htm"/>
     <Label-rectangle id="0" width="0.25in" height="4.6875in" round="0in" x_waste="0.05in" y_waste="0.05in">
       <Layout nx="2" ny="1" x0="0.75in" y0="0.64in" dx="6.75in" dy="4.5875in"/>
       <Layout nx="2" ny="1" x0="0.75in" y0="5.6725in" dx="6.75in" dy="4.5875in"/>
@@ -1859,7 +1859,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL395.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol395.htm"/>
     <Label-rectangle id="0" width="6.78in" height="4.75in" round="0.0625in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="1" x0="0.625in" y0="0.375in" dx="6.78in" dy="4.75in"/>
     </Label-rectangle>
@@ -1868,7 +1868,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL395.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol395.htm"/>
     <Label-rectangle id="0" width="3.5in" height="3.75in" round="0.0625in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="1" x0="4.125in" y0="5.562in" dx="3.5in" dy="3.75in"/>
     </Label-rectangle>
@@ -1878,7 +1878,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL395.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol395.htm"/>
     <Label-rectangle id="0" width="6.78in" height="4.75in" round="0.0625in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="1" x0="0.625in" y0="0.375in" dx="6.78in" dy="4.75in"/>
       <Layout nx="1" ny="1" x0="1.095in" y0="5.875in" dx="6.78in" dy="4.75in"/>
@@ -1889,7 +1889,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9520.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9520.htm"/>
     <Label-rectangle id="0" width="7.4in" height="4.5in" round="0.0625in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="1" x0="0.6194in" y0="0.7722in" dx="7.4in" dy="4.5in"/>
     </Label-rectangle>
@@ -1898,7 +1898,7 @@
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="mail"/>
-    <Meta product_url="http://www.onlinelabels.com/OL9520.htm"/>
+    <Meta product_url="https://www.onlinelabels.com/ol9520.htm"/>
     <Label-rectangle id="0" width="3.675in" height="3in" round="0.0625in" x_waste="0.06in" y_waste="0.06in">
       <Layout nx="1" ny="1" x0="4.2144in" y0="5.715in" dx="3.675in" dy="3in"/>
     </Label-rectangle>
