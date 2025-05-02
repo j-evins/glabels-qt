@@ -30,6 +30,7 @@
 namespace
 {
 	const double FONT_SCALE = 0.75;
+	const double MIN_POINT_SIZE = 0.4; // Less than ~0.37 causes issues for QFontMetricsF
 }
 
 
@@ -122,7 +123,7 @@ namespace glbarcode
 	}
 
 
-	void QtRenderer::drawText( double x, double y, double size, const std::string& text )
+	void QtRenderer::drawText( double x, double y, double size, const std::string& text, int halign )
 	{
 		if ( d->painter )
 		{
@@ -131,10 +132,18 @@ namespace glbarcode
 			QFont font;
 			font.setStyleHint( QFont::Monospace );
 			font.setFamily( "monospace" );
-			font.setPointSizeF( FONT_SCALE*size );
+			font.setPointSizeF( std::max( FONT_SCALE*size, MIN_POINT_SIZE ) );
 
 			QFontMetricsF fm( font );
-			double xCorner = x - fm.width( QString::fromStdString(text) )/2.0;
+			double xCorner = x;
+			if ( halign == 0 ) // Center
+			{
+				xCorner -= fm.width( QString::fromStdString(text) )/2.0;
+			}
+			else if ( halign == 2 ) // Right
+			{
+				xCorner -= fm.width( QString::fromStdString(text) );
+			}
 			double yCorner = y - fm.ascent();
 		
 			QTextLayout layout( QString::fromStdString(text), font );
@@ -151,7 +160,7 @@ namespace glbarcode
 		if ( d->painter )
 		{
 			d->painter->setPen( QPen( d->color, w ) );
-			d->painter->setBrush( Qt::NoBrush );
+			d->painter->setBrush( w ? Qt::NoBrush : QBrush( d->color ) );
 		
 			d->painter->drawEllipse( QPointF(x, y), r, r );
 		}

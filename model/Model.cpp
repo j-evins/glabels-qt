@@ -235,7 +235,7 @@ namespace glabels
 		///
 		Distance Model::w() const
 		{
-			if ( auto* frame = mTmplate.frames().constFirst() )
+			if ( auto* frame = !mTmplate.frames().isEmpty() ? mTmplate.frames().constFirst() : nullptr )
 			{
 				return mRotate ? frame->h() : frame->w();
 			}
@@ -251,7 +251,7 @@ namespace glabels
 		///
 		Distance Model::h() const
 		{
-			if ( auto* frame = mTmplate.frames().constFirst() )
+			if ( auto* frame = !mTmplate.frames().isEmpty() ? mTmplate.frames().constFirst() : nullptr )
 			{
 				return mRotate ? frame->w() : frame->h();
 			}

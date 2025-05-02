@@ -174,9 +174,9 @@ namespace glbarcode
 	}
 
 
-	void Barcode::addText( double x, double y, double size, const std::string& text )
+	void Barcode::addText( double x, double y, double size, const std::string& text, int halign )
 	{
-		d->mPrimitives.push_back( new DrawingPrimitiveText( x, y, size, text ) );
+		d->mPrimitives.push_back( new DrawingPrimitiveText( x, y, size, text, halign ) );
 	}
 
 
