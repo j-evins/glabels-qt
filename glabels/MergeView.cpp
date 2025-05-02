@@ -31,6 +31,7 @@
 
 namespace glabels
 {
+	const QChar NEWLINE_CHAR = QChar(0x23CE);
 
 	///
 	/// Constructor
@@ -283,7 +284,8 @@ namespace glabels
 			auto* item = new QTableWidgetItem();
 			if ( record->contains( mPrimaryKey ) )
 			{
-				item->setText( (*record)[mPrimaryKey] );
+				auto text = printableTextForView( (*record)[mPrimaryKey] );
+				item->setText( text );
 			}
 			item->setFlags( Qt::ItemIsEnabled | Qt::ItemIsUserCheckable );
 			item->setCheckState( record->isSelected() ? Qt::Checked : Qt::Unchecked );
@@ -298,7 +300,8 @@ namespace glabels
 				{
 					if ( record->contains( key ) )
 					{
-						auto* item = new QTableWidgetItem( (*record)[key] );
+						auto text = printableTextForView( (*record)[key] );
+						auto* item = new QTableWidgetItem( text );
 						item->setFlags( Qt::ItemIsEnabled );
 						recordsTable->setItem( iRow, iCol, item );
 						recordsTable->resizeColumnToContents( iCol );
@@ -319,4 +322,18 @@ namespace glabels
 		mBlock = false;
 	}
 
+
+	///
+	/// modify text to be printable e.g. replace newlines
+	///
+	QString MergeView::printableTextForView( QString text )
+	{
+		// Replace windows style newlines
+		text.replace("\r\n", NEWLINE_CHAR);
+
+		// Replace unix style newlines
+		text.replace("\n", NEWLINE_CHAR);
+
+		return text;
+	}
 } // namespace glabels

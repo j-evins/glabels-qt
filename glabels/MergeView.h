@@ -79,6 +79,7 @@ namespace glabels
 	private:
 		void loadHeaders( merge::Merge* merge );
 		void loadTable( merge::Merge* merge );
+		static QString printableTextForView( QString text );
 
 
 		/////////////////////////////////
