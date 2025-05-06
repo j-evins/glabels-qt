@@ -2,8 +2,7 @@
 
 ![Cover Image](docs/images/cover-image.png)
 
-[![Travis Build Status](https://travis-ci.org/j-evins/glabels-qt.svg?branch=master)](https://travis-ci.org/j-evins/glabels-qt)
-[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/j-evins/glabels-qt?branch=master&svg=true)](https://ci.appveyor.com/project/j-evins/glabels-qt)
+[![Multi-Platform Build Tests](https://github.com/j-evins/glabels-qt/actions/workflows/build-tests.yml/badge.svg?branch=master&event=push)](https://github.com/j-evins/glabels-qt/actions/workflows/build-tests.yml)
 
 *******************************************************************************
 
@@ -89,3 +88,4 @@ restrictive licensing:
    label database.  No copyright is claimed on the facts contained within
    the database and can be used for any purpose.  The files themselves are
    licensed using the MIT/X license.  See [templates/LICENSE](templates/LICENSE).
+

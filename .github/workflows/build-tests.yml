@@ -1,0 +1,110 @@
+# This workflow performs test builds across a diversity of supported platforms
+#
+#     - ubuntu-latest  - gcc
+#     - ubuntu-latest  - clang
+#     - ubuntu-24.04   - gcc   (For backwards compatablity)
+#     - windows-latest - cl
+#
+# TODO:
+#     - macos
+#     - install optional dependencies for windows-latest test build
+      
+
+name: Multi-Platform Build Tests
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os: [ubuntu-latest, ubuntu-22.04, windows-latest]
+        build_type: [Release]
+        c_compiler: [gcc, clang, cl]
+        include:
+          - os: ubuntu-latest
+            c_compiler: gcc
+            cpp_compiler: g++
+          - os: ubuntu-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+          - os: ubuntu-22.04
+            c_compiler: gcc
+            cpp_compiler: g++
+          - os: windows-latest
+            c_compiler: cl
+            cpp_compiler: cl
+        exclude:
+          - os: ubuntu-latest
+            c_compiler: cl
+          - os: ubuntu-22.04
+            c_compiler: clang
+          - os: ubuntu-22.04
+            c_compiler: cl
+          - os: windows-latest
+            c_compiler: gcc
+          - os: windows-latest
+            c_compiler: clang
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        # Checkout full-depth to facilitate auto versioning
+        fetch-depth: 0
+
+    - name: Install optional dependencies (Ubuntu)
+      shell: bash
+      if: startsWith( matrix.os, 'ubuntu-' )
+      run: |
+        # install packages
+        sudo apt-get update
+        sudo apt-get -y install xvfb
+        sudo apt-get -y install pkgconf libqrencode-dev
+        sudo apt-get -y install barcode
+        # install zint-2.6.5 from source
+        #  - 2.6.5 is last version that works with glabels-qt
+        #  - currently must be done before qt installed, because of errors
+        #    trying to build qzint
+        wget https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '5.15.*'
+        install-deps: 'true'
+        archives: 'qtbase qtsvg qttools icu'
+
+    - name: Set reusable strings
+      id: strings
+      shell: bash
+      run: |
+        echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+    - name: Configure CMake
+      run: >
+        cmake -B ${{ steps.strings.outputs.build-output-dir }}
+        -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
+        -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
+        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -S ${{ github.workspace }}
+
+    - name: Build
+      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+
+    - name: Test (Ubuntu)
+      if: startsWith( matrix.os, 'ubuntu-' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: xvfb-run ctest --build-config ${{ matrix.build_type }}
+
+    - name: Test (Windows)
+      if: startsWith( matrix.os, 'windows-' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ctest --build-config ${{ matrix.build_type }}
