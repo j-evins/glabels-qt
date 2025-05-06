@@ -111,7 +111,7 @@ if (MINGW)
    set (CMAKE_PREFIX_PATH ${MINGW_BASE_DIR} )
 endif ()
 
-find_package (Qt6 REQUIRED COMPONENTS Core Gui Widgets PrintSupport Xml Svg LinguistTools Test)
+find_package (Qt6 6.2 REQUIRED COMPONENTS Core Gui Widgets PrintSupport Xml Svg LinguistTools Test)
 
 if (WIN32)
    # Locate Qt directories

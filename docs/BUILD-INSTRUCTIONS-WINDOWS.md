@@ -13,8 +13,8 @@ Visual Studio
 ### Prerequisites
 
 - Visual Studio (these instructions are for _Visual Studio 15 2017 Win64_)
-- CMake 3.2+
-- Qt5 5.9+ for your version of Visual Studio
+- CMake 3.22+
+- Qt6 6.2+ for your version of Visual Studio
 - NSIS 3.03+ (optional -- for creating an installer)
 
 Make sure that CMake and the Qt tools are in your executable search path.  For example, you may need to add something like the following to your PATH environment variable:
@@ -67,8 +67,8 @@ MSYS/MINGW
 - MSYS/MINGW, including the following packages
   + mingw32-gcc-g++
   + mingw32-libz
-- CMake 3.2+
-- Qt5 5.9+ for MINGW
+- CMake 3.22+
+- Qt6 6.2+ for MINGW
 
 Make sure that Qt tools and CMake are in your executable search path.  For example, add something like this to your .profile file:
 
