@@ -173,7 +173,6 @@ if (WIN32)
                 env PATH="${QT_BIN_DIR}" "${WINDEPLOYQT_EXECUTABLE}"
                     --verbose 0
                     --no-compiler-runtime
-                    --no-angle
                     --no-opengl-sw
                     \"$<TARGET_FILE:glabels-qt>\"
         )
@@ -198,7 +197,6 @@ if (WIN32)
                     --verbose 0
                     --release
                     --no-compiler-runtime
-                    --no-angle
                     --no-opengl-sw
                     \"$<TARGET_FILE:glabels-qt>\"
         )
