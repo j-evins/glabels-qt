@@ -78,6 +78,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
+        version: '6.2.*'
         install-deps: 'true'
         archives: 'qtbase qtsvg qttools icu'
 

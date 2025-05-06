@@ -96,7 +96,7 @@ namespace glabels
 		{
 			// Guess at a suitable default
 			QString defaultFamily;
-			switch (QLocale::system().country())
+			switch (QLocale::system().territory())
 			{
 			case QLocale::UnitedStates:
 			case QLocale::Canada:
