@@ -1,0 +1,60 @@
+name: glabels-qt
+version: '@VERSION_STRING@'
+summary: Label designer
+description: |
+  gLabels Label Designer is a GUI program for designing and printing labels and
+  business cards. It is designed to work with various laser/ink-jet peel-off
+  label and business card sheets that you’ll find at most office supply stores.
+  gLabels can be used to design address labels, name tags, price tags, cd/dvd
+  labels, or just about anything else that is organized in a regular pattern
+  on a sheet of paper. Labels (or cards) can contain text, images, lines,
+  shapes, and barcodes. gLabels also includes a simple document-merge feature
+  which lets you print a unique label for each record from an external data
+  source, such as a CSV file.
+license: GPL-3.0+
+
+grade: devel
+confinement: devmode
+
+base: core22
+
+apps:
+  glabels-qt:
+    extensions:
+      - kde-neon-6
+    command: usr/bin/glabels-qt
+    plugs:
+      - home
+      - gsettings
+      - network
+      - cups
+
+parts:
+  zint:
+    source: https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz
+    source-type: tar
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+
+  glabels-qt:
+    after:
+      - zint
+    source: https://github.com/j-evins/glabels-qt.git
+    source-type: git
+    source-branch: @BRANCH@
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_PREFIX_PATH=/root/parts/zint/install/usr
+    build-packages:
+      - libqrencode-dev
+      - barcode
+      - zlib1g-dev
+      - libcups2-dev
+    stage-packages:
+      - libqrencode4
+      - barcode
+      - zlib1g
