@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=gLabels Label Designer 4
+Comment=Create labels, business cards and media covers
+Keywords=label;card;print;office;barcode;
+Exec=glabels-qt %F
+Icon=glabels.svg
+Terminal=false
+Type=Application
+Categories=Office;
+StartupNotify=true
+MimeType=application/x-glabels;
