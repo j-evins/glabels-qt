@@ -39,6 +39,7 @@ namespace glabels
 		: QDialog(parent)
 	{
 		setupUi( this );
+		productInfoWidget->setVisible( false );
 
 		pageSizeIsoCheck->setChecked( model::Settings::searchIsoPaperSizes() );
 		pageSizeUsCheck->setChecked( model::Settings::searchUsPaperSizes() );
@@ -195,7 +196,12 @@ namespace glabels
 	void SelectProductDialog::onTemplatePickerSelectionChanged()
 	{
 		auto* tmplate   = templatePicker->selectedTemplate();
-		if ( !tmplate ) return;
+		if ( !tmplate )
+		{
+			productInfoWidget->setVisible( false );
+			selectButton->setEnabled( false );
+			return;
+		}
 		
 		auto* frame     = tmplate->frames().first();
 		auto* settings  = model::Settings::instance();
@@ -234,7 +240,8 @@ namespace glabels
 		QString layoutString = frame->layoutDescription();
 		layoutLabel->setText( layoutString );
 
-		selectButton->setEnabled( templatePicker->selectedTemplate() );
+		productInfoWidget->setVisible( true );
+		selectButton->setEnabled( true );
 	}
 
 
