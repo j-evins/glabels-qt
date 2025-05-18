@@ -36,7 +36,7 @@ namespace glabels
 	/// Constructor
 	///
 	SelectProductDialog::SelectProductDialog( QWidget *parent )
-		: QDialog(parent), mCanceled(false)
+		: QDialog(parent)
 	{
 		setupUi( this );
 
@@ -82,7 +82,7 @@ namespace glabels
 	///
 	const model::Template* SelectProductDialog::tmplate() const
 	{
-		if ( !mCanceled )
+		if ( mHasSelection )
 		{
 			return templatePicker->selectedTemplate();
 		}
@@ -194,8 +194,57 @@ namespace glabels
 	///
 	void SelectProductDialog::onTemplatePickerSelectionChanged()
 	{
-		// Delay close.  This should make the selection more apparent to the user.
-		mTimer.start( 125, this );
+		auto* tmplate   = templatePicker->selectedTemplate();
+		if ( !tmplate ) return;
+		
+		auto* frame     = tmplate->frames().first();
+		auto* settings  = model::Settings::instance();
+
+		preview->setTemplate( tmplate );
+
+		const model::Vendor* vendor = model::Db::lookupVendorFromName( tmplate->brand() );
+		if ( (vendor != nullptr) && (vendor->url() != nullptr) )
+		{
+			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor->url(), vendor->name() );
+			vendorLabel->setText( markup );
+		}
+		else
+		{
+			vendorLabel->setText( tmplate->brand() );
+		}
+
+		if ( tmplate->productUrl() != nullptr )
+		{
+			QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate->productUrl(), tmplate->part() );
+			partLabel->setText( markup );
+		}
+		else
+		{
+			partLabel->setText( tmplate->part() );
+		}
+
+		descriptionLabel->setText( tmplate->description() );
+
+		QString pgSizeString = model::Db::lookupPaperNameFromId( tmplate->paperId() );
+		pageSizeLabel->setText( pgSizeString );
+
+		QString labelSizeString = frame->sizeDescription( settings->units() );
+		labelSizeLabel->setText( labelSizeString );
+
+		QString layoutString = frame->layoutDescription();
+		layoutLabel->setText( layoutString );
+
+		selectButton->setEnabled( templatePicker->selectedTemplate() );
+	}
+
+
+	///
+	/// Select Button Clicked Slot
+	///
+	void SelectProductDialog::onSelectButtonClicked()
+	{
+		mHasSelection = true;
+		close();
 	}
 
 
@@ -204,17 +253,6 @@ namespace glabels
 	///
 	void SelectProductDialog::onCancelButtonClicked()
 	{
-		mCanceled = true;
-		close();
-	}
-
-
-	///
-	/// Cancel Button Clicked Slot
-	///
-	void SelectProductDialog::timerEvent( QTimerEvent *event )
-	{
-		mTimer.stop();
 		close();
 	}
 

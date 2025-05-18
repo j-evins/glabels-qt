@@ -24,8 +24,6 @@
 
 #include "ui_SelectProductDialog.h"
 
-#include <QBasicTimer>
-
 
 namespace glabels
 {
@@ -61,16 +59,10 @@ namespace glabels
 		void onCategoryRadioClicked();
 		void onCategoryCheckClicked();
 		void onTemplatePickerSelectionChanged();
+		void onSelectButtonClicked();
 		void onCancelButtonClicked();
 
 		
-		/////////////////////////////////
-		// Events
-		/////////////////////////////////
-	protected:
-		void timerEvent(QTimerEvent *event) override;
-
-
 		/////////////////////////////////
 		// Private methods
 		/////////////////////////////////
@@ -82,14 +74,12 @@ namespace glabels
 		// Private data
 		/////////////////////////////////
 	private:
-		QBasicTimer mTimer;
-
 		QMap<QCheckBox*,QString> mCheckToCategoryMap;
 		QList<QCheckBox*>        mCheckList;
 		QStringList              mCategoryIdList;
 
-		bool mCanceled;
-
+		bool                     mHasSelection { false };
+	  
 	};
 
 }
