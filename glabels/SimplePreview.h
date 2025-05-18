@@ -52,6 +52,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		void setTemplate( const model::Template *tmplate );
+		void setShowArrow( bool showArrow );
 		void setRotate( bool rotateFlag );
 
 
@@ -77,10 +78,11 @@ namespace glabels
 		// Private Data
 		/////////////////////////////////
 	private:
-		const model::Template* mTmplate;
-		bool                   mRotateFlag;
+		const model::Template* mTmplate    { nullptr };
+		bool                   mShowArrow  { false };
+		bool                   mRotateFlag { false };
 
-		QGraphicsScene* mScene;
+		QGraphicsScene*        mScene { nullptr };
 
 	};
 

@@ -105,6 +105,7 @@ namespace glabels
 		bool                   isRotated = mModel->rotate();
 
 		preview->setTemplate( tmplate );
+		preview->setShowArrow( true );
 		preview->setRotate( isRotated );
 
 		const model::Vendor* vendor = model::Db::lookupVendorFromName( tmplate->brand() );

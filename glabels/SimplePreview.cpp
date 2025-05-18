@@ -61,7 +61,7 @@ namespace glabels
 	/// Constructor
 	///
 	SimplePreview::SimplePreview( QWidget *parent )
-		: QGraphicsView(parent), mTmplate(nullptr), mRotateFlag(false)
+		: QGraphicsView(parent)
 	{
 		mScene = new QGraphicsScene();
 		setScene( mScene );
@@ -80,6 +80,16 @@ namespace glabels
 	void SimplePreview::setTemplate( const model::Template *tmplate )
 	{
 		mTmplate = tmplate;
+		update();
+	}
+
+
+	///
+	/// Show Arrow Property Setter
+	///
+	void SimplePreview::setShowArrow( bool showArrow )
+	{
+		mShowArrow = showArrow;
 		update();
 	}
 
@@ -132,7 +142,10 @@ namespace glabels
 
 			drawPaper();
 			drawLabels();
-			drawArrow();
+			if ( mShowArrow )
+			{
+				drawArrow();
+			}
 		}
 	}
 
