@@ -7,14 +7,14 @@
   <!-- http://www.felga.it                                                 -->
   <!-- =================================================================== -->
 
-  <Template brand="Felga" part="EP1220" size="Other" width="210mm" height="261mm" description="Plant labels">
+  <Template brand="Felga" part="EP1220" size="other" width="210mm" height="261mm" description="Plant labels">
     <Label-rectangle id="0" width="20mm" height="100mm" round="0mm" x_waste="0mm" y_waste="0mm">
       <Markup-margin size="0mm"/>
       <Layout nx="10" ny="2" x0="5mm" y0="5mm" dx="20mm" dy="130mm"/>
     </Label-rectangle>
   </Template>
 
-  <Template brand="Felga" part="ES210" size="Other" width="595.276pt" height="793.701pt" description="Plant labels">
+  <Template brand="Felga" part="ES210" size="other" width="595.276pt" height="793.701pt" description="Plant labels">
     <Meta category="user-defined"/>
     <Label-rectangle id="0" width="595.276pt" height="36pt" round="0pt" x_waste="0pt" y_waste="0pt">
       <Markup-margin size="0pt"/>

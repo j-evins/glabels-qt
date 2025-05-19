@@ -37,7 +37,7 @@
   <!-- =================================================================== -->
   <!-- OfficeMax 86112: Multipurpose labels, 2'' x 4'', 3 per sheet        -->
   <!-- =================================================================== -->
-  <Template brand="OfficeMax" part="86112" size="Other" width="297pt" height="450pt"
+  <Template brand="OfficeMax" part="86112" size="other" width="297pt" height="450pt"
             _description="Multipurpose labels">
     <Meta category="label"/>
     <Label-rectangle id="0" width="288pt" height="144pt" round="9pt" waste="0pt">
