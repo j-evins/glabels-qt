@@ -100,9 +100,11 @@ namespace glabels
 	///
 	void PropertiesView::onLabelSizeChanged()
 	{
-		const model::Template* tmplate   = mModel->tmplate();
-		const model::Frame*    frame     = tmplate->frames().first();
-		bool                   isRotated = mModel->rotate();
+		auto* tmplate   = mModel->tmplate();
+		auto* frame     = tmplate->frames().first();
+		bool  isRotated = mModel->rotate();
+
+		auto* settings  = model::Settings::instance();
 
 		preview->setTemplate( tmplate );
 		preview->setShowArrow( true );
@@ -130,15 +132,9 @@ namespace glabels
 		}
 
 		descriptionLabel->setText( tmplate->description() );
-
-		QString pgSizeString = model::Db::lookupPaperNameFromId( tmplate->paperId() );
-		pageSizeLabel->setText( pgSizeString );
-
-		QString labelSizeString = frame->sizeDescription( mUnits );
-		labelSizeLabel->setText( labelSizeString );
-
-		QString layoutString = frame->layoutDescription();
-		layoutLabel->setText( layoutString );
+		pageSizeLabel->setText( tmplate->paperDescription( settings->units() ) );
+		labelSizeLabel->setText( frame->sizeDescription( settings->units() ) );
+		layoutLabel->setText( frame->layoutDescription() );
 
 		QStringList list = model::Db::getNameListOfSimilarTemplates( tmplate->name() );
 		if ( list.isEmpty() )

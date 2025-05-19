@@ -73,6 +73,7 @@ namespace glabels
 			QString part() const;
 			QString description() const;
 
+			QString paperDescription( const Units& units ) const;
 			QString paperId() const;
 			Distance pageWidth() const;
 			Distance pageHeight() const;

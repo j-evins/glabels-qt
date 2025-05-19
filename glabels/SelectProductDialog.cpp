@@ -230,15 +230,9 @@ namespace glabels
 		}
 
 		descriptionLabel->setText( tmplate->description() );
-
-		QString pgSizeString = model::Db::lookupPaperNameFromId( tmplate->paperId() );
-		pageSizeLabel->setText( pgSizeString );
-
-		QString labelSizeString = frame->sizeDescription( settings->units() );
-		labelSizeLabel->setText( labelSizeString );
-
-		QString layoutString = frame->layoutDescription();
-		layoutLabel->setText( layoutString );
+		pageSizeLabel->setText( tmplate->paperDescription( settings->units() ) );
+		labelSizeLabel->setText( frame->sizeDescription( settings->units() ) );
+		layoutLabel->setText( frame->layoutDescription() );
 
 		productInfoWidget->setVisible( true );
 		selectButton->setEnabled( true );
