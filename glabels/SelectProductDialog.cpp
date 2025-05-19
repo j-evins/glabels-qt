@@ -204,7 +204,6 @@ namespace glabels
 		}
 		
 		auto* frame     = tmplate->frames().first();
-		auto* settings  = model::Settings::instance();
 
 		preview->setTemplate( tmplate );
 
@@ -230,8 +229,8 @@ namespace glabels
 		}
 
 		descriptionLabel->setText( tmplate->description() );
-		pageSizeLabel->setText( tmplate->paperDescription( settings->units() ) );
-		labelSizeLabel->setText( frame->sizeDescription( settings->units() ) );
+		pageSizeLabel->setText( tmplate->paperDescription( model::Settings::units() ) );
+		labelSizeLabel->setText( frame->sizeDescription( model::Settings::units() ) );
 		layoutLabel->setText( frame->layoutDescription() );
 
 		productInfoWidget->setVisible( true );

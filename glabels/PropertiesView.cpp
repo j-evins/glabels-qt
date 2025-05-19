@@ -104,8 +104,6 @@ namespace glabels
 		auto* frame     = tmplate->frames().first();
 		bool  isRotated = mModel->rotate();
 
-		auto* settings  = model::Settings::instance();
-
 		preview->setTemplate( tmplate );
 		preview->setShowArrow( true );
 		preview->setRotate( isRotated );
@@ -132,8 +130,8 @@ namespace glabels
 		}
 
 		descriptionLabel->setText( tmplate->description() );
-		pageSizeLabel->setText( tmplate->paperDescription( settings->units() ) );
-		labelSizeLabel->setText( frame->sizeDescription( settings->units() ) );
+		pageSizeLabel->setText( tmplate->paperDescription( mUnits ) );
+		labelSizeLabel->setText( frame->sizeDescription( mUnits ) );
 		layoutLabel->setText( frame->layoutDescription() );
 
 		QStringList list = model::Db::getNameListOfSimilarTemplates( tmplate->name() );
