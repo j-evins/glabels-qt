@@ -38,6 +38,7 @@ namespace glabels
 	{
 	public:
 		static const int SIZE = 80;
+		static const int SMALL_SIZE = 24;
 
 		/////////////////////////////////
 		// Life Cycle

@@ -71,7 +71,7 @@ namespace glabels
 	{
 		setViewMode( QListView::ListMode );
 		setSpacing( 0 );
-		setIconSize( QSize( 24, 24 ) );
+		setIconSize( QSize( TemplatePickerItem::SMALL_SIZE, TemplatePickerItem::SMALL_SIZE ) );
 	}
 
 	
