@@ -20,6 +20,7 @@
 
 #include "SelectProductDialog.h"
 
+#include "Icons.h"
 #include "NotebookUtil.h"
 #include "TemplatePickerItem.h"
 
@@ -66,6 +67,21 @@ namespace glabels
 
 		NotebookUtil::establishSize( modeNotebook );
 
+		if ( model::Settings::templatePickerMode() == QListView::IconMode )
+		{
+			templatePicker->setGridView();
+
+			viewModeButton->setIcon( Icons::ViewList() );
+			viewModeButton->setToolTip( tr( "List View" ) );
+		}
+		else
+		{
+			templatePicker->setListView();
+
+			viewModeButton->setIcon( Icons::ViewGrid() );
+			viewModeButton->setToolTip( tr( "Grid View" ) );
+		}
+		
 		QList<model::Template*> tmplates = model::Db::templates();
 		templatePicker->setTemplates( tmplates );
 
@@ -187,6 +203,30 @@ namespace glabels
 
 
 		model::Settings::setSearchCategoryList( mCategoryIdList );
+	}
+
+
+	///
+	/// View Mode Button Clicked Slot
+	///
+	void SelectProductDialog::onViewModeButtonClicked()
+	{
+		if ( model::Settings::templatePickerMode() == QListView::IconMode )
+		{
+			templatePicker->setListView();
+			model::Settings::setTemplatePickerMode( QListView::ListMode );
+
+			viewModeButton->setIcon( Icons::ViewGrid() );
+			viewModeButton->setToolTip( tr( "Grid View" ) );
+		}
+		else
+		{
+			templatePicker->setGridView();
+			model::Settings::setTemplatePickerMode( QListView::IconMode );
+
+			viewModeButton->setIcon( Icons::ViewList() );
+			viewModeButton->setToolTip( tr( "List View" ) );
+		}
 	}
 
 

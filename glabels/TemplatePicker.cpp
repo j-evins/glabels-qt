@@ -33,12 +33,11 @@ namespace glabels
 	///
 	TemplatePicker::TemplatePicker( QWidget *parent ) : QListWidget(parent)
 	{
-		setViewMode( QListView::IconMode );
 		setResizeMode( QListView::Adjust );
-		setSpacing( 24 );
-		setWordWrap( true );
 		setUniformItemSizes( true );
-		setIconSize( QSize(TemplatePickerItem::SIZE, TemplatePickerItem::SIZE) );
+		setWordWrap( true );
+
+		setGridView();
 	}
 
 
@@ -54,6 +53,28 @@ namespace glabels
 	}
 
 
+	///
+	/// Set Grid View
+	///
+	void TemplatePicker::setGridView()
+	{
+		setViewMode( QListView::IconMode );
+		setSpacing( 24 );
+		setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
+	}
+
+	
+	///
+	/// Set List View
+	///
+	void TemplatePicker::setListView()
+	{
+		setViewMode( QListView::ListMode );
+		setSpacing( 0 );
+		setIconSize( QSize( 24, 24 ) );
+	}
+
+	
 	///
 	/// Apply Filter to Narrow Template Choices by search criteria
 	///

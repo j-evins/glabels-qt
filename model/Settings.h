@@ -24,6 +24,7 @@
 
 #include "Distance.h"
 
+#include <QListView>
 #include <QSettings>
 #include <QStringList>
 
@@ -87,6 +88,9 @@ namespace glabels
 			static QStringList searchCategoryList();
 			static void setSearchCategoryList( const QStringList& searchCategoryList );
 
+			static QListView::ViewMode templatePickerMode();
+			static void setTemplatePickerMode( QListView::ViewMode viewMode );
+
 			static QStringList recentTemplateList();
 			static void addToRecentTemplateList( const QString& name );
 
@@ -94,7 +98,7 @@ namespace glabels
 			static QStringList recentFileList();
 			static void addToRecentFileList( const QString& filePath );
 
-
+			
 		private:
 			static Settings* mInstance;
 			static const int mMaxRecentFiles{5};

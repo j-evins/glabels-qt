@@ -541,6 +541,26 @@ namespace glabels
 			}
 		};
 
+
+		class ViewGrid : public QIcon
+		{
+		public:
+			ViewGrid()
+			{
+				addPixmap( QPixmap( ":icons/flat/22x22/glabels-view-grid.svg" ) );
+			}
+		};
+
+
+		class ViewList : public QIcon
+		{
+		public:
+			ViewList()
+			{
+				addPixmap( QPixmap( ":icons/flat/22x22/glabels-view-list.svg" ) );
+			}
+		};
+
 	}
 
 }

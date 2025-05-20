@@ -2116,6 +2116,17 @@
     </message>
 </context>
 <context>
+    <name>glabels::SelectProductDialog</name>
+    <message>
+        <source>List View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid View</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>glabels::SimplePreview</name>
     <message>
         <source>Up</source>

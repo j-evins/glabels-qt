@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1074</width>
+    <width>1078</width>
     <height>796</height>
    </rect>
   </property>
@@ -473,6 +473,23 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
+      <widget class="QPushButton" name="viewModeButton">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/flat/22x22/glabels-view-grid.svg</normaloff>:/icons/flat/22x22/glabels-view-grid.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -532,8 +549,8 @@
    <slot>onPageSizeCheckClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>104</x>
-     <y>220</y>
+     <x>130</x>
+     <y>196</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
@@ -564,8 +581,8 @@
    <slot>onPageSizeCheckClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>106</x>
-     <y>193</y>
+     <x>132</x>
+     <y>170</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -580,8 +597,8 @@
    <slot>onCancelButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>977</x>
-     <y>785</y>
+     <x>981</x>
+     <y>783</y>
     </hint>
     <hint type="destinationlabel">
      <x>689</x>
@@ -596,8 +613,8 @@
    <slot>onSearchEntryTextChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>93</x>
-     <y>104</y>
+     <x>107</x>
+     <y>102</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -612,8 +629,8 @@
    <slot>onCategoryRadioClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>101</x>
-     <y>323</y>
+     <x>126</x>
+     <y>296</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -628,8 +645,8 @@
    <slot>onCategoryRadioClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>97</x>
-     <y>350</y>
+     <x>122</x>
+     <y>322</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -669,6 +686,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>viewModeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SelectProductDialog</receiver>
+   <slot>onViewModeButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>760</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-2</x>
+     <y>762</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onSearchClearButtonClicked()</slot>
@@ -680,6 +713,6 @@
   <slot>onPageSizeCheckClicked()</slot>
   <slot>onCategoryRadioClicked()</slot>
   <slot>onModeTabChanged()</slot>
-  <slot>slot1()</slot>
+  <slot>onViewModeButtonClicked()</slot>
  </slots>
 </ui>

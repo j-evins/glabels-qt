@@ -262,6 +262,28 @@ namespace glabels
 		}
 
 
+		QListView::ViewMode Settings::templatePickerMode()
+		{
+			QString defaultMode = "icon";
+	
+			mInstance->beginGroup( "TemplatePicker" );
+			QString returnMode = mInstance->value( "viewMode", defaultMode ).toString();
+			mInstance->endGroup();
+
+			return returnMode == "icon" ? QListView::IconMode : QListView::ListMode;
+		}
+
+
+		void Settings::setTemplatePickerMode( QListView::ViewMode viewMode )
+		{
+			mInstance->beginGroup( "TemplatePicker" );
+			mInstance->setValue( "viewMode", viewMode == QListView::IconMode ? "icon" : "list" );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
 		QStringList Settings::recentTemplateList()
 		{
 			QStringList defaultList;

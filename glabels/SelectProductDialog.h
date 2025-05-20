@@ -58,6 +58,7 @@ namespace glabels
 		void onPageSizeCheckClicked();
 		void onCategoryRadioClicked();
 		void onCategoryCheckClicked();
+		void onViewModeButtonClicked();
 		void onTemplatePickerSelectionChanged();
 		void onSelectButtonClicked();
 		void onCancelButtonClicked();

@@ -51,6 +51,8 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		void setTemplates( const QList <model::Template*> &tmplates );
+		void setGridView();
+		void setListView();
 
 
 		/////////////////////////////////
