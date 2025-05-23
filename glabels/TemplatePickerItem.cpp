@@ -46,6 +46,24 @@ namespace glabels
 
 
 	///
+	/// Configure for Grid View
+	///
+	void TemplatePickerItem::setGridView()
+	{
+		setText( mTmplate->name() );
+	}
+
+
+	///
+	/// Configure for List View
+	///
+	void TemplatePickerItem::setListView()
+	{
+		setText( "<b>" + mTmplate->name() + "</b><br/>" + mTmplate->description() );
+	}
+
+
+	///
 	/// Template Property Getter
 	///
 	const model::Template *TemplatePickerItem::tmplate() const

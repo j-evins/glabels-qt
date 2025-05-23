@@ -18,11 +18,76 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TemplatePicker.h"
 
 #include "TemplatePickerItem.h"
 
+#include <QAbstractTextDocumentLayout>
+#include <QApplication>
 #include <QIcon>
+#include <QPainter>
+#include <QStyledItemDelegate>
+
+#include <algorithm>
+
+
+namespace
+{
+
+	//
+	// Custom item delegate to render text as HTML in List View
+	//
+	// Based on solutions at
+	// https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt/1956781#1956781
+	// Note:  assumes that the text rectangle does not need to be resized, so does not reimplement sizeHint().
+	//        This delegate does not work correctly in IconMode, and may not work correctly in other applications
+	//        where the height is not dominated by the icon.
+	//
+	class HtmlDelegate : public QStyledItemDelegate
+	{
+	protected:
+		void paint ( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
+	};
+
+
+	void HtmlDelegate::paint( QPainter*                   painter,
+	                          const QStyleOptionViewItem& option,
+	                          const QModelIndex&          index) const
+	{
+		auto opt = option;
+		initStyleOption( &opt, index );
+
+		QStyle *style = opt.widget? opt.widget->style() : QApplication::style();
+
+		QTextDocument doc;
+		doc.setHtml( opt.text );
+
+		/// Painting everything other than text
+		opt.text = QString();
+		style->drawControl( QStyle::CE_ItemViewItem, &opt, painter );
+
+		QAbstractTextDocumentLayout::PaintContext ctx;
+
+		// Highlighting text if item is selected
+		if ( opt.state & QStyle::State_Selected )
+		{
+			ctx.palette.setColor( QPalette::Text, opt.palette.color( QPalette::Active, QPalette::HighlightedText ) );
+		}
+		else
+		{
+			ctx.palette.setColor( QPalette::Text, opt.palette.color( QPalette::Active, QPalette::Text ) );
+		}
+
+		QRect textRect = style->subElementRect( QStyle::SE_ItemViewItemText, &opt );
+		painter->save();
+		painter->translate( textRect.topLeft() );
+		painter->setClipRect( textRect.translated( -textRect.topLeft() ) );
+		doc.documentLayout()->draw( painter, ctx );
+		painter->restore();
+	}
+
+}
 
 
 namespace glabels
@@ -36,6 +101,7 @@ namespace glabels
 		setResizeMode( QListView::Adjust );
 		setUniformItemSizes( true );
 		setWordWrap( true );
+		setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
 
 		setGridView();
 	}
@@ -58,9 +124,17 @@ namespace glabels
 	///
 	void TemplatePicker::setGridView()
 	{
+		for ( unsigned int i = 0; i < count(); i++ )
+		{
+			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
+			{
+				tItem->setGridView();
+			}
+		}
+
+		setItemDelegate( new QStyledItemDelegate() ); // Use default delegate
 		setViewMode( QListView::IconMode );
 		setSpacing( 24 );
-		setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
 	}
 
 	
@@ -69,9 +143,17 @@ namespace glabels
 	///
 	void TemplatePicker::setListView()
 	{
+		for ( unsigned int i = 0; i < count(); i++ )
+		{
+			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
+			{
+				tItem->setListView();
+			}
+		}
+
+		setItemDelegate( new HtmlDelegate() );
 		setViewMode( QListView::ListMode );
-		setSpacing( 0 );
-		setIconSize( QSize( TemplatePickerItem::SMALL_SIZE, TemplatePickerItem::SMALL_SIZE ) );
+		setSpacing( 8 );
 	}
 
 	
@@ -82,9 +164,9 @@ namespace glabels
 	                                  bool isoMask, bool usMask, bool otherMask,
 	                                  bool anyCategory, const QStringList& categoryIds )
 	{
-		foreach ( QListWidgetItem *item, findItems( "*", Qt::MatchWildcard ) )
+		for ( unsigned int i = 0; i < count(); i++ )
 		{
-			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item))
+			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
 				bool nameMask = tItem->tmplate()->name().contains( searchString, Qt::CaseInsensitive );
 		
@@ -110,12 +192,12 @@ namespace glabels
 
 				if (  nameMask && sizeMask && categoryMask )
 				{
-					item->setHidden( false );
+					tItem->setHidden( false );
 				}
 				else
 				{
-					item->setHidden( true );
-					item->setSelected( false );
+					tItem->setHidden( true );
+					tItem->setSelected( false );
 				}
 			}
 		}
@@ -127,9 +209,9 @@ namespace glabels
 	///
 	void TemplatePicker::applyFilter( const QStringList& names )
 	{
-		foreach ( QListWidgetItem *item, findItems( "*", Qt::MatchWildcard ) )
+		for ( unsigned int i = 0; i < count(); i++ )
 		{
-			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item))
+			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
 				bool match = false;
 				foreach ( QString name, names )
@@ -143,12 +225,12 @@ namespace glabels
 
 				if (  match )
 				{
-					item->setHidden( false );
+					tItem->setHidden( false );
 				}
 				else
 				{
-					item->setHidden( true );
-					item->setSelected( false );
+					tItem->setHidden( true );
+					tItem->setSelected( false );
 				}
 			}
 		}
