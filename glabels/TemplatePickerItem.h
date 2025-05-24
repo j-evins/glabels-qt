@@ -44,15 +44,16 @@ namespace glabels
 		// Life Cycle
 		/////////////////////////////////
 	public:
-		TemplatePickerItem( model::Template *tmplate, QListWidget *parent = nullptr );
+		TemplatePickerItem( model::Template*    tmplate,
+		                    QListView::ViewMode mode,
+		                    QListWidget*        parent = nullptr );
 
 
 		/////////////////////////////////
 		// Manipulate widget
 		/////////////////////////////////
 	public:
-		void setGridView();
-		void setListView();
+		void setMode( QListView::ViewMode mode );
 
 
 		/////////////////////////////////

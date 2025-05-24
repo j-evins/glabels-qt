@@ -23,6 +23,8 @@
 
 #include "TemplatePickerItem.h"
 
+#include "model/Settings.h"
+
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QIcon>
@@ -103,7 +105,7 @@ namespace glabels
 		setWordWrap( true );
 		setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
 
-		setGridView();
+		setMode( model::Settings::templatePickerMode() );
 	}
 
 
@@ -112,51 +114,63 @@ namespace glabels
 	///
 	void TemplatePicker::setTemplates( const QList <model::Template*> &tmplates )
 	{
+		auto mode = model::Settings::templatePickerMode();
+		
 		foreach (model::Template *tmplate, tmplates)
 		{
-			new TemplatePickerItem( tmplate, this );
+			new TemplatePickerItem( tmplate, mode, this );
 		}
 	}
 
 
 	///
-	/// Set Grid View
+	/// Set View Mode
 	///
-	void TemplatePicker::setGridView()
+	void TemplatePicker::setMode( QListView::ViewMode mode )
 	{
+		model::Settings::setTemplatePickerMode( mode );
+		
 		for ( unsigned int i = 0; i < count(); i++ )
 		{
 			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
-				tItem->setGridView();
+				tItem->setMode( mode );
 			}
 		}
 
-		setItemDelegate( new QStyledItemDelegate() ); // Use default delegate
-		setViewMode( QListView::IconMode );
-		setSpacing( 24 );
-	}
-
-	
-	///
-	/// Set List View
-	///
-	void TemplatePicker::setListView()
-	{
-		for ( unsigned int i = 0; i < count(); i++ )
+		switch ( mode )
 		{
-			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
-			{
-				tItem->setListView();
-			}
+			
+		case QListView::IconMode:
+			setItemDelegate( new QStyledItemDelegate() ); // Use default delegate
+			setViewMode( QListView::IconMode );
+			setSpacing( 24 );
+			break;
+
+		case QListView::ListMode:
+			setItemDelegate( new HtmlDelegate() );
+			setViewMode( QListView::ListMode );
+			setSpacing( 8 );
+			break;
+			
+		default:
+			qWarning() << "TemplatePicker: unknown mode!";
+			break;
+
 		}
 
-		setItemDelegate( new HtmlDelegate() );
-		setViewMode( QListView::ListMode );
-		setSpacing( 8 );
 	}
 
 	
+	///
+	/// Get current View Mode
+	///
+	QListView::ViewMode TemplatePicker::mode() const
+	{
+		return model::Settings::templatePickerMode();
+	}
+
+
 	///
 	/// Apply Filter to Narrow Template Choices by search criteria
 	///

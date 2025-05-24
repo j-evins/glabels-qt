@@ -67,17 +67,13 @@ namespace glabels
 
 		NotebookUtil::establishSize( modeNotebook );
 
-		if ( model::Settings::templatePickerMode() == QListView::IconMode )
+		if ( templatePicker->mode() == QListView::IconMode )
 		{
-			templatePicker->setGridView();
-
 			viewModeButton->setIcon( Icons::ViewList() );
 			viewModeButton->setToolTip( tr( "List View" ) );
 		}
 		else
 		{
-			templatePicker->setListView();
-
 			viewModeButton->setIcon( Icons::ViewGrid() );
 			viewModeButton->setToolTip( tr( "Grid View" ) );
 		}
@@ -211,21 +207,19 @@ namespace glabels
 	///
 	void SelectProductDialog::onViewModeButtonClicked()
 	{
-		if ( model::Settings::templatePickerMode() == QListView::IconMode )
+		if ( templatePicker->mode() == QListView::IconMode )
 		{
-			templatePicker->setListView();
-			model::Settings::setTemplatePickerMode( QListView::ListMode );
-
-			viewModeButton->setIcon( Icons::ViewGrid() );
-			viewModeButton->setToolTip( tr( "Grid View" ) );
-		}
-		else
-		{
-			templatePicker->setGridView();
-			model::Settings::setTemplatePickerMode( QListView::IconMode );
+			templatePicker->setMode( QListView::ListMode );
 
 			viewModeButton->setIcon( Icons::ViewList() );
 			viewModeButton->setToolTip( tr( "List View" ) );
+		}
+		else
+		{
+			templatePicker->setMode( QListView::IconMode );
+
+			viewModeButton->setIcon( Icons::ViewGrid() );
+			viewModeButton->setToolTip( tr( "Grid View" ) );
 		}
 	}
 

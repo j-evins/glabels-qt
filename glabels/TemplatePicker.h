@@ -38,7 +38,6 @@ namespace glabels
 	{
 		Q_OBJECT
 
-
 		/////////////////////////////////
 		// Life Cycle
 		/////////////////////////////////
@@ -51,8 +50,9 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		void setTemplates( const QList <model::Template*> &tmplates );
-		void setGridView();
-		void setListView();
+
+		void setMode( QListView::ViewMode mode );
+		QListView::ViewMode mode() const;
 
 
 		/////////////////////////////////

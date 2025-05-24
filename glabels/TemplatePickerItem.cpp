@@ -33,33 +33,41 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	TemplatePickerItem::TemplatePickerItem( model::Template *tmplate, QListWidget *parent )
-		: QListWidgetItem(parent)
+	TemplatePickerItem::TemplatePickerItem( model::Template*    tmplate,
+	                                        QListView::ViewMode mode,
+	                                        QListWidget*        parent )
+		: QListWidgetItem( parent )
 	{
 		mTmplate = tmplate;
 
 		setIcon( QIcon( MiniPreviewPixmap( tmplate, SIZE, SIZE ) ) );
-		setText( tmplate->name() );
+		setMode( mode );
 		
 		setFlags( Qt::ItemIsSelectable | Qt::ItemIsEnabled );
 	}
 
 
 	///
-	/// Configure for Grid View
+	/// Configure for given View Mode
 	///
-	void TemplatePickerItem::setGridView()
+	void TemplatePickerItem::setMode( QListView::ViewMode mode )
 	{
-		setText( mTmplate->name() );
-	}
+		switch ( mode )
+		{
+			
+		case QListView::IconMode:
+			setText( mTmplate->name() );
+			break;
 
+		case QListView::ListMode:
+			setText( "<b>" + mTmplate->name() + "</b><br/>" + mTmplate->description() );
+			break;
+			
+		default:
+			qWarning() << "TemplatePickerItem: unknown mode!";
+			break;
 
-	///
-	/// Configure for List View
-	///
-	void TemplatePickerItem::setListView()
-	{
-		setText( "<b>" + mTmplate->name() + "</b><br/>" + mTmplate->description() );
+		}
 	}
 
 
