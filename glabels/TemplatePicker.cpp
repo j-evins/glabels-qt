@@ -98,7 +98,7 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	TemplatePicker::TemplatePicker( QWidget *parent ) : QListWidget(parent)
+	TemplatePicker::TemplatePicker( QWidget* parent ) : QListWidget(parent)
 	{
 		setResizeMode( QListView::Adjust );
 		setUniformItemSizes( true );
@@ -112,7 +112,7 @@ namespace glabels
 	///
 	/// Set List of Templates to Pick From
 	///
-	void TemplatePicker::setTemplates( const QList <model::Template*> &tmplates )
+	void TemplatePicker::setTemplates( const QList<model::Template*>& tmplates )
 	{
 		auto mode = model::Settings::templatePickerMode();
 		
@@ -159,6 +159,10 @@ namespace glabels
 
 		}
 
+		if ( auto* selected = selectedItem() )
+		{
+			scrollToItem( selected, QAbstractItemView::PositionAtCenter );
+		}
 	}
 
 	
@@ -180,7 +184,7 @@ namespace glabels
 	{
 		for ( unsigned int i = 0; i < count(); i++ )
 		{
-			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
+			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
 				bool nameMask = tItem->tmplate()->name().contains( searchString, Qt::CaseInsensitive );
 		
@@ -215,6 +219,11 @@ namespace glabels
 				}
 			}
 		}
+
+		if ( auto* selected = selectedItem() )
+		{
+			scrollToItem( selected, QAbstractItemView::PositionAtCenter );
+		}
 	}
 
 
@@ -248,24 +257,41 @@ namespace glabels
 				}
 			}
 		}
+
+		if ( auto* selected = selectedItem() )
+		{
+			scrollToItem( selected, QAbstractItemView::PositionAtCenter );
+		}
 	}
 
 
 	///
 	/// Get Currently Selected Template
 	///
-	const model::Template *TemplatePicker::selectedTemplate()
+	const model::Template* TemplatePicker::selectedTemplate() const
 	{
-		QList<QListWidgetItem *> items = selectedItems();
-		if ( !items.isEmpty() )
+		if ( auto* tItem = selectedItem() )
 		{
-			if (auto *tItem = dynamic_cast<TemplatePickerItem*>(items.first()))
-			{
-				return tItem->tmplate();
-			}
+			return tItem->tmplate();
 		}
 		
 		return nullptr;
 	}
+
+
+	///
+	/// Get Currently Selected Item
+	///
+	TemplatePickerItem* TemplatePicker::selectedItem() const
+	{
+		QList<QListWidgetItem*> items = selectedItems();
+		if ( !items.isEmpty() )
+		{
+			return dynamic_cast<TemplatePickerItem*>( items.first() );
+		}
+		
+		return nullptr;
+	}
+
 
 } // namespace glabels
