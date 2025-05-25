@@ -22,6 +22,8 @@
 
 #include "MiniPreviewPixmap.h"
 
+#include "model/Settings.h"
+
 #include <QHBoxLayout>
 #include <QIcon>
 #include <QListWidgetItem>
@@ -52,6 +54,8 @@ namespace glabels
 	///
 	void TemplatePickerItem::setMode( QListView::ViewMode mode )
 	{
+		auto* frame = mTmplate->frames().first();
+
 		switch ( mode )
 		{
 			
@@ -60,7 +64,10 @@ namespace glabels
 			break;
 
 		case QListView::ListMode:
-			setText( "<b>" + mTmplate->name() + "</b><br/>" + mTmplate->description() );
+			setText( "<b>" + mTmplate->name() + "</b><br/>" +
+			         mTmplate->description() + "<br/>" +
+			         frame->sizeDescription( model::Settings::units() ) + "<br/>" +
+			         frame->layoutDescription() );
 			break;
 			
 		default:
