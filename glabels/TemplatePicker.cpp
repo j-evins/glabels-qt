@@ -43,8 +43,8 @@ namespace
 	// Based on solutions at
 	// https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt/1956781#1956781
 	// Note:  assumes that the text rectangle does not need to be resized, so does not reimplement sizeHint().
-	//        This delegate does not work correctly in IconMode, and may not work correctly in other applications
-	//        where the height is not dominated by the icon.
+	//        This delegate does not work correctly in IconMode, and may not work correctly in other applications,
+	//        for instance, when the height is not dominated by the icon.
 	//
 	class HtmlDelegate : public QStyledItemDelegate
 	{

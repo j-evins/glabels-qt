@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "SimplePreview.h"
 
 #include "RollTemplatePath.h"

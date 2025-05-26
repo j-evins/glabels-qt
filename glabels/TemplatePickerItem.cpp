@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TemplatePickerItem.h"
 
 #include "MiniPreviewPixmap.h"
