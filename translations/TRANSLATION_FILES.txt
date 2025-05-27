@@ -26,6 +26,7 @@ set (GLABELS_TS_FILES
   glabels_nb.ts
   glabels_nl.ts
   glabels_oc.ts
+  glabels_pl.ts
   glabels_pt_BR.ts
   glabels_pt.ts
   glabels_ro.ts
