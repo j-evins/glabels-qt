@@ -457,6 +457,18 @@
       <Layout nx="2" ny="4" x0="6mm" y0="13mm" dx="101.1mm" dy="67.7mm"/>
     </Label-rectangle>
   </Template>
+  
+   <!-- =================================================================== -->
+   <!-- Q_CONNECT multipurpose labels, 33 per sheet.                        -->
+   <!-- =================================================================== -->
+   <Template brand="Q-CONNECT" part="KF10640" size="A4" _description="Multipurpose labels">
+     <Meta category="label"/>
+     <Meta category="rectangle-label"/>
+     <Label-rectangle id="0" width="70mm" height="25mm" round="0mm" x_waste="0mm" y_waste="0mm">
+       <Markup-margin size="0mm"/>
+       <Layout nx="3" ny="11" x0="0mm" y0="11mm" dx="70mm" dy="25mm"/>
+     </Label-rectangle>
+   </Template>
 
 
   <!-- ************************* -->
