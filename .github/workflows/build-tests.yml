@@ -4,6 +4,7 @@
 #     - ubuntu-latest  - clang
 #     - ubuntu-24.04   - gcc   (For backwards compatablity)
 #     - windows-latest - cl
+#     - macos-latest   - clang
 #
 # TODO:
 #     - macos
@@ -25,7 +26,7 @@ jobs:
       fail-fast: false
 
       matrix:
-        os: [ubuntu-latest, ubuntu-22.04, windows-latest]
+        os: [ubuntu-latest, ubuntu-22.04, windows-latest, macos-latest]
         build_type: [Release]
         c_compiler: [gcc, clang, cl]
         include:
@@ -41,6 +42,9 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
+          - os: macos-latest
+            c_compiler: clang
+            cpp_compiler: clang++
         exclude:
           - os: ubuntu-latest
             c_compiler: cl
@@ -52,6 +56,10 @@ jobs:
             c_compiler: gcc
           - os: windows-latest
             c_compiler: clang
+          - os: macos-latest
+            c_compiler: gcc
+          - os: macos-latest
+            c_compiler: cl
 
     steps:
     - name: Checkout
@@ -106,5 +114,10 @@ jobs:
 
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ctest --build-config ${{ matrix.build_type }}
+
+    - name: Test (MacOS)
+      if: startsWith( matrix.os, 'macos-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: ctest --build-config ${{ matrix.build_type }}
