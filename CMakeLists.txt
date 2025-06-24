@@ -70,7 +70,7 @@ set(VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}-${BRANCH}$
 set(LONG_VERSION_STRING "${VERSION_STRING} (${COMMIT_HASH} ${COMMIT_DATE})")
 
 # Auto-generate version file
-configure_file (.version.in VERSION @ONLY)
+configure_file (VERSION.txt.in VERSION.txt @ONLY)
 
 
 #=======================================
