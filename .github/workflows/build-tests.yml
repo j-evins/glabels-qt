@@ -91,7 +91,7 @@ jobs:
         #  - 2.6.5 is last version that works with glabels-qt
         #  - currently must be done before qt installed, because of errors
         #    trying to build qzint
-        curl -L https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
+        curl -L -0 https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )

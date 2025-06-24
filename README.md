@@ -88,4 +88,3 @@ restrictive licensing:
    label database.  No copyright is claimed on the facts contained within
    the database and can be used for any purpose.  The files themselves are
    licensed using the MIT/X license.  See [templates/LICENSE](templates/LICENSE).
-
