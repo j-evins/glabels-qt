@@ -26,21 +26,25 @@ jobs:
       fail-fast: false
 
       matrix:
-        build_type: [Release]
         include:
           - os: ubuntu-latest
+            build_type: Release
             c_compiler: gcc
             cpp_compiler: g++
           - os: ubuntu-latest
+            build_type: Release
             c_compiler: clang
             cpp_compiler: clang++
           - os: ubuntu-22.04
+            build_type: Release
             c_compiler: gcc
             cpp_compiler: g++
           - os: windows-latest
+            build_type: Release
             c_compiler: cl
             cpp_compiler: cl
           - os: macos-latest
+            build_type: Release
             c_compiler: clang
             cpp_compiler: clang++
 
