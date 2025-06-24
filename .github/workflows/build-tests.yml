@@ -69,8 +69,8 @@ jobs:
         fetch-depth: 0
 
     - name: Install optional dependencies (Ubuntu)
-      shell: bash
       if: startsWith( matrix.os, 'ubuntu-' )
+      shell: bash
       run: |
         # install packages
         sudo apt-get update
@@ -84,18 +84,18 @@ jobs:
         wget https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
 
     - name: Install optional dependencies (Windows)
-      shell: bash
       if: startsWith( matrix.os, 'windows-' )
+      shell: bash
       run: |
         # install zint-2.6.5 from source
         #  - 2.6.5 is last version that works with glabels-qt
         #  - currently must be done before qt installed, because of errors
         #    trying to build qzint
-        wget https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
+        curl https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
 
     - name: Install optional dependencies (MacOS)
-      shell: bash
       if: startsWith( matrix.os, 'macos-' )
+      shell: bash
       run: |
         # install zint-2.6.5 from source
         #  - 2.6.5 is last version that works with glabels-qt
