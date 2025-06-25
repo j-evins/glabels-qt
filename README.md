@@ -13,7 +13,7 @@ gLabels-qt is the development version of the next major version of gLabels (a.k.
 
 ## What's new in gLabels 4?
 
-- A complete rewrite, based on the Qt5 framework.
+- A complete rewrite, based on the Qt6 framework.
 - A new UI layout based on common activities.
 - Cross-platform support
 - User-defined variables
