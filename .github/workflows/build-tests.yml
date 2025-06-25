@@ -7,8 +7,7 @@
 #     - macos-latest   - clang
 #
 # TODO:
-#     - macos
-#     - install optional dependencies for windows-latest test build
+#     - install optional dependencies for windows-latest and macos-latest
       
 
 name: Multi-Platform Build Tests
