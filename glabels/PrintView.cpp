@@ -18,8 +18,12 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "PrintView.h"
 
+#include "model/Settings.h"
+
+#include <QPrinter>
 #include <QPrintDialog>
 #include <QtDebug>
 
@@ -38,25 +42,6 @@ namespace glabels
 		titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Print") ) );
 
 		preview->setRenderer( &mRenderer );
-		mPrinter = new QPrinter( QPrinter::HighResolution );
-		mPrinter->setColorMode( QPrinter::Color );
-
-		mPrintDialog = new QPrintDialog( mPrinter, this );
-		mPrintDialog->setOption( QAbstractPrintDialog::PrintToFile,        true );
-		mPrintDialog->setOption( QAbstractPrintDialog::PrintSelection,     false );
-		mPrintDialog->setOption( QAbstractPrintDialog::PrintPageRange,     false );
-		mPrintDialog->setOption( QAbstractPrintDialog::PrintShowPageSize,  true );
-		mPrintDialog->setOption( QAbstractPrintDialog::PrintCollateCopies, false );
-		mPrintDialog->setOption( QAbstractPrintDialog::PrintCurrentPage,   false );
-	}
-
-
-	///
-	/// Destructor
-	///
-	PrintView::~PrintView()
-	{
-		delete mPrinter;
 	}
 
 
@@ -200,10 +185,25 @@ namespace glabels
 	///
 	void PrintView::onPrintButtonClicked()
 	{
-		if ( mPrintDialog->exec() == QDialog::Accepted )
+		QPrinter printer( QPrinter::HighResolution );
+		printer.setColorMode( QPrinter::Color );
+		printer.setPrinterName( model::Settings::recentPrinter() );
+
+		QPrintDialog printDialog( &printer, this );
+		printDialog.setOption( QAbstractPrintDialog::PrintToFile,        true );
+		printDialog.setOption( QAbstractPrintDialog::PrintSelection,     false );
+		printDialog.setOption( QAbstractPrintDialog::PrintPageRange,     false );
+		printDialog.setOption( QAbstractPrintDialog::PrintShowPageSize,  true );
+		printDialog.setOption( QAbstractPrintDialog::PrintCollateCopies, false );
+		printDialog.setOption( QAbstractPrintDialog::PrintCurrentPage,   false );
+
+		if ( printDialog.exec() == QDialog::Accepted )
 		{
-			mRenderer.print( mPrinter );
+			mRenderer.print( &printer );
+
+			model::Settings::setRecentPrinter( printer.printerName() );
 		}
 	}
+
 
 } // namespace glabels

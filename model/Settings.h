@@ -98,6 +98,9 @@ namespace glabels
 			static QStringList recentFileList();
 			static void addToRecentFileList( const QString& filePath );
 
+			static QString recentPrinter();
+			static void setRecentPrinter( const QString& printer );
+
 			
 		private:
 			static Settings* mInstance;

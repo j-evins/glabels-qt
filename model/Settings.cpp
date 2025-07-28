@@ -22,6 +22,7 @@
 #include "Settings.h"
 
 #include <QLocale>
+#include <QPrinterInfo>
 #include <QString>
 #include <QtDebug>
 
@@ -354,6 +355,24 @@ namespace glabels
 			mInstance->endGroup();
 
 			emit mInstance->changed();
+		}
+
+
+		QString Settings::recentPrinter()
+		{
+			mInstance->beginGroup( "Recent" );
+			QString printer = mInstance->value( "printer", QPrinterInfo::defaultPrinterName() ).toString();
+			mInstance->endGroup();
+
+			return printer;
+		}
+
+
+		void Settings::setRecentPrinter( const QString& printer )
+		{
+			mInstance->beginGroup( "Recent" );
+			mInstance->setValue( "printer", printer );
+			mInstance->endGroup();
 		}
 
 	}
