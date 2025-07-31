@@ -1164,6 +1164,33 @@ namespace glabels
 
 
 		///
+		/// Align Selected Objects To Center Of Label Both Horizontally and Vertically
+		///
+		void Model::centerSelection()
+		{
+			Distance xLabelCenter = w() / 2.0;
+			Distance yLabelCenter = h() / 2.0;
+
+			foreach ( ModelObject* object, mObjectList )
+			{
+				if ( object->isSelected() )
+				{
+					Region r = object->getExtent();
+					Distance xObjectCenter = (r.x1() + r.x2()) / 2.0;
+					Distance yObjectCenter = (r.y1() + r.y2()) / 2.0;
+					Distance dx = xLabelCenter - xObjectCenter;
+					Distance dy = yLabelCenter - yObjectCenter;
+					object->setPositionRelative( dx, dy );
+				}
+			}
+
+			setModified();
+
+			emit changed();
+		}
+
+
+		///
 		/// Align Selected Objects To Center Of Label Vertically
 		///
 		void Model::centerSelectionVert()

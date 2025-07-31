@@ -142,6 +142,7 @@ namespace glabels
 		void objectsAlignTop();
 		void objectsAlignVCenter();
 		void objectsAlignBottom();
+		void objectsCenter();
 		void objectsCenterHoriz();
 		void objectsCenterVert();
 
@@ -301,6 +302,7 @@ namespace glabels
 		QAction*  objectsAlignTopAction;
 		QAction*  objectsAlignVCenterAction;
 		QAction*  objectsAlignBottomAction;
+		QAction*  objectsCenterAction;
 		QAction*  objectsCenterHorizAction;
 		QAction*  objectsCenterVertAction;
 

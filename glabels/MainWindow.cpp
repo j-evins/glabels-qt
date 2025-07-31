@@ -574,6 +574,11 @@ namespace glabels
 		objectsCenterVertAction->setStatusTip( tr("Vertically center objects in label") );
 		connect( objectsCenterVertAction, SIGNAL(triggered()), this, SLOT(objectsCenterVert()) );
 
+		objectsCenterAction = new QAction( tr("Center Both"), this );
+		objectsCenterAction->setIcon( Icons::Center() );
+		objectsCenterAction->setStatusTip( tr("Center objects in label") );
+		connect( objectsCenterAction, SIGNAL(triggered()), this, SLOT(objectsCenter()) );
+
 
 		/* Help actions */
 		helpContentsAction = new QAction( tr("&User Manual..."), this );
@@ -698,6 +703,7 @@ namespace glabels
 		objectsCenterMenu = objectsMenu->addMenu( tr("Center") );
 		objectsCenterMenu->addAction( objectsCenterHorizAction );
 		objectsCenterMenu->addAction( objectsCenterVertAction );
+		objectsCenterMenu->addAction( objectsCenterAction );
 
 		helpMenu = menuBar()->addMenu( tr("&Help") );
 		helpMenu->addAction( helpContentsAction );
@@ -724,6 +730,7 @@ namespace glabels
 		contextCenterMenu = contextMenu->addMenu( tr("Center") );
 		contextCenterMenu->addAction( objectsCenterHorizAction );
 		contextCenterMenu->addAction( objectsCenterVertAction );
+		contextCenterMenu->addAction( objectsCenterAction );
 		contextMenu->addSeparator();
 		contextMenu->addAction( contextCutAction );
 		contextMenu->addAction( contextCopyAction );
@@ -1005,6 +1012,7 @@ namespace glabels
 		objectsCenterMenu->setEnabled( isEditorPage && hasSelection );
 		objectsCenterHorizAction->setEnabled( isEditorPage && hasSelection );
 		objectsCenterVertAction->setEnabled( isEditorPage && hasSelection );
+		objectsCenterAction->setEnabled( isEditorPage && hasSelection );
 
 		// Help actions
 		helpContentsAction->setEnabled( true );
@@ -1647,6 +1655,16 @@ namespace glabels
 	{
 		mUndoRedoModel->checkpoint( tr("Center Horizontally") );
 		mModel->centerSelectionHoriz();
+	}
+
+
+	///
+	/// Objects->Center Action
+	///
+	void MainWindow::objectsCenter()
+	{
+		mUndoRedoModel->checkpoint( tr("Center") );
+		mModel->centerSelection();
 	}
 
 

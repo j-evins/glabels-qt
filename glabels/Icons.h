@@ -188,6 +188,16 @@ namespace glabels
 		};
 
 
+		class Center : public QIcon
+		{
+		public:
+			Center()
+			{
+				addPixmap( QPixmap( ":icons/flat/16x16/glabels-center.svg" ) );
+			}
+		};
+
+
 		class CenterHoriz : public QIcon
 		{
 		public:

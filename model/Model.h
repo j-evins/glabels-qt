@@ -184,6 +184,7 @@ namespace glabels
 			void alignSelectionTop();
 			void alignSelectionBottom();
 			void alignSelectionVCenter();
+			void centerSelection();
 			void centerSelectionHoriz();
 			void centerSelectionVert();
 			void moveSelection( const Distance& dx, const Distance& dy );

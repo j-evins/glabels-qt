@@ -1879,6 +1879,14 @@
         <source>Redo %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Center Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center objects in label</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>glabels::MergeView</name>
