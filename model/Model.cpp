@@ -1480,19 +1480,10 @@ namespace glabels
 			const QClipboard *clipboard = QApplication::clipboard();
 			const QMimeData *mimeData = clipboard->mimeData();
 
-			if ( mimeData->hasFormat( MIME_TYPE ) )
-			{
-				return true;
-			}
-			else if ( mimeData->hasImage() )
-			{
-				return true;
-			}
-			else if ( mimeData->hasText() )
-			{
-				return true;
-			}
-			return false;
+			return  mimeData->hasFormat( MIME_TYPE ) ||
+				mimeData->hasUrls()              ||
+				mimeData->hasImage()             ||
+				mimeData->hasText();
 		}
 
 
@@ -1515,6 +1506,38 @@ namespace glabels
 				{
 					addObject( object );
 					selectObject( object );
+				}
+			}
+			else if ( mimeData->hasUrls() )
+			{
+				unselectAll();
+				for ( auto url : mimeData->urls() )
+				{
+					if ( url.isLocalFile() )
+					{
+						auto name = url.toLocalFile();
+						QImage image( name );
+						if ( !image.isNull() )
+						{
+							// Create object from clipboard image file
+							auto* object = new ModelImageObject();
+							object->setImage( name, image );
+							object->setSize( object->naturalSize() );
+							object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
+							addObject( object );
+							selectObject( object );
+						}
+						else
+						{
+							qWarning() << "Cannot paste" << name
+							           << ": does not exist or currently unsupported file type.";
+						}
+					}
+					else
+					{
+						qWarning() << "Cannot paste" << url.toString()
+						           << ": currently unsupported file location.";
+					}
 				}
 			}
 			else if ( mimeData->hasImage() )
