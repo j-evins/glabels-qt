@@ -38,6 +38,7 @@
 #include "model/Markup.h"
 #include "model/Settings.h"
 
+#include <QMimeData>
 #include <QMouseEvent>
 #include <QtMath>
 #include <QtDebug>
@@ -105,6 +106,7 @@ namespace glabels
 
 		setMouseTracking( true );
 		setFocusPolicy(Qt::StrongFocus);
+		setAcceptDrops( true );
 
 		connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
 		onSettingsChanged();
@@ -1027,6 +1029,72 @@ namespace glabels
 	}
 
 
+	//
+	// Handle drag enter event
+	//
+	void LabelEditor::dragEnterEvent( QDragEnterEvent *event )
+	{
+		if ( event->mimeData()->hasUrls()   ||
+		     event->mimeData()->hasImage()  ||
+		     event->mimeData()->hasText() )
+		{
+			event->acceptProposedAction();
+		}
+		else
+		{
+			event->ignore();
+		}
+	}
+
+
+	//
+	// Handle drag move event
+	//
+	void LabelEditor::dragMoveEvent( QDragMoveEvent *event )
+	{
+		if ( event->mimeData()->hasUrls()   ||
+		     event->mimeData()->hasImage()  ||
+		     event->mimeData()->hasText() )
+		{
+			event->acceptProposedAction();
+		}
+		else
+		{
+			event->ignore();
+		}
+	}
+
+
+	//
+	// Handle drop event
+	//
+	void LabelEditor::dropEvent( QDropEvent *event )
+	{
+		if ( event->mimeData()->hasUrls() )
+		{
+			mUndoRedoModel->checkpoint( tr("Drop") );
+			mModel->pasteAsUrls( event->mimeData() );
+			event->acceptProposedAction();
+		}
+		else if ( event->mimeData()->hasImage() )
+		{
+			mUndoRedoModel->checkpoint( tr("Drop") );
+			mModel->pasteAsImage( event->mimeData() );
+			event->acceptProposedAction();
+		}
+		else if ( event->mimeData()->hasText() )
+		{
+			mUndoRedoModel->checkpoint( tr("Drop") );
+			mModel->pasteAsText( event->mimeData() );
+			event->acceptProposedAction();
+		}
+		else
+		{
+			event->ignore();
+		}
+	}
+
+
 	///
 	/// Draw Background Layer
 	///
@@ -1282,5 +1350,6 @@ namespace glabels
 
 		emit zoomChanged();
 	}
+
 
 } // namespace glabels

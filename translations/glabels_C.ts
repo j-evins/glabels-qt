@@ -1328,6 +1328,10 @@
         <source>Resize</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Drop</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>glabels::MainWindow</name>

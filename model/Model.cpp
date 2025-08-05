@@ -33,7 +33,6 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QFileInfo>
-#include <QMimeData>
 #include <QtDebug>
 
 
@@ -1497,71 +1496,117 @@ namespace glabels
 
 			if ( mimeData->hasFormat( MIME_TYPE ) )
 			{
-				// Native objects
-				QByteArray buffer = mimeData->data( MIME_TYPE );
-				QList <ModelObject*> objects = XmlLabelParser::deserializeObjects( buffer, this );
-
-				unselectAll();
-				foreach ( ModelObject* object, objects )
-				{
-					addObject( object );
-					selectObject( object );
-				}
+				pasteAsNativeObjects( mimeData );
 			}
 			else if ( mimeData->hasUrls() )
 			{
-				unselectAll();
-				for ( auto url : mimeData->urls() )
-				{
-					if ( url.isLocalFile() )
-					{
-						auto name = url.toLocalFile();
-						QImage image( name );
-						if ( !image.isNull() )
-						{
-							// Create object from clipboard image file
-							auto* object = new ModelImageObject();
-							object->setImage( name, image );
-							object->setSize( object->naturalSize() );
-							object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
-							addObject( object );
-							selectObject( object );
-						}
-						else
-						{
-							qWarning() << "Cannot paste" << name
-							           << ": does not exist or currently unsupported file type.";
-						}
-					}
-					else
-					{
-						qWarning() << "Cannot paste" << url.toString()
-						           << ": currently unsupported file location.";
-					}
-				}
+				pasteAsUrls( mimeData );
 			}
 			else if ( mimeData->hasImage() )
 			{
-				// Create object from clipboard image
-				auto* object = new ModelImageObject();
-				object->setImage( qvariant_cast<QImage>(mimeData->imageData()) );
-				object->setSize( object->naturalSize() );
-				object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
-				addObject( object );
-				unselectAll();
-				selectObject( object );
+				pasteAsImage( mimeData );
 			}
 			else if ( mimeData->hasText() )
 			{
-				// Create object from clipboard text
-				auto* object = new ModelTextObject();
-				object->setText( mimeData->text() );
-				object->setSize( object->naturalSize() );
-				object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
+				pasteAsText( mimeData );
+			}
+		}
+
+
+		///
+		/// Paste as native objects
+		///
+		void Model::pasteAsNativeObjects( const QMimeData* mimeData )
+		{
+			QByteArray buffer = mimeData->data( MIME_TYPE );
+			QList <ModelObject*> objects = XmlLabelParser::deserializeObjects( buffer, this );
+
+			unselectAll();
+			foreach ( ModelObject* object, objects )
+			{
 				addObject( object );
-				unselectAll();
 				selectObject( object );
 			}
+		}
+
+		
+		///
+		/// Paste as URLs ( currently only supports local image files )
+		///
+		void Model::pasteAsUrls( const QMimeData* mimeData )
+		{
+			// Center first object in selection.  Attempt to spread
+			// out subsequent objects in selection.  The success of
+			// this strategy depends on the individual object sizes
+			// and the total number of objects in the selection.
+			auto x = w()/2.0;
+			auto y = h()/2.0;
+			auto xOffset = Distance::pt( 0 );
+			auto yOffset = Distance::pt( 0 );
+			
+			unselectAll();
+			for ( auto url : mimeData->urls() )
+			{
+				if ( url.isLocalFile() )
+				{
+					auto name = url.toLocalFile();
+					QImage image( name );
+					if ( !image.isNull() )
+					{
+						auto* object = new ModelImageObject();
+						object->setImage( name, image );
+						object->setSize( object->naturalSize() );
+						object->setPosition( fmod( x - object->w()/2.0 + xOffset,
+						                           (w() > object->w()) ? w() - object->w() : w() ),
+						                     fmod( y - object->h()/2.0 + yOffset,
+						                           (h() > object->h()) ? h() - object->h() : h() ) );
+						addObject( object );
+						selectObject( object );
+
+						xOffset += object->w() + Distance::pt( 5 );
+						yOffset += object->h() + Distance::pt( 5 );
+					}
+					else
+					{
+						qWarning() << "Cannot paste" << name
+						           << ": does not exist or currently unsupported file type.";
+					}
+				}
+				else
+				{
+					qWarning() << "Cannot paste" << url.toString()
+					           << ": currently unsupported file location.";
+				}
+			}
+		}
+
+		
+		///
+		/// Paste as image
+		///
+		void Model::pasteAsImage( const QMimeData* mimeData )
+		{
+			auto* object = new ModelImageObject();
+			object->setImage( qvariant_cast<QImage>(mimeData->imageData()) );
+			object->setSize( object->naturalSize() );
+			object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
+			addObject( object );
+			unselectAll();
+			selectObject( object );
+		}
+
+		
+		///
+		/// Paste as text
+		void Model::pasteAsText( const QMimeData* mimeData )
+		{
+			auto* object = new ModelTextObject();
+			object->setText( mimeData->text() );
+			object->setSize( object->naturalSize() );
+			object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
+			addObject( object );
+			unselectAll();
+			selectObject( object );
 		}
 
 

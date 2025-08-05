@@ -31,6 +31,7 @@
 
 #include <QDir>
 #include <QList>
+#include <QMimeData>
 #include <QObject>
 #include <QPainter>
 
@@ -208,7 +209,11 @@ namespace glabels
 			void cutSelection();
 			bool canPaste();
 			void paste();
-	
+			void pasteAsNativeObjects( const QMimeData* mimeData );
+			void pasteAsUrls( const QMimeData* mimeData );
+			void pasteAsImage( const QMimeData* mimeData );
+			void pasteAsText( const QMimeData* mimeData );
+
 			/////////////////////////////////
 			// Drawing operations
 			/////////////////////////////////
