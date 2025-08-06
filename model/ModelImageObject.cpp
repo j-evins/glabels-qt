@@ -73,6 +73,8 @@ namespace glabels
 			{
 				smDefaultImage = new QImage( ":images/checkerboard.png" );
 			}
+
+			mLockAspectRatio = true;
 		}
 
 
