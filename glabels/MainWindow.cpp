@@ -196,8 +196,8 @@ namespace glabels
 		connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
 		connect( QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardChanged()) );
 #if 0
-		connect( mLabelEditor, SIGNAL(pointerMoved(double, double)),
-		         this, SLOT(onPointerMoved(double, double)) );
+		connect( mLabelEditor, SIGNAL(pointerMoved(model::Point)),
+		         this, SLOT(onPointerMoved(modelPoint)) );
 		connect( mLabelEditor, SIGNAL(pointerExited()), this, SLOT(onPointerExit()) );
 #endif
 
@@ -253,7 +253,7 @@ namespace glabels
 		manageActions();
 		setTitle();
 
-		connect( mLabelEditor, SIGNAL(contextMenuActivate()), this, SLOT(onContextMenuActivate()) );
+		connect( mLabelEditor, SIGNAL(contextMenuActivate(model::Point)), this, SLOT(onContextMenuActivate(model::Point)) );
 		connect( mModel, SIGNAL(nameChanged()), this, SLOT(onNameChanged()) );
 		connect( mModel, SIGNAL(modifiedChanged()), this, SLOT(onModifiedChanged()) );
 		connect( mModel, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()) );
@@ -611,7 +611,7 @@ namespace glabels
 		contextPasteAction = new QAction( tr("&Paste"), this );
 		contextPasteAction->setIcon( Icons::EditPaste() );
 		contextPasteAction->setStatusTip( tr("Paste the clipboard") );
-		connect( contextPasteAction, SIGNAL(triggered()), this, SLOT(editPaste()) );
+		connect( contextPasteAction, SIGNAL(triggered()), this, SLOT(editContextPaste()) );
 
 		contextDeleteAction = new QAction( tr("&Delete"), this );
 		contextDeleteAction->setIcon( QIcon::fromTheme( "edit-delete" ) );
@@ -1350,6 +1350,20 @@ namespace glabels
 
 
 	///
+	/// Edit->Paste Action (from context menu)
+	///
+	void MainWindow::editContextPaste()
+	{
+		// Extract original context menu click location
+		auto *action = qobject_cast<QAction *>(sender());
+		auto p = action->data().value<model::Point>();
+
+		mUndoRedoModel->checkpoint( tr("Paste") );
+		mModel->paste();
+	}
+
+
+	///
 	/// Edit->Delete Action
 	///
 	void MainWindow::editDelete()
@@ -1708,8 +1722,13 @@ namespace glabels
 	///
 	/// Context Menu Activation
 	///
-	void MainWindow::onContextMenuActivate()
+	void MainWindow::onContextMenuActivate( model::Point p )
 	{
+		// Save click location for potential paste action
+		QVariant variant;
+		variant.setValue( p );
+		contextPasteAction->setData( variant );
+
 		if ( mModel->isSelectionEmpty() )
 		{
 			noSelectionContextMenu->popup( QCursor::pos() );
@@ -1736,10 +1755,12 @@ namespace glabels
 	///
 	/// Pointer moved: update Cursor Information in Status Bar
 	///
-	void MainWindow::onPointerMoved( double x, double y )
+	void MainWindow::onPointerMoved( model::Point p )
 	{
-		/* TODO: convert x,y to locale units and set precision accordingly. */
-		cursorInfoLabel->setText( QString( "%1, %2" ).arg(x).arg(y) );
+		/* TODO: set precision accordingly. */
+		auto units = model::Settings::units();
+		cursorInfoLabel->setText( QString( "%1, %2" ).arg( p.x().toString(units) )
+		                                             .arg( p.y().toString(units) ) );
 	}
 
 

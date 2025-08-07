@@ -57,9 +57,9 @@ namespace glabels
 		// Signals
 		/////////////////////////////////////
 	signals:
-		void contextMenuActivate();
+		void contextMenuActivate( model::Point p );
 		void zoomChanged();
-		void pointerMoved( const model::Distance& x, const model::Distance& y );
+		void pointerMoved( model::Point p );
 		void pointerExited();
 		void modeChanged();
 

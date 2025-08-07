@@ -109,6 +109,7 @@ namespace glabels
 		void editCut();
 		void editCopy();
 		void editPaste();
+		void editContextPaste();
 		void editDelete();
 		void editSelectAll();
 		void editUnSelectAll();
@@ -150,10 +151,10 @@ namespace glabels
 		void helpReportBug();
 		void helpAbout();
 
-		void onContextMenuActivate();
+		void onContextMenuActivate( model::Point );
 
 		void onZoomChanged();
-		void onPointerMoved( double, double );
+		void onPointerMoved( model::Point );
 		void onPointerExit();
 
 		void onNameChanged();

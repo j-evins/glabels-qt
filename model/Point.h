@@ -24,6 +24,8 @@
 
 #include "Distance.h"
 
+#include <QMetaType>
+
 
 namespace glabels
 {
@@ -50,6 +52,9 @@ namespace glabels
 
 	}
 }
+
+
+Q_DECLARE_METATYPE( glabels::model::Point )
 
 
 #endif // model_Point_h

@@ -592,7 +592,7 @@ namespace glabels
 				//
 				if ( mState == IdleState )
 				{
-					emit contextMenuActivate();
+					emit contextMenuActivate( model::Point( xWorld, yWorld ) );
 				}
 			}
 		}
@@ -623,7 +623,7 @@ namespace glabels
 			/*
 			 * Emit signal regardless of mode
 			 */
-			emit pointerMoved( xWorld, yWorld );
+			emit pointerMoved( model::Point( xWorld, yWorld ) );
 
 
 			/*
