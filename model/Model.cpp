@@ -1489,26 +1489,26 @@ namespace glabels
 		///
 		/// Paste from clipboard
 		///
-		void Model::paste()
+		void Model::paste( Point p )
 		{
 			const QClipboard *clipboard = QApplication::clipboard();
 			const QMimeData *mimeData = clipboard->mimeData();
 
 			if ( mimeData->hasFormat( MIME_TYPE ) )
 			{
-				pasteAsNativeObjects( mimeData );
+				pasteAsNativeObjects( mimeData, p );
 			}
 			else if ( mimeData->hasUrls() )
 			{
-				pasteAsUrls( mimeData );
+				pasteAsUrls( mimeData, p );
 			}
 			else if ( mimeData->hasImage() )
 			{
-				pasteAsImage( mimeData );
+				pasteAsImage( mimeData, p );
 			}
 			else if ( mimeData->hasText() )
 			{
-				pasteAsText( mimeData );
+				pasteAsText( mimeData, p );
 			}
 		}
 
@@ -1516,7 +1516,7 @@ namespace glabels
 		///
 		/// Paste as native objects
 		///
-		void Model::pasteAsNativeObjects( const QMimeData* mimeData )
+		void Model::pasteAsNativeObjects( const QMimeData* mimeData, Point p )
 		{
 			QByteArray buffer = mimeData->data( MIME_TYPE );
 			QList <ModelObject*> objects = XmlLabelParser::deserializeObjects( buffer, this );
@@ -1524,6 +1524,7 @@ namespace glabels
 			unselectAll();
 			foreach ( ModelObject* object, objects )
 			{
+				object->setPositionRelative( p.x(), p.y() );
 				addObject( object );
 				selectObject( object );
 			}
@@ -1533,16 +1534,12 @@ namespace glabels
 		///
 		/// Paste as URLs ( currently only supports local image files )
 		///
-		void Model::pasteAsUrls( const QMimeData* mimeData )
+		void Model::pasteAsUrls( const QMimeData* mimeData, Point p )
 		{
-			// Center first object in selection.  Attempt to spread
-			// out subsequent objects in selection.  The success of
-			// this strategy depends on the individual object sizes
-			// and the total number of objects in the selection.
-			auto x = w()/2.0;
-			auto y = h()/2.0;
-			auto xOffset = Distance::pt( 0 );
-			auto yOffset = Distance::pt( 0 );
+			auto x = p.x();
+			auto y = p.y();
+			auto xOffset = Distance::pt( 10 );
+			auto yOffset = Distance::pt( 10 );
 			
 			unselectAll();
 			for ( auto url : mimeData->urls() )
@@ -1556,15 +1553,12 @@ namespace glabels
 						auto* object = new ModelImageObject();
 						object->setImage( name, image );
 						object->setSize( object->naturalSize() );
-						object->setPosition( fmod( x - object->w()/2.0 + xOffset,
-						                           (w() > object->w()) ? w() - object->w() : w() ),
-						                     fmod( y - object->h()/2.0 + yOffset,
-						                           (h() > object->h()) ? h() - object->h() : h() ) );
+						object->setPosition( x, y );
 						addObject( object );
 						selectObject( object );
 
-						xOffset += object->w() + Distance::pt( 5 );
-						yOffset += object->h() + Distance::pt( 5 );
+						x = fmod( x + xOffset, w() );
+						y = fmod( y + yOffset, h() );
 					}
 					else
 					{
@@ -1584,12 +1578,12 @@ namespace glabels
 		///
 		/// Paste as image
 		///
-		void Model::pasteAsImage( const QMimeData* mimeData )
+		void Model::pasteAsImage( const QMimeData* mimeData, Point p )
 		{
 			auto* object = new ModelImageObject();
 			object->setImage( qvariant_cast<QImage>(mimeData->imageData()) );
 			object->setSize( object->naturalSize() );
-			object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
+			object->setPosition( p.x(), p.y() );
 			addObject( object );
 			unselectAll();
 			selectObject( object );
@@ -1598,12 +1592,12 @@ namespace glabels
 		
 		///
 		/// Paste as text
-		void Model::pasteAsText( const QMimeData* mimeData )
+		void Model::pasteAsText( const QMimeData* mimeData, Point p )
 		{
 			auto* object = new ModelTextObject();
 			object->setText( mimeData->text() );
 			object->setSize( object->naturalSize() );
-			object->setPosition( (w()-object->w())/2.0, (h()-object->h())/2.0 );
+			object->setPosition( p.x(), p.y() );
 			addObject( object );
 			unselectAll();
 			selectObject( object );

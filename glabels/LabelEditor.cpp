@@ -1070,22 +1070,35 @@ namespace glabels
 	//
 	void LabelEditor::dropEvent( QDropEvent *event )
 	{
+		/*
+		 * Transform to label coordinates
+		 */
+		QTransform transform;
+
+		transform.scale( mScale, mScale );
+		transform.translate( mX0.pt(), mY0.pt() );
+
+		QPointF pWorld = transform.inverted().map( event->position() );
+		auto xWorld = model::Distance::pt( pWorld.x() );
+		auto yWorld = model::Distance::pt( pWorld.y() );
+		auto p = model::Point( xWorld, yWorld );
+
 		if ( event->mimeData()->hasUrls() )
 		{
 			mUndoRedoModel->checkpoint( tr("Drop") );
-			mModel->pasteAsUrls( event->mimeData() );
+			mModel->pasteAsUrls( event->mimeData(), p );
 			event->acceptProposedAction();
 		}
 		else if ( event->mimeData()->hasImage() )
 		{
 			mUndoRedoModel->checkpoint( tr("Drop") );
-			mModel->pasteAsImage( event->mimeData() );
+			mModel->pasteAsImage( event->mimeData(), p );
 			event->acceptProposedAction();
 		}
 		else if ( event->mimeData()->hasText() )
 		{
 			mUndoRedoModel->checkpoint( tr("Drop") );
-			mModel->pasteAsText( event->mimeData() );
+			mModel->pasteAsText( event->mimeData(), p );
 			event->acceptProposedAction();
 		}
 		else

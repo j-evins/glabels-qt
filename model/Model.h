@@ -208,11 +208,11 @@ namespace glabels
 			void copySelection();
 			void cutSelection();
 			bool canPaste();
-			void paste();
-			void pasteAsNativeObjects( const QMimeData* mimeData );
-			void pasteAsUrls( const QMimeData* mimeData );
-			void pasteAsImage( const QMimeData* mimeData );
-			void pasteAsText( const QMimeData* mimeData );
+			void paste( Point p );
+			void pasteAsNativeObjects( const QMimeData* mimeData, Point p );
+			void pasteAsUrls( const QMimeData* mimeData, Point p );
+			void pasteAsImage( const QMimeData* mimeData, Point p );
+			void pasteAsText( const QMimeData* mimeData, Point p );
 
 			/////////////////////////////////
 			// Drawing operations

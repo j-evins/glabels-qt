@@ -1345,7 +1345,7 @@ namespace glabels
 	void MainWindow::editPaste()
 	{
 		mUndoRedoModel->checkpoint( tr("Paste") );
-		mModel->paste();
+		mModel->paste( model::Point() );
 	}
 
 
@@ -1359,7 +1359,7 @@ namespace glabels
 		auto p = action->data().value<model::Point>();
 
 		mUndoRedoModel->checkpoint( tr("Paste") );
-		mModel->paste();
+		mModel->paste( p );
 	}
 
 
