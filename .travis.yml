@@ -31,7 +31,7 @@ matrix:
       - sudo apt-get -y install pkgconf libqrencode-dev
       - sudo apt-get -y install barcode
       # Install zint from source
-      - wget https://downloads.sourceforge.net/project/zint/zint/2.6.5/zint-2.6.5.tar.gz && tar xzf zint-2.6.5.tar.gz && ( cd zint-2.6.5 && mkdir build && cd build && cmake .. && make && sudo make install )
+      - wget https://downloads.sourceforge.net/project/zint/zint/2.12.0/zint-2.12.0-src.tar.gz && tar xzf zint-2.12.0-src.tar.gz && ( cd zint-2.12.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
       - export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
     before_script:

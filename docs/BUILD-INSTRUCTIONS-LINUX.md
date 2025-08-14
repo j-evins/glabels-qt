@@ -42,11 +42,11 @@ _Zint (Optional)_
 
 Install zint from source:
 ```
-$ wget https://downloads.sourceforge.net/project/zint/zint/2.6.3/zint-2.6.3_final.tar.gz
-$ tar xzf zint-2.6.3_final.tar.gz
-$ cd zint-2.6.3.src/
-$ mkdir build && cd build && cmake .. && make
-$ sudo make install
+wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz
+tar xzf zint-2.15.0-src.tar.gz
+cd zint-2.15.0-src/
+mkdir build && cd build && cmake .. && make
+sudo make install
 ```
 _GNU Barcode (Optional)_
 

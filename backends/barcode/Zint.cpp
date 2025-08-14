@@ -31,6 +31,7 @@ namespace
 	const double FONT_SCALE = 0.9;
 	const int W_PTS_DEFAULT = 144;
 	const int H_PTS_DEFAULT = 72;
+	const double TWO_DIVIDED_BY_SQRT3 = 1.15470053837925152902;
 }
 
 
@@ -40,6 +41,14 @@ namespace glabels
 	{
 		namespace Zint
 		{
+
+
+			//
+			// Base constructor
+			//
+			Base::Base() : symbology(0), option_2(0)
+			{
+			}
 
 
 			//
@@ -60,6 +69,123 @@ namespace glabels
 			                      double&            w,
 			                      double&            h )
 			{
+				#if LIBZINT_VERSION >= 20700
+
+				/*
+				 * First encode using Zint barcode library.
+				 */
+				zint_symbol* symbol = ZBarcode_Create();
+
+				symbol->symbology = symbology;
+				symbol->input_mode = UNICODE_MODE;
+				symbol->scale = 0.5f; // Pixels
+				symbol->option_2 = option_2; // Currently just check digit
+				symbol->show_hrt = showText();
+
+				if ( ZBarcode_Encode( symbol, (unsigned char*)(cookedData.c_str()), 0 ) >= 5 /*ZINT_ERROR*/ )
+				{
+					qDebug() << "Zint::ZBarcode_Encode: " << QString(symbol->errtxt);
+					setIsDataValid( false );
+					return;
+				}
+
+				if ( ZBarcode_Buffer_Vector( symbol, 0 ) >= 5 /*ZINT_ERROR*/ )
+				{
+					qDebug() << "Zint::ZBarcode_Buffer_Vector: " << QString(symbol->errtxt);
+					setIsDataValid( false );
+					return;
+				}
+
+
+				/*
+				 * Now do the actual vectorization.
+				 */
+				zint_vector *vector = symbol->vector;
+
+				w = std::max( w, 5.0 ); // TODO: proper minimum
+				h = std::max( h, 5.0 ); // TODO: proper minimum
+
+				#if LIBZINT_VERSION >= 20902
+				if ( ZBarcode_Cap( symbol->symbology, ZINT_CAP_FIXED_RATIO ) & ZINT_CAP_FIXED_RATIO )
+				{
+					if ( vector->width == vector->height )
+					{
+						w = h = std::min(w, h);
+					}
+					else
+					{
+						// Keep aspect ratio
+						if ( h < w )
+						{
+							w = h * vector->width / vector->height;
+						}
+						else
+						{
+							h = w * vector->height / vector->width;
+						}
+					}
+				}
+				#endif
+
+				double xscale = w / vector->width;
+				double yscale = h / vector->height;
+
+				setWidth( vector->width*xscale );
+				setHeight( vector->height*yscale );
+
+				for ( zint_vector_rect *zrect = vector->rectangles; zrect != nullptr; zrect = zrect->next )
+				{
+					addBox( zrect->x*xscale,
+					        zrect->y*yscale,
+					        zrect->width*xscale,
+					        zrect->height*yscale );
+				}
+
+				for ( zint_vector_circle *zcircle = vector->circles; zcircle != nullptr; zcircle = zcircle->next )
+				{
+					// Note will fail to properly draw MaxiCode bull's-eye rings for versions before 2.11.0
+					#if LIBZINT_VERSION >= 21100
+					double line_width = zcircle->width*xscale;
+					#else
+					double line_width = 0;
+					#endif
+					addRing( zcircle->x*xscale,
+					         zcircle->y*yscale,
+					         zcircle->diameter*xscale/2,
+					         line_width );
+				}
+
+				for ( zint_vector_hexagon *zhexagon = vector->hexagons; zhexagon != nullptr; zhexagon = zhexagon->next )
+				{
+					// Convert from Zint's horizontal short diameter (X) to vertical long diameter (V).
+					double h = TWO_DIVIDED_BY_SQRT3*zhexagon->diameter*yscale;
+					addHexagon( zhexagon->x*xscale, // Center x same as apex x
+					            zhexagon->y*yscale - h/2, // Subtract radius to convert from center y to apex y
+					            h );
+				}
+
+				if( showText() )
+				{
+					for ( zint_vector_string *zstring = vector->strings; zstring != nullptr; zstring = zstring->next )
+					{
+						// Zint's horizontal align used since 2.10.0 for EAN/UPC outside numbers, previously centered (0)
+						#if LIBZINT_VERSION >= 21000
+						int halign = zstring->halign; // 0 center, 1 left, 2 right
+						#else
+						int halign = 0;
+						#endif
+						addText( zstring->x*xscale,
+						         zstring->y*yscale,
+						         zstring->fsize*std::min( xscale, yscale ), // TODO: do something better here
+						         std::string((const char*)zstring->text),
+						         halign );
+					}
+				}
+
+				ZBarcode_Delete( symbol );
+
+				#else /* LIBZINT_VERSION >= 20700 */
+
 				/*
 				 * First encode using Zint barcode library.
 				 */
@@ -126,6 +252,8 @@ namespace glabels
 				}
 
 				ZBarcode_Delete( symbol );
+
+				#endif /* LIBZINT_VERSION >= 20700 */
 			}
 
 
@@ -223,6 +351,22 @@ namespace glabels
 				symbology = BARCODE_AZRUNE;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			//////////////////////////////////////////////////////
+			// Channel Code Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Channel::create()
+			{
+				return new Channel();
+			}
+
+
+			std::string Channel::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_CHANNEL;
+				return ""; // Actual encoding is done in vectorize
+			}
 		
 
 			//////////////////////////////////////////////////////
@@ -237,6 +381,26 @@ namespace glabels
 			std::string Cbr::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_CODABAR;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// Codablock-F Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Cblockf::create()
+			{
+				return new Cblockf();
+			}
+
+
+			std::string Cblockf::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_CODABLOCKF;
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -269,6 +433,10 @@ namespace glabels
 			std::string Code11::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_CODE11;
+				if (!checksum()) // Note default is 2 visible check digits
+				{
+					option_2 = 2;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -300,7 +468,11 @@ namespace glabels
 		
 			std::string C25m::encode( const std::string& cookedData )
 			{
-				symbology = BARCODE_C25MATRIX;
+				symbology = BARCODE_C25MATRIX; // BARCODE_C25STANDARD
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -317,6 +489,30 @@ namespace glabels
 			std::string C25i::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_C25IATA;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// Code 2 of 5 Industrial Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* C25ind::create()
+			{
+				return new C25ind();
+			}
+
+
+			std::string C25ind::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_C25IND;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -333,6 +529,10 @@ namespace glabels
 			std::string C25dl::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_C25LOGIC;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -365,6 +565,10 @@ namespace glabels
 			std::string Code39::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_CODE39;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -381,6 +585,10 @@ namespace glabels
 			std::string Code39e::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_EXCODE39;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -511,6 +719,40 @@ namespace glabels
 				symbology = BARCODE_DPIDENT;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			//////////////////////////////////////////////////////
+			// DotCode Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Dotcode::create()
+			{
+				return new Dotcode();
+			}
+
+
+			std::string Dotcode::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_DOTCODE;
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			#if LIBZINT_VERSION >= 20901
+			//////////////////////////////////////////////////////
+			// DPD Code Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Dpd::create()
+			{
+				return new Dpd();
+			}
+
+
+			std::string Dpd::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_DPD;
+				return ""; // Actual encoding is done in vectorize
+			}
+			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -541,6 +783,70 @@ namespace glabels
 			std::string Ean::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_EANX;
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// EAN-14 Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Ean14::create()
+			{
+				return new Ean14();
+			}
+
+
+			std::string Ean14::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_EAN14;
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// Facing Identification Mark Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Fim::create()
+			{
+				return new Fim();
+			}
+
+
+			std::string Fim::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_FIM;
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// Flattermarken Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Flat::create()
+			{
+				return new Flat();
+			}
+
+
+			std::string Flat::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_FLAT;
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// Han Xin Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Hanxin::create()
+			{
+				return new Hanxin();
+			}
+
+
+			std::string Hanxin::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_HANXIN;
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -639,6 +945,22 @@ namespace glabels
 				symbology = BARCODE_HIBC_MICPDF;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			//////////////////////////////////////////////////////
+			// HIBC Codablock-F Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Hibcblkf::create()
+			{
+				return new Hibcblkf();
+			}
+
+
+			std::string Hibcblkf::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_HIBC_BLOCKF;
+				return ""; // Actual encoding is done in vectorize
+			}
 		
 
 			//////////////////////////////////////////////////////
@@ -669,6 +991,10 @@ namespace glabels
 			std::string I25::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_C25INTER;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -749,6 +1075,10 @@ namespace glabels
 			std::string Logm::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_LOGMARS;
+				if (checksum())
+				{
+					option_2 = 1;
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -1005,6 +1335,10 @@ namespace glabels
 			std::string Msi::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_MSI_PLESSEY;
+				if (checksum())
+				{
+					option_2 = 1; // 1 visible mod-10 check digit
+				}
 				return ""; // Actual encoding is done in vectorize
 			}
 		
@@ -1071,6 +1405,42 @@ namespace glabels
 				symbology = BARCODE_POSTNET;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			#if LIBZINT_VERSION >= 21101
+			//////////////////////////////////////////////////////
+			// BC412 (SEMI T1-95) Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Bc412::create()
+			{
+				return new Bc412();
+			}
+
+
+			std::string Bc412::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_BC412;
+				return ""; // Actual encoding is done in vectorize
+			}
+			#endif
+
+
+			#if LIBZINT_VERSION >= 21101
+			//////////////////////////////////////////////////////
+			// CEPNet Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Cepnet::create()
+			{
+				return new Cepnet();
+			}
+
+
+			std::string Cepnet::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_CEPNET;
+				return ""; // Actual encoding is done in vectorize
+			}
+			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1119,6 +1489,24 @@ namespace glabels
 				symbology = BARCODE_QRCODE;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			#if LIBZINT_VERSION >= 20700
+			//////////////////////////////////////////////////////
+			// rMQR Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Rmqr::create()
+			{
+				return new Rmqr();
+			}
+
+
+			std::string Rmqr::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_RMQR;
+				return ""; // Actual encoding is done in vectorize
+			}
+			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1135,6 +1523,40 @@ namespace glabels
 				symbology = BARCODE_RM4SCC;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			//////////////////////////////////////////////////////
+			// Royal Mail 4-State Mailmark Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Rm4sm::create()
+			{
+				return new Rm4sm();
+			}
+
+
+			std::string Rm4sm::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_MAILMARK; // BARCODE_MAILMARK_4S
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			#if LIBZINT_VERSION >= 21200
+			//////////////////////////////////////////////////////
+			// Royal Mail 2-D Mailmark Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Rm2dm::create()
+			{
+				return new Rm2dm();
+			}
+
+
+			std::string Rm2dm::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_MAILMARK_2D;
+				return ""; // Actual encoding is done in vectorize
+			}
+			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1167,6 +1589,24 @@ namespace glabels
 				symbology = BARCODE_UPCE;
 				return ""; // Actual encoding is done in vectorize
 			}
+
+
+			#if LIBZINT_VERSION >= 21200
+			//////////////////////////////////////////////////////
+			// UPU S10 Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* UpuS10::create()
+			{
+				return new UpuS10();
+			}
+
+
+			std::string UpuS10::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_UPU_S10;
+				return ""; // Actual encoding is done in vectorize
+			}
+			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1197,6 +1637,22 @@ namespace glabels
 			std::string Pls::encode( const std::string& cookedData )
 			{
 				symbology = BARCODE_PLESSEY;
+				return ""; // Actual encoding is done in vectorize
+			}
+
+
+			//////////////////////////////////////////////////////
+			// Vehicle Identification Number Barcode
+			//////////////////////////////////////////////////////
+			glbarcode::Barcode* Vin::create()
+			{
+				return new Vin();
+			}
+
+
+			std::string Vin::encode( const std::string& cookedData )
+			{
+				symbology = BARCODE_VIN;
 				return ""; // Actual encoding is done in vectorize
 			}
 		

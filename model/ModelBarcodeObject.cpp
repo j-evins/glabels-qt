@@ -49,6 +49,7 @@ namespace glabels
 			const Distance pad = Distance::pt(4);
 			const Distance minW = Distance::pt(18);
 			const Distance minH = Distance::pt(18);
+			const double MIN_POINT_SIZE = 0.4; // Less than ~0.37 causes issues for QFontMetricsF
 		}
 
 
@@ -508,7 +509,7 @@ namespace glabels
 			{
 				double scaleX = wPts / textRect.width();
 				double scaleY = hPts / textRect.height();
-				font.setPointSizeF( 6 * std::min( scaleX, scaleY ) );
+				font.setPointSizeF( std::max( 6 * std::min( scaleX, scaleY ), MIN_POINT_SIZE ) );
 			}
 
 			//

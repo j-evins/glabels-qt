@@ -163,12 +163,13 @@ namespace glbarcode
 		/**
 		 * Text constructor
 		 *
-		 * @param[in] x    X coordinate of text's origin (points)
-		 * @param[in] y    Y coordinate of text's origin (points)
-		 * @param[in] size Font size of text (points)
-		 * @param[in] text Text
+		 * @param[in] x      X coordinate of text's origin (points)
+		 * @param[in] y      Y coordinate of text's origin (points)
+		 * @param[in] size   Font size of text (points)
+		 * @param[in] text   Text
+		 * @param[in] halign Horizontal alignment (center 0, left 1, right 2)
 		 */
-		DrawingPrimitiveText( double x, double y, double size, const std::string& text );
+		DrawingPrimitiveText( double x, double y, double size, const std::string& text, int halign = 0 );
 
 		/**
 		 * Get font size (points).
@@ -180,9 +181,15 @@ namespace glbarcode
 		 */
 		const std::string& text() const;
 
+		/**
+		 * Get horizontal alignment.
+		 */
+		int halign() const;
+
 	private:
 		double       mSize;    /**< Font size of text (points). */
 		std::string  mText;    /**< Text. */
+		int          mHalign;  /**< Horizontal alignment. */
 	};
 
 

@@ -132,7 +132,7 @@ namespace glbarcode
 		 * @param[in] size Font size of text (points)
 		 * @param[in] text Text
 		 */
-		virtual void drawText( double x, double y, double size, const std::string& text ) = 0;
+		virtual void drawText( double x, double y, double size, const std::string& text, int halign = 0 ) = 0;
 
 
 		/**

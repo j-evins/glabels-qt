@@ -81,8 +81,8 @@ namespace glbarcode
 
 
 
-	DrawingPrimitiveText::DrawingPrimitiveText( double x, double y, double size, const std::string& text )
-		: DrawingPrimitive( x, y ), mSize(size), mText(text)
+	DrawingPrimitiveText::DrawingPrimitiveText( double x, double y, double size, const std::string& text, int halign )
+		: DrawingPrimitive( x, y ), mSize(size), mText(text), mHalign(halign)
 	{
 	}
 
@@ -96,6 +96,12 @@ namespace glbarcode
 	const std::string& DrawingPrimitiveText::text() const
 	{
 		return mText;
+	}
+
+
+	int DrawingPrimitiveText::halign() const
+	{
+		return mHalign;
 	}
 
 
