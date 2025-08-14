@@ -47,6 +47,10 @@ namespace glabels
 		/////////////////////////////////
 	private slots:
 		void onUnitsRadiosChanged();
+		void onGridOriginRadiosChanged();
+		void onGridSpacingSpinChanged();
+		void onGridSpacingResetButtonClicked();
+		void onSettingsChanged();
 
 	};
 

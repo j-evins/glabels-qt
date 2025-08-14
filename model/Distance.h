@@ -66,7 +66,6 @@ namespace glabels
 			QString toString( Units::Enum unitsEnum ) const;
 			QString toString( const QString& unitsId ) const;
 
-
 			Distance& operator+=( const Distance& d );
 			Distance& operator-=( const Distance& d );
 			Distance& operator*=( double f );

@@ -375,5 +375,69 @@ namespace glabels
 			mInstance->endGroup();
 		}
 
+
+		Settings::GridOrigin Settings::gridOrigin()
+		{
+			mInstance->beginGroup( "Grid" );
+			QString value = mInstance->value( "origin", "top_left" ).toString();
+			mInstance->endGroup();
+
+			return (value == "top_left") ? ORIGIN_TL : ORIGIN_CENTER;
+		}
+
+
+		void Settings::setGridOrigin( GridOrigin origin )
+		{
+			mInstance->beginGroup( "Grid" );
+			mInstance->setValue( "origin", origin == ORIGIN_TL ? "top_left" : "center" );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
+		Distance Settings::gridSpacing()
+		{
+			// Guess at a suitable default
+			QString defaultSpacingString;
+			if ( QLocale::system().measurementSystem() == QLocale::ImperialSystem )
+			{
+				defaultSpacingString = Distance::in(0.125).toString( Units::IN );
+			}
+			else
+			{
+				defaultSpacingString = Distance::mm(5).toString( Units::MM );
+			}
+	
+			mInstance->beginGroup( "Grid" );
+			QString spacingString = mInstance->value( "spacing", defaultSpacingString ).toString();
+			mInstance->endGroup();
+
+			return Distance::fromString( spacingString );
+		}
+
+
+		void Settings::setGridSpacing( Distance spacing )
+		{
+			QString spacingString = spacing.toString( Settings::units() );
+
+			mInstance->beginGroup( "Grid" );
+			mInstance->setValue( "spacing", spacingString );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
+		void Settings::resetGridSpacing()
+		{
+			mInstance->beginGroup( "Grid" );
+			mInstance->remove( "spacing" );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
 	}
 }

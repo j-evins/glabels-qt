@@ -68,7 +68,6 @@ namespace glabels
 
 		const QColor  gridLineColor( 192, 192, 192 );
 		const double  gridLineWidthPixels = 1;
-		const model::Distance gridSpacing = model::Distance::pt(9); // TODO: determine from locale.
 
 		const QColor  markupLineColor( 240, 99, 99 );
 		const double  markupLineWidthPixels = 1;
@@ -93,7 +92,6 @@ namespace glabels
 		mScale              = 1;
 		mMarkupVisible      = true;
 		mGridVisible        = true;
-		mGridSpacing        = 18;
 
 		mState = IdleState;
 
@@ -1161,18 +1159,20 @@ namespace glabels
 	{
 		if ( mGridVisible )
 		{
+			auto gridSpacing = model::Settings::gridSpacing();
+			auto gridOrigin  = model::Settings::gridOrigin();
+
+			bool isRectangular = dynamic_cast<const model::FrameRect*>( mModel->frame() );
+			
 			model::Distance w = mModel->frame()->w();
 			model::Distance h = mModel->frame()->h();
 
-			model::Distance x0, y0;
-			if ( dynamic_cast<const model::FrameRect*>( mModel->frame() ) )
+			// Set origin of grid.  For non-rectangular labels (e.g. round, cd, etc.),
+			// ignore the gridOrigin setting and always use the center of the label.
+			auto x0 = gridSpacing;
+			auto y0 = gridSpacing;
+			if ( gridOrigin == model::Settings::ORIGIN_CENTER || !isRectangular )
 			{
-				x0 = gridSpacing;
-				y0 = gridSpacing;
-			}
-			else
-			{
-				/* round labels, adjust grid to line up with center of label. */
 				x0 = fmod( w/2, gridSpacing );
 				y0 = fmod( h/2, gridSpacing );
 			}
@@ -1325,6 +1325,8 @@ namespace glabels
 		model::Units units = model::Settings::units();
 	
 		mStepSize = model::Distance( units.resolution(), units );
+
+		update();
 	}
 
 

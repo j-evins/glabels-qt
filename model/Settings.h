@@ -43,7 +43,8 @@ namespace glabels
 	
 		public:
 			enum PageSizeFamily { ISO, US, };
-
+			enum GridOrigin { ORIGIN_TL, ORIGIN_CENTER };
+			
 
 			/////////////////////////////////
 			// Life Cycle
@@ -101,6 +102,13 @@ namespace glabels
 			static QString recentPrinter();
 			static void setRecentPrinter( const QString& printer );
 
+			static GridOrigin gridOrigin();
+			static void setGridOrigin( GridOrigin origin );
+
+			static Distance gridSpacing();
+			static void setGridSpacing( Distance spacing );
+			static void resetGridSpacing();
+			
 			
 		private:
 			static Settings* mInstance;
