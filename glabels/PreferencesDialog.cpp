@@ -75,6 +75,7 @@ namespace glabels
 		
 		gridSpacingSpin->setDecimals( units.resolutionDigits() );
 		gridSpacingSpin->setSingleStep( units.resolution() );
+		gridSpacingSpin->setMinimum( units.resolution() );
 		gridSpacingSpin->setSuffix( " " + units.toIdString() );
 		gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
 
@@ -161,6 +162,7 @@ namespace glabels
 		gridSpacingSpin->blockSignals( true );
 		gridSpacingSpin->setDecimals( units.resolutionDigits() );
 		gridSpacingSpin->setSingleStep( units.resolution() );
+		gridSpacingSpin->setMinimum( units.resolution() );
 		gridSpacingSpin->setSuffix( " " + units.toIdString() );
 		gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
 		gridSpacingSpin->blockSignals( false );
