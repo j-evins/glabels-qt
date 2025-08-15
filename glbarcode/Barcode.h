@@ -24,6 +24,7 @@
 
 #include <string>
 
+#include "Enums.h"
 #include "Renderer.h"
 
 
@@ -219,9 +220,9 @@ namespace glbarcode
 		 * @param[in] y       Y coordinate of text's origin (points)
 		 * @param[in] size    Font size of text (points)
 		 * @param[in] text    Text
-		 * @param[in] halign  Horizontal alignment (center 0, left 1, right 2)
+		 * @param[in] halign  Horizontal text alignment
 		 */
-		void addText( double x, double y, double size, const std::string& text, int halign = 0 );
+		void addText( double x, double y, double size, const std::string& text, HAlign halign = H_ALIGN_CENTER );
 
 
 		/**

@@ -123,7 +123,7 @@ namespace glbarcode
 	}
 
 
-	void QtRenderer::drawText( double x, double y, double size, const std::string& text, int halign )
+	void QtRenderer::drawText( double x, double y, double size, const std::string& text, HAlign halign )
 	{
 		if ( d->painter )
 		{
@@ -136,11 +136,11 @@ namespace glbarcode
 
 			QFontMetricsF fm( font );
 			double xCorner = x;
-			if ( halign == 0 ) // Center
+			if ( halign == H_ALIGN_CENTER )
 			{
 				xCorner -= fm.horizontalAdvance( QString::fromStdString(text) )/2.0;
 			}
-			else if ( halign == 2 ) // Right
+			else if ( halign == H_ALIGN_RIGHT )
 			{
 				xCorner -= fm.horizontalAdvance( QString::fromStdString(text) );
 			}

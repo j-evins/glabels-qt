@@ -139,7 +139,6 @@ namespace glabels
 
 				for ( zint_vector_circle *zcircle = vector->circles; zcircle != nullptr; zcircle = zcircle->next )
 				{
-					// Note will fail to properly draw MaxiCode bull's-eye rings for versions before 2.11.0
 					double line_width = zcircle->width*xscale;
 					addRing( zcircle->x*xscale,
 					         zcircle->y*yscale,
@@ -160,8 +159,7 @@ namespace glabels
 				{
 					for ( zint_vector_string *zstring = vector->strings; zstring != nullptr; zstring = zstring->next )
 					{
-						// Zint's horizontal align used since 2.10.0 for EAN/UPC outside numbers, previously centered (0)
-						int halign = zstring->halign; // 0 center, 1 left, 2 right
+						auto halign = static_cast<glbarcode::HAlign>(zstring->halign); // zint values match glbarcode enum
 						addText( zstring->x*xscale,
 						         zstring->y*yscale,
 						         zstring->fsize*std::min( xscale, yscale ), // TODO: do something better here

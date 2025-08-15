@@ -22,6 +22,8 @@
 #define glbarcode_DrawingPrimitives_h
 
 
+#include "Enums.h"
+
 #include <string>
 
 
@@ -167,9 +169,9 @@ namespace glbarcode
 		 * @param[in] y      Y coordinate of text's origin (points)
 		 * @param[in] size   Font size of text (points)
 		 * @param[in] text   Text
-		 * @param[in] halign Horizontal alignment (center 0, left 1, right 2)
+		 * @param[in] halign Horizontal text alignment
 		 */
-		DrawingPrimitiveText( double x, double y, double size, const std::string& text, int halign = 0 );
+		DrawingPrimitiveText( double x, double y, double size, const std::string& text, HAlign halign = H_ALIGN_CENTER );
 
 		/**
 		 * Get font size (points).
@@ -184,12 +186,12 @@ namespace glbarcode
 		/**
 		 * Get horizontal alignment.
 		 */
-		int halign() const;
+		HAlign halign() const;
 
 	private:
 		double       mSize;    /**< Font size of text (points). */
 		std::string  mText;    /**< Text. */
-		int          mHalign;  /**< Horizontal alignment. */
+		HAlign       mHalign;  /**< Horizontal alignment. */
 	};
 
 
