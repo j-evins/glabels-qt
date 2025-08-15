@@ -138,11 +138,11 @@ namespace glbarcode
 			double xCorner = x;
 			if ( halign == 0 ) // Center
 			{
-				xCorner -= fm.width( QString::fromStdString(text) )/2.0;
+				xCorner -= fm.horizontalAdvance( QString::fromStdString(text) )/2.0;
 			}
 			else if ( halign == 2 ) // Right
 			{
-				xCorner -= fm.width( QString::fromStdString(text) );
+				xCorner -= fm.horizontalAdvance( QString::fromStdString(text) );
 			}
 			double yCorner = y - fm.ascent();
 		
