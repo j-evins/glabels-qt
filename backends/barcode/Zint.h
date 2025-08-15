@@ -421,7 +421,6 @@ namespace glabels
 			};
 
 
-			#if LIBZINT_VERSION >= 20901
 			/**
 			 * DPD Code Barcode
 			 */
@@ -433,7 +432,6 @@ namespace glabels
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
-			#endif
 
 
 			/**
@@ -956,7 +954,6 @@ namespace glabels
 			};
 
 
-			#if LIBZINT_VERSION >= 21101
 			/**
 			 * BC412 (SEMI T1-95) Barcode
 			 */
@@ -968,10 +965,8 @@ namespace glabels
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
-			#endif
 
 
-			#if LIBZINT_VERSION >= 21101
 			/**
 			 * CEPNet Barcode
 			 */
@@ -983,7 +978,6 @@ namespace glabels
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
-			#endif
 
 
 			/**
@@ -1025,7 +1019,6 @@ namespace glabels
 			};
 
 
-			#if LIBZINT_VERSION >= 20700
 			/**
 			 * rMQR Barcode
 			 */
@@ -1037,7 +1030,6 @@ namespace glabels
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
-			#endif
 
 
 			/**
@@ -1066,7 +1058,6 @@ namespace glabels
 			};
 
 
-			#if LIBZINT_VERSION >= 21200
 			/**
 			 * Royal Mail 2-D Mailmark Barcode
 			 */
@@ -1078,7 +1069,6 @@ namespace glabels
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
-			#endif
 
 
 			/**
@@ -1107,7 +1097,6 @@ namespace glabels
 			};
 
 
-			#if LIBZINT_VERSION >= 21200
 			/**
 			 * UPU S10 Barcode
 			 */
@@ -1119,7 +1108,6 @@ namespace glabels
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
-			#endif
 
 
 			/**

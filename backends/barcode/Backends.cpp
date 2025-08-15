@@ -184,10 +184,8 @@ namespace glabels
 			glbarcode::Factory::registerType( "zint::ausrd",     Zint::AusRD::create );
 			glbarcode::Factory::registerType( "zint::aztec",     Zint::Aztec::create );
 			glbarcode::Factory::registerType( "zint::azrun",     Zint::Azrun::create );
-			#if LIBZINT_VERSION >= 21101
 			glbarcode::Factory::registerType( "zint::bc412",     Zint::Bc412::create );
 			glbarcode::Factory::registerType( "zint::cepnet",    Zint::Cepnet::create );
-			#endif
 			glbarcode::Factory::registerType( "zint::cbr",       Zint::Cbr::create );
 			glbarcode::Factory::registerType( "zint::cblockf",   Zint::Cblockf::create );
 			glbarcode::Factory::registerType( "zint::channel",   Zint::Channel::create );
@@ -210,9 +208,7 @@ namespace glabels
 			glbarcode::Factory::registerType( "zint::dpl",       Zint::Dpl::create );
 			glbarcode::Factory::registerType( "zint::dpi",       Zint::Dpi::create );
 			glbarcode::Factory::registerType( "zint::dotcode",   Zint::Dotcode::create );
-			#if LIBZINT_VERSION >= 20901
 			glbarcode::Factory::registerType( "zint::dpd",       Zint::Dpd::create );
-			#endif
 			glbarcode::Factory::registerType( "zint::kix",       Zint::Kix::create );
 			glbarcode::Factory::registerType( "zint::ean",       Zint::Ean::create );
 			glbarcode::Factory::registerType( "zint::ean14",     Zint::Ean14::create );
@@ -254,21 +250,15 @@ namespace glabels
 			glbarcode::Factory::registerType( "zint::pharma2",   Zint::Pharma2::create );
 			glbarcode::Factory::registerType( "zint::pzn",       Zint::Pzn::create );
 			glbarcode::Factory::registerType( "zint::qr",        Zint::Qr::create );
-			#if LIBZINT_VERSION >= 20700
 			glbarcode::Factory::registerType( "zint::rmqr",      Zint::Rmqr::create );
-			#endif
 			glbarcode::Factory::registerType( "zint::rm4",       Zint::Rm4::create );
 			glbarcode::Factory::registerType( "zint::rm4sm",     Zint::Rm4sm::create );
-			#if LIBZINT_VERSION >= 21200
 			glbarcode::Factory::registerType( "zint::rm2dm",     Zint::Rm2dm::create );
-			#endif
 			glbarcode::Factory::registerType( "zint::tele",      Zint::Tele::create );
 			glbarcode::Factory::registerType( "zint::telex",     Zint::Telex::create );
 			glbarcode::Factory::registerType( "zint::upc-a",     Zint::UpcA::create );
 			glbarcode::Factory::registerType( "zint::upc-e",     Zint::UpcE::create );
-			#if LIBZINT_VERSION >= 21200
 			glbarcode::Factory::registerType( "zint::upus10",    Zint::UpuS10::create );
-			#endif
 			glbarcode::Factory::registerType( "zint::usps",      Zint::Usps::create );
 			glbarcode::Factory::registerType( "zint::pls",       Zint::Pls::create );
 			glbarcode::Factory::registerType( "zint::vin",       Zint::Vin::create );
@@ -291,13 +281,11 @@ namespace glabels
 			registerStyle( "azrun", "zint", tr("Aztec Runes"),
 			               false, false, true, false, "255", true, 3 );
 
-			#if LIBZINT_VERSION >= 21101
 			registerStyle( "bc412", "zint", tr("BC412 (SEMI TI-95)"),
 			               true, true, true, false, "12345678", true, 8 );
 
 			registerStyle( "cepnet", "zint", tr("CEPNet (Brazilian Post)"),
 			               false, false, true, false, "12345678", true, 8 );
-			#endif
 
 			registerStyle( "channel", "zint", tr("Channel Code"),
 			               true, true, false, false, "00", true, 2 );
@@ -365,10 +353,8 @@ namespace glabels
 			registerStyle( "dotcode", "zint", tr("DotCode"),
 			               false, false, true, false, "0000000000", true, 10 );
 
-			#if LIBZINT_VERSION >= 20901
 			registerStyle( "dpd", "zint", tr("DPD Code"),
 			               true, true, true, false, "000000000000000000000000000", true, 27 );
-			#endif
 
 			registerStyle( "kix", "zint", tr("Dutch Post KIX Code"),
 			               false, false, false, false, "0000000000", true, 10 );
@@ -493,10 +479,8 @@ namespace glabels
 			registerStyle( "qr", "zint", tr("QR Code"),
 			               false, false, true, false, "0000000000", true, 10 );
 
-			#if LIBZINT_VERSION >= 20700
 			registerStyle( "rmqr", "zint", tr("rMQR (Rectangular Micro QR)"),
 			               false, false, true, false, "0000000000", true, 10 );
-			#endif
 
 			registerStyle( "rm4", "zint", tr("Royal Mail 4-State Customer"),
 			               false, false, true, false, "0000000000", true, 10 );
@@ -504,10 +488,8 @@ namespace glabels
 			registerStyle( "rm4sm", "zint", tr("Royal Mail 4-State Mailmark"),
 			               false, false, true, false, "01000000000000000AA00AA0A", true, 25 );
 
-			#if LIBZINT_VERSION >= 21200
 			registerStyle( "rm2dm", "zint", tr("Royal Mail 2-D Mailmark"),
 			               false, false, true, false, "012100123412345678AB19XY1A 0", true, 28 );
-			#endif
 
 			registerStyle( "tele", "zint", tr("Telepen"),
 			               true, true, true, false, "0000000000", true, 10 );
@@ -524,10 +506,8 @@ namespace glabels
 			registerStyle( "upc-e", "zint", tr("UPC-E"), 
 			               true, true, true, false, "1234567", false, 7 );
 
-			#if LIBZINT_VERSION >= 21200
 			registerStyle( "upus10", "zint", tr("UPU S10"),
 			               true, true, true, false, "EE876543216CA", false, 13 );
-			#endif
 
 			registerStyle( "usps", "zint", tr("USPS Intelligent Mail"),
 			               false, false, true, false, "12345678901234567890", true, 20 );

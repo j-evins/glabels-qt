@@ -69,8 +69,6 @@ namespace glabels
 			                      double&            w,
 			                      double&            h )
 			{
-				#if LIBZINT_VERSION >= 20700
-
 				/*
 				 * First encode using Zint barcode library.
 				 */
@@ -105,7 +103,6 @@ namespace glabels
 				w = std::max( w, 5.0 ); // TODO: proper minimum
 				h = std::max( h, 5.0 ); // TODO: proper minimum
 
-				#if LIBZINT_VERSION >= 20902
 				if ( ZBarcode_Cap( symbol->symbology, ZINT_CAP_FIXED_RATIO ) & ZINT_CAP_FIXED_RATIO )
 				{
 					if ( vector->width == vector->height )
@@ -125,7 +122,6 @@ namespace glabels
 						}
 					}
 				}
-				#endif
 
 				double xscale = w / vector->width;
 				double yscale = h / vector->height;
@@ -144,11 +140,7 @@ namespace glabels
 				for ( zint_vector_circle *zcircle = vector->circles; zcircle != nullptr; zcircle = zcircle->next )
 				{
 					// Note will fail to properly draw MaxiCode bull's-eye rings for versions before 2.11.0
-					#if LIBZINT_VERSION >= 21100
 					double line_width = zcircle->width*xscale;
-					#else
-					double line_width = 0;
-					#endif
 					addRing( zcircle->x*xscale,
 					         zcircle->y*yscale,
 					         zcircle->diameter*xscale/2,
@@ -169,11 +161,7 @@ namespace glabels
 					for ( zint_vector_string *zstring = vector->strings; zstring != nullptr; zstring = zstring->next )
 					{
 						// Zint's horizontal align used since 2.10.0 for EAN/UPC outside numbers, previously centered (0)
-						#if LIBZINT_VERSION >= 21000
 						int halign = zstring->halign; // 0 center, 1 left, 2 right
-						#else
-						int halign = 0;
-						#endif
 						addText( zstring->x*xscale,
 						         zstring->y*yscale,
 						         zstring->fsize*std::min( xscale, yscale ), // TODO: do something better here
@@ -183,77 +171,6 @@ namespace glabels
 				}
 
 				ZBarcode_Delete( symbol );
-
-				#else /* LIBZINT_VERSION >= 20700 */
-
-				/*
-				 * First encode using Zint barcode library.
-				 */
-				if ( w == 0 )
-				{
-					w = W_PTS_DEFAULT;
-				}
-				if ( h == 0 )
-				{
-					h = H_PTS_DEFAULT;
-				}
-
-				zint_symbol* symbol = ZBarcode_Create();;
-
-				symbol->symbology = symbology;
-
-				if ( ZBarcode_Encode( symbol, (unsigned char*)(cookedData.c_str()), 0 ) != 0 )
-				{
-					qDebug() << "Zint::ZBarcode_Encode: " << QString(symbol->errtxt);
-					setIsDataValid( false );
-					return;
-				}
-
-				symbol->show_hrt = showText();
-
-				if ( ZBarcode_Render( symbol, (float)w, (float)h ) == 0 )
-				{
-					qDebug() << "Zint::ZBarcode_Render: " << QString(symbol->errtxt);
-					setIsDataValid( false );
-					return;
-				}
-
-
-				/*
-				 * Now do the actual vectorization.
-				 */
-				zint_render *render = symbol->rendered;
-
-				setWidth( render->width );
-				setHeight( render->height );
-
-				for ( zint_render_line *zline = render->lines; zline != nullptr; zline = zline->next )
-				{
-					addBox( zline->x, zline->y, zline->width, zline->length );
-				}
-
-				for ( zint_render_ring *zring = render->rings; zring != nullptr; zring = zring->next )
-				{
-					addRing( zring->x, zring->y, zring->radius, zring->line_width );
-				}
-
-				for ( zint_render_hexagon *zhexagon = render->hexagons; zhexagon != nullptr; zhexagon = zhexagon->next )
-				{
-					addHexagon( zhexagon->x, zhexagon->y, 2.89 );
-				}
-
-				if( showText() )
-				{
-					for ( zint_render_string *zstring = render->strings; zstring != nullptr; zstring = zstring->next )
-					{
-						double fsize = FONT_SCALE*zstring->fsize;
-						addText( zstring->x, zstring->y+0.75*fsize, fsize, QString((char*)(zstring->text)).toStdString() );
-					}
-				}
-
-				ZBarcode_Delete( symbol );
-
-				#endif /* LIBZINT_VERSION >= 20700 */
 			}
 
 
@@ -737,7 +654,6 @@ namespace glabels
 			}
 
 
-			#if LIBZINT_VERSION >= 20901
 			//////////////////////////////////////////////////////
 			// DPD Code Barcode
 			//////////////////////////////////////////////////////
@@ -752,7 +668,6 @@ namespace glabels
 				symbology = BARCODE_DPD;
 				return ""; // Actual encoding is done in vectorize
 			}
-			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1407,7 +1322,6 @@ namespace glabels
 			}
 
 
-			#if LIBZINT_VERSION >= 21101
 			//////////////////////////////////////////////////////
 			// BC412 (SEMI T1-95) Barcode
 			//////////////////////////////////////////////////////
@@ -1422,10 +1336,8 @@ namespace glabels
 				symbology = BARCODE_BC412;
 				return ""; // Actual encoding is done in vectorize
 			}
-			#endif
 
 
-			#if LIBZINT_VERSION >= 21101
 			//////////////////////////////////////////////////////
 			// CEPNet Barcode
 			//////////////////////////////////////////////////////
@@ -1440,7 +1352,6 @@ namespace glabels
 				symbology = BARCODE_CEPNET;
 				return ""; // Actual encoding is done in vectorize
 			}
-			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1491,7 +1402,6 @@ namespace glabels
 			}
 
 
-			#if LIBZINT_VERSION >= 20700
 			//////////////////////////////////////////////////////
 			// rMQR Barcode
 			//////////////////////////////////////////////////////
@@ -1506,7 +1416,6 @@ namespace glabels
 				symbology = BARCODE_RMQR;
 				return ""; // Actual encoding is done in vectorize
 			}
-			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1541,7 +1450,6 @@ namespace glabels
 			}
 
 
-			#if LIBZINT_VERSION >= 21200
 			//////////////////////////////////////////////////////
 			// Royal Mail 2-D Mailmark Barcode
 			//////////////////////////////////////////////////////
@@ -1556,7 +1464,6 @@ namespace glabels
 				symbology = BARCODE_MAILMARK_2D;
 				return ""; // Actual encoding is done in vectorize
 			}
-			#endif
 		
 
 			//////////////////////////////////////////////////////
@@ -1591,7 +1498,6 @@ namespace glabels
 			}
 
 
-			#if LIBZINT_VERSION >= 21200
 			//////////////////////////////////////////////////////
 			// UPU S10 Barcode
 			//////////////////////////////////////////////////////
@@ -1606,7 +1512,6 @@ namespace glabels
 				symbology = BARCODE_UPU_S10;
 				return ""; // Actual encoding is done in vectorize
 			}
-			#endif
 		
 
 			//////////////////////////////////////////////////////
