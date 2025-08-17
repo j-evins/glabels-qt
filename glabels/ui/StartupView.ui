@@ -139,8 +139,7 @@
            <string>New...</string>
           </property>
           <property name="icon">
-           <iconset resource="../icons.qrc">
-            <normaloff>:/icons/flat/32x32/glabels-file-new.svg</normaloff>:/icons/flat/32x32/glabels-file-new.svg</iconset>
+           <iconset theme="glabels-file-new"/>
           </property>
           <property name="iconSize">
            <size>
@@ -171,8 +170,7 @@
            <string>Browse...</string>
           </property>
           <property name="icon">
-           <iconset resource="../icons.qrc">
-            <normaloff>:/icons/flat/32x32/glabels-file-open.svg</normaloff>:/icons/flat/32x32/glabels-file-open.svg</iconset>
+           <iconset theme="glabels-file-open"/>
           </property>
           <property name="iconSize">
            <size>
@@ -197,8 +195,7 @@
            <string>Recent</string>
           </property>
           <property name="icon">
-           <iconset resource="../icons.qrc">
-            <normaloff>:/icons/flat/32x32/glabels-file-recent.svg</normaloff>:/icons/flat/32x32/glabels-file-recent.svg</iconset>
+           <iconset theme="glabels-file-recent"/>
           </property>
           <property name="iconSize">
            <size>

@@ -257,8 +257,7 @@
            <string>Change product</string>
           </property>
           <property name="icon">
-           <iconset resource="../icons.qrc">
-            <normaloff>:/icons/flat/32x32/glabels-select-product.svg</normaloff>:/icons/flat/32x32/glabels-select-product.svg</iconset>
+           <iconset theme="glabels-select-product"/>
           </property>
           <property name="iconSize">
            <size>
@@ -352,8 +351,7 @@
               <string>Horizontal orientation</string>
              </property>
              <property name="icon">
-              <iconset resource="../icons.qrc">
-               <normaloff>:/icons/flat/32x32/glabels-label-orientation-horiz.svg</normaloff>:/icons/flat/32x32/glabels-label-orientation-horiz.svg</iconset>
+              <iconset theme="glabels-label-orientation-horiz"/>
              </property>
             </item>
             <item>
@@ -361,8 +359,7 @@
               <string>Vertical orientation</string>
              </property>
              <property name="icon">
-              <iconset resource="../icons.qrc">
-               <normaloff>:/icons/flat/32x32/glabels-label-orientation-vert.svg</normaloff>:/icons/flat/32x32/glabels-label-orientation-vert.svg</iconset>
+              <iconset theme="glabels-label-orientation-vert"/>
              </property>
             </item>
            </widget>

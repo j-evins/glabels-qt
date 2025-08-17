@@ -478,8 +478,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../icons.qrc">
-         <normaloff>:/icons/flat/22x22/glabels-view-grid.svg</normaloff>:/icons/flat/22x22/glabels-view-grid.svg</iconset>
+        <iconset theme="glabels-view-grid"/>
        </property>
        <property name="iconSize">
         <size>

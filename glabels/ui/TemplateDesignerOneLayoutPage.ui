@@ -161,8 +161,7 @@
           <string>Print test sheet</string>
          </property>
          <property name="icon">
-          <iconset resource="../icons.qrc">
-           <normaloff>:/icons/flat/32x32/glabels-print.svg</normaloff>:/icons/flat/32x32/glabels-print.svg</iconset>
+          <iconset theme="glabels-print"/>
          </property>
          <property name="iconSize">
           <size>

@@ -32,6 +32,7 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QIcon>
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QTranslator>
@@ -46,6 +47,8 @@ int main( int argc, char **argv )
 	QCoreApplication::setOrganizationDomain( "glabels.org" );
 	QCoreApplication::setApplicationName( "glabels-qt" );
 	QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
+
+	QIcon::setThemeName( "glabels-flat" );
 
 	//
 	// Setup translators

@@ -21,7 +21,6 @@
 
 #include "SelectProductDialog.h"
 
-#include "Icons.h"
 #include "NotebookUtil.h"
 #include "TemplatePickerItem.h"
 
@@ -70,12 +69,12 @@ namespace glabels
 
 		if ( templatePicker->mode() == QListView::IconMode )
 		{
-			viewModeButton->setIcon( Icons::ViewList() );
+			viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-list" ) );
 			viewModeButton->setToolTip( tr( "List View" ) );
 		}
 		else
 		{
-			viewModeButton->setIcon( Icons::ViewGrid() );
+			viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-grid" ) );
 			viewModeButton->setToolTip( tr( "Grid View" ) );
 		}
 		
@@ -212,14 +211,14 @@ namespace glabels
 		{
 			templatePicker->setMode( QListView::ListMode );
 
-			viewModeButton->setIcon( Icons::ViewList() );
+			viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-list" ) );
 			viewModeButton->setToolTip( tr( "List View" ) );
 		}
 		else
 		{
 			templatePicker->setMode( QListView::IconMode );
 
-			viewModeButton->setIcon( Icons::ViewGrid() );
+			viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-grid" ) );
 			viewModeButton->setToolTip( tr( "Grid View" ) );
 		}
 	}
