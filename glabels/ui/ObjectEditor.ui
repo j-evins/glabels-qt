@@ -46,7 +46,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>:/icons/flat/24x24/glabels-object-properties.png</pixmap>
+        <pixmap>:/icons/glabels-flat/24x24/actions/glabels-object-properties.png</pixmap>
        </property>
       </widget>
      </item>

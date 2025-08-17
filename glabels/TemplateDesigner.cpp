@@ -113,7 +113,7 @@ namespace glabels
 		: QWizard(parent)
 	{
 		setWindowTitle( tr("Product Template Designer") );
-		setPixmap( QWizard::LogoPixmap, QPixmap( ":icons/apps/48x48/glabels.svg" ) );
+		setPixmap( QWizard::LogoPixmap, QIcon::fromTheme( "glabels" ).pixmap( 48 ) );
 		setWizardStyle( QWizard::ModernStyle );
 		setOption( QWizard::IndependentPages, false );
 		setOption( QWizard::NoBackButtonOnStartPage, true );
