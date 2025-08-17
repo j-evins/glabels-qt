@@ -19,7 +19,6 @@ set (glabels_sources
   FieldButton.cpp
   File.cpp
   Help.cpp
-  Icons.cpp
   LabelEditor.cpp
   MainWindow.cpp
   MergeView.cpp
