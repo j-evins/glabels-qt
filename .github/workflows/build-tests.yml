@@ -73,7 +73,7 @@ jobs:
         # install packages
         git clone --depth 1 https://github.com/microsoft/vcpkg.git
         ./vcpkg/bootstrap-vcpkg.sh
-        ./vcpkg/vcpkg install zlib qrencode zint
+        ./vcpkg/vcpkg install zlib zint
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )
