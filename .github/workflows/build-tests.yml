@@ -42,6 +42,7 @@ jobs:
             build_type: Release
             c_compiler: cl
             cpp_compiler: cl
+            toolchain_file : ${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake
           - os: macos-latest
             build_type: Release
             c_compiler: clang
@@ -102,7 +103,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        ${{ (startsWith(matrix.os, 'windows-') && "-DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake") || '' }}
+        -DCMAKE_TOOLCHAIN_FILE=${{ matrix.toolchain_file }}
         -S ${{ github.workspace }}
 
     - name: Build
