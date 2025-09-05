@@ -73,7 +73,9 @@ jobs:
         # install packages
         git clone --depth 1 https://github.com/microsoft/vcpkg.git
         ./vcpkg/bootstrap-vcpkg.sh
-        ./vcpkg/vcpkg install zlib zint
+        ./vcpkg/vcpkg install zlib
+        ./vcpkg/vcpkg install libqrencode
+        ./vcpkg/vcpkg install zint
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )
@@ -100,6 +102,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        ${{ (startsWith(matrix.os, 'windows-') && '-DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake') || '' }}
         -S ${{ github.workspace }}
 
     - name: Build
