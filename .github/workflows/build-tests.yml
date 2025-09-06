@@ -73,12 +73,12 @@ jobs:
         # install packages
         git clone --depth 1 https://github.com/microsoft/vcpkg.git
         ./vcpkg/bootstrap-vcpkg.sh
+        ./vcpkg/vcpkg install pkgconf
         ./vcpkg/vcpkg install zlib
         ./vcpkg/vcpkg install libqrencode
         ./vcpkg/vcpkg install zint
         ./vcpkg/vcpkg integrate install
         echo "TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
-        cat "${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )
