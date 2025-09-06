@@ -42,7 +42,6 @@ jobs:
             build_type: Release
             c_compiler: cl
             cpp_compiler: cl
-            toolchain_file : ${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake
           - os: macos-latest
             build_type: Release
             c_compiler: clang
@@ -77,6 +76,7 @@ jobs:
         ./vcpkg/vcpkg install zlib
         ./vcpkg/vcpkg install libqrencode
         ./vcpkg/vcpkg install zint
+        echo "TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )
@@ -103,7 +103,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -DCMAKE_TOOLCHAIN_FILE=${{ matrix.toolchain_file }}
+        -DCMAKE_TOOLCHAIN_FILE=${{ env.TOOLCHAIN_FILE }}
         -S ${{ github.workspace }}
 
     - name: Build
