@@ -78,7 +78,7 @@ jobs:
         ./vcpkg/vcpkg install zint
         ./vcpkg/vcpkg integrate install
         echo "TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
-        cat ${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake
+        cat "${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )
