@@ -76,6 +76,7 @@ jobs:
         ./vcpkg/vcpkg install zlib
         ./vcpkg/vcpkg install libqrencode
         ./vcpkg/vcpkg install zint
+	./vcpkg/vcpkg integrate install
         echo "TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
 
     - name: Install optional dependencies (MacOS)
