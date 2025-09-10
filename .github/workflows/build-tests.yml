@@ -66,6 +66,17 @@ jobs:
         # install zint-2.15.0 from source
         wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz && tar xzf zint-2.15.0-src.tar.gz && ( cd zint-2.15.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
 
+    - name: Restore vcpkg cache (Windows)
+      if: startsWith(matrix.os, 'windows-')
+      uses: actions/cache@v4
+      with:
+        path: |
+          ${{ github.workspace }}/vcpkg/installed
+          ${{ github.workspace }}/vcpkg/downloads
+        key: vcpkg-${{ runner.os }}-${{ hashFiles('.github/workflows/build-tests.yml') }}
+        restore-keys: |
+          vcpkg-${{ runner.os }}-
+
     - name: Install optional dependencies (Windows)
       if: startsWith( matrix.os, 'windows-' )
       shell: bash
