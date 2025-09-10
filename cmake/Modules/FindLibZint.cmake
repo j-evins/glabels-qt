@@ -47,7 +47,6 @@ if (LIBZINT_INCLUDE_DIR AND EXISTS "${LIBZINT_INCLUDE_DIR}/zint.h")
   else ()
     # For zint 2.10+, version macros are no longer available in public header files -- query zint command
     find_program (ZINT_COMMAND NAMES zint zint.exe)
-    message (STATUS "ZINT_COMMAND = " ${ZINT_COMMAND})
     execute_process(COMMAND ${ZINT_COMMAND} "-v" OUTPUT_VARIABLE EXEC_ZINT_VERSION ERROR_QUIET)
     if (EXEC_ZINT_VERSION)
       string (REGEX REPLACE "^Zint version ([0-9.]+).*$" "\\1" LIBZINT_VERSION_STRING ${EXEC_ZINT_VERSION})
