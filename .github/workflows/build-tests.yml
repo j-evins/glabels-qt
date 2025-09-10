@@ -77,9 +77,7 @@ jobs:
         ./vcpkg/vcpkg install zlib
         ./vcpkg/vcpkg install libqrencode
         ./vcpkg/vcpkg install zint
-        ./vcpkg/vcpkg integrate install
         echo "TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
-        ls -lR ./vcpkg/installed/x64-windows/
 
     - name: Install optional dependencies (MacOS)
       if: startsWith( matrix.os, 'macos-' )

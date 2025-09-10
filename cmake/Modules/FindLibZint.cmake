@@ -51,14 +51,11 @@ if (LIBZINT_INCLUDE_DIR AND EXISTS "${LIBZINT_INCLUDE_DIR}/zint.h")
       string (REGEX REPLACE "^([0-9]+).*$" "\\1" ZINT_MAJOR ${LIBZINT_VERSION_STRING})
       string (REGEX REPLACE "^[0-9]+\.([0-9]+).*$" "\\1" ZINT_MINOR ${LIBZINT_VERSION_STRING})
       string (REGEX REPLACE "^[0-9]+\.[0-9]+\.([0-9]+).*$" "\\1" ZINT_MICRO ${LIBZINT_VERSION_STRING})
-      message (STATUS "ZINT_VERSION_STRING_H = " ${ZINT_VERSION_STRING_H})
-      message (STATUS "LIBZINT_VERSION_STRING = " ${LIBZINT_VERSION_STRING})
-      message (STATUS "ZINT_MAJOR = " ${ZINT_MAJOR})
-      message (STATUS "ZINT_MINOR = " ${ZINT_MINOR})
-      message (STATUS "ZINT_MICRO = " ${ZINT_MICRO})
       math (EXPR LIBZINT_VERSION "${ZINT_MAJOR} * 10000 + ${ZINT_MINOR} * 100 + ${ZINT_MICRO}")
     else ()
-      # Last resort -- query version from the zint command (assumes zint installed in path)
+      # Last resort -- query version from the zint executable itself
+      # Assumes zint installed in path.  Vcpkg installs in a non-standard tools directory.
+      # TODO: use find_command with an appropriate hint to locate.
       execute_process(COMMAND "zint" "-h" OUTPUT_VARIABLE EXEC_ZINT_VERSION ERROR_QUIET)
       if (EXEC_ZINT_VERSION)
         string (REGEX REPLACE "^Zint version ([0-9.]+).*$" "\\1" LIBZINT_VERSION_STRING ${EXEC_ZINT_VERSION})
