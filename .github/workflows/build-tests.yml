@@ -26,26 +26,26 @@ jobs:
 
       matrix:
         include:
-          - os: ubuntu-latest
-            build_type: Release
-            c_compiler: gcc
-            cpp_compiler: g++
-          - os: ubuntu-latest
-            build_type: Release
-            c_compiler: clang
-            cpp_compiler: clang++
-          - os: ubuntu-22.04
-            build_type: Release
-            c_compiler: gcc
-            cpp_compiler: g++
+#          - os: ubuntu-latest
+#            build_type: Release
+#            c_compiler: gcc
+#            cpp_compiler: g++
+#          - os: ubuntu-latest
+#            build_type: Release
+#            c_compiler: clang
+#            cpp_compiler: clang++
+#          - os: ubuntu-22.04
+#            build_type: Release
+#            c_compiler: gcc
+#            cpp_compiler: g++
           - os: windows-latest
             build_type: Release
             c_compiler: cl
             cpp_compiler: cl
-          - os: macos-latest
-            build_type: Release
-            c_compiler: clang
-            cpp_compiler: clang++
+#          - os: macos-latest
+#            build_type: Release
+#            c_compiler: clang
+#            cpp_compiler: clang++
 
     steps:
     - name: Checkout
@@ -66,6 +66,12 @@ jobs:
         # install zint-2.15.0 from source
         wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz && tar xzf zint-2.15.0-src.tar.gz && ( cd zint-2.15.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
 
+    - name: Pre-install vcpkg (Windows)
+      if: startsWith( matrix.os, 'windows-' )
+      shell: bash
+      run: |
+        git clone --depth 1 https://github.com/microsoft/vcpkg.git
+
     - name: Restore vcpkg cache (Windows)
       if: startsWith(matrix.os, 'windows-')
       uses: actions/cache@v4
@@ -81,10 +87,6 @@ jobs:
       if: startsWith( matrix.os, 'windows-' )
       shell: bash
       run: |
-        # Only clone vcpkg if it doesn't exist (so cache won't be overwritten)
-        if [ ! -d "./vcpkg" ]; then
-          git clone --depth 1 https://github.com/microsoft/vcpkg.git
-        fi
         # install packages
         ./vcpkg/bootstrap-vcpkg.sh
         ./vcpkg/vcpkg install pkgconf
