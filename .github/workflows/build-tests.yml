@@ -81,8 +81,11 @@ jobs:
       if: startsWith( matrix.os, 'windows-' )
       shell: bash
       run: |
+        # Only clone vcpkg if it doesn't exist (so cache won't be overwritten)
+        if [ ! -d "./vcpkg" ]; then
+          git clone --depth 1 https://github.com/microsoft/vcpkg.git
+        fi
         # install packages
-        git clone --depth 1 https://github.com/microsoft/vcpkg.git
         ./vcpkg/bootstrap-vcpkg.sh
         ./vcpkg/vcpkg install pkgconf
         ./vcpkg/vcpkg install zlib
