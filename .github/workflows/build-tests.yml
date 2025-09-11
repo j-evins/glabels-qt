@@ -6,8 +6,6 @@
 #     - windows-latest - cl
 #     - macos-latest   - clang
 #
-# TODO:
-#     - install optional dependencies for windows-latest and macos-latest
       
 
 name: Multi-Platform Build Tests
@@ -102,7 +100,6 @@ jobs:
         # install packages
         brew install zlib
         brew install qrencode
-        brew install gnu-barcode
         brew install zint
 
     - name: Install Qt
