@@ -46,12 +46,7 @@ namespace glabels
 		public:
 			Outline( ModelObject* owner );
 			Outline( const Outline* outline, ModelObject* newOwner );
-			virtual ~Outline();
-
-	
-			////////////////////////////
-			// Duplication
-			////////////////////////////
+			virtual ~Outline() = default;
 			Outline* clone( ModelObject* newOwner ) const;
 
 

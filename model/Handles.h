@@ -55,12 +55,7 @@ namespace glabels
 		protected:
 			Handle( ModelObject* owner, Location location );
 		public:
-			virtual ~Handle();
-
-
-			////////////////////////////
-			// Duplication
-			////////////////////////////
+			virtual ~Handle() = default;
 			virtual Handle* clone( ModelObject* newOwner ) const = 0;
 	
 		
@@ -109,7 +104,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleNorth( ModelObject* owner );
-			~HandleNorth() override;
+			~HandleNorth() = default;
 			HandleNorth* clone( ModelObject* newOwner ) const override;
 
 
@@ -132,7 +127,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleNorthEast( ModelObject* owner );
-			~HandleNorthEast() override;
+			~HandleNorthEast() = default;
 			HandleNorthEast* clone( ModelObject* newOwner ) const override;
 
 
@@ -155,7 +150,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleEast( ModelObject* owner );
-			~HandleEast() override;
+			~HandleEast() = default;
 			HandleEast* clone( ModelObject* newOwner ) const override;
 
 
@@ -178,7 +173,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleSouthEast( ModelObject* owner );
-			~HandleSouthEast() override;
+			~HandleSouthEast() = default;
 			HandleSouthEast* clone( ModelObject* newOwner ) const override;
 
 
@@ -201,7 +196,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleSouth( ModelObject* owner );
-			~HandleSouth() override;
+			~HandleSouth() = default;
 			HandleSouth* clone( ModelObject* newOwner ) const override;
 
 
@@ -224,7 +219,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleSouthWest( ModelObject* owner );
-			~HandleSouthWest() override;
+			~HandleSouthWest() = default;
 			HandleSouthWest* clone( ModelObject* newOwner ) const override;
 
 
@@ -247,7 +242,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleWest( ModelObject* owner );
-			~HandleWest() override;
+			~HandleWest() = default;
 			HandleWest* clone( ModelObject* newOwner ) const override;
 
 
@@ -270,7 +265,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleNorthWest( ModelObject* owner );
-			~HandleNorthWest() override;
+			~HandleNorthWest() = default;
 			HandleNorthWest* clone( ModelObject* newOwner ) const override;
 
 
@@ -293,7 +288,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleP1( ModelObject* owner );
-			~HandleP1() override;
+			~HandleP1() = default;
 			HandleP1* clone( ModelObject* newOwner ) const override;
 
 
@@ -316,11 +311,7 @@ namespace glabels
 			////////////////////////////
 		public:
 			HandleP2( ModelObject* owner );
-			~HandleP2() override;
-
-			////////////////////////////
-			// Duplication
-			////////////////////////////
+			~HandleP2() = default;
 			HandleP2* clone( ModelObject* newOwner ) const override;
 
 

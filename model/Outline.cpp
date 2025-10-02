@@ -80,15 +80,6 @@ namespace glabels
 
 
 		///
-		/// Outline Destructor
-		///
-		Outline::~Outline()
-		{
-			// empty
-		}
-
-
-		///
 		/// Clone Outline
 		///
 		Outline* Outline::clone( ModelObject* newOwner ) const

@@ -56,15 +56,6 @@ namespace glabels
 
 
 		///
-		/// Handle Destructor
-		///
-		Handle::~Handle()
-		{
-			// empty
-		}
-
-
-		///
 		/// Handle owner
 		///
 		ModelObject* Handle::owner() const
@@ -140,15 +131,6 @@ namespace glabels
 
 
 		///
-		/// HandleNorth Destructor
-		///
-		HandleNorth::~HandleNorth()
-		{
-			// empty
-		}
-
-
-		///
 		/// HandleNorth Clone
 		///
 		HandleNorth* HandleNorth::clone( ModelObject* newOwner ) const
@@ -180,15 +162,6 @@ namespace glabels
 		///
 		HandleNorthEast::HandleNorthEast( ModelObject* owner )
 			: Handle( owner, NE )
-		{
-			// empty
-		}
-
-
-		///
-		/// HandleNorthEast Destructor
-		///
-		HandleNorthEast::~HandleNorthEast()
 		{
 			// empty
 		}
@@ -232,15 +205,6 @@ namespace glabels
 
 
 		///
-		/// HandleEast Destructor
-		///
-		HandleEast::~HandleEast()
-		{
-			// empty
-		}
-
-
-		///
 		/// HandleEast Clone
 		///
 		HandleEast* HandleEast::clone( ModelObject* newOwner ) const
@@ -272,15 +236,6 @@ namespace glabels
 		///
 		HandleSouthEast::HandleSouthEast( ModelObject* owner )
 			: Handle( owner, SE )
-		{
-			// empty
-		}
-
-
-		///
-		/// HandleSouthEast Destructor
-		///
-		HandleSouthEast::~HandleSouthEast()
 		{
 			// empty
 		}
@@ -324,15 +279,6 @@ namespace glabels
 
 
 		///
-		/// HandleSouth Destructor
-		///
-		HandleSouth::~HandleSouth()
-		{
-			// empty
-		}
-
-
-		///
 		/// HandleSouth Clone
 		///
 		HandleSouth* HandleSouth::clone( ModelObject* newOwner ) const
@@ -364,15 +310,6 @@ namespace glabels
 		///
 		HandleSouthWest::HandleSouthWest( ModelObject* owner )
 			: Handle( owner, SW )
-		{
-			// empty
-		}
-
-
-		///
-		/// HandleSouthWest Destructor
-		///
-		HandleSouthWest::~HandleSouthWest()
 		{
 			// empty
 		}
@@ -416,15 +353,6 @@ namespace glabels
 
 
 		///
-		/// HandleWest Destructor
-		///
-		HandleWest::~HandleWest()
-		{
-			// empty
-		}
-
-
-		///
 		/// HandleWest Clone
 		///
 		HandleWest* HandleWest::clone( ModelObject* newOwner ) const
@@ -460,14 +388,6 @@ namespace glabels
 			// empty
 		}
 
-
-		///
-		/// HandleNorthWest Destructor
-		///
-		HandleNorthWest::~HandleNorthWest()
-		{
-			// empty
-		}
 
 		///
 		/// HandleNorthWest Clone
@@ -507,15 +427,6 @@ namespace glabels
 
 
 		///
-		/// HandleP1 Destructor
-		///
-		HandleP1::~HandleP1()
-		{
-			// empty
-		}
-
-
-		///
 		/// HandleP1 Clone
 		///
 		HandleP1* HandleP1::clone( ModelObject* newOwner ) const
@@ -547,15 +458,6 @@ namespace glabels
 		///
 		HandleP2::HandleP2( ModelObject* owner )
 			: Handle( owner, P2 )
-		{
-			// empty
-		}
-
-
-		///
-		/// HandleP2 Destructor
-		///
-		HandleP2::~HandleP2()
 		{
 			// empty
 		}
