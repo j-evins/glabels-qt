@@ -36,7 +36,7 @@ namespace glabels
 
 
 		///
-		/// Outline Base Class
+		/// Outline Class
 		///
 		class Outline
 		{
@@ -62,7 +62,7 @@ namespace glabels
 			// Private Data
 			////////////////////////////
 		private:
-			ModelObject* mOwner;
+			ModelObject*   mOwner;
 
 			QVector<qreal> mDashes;
 			QPen           mPen1;

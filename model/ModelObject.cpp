@@ -61,8 +61,6 @@ namespace glabels
 			mShadowOpacity   = 0.5;
 
 			mSelectedFlag = false;
-
-			mOutline = nullptr;
 		}
 
 
@@ -97,8 +95,6 @@ namespace glabels
 			mShadowOpacity   = shadowOpacity;
 
 			mSelectedFlag = false;
-
-			mOutline = nullptr;
 		}
 	
 		
@@ -128,25 +124,9 @@ namespace glabels
 				mHandles.append( handle->clone( this ) );
 			}
 	
-			if ( object->mOutline )
-			{
-				mOutline = object->mOutline->clone( this );
-			}
-			else
-			{
-				mOutline = nullptr;
-			}
+			mOutline.reset( object->mOutline->clone( this ) );
 
 			mMatrix          = object->mMatrix;
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelObject::~ModelObject()
-		{
-			// empty
 		}
 
 

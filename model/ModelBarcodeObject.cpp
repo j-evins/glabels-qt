@@ -58,7 +58,7 @@ namespace glabels
 		///
 		ModelBarcodeObject::ModelBarcodeObject()
 		{
-			mOutline = new Outline( this );
+			mOutline.reset( new Outline( this ) );
 
 			mHandles << new HandleNorthWest( this );
 			mHandles << new HandleNorth( this );
@@ -99,7 +99,7 @@ namespace glabels
 		                                        const QTransform&     matrix )
 		: ModelObject( x0, y0, w, h, lockAspectRatio, matrix )
 		{
-			mOutline = new Outline( this );
+			mOutline.reset( new Outline( this ) );
 
 			mHandles << new HandleNorthWest( this );
 			mHandles << new HandleNorth( this );
@@ -149,8 +149,6 @@ namespace glabels
 		///
 		ModelBarcodeObject::~ModelBarcodeObject()
 		{
-			delete mOutline;
-
 			foreach( Handle* handle, mHandles )
 			{
 				delete handle;

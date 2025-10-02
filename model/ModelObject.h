@@ -35,6 +35,7 @@
 #include <QObject>
 #include <QFont>
 #include <QTransform>
+#include <QScopedPointer>
 #include <QPainter>
 
 
@@ -76,7 +77,7 @@ namespace glabels
 			ModelObject( const ModelObject* object );
 		
 		public:
-			~ModelObject() override;
+			~ModelObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -454,7 +455,7 @@ namespace glabels
 			ColorNode         mShadowColorNode;
 
 			QList<Handle*>    mHandles;
-			Outline*          mOutline;
+			QScopedPointer<Outline> mOutline;
 
 
 			///////////////////////////////////////////////////////////////

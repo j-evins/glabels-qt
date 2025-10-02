@@ -34,7 +34,7 @@ namespace glabels
 		///
 		ModelShapeObject::ModelShapeObject()
 		{
-			mOutline = new Outline( this );
+			mOutline.reset( new Outline( this ) );
 
 			mHandles << new HandleNorthWest( this );
 			mHandles << new HandleNorth( this );
@@ -72,7 +72,7 @@ namespace glabels
 		               matrix,
 		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
 		{
-			mOutline = new Outline( this );
+			mOutline.reset( new Outline( this ) );
 
 			mHandles << new HandleNorthWest( this );
 			mHandles << new HandleNorth( this );
@@ -105,8 +105,6 @@ namespace glabels
 		///
 		ModelShapeObject::~ModelShapeObject()
 		{
-			delete mOutline;
-
 			foreach( Handle* handle, mHandles )
 			{
 				delete handle;

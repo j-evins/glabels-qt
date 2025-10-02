@@ -43,8 +43,6 @@ namespace glabels
 		///
 		ModelLineObject::ModelLineObject()
 		{
-			mOutline = nullptr;
-
 			mHandles << new HandleP1( this );
 			mHandles << new HandleP2( this );
 
@@ -56,32 +54,24 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelLineObject::ModelLineObject( const Distance&  x0,
-		                                  const Distance&  y0,
-		                                  const Distance&  dx,
-		                                  const Distance&  dy,
-		                                  const Distance&  lineWidth,
-		                                  const ColorNode& lineColorNode,
+		ModelLineObject::ModelLineObject( const Distance&   x0,
+		                                  const Distance&   y0,
+		                                  const Distance&   dx,
+		                                  const Distance&   dy,
+		                                  const Distance&   lineWidth,
+		                                  const ColorNode&  lineColorNode,
 		                                  const QTransform& matrix,
-		                                  bool             shadowState,
-		                                  const Distance&  shadowX,
-		                                  const Distance&  shadowY,
-		                                  double           shadowOpacity,
-		                                  const ColorNode& shadowColorNode )
+		                                  bool              shadowState,
+		                                  const Distance&   shadowX,
+		                                  const Distance&   shadowY,
+		                                  double            shadowOpacity,
+		                                  const ColorNode&  shadowColorNode )
 		: ModelObject( x0, y0, dx, dy, false /*lockAspectRatio*/,
 		               matrix,
 		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
 		{
-			mOutline = new Outline( this );
-
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles << new HandleP1( this );
+			mHandles << new HandleP2( this );
 
 			mLineWidth       = lineWidth;
 			mLineColorNode   = lineColorNode;
