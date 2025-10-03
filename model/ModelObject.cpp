@@ -124,7 +124,10 @@ namespace glabels
 				mHandles.append( handle->clone( this ) );
 			}
 	
-			mOutline.reset( object->mOutline->clone( this ) );
+			if ( mOutline )
+			{
+				mOutline.reset( object->mOutline->clone( this ) );
+			}
 
 			mMatrix          = object->mMatrix;
 		}
