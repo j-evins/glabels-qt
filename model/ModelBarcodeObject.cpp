@@ -76,9 +76,6 @@ namespace glabels
 			mBcData         = "";
 			mBcColorNode    = ColorNode( Qt::black );
 
-			mEditorBarcode = nullptr;
-			mEditorDefaultBarcode = nullptr;
-
 			update(); // Initialize cached editor layouts
 		}
 
@@ -117,9 +114,6 @@ namespace glabels
 			mBcData         = bcData;
 			mBcColorNode    = bcColorNode;
 
-			mEditorBarcode = nullptr;
-			mEditorDefaultBarcode = nullptr;
-
 			update(); // Initialize cached editor layouts
 		}
 	
@@ -137,19 +131,7 @@ namespace glabels
 			mBcData         = object->mBcData;
 			mBcColorNode    = object->mBcColorNode;
 
-			mEditorBarcode = nullptr;
-			mEditorDefaultBarcode = nullptr;
-
 			update(); // Initialize cached editor layouts
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelBarcodeObject::~ModelBarcodeObject()
-		{
-			delete mEditorBarcode;
 		}
 
 
@@ -359,16 +341,12 @@ namespace glabels
 			//
 			// Build barcode from data
 			//
-			if ( mEditorBarcode )
-			{
-				delete mEditorBarcode;
-			}
-			mEditorBarcode = glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() );
+			mEditorBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() ) );
 			if ( !mEditorBarcode )
 			{
 				qWarning() << "Invalid barcode style" << mBcStyle.fullId() << "using \"code39\".";
 				mBcStyle = barcode::Backends::defaultStyle();
-				mEditorBarcode = glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() );
+				mEditorBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() ) );
 			}
 			mEditorBarcode->setChecksum(mBcChecksumFlag);
 			mEditorBarcode->setShowText(mBcTextFlag);
@@ -378,16 +356,12 @@ namespace glabels
 			//
 			// Build a place holder barcode to display in editor, if cannot display actual barcode
 			//
-			if ( mEditorDefaultBarcode )
-			{
-				delete mEditorDefaultBarcode;
-			}
-			mEditorDefaultBarcode = glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() );
+			mEditorDefaultBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() ) );
 			if ( !mEditorDefaultBarcode )
 			{
 				qWarning() << "Invalid barcode style" << mBcStyle.fullId() << "using \"code39\".";
 				mBcStyle = barcode::Backends::defaultStyle();
-				mEditorDefaultBarcode = glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() );
+				mEditorDefaultBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() ) );
 			}
 			mEditorDefaultBarcode->setChecksum(mBcChecksumFlag);
 			mEditorDefaultBarcode->setShowText(mBcTextFlag);

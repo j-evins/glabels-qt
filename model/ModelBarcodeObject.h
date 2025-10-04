@@ -28,6 +28,8 @@
 
 #include "glbarcode/Barcode.h"
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -61,7 +63,7 @@ namespace glabels
 
 			ModelBarcodeObject( const ModelBarcodeObject* object );
 
-			~ModelBarcodeObject() override;
+			virtual ~ModelBarcodeObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -169,8 +171,8 @@ namespace glabels
 			RawText             mBcData;
 			ColorNode           mBcColorNode;
 
-			glbarcode::Barcode* mEditorBarcode;
-			glbarcode::Barcode* mEditorDefaultBarcode;
+			std::unique_ptr<glbarcode::Barcode> mEditorBarcode;
+			std::unique_ptr<glbarcode::Barcode> mEditorDefaultBarcode;
 		
 			QPainterPath mHoverPath;
 
