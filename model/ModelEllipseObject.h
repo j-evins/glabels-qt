@@ -60,7 +60,7 @@ namespace glabels
 
 			ModelEllipseObject( const ModelEllipseObject* object );
 
-			~ModelEllipseObject() override;
+			virtual ~ModelEllipseObject() = default;
 
 	
 			///////////////////////////////////////////////////////////////

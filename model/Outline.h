@@ -25,6 +25,8 @@
 #include <QPainter>
 #include <QPainterPath>
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -47,7 +49,7 @@ namespace glabels
 			Outline( ModelObject* owner );
 			Outline( const Outline* outline, ModelObject* newOwner );
 			virtual ~Outline() = default;
-			Outline* clone( ModelObject* newOwner ) const;
+			std::unique_ptr<Outline> clone( ModelObject* newOwner ) const;
 
 
 			////////////////////////////

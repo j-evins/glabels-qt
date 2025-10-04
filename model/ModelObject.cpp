@@ -119,14 +119,14 @@ namespace glabels
 			mShadowOpacity   = object->mShadowOpacity;
 			mShadowColorNode = object->mShadowColorNode;
 
-			foreach ( Handle* handle, object->mHandles )
+			for ( auto& handle : object->mHandles )
 			{
-				mHandles.append( handle->clone( this ) );
+				mHandles.push_back( handle->clone( this ) );
 			}
 	
 			if ( mOutline )
 			{
-				mOutline.reset( object->mOutline->clone( this ) );
+				mOutline = object->mOutline->clone( this );
 			}
 
 			mMatrix          = object->mMatrix;
@@ -1192,12 +1192,12 @@ namespace glabels
 				QPointF p( x.pt(), y.pt() );
 				p -= QPointF( mX0.pt(), mY0.pt() ); // Translate point to x0,y0
 
-				foreach ( Handle* handle, mHandles )
+				for ( auto& handle : mHandles )
 				{
 					QPainterPath handlePath = mMatrix.map( handle->path( scale ) );
 					if ( handlePath.contains( p ) )
 					{
-						return handle;
+						return handle.get();
 					}
 				}
 			}
@@ -1248,7 +1248,7 @@ namespace glabels
 				mOutline->draw( painter );
 			}
 
-			foreach( Handle* handle, mHandles )
+			for( auto& handle : mHandles )
 			{
 				handle->draw( painter, scale );
 			}

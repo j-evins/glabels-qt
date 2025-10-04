@@ -82,9 +82,9 @@ namespace glabels
 		///
 		/// Clone Outline
 		///
-		Outline* Outline::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Outline> Outline::clone( ModelObject* newOwner ) const
 		{
-			return new Outline( this, newOwner );
+			return std::make_unique<Outline>( this, newOwner );
 		}
 
 

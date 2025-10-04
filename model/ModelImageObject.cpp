@@ -60,14 +60,14 @@ namespace glabels
 		{
 			mOutline.reset( new Outline( this ) );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
 			if ( smDefaultImage == nullptr )
 			{
@@ -99,14 +99,14 @@ namespace glabels
 		{
 			mOutline.reset( new Outline( this ) );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
 			if ( smDefaultImage == nullptr )
 			{
@@ -144,14 +144,14 @@ namespace glabels
 		{
 			mOutline.reset( new Outline( this ) );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
 			if ( smDefaultImage == nullptr )
 			{
@@ -186,14 +186,14 @@ namespace glabels
 		{
 			mOutline.reset( new Outline( this ) );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
 			if ( smDefaultImage == nullptr )
 			{
@@ -238,12 +238,6 @@ namespace glabels
 		///
 		ModelImageObject::~ModelImageObject()
 		{
-			foreach( Handle* handle, mHandles )
-			{
-				delete handle;
-			}
-			mHandles.clear();
-
 			if ( mImage )
 			{
 				delete mImage;

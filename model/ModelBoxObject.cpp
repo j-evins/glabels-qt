@@ -84,15 +84,6 @@ namespace glabels
 
 
 		///
-		/// Destructor
-		///
-		ModelBoxObject::~ModelBoxObject()
-		{
-			// empty
-		}
-
-
-		///
 		/// Clone
 		///
 		ModelBoxObject* ModelBoxObject::clone() const

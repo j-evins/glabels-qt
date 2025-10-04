@@ -133,9 +133,9 @@ namespace glabels
 		///
 		/// HandleNorth Clone
 		///
-		HandleNorth* HandleNorth::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleNorth::clone( ModelObject* newOwner ) const
 		{
-			return new HandleNorth( newOwner );
+			return std::make_unique<HandleNorth>( newOwner );
 		}
 
 
@@ -170,9 +170,9 @@ namespace glabels
 		///
 		/// HandleNorthEast Clone
 		///
-		HandleNorthEast* HandleNorthEast::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleNorthEast::clone( ModelObject* newOwner ) const
 		{
-			return new HandleNorthEast( newOwner );
+			return std::make_unique<HandleNorthEast>( newOwner );
 		}
 
 
@@ -207,9 +207,9 @@ namespace glabels
 		///
 		/// HandleEast Clone
 		///
-		HandleEast* HandleEast::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleEast::clone( ModelObject* newOwner ) const
 		{
-			return new HandleEast( newOwner );
+			return std::make_unique<HandleEast>( newOwner );
 		}
 
 
@@ -244,9 +244,9 @@ namespace glabels
 		///
 		/// HandleSouthEast Clone
 		///
-		HandleSouthEast* HandleSouthEast::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleSouthEast::clone( ModelObject* newOwner ) const
 		{
-			return new HandleSouthEast( newOwner );
+			return std::make_unique<HandleSouthEast>( newOwner );
 		}
 
 
@@ -281,9 +281,9 @@ namespace glabels
 		///
 		/// HandleSouth Clone
 		///
-		HandleSouth* HandleSouth::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleSouth::clone( ModelObject* newOwner ) const
 		{
-			return new HandleSouth( newOwner );
+			return std::make_unique<HandleSouth>( newOwner );
 		}
 
 
@@ -318,9 +318,9 @@ namespace glabels
 		///
 		/// HandleSouthWest Clone
 		///
-		HandleSouthWest* HandleSouthWest::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleSouthWest::clone( ModelObject* newOwner ) const
 		{
-			return new HandleSouthWest( newOwner );
+			return std::make_unique<HandleSouthWest>( newOwner );
 		}
 
 
@@ -355,9 +355,9 @@ namespace glabels
 		///
 		/// HandleWest Clone
 		///
-		HandleWest* HandleWest::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleWest::clone( ModelObject* newOwner ) const
 		{
-			return new HandleWest( newOwner );
+			return std::make_unique<HandleWest>( newOwner );
 		}
 
 
@@ -392,9 +392,9 @@ namespace glabels
 		///
 		/// HandleNorthWest Clone
 		///
-		HandleNorthWest* HandleNorthWest::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleNorthWest::clone( ModelObject* newOwner ) const
 		{
-			return new HandleNorthWest( newOwner );
+			return std::make_unique<HandleNorthWest>( newOwner );
 		}
 
 
@@ -429,9 +429,9 @@ namespace glabels
 		///
 		/// HandleP1 Clone
 		///
-		HandleP1* HandleP1::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleP1::clone( ModelObject* newOwner ) const
 		{
-			return new HandleP1( newOwner );
+			return std::make_unique<HandleP1>( newOwner );
 		}
 
 
@@ -466,9 +466,9 @@ namespace glabels
 		///
 		/// HandleP2 Clone
 		///
-		HandleP2* HandleP2::clone( ModelObject* newOwner ) const
+		std::unique_ptr<Handle> HandleP2::clone( ModelObject* newOwner ) const
 		{
-			return new HandleP2( newOwner );
+			return std::make_unique<HandleP2>( newOwner );
 		}
 
 

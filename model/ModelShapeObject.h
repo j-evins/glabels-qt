@@ -60,7 +60,7 @@ namespace glabels
 
 			ModelShapeObject( const ModelShapeObject* object );
 		public:
-			~ModelShapeObject() override;
+			virtual ~ModelShapeObject() = default;
 
 
 			///////////////////////////////////////////////////////////////

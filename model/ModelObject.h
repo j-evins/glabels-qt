@@ -35,8 +35,10 @@
 #include <QObject>
 #include <QFont>
 #include <QTransform>
-#include <QScopedPointer>
 #include <QPainter>
+
+#include <list>
+#include <memory>
 
 
 namespace glabels
@@ -77,7 +79,7 @@ namespace glabels
 			ModelObject( const ModelObject* object );
 		
 		public:
-			~ModelObject() = default;
+			virtual ~ModelObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -454,8 +456,8 @@ namespace glabels
 			double            mShadowOpacity;
 			ColorNode         mShadowColorNode;
 
-			QList<Handle*>    mHandles;
-			QScopedPointer<Outline> mOutline;
+			std::list<std::unique_ptr<Handle>> mHandles;
+			std::unique_ptr<Outline>           mOutline;
 
 
 			///////////////////////////////////////////////////////////////

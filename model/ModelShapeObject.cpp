@@ -36,14 +36,14 @@ namespace glabels
 		{
 			mOutline.reset( new Outline( this ) );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
 			mLineWidth       = 1.0;
 			mLineColorNode   = ColorNode( QColor( 0, 0, 0 ) );
@@ -74,14 +74,14 @@ namespace glabels
 		{
 			mOutline.reset( new Outline( this ) );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
+			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
+			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
+			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
 			mLineWidth       = lineWidth;
 			mLineColorNode   = lineColorNode;
@@ -97,19 +97,6 @@ namespace glabels
 			mLineWidth       = object->mLineWidth;
 			mLineColorNode   = object->mLineColorNode;
 			mFillColorNode   = object->mFillColorNode;
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelShapeObject::~ModelShapeObject()
-		{
-			foreach( Handle* handle, mHandles )
-			{
-				delete handle;
-			}
-			mHandles.clear();
 		}
 
 

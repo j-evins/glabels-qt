@@ -84,15 +84,6 @@ namespace glabels
 
 
 		///
-		/// Destructor
-		///
-		ModelEllipseObject::~ModelEllipseObject()
-		{
-			// empty
-		}
-
-
-		///
 		/// Clone
 		///
 		ModelEllipseObject* ModelEllipseObject::clone() const

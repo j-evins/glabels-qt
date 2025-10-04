@@ -58,7 +58,7 @@ namespace glabels
 
 			ModelLineObject( const ModelLineObject* object );
 		
-			~ModelLineObject() override;
+			virtual ~ModelLineObject() = default;
 
 
 			///////////////////////////////////////////////////////////////

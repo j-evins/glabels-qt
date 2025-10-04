@@ -72,7 +72,7 @@ namespace glabels
 
 			ModelTextObject( const ModelTextObject* object );
 		
-			~ModelTextObject() override;
+			virtual ~ModelTextObject() = default;
 
 
 			///////////////////////////////////////////////////////////////

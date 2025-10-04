@@ -60,7 +60,7 @@ namespace glabels
 
 			ModelBoxObject( const ModelBoxObject* object );
 		
-			~ModelBoxObject() override;
+			virtual ~ModelBoxObject() = default;
 
 	
 			///////////////////////////////////////////////////////////////
