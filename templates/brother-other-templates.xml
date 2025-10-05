@@ -95,7 +95,7 @@
    *********************************************************************
   -->
 
-  <Template brand="Brother" part="P-700 6mm" _description="Continuous label 6 mm"
+  <Template brand="Brother" part="6mm P-Touch" _description="Continuous label 6 mm suitable for P-Touch label printers"
             size="roll" roll_width="11mm" width="5.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/> 
@@ -105,7 +105,7 @@
     </Label-continuous>
   </Template>
 
-  <Template brand="Brother" part="P-700 9mm" _description="Continuous label 9 mm"
+  <Template brand="Brother" part="9mm P-Touch" _description="Continuous label 9 mm suitable for P-Touch label printers"
             size="roll" roll_width="14mm" width="8.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/> 
@@ -115,7 +115,7 @@
     </Label-continuous>
   </Template>
 
-  <Template brand="Brother" part="P-700 12mm" _description="Continuous label 12 mm"
+  <Template brand="Brother" part="12mm P-Touch" _description="Continuous label 12 mm suitable for P-Touch label printers"
             size="roll" roll_width="17mm" width="11.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/> 
@@ -124,8 +124,8 @@
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-continuous>
   </Template>
-
-  <Template brand="Brother" part="P-700 18mm" _description="Continuous label 18 mm"
+ suitable for P-Touch label printers
+  <Template brand="Brother" part="18mm P-Touch" _description="Continuous label 18 mm suitable for P-Touch label printers"
             size="roll" roll_width="23mm" width="17.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/> 
@@ -135,7 +135,7 @@
     </Label-continuous>
   </Template>
 
-  <Template brand="Brother" part="P-700 24mm" _description="Continuous label 24 mm"
+  <Template brand="Brother" part="24mm P-Touch" _description="Continuous label 24 mm suitable for P-Touch label printers"
             size="roll" roll_width="29mm" width="23.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/> 
@@ -145,7 +145,7 @@
     </Label-continuous>
   </Template>
 
-  <Template brand="Brother" part="P-700 36mm" _description="Continuous label 36 mm"
+  <Template brand="Brother" part="36mm P-Touch" _description="Continuous label 36 mm suitable for P-Touch label printers"
             size="roll" roll_width="41mm" width="35.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/> 
