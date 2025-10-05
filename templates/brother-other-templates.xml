@@ -77,5 +77,83 @@
     </Label-continuous>
   </Template>
 
+  <!--
+   *********************************************************************
+   *********************************************************************
+   Labels for the Brother P-700/PT-900/900W/900WC etc. PC Label Printers
+
+   May fit to another Brother PT printers, using replaceable laminated thermal cassetes.
+   All labels are configured as continuous
+      
+   REFERENCES:
+      
+      Brother Industries, Ltd. (October 3, 2011), "Brother PT Series
+      Command Reference (QL-500/550/560/570/580N/650TD/700/1050/1060N)",
+      http://download.brother.com/welcome/docp000678/cv_qlseries_eng_raster_600.pdf
+      
+   *********************************************************************
+   *********************************************************************
+  -->
+
+  <Template brand="Brother" part="P-700 6mm" _description="Continuous label 6 mm"
+            size="roll" roll_width="11mm" width="5.98mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/> 
+    <Label-continuous id="0" width="5.98mm" min_height="5mm" max_height="1000mm" default_height="50mm" >
+      <Markup-margin x_size="1.5mm" y_size="2.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="P-700 9mm" _description="Continuous label 9 mm"
+            size="roll" roll_width="14mm" width="8.98mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/> 
+    <Label-continuous id="0" width="8.98mm" min_height="5mm" max_height="1000mm" default_height="50mm" >
+      <Markup-margin x_size="1.5mm" y_size="2.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="P-700 12mm" _description="Continuous label 12 mm"
+            size="roll" roll_width="17mm" width="11.98mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/> 
+    <Label-continuous id="0" width="11.98mm" min_height="5mm" max_height="1000mm" default_height="50mm" >
+      <Markup-margin x_size="1.5mm" y_size="2.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="P-700 18mm" _description="Continuous label 18 mm"
+            size="roll" roll_width="23mm" width="17.98mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/> 
+    <Label-continuous id="0" width="17.98mm" min_height="5mm" max_height="1000mm" default_height="50mm" >
+      <Markup-margin x_size="1.5mm" y_size="2.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="P-700 24mm" _description="Continuous label 24 mm"
+            size="roll" roll_width="29mm" width="23.98mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/> 
+    <Label-continuous id="0" width="23.98mm" min_height="5mm" max_height="1000mm" default_height="50mm" >
+      <Markup-margin x_size="1.5mm" y_size="2.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="P-700 36mm" _description="Continuous label 36 mm"
+            size="roll" roll_width="41mm" width="35.98mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/> 
+    <Label-continuous id="0" width="35.98mm" min_height="5mm" max_height="1000mm" default_height="50mm" >
+      <Markup-margin x_size="1.5mm" y_size="2.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
 
 </Glabels-templates>
