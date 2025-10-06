@@ -44,7 +44,9 @@
 #include "merge/Merge.h"
 #include "merge/TextCsvKeys.h"
 
-#include <QtDebug>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
 
 
 QTEST_MAIN(TestXmlLabel)
@@ -66,6 +68,10 @@ void TestXmlLabel::initTestCase()
 	Db::init();
 	Factory::init();
 	Backends::init();
+
+	// Make sure we are running from executable directory
+	QString executablePath = QCoreApplication::applicationDirPath();
+	QVERIFY( QDir::setCurrent(executablePath) );
 }
 
 
@@ -172,14 +178,7 @@ void TestXmlLabel::serializeDeserialize()
 			QCOMPARE( objects.at(i)->filenameNode().data(), outObjects.at(i)->filenameNode().data() );
 		}
 
-		if ( objects.at(i)->image() )
-		{
-			QCOMPARE( *(objects.at(i)->image()), *(outObjects.at(i)->image()) );
-		}
-		else
-		{
-			QCOMPARE( objects.at(i)->image(), outObjects.at(i)->image() );
-		}
+		QCOMPARE( objects.at(i)->image(), outObjects.at(i)->image() );
 		QCOMPARE( objects.at(i)->svg(), outObjects.at(i)->svg() );
 
 		QCOMPARE( objects.at(i)->lineWidth(), outObjects.at(i)->lineWidth() );
@@ -421,14 +420,7 @@ void TestXmlLabel::writeReadFile()
 			QCOMPARE( readObjects.at(i)->filenameNode().data(), modelObjects.at(i)->filenameNode().data() );
 		}
 
-		if ( readObjects.at(i)->image() )
-		{
-			QCOMPARE( *(readObjects.at(i)->image()), *(modelObjects.at(i)->image()) );
-		}
-		else
-		{
-			QCOMPARE( readObjects.at(i)->image(), modelObjects.at(i)->image() );
-		}
+		QCOMPARE( readObjects.at(i)->image(), modelObjects.at(i)->image() );
 		QCOMPARE( readObjects.at(i)->svg(), modelObjects.at(i)->svg() );
 
 		QCOMPARE( readObjects.at(i)->lineWidth(), modelObjects.at(i)->lineWidth() );
@@ -488,13 +480,15 @@ void TestXmlLabel::writeReadFile()
 
 void TestXmlLabel::parser_3ReadFile()
 {
-	// Current path is "build/model/unit_tests" so go up 3 levels
-	QFileInfo glabelsFileInfo( "../../../model/unit_tests/data/glabels-3/crew-orientation-name-tags-7.glabels" );
+	// FIX ME:  currently the test glabels file hardcodes a relative path to its CSV file,
+	//          making the huge assumption that the executable has a fixed relationship to
+	//          the location of this file.
+	QFileInfo glabelsFileInfo( QString(TEST_DIR) + "/data/glabels-3/crew-orientation-name-tags-7.glabels" );
 	QVERIFY( glabelsFileInfo.isReadable() );
 
-	Model* model = XmlLabelParser::readFile( glabelsFileInfo.filePath() );
+	Model* model = XmlLabelParser::readFile( glabelsFileInfo.absoluteFilePath() );
 	QVERIFY( model );
-
+		
 	QCOMPARE( model->fileName(), glabelsFileInfo.filePath() );
 
 	QCOMPARE( model->tmplate()->brand(), QString( "Avery" ) );

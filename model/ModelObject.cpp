@@ -687,9 +687,10 @@ namespace glabels
 		/// Virtual Image Property Default Getter
 		/// (Overridden by concrete class)
 		///
-		const QImage* ModelObject::image() const
+		const QImage& ModelObject::image() const
 		{
-			return nullptr;
+			static QImage dummyImage;
+			return dummyImage;
 		}
 
 

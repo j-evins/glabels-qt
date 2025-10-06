@@ -110,7 +110,7 @@ namespace glabels
 			//
 			// Image Property: image
 			//
-			const QImage* image() const override;
+			const QImage& image() const override;
 			void setImage( const QImage& value ) override;
 			void setImage( const QString& name, const QImage& value ) override;
 
@@ -154,24 +154,24 @@ namespace glabels
 			void loadImage();
 
 			bool readImageFile( const QString& fileName,
-			                    QImage*&       image,
+			                    QImage&        image,
 			                    QSvgRenderer*& svgRenderer,
 			                    QByteArray&    svg ) const;
 
-			QImage* createShadowImage( const QImage& image,
-			                           const QColor& color ) const;
+			QImage createShadowImage( const QImage& image,
+			                          const QColor& color ) const;
 	
 
 			///////////////////////////////////////////////////////////////
 			// Private Members
 			///////////////////////////////////////////////////////////////
 		protected:
-			TextNode       mFilenameNode;
-			QImage*        mImage;
-			QSvgRenderer*  mSvgRenderer;
-			QByteArray     mSvg;
+			TextNode      mFilenameNode;
+			QImage        mImage;
+			QSvgRenderer* mSvgRenderer;
+			QByteArray    mSvg;
 
-			static QImage* smDefaultImage;
+			static QImage smDefaultImage;
 
 		};
 

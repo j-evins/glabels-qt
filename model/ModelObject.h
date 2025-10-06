@@ -298,7 +298,7 @@ namespace glabels
 			//
 			// Virtual Image Property: image
 			//
-			virtual const QImage* image() const;
+			virtual const QImage& image() const;
 			virtual void setImage( const QImage& value );
 			virtual void setImage( const QString& name, const QImage& value );
 
