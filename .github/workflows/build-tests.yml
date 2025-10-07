@@ -35,7 +35,7 @@ jobs:
             c_compiler: gcc
             cpp_compiler: g++
           - os: windows-latest
-            build_type: Release
+            build_type: Debug
             c_compiler: cl
             cpp_compiler: cl
           - os: macos-latest
@@ -135,7 +135,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         #ctest --build-config ${{ matrix.build_type }}
-        D:\a\glabels-qt\glabels-qt\build\model\unit_tests\Release\TestXmlLabel.exe
+        D:\a\glabels-qt\glabels-qt\build\model\unit_tests\Debug\TestXmlLabel.exe
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )
