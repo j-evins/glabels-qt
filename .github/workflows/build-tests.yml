@@ -35,7 +35,7 @@ jobs:
             c_compiler: gcc
             cpp_compiler: g++
           - os: windows-latest
-            build_type: Debug
+            build_type: Release
             c_compiler: cl
             cpp_compiler: cl
           - os: macos-latest
@@ -132,9 +132,8 @@ jobs:
 
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
-      shell: bash
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      run: ctest --build-config ${{ matrix.build_type }} -VV
+      run: ctest --build-config ${{ matrix.build_type }}
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )

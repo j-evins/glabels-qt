@@ -480,13 +480,10 @@ void TestXmlLabel::writeReadFile()
 
 void TestXmlLabel::parser_3ReadFile()
 {
-	qDebug() << QString(TEST_DIR);
-	qDebug() << QString(TEST_DIR).replace("\\", "/");
-
 	// FIX ME:  currently the test glabels file hardcodes a relative path to its CSV file,
 	//          making the huge assumption that the executable has a fixed relationship to
 	//          the location of this file.
-	QFileInfo glabelsFileInfo( QString(TEST_DIR).replace("\\", "/") + "/data/glabels-3/crew-orientation-name-tags-7.glabels" );
+	QFileInfo glabelsFileInfo( QString(TEST_DIR) + "/data/glabels-3/crew-orientation-name-tags-7.glabels" );
 	QVERIFY( glabelsFileInfo.isReadable() );
 
 	Model* model = XmlLabelParser::readFile( glabelsFileInfo.absoluteFilePath() );
