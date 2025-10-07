@@ -56,7 +56,7 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject() : mSvgRenderer(nullptr)
+		ModelImageObject::ModelImageObject()
 		{
 			mOutline.reset( new Outline( this ) );
 
@@ -105,8 +105,6 @@ namespace glabels
 
 			mFilenameNode = filenameNode;
 
-			mSvgRenderer = nullptr;
-
 			loadImage();
 		}
 
@@ -144,7 +142,6 @@ namespace glabels
 
 			mImage = image;
 			mFilenameNode = TextNode( false, filename );
-			mSvgRenderer = nullptr;
 		}
 
 
@@ -179,8 +176,11 @@ namespace glabels
 			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleWest>( this ) );
 
-			mSvg = svg;
-			mSvgRenderer = new QSvgRenderer( mSvg );
+			if ( QSvgRenderer( svg ).isValid() )
+			{
+				mSvg = svg;
+			}
+
 			mFilenameNode = TextNode( false, filename );
 		}
 
@@ -192,27 +192,7 @@ namespace glabels
 		{
 			mFilenameNode = object->mFilenameNode;
 			mImage = object->mImage;
-			if ( object->mSvgRenderer )
-			{
-				mSvgRenderer = new QSvgRenderer( object->mSvg );
-			}
-			else
-			{
-				mSvgRenderer = nullptr;
-			}
 			mSvg = object->mSvg;
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelImageObject::~ModelImageObject()
-		{
-			if ( mSvgRenderer )
-			{
-				delete mSvgRenderer;
-			}
 		}
 
 
@@ -265,11 +245,7 @@ namespace glabels
 		{
 			if ( !value.isNull() )
 			{
-				if ( mSvgRenderer )
-				{
-					delete mSvgRenderer;
-					mSvgRenderer = nullptr;
-				}
+				mSvg.clear();
 
 				mImage = value;
 				quint16 cs = qChecksum( QByteArray( (const char*)mImage.constBits(), mImage.sizeInBytes() ) );
@@ -287,11 +263,7 @@ namespace glabels
 		{
 			if ( !value.isNull() )
 			{
-				if ( mSvgRenderer )
-				{
-					delete mSvgRenderer;
-					mSvgRenderer = nullptr;
-				}
+				mSvg.clear();
 
 				mImage = value;
 				mFilenameNode = TextNode( false, name );
@@ -304,7 +276,7 @@ namespace glabels
 		///
 		/// Image svg Property Getter
 		///
-		QByteArray ModelImageObject::svg() const
+		const QByteArray& ModelImageObject::svg() const
 		{
 			return mSvg;
 		}
@@ -318,14 +290,12 @@ namespace glabels
 			if ( !value.isEmpty() )
 			{
 				mImage = QImage();  // clear
-				if ( mSvgRenderer )
-				{
-					delete mSvgRenderer;
-					mSvgRenderer = nullptr;
-				}
+				mSvg.clear();
 
-				mSvg = value;
-				mSvgRenderer = new QSvgRenderer( mSvg );
+				if ( QSvgRenderer( value ).isValid() )
+				{
+					mSvg = value;
+				}
 				mFilenameNode = TextNode( false, name );
 
 				emit changed();
@@ -346,9 +316,9 @@ namespace glabels
 				size.setW( Distance::pt( qsize.width() ) );
 				size.setH( Distance::pt( qsize.height() ) );
 			}
-			else if ( mSvgRenderer )
+			else if ( !mSvg.isEmpty() )
 			{
-				QSize qsize = mSvgRenderer->defaultSize();
+				QSize qsize = QSvgRenderer( mSvg ).defaultSize();
 				size.setW( Distance::pt( qsize.width() ) );
 				size.setH( Distance::pt( qsize.height() ) );
 			}
@@ -375,7 +345,7 @@ namespace glabels
 				auto shadowImage = createShadowImage( mImage, shadowColor );
 				painter->drawImage( destRect, shadowImage );
 			}
-			else if ( !mImage.isNull() || mSvgRenderer || inEditor )
+			else if ( !mImage.isNull() || !mSvg.isEmpty() || inEditor )
 			{
 				painter->setBrush( shadowColor );
 				painter->setPen( QPen( Qt::NoPen ) );
@@ -386,9 +356,8 @@ namespace glabels
 			{
 				QString filename = mFilenameNode.text( record, variables ).trimmed();
 				QImage image;
-				QSvgRenderer* svgRenderer;
 				QByteArray svg;
-				if ( readImageFile( filename, image, svgRenderer, svg ) )
+				if ( readImageFile( filename, image, svg ) )
 				{
 					if ( !image.isNull() && image.hasAlphaChannel() && (image.depth() == 32) )
 					{
@@ -401,10 +370,6 @@ namespace glabels
 						painter->setPen( QPen( Qt::NoPen ) );
 
 						painter->drawRect( destRect );
-					}
-					if ( svgRenderer )
-					{
-						delete svgRenderer;
 					}
 				}
 			}
@@ -421,7 +386,7 @@ namespace glabels
 		{
 			QRectF destRect( 0, 0, mW.pt(), mH.pt() );
 	
-			if ( inEditor && (mFilenameNode.isField() || (mImage.isNull() && !mSvgRenderer) ) )
+			if ( inEditor && (mFilenameNode.isField() || (mImage.isNull() && mSvg.isEmpty()) ) )
 			{
 				//
 				// Render default place holder image
@@ -483,26 +448,24 @@ namespace glabels
 			{
 				painter->drawImage( destRect, mImage );
 			}
-			else if ( mSvgRenderer )
+			else if ( !mSvg.isEmpty() )
 			{
-				mSvgRenderer->render( painter, destRect );
+				QSvgRenderer( mSvg ).render( painter, destRect );
 			}
 			else if ( mFilenameNode.isField() )
 			{
 				QString filename = mFilenameNode.text( record, variables ).trimmed();
 				QImage image;
-				QSvgRenderer* svgRenderer;
 				QByteArray svg;
-				if ( readImageFile( filename, image, svgRenderer, svg ) )
+				if ( readImageFile( filename, image, svg ) )
 				{
 					if ( !image.isNull() )
 					{
 						painter->drawImage( destRect, image );
 					}
-					else
+					else if ( !svg.isEmpty() )
 					{
-						svgRenderer->render( painter, destRect );
-						delete svgRenderer;
+						QSvgRenderer( svg ).render( painter, destRect );
 					}
 				}
 			}
@@ -527,23 +490,18 @@ namespace glabels
 		void ModelImageObject::loadImage()
 		{
 			mImage = QImage(); // clear
-
-			if ( mSvgRenderer )
-			{
-				delete mSvgRenderer;
-				mSvgRenderer = nullptr;
-			}
+			mSvg.clear();
 
 			if ( !mFilenameNode.isField() )
 			{
 				QString filename = mFilenameNode.data();
-				if ( readImageFile( filename, mImage, mSvgRenderer, mSvg ) )
+				if ( readImageFile( filename, mImage, mSvg ) )
 				{
 					double aspectRatio = 0;
-					if ( mSvgRenderer )
+					if ( !mSvg.isEmpty() )
 					{
 						// Adjust size based on aspect ratio of SVG image
-						QRectF rect = mSvgRenderer->viewBoxF();
+						QRectF rect = QSvgRenderer( mSvg ).viewBoxF();
 						aspectRatio = rect.width() ? rect.height() / rect.width() : 0;
 					}
 					else
@@ -575,11 +533,9 @@ namespace glabels
 		///
 		bool ModelImageObject::readImageFile( const QString& fileName,
 		                                      QImage&        image,
-		                                      QSvgRenderer*& svgRenderer,
 		                                      QByteArray&    svg ) const
 		{
 			image = QImage(); // clear
-			svgRenderer = nullptr;
 			svg.clear();
 
 			if ( !fileName.isEmpty() )
@@ -602,11 +558,9 @@ namespace glabels
 						{
 							svg = file.readAll();
 							file.close();
-							svgRenderer = new QSvgRenderer( svg );
-							if ( !svgRenderer->isValid() )
+							QSvgRenderer renderer( svg );
+							if ( !renderer.isValid() )
 							{
-								delete svgRenderer;
-								svgRenderer = nullptr;
 								svg.clear();
 							}
 						}
@@ -618,7 +572,7 @@ namespace glabels
 				}
 			}
 
-			return !image.isNull() || svgRenderer != nullptr;
+			return !image.isNull() || !svg.isEmpty();
 		}
 
 

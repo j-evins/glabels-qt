@@ -306,7 +306,7 @@ namespace glabels
 			//
 			// Virtual Image Property: svg
 			//
-			virtual QByteArray svg() const;
+			virtual const QByteArray& svg() const;
 			virtual void setSvg( const QString& name, const QByteArray& value );
 
 

@@ -50,7 +50,7 @@ namespace glabels
 						}
 						else
 						{
-							QByteArray svg = imageObject->svg();
+							auto& svg = imageObject->svg();
 							if ( !svg.isEmpty() )
 							{
 								addSvg( filenameNode.data(), svg );

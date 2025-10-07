@@ -718,9 +718,10 @@ namespace glabels
 		/// Virtual SVG Property Default Getter
 		/// (Overridden by concrete class)
 		///
-		QByteArray ModelObject::svg() const
+		const QByteArray& ModelObject::svg() const
 		{
-			return QByteArray();
+			static QByteArray dummySvg;
+			return dummySvg;
 		}
 
 

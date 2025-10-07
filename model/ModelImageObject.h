@@ -88,7 +88,7 @@ namespace glabels
 
 			ModelImageObject( const ModelImageObject* object );
 		
-			~ModelImageObject() override;
+			virtual ~ModelImageObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -117,7 +117,7 @@ namespace glabels
 			//
 			// Image Property: svg
 			//
-			QByteArray svg() const override;
+			const QByteArray& svg() const override;
 			void setSvg( const QString& name, const QByteArray& value ) override;
 
 			//
@@ -155,7 +155,6 @@ namespace glabels
 
 			bool readImageFile( const QString& fileName,
 			                    QImage&        image,
-			                    QSvgRenderer*& svgRenderer,
 			                    QByteArray&    svg ) const;
 
 			QImage createShadowImage( const QImage& image,
@@ -166,10 +165,9 @@ namespace glabels
 			// Private Members
 			///////////////////////////////////////////////////////////////
 		protected:
-			TextNode      mFilenameNode;
-			QImage        mImage;
-			QSvgRenderer* mSvgRenderer;
-			QByteArray    mSvg;
+			TextNode     mFilenameNode;
+			QImage       mImage;
+			QByteArray   mSvg;
 
 			static QImage smDefaultImage;
 
