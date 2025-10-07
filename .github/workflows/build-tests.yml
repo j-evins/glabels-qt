@@ -132,6 +132,7 @@ jobs:
 
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
+      shell: bash
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: ctest --build-config ${{ matrix.build_type }} -VV
 
