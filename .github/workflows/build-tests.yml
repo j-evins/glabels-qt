@@ -135,7 +135,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         ctest --build-config ${{ matrix.build_type }} -VV
-        cat D:/a/glabels-qt/glabels-qt/build/Testing/Temporary/LastTest.log
+        D:\a\glabels-qt\glabels-qt\build\model\unit_tests\Release\TestXmlLabel.exe
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )
