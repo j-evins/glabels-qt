@@ -22,7 +22,6 @@ if (Qt6Test_FOUND)
   qt6_wrap_cpp (TestXmlLabel_moc_sources TestXmlLabel.h)
   add_executable (TestXmlLabel TestXmlLabel.cpp ${TestXmlLabel_moc_sources})
   target_link_libraries (TestXmlLabel Model Qt6::Test)
-  message (STATUS "TEST_DIR = " ${CMAKE_CURRENT_SOURCE_DIR})
   target_compile_definitions(TestXmlLabel PRIVATE TEST_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
   add_test (NAME XmlLabel COMMAND TestXmlLabel)
 
