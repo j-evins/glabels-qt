@@ -135,9 +135,9 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: ctest --build-config ${{ matrix.build_type }}
 
-    - name: Tmate (Windows)
-      if: startsWith( matrix.os, 'windows-' )
+    - name: Tmate
       uses: mxschmitt/action-tmate@v3
+      if: failure()
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )
