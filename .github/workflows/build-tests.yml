@@ -135,7 +135,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         ctest --build-config ${{ matrix.build_type }}
-	cat D:/a/glabels-qt/glabels-qt/build/Testing/Temporary/LastTest.log
+        cat D:/a/glabels-qt/glabels-qt/build/Testing/Temporary/LastTest.log
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )
