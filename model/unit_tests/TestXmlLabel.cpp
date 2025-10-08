@@ -68,10 +68,6 @@ void TestXmlLabel::initTestCase()
 	Db::init();
 	Factory::init();
 	Backends::init();
-
-	// Make sure we are running from executable directory
-	QString executablePath = QCoreApplication::applicationDirPath();
-	QVERIFY( QDir::setCurrent(executablePath) );
 }
 
 
