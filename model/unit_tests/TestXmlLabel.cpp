@@ -476,9 +476,21 @@ void TestXmlLabel::writeReadFile()
 
 void TestXmlLabel::parser_3ReadFile()
 {
-	// FIX ME:  currently the test glabels file hardcodes a relative path to its CSV file,
-	//          making the huge assumption that the executable has a fixed relationship to
-	//          the location of this file.
+	// FIX ME:  Currently the test glabels-3 file hardcodes a relative path to its CSV file.
+	//          With this relative path, it is assumed that
+	//
+	//            1) The test is being run from CTEST, which runs it in <build-dir>/model/unit_tests
+	//            2) The build directory is a subdirectory of the top-level glabels-qt source
+	//               directory.
+	//
+	//          This test is verifying backwards compatability with glabels-3 files.  Data files need
+	//          to be treated as relocatable.  This is not only an issue with unit tests, but affects
+	//          normal use cases where files are moved around.  Normally, the data file path within
+	//          the glabels file is absolute.  Perhaps, if the data file cannot be found at the
+	//          absolute path, an attempt should be made guess at the relative path (maybe sitting
+	//          in the same directory as the glabels file.  For glabels-4 files, the relative path
+	//          should be encoded in the file.
+
 	QFileInfo glabelsFileInfo( QString(TEST_DIR) + "/data/glabels-3/crew-orientation-name-tags-7.glabels" );
 	QVERIFY( glabelsFileInfo.isReadable() );
 
