@@ -157,6 +157,16 @@ namespace glabels
 
 
 		///
+		/// Destructor
+		///
+		ModelTextObject::~ModelTextObject()
+		{
+			qDeleteAll( mEditorLayouts );
+			mEditorLayouts.clear();
+		}
+
+
+		///
 		/// Clone
 		///
 		ModelTextObject* ModelTextObject::clone() const
@@ -469,21 +479,21 @@ namespace glabels
 			QRectF boundingRect;
 			for ( int i = 0; i < document.blockCount(); i++ )
 			{
-				QTextLayout* layout = new QTextLayout( document.findBlockByNumber(i).text() );
+				QTextLayout layout( document.findBlockByNumber(i).text() );
 		
-				layout->setFont( font );
-				layout->setTextOption( textOption );
-				layout->setCacheEnabled(true);
+				layout.setFont( font );
+				layout.setTextOption( textOption );
+				layout.setCacheEnabled(true);
 
-				layout->beginLayout();
-				for ( QTextLine l = layout->createLine(); l.isValid(); l = layout->createLine() )
+				layout.beginLayout();
+				for ( QTextLine l = layout.createLine(); l.isValid(); l = layout.createLine() )
 				{
 					l.setPosition( QPointF( x, y ) );
 					y += dy;
 				}
-				layout->endLayout();
+				layout.endLayout();
 
-				boundingRect = layout->boundingRect().united( boundingRect );
+				boundingRect = layout.boundingRect().united( boundingRect );
 			}
 
 			return Size( boundingRect.width() + 2*marginPts, boundingRect.height() + 2*marginPts );
