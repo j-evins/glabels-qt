@@ -1211,10 +1211,10 @@ namespace glabels
 		///
 		/// Draw object + shadow
 		///
-		void ModelObject::draw( QPainter*      painter,
-		                        bool           inEditor,
-		                        merge::Record* record,
-		                        Variables*     variables ) const
+		void ModelObject::draw( QPainter*        painter,
+		                        bool             inEditor,
+		                        merge::Record*   record,
+		                        const Variables& variables ) const
 		{
 			painter->save();
 			painter->translate( mX0.pt(), mY0.pt() );

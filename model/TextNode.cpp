@@ -106,16 +106,16 @@ namespace glabels
 		/// Get text, expand if necessary
 		///
 		QString TextNode::text( const merge::Record* record,
-		                        const Variables*     variables ) const
+		                        const Variables&     variables ) const
 		{
 			QString value("");
 			
 			bool haveRecordField = mIsField && record &&
 				record->contains(mData) &&
 				!record->value(mData).isEmpty();
-			bool haveVariable = mIsField && variables &&
-				variables->contains(mData) &&
-				!(*variables)[mData].value().isEmpty();
+			bool haveVariable = mIsField &&
+				variables.contains(mData) &&
+				!variables[mData].value().isEmpty();
 
 			if ( haveRecordField )
 			{
@@ -123,7 +123,7 @@ namespace glabels
 			}
 			else if ( haveVariable )
 			{
-				value = (*variables)[mData].value();
+				value = variables[mData].value();
 			}
 			else if ( !mIsField )
 			{

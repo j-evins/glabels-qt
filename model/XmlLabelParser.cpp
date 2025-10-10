@@ -795,7 +795,7 @@ namespace glabels
 			auto increment = Variable::idStringToIncrement( incrementString );
 
 			Variable v( type, name, initialValue, increment, stepSize );
-			model->variables()->addVariable( v );
+			model->variables().addVariable( v );
 		}
 
 

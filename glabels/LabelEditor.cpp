@@ -1243,7 +1243,7 @@ namespace glabels
 	void
 	LabelEditor::drawObjectsLayer( QPainter* painter )
 	{
-		mModel->draw( painter, true, nullptr, nullptr );
+		mModel->draw( painter, true, nullptr, model::Variables() );
 	}
 
 

@@ -44,7 +44,7 @@ namespace glabels
 	/// Set Keys
 	///
 	void FieldButton::setKeys( const merge::Merge*     merge,
-	                           const model::Variables* variables )
+	                           const model::Variables& variables )
 	{
 		// Clear old keys
 		mMenu.clear();
@@ -64,18 +64,18 @@ namespace glabels
 
 		// Add variable keys, if any
 		mMenu.addSection( tr("Variables") );
-		for ( auto& key : variables->keys() )
+		for ( auto& key : variables.keys() )
 		{
 			auto* action = mMenu.addAction( QString( "${%1}" ).arg( key ) );
 			action->setData( key );
 		}
-		if ( variables->keys().empty() )
+		if ( variables.keys().empty() )
 		{
 			auto* action = mMenu.addAction( "None" );
 			action->setEnabled( false );
 		}
 
-		setEnabled( !merge->keys().empty() || !variables->keys().empty() );
+		setEnabled( !merge->keys().empty() || !variables.keys().empty() );
 	}
 
 

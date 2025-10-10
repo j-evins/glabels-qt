@@ -85,7 +85,7 @@ void TestModelImageObject::readImageFile()
 	QFileInfo pngGreenFileInfo( pngGreen.fileName() );
 
 	Variable var( Variable::Type::STRING, "var", pngGreenFileInfo.fileName(), Variable::Increment::PER_ITEM ); // Relative path
-	model.variables()->addVariable( var );
+	model.variables().addVariable( var );
 
 	model.addObject( object.clone() );
 
@@ -103,7 +103,7 @@ void TestModelImageObject::readImageFile()
 	QFileInfo svgMagentaFileInfo( svgMagenta.fileName() );
 
 	Variable var2( Variable::Type::STRING, "var2", svgMagentaFileInfo.fileName(), Variable::Increment::PER_ITEM ); // Absolute path
-	model.variables()->addVariable( var2 );
+	model.variables().addVariable( var2 );
 
 	model.addObject( object.clone() );
 
@@ -248,5 +248,4 @@ void TestModelImageObject::readImageFile()
 	}
 
 	delete model.merge();
-	delete model.variables();
 }

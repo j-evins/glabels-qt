@@ -78,7 +78,7 @@ namespace glabels
 			// Misc. Methods
 			/////////////////////////////////
 			QString text( const merge::Record* record,
-			              const Variables*     variables ) const;
+			              const Variables&     variables ) const;
 
 
 			/////////////////////////////////

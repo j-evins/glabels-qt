@@ -186,15 +186,15 @@ namespace glabels
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		protected:
-			void drawShadow( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawShadow( QPainter*        painter,
+			                 bool             inEditor,
+			                 merge::Record*   record,
+			                 const Variables& variables ) const override;
 			
-			void drawObject( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawObject( QPainter*        painter,
+			                 bool             inEditor,
+			                 merge::Record*   record,
+			                 const Variables& variables ) const override;
 
 			QPainterPath hoverPath( double scale ) const override;
 
@@ -209,13 +209,13 @@ namespace glabels
 			void drawTextInEditor( QPainter*     painter,
 			                       const QColor& color ) const;
 			
-			void drawText( QPainter*      painter,
-			               const QColor&  color,
-			               merge::Record* record,
-			               Variables*     variables ) const;
+			void drawText( QPainter*        painter,
+			               const QColor&    color,
+			               merge::Record*   record,
+			               const Variables& variables ) const;
 			
-			double autoShrinkFontSize( merge::Record* record,
-			                           Variables*     variables ) const;
+			double autoShrinkFontSize( merge::Record*   record,
+			                           const Variables& variables ) const;
 	
 
 			///////////////////////////////////////////////////////////////

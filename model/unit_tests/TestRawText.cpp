@@ -38,18 +38,20 @@ void TestRawText::rawText()
 	RawText rawText;
 	Record record;
 
+	Variables variables;
+
 	QVERIFY( rawText.isEmpty() );
 	QVERIFY( !rawText.hasPlaceHolders() );
 	QCOMPARE( rawText.toString(), QString( "" ) );
 	QCOMPARE( rawText.toStdString(), std::string( "" ) );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "" ) );
 
 	rawText = "text";
 	QVERIFY( !rawText.isEmpty() );
 	QVERIFY( !rawText.hasPlaceHolders() );
 	QCOMPARE( rawText.toString(), QString( "text" ) );
 	QCOMPARE( rawText.toStdString(), std::string( "text" ) );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "text" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "text" ) );
 
 	RawText rawText2( "text" );
 	QVERIFY( !rawText2.isEmpty() );
@@ -61,34 +63,34 @@ void TestRawText::rawText()
 	QVERIFY( rawText.hasPlaceHolders() );
 	QCOMPARE( rawText.toString(), QString( "${key1}" ) );
 	QCOMPARE( rawText.toStdString(), std::string( "${key1}" ) );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "" ) );
 
 	///
 	/// Record
 	///
 	record["key1"] = "val1";
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "val1" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "val1" ) );
 
 	rawText = "${key1}${key2}";
 	QVERIFY( rawText.hasPlaceHolders() );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "val1" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "val1" ) );
 
 	record["key2"] = "val2";
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "val1val2" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "val1val2" ) );
 
 	rawText = "${key1}text${key2}";
 	QVERIFY( rawText.hasPlaceHolders() );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "val1textval2" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "val1textval2" ) );
 
 	rawText = "text1${key1}text2${key2}text3";
 	QVERIFY( rawText.hasPlaceHolders() );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "text1val1text2val2text3" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "text1val1text2val2text3" ) );
 
 	rawText = "${key1}text${key2}${key3}";
 	QVERIFY( rawText.hasPlaceHolders() );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "val1textval2" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "val1textval2" ) );
 
 	rawText = "${key2}${key3}${key1}";
 	QVERIFY( rawText.hasPlaceHolders() );
-	QCOMPARE( rawText.expand( &record, nullptr ), QString( "val2val1" ) );
+	QCOMPARE( rawText.expand( &record, variables ), QString( "val2val1" ) );
 }

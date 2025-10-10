@@ -67,7 +67,7 @@ namespace glabels
 		void setColorNode( const model::ColorNode& colorNode );
 		
 		void setKeys( const merge::Merge*     merge,
-		              const model::Variables* variables );
+		              const model::Variables& variables );
 
 
 		/////////////////////////////////

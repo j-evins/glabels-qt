@@ -129,7 +129,7 @@ namespace glabels
 
 
 	void ColorButton::setKeys( const merge::Merge*     merge,
-	                           const model::Variables* variables )
+	                           const model::Variables& variables )
 	{
 		mDialog->setKeys( merge, variables );
 	}

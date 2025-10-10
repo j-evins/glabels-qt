@@ -132,7 +132,7 @@ namespace glabels
 
 		if ( dialog.exec() == QDialog::Accepted )
 		{
-			mModel->variables()->addVariable( dialog.variable() );
+			mModel->variables().addVariable( dialog.variable() );
 			selectVariable( dialog.variable().name() );
 		}
 	}
@@ -146,9 +146,9 @@ namespace glabels
 		int iRow = table->selectedItems()[0]->row();
 		QString name = table->item( iRow, I_COL_NAME )->text();
 		
-		if ( mModel->variables()->hasVariable( name ) )
+		if ( mModel->variables().hasVariable( name ) )
 		{
-			model::Variable v = mModel->variables()->value( name );
+			model::Variable v = mModel->variables().value( name );
 		
 			EditVariableDialog dialog( this );
 			dialog.setVariable( v );
@@ -156,7 +156,7 @@ namespace glabels
 
 			if ( dialog.exec() == QDialog::Accepted )
 			{
-				mModel->variables()->replaceVariable( name, dialog.variable() );
+				mModel->variables().replaceVariable( name, dialog.variable() );
 				selectVariable( dialog.variable().name() );
 			}
 		}
@@ -171,7 +171,7 @@ namespace glabels
 		int iRow = table->selectedItems()[0]->row();
 		
 		QString name = table->item( iRow, I_COL_NAME )->text();
-		mModel->variables()->deleteVariable( name );
+		mModel->variables().deleteVariable( name );
 	}
 
 
@@ -203,10 +203,10 @@ namespace glabels
 	void VariablesView::loadTable()
 	{
 		table->clearContents();
-		table->setRowCount( mModel->variables()->size() );
+		table->setRowCount( mModel->variables().size() );
 
 		int iRow = 0;
-		for( const auto& v : *mModel->variables() )
+		for( const auto& v : mModel->variables() )
 		{
 			auto* typeItem = new QTableWidgetItem( model::Variable::typeToI18nString(v.type()) );
 			typeItem->setFlags( typeItem->flags() ^ Qt::ItemIsEditable );
@@ -237,7 +237,7 @@ namespace glabels
 	void VariablesView::selectVariable( const QString& name )
 	{
 		int iRow = 0;
-		for( const auto& v : *mModel->variables() )
+		for( const auto& v : mModel->variables() )
 		{
 			if ( v.name() == name )
 			{

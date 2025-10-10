@@ -43,16 +43,14 @@ namespace glabels
 
 
 		QString SubstitutionField::evaluate( const merge::Record* record,
-		                                     const Variables* variables ) const
+		                                     const Variables& variables ) const
 		{
 			QString value = mDefaultValue;
 
 			bool haveRecordField = record &&
 				record->contains(mFieldName) &&
 				!record->value(mFieldName).isEmpty();
-			bool haveVariable = variables &&
-				variables->contains(mFieldName) &&
-				!(*variables)[mFieldName].value().isEmpty();
+			bool haveVariable = variables.contains(mFieldName) && !variables[mFieldName].value().isEmpty();
 
 			if ( haveRecordField )
 			{
@@ -60,7 +58,7 @@ namespace glabels
 			}
 			else if ( haveVariable )
 			{
-				value = (*variables)[mFieldName].value();
+				value = variables[mFieldName].value();
 			}
 
 			if ( !mFormatType.isNull() )

@@ -60,7 +60,7 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			Model();
-			Model( merge::Merge* merge, Variables* variables );
+			Model( merge::Merge* merge );
 			~Model();
 
 	
@@ -114,7 +114,8 @@ namespace glabels
 
 			const QList<ModelObject*>& objectList() const;
 
-			Variables* variables() const;
+			Variables& variables();
+			const Variables& constVariables() const;
 
 			merge::Merge* merge() const;
 			void setMerge( merge::Merge* merge );
@@ -218,10 +219,10 @@ namespace glabels
 			// Drawing operations
 			/////////////////////////////////
 		public:
-			void draw( QPainter*      painter,
-			           bool           inEditor,
-			           merge::Record* record,
-			           Variables*     variables ) const;
+			void draw( QPainter*        painter,
+			           bool             inEditor,
+			           merge::Record*   record,
+			           const Variables& variablesInstance ) const;
 
 		
 			/////////////////////////////////
@@ -247,7 +248,7 @@ namespace glabels
 
 			QList<ModelObject*>       mObjectList;
 
-			Variables*                mVariables;
+			Variables                 mVariables;
 			merge::Merge*             mMerge;
 		};
 

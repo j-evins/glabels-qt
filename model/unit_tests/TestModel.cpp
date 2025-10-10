@@ -327,9 +327,9 @@ void TestModel::saveRestore()
 
 	Variable i( Variable::Type::INTEGER, "i", "2", Variable::Increment::PER_ITEM, "2" );
 	Variable f( Variable::Type::FLOATING_POINT, "f", "6.54", Variable::Increment::PER_COPY, "0.12" );
-	model->variables()->addVariable( i );
+	model->variables().addVariable( i );
 	QVERIFY( model->isModified() );
-	model->variables()->addVariable( f );
+	model->variables().addVariable( f );
 	QVERIFY( model->isModified() );
 
 	model->clearModified();
@@ -375,7 +375,6 @@ void TestModel::saveRestore()
 	Model* saved = model->save();
 	QVERIFY( saved->isModified() );
 	QCOMPARE( saved->merge(), model->merge() ); // Shared
-	QCOMPARE( saved->variables(), model->variables() ); // Shared
 	QCOMPARE( saved->isModified(), model->isModified() );
 	QCOMPARE( saved->shortName(), modelShortName );
 	QCOMPARE( saved->shortName(), model->shortName() );
@@ -426,8 +425,7 @@ void TestModel::saveRestore()
 	QCOMPARE( modified->merge(), merge2 ); // Shared
 
 	Variable c( Variable::Type::COLOR, "c", "blue", Variable::Increment::PER_PAGE );
-	model->variables()->addVariable( c );
-	QCOMPARE( model->variables(), saved->variables() ); // Shared.
+	model->variables().addVariable( c );
 
 	// Verify differences
 	QVERIFY( model->shortName() != modelShortName );
@@ -461,7 +459,6 @@ void TestModel::saveRestore()
 
 	QCOMPARE( model->merge(), merge2 ); // Unchanged
 	QVERIFY( model->merge() != saved->merge() ); // NOTE saved->merge() now points to deleted object
-	QCOMPARE( model->variables(), saved->variables() ); // Unchanged
 
 	// Unrestore
 	model->restore( modified );
@@ -477,7 +474,6 @@ void TestModel::saveRestore()
 	QVERIFY( model->objectList().at(0)->x0() != saved->objectList().at(0)->x0() );
 	QVERIFY( model->objectList().at(0)->y0() != saved->objectList().at(0)->y0() );
 	QCOMPARE( model->merge(), merge2 ); // Same
-	QCOMPARE( model->variables(), saved->variables() ); // Same
 
 	QCOMPARE( model->shortName(), modified->shortName() );
 	QCOMPARE( model->fileName(), modified->fileName() );
@@ -490,7 +486,6 @@ void TestModel::saveRestore()
 	QCOMPARE( model->objectList().at(0)->y0(), modified->objectList().at(0)->y0() );
 
 	delete model->merge(); // Final instance owned by us
-	delete model->variables(); // Instance owned by us
 	delete model;
 	delete saved;
 	delete modified;

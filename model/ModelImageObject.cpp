@@ -330,10 +330,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelImageObject::drawShadow( QPainter*      painter,
-		                                   bool           inEditor,
-		                                   merge::Record* record,
-		                                   Variables*     variables ) const
+		void ModelImageObject::drawShadow( QPainter*        painter,
+		                                   bool             inEditor,
+		                                   merge::Record*   record,
+		                                   const Variables& variables ) const
 		{
 			QRectF destRect( 0, 0, mW.pt(), mH.pt() );
 	
@@ -379,10 +379,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelImageObject::drawObject( QPainter*      painter,
-		                                   bool           inEditor,
-		                                   merge::Record* record,
-		                                   Variables*     variables ) const
+		void ModelImageObject::drawObject( QPainter*        painter,
+		                                   bool             inEditor,
+		                                   merge::Record*   record,
+		                                   const Variables& variables ) const
 		{
 			QRectF destRect( 0, 0, mW.pt(), mH.pt() );
 	

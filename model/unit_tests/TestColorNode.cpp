@@ -53,10 +53,8 @@ void TestColorNode::colorNode()
 	QCOMPARE( colorNode.color(), blackTransparent );
 	QCOMPARE( colorNode.key(), QString( "" ) );
 	QCOMPARE( colorNode.rgba(), rgbaBlackTransparent );
-	QCOMPARE( colorNode.color( nullptr, nullptr ), blackTransparent );
-	QCOMPARE( colorNode.color( &record, nullptr ), blackTransparent );
-	QCOMPARE( colorNode.color( nullptr, &vars ), blackTransparent );
-	QCOMPARE( colorNode.color( &record, &vars ), blackTransparent );
+	QCOMPARE( colorNode.color( nullptr, vars ), blackTransparent );
+	QCOMPARE( colorNode.color( &record, vars ), blackTransparent );
 
 	colorNode.setField( true );
 	QVERIFY( colorNode.isField() );
@@ -66,10 +64,8 @@ void TestColorNode::colorNode()
 	colorNode.setColor( white );
 	QCOMPARE( colorNode.color(), white );
 	QCOMPARE( colorNode.rgba(), rgbaWhite );
-	QCOMPARE( colorNode.color( nullptr, nullptr ), white );
-	QCOMPARE( colorNode.color( &record, nullptr ), white );
-	QCOMPARE( colorNode.color( nullptr, &vars ), white );
-	QCOMPARE( colorNode.color( &record, &vars ), white );
+	QCOMPARE( colorNode.color( nullptr, vars ), white );
+	QCOMPARE( colorNode.color( &record, vars ), white );
 
 	colorNode.setKey( "key1" );
 	QCOMPARE( colorNode.key(), QString( "key1" ) );
@@ -109,27 +105,27 @@ void TestColorNode::colorNode()
 	QVERIFY( colorNode.isField() ); // Defaults to true if given key only
 	QCOMPARE( colorNode.key(), QString( "key1" ) );
 	QCOMPARE( colorNode.color(), blackTransparent );
-	QCOMPARE( colorNode.color( &record, &vars ), silver80 ); // Defaults to silver if given non-matching record/variables
+	QCOMPARE( colorNode.color( &record, vars ), silver80 ); // Defaults to silver if given non-matching record/variables
 
 	record["key1"] = "white";
-	QCOMPARE( colorNode.color( &record, nullptr ), white );
+	QCOMPARE( colorNode.color( &record, vars ), white );
 
 	record["key1"] = "red";
-	QCOMPARE( colorNode.color( &record, nullptr ), red );
+	QCOMPARE( colorNode.color( &record, vars ), red );
 
 	record["key1"] = "#FF0000";
-	QCOMPARE( colorNode.color( &record, nullptr ), red );
+	QCOMPARE( colorNode.color( &record, vars ), red );
 
 	record["key1"] = "#FFFF0000"; // ARGB
-	QCOMPARE( colorNode.color( &record, nullptr ), red );
+	QCOMPARE( colorNode.color( &record, vars ), red );
 
 	record["key1"] = "#8000FF00";
-	QCOMPARE( colorNode.color( &record, nullptr ), green80 );
+	QCOMPARE( colorNode.color( &record, vars ), green80 );
 
 	colorNode.setKey( "key2" );
-	QCOMPARE( colorNode.color( &record, nullptr ), silver80 );
+	QCOMPARE( colorNode.color( &record, vars ), silver80 );
 	record["key2"] = "#8000FF00";
-	QCOMPARE( colorNode.color( &record, nullptr ), green80 );
+	QCOMPARE( colorNode.color( &record, vars ), green80 );
 
 	///
 	/// Variable
@@ -138,40 +134,40 @@ void TestColorNode::colorNode()
 	QVERIFY( colorNode.isField() ); // Defaults to true if given key only
 	QCOMPARE( colorNode.key(), QString( "c1" ) );
 	QCOMPARE( colorNode.color(), blackTransparent );
-	QCOMPARE( colorNode.color( &record, &vars ), silver80 ); // Defaults to silver if given non-matching record/variables
+	QCOMPARE( colorNode.color( &record, vars ), silver80 ); // Defaults to silver if given non-matching record/variables
 
 	{
 		Variable c1( Variable::Type::COLOR, "c1", "white", Variable::Increment::PER_ITEM );
 		vars.addVariable( c1 );
 	}
-	QCOMPARE( colorNode.color( nullptr, &vars ), white );
+	QCOMPARE( colorNode.color( nullptr, vars ), white );
 	vars.incrementVariablesOnItem();
-	QCOMPARE( colorNode.color( nullptr, &vars ), white );
+	QCOMPARE( colorNode.color( nullptr, vars ), white );
 
 	{
 		Variable c1( Variable::Type::COLOR, "c1", "red", Variable::Increment::PER_ITEM );
 		vars.addVariable( c1 );
 	}
-	QCOMPARE( colorNode.color( nullptr, &vars ), red );
+	QCOMPARE( colorNode.color( nullptr, vars ), red );
 
 	{
 		Variable c1( Variable::Type::COLOR, "c1", "#8000FF00", Variable::Increment::PER_ITEM );
 		vars.addVariable( c1 );
 	}
-	QCOMPARE( colorNode.color( nullptr, &vars ), green80 );
+	QCOMPARE( colorNode.color( nullptr, vars ), green80 );
 
 	colorNode.setKey( "c2" );
-	QCOMPARE( colorNode.color( &record, nullptr ), silver80 );
+	QCOMPARE( colorNode.color( &record, vars ), silver80 );
 
 	{
 		Variable c2( Variable::Type::COLOR, "c2", "#8000FF00", Variable::Increment::PER_ITEM );
 		vars.addVariable( c2 );
 	}
-	QCOMPARE( colorNode.color( nullptr, &vars ), green80 );
+	QCOMPARE( colorNode.color( nullptr, vars ), green80 );
 
 	///
 	/// Record beats variable
 	///
 	record["c2"] = "red";
-	QCOMPARE( colorNode.color( &record, &vars ), red );
+	QCOMPARE( colorNode.color( &record, vars ), red );
 }

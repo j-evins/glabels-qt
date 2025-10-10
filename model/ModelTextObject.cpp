@@ -512,10 +512,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelTextObject::drawShadow( QPainter*      painter,
-		                                  bool           inEditor,
-		                                  merge::Record* record,
-		                                  Variables*     variables ) const
+		void ModelTextObject::drawShadow( QPainter*        painter,
+		                                  bool             inEditor,
+		                                  merge::Record*   record,
+		                                  const Variables& variables ) const
 		{
 			QColor textColor = mTextColorNode.color( record, variables );
 
@@ -539,10 +539,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelTextObject::drawObject( QPainter*      painter,
-		                                  bool           inEditor,
-		                                  merge::Record* record,
-		                                  Variables*     variables ) const
+		void ModelTextObject::drawObject( QPainter*        painter,
+		                                  bool             inEditor,
+		                                  merge::Record*   record,
+		                                  const Variables& variables ) const
 		{
 			QColor textColor = mTextColorNode.color( record, variables );
 
@@ -695,7 +695,7 @@ namespace glabels
 		ModelTextObject::drawText( QPainter*      painter,
 		                           const QColor&  color,
 		                           merge::Record* record,
-		                           Variables*     variables ) const
+		                           const Variables& variables ) const
 		{
 			painter->save();
 
@@ -789,7 +789,7 @@ namespace glabels
 		/// Determine auto shrink font size
 		///
 		double
-		ModelTextObject::autoShrinkFontSize( merge::Record* record, Variables* variables ) const
+		ModelTextObject::autoShrinkFontSize( merge::Record* record, const Variables& variables ) const
 		{
 			QFont font;
 			font.setFamily( mFontFamily );

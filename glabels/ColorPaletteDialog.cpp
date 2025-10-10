@@ -197,7 +197,7 @@ namespace glabels
 
 
 	void ColorPaletteDialog::setKeys( const merge::Merge*     merge,
-	                                  const model::Variables* variables )
+	                                  const model::Variables& variables )
 	{
 		if (mFieldButton)
 		{

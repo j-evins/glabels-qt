@@ -55,17 +55,17 @@ namespace glabels
 		///
 		Model::Model()
 		{
-			mVariables = new Variables();
 			mMerge = new merge::None();
 
-			connect( mVariables, SIGNAL(changed()), this, SLOT(onVariablesChanged()) );
+			connect( &mVariables, SIGNAL(changed()), this, SLOT(onVariablesChanged()) );
 		}
 
 
-		Model::Model( merge::Merge* merge, Variables* variables )
+		Model::Model( merge::Merge* merge )
 		{
-			mVariables = variables; // Shared
 			mMerge = merge; // Shared
+
+			connect( &mVariables, SIGNAL(changed()), this, SLOT(onVariablesChanged()) );
 		}
 
 
@@ -75,7 +75,7 @@ namespace glabels
 		Model::~Model()
 		{
 			qDeleteAll( mObjectList );
-			// Final instance of mMerge and mVariables to be deleted by Model owner
+			// Final instance of mMerge to be deleted by Model owner
 		}
 
 
@@ -84,7 +84,7 @@ namespace glabels
 		///
 		Model* Model::save() const
 		{
-			auto* savedModel = new Model( mMerge, mVariables ); // mMerge and mVariables shared between models
+			auto* savedModel = new Model( mMerge ); // mMerge shared between models
 
 			if ( mFileName.isEmpty() && mUntitledInstance == 0 )
 			{
@@ -126,6 +126,8 @@ namespace glabels
 				connect( object, SIGNAL(changed()), this, SLOT(onObjectChanged()) );
 				connect( object, SIGNAL(moved()), this, SLOT(onObjectMoved()) );
 			}
+
+			mVariables.copy( savedModel->mVariables );
 
 			// Emit signals based on potential changes
 			emit changed();
@@ -350,7 +352,16 @@ namespace glabels
 		///
 		/// Get variables object
 		///
-		Variables* Model::variables() const
+		Variables& Model::variables()
+		{
+			return mVariables;
+		}
+
+
+		///
+		/// Get const reference to variables object
+		///
+		const Variables& Model::constVariables() const
 		{
 			return mVariables;
 		}
@@ -1607,11 +1618,14 @@ namespace glabels
 		///
 		/// Draw label objects
 		///
-		void Model::draw( QPainter* painter, bool inEditor, merge::Record* record, Variables* variables ) const
+		void Model::draw( QPainter*        painter,
+		                  bool             inEditor,
+		                  merge::Record*   record,
+		                  const Variables& variablesInstance ) const
 		{
 			foreach ( ModelObject* object, mObjectList )
 			{
-				object->draw( painter, inEditor, record, variables );
+				object->draw( painter, inEditor, record, variablesInstance );
 			}
 		}
 

@@ -30,18 +30,22 @@ namespace glabels
 		///
 		/// Copy constructor
 		///
-		Variables::Variables( const Variables* variables )
-			: QMap<QString,Variable>(*variables)
+		Variables::Variables( const Variables& other )
+			: QMap<QString,Variable>(other)
 		{
 		}
 
 
 		///
-		/// Clone
+		/// Copy contents from other
 		///
-		Variables* Variables::clone() const
+		void Variables::copy( const Variables& other )
 		{
-			return new Variables( this );
+			clear();
+			for ( const auto& v : other )
+			{
+				insert( v.name(), v );
+			}
 		}
 
 

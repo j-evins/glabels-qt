@@ -62,7 +62,6 @@ namespace glabels
 			connect( mModel, SIGNAL(changed()), this, SLOT(onModelChanged()) );
 	
 			onModelChanged();
-			mVariables = mModel->variables();
 		}
 
 	
@@ -298,7 +297,8 @@ namespace glabels
 			int iCopy = 0;
 			int iItem = mStartItem;
 			int iCurrentPage = 0;
-			mVariables->resetVariables();
+
+			Variables variables( mModel->constVariables() );
 
 			while ( (iCopy < mNCopies) && (iCurrentPage <= iPage) )
 			{
@@ -313,7 +313,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, nullptr, mVariables );
+					printLabel( painter, nullptr, variables );
 
 					painter->restore();  // From before clip
 
@@ -328,11 +328,11 @@ namespace glabels
 				iCurrentPage = iItem / mNItemsPerPage;
 
 				// User variable book keeping
-				mVariables->incrementVariablesOnItem();
-				mVariables->incrementVariablesOnCopy();
+				variables.incrementVariablesOnItem();
+				variables.incrementVariablesOnCopy();
 				if ( (iItem % mNItemsPerPage) == 0 /* starting a new page */ )
 				{
-					mVariables->incrementVariablesOnPage();
+					variables.incrementVariablesOnPage();
 				}
 			}
 		}
@@ -355,7 +355,7 @@ namespace glabels
 				return;
 			}
 			
-			mVariables->resetVariables();
+			Variables variables( mModel->constVariables() );
 
 			while ( (iCopy < mNCopies) && (iCurrentPage <= iPage) )
 			{
@@ -370,7 +370,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, records[iRecord], mVariables );
+					printLabel( painter, records[iRecord], variables );
 
 					painter->restore();  // From before clip
 
@@ -400,14 +400,14 @@ namespace glabels
 				iCurrentPage = iItem / mNItemsPerPage;
 
 				// User variable book keeping
-				mVariables->incrementVariablesOnItem();
+				variables.incrementVariablesOnItem();
 				if ( iRecord == 0 )
 				{
-					mVariables->incrementVariablesOnCopy();
+					variables.incrementVariablesOnCopy();
 				}
 				if ( (iItem % mNItemsPerPage) == 0 /* starting a new page */ )
 				{
-					mVariables->incrementVariablesOnPage();
+					variables.incrementVariablesOnPage();
 				}
 			}
 		}
@@ -430,7 +430,7 @@ namespace glabels
 				return;
 			}
 			
-			mVariables->resetVariables();
+			Variables variables( mModel->constVariables() );
 
 			while ( (iRecord < nRecords) && (iCurrentPage <= iPage) )
 			{
@@ -445,7 +445,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, records[iRecord], mVariables );
+					printLabel( painter, records[iRecord], variables );
 
 					painter->restore();  // From before clip
 
@@ -475,15 +475,15 @@ namespace glabels
 				iCurrentPage = iItem / mNItemsPerPage;
 
 				// User variable book keeping
-				mVariables->incrementVariablesOnItem();
-				mVariables->incrementVariablesOnCopy();
+				variables.incrementVariablesOnItem();
+				variables.incrementVariablesOnCopy();
 				if ( iCopy == 0 )
 				{
-					mVariables->resetOnCopyVariables();
+					variables.resetOnCopyVariables();
 				}
 				if ( (iItem % mNItemsPerPage) == 0 /* starting a new page */ )
 				{
-					mVariables->incrementVariablesOnPage();
+					variables.incrementVariablesOnPage();
 				}
 			}
 		}
@@ -572,7 +572,7 @@ namespace glabels
 	
 		void PageRenderer::printLabel( QPainter*      painter,
 		                               merge::Record* record,
-		                               Variables*     variables ) const
+		                               Variables&     variables ) const
 		{
 			painter->save();
 

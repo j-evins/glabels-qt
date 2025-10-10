@@ -46,13 +46,13 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			Variables() = default;
-			Variables( const Variables* variables );
+			Variables( const Variables& other );
 
 
 			/////////////////////////////////
-			// Object duplication
+			// Copy from other object
 			/////////////////////////////////
-			Variables* clone() const;
+			void copy( const Variables& other );
 
 
 			/////////////////////////////////

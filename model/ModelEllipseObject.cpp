@@ -95,10 +95,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelEllipseObject::drawShadow( QPainter*      painter,
-		                                     bool           inEditor,
-		                                     merge::Record* record,
-		                                     Variables*     variables ) const
+		void ModelEllipseObject::drawShadow( QPainter*        painter,
+		                                     bool             inEditor,
+		                                     merge::Record*   record,
+		                                     const Variables& variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor fillColor = mFillColorNode.color( record, variables );
@@ -143,10 +143,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelEllipseObject::drawObject( QPainter*      painter,
-		                                     bool           inEditor,
-		                                     merge::Record* record,
-		                                     Variables*     variables ) const
+		void ModelEllipseObject::drawObject( QPainter*        painter,
+		                                     bool             inEditor,
+		                                     merge::Record*   record,
+		                                     const Variables& variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor fillColor = mFillColorNode.color( record, variables );

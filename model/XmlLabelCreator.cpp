@@ -122,7 +122,7 @@ namespace glabels
 				createMergeNode( root, model );
 			}
 
-			if ( model->variables()->size() != 0 )
+			if ( model->constVariables().size() != 0 )
 			{
 				createVariablesNode( root, model );
 			}
@@ -508,7 +508,7 @@ namespace glabels
 			QDomElement node = doc.createElement( "Variables" );
 			parent.appendChild( node );
 
-			for ( const auto& v : *model->variables() )
+			for ( const auto& v : model->constVariables() )
 			{
 				createVariableNode( node, v );
 			}

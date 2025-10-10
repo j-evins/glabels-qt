@@ -200,7 +200,6 @@ void TestXmlLabel::serializeDeserialize()
 	QCOMPARE( buffer, outBuffer );
 
 	delete model->merge();
-	delete model->variables();
 	delete model;
 }
 
@@ -281,16 +280,15 @@ void TestXmlLabel::writeReadFile()
 	///
 	/// Add variables
 	///
-	Variables vars;
 	Variable s( Variable::Type::STRING, "s", "initial", Variable::Increment::NEVER );
 	Variable c( Variable::Type::COLOR, "c", "red", Variable::Increment::PER_COPY );
 	Variable i( Variable::Type::INTEGER, "i", "123", Variable::Increment::PER_ITEM, "1" );
 	Variable f( Variable::Type::FLOATING_POINT, "f", "12.3", Variable::Increment::PER_PAGE, "0.2" );
-	model->variables()->addVariable( s );
-	model->variables()->addVariable( c );
-	model->variables()->addVariable( i );
-	model->variables()->addVariable( f );
-	QCOMPARE( model->variables()->size(), 4 );
+	model->variables().addVariable( s );
+	model->variables().addVariable( c );
+	model->variables().addVariable( i );
+	model->variables().addVariable( f );
+	QCOMPARE( model->variables().size(), 4 );
 
 	//
 	// Add merge
@@ -440,11 +438,11 @@ void TestXmlLabel::writeReadFile()
 	QCOMPARE( readObjects[11]->filenameNode().data(), pngRelativeFileName );
 	QCOMPARE( readObjects[12]->filenameNode().data(), svgRelativeFileName );
 
-	QCOMPARE( readModel->variables()->size(), model->variables()->size() );
-	for ( const auto& modelV : *model->variables() )
+	QCOMPARE( readModel->variables().size(), model->variables().size() );
+	for ( const auto& modelV : model->variables() )
 	{
-		QVERIFY( readModel->variables()->hasVariable( modelV.name() ) );
-		const auto& readV = readModel->variables()->value( modelV.name() );
+		QVERIFY( readModel->variables().hasVariable( modelV.name() ) );
+		const auto& readV = readModel->variables().value( modelV.name() );
 		QCOMPARE( readV.type(), modelV.type() );
 		QCOMPARE( readV.initialValue(), modelV.initialValue() );
 		if ( readV.type() == Variable::Type::INTEGER || readV.type() == Variable::Type::FLOATING_POINT )
@@ -465,11 +463,9 @@ void TestXmlLabel::writeReadFile()
 	}
 
 	delete readModel->merge();
-	delete readModel->variables();
 	delete readModel;
 
 	delete model->merge();
-	delete model->variables();
 	delete model;
 }
 
@@ -626,7 +622,6 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( model->merge()->recordList()[3]->values(), values3 );
 
 	delete model->merge();
-	delete model->variables();
 	delete model;
 }
 
@@ -700,6 +695,5 @@ void TestXmlLabel::parser_3Barcode()
 	}
 
 	delete model->merge();
-	delete model->variables();
 	delete model;
 }

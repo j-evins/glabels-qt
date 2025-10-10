@@ -216,7 +216,6 @@ namespace glabels
 		if ( mModel )
 		{
 			delete mModel->merge(); // Ownership of final Merge instance is ours
-			delete mModel->variables(); // Ownership of Variables instance is ours
 			delete mModel;
 		}
 	}
