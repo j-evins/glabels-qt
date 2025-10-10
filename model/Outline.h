@@ -46,10 +46,15 @@ namespace glabels
 			// Lifecycle Methods
 			////////////////////////////
 		public:
-			Outline( ModelObject* owner );
-			Outline( const Outline* outline, ModelObject* newOwner );
-			virtual ~Outline() = default;
-			std::unique_ptr<Outline> clone( ModelObject* newOwner ) const;
+			Outline() = default;
+			~Outline() = default;
+
+
+			////////////////////////////
+			// Ownership
+			////////////////////////////
+			void setOwner( ModelObject* owner );
+			bool isEnabled() const;
 
 
 			////////////////////////////
@@ -64,7 +69,7 @@ namespace glabels
 			// Private Data
 			////////////////////////////
 		private:
-			ModelObject*   mOwner;
+			ModelObject*   mOwner{ nullptr };
 
 			QVector<qreal> mDashes;
 			QPen           mPen1;

@@ -119,16 +119,17 @@ namespace glabels
 			mShadowOpacity   = object->mShadowOpacity;
 			mShadowColorNode = object->mShadowColorNode;
 
+			if ( object->mOutline.isEnabled() )
+			{
+				mOutline = object->mOutline;
+				mOutline.setOwner( this );
+			}
+
 			for ( auto& handle : object->mHandles )
 			{
 				mHandles.push_back( handle->clone( this ) );
 			}
 	
-			if ( mOutline )
-			{
-				mOutline = object->mOutline->clone( this );
-			}
-
 			mMatrix          = object->mMatrix;
 		}
 
@@ -1170,9 +1171,9 @@ namespace glabels
 			{
 				return true;
 			}
-			else if ( isSelected() && mOutline )
+			else if ( isSelected() )
 			{
-				if ( mOutline->hoverPath( scale ).contains( p ) )
+				if ( mOutline.hoverPath( scale ).contains( p ) )
 				{
 					return true;
 				}
@@ -1245,10 +1246,7 @@ namespace glabels
 			painter->translate( mX0.pt(), mY0.pt() );
 			painter->setTransform( mMatrix, true );
 
-			if ( mOutline )
-			{
-				mOutline->draw( painter );
-			}
+			mOutline.draw( painter );
 
 			for( auto& handle : mHandles )
 			{

@@ -58,7 +58,7 @@ namespace glabels
 		///
 		ModelBarcodeObject::ModelBarcodeObject()
 		{
-			mOutline.reset( new Outline( this ) );
+			mOutline.setOwner( this );
 
 			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
@@ -96,7 +96,7 @@ namespace glabels
 		                                        const QTransform&     matrix )
 		: ModelObject( x0, y0, w, h, lockAspectRatio, matrix )
 		{
-			mOutline.reset( new Outline( this ) );
+			mOutline.setOwner( this );
 
 			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleNorth>( this ) );

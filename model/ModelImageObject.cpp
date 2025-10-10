@@ -58,7 +58,7 @@ namespace glabels
 		///
 		ModelImageObject::ModelImageObject()
 		{
-			mOutline.reset( new Outline( this ) );
+			mOutline.setOwner( this );
 
 			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
@@ -92,7 +92,7 @@ namespace glabels
 		               matrix,
 		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
 		{
-			mOutline.reset( new Outline( this ) );
+			mOutline.setOwner( this );
 
 			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
@@ -129,7 +129,7 @@ namespace glabels
 		               matrix,
 		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
 		{
-			mOutline.reset( new Outline( this ) );
+			mOutline.setOwner( this );
 
 			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
@@ -165,7 +165,7 @@ namespace glabels
 		               matrix,
 		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
 		{
-			mOutline.reset( new Outline( this ) );
+			mOutline.setOwner( this );
 
 			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
 			mHandles.push_back( std::make_unique<HandleNorth>( this ) );

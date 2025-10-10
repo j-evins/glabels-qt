@@ -456,8 +456,9 @@ namespace glabels
 			double            mShadowOpacity;
 			ColorNode         mShadowColorNode;
 
+			Outline           mOutline;
+
 			std::list<std::unique_ptr<Handle>> mHandles;
-			std::unique_ptr<Outline>           mOutline;
 
 
 			///////////////////////////////////////////////////////////////
