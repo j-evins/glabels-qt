@@ -55,15 +55,7 @@ namespace glabels
 		///
 		Model::Model()
 		{
-			mMerge = new merge::None();
-
-			connect( &mVariables, SIGNAL(changed()), this, SLOT(onVariablesChanged()) );
-		}
-
-
-		Model::Model( merge::Merge* merge )
-		{
-			mMerge = merge; // Shared
+			mMerge.reset( new merge::None() );
 
 			connect( &mVariables, SIGNAL(changed()), this, SLOT(onVariablesChanged()) );
 		}
@@ -75,7 +67,6 @@ namespace glabels
 		Model::~Model()
 		{
 			qDeleteAll( mObjectList );
-			// Final instance of mMerge to be deleted by Model owner
 		}
 
 
@@ -84,7 +75,7 @@ namespace glabels
 		///
 		Model* Model::save() const
 		{
-			auto* savedModel = new Model( mMerge ); // mMerge shared between models
+			auto* savedModel = new Model(); // mMerge shared between models
 
 			if ( mFileName.isEmpty() && mUntitledInstance == 0 )
 			{
@@ -128,6 +119,8 @@ namespace glabels
 			}
 
 			mVariables.copy( savedModel->mVariables );
+
+			mMerge = savedModel->mMerge;
 
 			// Emit signals based on potential changes
 			emit changed();
@@ -372,7 +365,7 @@ namespace glabels
 		///
 		merge::Merge* Model::merge() const
 		{
-			return mMerge;
+			return mMerge.get();
 		}
 
 
@@ -383,11 +376,10 @@ namespace glabels
 		{
 			if ( merge != mMerge )
 			{
-				delete mMerge;
-				mMerge = merge;
+				mMerge.reset( merge );
 
-				connect( mMerge, SIGNAL(sourceChanged()), this, SLOT(onMergeSourceChanged()) );
-				connect( mMerge, SIGNAL(selectionChanged()), this, SLOT(onMergeSelectionChanged()) );
+				connect( mMerge.get(), SIGNAL(sourceChanged()), this, SLOT(onMergeSourceChanged()) );
+				connect( mMerge.get(), SIGNAL(selectionChanged()), this, SLOT(onMergeSelectionChanged()) );
 
 				setModified();
 		

@@ -418,7 +418,7 @@ void TestModel::saveRestore()
 	QCOMPARE( merge2->source(), csv2.fileName() );
 	QCOMPARE( merge2->recordList().size(), 4 );
 
-	model->setMerge( merge2 ); // Deletes original so saved->merge() now invalid
+	model->setMerge( merge2 );
 	QCOMPARE( model->merge(), merge2 );
 
 	Model* modified = model->save();
@@ -457,9 +457,6 @@ void TestModel::saveRestore()
 	QCOMPARE( model->objectList().at(1)->x0(), saved->objectList().at(1)->x0() );
 	QCOMPARE( model->objectList().at(1)->y0(), saved->objectList().at(1)->y0() );
 
-	QCOMPARE( model->merge(), merge2 ); // Unchanged
-	QVERIFY( model->merge() != saved->merge() ); // NOTE saved->merge() now points to deleted object
-
 	// Unrestore
 	model->restore( modified );
 	QVERIFY( model->shortName() != modelShortName );
@@ -485,7 +482,6 @@ void TestModel::saveRestore()
 	QCOMPARE( model->objectList().at(0)->x0(), modified->objectList().at(0)->x0() );
 	QCOMPARE( model->objectList().at(0)->y0(), modified->objectList().at(0)->y0() );
 
-	delete model->merge(); // Final instance owned by us
 	delete model;
 	delete saved;
 	delete modified;

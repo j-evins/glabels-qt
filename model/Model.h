@@ -249,7 +249,8 @@ namespace glabels
 			QList<ModelObject*>       mObjectList;
 
 			Variables                 mVariables;
-			merge::Merge*             mMerge;
+
+			QSharedPointer<merge::Merge> mMerge;
 		};
 
 	}

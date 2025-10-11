@@ -246,6 +246,4 @@ void TestModelImageObject::readImageFile()
 		QCOMPARE( paintDevice.pixelColor( 1, 49 + i * yTranslate ), white );
 		QCOMPARE( paintDevice.pixelColor( 9, 49 + i * yTranslate ), magentaShadow );
 	}
-
-	delete model.merge();
 }

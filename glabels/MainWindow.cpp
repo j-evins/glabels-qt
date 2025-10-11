@@ -215,7 +215,6 @@ namespace glabels
 		}
 		if ( mModel )
 		{
-			delete mModel->merge(); // Ownership of final Merge instance is ours
 			delete mModel;
 		}
 	}

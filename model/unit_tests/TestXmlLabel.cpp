@@ -199,7 +199,6 @@ void TestXmlLabel::serializeDeserialize()
 
 	QCOMPARE( buffer, outBuffer );
 
-	delete model->merge();
 	delete model;
 }
 
@@ -462,10 +461,8 @@ void TestXmlLabel::writeReadFile()
 		QCOMPARE( readModel->merge()->recordList().at(i)->values(), model->merge()->recordList().at(i)->values() );
 	}
 
-	delete readModel->merge();
 	delete readModel;
 
-	delete model->merge();
 	delete model;
 }
 
@@ -621,7 +618,6 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( model->merge()->recordList()[3]->keys(), keys );
 	QCOMPARE( model->merge()->recordList()[3]->values(), values3 );
 
-	delete model->merge();
 	delete model;
 }
 
@@ -694,6 +690,5 @@ void TestXmlLabel::parser_3Barcode()
 		QCOMPARE( modelBarcodeObject->bcStyle().fullId(), QString( "code39" ) );
 	}
 
-	delete model->merge();
 	delete model;
 }
