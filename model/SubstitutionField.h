@@ -70,9 +70,9 @@ namespace glabels
 			QString mDefaultValue;
 
 			QString mFormat;
-			QChar   mFormatType;
+			QChar   mFormatType{};
 
-			bool    mNewLine;
+			bool    mNewLine{ false };
 		};
 
 	}

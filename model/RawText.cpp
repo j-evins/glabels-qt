@@ -23,6 +23,7 @@
 
 #include "ParserState.h"
 
+#include <QDebug>
 #include <QRegularExpression>
 
 

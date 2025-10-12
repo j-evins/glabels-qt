@@ -47,7 +47,7 @@ namespace glabels
 
 
 		private:
-			const QString* mString;
+			const QString* mString{ nullptr };
 			qsizetype      mPos{ 0 };
 		};
 

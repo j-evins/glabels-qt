@@ -71,7 +71,7 @@ namespace glabels
 
 			struct Token
 			{
-				bool              isField;
+				bool              isField{ false };
 				QString           text;
 				SubstitutionField field;
 			};

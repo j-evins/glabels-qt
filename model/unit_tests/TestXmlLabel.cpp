@@ -199,6 +199,8 @@ void TestXmlLabel::serializeDeserialize()
 
 	QCOMPARE( buffer, outBuffer );
 
+	qDeleteAll( objects );
+	qDeleteAll( outObjects );
 	delete model;
 }
 
@@ -484,7 +486,7 @@ void TestXmlLabel::parser_3ReadFile()
 	//          in the same directory as the glabels file.  For glabels-4 files, the relative path
 	//          should be encoded in the file.
 
-	QFileInfo glabelsFileInfo( QString(TEST_DIR) + "/data/glabels-3/crew-orientation-name-tags-7.glabels" );
+	QFileInfo glabelsFileInfo( QString( "%1/data/glabels-3/crew-orientation-name-tags-7.glabels" ).arg( QString(TEST_DIR) ) );
 	QVERIFY( glabelsFileInfo.isReadable() );
 
 	Model* model = XmlLabelParser::readFile( glabelsFileInfo.absoluteFilePath() );
