@@ -95,11 +95,8 @@ namespace glabels
 			QString id   = XmlUtil::getStringAttr( node, "id", "" );
 			QString name = XmlUtil::getI18nAttr( node, "name", "" );
 
-			auto *category = new Category( id, name );
-			if ( category != nullptr )
-			{
-				Db::registerCategory( category );
-			}
+			auto category = Category( id, name );
+			Db::registerCategory( category );
 		}
 
 

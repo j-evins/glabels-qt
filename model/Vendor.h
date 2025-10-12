@@ -33,7 +33,9 @@ namespace glabels
 		class Vendor
 		{
 		public:
+			Vendor() = default;
 			Vendor( const QString &name, const QString &url );
+			~Vendor() = default;
 
 			QString name() const;
 			QString url() const;

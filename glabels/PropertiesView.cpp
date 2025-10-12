@@ -109,10 +109,10 @@ namespace glabels
 		preview->setShowArrow( true );
 		preview->setRotate( isRotated );
 
-		const model::Vendor* vendor = model::Db::lookupVendorFromName( tmplate->brand() );
-		if ( (vendor != nullptr) && (vendor->url() != nullptr) )
+		auto vendor = model::Db::lookupVendorFromName( tmplate->brand() );
+		if ( !vendor.url().isEmpty() )
 		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor->url(), vendor->name() );
+			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor.url(), vendor.name() );
 			vendorLabel->setText( markup );
 		}
 		else

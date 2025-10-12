@@ -54,9 +54,9 @@ namespace glabels
 
 			if ( Db::isPaperIdKnown( paperId ) )
 			{
-				const Paper* paper = Db::lookupPaperFromId( paperId );
-				mIsSizeIso = paper->isSizeIso();
-				mIsSizeUs  = paper->isSizeUs();
+				auto paper = Db::lookupPaperFromId( paperId );
+				mIsSizeIso = paper.isSizeIso();
+				mIsSizeUs  = paper.isSizeUs();
 			}
 
 			mIsRoll = (paperId == "roll");

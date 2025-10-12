@@ -168,17 +168,6 @@
     </message>
 </context>
 <context>
-    <name>Db</name>
-    <message>
-        <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Roll</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>

@@ -51,36 +51,36 @@ namespace glabels
 			static Db* instance();
 
 
-			static const QList<Paper*>& papers();
+			static const QList<Paper>& papers();
 			static const QStringList& paperIds();
 			static const QStringList& paperNames();
 
-			static const QList<Category*>& categories();
+			static const QList<Category>& categories();
 			static const QStringList& categoryIds();
 			static const QStringList& categoryNames();
 
-			static const QList<Vendor*>& vendors();
+			static const QList<Vendor>& vendors();
 			static const QStringList& vendorNames();
 
 			static const QList<Template*>& templates();
 
 
-			static void registerPaper( Paper *paper );
-			static const Paper *lookupPaperFromName( const QString& name );
-			static const Paper *lookupPaperFromId( const QString& id );
+			static void registerPaper( const Paper& paper );
+			static const Paper lookupPaperFromName( const QString& name );
+			static const Paper lookupPaperFromId( const QString& id );
 			static QString lookupPaperIdFromName( const QString& name );
 			static QString lookupPaperNameFromId( const QString& id );
 			static bool isPaperIdKnown( const QString& id );
 
-			static void registerCategory( Category *category );
-			static const Category *lookupCategoryFromName( const QString& name );
-			static const Category *lookupCategoryFromId( const QString& id );
+			static void registerCategory( const Category& category );
+			static const Category lookupCategoryFromName( const QString& name );
+			static const Category lookupCategoryFromId( const QString& id );
 			static QString lookupCategoryIdFromName( const QString& name );
 			static QString lookupCategoryNameFromId( const QString& id );
 			static bool isCategoryIdKnown( const QString& id );
 
-			static void registerVendor( Vendor *vendor );
-			static const Vendor *lookupVendorFromName( const QString& name );
+			static void registerVendor( const Vendor& vendor );
+			static const Vendor lookupVendorFromName( const QString& name );
 			static QString lookupVendorUrlFromName( const QString& name );
 			static bool isVendorNameKnown( const QString& id );
 
@@ -120,16 +120,21 @@ namespace glabels
 
 
 		private:
-			static QList<Paper*>    mPapers;
-			static QStringList      mPaperIds;
-			static QStringList      mPaperNames;
+			static QList<Paper>           mPapers;
+			static QMap<QString,Paper>    mPapersNameMap;
+			static QMap<QString,Paper>    mPapersIdMap;
+			static QStringList            mPaperIds;
+			static QStringList            mPaperNames;
 
-			static QList<Category*> mCategories;
-			static QStringList      mCategoryIds;
-			static QStringList      mCategoryNames;
+			static QList<Category>        mCategories;
+			static QMap<QString,Category> mCategoriesNameMap;
+			static QMap<QString,Category> mCategoriesIdMap;
+			static QStringList            mCategoryIds;
+			static QStringList            mCategoryNames;
 
-			static QList<Vendor*>   mVendors;
-			static QStringList      mVendorNames;
+			static QList<Vendor>          mVendors;
+			static QMap<QString,Vendor>   mVendorsNameMap;
+			static QStringList            mVendorNames;
 
 			static QList<Template*> mTemplates;
 

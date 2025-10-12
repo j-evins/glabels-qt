@@ -100,11 +100,8 @@ namespace glabels
 
 			QString pwgSize = XmlUtil::getStringAttr( node, "pwg_size", "" );
 
-			auto *paper = new Paper( id, name, width, height, pwgSize );
-			if ( paper != nullptr )
-			{
-				Db::registerPaper( paper );
-			}
+			auto paper = Paper( id, name, width, height, pwgSize );
+			Db::registerPaper( paper );
 		}
 
 

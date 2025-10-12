@@ -157,15 +157,10 @@ namespace glabels
 
 				if ( Db::isPaperIdKnown( paperId ) )
 				{
-					const Paper *paper = Db::lookupPaperFromId( paperId );
-					if ( paper == nullptr )
-					{
-						qWarning() << "Error: unknown paper ID: " << paperId;
-						return nullptr;
-					}
+					auto paper = Db::lookupPaperFromId( paperId );
 
 					tmplate = new Template( brand, part, description,
-					                        paper->id(), paper->width(), paper->height(), isUserDefined );
+					                        paper.id(), paper.width(), paper.height(), isUserDefined );
 				}
 				else
 				{

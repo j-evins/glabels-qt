@@ -31,7 +31,11 @@ namespace glabels
 		              const Distance& width,
 		              const Distance& height,
 		              const QString&  pwgSize )
-			: mId(id), mName(name), mWidth(width), mHeight(height), mPwgSize(pwgSize)
+			: mId(id),
+			  mName(name),
+			  mWidth(width),
+			  mHeight(height),
+			  mPwgSize(pwgSize)
 		{
 			// empty
 		}

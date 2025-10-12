@@ -753,9 +753,9 @@ namespace glabels
 
 		if ( pageSizeCombo->currentText() != tr("Other") )
 		{
-			const model::Paper* paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
-			wSpin->setValue( paper->width().inUnits( model::Settings::units() ) );
-			hSpin->setValue( paper->height().inUnits( model::Settings::units() ) );
+			auto paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
+			wSpin->setValue( paper.width().inUnits( model::Settings::units() ) );
+			hSpin->setValue( paper.height().inUnits( model::Settings::units() ) );
 		}
 
 		registerField( "pageSize.pageSize", pageSizeCombo, "currentText" );
@@ -789,9 +789,9 @@ namespace glabels
 
 		if ( !isOther && !isRoll )
 		{
-			const model::Paper* paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
-			wSpin->setValue( paper->width().inUnits( model::Settings::units() ) );
-			hSpin->setValue( paper->height().inUnits( model::Settings::units() ) );
+			auto paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
+			wSpin->setValue( paper.width().inUnits( model::Settings::units() ) );
+			hSpin->setValue( paper.height().inUnits( model::Settings::units() ) );
 		}
 
 		if ( !isRoll )

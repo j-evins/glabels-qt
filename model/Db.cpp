@@ -30,7 +30,7 @@
 #include "XmlTemplateCreator.h"
 #include "XmlVendorParser.h"
 
-#include <QtDebug>
+#include <QDebug>
 #include <QtGlobal>
 
 #include <algorithm>
@@ -58,14 +58,22 @@ namespace glabels
 		//
 		// Static data
 		//
-		QList<Paper*>    Db::mPapers;
-		QStringList      Db::mPaperIds;
-		QStringList      Db::mPaperNames;
-		QList<Category*> Db::mCategories;
-		QStringList      Db::mCategoryIds;
-		QStringList      Db::mCategoryNames;
-		QList<Vendor*>   Db::mVendors;
-		QStringList      Db::mVendorNames;
+		QList<Paper>           Db::mPapers;
+		QMap<QString,Paper>    Db::mPapersNameMap;
+		QMap<QString,Paper>    Db::mPapersIdMap;
+		QStringList            Db::mPaperIds;
+		QStringList            Db::mPaperNames;
+
+		QList<Category>        Db::mCategories;
+		QMap<QString,Category> Db::mCategoriesNameMap;
+		QMap<QString,Category> Db::mCategoriesIdMap;
+		QStringList            Db::mCategoryIds;
+		QStringList            Db::mCategoryNames;
+
+		QList<Vendor>          Db::mVendors;
+		QMap<QString,Vendor>   Db::mVendorsNameMap;
+		QStringList            Db::mVendorNames;
+
 		QList<Template*> Db::mTemplates;
 
 	
@@ -91,7 +99,7 @@ namespace glabels
 		}
 
 
-		const QList<Paper*>& Db::papers()
+		const QList<Paper>& Db::papers()
 		{
 			return mPapers;
 		}
@@ -109,7 +117,7 @@ namespace glabels
 		}
 
 
-		const QList<Category*>& Db::categories()
+		const QList<Category>& Db::categories()
 		{
 			return mCategories;
 		}
@@ -127,7 +135,7 @@ namespace glabels
 		}
 
 
-		const QList<Vendor*>& Db::vendors()
+		const QList<Vendor>& Db::vendors()
 		{
 			return mVendors;
 		}
@@ -145,292 +153,195 @@ namespace glabels
 		}
 
 
-		void Db::registerPaper( Paper *paper )
+		void Db::registerPaper( const Paper& paper )
 		{
-			if ( !isPaperIdKnown( paper->id() ) )
+			if ( !isPaperIdKnown( paper.id() ) )
 			{
-				mPapers << paper;
-				mPaperIds << paper->id();
-				mPaperNames << paper->name();
+				mPapers.push_back( paper );
+				mPapersNameMap[ paper.name() ] = paper;
+				mPapersIdMap[ paper.id() ] = paper;
+				mPaperIds.push_back( paper.id() );
+				mPaperNames.push_back( paper.name() );
 			}
 			else
 			{
-				qWarning() << "Duplicate paper ID: " << paper->id();
+				qWarning() << "Duplicate paper ID: " << paper.id();
 			}
 		}
 
 
-		const Paper *Db::lookupPaperFromName( const QString& name )
+		const Paper Db::lookupPaperFromName( const QString& name )
 		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL paper name.";
-				return mPapers.first();
+				return Paper();
 			}
 
-			foreach ( Paper *paper, mPapers )
+			auto it = mPapersNameMap.find( name );
+			if ( it != mPapersNameMap.end() )
 			{
-				if ( paper->name() == name )
-				{
-					return paper;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown paper name: " << name;
-			return nullptr;
+			return Paper();
 		}
 
 
-		const Paper *Db::lookupPaperFromId( const QString& id )
+		const Paper Db::lookupPaperFromId( const QString& id )
 		{
-			if ( id.isNull() || id.isEmpty() )
+			if ( id.isEmpty() )
 			{
-				qWarning() << "NULL paper ID.";
-				return mPapers.first();
+				qWarning() << "NULL paper id.";
+				return Paper();
 			}
 
-			foreach ( Paper *paper, mPapers )
+			auto it = mPapersIdMap.find( id );
+			if ( it != mPapersIdMap.end() )
 			{
-				if ( paper->id() == id )
-				{
-					return paper;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown paper ID: " << id;
-			return nullptr;
+			return Paper();
 		}
 
 
 		QString Db::lookupPaperIdFromName( const QString& name )
 		{
-			if ( !name.isNull() && !name.isEmpty() )
-			{
-				if ( name == tr("Other") )
-				{
-					return "other";
-				}
-				else if ( name == tr("Roll") )
-				{
-					return "roll";
-				}
-
-				const Paper *paper = lookupPaperFromName( name );
-				if ( paper != nullptr )
-				{
-					return paper->id();
-				}
-			}
-
-			qWarning() << "Unknown paper name: " << name;
-			return empty;
+			return lookupPaperFromName( name ).id();
 		}
 
 
 		QString Db::lookupPaperNameFromId( const QString& id )
 		{
-			if ( !id.isNull() && !id.isEmpty() )
-			{
-				if ( id == "other" )
-				{
-					return tr("Other");
-				}
-				else if ( id == "roll" )
-				{
-					return tr("Roll");
-				}
-
-				const Paper *paper = lookupPaperFromId( id );
-				if ( paper != nullptr )
-				{
-					return paper->name();
-				}
-			}
-
-			qWarning() << "Unknown paper id: " << id;
-			return empty;
+			return lookupPaperFromId( id ).name();
 		}
 
 
 		bool Db::isPaperIdKnown( const QString& id )
 		{
-			foreach ( Paper *paper, mPapers )
-			{
-				if ( paper->id() == id )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mPapersIdMap.contains( id );
 		}
 
 
-		void Db::registerCategory( Category *category )
+		void Db::registerCategory( const Category& category )
 		{
-			if ( !isCategoryIdKnown( category->id() ) )
+			if ( !isCategoryIdKnown( category.id() ) )
 			{
-				mCategories << category;
-				mCategoryIds << category->id();
-				mCategoryNames << category->name();
+				mCategories.push_back( category );
+				mCategoriesNameMap[ category.name() ] = category;
+				mCategoriesIdMap[ category.id() ] = category;
+				mCategoryIds.push_back( category.id() );
+				mCategoryNames.push_back( category.name() );
 			}
 			else
 			{
-				qWarning() << "Duplicate category ID: " << category->id();
+				qWarning() << "Duplicate category ID: " << category.id();
 			}
 		}
 
 
-		const Category *Db::lookupCategoryFromName( const QString& name )
+		const Category Db::lookupCategoryFromName( const QString& name )
 		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL category name.";
-				return mCategories.first();
+				return Category();
 			}
 
-			foreach ( Category *category, mCategories )
+			auto it = mCategoriesNameMap.find( name );
+			if ( it != mCategoriesNameMap.end() )
 			{
-				if ( category->name() == name )
-				{
-					return category;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown category name: \"%s\"." << name;
-			return nullptr;
+			return Category();
 		}
 
 
-		const Category *Db::lookupCategoryFromId( const QString& id )
+		const Category Db::lookupCategoryFromId( const QString& id )
 		{
-			if ( id.isNull() || id.isEmpty() )
+			if ( id.isEmpty() )
 			{
-				qDebug() << "NULL category ID.";
-				return mCategories.first();
+				qWarning() << "NULL category id.";
+				return Category();
 			}
 
-			foreach ( Category *category, mCategories )
+			auto it = mCategoriesIdMap.find( id );
+			if ( it != mCategoriesIdMap.end() )
 			{
-				if ( category->id() == id )
-				{
-					return category;
-				}
+				return *it;
 			}
 
-			qWarning() << "Unknown category ID: " << id;
-			return nullptr;
+			qWarning() << "Unknown category ID: \"%s\"." << id;
+			return Category();
 		}
 
 
 		QString Db::lookupCategoryIdFromName( const QString& name )
 		{
-			if ( !name.isNull() && !name.isEmpty() )
-			{
-				const Category *category = lookupCategoryFromName( name );
-				if ( category != nullptr )
-				{
-					return category->id();
-				}
-			}
-
-			qWarning() << "Unknown category name: " << name;
-			return empty;
+			return lookupCategoryFromName( name ).id();
 		}
 
 
 		QString Db::lookupCategoryNameFromId( const QString& id )
 		{
-			if ( !id.isNull() && !id.isEmpty() )
-			{
-				const Category *category = lookupCategoryFromId( id );
-				if ( category != nullptr )
-				{
-					return category->name();
-				}
-			}
-
-			qWarning() << "Unknown category id: " << id;
-			return empty;
+			return lookupCategoryFromId( id ).name();
 		}
 
 
 		bool Db::isCategoryIdKnown( const QString& id )
 		{
-			foreach ( Category *category, mCategories )
-			{
-				if ( category->id() == id )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mCategoriesIdMap.contains( id );
 		}
 
 
-		void Db::registerVendor( Vendor *vendor )
+		void Db::registerVendor( const Vendor& vendor )
 		{
-			if ( !isVendorNameKnown( vendor->name() ) )
+			if ( !isVendorNameKnown( vendor.name() ) )
 			{
-				mVendors << vendor;
-				mVendorNames << vendor->name();
+				mVendors.push_back( vendor );
+				mVendorsNameMap[ vendor.name() ] = vendor;
+				mVendorNames.push_back( vendor.name() );
 			}
 			else
 			{
-				qWarning() << "Duplicate vendor name: " << vendor->name();
+				qWarning() << "Duplicate vendor name: " << vendor.name();
 			}
 		}
 
 
-		const Vendor *Db::lookupVendorFromName( const QString& name )
+		const Vendor Db::lookupVendorFromName( const QString& name )
 		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL vendor name.";
-				return mVendors.first();
+				return Vendor();
 			}
 
-			foreach ( Vendor *vendor, mVendors )
+			auto it = mVendorsNameMap.find( name );
+			if ( it != mVendorsNameMap.end() )
 			{
-				if ( vendor->name() == name )
-				{
-					return vendor;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown vendor name: " << name;
-			return nullptr;
+			return Vendor();
 		}
 
 
 		QString Db::lookupVendorUrlFromName( const QString& name )
 		{
-			if ( !name.isNull() && !name.isEmpty() )
-			{
-				const Vendor *vendor = lookupVendorFromName( name );
-				if ( vendor != nullptr )
-				{
-					return vendor->url();
-				}
-			}
-
-			qWarning() << "Unknown vendor name: " << name;
-			return empty;
+			return lookupVendorFromName( name ).url();
 		}
 
 
 		bool Db::isVendorNameKnown( const QString& name )
 		{
-			foreach ( Vendor *vendor, mVendors )
-			{
-				if ( vendor->name() == name )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mVendorsNameMap.contains( name );
 		}
 
 
@@ -598,14 +509,14 @@ namespace glabels
 		{
 			qDebug() << "KNOWN PAPERS:";
 
-			foreach ( Paper *paper, mPapers )
+			for ( auto& paper : mPapers )
 			{
 				qDebug() << "paper "
-				         << "id="       << paper->id()          << ", "
-				         << "name="     << paper->name()        << ", "
-				         << "width="    << paper->width().pt()  << "pts, "
-				         << "height="   << paper->height().pt() << "pts, "
-				         << "pwg_size=" << paper->pwgSize();
+				         << "id="       << paper.id()          << ", "
+				         << "name="     << paper.name()        << ", "
+				         << "width="    << paper.width().pt()  << "pts, "
+				         << "height="   << paper.height().pt() << "pts, "
+				         << "pwg_size=" << paper.pwgSize();
 			}
 
 			qDebug();
@@ -616,11 +527,11 @@ namespace glabels
 		{
 			qDebug() << "KNOWN CATEGORIES:";
 
-			foreach ( Category *category, mCategories )
+			for ( auto& category : mCategories )
 			{
 				qDebug() << "category "
-				         << "id="    << category->id()   << ", "
-				         << "name="  << category->name();
+				         << "id="    << category.id()   << ", "
+				         << "name="  << category.name();
 			}
 
 			qDebug();
@@ -631,11 +542,11 @@ namespace glabels
 		{
 			qDebug() << "KNOWN VENDORS:";
 
-			foreach ( Vendor *vendor, mVendors )
+			for ( auto& vendor : mVendors )
 			{
 				qDebug() << "vendor "
-				         << "name='" << vendor->name() << ", "
-				         << "url='"  << vendor->url();
+				         << "name='" << vendor.name() << ", "
+				         << "url='"  << vendor.url();
 			}
 
 			qDebug();

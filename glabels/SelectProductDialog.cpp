@@ -52,15 +52,15 @@ namespace glabels
 		categoriesCheckContainer->setEnabled( !model::Settings::searchAllCategories() );
 		mCategoryIdList = model::Settings::searchCategoryList();
 	
-		QList<model::Category*> categories = model::Db::categories();
-		foreach ( model::Category *category, categories )
+		auto categories = model::Db::categories();
+		for ( auto& category : categories )
 		{
-			QCheckBox* check = new QCheckBox( category->name() );
-			check->setChecked( mCategoryIdList.contains( category->id() ) );
+			QCheckBox* check = new QCheckBox( category.name() );
+			check->setChecked( mCategoryIdList.contains( category.id() ) );
 			categoriesLayout->addWidget( check );
 
 			mCheckList.append( check );
-			mCheckToCategoryMap[check] = category->id();
+			mCheckToCategoryMap[check] = category.id();
 
 			connect( check, SIGNAL(clicked()), this, SLOT(onCategoryCheckClicked()) );
 		}
@@ -241,10 +241,10 @@ namespace glabels
 
 		preview->setTemplate( tmplate );
 
-		const model::Vendor* vendor = model::Db::lookupVendorFromName( tmplate->brand() );
-		if ( (vendor != nullptr) && (vendor->url() != nullptr) )
+		auto vendor = model::Db::lookupVendorFromName( tmplate->brand() );
+		if ( !vendor.url().isEmpty() )
 		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor->url(), vendor->name() );
+			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor.url(), vendor.name() );
 			vendorLabel->setText( markup );
 		}
 		else
