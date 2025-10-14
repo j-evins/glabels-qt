@@ -50,7 +50,7 @@ namespace glabels
 			  mRollWidth(rollWidth),
 			  mIsUserDefined(isUserDefined)
 		{
-			mName.append( brand ).append( " " ).append( part );
+			mName = brandPartToName( brand, part );
 
 			if ( Db::isPaperIdKnown( paperId ) )
 			{
@@ -93,10 +93,7 @@ namespace glabels
 
 		Template::~Template()
 		{
-			while ( !mFrames.isEmpty() )
-			{
-				delete mFrames.takeFirst();
-			}
+			qDeleteAll( mFrames );
 		}
 
 
@@ -138,29 +135,19 @@ namespace glabels
 		}
 
 
-		// Generic full page template
-		Template* Template::fullPage( const QString& paperId )
-		{
-			// TODO
-			return nullptr;
-		}
-
-
 		// From equivalent part number
-		Template* Template::fromEquiv( const QString& brand,
-		                               const QString& part,
-		                               const QString& equivPart )
+		Template Template::fromEquiv( const QString& brand,
+		                              const QString& part,
+		                              const QString& equivPart )
 		{
-			const Template* other = Db::lookupTemplateFromBrandPart( brand, equivPart );
-			if ( other != nullptr )
+			if ( Db::isTemplateKnown( brand, equivPart ) )
 			{
-				Template* tmplate = new Template( *other );
+				auto tmplate = Db::lookupTemplateFromBrandPart( brand, equivPart );
 
-				tmplate->mPart      = part;
-				tmplate->mEquivPart = equivPart;
+				tmplate.mPart      = part;
+				tmplate.mEquivPart = equivPart;
 
-				tmplate->mName = "";
-				tmplate->mName.append( brand ).append( " " ).append( part );
+				tmplate.mName = brandPartToName( brand, part );
 
 				return tmplate;
 			}
@@ -169,11 +156,24 @@ namespace glabels
 				qWarning() << "Error: cannot create equivalent template for "
 				           << brand << ", " << equivPart
 				           << ". Forward references not supported.";
-				return nullptr;
+				return Template();
 			}
 		}
 
 
+		QString Template::brandPartToName( const QString& brand,
+		                                   const QString& part )
+		{
+			return QString( "%1 %2" ).arg( brand ).arg( part );
+		}
+
+
+		bool Template::isNull() const
+		{
+			return mBrand.isEmpty() || mPart.isEmpty();
+		}
+
+	
 		QString Template::brand() const
 		{
 			return mBrand;
@@ -347,19 +347,19 @@ namespace glabels
 		}
 
 
-		bool Template::isSimilarTo( const Template* other ) const
+		bool Template::isSimilarTo( const Template& other ) const
 		{
 			// Does page size match?
-			if ( (mPaperId    != other->mPaperId)    ||
-			     (mPageWidth  != other->mPageWidth ) ||
-			     (mPageHeight != other->mPageHeight ) )
+			if ( (mPaperId    != other.mPaperId)    ||
+			     (mPageWidth  != other.mPageWidth ) ||
+			     (mPageHeight != other.mPageHeight ) )
 			{
 				return false;
 			}
 
 			// Are frames similar
 			Frame* frame1 = mFrames.first();
-			Frame* frame2 = other->mFrames.first();
+			Frame* frame2 = other.mFrames.first();
 			if ( !frame1->isSimilarTo( frame2 ) )
 			{
 				return false;

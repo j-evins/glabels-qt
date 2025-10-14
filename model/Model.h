@@ -100,9 +100,9 @@ namespace glabels
 			const QString& fileName() const;
 			void setFileName( const QString &fileName );
 
-			const Template* tmplate() const;
+			const Template& tmplate() const;
 			const Frame* frame() const;
-			void setTmplate( const Template* tmplate );
+			void setTmplate( const Template& tmplate );
 
 			bool rotate() const;
 			void setRotate( bool rotate );

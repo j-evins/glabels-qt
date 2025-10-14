@@ -34,13 +34,13 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlTemplateCreator::writeTemplates( const QList<const Template*> tmplates, const QString &fileName )
+		bool XmlTemplateCreator::writeTemplates( const QList<Template> tmplates, const QString &fileName )
 		{
 			QDomDocument doc( "Glabels-templates" );
 			QDomElement root = doc.createElement( "Glabels-templates" );
 			doc.appendChild( root );
 
-			foreach ( const Template* tmplate, tmplates )
+			for ( auto& tmplate : tmplates )
 			{
 				createTemplateNode( root, tmplate );
 			}
@@ -66,9 +66,9 @@ namespace glabels
 		}
 
 
-		bool XmlTemplateCreator::writeTemplate( const Template* tmplate, const QString& fileName )
+		bool XmlTemplateCreator::writeTemplate( const Template& tmplate, const QString& fileName )
 		{
-			QList<const Template*> tmplates;
+			QList<Template> tmplates;
 
 			tmplates.append(tmplate);
 
@@ -76,40 +76,40 @@ namespace glabels
 		}
 
 
-		void XmlTemplateCreator::createTemplateNode( QDomElement &parent, const Template* tmplate )
+		void XmlTemplateCreator::createTemplateNode( QDomElement &parent, const Template& tmplate )
 		{
 			QDomDocument doc = parent.ownerDocument();
 			QDomElement node = doc.createElement( "Template" );
 			parent.appendChild( node );
 
-			XmlUtil::setStringAttr( node, "brand", tmplate->brand() );
-			XmlUtil::setStringAttr( node, "part", tmplate->part() );
+			XmlUtil::setStringAttr( node, "brand", tmplate.brand() );
+			XmlUtil::setStringAttr( node, "part", tmplate.part() );
 
-			XmlUtil::setStringAttr( node, "size", tmplate->paperId() );
-			if ( tmplate->isSizeOther() )
+			XmlUtil::setStringAttr( node, "size", tmplate.paperId() );
+			if ( tmplate.isSizeOther() )
 			{
-				XmlUtil::setLengthAttr( node, "width", tmplate->pageWidth() );
-				XmlUtil::setLengthAttr( node, "height", tmplate->pageHeight() );
+				XmlUtil::setLengthAttr( node, "width", tmplate.pageWidth() );
+				XmlUtil::setLengthAttr( node, "height", tmplate.pageHeight() );
 			}
-			if ( tmplate->isRoll() )
+			if ( tmplate.isRoll() )
 			{
-				XmlUtil::setLengthAttr( node, "roll_width", tmplate->rollWidth() );
+				XmlUtil::setLengthAttr( node, "roll_width", tmplate.rollWidth() );
 			}
 
-			XmlUtil::setStringAttr( node, "description", tmplate->description() );
+			XmlUtil::setStringAttr( node, "description", tmplate.description() );
 
-			if ( !tmplate->productUrl().isEmpty() )
+			if ( !tmplate.productUrl().isEmpty() )
 			{
-				createMetaNode( node, "product_url", tmplate->productUrl() );
+				createMetaNode( node, "product_url", tmplate.productUrl() );
 			}
 #if TODO
-			foreach ( QString categoryId, tmplate->categoryIds() )
+			foreach ( QString categoryId, tmplate.categoryIds() )
 			{
 				createMetaNode( node, "category", categoryId );
 			}
 #endif
 
-			foreach ( Frame* frame, tmplate->frames() )
+			foreach ( Frame* frame, tmplate.frames() )
 			{
 				createLabelNode( node, frame );
 			}

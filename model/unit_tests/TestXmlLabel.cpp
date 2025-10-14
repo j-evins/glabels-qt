@@ -276,7 +276,7 @@ void TestXmlLabel::writeReadFile()
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 110, 410 );
 	FrameRect* frame = new FrameRect( 120, 220, 5, 0, 0, "rect1" );
 	tmplate.addFrame( frame );
-	model->setTmplate( &tmplate ); // Copies
+	model->setTmplate( tmplate ); // Copies
 
 	///
 	/// Add variables
@@ -344,12 +344,12 @@ void TestXmlLabel::writeReadFile()
 	QCOMPARE( readModel->dir(), model->dir() );
 	QCOMPARE( readModel->fileName(), model->fileName() );
 
-	QCOMPARE( readModel->tmplate()->brand(), model->tmplate()->brand() );
-	QCOMPARE( readModel->tmplate()->part(), model->tmplate()->part() );
-	QCOMPARE( readModel->tmplate()->description(), model->tmplate()->description() );
-	QCOMPARE( readModel->tmplate()->paperId(), model->tmplate()->paperId() );
-	QCOMPARE( readModel->tmplate()->pageWidth().pt(), model->tmplate()->pageWidth().pt() );
-	QCOMPARE( readModel->tmplate()->pageHeight().pt(), model->tmplate()->pageHeight().pt() );
+	QCOMPARE( readModel->tmplate().brand(), model->tmplate().brand() );
+	QCOMPARE( readModel->tmplate().part(), model->tmplate().part() );
+	QCOMPARE( readModel->tmplate().description(), model->tmplate().description() );
+	QCOMPARE( readModel->tmplate().paperId(), model->tmplate().paperId() );
+	QCOMPARE( readModel->tmplate().pageWidth().pt(), model->tmplate().pageWidth().pt() );
+	QCOMPARE( readModel->tmplate().pageHeight().pt(), model->tmplate().pageHeight().pt() );
 
 	QCOMPARE( readModel->frame()->id(), model->frame()->id() );
 	QCOMPARE( readModel->frame()->w().pt(), model->frame()->w().pt() );
@@ -494,12 +494,12 @@ void TestXmlLabel::parser_3ReadFile()
 		
 	QCOMPARE( model->fileName(), glabelsFileInfo.filePath() );
 
-	QCOMPARE( model->tmplate()->brand(), QString( "Avery" ) );
-	QCOMPARE( model->tmplate()->part(), QString( "5395" ) );
-	QCOMPARE( model->tmplate()->description(), QString( "Name Badge Labels" ) );
-	QCOMPARE( model->tmplate()->paperId(), QString( "US-Letter" ) );
-	QCOMPARE( model->tmplate()->pageWidth().in(), 8.5 );
-	QCOMPARE( model->tmplate()->pageHeight().in(), 11.0 );
+	QCOMPARE( model->tmplate().brand(), QString( "Avery" ) );
+	QCOMPARE( model->tmplate().part(), QString( "5395" ) );
+	QCOMPARE( model->tmplate().description(), QString( "Name Badge Labels" ) );
+	QCOMPARE( model->tmplate().paperId(), QString( "US-Letter" ) );
+	QCOMPARE( model->tmplate().pageWidth().in(), 8.5 );
+	QCOMPARE( model->tmplate().pageHeight().in(), 11.0 );
 
 	QCOMPARE( model->frame()->id(), QString( "0" ) );
 	const FrameRect* frameRect = dynamic_cast<const FrameRect*>( model->frame() );

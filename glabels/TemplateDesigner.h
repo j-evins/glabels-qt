@@ -86,9 +86,9 @@ namespace glabels
 		double itemHeight();
 		double itemXWaste();
 		double itemYWaste();
-		model::Template* buildTemplate();
+		model::Template buildTemplate();
 		void printTestSheet();
-		void loadFromTemplate( const model::Template* tmplate );
+		void loadFromTemplate( const model::Template& tmplate );
 		bool isBasedOnCopy();
 
 

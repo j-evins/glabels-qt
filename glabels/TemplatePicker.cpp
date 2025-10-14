@@ -112,11 +112,11 @@ namespace glabels
 	///
 	/// Set List of Templates to Pick From
 	///
-	void TemplatePicker::setTemplates( const QList<model::Template*>& tmplates )
+	void TemplatePicker::setTemplates( const QList<model::Template>& tmplates )
 	{
 		auto mode = model::Settings::templatePickerMode();
 		
-		foreach (model::Template *tmplate, tmplates)
+		foreach (auto& tmplate, tmplates)
 		{
 			new TemplatePickerItem( tmplate, mode, this );
 		}
@@ -186,12 +186,12 @@ namespace glabels
 		{
 			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
-				bool nameMask = tItem->tmplate()->name().contains( searchString, Qt::CaseInsensitive );
+				bool nameMask = tItem->tmplate().name().contains( searchString, Qt::CaseInsensitive );
 		
 				bool sizeMask =
-					(isoMask   && tItem->tmplate()->isSizeIso())   ||
-					(usMask    && tItem->tmplate()->isSizeUs())    ||
-					(otherMask && tItem->tmplate()->isSizeOther());
+					(isoMask   && tItem->tmplate().isSizeIso())   ||
+					(usMask    && tItem->tmplate().isSizeUs())    ||
+					(otherMask && tItem->tmplate().isSizeOther());
 
 				bool categoryMask;
 				if ( anyCategory )
@@ -203,7 +203,7 @@ namespace glabels
 					categoryMask = false;
 					foreach ( QString id, categoryIds )
 					{
-						categoryMask = categoryMask || tItem->tmplate()->hasCategory( id );
+						categoryMask = categoryMask || tItem->tmplate().hasCategory( id );
 					}
 				}
 		
@@ -239,7 +239,7 @@ namespace glabels
 				bool match = false;
 				foreach ( QString name, names )
 				{
-					if ( tItem->tmplate()->name() == name )
+					if ( tItem->tmplate().name() == name )
 					{
 						match = true;
 						break;
@@ -268,14 +268,14 @@ namespace glabels
 	///
 	/// Get Currently Selected Template
 	///
-	const model::Template* TemplatePicker::selectedTemplate() const
+	model::Template TemplatePicker::selectedTemplate() const
 	{
 		if ( auto* tItem = selectedItem() )
 		{
 			return tItem->tmplate();
 		}
 		
-		return nullptr;
+		return model::Template();
 	}
 
 

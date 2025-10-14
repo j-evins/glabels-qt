@@ -48,9 +48,9 @@ namespace glabels
 		{
 			const QString    empty = "";
 	
-			bool partNameLessThan( const Template *a, const Template *b )
+			bool partNameLessThan( const Template& a, const Template& b )
 			{
-				return StrUtil::comparePartNames( a->name(), b->name() ) < 0;
+				return StrUtil::comparePartNames( a.name(), b.name() ) < 0;
 			}
 		}
 
@@ -74,7 +74,8 @@ namespace glabels
 		QMap<QString,Vendor>   Db::mVendorsNameMap;
 		QStringList            Db::mVendorNames;
 
-		QList<Template*> Db::mTemplates;
+		QList<Template>        Db::mTemplates;
+		QMap<QString,Template> Db::mTemplatesNameMap;
 
 	
 		Db::Db()
@@ -147,7 +148,7 @@ namespace glabels
 		}
 
 
-		const QList<Template*>& Db::templates()
+		const QList<Template>& Db::templates()
 		{
 			return mTemplates;
 		}
@@ -345,85 +346,72 @@ namespace glabels
 		}
 
 
-		void Db::registerTemplate( Template *tmplate )
+		void Db::registerTemplate( const Template& tmplate )
 		{
-			if ( !isTemplateKnown( tmplate->brand(), tmplate->part() ) )
+			if ( !isTemplateKnown( tmplate.brand(), tmplate.part() ) )
 			{
-				mTemplates << tmplate;
+				mTemplates.push_back( tmplate );
+				mTemplatesNameMap[ tmplate.name() ] = tmplate;
 			}
 			else
 			{
-				qWarning() << "Duplicate template name: " << tmplate->name();
+				qWarning() << "Duplicate template name: " << tmplate.name();
 			}
 		}
 
 
-		const Template *Db::lookupTemplateFromName( const QString& name )
+		const Template Db::lookupTemplateFromName( const QString& name )
 		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL template name.";
-				return mTemplates.first();
+				return Template();
 			}
 
-			foreach ( Template *tmplate, mTemplates )
+			auto it = mTemplatesNameMap.find( name );
+			if ( it != mTemplatesNameMap.end() )
 			{
-				if ( tmplate->name() == name )
-				{
-					return tmplate;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown template name: " << name;
-			return nullptr;
+			return Template();
 		}
 
 
-		const Template *Db::lookupTemplateFromBrandPart( const QString& brand, const QString& part )
+		const Template Db::lookupTemplateFromBrandPart( const QString& brand, const QString& part )
 		{
-			if ( brand.isNull() || brand.isEmpty() || part.isNull() || part.isEmpty() )
+			if ( brand.isEmpty() || part.isEmpty() )
 			{
 				qWarning() << "NULL template brand and/or part.";
-				return mTemplates.first();
+				return Template();
 			}
 
-			foreach ( Template *tmplate, mTemplates )
+			auto it = mTemplatesNameMap.find( Template::brandPartToName( brand, part ) );
+			if ( it != mTemplatesNameMap.end() )
 			{
-				if ( (tmplate->brand() == brand) && (tmplate->part() == part) )
-				{
-					return tmplate;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown template brand, part: " << brand << ", " << part;
-			return nullptr;
+			return Template();
 		}
 
 
 		bool Db::isTemplateKnown( const QString& brand, const QString& part )
 		{
-			foreach ( Template *tmplate, mTemplates )
-			{
-				if ( (tmplate->brand() == brand) && (tmplate->part() == part) )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mTemplatesNameMap.contains( Template::brandPartToName( brand, part ) );
 		}
 
 
 		bool Db::isSystemTemplateKnown( const QString& brand, const QString& part )
 		{
-			foreach ( Template *tmplate, mTemplates )
+			auto tmplate = Db::lookupTemplateFromBrandPart( brand, part );
+			if ( (tmplate.brand() == brand) &&
+			     (tmplate.part() == part)   &&
+			     !tmplate.isUserDefined() )
 			{
-				if ( (tmplate->brand() == brand) &&
-				     (tmplate->part() == part)   &&
-				     !tmplate->isUserDefined() )
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return false;
@@ -434,20 +422,20 @@ namespace glabels
 		{
 			QStringList list;
 
-			const Template *tmplate1 = lookupTemplateFromName( name );
-			if ( tmplate1 == nullptr )
+			auto tmplate1 = lookupTemplateFromName( name );
+			if ( tmplate1.isNull() )
 			{
 				qWarning() << "Unknown template name: " << name;
 				return list;
 			}
 
-			foreach (const Template *tmplate2, mTemplates )
+			for ( auto& tmplate2 : mTemplates )
 			{
-				if ( tmplate1->name() != tmplate2->name() )
+				if ( tmplate1.name() != tmplate2.name() )
 				{
-					if ( tmplate1->isSimilarTo( tmplate2 ) )
+					if ( tmplate1.isSimilarTo( tmplate2 ) )
 					{
-						list << tmplate2->name();
+						list << tmplate2.name();
 					}
 				}
 			}
@@ -463,16 +451,16 @@ namespace glabels
 		}
 
 
-		void Db::registerUserTemplate( Template *tmplate )
+		void Db::registerUserTemplate( const Template& tmplate )
 		{
-			QString filename = userTemplateFilename( tmplate->brand(), tmplate->part() );
+			QString filename = userTemplateFilename( tmplate.brand(), tmplate.part() );
 
 			// Write file
 			if ( XmlTemplateCreator().writeTemplate( tmplate, filename ) )
 			{
 				// Add template to list of registered templates
 				registerTemplate( tmplate );
-				Settings::addToRecentTemplateList( tmplate->name() );
+				Settings::addToRecentTemplateList( tmplate.name() );
 			}
 			else
 			{
@@ -483,21 +471,11 @@ namespace glabels
 
 		void Db::deleteUserTemplateByBrandPart( const QString& brand, const QString& part )
 		{
-			Template* tmplate;
-			foreach ( Template *candidate, mTemplates )
-			{
-				if ( candidate->isUserDefined() &&
-				     (candidate->brand() == brand) && (candidate->part() == part) )
-				{
-					tmplate = candidate;
-					break;
-				}
-			}
-
-			if ( tmplate )
+			auto tmplate = lookupTemplateFromBrandPart( brand, part );
+			if ( !tmplate.isNull() )
 			{
 				mTemplates.removeOne( tmplate );
-				delete tmplate;
+				mTemplatesNameMap.remove( Template::brandPartToName( brand, part ) );
 
 				QString filename = userTemplateFilename( brand, part );
 				QFile( filename ).remove();
@@ -557,12 +535,12 @@ namespace glabels
 		{
 			qDebug() << "KNOWN TEMPLATES:";
 
-			foreach ( Template *tmplate, mTemplates )
+			for ( auto& tmplate : mTemplates )
 			{
 				qDebug() << "template "
-				         << "brand="       << tmplate->brand()       << ", "
-				         << "part="        << tmplate->part()        << ", "
-				         << "description=" << tmplate->description();
+				         << "brand="       << tmplate.brand()       << ", "
+				         << "part="        << tmplate.part()        << ", "
+				         << "description=" << tmplate.description();
 			}
 
 			qDebug();

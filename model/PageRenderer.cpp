@@ -167,7 +167,7 @@ namespace glabels
 		{
 			if ( mModel )
 			{
-				return QRectF( 0, 0, mModel->tmplate()->pageWidth().pt(), mModel->tmplate()->pageHeight().pt() );
+				return QRectF( 0, 0, mModel->tmplate().pageWidth().pt(), mModel->tmplate().pageHeight().pt() );
 			}
 			else
 			{
@@ -231,7 +231,7 @@ namespace glabels
 		///
 		void PageRenderer::print( QPrinter* printer ) const
 		{
-			QSizeF pageSize( mModel->tmplate()->pageWidth().pt(), mModel->tmplate()->pageHeight().pt() );
+			QSizeF pageSize( mModel->tmplate().pageWidth().pt(), mModel->tmplate().pageHeight().pt() );
 			printer->setPageSize( QPageSize(pageSize, QPageSize::Point) );
 			printer->setFullPage( true );
 			printer->setPageMargins( QMarginsF(0, 0, 0, 0), QPageLayout::Point );
@@ -516,8 +516,8 @@ namespace glabels
 						Distance y1 = max( yMin-tickOffset, Distance::pt(0) );
 						Distance y2 = max( y1-tickLength, Distance::pt(0) );
 
-						Distance y3 = min( yMax+tickOffset, mModel->tmplate()->pageHeight() );
-						Distance y4 = min( y3+tickLength, mModel->tmplate()->pageHeight() );
+						Distance y3 = min( yMax+tickOffset, mModel->tmplate().pageHeight() );
+						Distance y4 = min( y3+tickLength, mModel->tmplate().pageHeight() );
 
 						painter->drawLine( x1.pt(), y1.pt(), x1.pt(), y2.pt() );
 						painter->drawLine( x2.pt(), y1.pt(), x2.pt(), y2.pt() );
@@ -533,8 +533,8 @@ namespace glabels
 						Distance x1 = max( xMin-tickOffset, Distance::pt(0) );
 						Distance x2 = max( x1-tickLength, Distance::pt(0) );
 
-						Distance x3 = min( xMax+tickOffset, mModel->tmplate()->pageWidth() );
-						Distance x4 = min( x3+tickLength, mModel->tmplate()->pageWidth() );
+						Distance x3 = min( xMax+tickOffset, mModel->tmplate().pageWidth() );
+						Distance x4 = min( x3+tickLength, mModel->tmplate().pageWidth() );
 
 						painter->drawLine( x1.pt(), y1.pt(), x2.pt(), y1.pt() );
 						painter->drawLine( x1.pt(), y2.pt(), x2.pt(), y2.pt() );

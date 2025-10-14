@@ -165,9 +165,9 @@ namespace glabels
 		///
 		/// Get template
 		///
-		const Template* Model::tmplate() const
+		const Template& Model::tmplate() const
 		{
-			return &mTmplate;
+			return mTmplate;
 		}
 
 
@@ -183,16 +183,16 @@ namespace glabels
 		///
 		/// Set template
 		///
-		void Model::setTmplate( const Template* tmplate )
+		void Model::setTmplate( const Template& tmplate )
 		{
-			mTmplate = *tmplate;
+			mTmplate = tmplate;
 
 			setModified();
 		
 			emit changed();
 			emit sizeChanged();
 
-			Settings::addToRecentTemplateList( tmplate->name() );
+			Settings::addToRecentTemplateList( tmplate.name() );
 		}
 
 

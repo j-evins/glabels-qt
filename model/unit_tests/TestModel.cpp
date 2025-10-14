@@ -73,13 +73,13 @@ void TestModel::model()
 	FrameRect* frame = new FrameRect( 100, 200, 5, 0, 0, "rect1" );
 	QVERIFY( frame->w() != frame->h() );
 	tmplate.addFrame( frame );
-	model.setTmplate( &tmplate ); // Copies
-	QCOMPARE( model.tmplate()->brand(), QString( "Test Brand" ) );
-	QCOMPARE( model.tmplate()->part(), QString( "part" ) );
-	QCOMPARE( model.tmplate()->description(), QString( "desc" ) );
-	QCOMPARE( model.tmplate()->paperId(), QString( "testPaperId" ) );
-	QCOMPARE( model.tmplate()->pageWidth(), Distance( 100 ) );
-	QCOMPARE( model.tmplate()->pageHeight(), Distance( 400 ) );
+	model.setTmplate( tmplate ); // Copies
+	QCOMPARE( model.tmplate().brand(), QString( "Test Brand" ) );
+	QCOMPARE( model.tmplate().part(), QString( "part" ) );
+	QCOMPARE( model.tmplate().description(), QString( "desc" ) );
+	QCOMPARE( model.tmplate().paperId(), QString( "testPaperId" ) );
+	QCOMPARE( model.tmplate().pageWidth(), Distance( 100 ) );
+	QCOMPARE( model.tmplate().pageHeight(), Distance( 400 ) );
 	QVERIFY( model.isModified() );
 
 	QVERIFY( model.frame()->id() == frame->id() );
@@ -117,7 +117,7 @@ void TestModel::model()
 	FrameContinuous* frame2 = new FrameContinuous( 100, 0, 500, 200, "continuous1" );
 	QCOMPARE( frame2->h(), Distance( 200 ) );
 	tmplate2.addFrame( frame2 );
-	model.setTmplate( &tmplate2 );
+	model.setTmplate( tmplate2 );
 	QVERIFY( model.frame()->id() == frame2->id() );
 	QCOMPARE( model.w(), Distance( 100 ) );
 	QCOMPARE( model.h(), Distance( 200 ) );
@@ -302,8 +302,8 @@ void TestModel::saveRestore()
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 110, 410 );
 	FrameRect* frame = new FrameRect( 120, 220, 5, 0, 0, "rect1" );
 	tmplate.addFrame( frame );
-	model->setTmplate( &tmplate ); // Copies
-	QCOMPARE( model->tmplate()->brand(), QString( "Test Brand" ) );
+	model->setTmplate( tmplate ); // Copies
+	QCOMPARE( model->tmplate().brand(), QString( "Test Brand" ) );
 	QVERIFY( model->isModified() );
 
 	model->clearModified();
@@ -392,8 +392,8 @@ void TestModel::saveRestore()
 	Template tmplate2( "Test Brand2", "part2", "desc2", "testPaperId2", 230, 630 );
 	FrameRect* frame2 = new FrameRect( 240, 340, 5, 0, 0, "rect2" );
 	tmplate2.addFrame( frame2 );
-	model->setTmplate( &tmplate2 );
-	QCOMPARE( model->tmplate()->brand(), QString( "Test Brand2" ) );
+	model->setTmplate( tmplate2 );
+	QCOMPARE( model->tmplate().brand(), QString( "Test Brand2" ) );
 	QCOMPARE( model->w(), Distance( 240 ) );
 	QCOMPARE( model->h(), Distance( 340 ) );
 
@@ -431,7 +431,7 @@ void TestModel::saveRestore()
 	QVERIFY( model->shortName() != modelShortName );
 	QVERIFY( model->shortName() != saved->shortName() );
 	QVERIFY( model->fileName() != saved->fileName() );
-	QVERIFY( model->tmplate()->brand() != saved->tmplate()->brand() );
+	QVERIFY( model->tmplate().brand() != saved->tmplate().brand() );
 	QVERIFY( model->rotate() != saved->rotate() );
 	QVERIFY( model->w() != saved->w() );
 	QVERIFY( model->h() != saved->h() );
@@ -446,7 +446,7 @@ void TestModel::saveRestore()
 	QCOMPARE( model->shortName(), modelShortName );
 	QCOMPARE( model->shortName(), saved->shortName() );
 	QCOMPARE( model->fileName(), saved->fileName() );
-	QCOMPARE( model->tmplate()->brand(), saved->tmplate()->brand() );
+	QCOMPARE( model->tmplate().brand(), saved->tmplate().brand() );
 	QCOMPARE( model->rotate(), saved->rotate() );
 	QCOMPARE( model->w(), saved->w() );
 	QCOMPARE( model->h(), saved->h() );
@@ -462,7 +462,7 @@ void TestModel::saveRestore()
 	QVERIFY( model->shortName() != modelShortName );
 	QVERIFY( model->shortName() != saved->shortName() );
 	QVERIFY( model->fileName() != saved->fileName() );
-	QVERIFY( model->tmplate()->brand() != saved->tmplate()->brand() );
+	QVERIFY( model->tmplate().brand() != saved->tmplate().brand() );
 	QVERIFY( model->rotate() != saved->rotate() );
 	QVERIFY( model->w() != saved->w() );
 	QVERIFY( model->h() != saved->h() );
@@ -474,7 +474,7 @@ void TestModel::saveRestore()
 
 	QCOMPARE( model->shortName(), modified->shortName() );
 	QCOMPARE( model->fileName(), modified->fileName() );
-	QCOMPARE( model->tmplate()->brand(), modified->tmplate()->brand() );
+	QCOMPARE( model->tmplate().brand(), modified->tmplate().brand() );
 	QCOMPARE( model->rotate(), modified->rotate() );
 	QCOMPARE( model->w(), modified->w() );
 	QCOMPARE( model->h(), modified->h() );

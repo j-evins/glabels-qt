@@ -367,7 +367,7 @@ namespace glabels
 	///
 	/// Build template from wizard pages
 	///
-	model::Template* TemplateDesigner::buildTemplate()
+	model::Template TemplateDesigner::buildTemplate()
 	{
 		model::Units units = model::Settings::units();
 
@@ -379,7 +379,7 @@ namespace glabels
 		model::Distance pageH( field( "pageSize.h" ).toDouble(), units );
 		model::Distance pageRollW( field( "pageSize.rollW" ).toDouble(), units );
 		
-		auto t = new model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, true );
+		auto t = model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, true );
 
 		model::Frame* frame;
 		if ( field( "shape.rect" ).toBool() )
@@ -426,7 +426,7 @@ namespace glabels
 			frame = new model::FrameCd( r1, r2, xClip, yClip, waste );
 			frame->addMarkup( new model::MarkupMargin( margin ) );
 		}
-		t->addFrame( frame );
+		t.addFrame( frame );
 
 		if ( field( "nLayouts.one" ).toBool() )
 		{
@@ -498,22 +498,22 @@ namespace glabels
 	///
 	/// Load wizard from template
 	///
-	void TemplateDesigner::loadFromTemplate( const model::Template* tmplate )
+	void TemplateDesigner::loadFromTemplate( const model::Template& tmplate )
 	{
 		mIsBasedOnCopy = true;
 
 		model::Units units = model::Settings::units();
 
-		setField( "name.brand",       tmplate->brand() );
-		setField( "name.part",        tmplate->part() + QString(" (%1)").arg( tr("Copy") ) );
-		setField( "name.description", tmplate->description() );
+		setField( "name.brand",       tmplate.brand() );
+		setField( "name.part",        tmplate.part() + QString(" (%1)").arg( tr("Copy") ) );
+		setField( "name.description", tmplate.description() );
 
-		setField( "pageSize.pageSize", model::Db::lookupPaperNameFromId( tmplate->paperId() ) );
-		setField( "pageSize.w",        tmplate->pageWidth().inUnits( units ) );
-		setField( "pageSize.h",        tmplate->pageHeight().inUnits( units ) );
-		setField( "pageSize.rollW",    tmplate->rollWidth().inUnits( units ) );
+		setField( "pageSize.pageSize", model::Db::lookupPaperNameFromId( tmplate.paperId() ) );
+		setField( "pageSize.w",        tmplate.pageWidth().inUnits( units ) );
+		setField( "pageSize.h",        tmplate.pageHeight().inUnits( units ) );
+		setField( "pageSize.rollW",    tmplate.rollWidth().inUnits( units ) );
 
-		const model::Frame* frame = tmplate->frames().first();
+		const model::Frame* frame = tmplate.frames().first();
 		if ( auto frameRect = dynamic_cast<const model::FrameRect*>( frame ) )
 		{
 			setField( "shape.rect", true );
@@ -633,16 +633,16 @@ namespace glabels
 		SelectProductDialog dialog;
 		dialog.exec();
 
-		const model::Template* tmplate = dialog.tmplate();
-		if ( tmplate )
+		auto tmplate = dialog.tmplate();
+		if ( !tmplate.isNull() )
 		{
 			if ( auto td = dynamic_cast<TemplateDesigner*>( wizard() ) )
 			{
-				if ( dynamic_cast<model::FramePath*>(tmplate->frames().constFirst()) )
+				if ( dynamic_cast<model::FramePath*>(tmplate.frames().constFirst()) )
 				{
 					td->mIsTemplatePathBased = true;
 				}
-				else if ( dynamic_cast<model::FrameContinuous*>(tmplate->frames().constFirst()) )
+				else if ( dynamic_cast<model::FrameContinuous*>(tmplate.frames().constFirst()) )
 				{
 					td->mIsTemplateContinuousBased = true;
 				}

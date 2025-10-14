@@ -51,7 +51,7 @@ namespace glabels
 		// Properties
 		/////////////////////////////////
 	public:
-		void setTemplates( const QList<model::Template*>& tmplates );
+		void setTemplates( const QList<model::Template>& tmplates );
 
 		void setMode( QListView::ViewMode mode );
 		QListView::ViewMode mode() const;
@@ -66,8 +66,8 @@ namespace glabels
 
 		void applyFilter( const QStringList& names );
 
-		const model::Template* selectedTemplate() const;
-		TemplatePickerItem*    selectedItem() const;
+		 model::Template selectedTemplate() const;
+		TemplatePickerItem* selectedItem() const;
 		
 
 	};

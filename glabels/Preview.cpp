@@ -97,18 +97,18 @@ namespace glabels
 			auto tmplate = mModel->tmplate();
 
 			// For "Roll" templates, allow extra room to draw continuation break lines.
-			model::Distance drawHeight = mModel->tmplate()->pageHeight();
+			model::Distance drawHeight = mModel->tmplate().pageHeight();
 			model::Distance drawOffset = 0;
-			if ( tmplate->isRoll() )
+			if ( tmplate.isRoll() )
 			{
-				drawHeight = 1.2 * tmplate->pageHeight();
-				drawOffset = 0.1 * tmplate->pageHeight();
+				drawHeight = 1.2 * tmplate.pageHeight();
+				drawOffset = 0.1 * tmplate.pageHeight();
 			}
 			
 			// Set scene up with a 5% margin around paper
-			model::Distance x = -0.05 * tmplate->pageWidth();
+			model::Distance x = -0.05 * tmplate.pageWidth();
 			model::Distance y = -0.05 * drawHeight - drawOffset;
-			model::Distance w = 1.10 * tmplate->pageWidth();
+			model::Distance w = 1.10 * tmplate.pageWidth();
 			model::Distance h = 1.10 * drawHeight;
 
 			mScene->setSceneRect( x.pt(), y.pt(), w.pt(), h.pt() );
@@ -125,7 +125,7 @@ namespace glabels
 	{
 		QBrush brush( labelNumberColor );
 
-		model::Frame *frame = mModel->tmplate()->frames().first();
+		model::Frame *frame = mModel->tmplate().frames().first();
 
 		model::Distance w = frame->w();
 		model::Distance h = frame->h();
@@ -145,7 +145,7 @@ namespace glabels
 
 	void Preview::drawLabelNumberOverlay()
 	{
-		model::Frame *frame = mModel->tmplate()->frames().first();
+		model::Frame *frame = mModel->tmplate().frames().first();
 		auto i = 0;
 
 		foreach (model::Point origin, frame->getOrigins() )
@@ -181,9 +181,9 @@ namespace glabels
 
 		QAbstractGraphicsShapeItem* pageItem;
 		auto tmplate = mModel->tmplate();
-		if ( !tmplate->isRoll() )
+		if ( !tmplate.isRoll() )
 		{
-			pageItem = new QGraphicsRectItem( 0, 0, tmplate->pageWidth().pt(), tmplate->pageHeight().pt() );
+			pageItem = new QGraphicsRectItem( 0, 0, tmplate.pageWidth().pt(), tmplate.pageHeight().pt() );
 		}
 		else
 		{
@@ -202,7 +202,7 @@ namespace glabels
 	///
 	void Preview::drawLabels()
 	{
-		model::Frame *frame = mModel->tmplate()->frames().first();
+		model::Frame *frame = mModel->tmplate().frames().first();
 
 		foreach (model::Point origin, frame->getOrigins() )
 		{

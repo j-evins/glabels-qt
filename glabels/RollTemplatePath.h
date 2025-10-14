@@ -39,7 +39,7 @@ namespace glabels
 		// Life Cycle
 		/////////////////////////////////
 	public:
-		RollTemplatePath( const model::Template* tmplate );
+		RollTemplatePath( const model::Template& tmplate );
 
 	};
 

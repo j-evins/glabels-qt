@@ -44,9 +44,9 @@ namespace glabels
 		// Life Cycle
 		/////////////////////////////////
 	public:
-		TemplatePickerItem( model::Template*    tmplate,
-		                    QListView::ViewMode mode,
-		                    QListWidget*        parent = nullptr );
+		TemplatePickerItem( const model::Template& tmplate,
+		                    QListView::ViewMode    mode,
+		                    QListWidget*           parent = nullptr );
 
 
 		/////////////////////////////////
@@ -60,14 +60,14 @@ namespace glabels
 		// Properties
 		/////////////////////////////////
 	public:
-		const model::Template *tmplate() const;
+		model::Template tmplate() const;
 
 
 		/////////////////////////////////
 		// Private Data
 		/////////////////////////////////
 	private:
-		model::Template *mTmplate;
+		model::Template mTmplate;
 
 	};
 

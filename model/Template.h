@@ -60,14 +60,15 @@ namespace glabels
 
 			Template& operator=( const Template& other );
 
-			// Generic full page template
-			static Template* fullPage( const QString& paperId );
-
 			// From equivalent part number
-			static Template* fromEquiv( const QString& brand,
-			                            const QString& part,
-			                            const QString& equivPart );
+			static Template fromEquiv( const QString& brand,
+			                           const QString& part,
+			                           const QString& equivPart );
 
+			static QString brandPartToName( const QString& brand,
+			                                const QString& part );
+
+			bool isNull() const;
 
 			QString brand() const;
 			QString part() const;
@@ -101,27 +102,27 @@ namespace glabels
 			bool operator==( const Template& other ) const;
 
 			bool hasCategory( const QString& categoryId ) const;
-			bool isSimilarTo( const Template* other ) const;
+			bool isSimilarTo( const Template& other ) const;
 
 
 		private:
-			QString mBrand;
-			QString mPart;
-			QString mDescription;
+			QString        mBrand;
+			QString        mPart;
+			QString        mDescription;
 
-			QString  mPaperId;
-			Distance mPageWidth;
-			Distance mPageHeight;
-			Distance mRollWidth;
+			QString        mPaperId;
+			Distance       mPageWidth;
+			Distance       mPageHeight;
+			Distance       mRollWidth;
 
-			bool     mIsSizeIso{ false };
-			bool     mIsSizeUs{ false };
-			bool     mIsRoll{ false };
+			bool           mIsSizeIso{ false };
+			bool           mIsSizeUs{ false };
+			bool           mIsRoll{ false };
 
-			bool     mIsUserDefined{ false };
+			bool           mIsUserDefined{ false };
 
-			QString mEquivPart;
-			QString mName;
+			QString        mEquivPart;
+			QString        mName;
 
 			QString        mProductUrl;
 			QStringList    mCategoryIds;
