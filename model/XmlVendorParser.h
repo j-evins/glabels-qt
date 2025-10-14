@@ -22,7 +22,10 @@
 #define model_XmlVendorParser_h
 
 
+#include "Vendor.h"
+
 #include <QDomElement>
+#include <QList>
 #include <QString>
 
 
@@ -36,11 +39,11 @@ namespace glabels
 		public:
 			XmlVendorParser() = default;
 
-			bool readFile( const QString &fileName );
+			QList<Vendor> readFile( const QString &fileName );
 
 		private:
-			void parseRootNode( const QDomElement &node );
-			void parseVendorNode( const QDomElement &node );
+			QList<Vendor> parseRootNode( const QDomElement &node );
+			Vendor parseVendorNode( const QDomElement &node );
 		};
 
 	}

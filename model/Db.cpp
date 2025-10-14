@@ -154,23 +154,6 @@ namespace glabels
 		}
 
 
-		void Db::registerPaper( const Paper& paper )
-		{
-			if ( !isPaperIdKnown( paper.id() ) )
-			{
-				mPapers.push_back( paper );
-				mPapersNameMap[ paper.name() ] = paper;
-				mPapersIdMap[ paper.id() ] = paper;
-				mPaperIds.push_back( paper.id() );
-				mPaperNames.push_back( paper.name() );
-			}
-			else
-			{
-				qWarning() << "Duplicate paper ID: " << paper.id();
-			}
-		}
-
-
 		const Paper Db::lookupPaperFromName( const QString& name )
 		{
 			if ( name.isEmpty() )
@@ -227,23 +210,6 @@ namespace glabels
 		}
 
 
-		void Db::registerCategory( const Category& category )
-		{
-			if ( !isCategoryIdKnown( category.id() ) )
-			{
-				mCategories.push_back( category );
-				mCategoriesNameMap[ category.name() ] = category;
-				mCategoriesIdMap[ category.id() ] = category;
-				mCategoryIds.push_back( category.id() );
-				mCategoryNames.push_back( category.name() );
-			}
-			else
-			{
-				qWarning() << "Duplicate category ID: " << category.id();
-			}
-		}
-
-
 		const Category Db::lookupCategoryFromName( const QString& name )
 		{
 			if ( name.isEmpty() )
@@ -297,21 +263,6 @@ namespace glabels
 		bool Db::isCategoryIdKnown( const QString& id )
 		{
 			return mCategoriesIdMap.contains( id );
-		}
-
-
-		void Db::registerVendor( const Vendor& vendor )
-		{
-			if ( !isVendorNameKnown( vendor.name() ) )
-			{
-				mVendors.push_back( vendor );
-				mVendorsNameMap[ vendor.name() ] = vendor;
-				mVendorNames.push_back( vendor.name() );
-			}
-			else
-			{
-				qWarning() << "Duplicate vendor name: " << vendor.name();
-			}
 		}
 
 
@@ -557,12 +508,33 @@ namespace glabels
 		{
 			XmlPaperParser parser;
 
-			foreach ( QString fileName, dir.entryList( QDir::Files ) )
+			for ( auto fileName : dir.entryList( QDir::Files ) )
 			{
 				if ( fileName == "paper-sizes.xml" )
 				{
-					parser.readFile( dir.absoluteFilePath( fileName ) );
+					auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+					for ( auto& paper : list )
+					{
+						registerPaper( paper );
+					}
 				}
+			}
+		}
+
+
+		void Db::registerPaper( const Paper& paper )
+		{
+			if ( !isPaperIdKnown( paper.id() ) )
+			{
+				mPapers.push_back( paper );
+				mPapersNameMap[ paper.name() ] = paper;
+				mPapersIdMap[ paper.id() ] = paper;
+				mPaperIds.push_back( paper.id() );
+				mPaperNames.push_back( paper.name() );
+			}
+			else
+			{
+				qWarning() << "Duplicate paper ID: " << paper.id();
 			}
 		}
 
@@ -577,12 +549,33 @@ namespace glabels
 		{
 			XmlCategoryParser parser;
 
-			foreach ( QString fileName, dir.entryList( QDir::Files ) )
+			for ( auto fileName : dir.entryList( QDir::Files ) )
 			{
 				if ( fileName == "categories.xml" )
 				{
-					parser.readFile( dir.absoluteFilePath( fileName ) );
+					auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+					for ( auto& category : list )
+					{
+						registerCategory( category );
+					}
 				}
+			}
+		}
+
+
+		void Db::registerCategory( const Category& category )
+		{
+			if ( !isCategoryIdKnown( category.id() ) )
+			{
+				mCategories.push_back( category );
+				mCategoriesNameMap[ category.name() ] = category;
+				mCategoriesIdMap[ category.id() ] = category;
+				mCategoryIds.push_back( category.id() );
+				mCategoryNames.push_back( category.name() );
+			}
+			else
+			{
+				qWarning() << "Duplicate category ID: " << category.id();
 			}
 		}
 
@@ -597,12 +590,31 @@ namespace glabels
 		{
 			XmlVendorParser parser;
 
-			foreach ( QString fileName, dir.entryList( QDir::Files ) )
+			for ( auto fileName : dir.entryList( QDir::Files ) )
 			{
 				if ( fileName == "vendors.xml" )
 				{
-					parser.readFile( dir.absoluteFilePath( fileName ) );
+					auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+					for ( auto& vendor : list )
+					{
+						registerVendor( vendor );
+					}
 				}
+			}
+		}
+
+
+		void Db::registerVendor( const Vendor& vendor )
+		{
+			if ( !isVendorNameKnown( vendor.name() ) )
+			{
+				mVendors.push_back( vendor );
+				mVendorsNameMap[ vendor.name() ] = vendor;
+				mVendorNames.push_back( vendor.name() );
+			}
+			else
+			{
+				qWarning() << "Duplicate vendor name: " << vendor.name();
 			}
 		}
 

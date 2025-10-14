@@ -65,21 +65,18 @@ namespace glabels
 			static const QList<Template>& templates();
 
 
-			static void registerPaper( const Paper& paper );
 			static const Paper lookupPaperFromName( const QString& name );
 			static const Paper lookupPaperFromId( const QString& id );
 			static QString lookupPaperIdFromName( const QString& name );
 			static QString lookupPaperNameFromId( const QString& id );
 			static bool isPaperIdKnown( const QString& id );
 
-			static void registerCategory( const Category& category );
 			static const Category lookupCategoryFromName( const QString& name );
 			static const Category lookupCategoryFromId( const QString& id );
 			static QString lookupCategoryIdFromName( const QString& name );
 			static QString lookupCategoryNameFromId( const QString& id );
 			static bool isCategoryIdKnown( const QString& id );
 
-			static void registerVendor( const Vendor& vendor );
 			static const Vendor lookupVendorFromName( const QString& name );
 			static QString lookupVendorUrlFromName( const QString& name );
 			static bool isVendorNameKnown( const QString& id );
@@ -108,12 +105,15 @@ namespace glabels
 
 			static void readPapers();
 			static void readPapersFromDir( const QDir& dir );
+			static void registerPaper( const Paper& paper );
 
 			static void readCategories();
 			static void readCategoriesFromDir( const QDir& dir );
+			static void registerCategory( const Category& category );
 
 			static void readVendors();
 			static void readVendorsFromDir( const QDir& dir );
+			static void registerVendor( const Vendor& vendor );
 
 			static void readTemplates();
 			static void readTemplatesFromDir( const QDir& dir, bool isUserDefined );
