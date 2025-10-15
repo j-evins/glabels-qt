@@ -297,20 +297,6 @@ namespace glabels
 		}
 
 
-		void Db::registerTemplate( const Template& tmplate )
-		{
-			if ( !isTemplateKnown( tmplate.brand(), tmplate.part() ) )
-			{
-				mTemplates.push_back( tmplate );
-				mTemplatesNameMap[ tmplate.name() ] = tmplate;
-			}
-			else
-			{
-				qWarning() << "Duplicate template name: " << tmplate.name();
-			}
-		}
-
-
 		const Template Db::lookupTemplateFromName( const QString& name )
 		{
 			if ( name.isEmpty() )
@@ -638,7 +624,31 @@ namespace glabels
 
 			foreach ( QString fileName, dir.entryList( filters, QDir::Files ) )
 			{
-				parser.readFile( dir.absoluteFilePath( fileName ), isUserDefined );
+				auto list = parser.readFile( dir.absoluteFilePath( fileName ), isUserDefined );
+				for ( auto& tmplate : list )
+				{
+					registerTemplate( tmplate );
+				}
+
+				list = parser.readEquivsFromFile( dir.absoluteFilePath( fileName ), isUserDefined );
+				for ( auto& tmplate : list )
+				{
+					registerTemplate( tmplate );
+				}
+			}
+		}
+
+
+		void Db::registerTemplate( const Template& tmplate )
+		{
+			if ( !isTemplateKnown( tmplate.brand(), tmplate.part() ) )
+			{
+				mTemplates.push_back( tmplate );
+				mTemplatesNameMap[ tmplate.name() ] = tmplate;
+			}
+			else
+			{
+				qWarning() << "Duplicate template name: " << tmplate.name();
 			}
 		}
 

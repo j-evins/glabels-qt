@@ -81,7 +81,6 @@ namespace glabels
 			static QString lookupVendorUrlFromName( const QString& name );
 			static bool isVendorNameKnown( const QString& id );
 
-			static void registerTemplate( const Template& tmplate );
 			static const Template lookupTemplateFromName( const QString& name );
 			static const Template lookupTemplateFromBrandPart( const QString& brand,
 			                                                   const QString& part );
@@ -117,6 +116,7 @@ namespace glabels
 
 			static void readTemplates();
 			static void readTemplatesFromDir( const QDir& dir, bool isUserDefined );
+			static void registerTemplate( const Template& tmplate );
 
 
 		private:

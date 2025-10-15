@@ -25,6 +25,7 @@
 #include "Template.h"
 
 #include <QDomElement>
+#include <QList>
 #include <QString>
 
 
@@ -38,11 +39,14 @@ namespace glabels
 		public:
 			XmlTemplateParser() = default;
 
-			bool readFile( const QString &fileName, bool isUserDefined = false );
+			QList<Template> readFile( const QString &fileName, bool isUserDefined = false );
+			QList<Template> readEquivsFromFile( const QString &fileName, bool isUserDefined = false );
 			Template parseTemplateNode( const QDomElement &node, bool isUserDefined = false );
 
 		private:
-			void parseRootNode( const QDomElement &node, bool isUserDefined );
+			enum Pass { TEMPLATE_PASS, EQUIV_PASS };
+
+			QList<Template> parseRootNode( const QDomElement &node, bool isUserDefined, Pass pass );
 			void parseMetaNode( const QDomElement &node, Template& tmplate );
 			void parseLabelRectangleNode( const QDomElement &node, Template& tmplate );
 			void parseLabelEllipseNode( const QDomElement &node, Template& tmplate );

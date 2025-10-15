@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "XmlTemplateParser.h"
 
 #include "Db.h"
@@ -32,10 +33,10 @@
 #include "Template.h"
 #include "XmlUtil.h"
 
-#include <QFile>
+#include <QDebug>
 #include <QDomDocument>
 #include <QDomNode>
-#include <QtDebug>
+#include <QFile>
 
 
 namespace glabels
@@ -43,7 +44,7 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlTemplateParser::readFile( const QString &fileName, bool isUserDefined )
+		QList<Template> XmlTemplateParser::readFile( const QString &fileName, bool isUserDefined )
 		{
 			QFile file( fileName );
 
@@ -51,7 +52,7 @@ namespace glabels
 			{
 				qWarning() << "Error: Cannot read file " << fileName
 				           << ": " << file.errorString();
-				return false;
+				return QList<Template>(); // Empty list
 			}
 
 
@@ -65,35 +66,79 @@ namespace glabels
 				qWarning() << "Error: Parse error at line " << errorLine
 				           << "column " << errorColumn
 				           << ": " << errorString;
-				return false;
+				return QList<Template>(); // Empty list
 			}
 
 			QDomElement root = doc.documentElement();
 			if ( root.tagName() != "Glabels-templates" )
 			{
 				qWarning() << "Error: Not a Glabels-templates file";
-				return false;
+				return QList<Template>(); // Empty list
 			}
 
-			parseRootNode( root, isUserDefined );
-			return true;
+			return parseRootNode( root, isUserDefined, TEMPLATE_PASS );
 		}
 
 
-		void XmlTemplateParser::parseRootNode( const QDomElement &node, bool isUserDefined )
+		QList<Template> XmlTemplateParser::readEquivsFromFile( const QString &fileName, bool isUserDefined )
 		{
+			QFile file( fileName );
+
+			if ( !file.open( QFile::ReadOnly | QFile::Text) )
+			{
+				qWarning() << "Error: Cannot read file " << fileName
+				           << ": " << file.errorString();
+				return QList<Template>(); // Empty list
+			}
+
+
+			QDomDocument doc;
+			QString      errorString;
+			int          errorLine;
+			int          errorColumn;
+
+			if ( !doc.setContent( &file, false, &errorString, &errorLine, &errorColumn ) )
+			{
+				qWarning() << "Error: Parse error at line " << errorLine
+				           << "column " << errorColumn
+				           << ": " << errorString;
+				return QList<Template>(); // Empty list
+			}
+
+			QDomElement root = doc.documentElement();
+			if ( root.tagName() != "Glabels-templates" )
+			{
+				qWarning() << "Error: Not a Glabels-templates file";
+				return QList<Template>(); // Empty list
+			}
+
+			return parseRootNode( root, isUserDefined, EQUIV_PASS );
+		}
+
+
+		QList<Template> XmlTemplateParser::parseRootNode( const QDomElement &node,
+		                                                  bool               isUserDefined,
+		                                                  Pass               pass )
+		{
+			QList<Template> list;
+
 			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
 			{
 				if ( child.toElement().tagName() == "Template" )
 				{
-					auto tmplate = parseTemplateNode( child.toElement(), isUserDefined );
-					if ( !tmplate.isNull() )
+					bool isEquivNode = child.toElement().hasAttribute( "equiv" );
+					if ( ( (pass == TEMPLATE_PASS) && !isEquivNode ) ||
+					     ( (pass == EQUIV_PASS) && isEquivNode ) )
 					{
-						Db::registerTemplate( tmplate );
-					}
-					else
-					{
-						qWarning() << "Warning: could not create template, Ignored.";
+						auto tmplate = parseTemplateNode( child.toElement(), isUserDefined );
+						if ( !tmplate.isNull() )
+						{
+							list.push_back( tmplate );
+						}
+						else
+						{
+							qWarning() << "Warning: could not create template, Ignored.";
+						}
 					}
 				}
 				else if ( !child.isComment() )
@@ -103,6 +148,8 @@ namespace glabels
 					           << ", Ignored.";
 				}
 			}
+
+			return list;
 		}
 
 
