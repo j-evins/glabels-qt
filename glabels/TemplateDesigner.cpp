@@ -379,7 +379,7 @@ namespace glabels
 		model::Distance pageH( field( "pageSize.h" ).toDouble(), units );
 		model::Distance pageRollW( field( "pageSize.rollW" ).toDouble(), units );
 		
-		auto t = model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, true );
+		auto t = model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, "", true );
 
 		model::Frame* frame;
 		if ( field( "shape.rect" ).toBool() )
@@ -1553,7 +1553,7 @@ namespace glabels
 		//
 		QString brand = field( "name.brand" ).toString();
 		QString part = field( "name.part" ).toString();
-		QString filename = model::Db::userTemplateFilename( brand, part );
+		QString filename = model::Db::userTemplateFileName( brand, part );
 
 		if ( QFileInfo::exists(filename) )
 		{

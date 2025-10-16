@@ -40,6 +40,7 @@ namespace glabels
 		                    const Distance& pageWidth,
 		                    const Distance& pageHeight,
 		                    const Distance& rollWidth,
+		                    const QString&  fileName,
 		                    bool            isUserDefined )
 			: mBrand(brand),
 			  mPart(part),
@@ -48,6 +49,7 @@ namespace glabels
 			  mPageWidth(pageWidth),
 			  mPageHeight(pageHeight),
 			  mRollWidth(rollWidth),
+			  mFileName(fileName),
 			  mIsUserDefined(isUserDefined)
 		{
 			mName = brandPartToName( brand, part );
@@ -65,19 +67,21 @@ namespace glabels
 
 		Template::Template( const Template& other )
 		{
-			mBrand       = other.mBrand;
-			mPart        = other.mPart;
-			mDescription = other.mDescription;
-			mPaperId     = other.mPaperId;
-			mPageWidth   = other.mPageWidth;
-			mPageHeight  = other.mPageHeight;
-			mRollWidth   = other.mRollWidth;
-			mIsSizeIso   = other.mIsSizeIso;
-			mIsSizeUs    = other.mIsSizeUs;
-			mIsRoll      = other.mIsRoll;
-			mEquivPart   = other.mEquivPart;
-			mName        = other.mName;
-			mProductUrl  = other.mProductUrl;
+			mBrand         = other.mBrand;
+			mPart          = other.mPart;
+			mDescription   = other.mDescription;
+			mPaperId       = other.mPaperId;
+			mPageWidth     = other.mPageWidth;
+			mPageHeight    = other.mPageHeight;
+			mRollWidth     = other.mRollWidth;
+			mIsSizeIso     = other.mIsSizeIso;
+			mIsSizeUs      = other.mIsSizeUs;
+			mIsRoll        = other.mIsRoll;
+			mEquivPart     = other.mEquivPart;
+			mName          = other.mName;
+			mProductUrl    = other.mProductUrl;
+			mFileName      = other.mFileName;
+			mIsUserDefined = other.mIsUserDefined;
 
 			foreach ( Frame* frame, other.mFrames )
 			{
@@ -101,19 +105,21 @@ namespace glabels
 		{
 			if ( this != &other )
 			{
-				mBrand       = other.mBrand;
-				mPart        = other.mPart;
-				mDescription = other.mDescription;
-				mPaperId     = other.mPaperId;
-				mPageWidth   = other.mPageWidth;
-				mPageHeight  = other.mPageHeight;
-				mRollWidth   = other.mRollWidth;
-				mIsSizeIso   = other.mIsSizeIso;
-				mIsSizeUs    = other.mIsSizeUs;
-				mIsRoll      = other.mIsRoll;
-				mEquivPart   = other.mEquivPart;
-				mName        = other.mName;
-				mProductUrl  = other.mProductUrl;
+				mBrand         = other.mBrand;
+				mPart          = other.mPart;
+				mDescription   = other.mDescription;
+				mPaperId       = other.mPaperId;
+				mPageWidth     = other.mPageWidth;
+				mPageHeight    = other.mPageHeight;
+				mRollWidth     = other.mRollWidth;
+				mIsSizeIso     = other.mIsSizeIso;
+				mIsSizeUs      = other.mIsSizeUs;
+				mIsRoll        = other.mIsRoll;
+				mEquivPart     = other.mEquivPart;
+				mName          = other.mName;
+				mProductUrl    = other.mProductUrl;
+				mFileName      = other.mFileName;
+				mIsUserDefined = other.mIsUserDefined;
 
 				while ( !mFrames.isEmpty() )
 				{
@@ -273,9 +279,27 @@ namespace glabels
 		}
 	
 
+		QString Template::fileName() const
+		{
+			return mFileName;
+		}
+
+	
+		void Template::setFileName( const QString& value )
+		{
+			mFileName = value;
+		}
+	
+
 		bool Template::isUserDefined() const
 		{
 			return mIsUserDefined;
+		}
+	
+
+		void Template::setIsUserDefined( bool isUserDefined )
+		{
+			mIsUserDefined = isUserDefined;
 		}
 	
 

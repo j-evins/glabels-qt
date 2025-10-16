@@ -62,7 +62,7 @@ namespace glabels
 			static const QList<Vendor>& vendors();
 			static const QStringList& vendorNames();
 
-			static const QList<Template>& templates();
+			static QList<Template> templates();
 
 
 			static const Paper lookupPaperFromName( const QString& name );
@@ -84,11 +84,14 @@ namespace glabels
 			static const Template lookupTemplateFromName( const QString& name );
 			static const Template lookupTemplateFromBrandPart( const QString& brand,
 			                                                   const QString& part );
+			static const Template lookupUserTemplateFromBrandPart( const QString& brand,
+			                                                       const QString& part );
 			static bool isTemplateKnown( const QString& brand, const QString& part );
 			static bool isSystemTemplateKnown( const QString& brand, const QString& part );
+			static bool isUserTemplateKnown( const QString& brand, const QString& part );
 			static QStringList getNameListOfSimilarTemplates( const QString& name );
 
-			static QString userTemplateFilename( const QString& brand, const QString& part );
+			static QString userTemplateFileName( const QString& brand, const QString& part );
 			static void registerUserTemplate( const Template &tmplate );
 			static void deleteUserTemplateByBrandPart( const QString& brand,
 			                                           const QString& part );
@@ -115,8 +118,10 @@ namespace glabels
 			static void registerVendor( const Vendor& vendor );
 
 			static void readTemplates();
-			static void readTemplatesFromDir( const QDir& dir, bool isUserDefined );
+			static void readTemplatesFromDir( const QDir& dir );
 			static void registerTemplate( const Template& tmplate );
+
+			static void readUserTemplatesFromDir( const QDir& dir );
 
 
 		private:
@@ -138,6 +143,8 @@ namespace glabels
 
 			static QList<Template>        mTemplates;
 			static QMap<QString,Template> mTemplatesNameMap;
+
+			static QMap<QString,Template> mUserTemplatesNameMap;
 
 		};
 

@@ -52,6 +52,7 @@ namespace glabels
 			          const Distance& pageWidth,
 			          const Distance& pageHeight,
 			          const Distance& rollWidth = 0,
+			          const QString&  fileName = "",
 			          bool            isUserDefined = false );
 
 			Template( const Template& other );
@@ -84,7 +85,11 @@ namespace glabels
 			bool isSizeOther() const;
 			bool isRoll() const;
 
+			QString fileName() const;
+			void setFileName( const QString& fileName );
+
 			bool isUserDefined() const;
+			void setIsUserDefined( bool isUserDefined );
 
 			QString equivPart() const;
 			void setEquivPart( const QString& value );
@@ -119,6 +124,7 @@ namespace glabels
 			bool           mIsSizeUs{ false };
 			bool           mIsRoll{ false };
 
+			QString        mFileName;
 			bool           mIsUserDefined{ false };
 
 			QString        mEquivPart;

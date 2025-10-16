@@ -77,6 +77,8 @@ namespace glabels
 		QList<Template>        Db::mTemplates;
 		QMap<QString,Template> Db::mTemplatesNameMap;
 
+		QMap<QString,Template> Db::mUserTemplatesNameMap;
+
 	
 		Db::Db()
 		{
@@ -148,9 +150,14 @@ namespace glabels
 		}
 
 
-		const QList<Template>& Db::templates()
+		QList<Template> Db::templates()
 		{
-			return mTemplates;
+			auto list = mTemplates;
+			list.append( mUserTemplatesNameMap.values() );
+
+			std::stable_sort( list.begin(), list.end(), partNameLessThan );
+
+			return list;
 		}
 
 
@@ -311,6 +318,12 @@ namespace glabels
 				return *it;
 			}
 
+			auto it2 = mUserTemplatesNameMap.find( name );
+			if ( it2 != mUserTemplatesNameMap.end() )
+			{
+				return *it2;
+			}
+
 			qWarning() << "Unknown template name: " << name;
 			return Template();
 		}
@@ -324,10 +337,18 @@ namespace glabels
 				return Template();
 			}
 
-			auto it = mTemplatesNameMap.find( Template::brandPartToName( brand, part ) );
+			auto name = Template::brandPartToName( brand, part );
+
+			auto it = mTemplatesNameMap.find( name );
 			if ( it != mTemplatesNameMap.end() )
 			{
 				return *it;
+			}
+
+			auto it2 = mUserTemplatesNameMap.find( name );
+			if ( it2 != mUserTemplatesNameMap.end() )
+			{
+				return *it2;
 			}
 
 			qWarning() << "Unknown template brand, part: " << brand << ", " << part;
@@ -335,23 +356,45 @@ namespace glabels
 		}
 
 
+		const Template Db::lookupUserTemplateFromBrandPart( const QString& brand, const QString& part )
+		{
+			if ( brand.isEmpty() || part.isEmpty() )
+			{
+				qWarning() << "NULL template brand and/or part.";
+				return Template();
+			}
+
+			auto name = Template::brandPartToName( brand, part );
+
+			auto it = mUserTemplatesNameMap.find( name );
+			if ( it != mUserTemplatesNameMap.end() )
+			{
+				return *it;
+			}
+
+			qWarning() << "Unknown user template brand, part: " << brand << ", " << part;
+			return Template();
+		}
+
+
 		bool Db::isTemplateKnown( const QString& brand, const QString& part )
 		{
-			return mTemplatesNameMap.contains( Template::brandPartToName( brand, part ) );
+			auto name = Template::brandPartToName( brand, part );
+			return mTemplatesNameMap.contains( name ) || mUserTemplatesNameMap.contains( name );
 		}
 
 
 		bool Db::isSystemTemplateKnown( const QString& brand, const QString& part )
 		{
-			auto tmplate = Db::lookupTemplateFromBrandPart( brand, part );
-			if ( (tmplate.brand() == brand) &&
-			     (tmplate.part() == part)   &&
-			     !tmplate.isUserDefined() )
-			{
-				return true;
-			}
+			auto name = Template::brandPartToName( brand, part );
+			return mTemplatesNameMap.contains( name );
+		}
 
-			return false;
+
+		bool Db::isUserTemplateKnown( const QString& brand, const QString& part )
+		{
+			auto name = Template::brandPartToName( brand, part );
+			return mUserTemplatesNameMap.contains( name );
 		}
 
 
@@ -366,7 +409,7 @@ namespace glabels
 				return list;
 			}
 
-			for ( auto& tmplate2 : mTemplates )
+			for ( auto& tmplate2 : templates() )
 			{
 				if ( tmplate1.name() != tmplate2.name() )
 				{
@@ -381,41 +424,53 @@ namespace glabels
 		}
 
 
-		QString Db::userTemplateFilename( const QString& brand, const QString& part )
+		QString Db::userTemplateFileName( const QString& brand, const QString& part )
 		{
-			QString filename = brand + "_" + part + ".template";
-			return FileUtil::userTemplatesDir().filePath( filename );
+			QString fileName = brand + "_" + part + ".template";
+			return FileUtil::userTemplatesDir().filePath( fileName );
 		}
 
 
 		void Db::registerUserTemplate( const Template& tmplate )
 		{
-			QString filename = userTemplateFilename( tmplate.brand(), tmplate.part() );
+			if ( isTemplateKnown( tmplate.brand(), tmplate.part() ) )
+			{
+				qWarning() << "Duplicate template name: " << tmplate.name();
+				return;
+			}
+
+			QString fileName = userTemplateFileName( tmplate.brand(), tmplate.part() );
 
 			// Write file
-			if ( XmlTemplateCreator().writeTemplate( tmplate, filename ) )
+			if ( XmlTemplateCreator().writeTemplate( tmplate, fileName ) )
 			{
 				// Add template to list of registered templates
-				registerTemplate( tmplate );
+				mUserTemplatesNameMap[ tmplate.name() ] = tmplate;
+				mUserTemplatesNameMap[ tmplate.name() ].setFileName( fileName );
+				mUserTemplatesNameMap[ tmplate.name() ].setIsUserDefined( true );
+
 				Settings::addToRecentTemplateList( tmplate.name() );
+
 			}
 			else
 			{
-				qWarning() << "Problem writing user template" << filename;
+				qWarning() << "Problem writing user template" << fileName;
 			}
 		}
 
 
 		void Db::deleteUserTemplateByBrandPart( const QString& brand, const QString& part )
 		{
-			auto tmplate = lookupTemplateFromBrandPart( brand, part );
-			if ( !tmplate.isNull() )
+			auto tmplate = lookupUserTemplateFromBrandPart( brand, part );
+			if ( !tmplate.isNull() && tmplate.isUserDefined() )
 			{
-				mTemplates.removeOne( tmplate );
-				mTemplatesNameMap.remove( Template::brandPartToName( brand, part ) );
+				mUserTemplatesNameMap.remove( Template::brandPartToName( brand, part ) );
 
-				QString filename = userTemplateFilename( brand, part );
-				QFile( filename ).remove();
+				QFile( tmplate.fileName() ).remove();
+			}
+			else
+			{
+				qWarning() << "Not a user defined template:" << tmplate.name();
 			}
 		}
 
@@ -607,15 +662,16 @@ namespace glabels
 
 		void Db::readTemplates()
 		{
-			readTemplatesFromDir( FileUtil::systemTemplatesDir(), false );
-			readTemplatesFromDir( FileUtil::manualUserTemplatesDir(), false );
-			readTemplatesFromDir( FileUtil::userTemplatesDir(), true );
+			readTemplatesFromDir( FileUtil::systemTemplatesDir() );
+			readTemplatesFromDir( FileUtil::manualUserTemplatesDir() );
 
 			std::stable_sort( mTemplates.begin(), mTemplates.end(), partNameLessThan );
+
+			readUserTemplatesFromDir( FileUtil::userTemplatesDir() );
 		}
 
 
-		void Db::readTemplatesFromDir( const QDir& dir, bool isUserDefined )
+		void Db::readTemplatesFromDir( const QDir& dir )
 		{
 			QStringList filters;
 			filters << "*-templates.xml" << "*.template";
@@ -624,13 +680,13 @@ namespace glabels
 
 			foreach ( QString fileName, dir.entryList( filters, QDir::Files ) )
 			{
-				auto list = parser.readFile( dir.absoluteFilePath( fileName ), isUserDefined );
+				auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
 				for ( auto& tmplate : list )
 				{
 					registerTemplate( tmplate );
 				}
 
-				list = parser.readEquivsFromFile( dir.absoluteFilePath( fileName ), isUserDefined );
+				list = parser.readEquivsFromFile( dir.absoluteFilePath( fileName ) );
 				for ( auto& tmplate : list )
 				{
 					registerTemplate( tmplate );
@@ -649,6 +705,24 @@ namespace glabels
 			else
 			{
 				qWarning() << "Duplicate template name: " << tmplate.name();
+			}
+		}
+
+
+		void Db::readUserTemplatesFromDir( const QDir& dir )
+		{
+			QStringList filters;
+			filters << "*-templates.xml" << "*.template";
+
+			XmlTemplateParser parser;
+
+			foreach ( QString fileName, dir.entryList( filters, QDir::Files ) )
+			{
+				auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+				for ( auto& tmplate : list )
+				{
+					registerUserTemplate( tmplate );
+				}
 			}
 		}
 
