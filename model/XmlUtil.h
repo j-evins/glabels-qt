@@ -41,13 +41,8 @@ namespace glabels
 
 		class XmlUtil
 		{
-		private:
-			XmlUtil();
-
-		
 		public:
-
-			static void init();
+			XmlUtil() = delete;
 
 			static Units units();
 			static void setUnits( const Units& units );
@@ -145,13 +140,9 @@ namespace glabels
 			                                 const QString&      name,
 			                                 const QPainterPath& value,
 			                                 const Units&        units );
-
-
 		
 		private:
-			Units mUnits;
-
-			static XmlUtil* mInstance;
+			static Units mUnits;
 
 		};
 
