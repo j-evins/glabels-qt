@@ -80,7 +80,7 @@ namespace glabels
 		QMap<QString,Template> Db::mUserTemplatesNameMap;
 
 	
-		Db::Db()
+		void Db::init()
 		{
 			readPapers();
 			readCategories();
@@ -88,20 +88,7 @@ namespace glabels
 			readTemplates();
 		}
 
-
-		void Db::init()
-		{
-			instance();
-		}
-
 	
-		Db* Db::instance()
-		{
-			static auto* db = new Db();
-			return db;
-		}
-
-
 		const QList<Paper>& Db::papers()
 		{
 			return mPapers;

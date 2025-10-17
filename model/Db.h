@@ -27,7 +27,6 @@
 #include "Template.h"
 #include "Vendor.h"
 
-#include <QCoreApplication>
 #include <QDir>
 #include <QList>
 #include <QString>
@@ -40,15 +39,11 @@ namespace glabels
 
 		class Db
 		{
-			Q_DECLARE_TR_FUNCTIONS(Db)
 
-		private:
-			Db();
-
-		
 		public:
+			Db() = delete;
+
 			static void init();
-			static Db* instance();
 
 
 			static const QList<Paper>& papers();
