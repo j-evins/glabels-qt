@@ -35,29 +35,12 @@ namespace glabels
 		//
 		// Static data
 		//
-		Settings* Settings::mInstance = nullptr;
-
-
-		Settings::Settings()
-		{
-			// empty
-		}
-
-
-		void Settings::init()
-		{
-			if ( mInstance == nullptr )
-			{
-				mInstance = new Settings();
-			}
-		}
+		Settings Settings::mInstance;
 
 
 		Settings* Settings::instance()
 		{
-			init();
-
-			return mInstance;
+			return &mInstance;
 		}
 
 
@@ -74,9 +57,9 @@ namespace glabels
 				defaultIdString = Units(Units::MM).toIdString();
 			}
 	
-			mInstance->beginGroup( "Locale" );
-			QString idString = mInstance->value( "units", defaultIdString ).toString();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Locale" );
+			QString idString = mInstance.value( "units", defaultIdString ).toString();
+			mInstance.endGroup();
 
 			return Units( idString );
 		}
@@ -86,11 +69,11 @@ namespace glabels
 		{
 			QString idString = units.toIdString();
 
-			mInstance->beginGroup( "Locale" );
-			mInstance->setValue( "units", idString );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Locale" );
+			mInstance.setValue( "units", idString );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -110,9 +93,9 @@ namespace glabels
 				break;
 			}
 	
-			mInstance->beginGroup( "Locale" );
-			QString value = mInstance->value( "preferedPageSizeFamily", defaultFamily ).toString();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Locale" );
+			QString value = mInstance.value( "preferedPageSizeFamily", defaultFamily ).toString();
+			mInstance.endGroup();
 
 			return (value == "iso") ? ISO : US;
 		}
@@ -120,11 +103,11 @@ namespace glabels
 
 		void Settings::setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily )
 		{
-			mInstance->beginGroup( "Locale" );
-			mInstance->setValue( "preferedPageSizeFamily", preferedPageSizeFamily == ISO ? "iso" : "us" );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Locale" );
+			mInstance.setValue( "preferedPageSizeFamily", preferedPageSizeFamily == ISO ? "iso" : "us" );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -144,9 +127,9 @@ namespace glabels
 				break;
 			}
 	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "isoPaperSizes", defaultValue ).toBool();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			bool returnValue = mInstance.value( "isoPaperSizes", defaultValue ).toBool();
+			mInstance.endGroup();
 
 			return returnValue;
 		}
@@ -154,11 +137,11 @@ namespace glabels
 
 		void Settings::setSearchIsoPaperSizes( bool searchIsoPaperSizes )
 		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "isoPaperSizes", searchIsoPaperSizes );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			mInstance.setValue( "isoPaperSizes", searchIsoPaperSizes );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -178,9 +161,9 @@ namespace glabels
 				break;
 			}
 	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "usPaperSizes", defaultValue ).toBool();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			bool returnValue = mInstance.value( "usPaperSizes", defaultValue ).toBool();
+			mInstance.endGroup();
 
 			return returnValue;
 		}
@@ -188,11 +171,11 @@ namespace glabels
 
 		void Settings::setSearchUsPaperSizes( bool searchUsPaperSizes )
 		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "usPaperSizes", searchUsPaperSizes );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			mInstance.setValue( "usPaperSizes", searchUsPaperSizes );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -201,9 +184,9 @@ namespace glabels
 			// Guess at a suitable default
 			bool defaultValue = true;
 	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "otherPaperSizes", defaultValue ).toBool();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			bool returnValue = mInstance.value( "otherPaperSizes", defaultValue ).toBool();
+			mInstance.endGroup();
 
 			return returnValue;
 		}
@@ -211,11 +194,11 @@ namespace glabels
 
 		void Settings::setSearchOtherPaperSizes( bool searchOtherPaperSizes )
 		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "otherPaperSizes", searchOtherPaperSizes );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			mInstance.setValue( "otherPaperSizes", searchOtherPaperSizes );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -224,9 +207,9 @@ namespace glabels
 			// Guess at a suitable default
 			bool defaultValue = true;
 	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "allCategories", defaultValue ).toBool();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			bool returnValue = mInstance.value( "allCategories", defaultValue ).toBool();
+			mInstance.endGroup();
 
 			return returnValue;
 		}
@@ -234,11 +217,11 @@ namespace glabels
 
 		void Settings::setSearchAllCategories( bool searchAllCategories )
 		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "allCategories", searchAllCategories );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			mInstance.setValue( "allCategories", searchAllCategories );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -246,9 +229,9 @@ namespace glabels
 		{
 			QStringList defaultList;
 	
-			mInstance->beginGroup( "Search" );
-			QStringList returnList = mInstance->value( "categoryList", defaultList ).toStringList();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			QStringList returnList = mInstance.value( "categoryList", defaultList ).toStringList();
+			mInstance.endGroup();
 
 			return returnList;
 		}
@@ -256,11 +239,11 @@ namespace glabels
 
 		void Settings::setSearchCategoryList( const QStringList& searchCategoryList )
 		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "categoryList", searchCategoryList );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Search" );
+			mInstance.setValue( "categoryList", searchCategoryList );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -268,9 +251,9 @@ namespace glabels
 		{
 			QString defaultMode = "icon";
 	
-			mInstance->beginGroup( "TemplatePicker" );
-			QString returnMode = mInstance->value( "viewMode", defaultMode ).toString();
-			mInstance->endGroup();
+			mInstance.beginGroup( "TemplatePicker" );
+			QString returnMode = mInstance.value( "viewMode", defaultMode ).toString();
+			mInstance.endGroup();
 
 			return returnMode == "icon" ? QListView::IconMode : QListView::ListMode;
 		}
@@ -278,11 +261,11 @@ namespace glabels
 
 		void Settings::setTemplatePickerMode( QListView::ViewMode viewMode )
 		{
-			mInstance->beginGroup( "TemplatePicker" );
-			mInstance->setValue( "viewMode", viewMode == QListView::IconMode ? "icon" : "list" );
-			mInstance->endGroup();
+			mInstance.beginGroup( "TemplatePicker" );
+			mInstance.setValue( "viewMode", viewMode == QListView::IconMode ? "icon" : "list" );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -290,9 +273,9 @@ namespace glabels
 		{
 			QStringList defaultList;
 	
-			mInstance->beginGroup( "Recent" );
-			QStringList returnList = mInstance->value( "templates", defaultList ).toStringList();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Recent" );
+			QStringList returnList = mInstance.value( "templates", defaultList ).toStringList();
+			mInstance.endGroup();
 
 			return returnList;
 		}
@@ -300,9 +283,9 @@ namespace glabels
 
 		void Settings::addToRecentTemplateList( const QString& name )
 		{
-			mInstance->beginGroup( "Recent" );
+			mInstance.beginGroup( "Recent" );
 
-			QStringList list = mInstance->value( "templates" ).toStringList();
+			QStringList list = mInstance.value( "templates" ).toStringList();
 
 			list.removeAll( name );
 			list.prepend( name );
@@ -311,11 +294,11 @@ namespace glabels
 				list.removeLast();
 			}
 
-			mInstance->setValue( "templates", list );
+			mInstance.setValue( "templates", list );
 
-			mInstance->endGroup();
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -329,9 +312,9 @@ namespace glabels
 		{
 			QStringList defaultList;
 	
-			mInstance->beginGroup( "Recent" );
-			QStringList returnList = mInstance->value( "files", defaultList ).toStringList();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Recent" );
+			QStringList returnList = mInstance.value( "files", defaultList ).toStringList();
+			mInstance.endGroup();
 
 			return returnList;
 		}
@@ -339,9 +322,9 @@ namespace glabels
 
 		void Settings::addToRecentFileList( const QString& filePath )
 		{
-			mInstance->beginGroup( "Recent" );
+			mInstance.beginGroup( "Recent" );
 
-			QStringList list = mInstance->value( "files" ).toStringList();
+			QStringList list = mInstance.value( "files" ).toStringList();
 
 			list.removeAll( filePath );
 			list.prepend( filePath );
@@ -350,19 +333,19 @@ namespace glabels
 				list.removeLast();
 			}
 
-			mInstance->setValue( "files", list );
+			mInstance.setValue( "files", list );
 
-			mInstance->endGroup();
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
 		QString Settings::recentPrinter()
 		{
-			mInstance->beginGroup( "Recent" );
-			QString printer = mInstance->value( "printer", QPrinterInfo::defaultPrinterName() ).toString();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Recent" );
+			QString printer = mInstance.value( "printer", QPrinterInfo::defaultPrinterName() ).toString();
+			mInstance.endGroup();
 
 			return printer;
 		}
@@ -370,17 +353,17 @@ namespace glabels
 
 		void Settings::setRecentPrinter( const QString& printer )
 		{
-			mInstance->beginGroup( "Recent" );
-			mInstance->setValue( "printer", printer );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Recent" );
+			mInstance.setValue( "printer", printer );
+			mInstance.endGroup();
 		}
 
 
 		Settings::GridOrigin Settings::gridOrigin()
 		{
-			mInstance->beginGroup( "Grid" );
-			QString value = mInstance->value( "origin", "top_left" ).toString();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Grid" );
+			QString value = mInstance.value( "origin", "top_left" ).toString();
+			mInstance.endGroup();
 
 			return (value == "top_left") ? ORIGIN_TL : ORIGIN_CENTER;
 		}
@@ -388,11 +371,11 @@ namespace glabels
 
 		void Settings::setGridOrigin( GridOrigin origin )
 		{
-			mInstance->beginGroup( "Grid" );
-			mInstance->setValue( "origin", origin == ORIGIN_TL ? "top_left" : "center" );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Grid" );
+			mInstance.setValue( "origin", origin == ORIGIN_TL ? "top_left" : "center" );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
@@ -409,9 +392,9 @@ namespace glabels
 				defaultSpacingString = Distance::mm(5).toString( Units::MM );
 			}
 	
-			mInstance->beginGroup( "Grid" );
-			QString spacingString = mInstance->value( "spacing", defaultSpacingString ).toString();
-			mInstance->endGroup();
+			mInstance.beginGroup( "Grid" );
+			QString spacingString = mInstance.value( "spacing", defaultSpacingString ).toString();
+			mInstance.endGroup();
 
 			return Distance::fromString( spacingString );
 		}
@@ -421,21 +404,21 @@ namespace glabels
 		{
 			QString spacingString = spacing.toString( Settings::units() );
 
-			mInstance->beginGroup( "Grid" );
-			mInstance->setValue( "spacing", spacingString );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Grid" );
+			mInstance.setValue( "spacing", spacingString );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 
 		void Settings::resetGridSpacing()
 		{
-			mInstance->beginGroup( "Grid" );
-			mInstance->remove( "spacing" );
-			mInstance->endGroup();
+			mInstance.beginGroup( "Grid" );
+			mInstance.remove( "spacing" );
+			mInstance.endGroup();
 
-			emit mInstance->changed();
+			emit mInstance.changed();
 		}
 
 

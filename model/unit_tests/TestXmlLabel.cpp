@@ -64,7 +64,6 @@ namespace
 
 void TestXmlLabel::initTestCase()
 {
-	Settings::init();
 	Db::init();
 	Factory::init();
 	Backends::init();

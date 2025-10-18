@@ -28,7 +28,6 @@
 #include "model/FrameRect.h"
 #include "model/FrameContinuous.h"
 #include "model/Region.h"
-#include "model/Settings.h"
 
 #include "merge/Factory.h"
 #include "merge/Merge.h"
@@ -49,7 +48,6 @@ using namespace glabels::merge;
 void TestModel::initTestCase()
 {
 	Factory::init();
-	Settings::init();
 }
 
 

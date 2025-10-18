@@ -50,10 +50,9 @@ namespace glabels
 			// Life Cycle
 			/////////////////////////////////
 		private:
-			Settings();
+			Settings() = default;
 
 		public:
-			static void init();
 			static Settings* instance();
 
 	
@@ -111,7 +110,7 @@ namespace glabels
 			
 			
 		private:
-			static Settings* mInstance;
+			static Settings mInstance;
 			static const int mMaxRecentFiles{5};
 
 		};

@@ -22,7 +22,6 @@
 #include "model/Db.h"
 #include "model/Model.h"
 #include "model/PageRenderer.h"
-#include "model/Settings.h"
 #include "model/Version.h"
 #include "model/XmlLabelParser.h"
 
@@ -168,7 +167,6 @@ int main( int argc, char **argv )
 	//
 	// Initialize subsystems
 	//
-	glabels::model::Settings::init();
 	glabels::model::Db::init();
 	glabels::merge::Factory::init();
 	glabels::barcode::Backends::init();
