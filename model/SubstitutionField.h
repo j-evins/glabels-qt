@@ -41,7 +41,7 @@ namespace glabels
 			SubstitutionField();
 			SubstitutionField( const QString& string );
 
-			QString evaluate( const merge::Record* record, const Variables& variables ) const;
+			QString evaluate( const merge::Record& record, const Variables& variables ) const;
 		
 			QString fieldName() const;
 			QString defaultValue() const;

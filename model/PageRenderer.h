@@ -104,7 +104,7 @@ namespace glabels
 			void printCropMarks( QPainter* painter ) const;
 			void printOutline( QPainter* painter ) const;
 			void clipLabel( QPainter* painter ) const;
-			void printLabel( QPainter* painter, merge::Record* record, Variables& variables ) const;
+			void printLabel( QPainter* painter, const merge::Record& record, Variables& variables ) const;
 
 
 			/////////////////////////////////

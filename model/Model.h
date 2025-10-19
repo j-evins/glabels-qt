@@ -219,10 +219,10 @@ namespace glabels
 			// Drawing operations
 			/////////////////////////////////
 		public:
-			void draw( QPainter*        painter,
-			           bool             inEditor,
-			           merge::Record*   record,
-			           const Variables& variablesInstance ) const;
+			void draw( QPainter*            painter,
+			           bool                 inEditor,
+			           const merge::Record& record,
+			           const Variables&     variablesInstance ) const;
 
 		
 			/////////////////////////////////

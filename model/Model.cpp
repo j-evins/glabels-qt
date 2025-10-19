@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "Model.h"
 
 #include "ModelObject.h"
@@ -1610,10 +1611,10 @@ namespace glabels
 		///
 		/// Draw label objects
 		///
-		void Model::draw( QPainter*        painter,
-		                  bool             inEditor,
-		                  merge::Record*   record,
-		                  const Variables& variablesInstance ) const
+		void Model::draw( QPainter*            painter,
+		                  bool                 inEditor,
+		                  const merge::Record& record,
+		                  const Variables&     variablesInstance ) const
 		{
 			foreach ( ModelObject* object, mObjectList )
 			{

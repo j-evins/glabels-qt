@@ -415,23 +415,23 @@ namespace glabels
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		public:
-			void draw( QPainter*        painter,
-			           bool             inEditor,
-			           merge::Record*   record,
-			           const Variables& variables ) const;
+			void draw( QPainter*            painter,
+			           bool                 inEditor,
+			           const merge::Record& record,
+			           const Variables&     variables ) const;
 			
 			void drawSelectionHighlight( QPainter* painter, double scale ) const;
 
 		protected:
-			virtual void drawShadow( QPainter*        painter,
-			                         bool             inEditor,
-			                         merge::Record*   record,
-			                         const Variables& variables ) const = 0;
+			virtual void drawShadow( QPainter*            painter,
+			                         bool                 inEditor,
+			                         const merge::Record& record,
+			                         const Variables&     variables ) const = 0;
 			
-			virtual void drawObject( QPainter*        painter,
-			                         bool             inEditor,
-			                         merge::Record*   record,
-			                         const Variables& variables ) const = 0;
+			virtual void drawObject( QPainter*            painter,
+			                         bool                 inEditor,
+			                         const merge::Record& record,
+			                         const Variables&     variables ) const = 0;
 			
 			virtual QPainterPath hoverPath( double scale ) const = 0;
 

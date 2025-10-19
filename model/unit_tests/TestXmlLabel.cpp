@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestXmlLabel.h"
 #include "Test_Constants.h"
 
@@ -458,8 +459,8 @@ void TestXmlLabel::writeReadFile()
 	QCOMPARE( readModel->merge()->recordList().size(), model->merge()->recordList().size() );
 	for ( int i = 0; i < readModel->merge()->recordList().size(); i++ )
 	{
-		QCOMPARE( readModel->merge()->recordList().at(i)->keys(), model->merge()->recordList().at(i)->keys() );
-		QCOMPARE( readModel->merge()->recordList().at(i)->values(), model->merge()->recordList().at(i)->values() );
+		QCOMPARE( readModel->merge()->recordList().at(i).keys(), model->merge()->recordList().at(i).keys() );
+		QCOMPARE( readModel->merge()->recordList().at(i).values(), model->merge()->recordList().at(i).values() );
 	}
 
 	delete readModel;
@@ -602,7 +603,7 @@ void TestXmlLabel::parser_3ReadFile()
 	QVERIFY( !model->merge()->source().isEmpty() ); // Merge source hacked to work relatively so not realistic
 	QCOMPARE( model->merge()->recordList().size(), 4 );
 
-	QCOMPARE( model->merge()->recordList()[0]->keys().size(), 3 );
+	QCOMPARE( model->merge()->recordList()[0].keys().size(), 3 );
 	QList<QString> keys, values0, values1, values2, values3;
 	keys << "Department" << "Name" << "SN";
 	values0 << "Management" << "Jim Kirk" << "SC937-0176 CEC";
@@ -610,14 +611,14 @@ void TestXmlLabel::parser_3ReadFile()
 	values2 << "Medicine" << "Leonard McCoy" << "unknown";
 	values3 << "Engineering" << "Montgomery Scott" << "SE-197-54T";
 
-	QCOMPARE( model->merge()->recordList()[0]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[0]->values(), values0 );
-	QCOMPARE( model->merge()->recordList()[1]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[1]->values(), values1 );
-	QCOMPARE( model->merge()->recordList()[2]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[2]->values(), values2 );
-	QCOMPARE( model->merge()->recordList()[3]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[3]->values(), values3 );
+	QCOMPARE( model->merge()->recordList()[0].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[0].values(), values0 );
+	QCOMPARE( model->merge()->recordList()[1].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[1].values(), values1 );
+	QCOMPARE( model->merge()->recordList()[2].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[2].values(), values2 );
+	QCOMPARE( model->merge()->recordList()[3].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[3].values(), values3 );
 
 	delete model;
 }

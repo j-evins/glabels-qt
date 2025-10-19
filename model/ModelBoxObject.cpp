@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelBoxObject.h"
 
 #include <QBrush>
@@ -95,10 +96,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelBoxObject::drawShadow( QPainter*        painter,
-		                                 bool             inEditor,
-		                                 merge::Record*   record,
-		                                 const Variables& variables ) const
+		void ModelBoxObject::drawShadow( QPainter*            painter,
+		                                 bool                 inEditor,
+		                                 const merge::Record& record,
+		                                 const Variables&     variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor fillColor = mFillColorNode.color( record, variables );
@@ -143,10 +144,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelBoxObject::drawObject( QPainter*        painter,
-		                                 bool             inEditor,
-		                                 merge::Record*   record,
-		                                 const Variables& variables ) const
+		void ModelBoxObject::drawObject( QPainter*            painter,
+		                                 bool                 inEditor,
+		                                 const merge::Record& record,
+		                                 const Variables&     variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor fillColor = mFillColorNode.color( record, variables );

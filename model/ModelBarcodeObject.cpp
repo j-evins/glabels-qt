@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelBarcodeObject.h"
 
 #include "Size.h"
@@ -285,10 +286,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelBarcodeObject::drawShadow( QPainter*        painter,
-		                                     bool             inEditor,
-		                                     merge::Record*   record,
-		                                     const Variables& variables ) const
+		void ModelBarcodeObject::drawShadow( QPainter*            painter,
+		                                     bool                 inEditor,
+		                                     const merge::Record& record,
+		                                     const Variables&     variables ) const
 		{
 			// Barcodes don't support shadows.
 		}
@@ -297,10 +298,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelBarcodeObject::drawObject( QPainter*        painter,
-		                                     bool             inEditor,
-		                                     merge::Record*   record,
-		                                     const Variables& variables ) const
+		void ModelBarcodeObject::drawObject( QPainter*            painter,
+		                                     bool                 inEditor,
+		                                     const merge::Record& record,
+		                                     const Variables&     variables ) const
 		{
 			QColor bcColor = mBcColorNode.color( record, variables );
 
@@ -418,10 +419,10 @@ namespace glabels
 		/// Draw barcode in final printout or preview
 		///
 		void
-		ModelBarcodeObject::drawBc( QPainter*        painter,
-		                            const QColor&    color,
-		                            merge::Record*   record,
-		                            const Variables& variables ) const
+		ModelBarcodeObject::drawBc( QPainter*            painter,
+		                            const QColor&        color,
+		                            const merge::Record& record,
+		                            const Variables&     variables ) const
 		{
 			painter->setPen( QPen( color ) );
 

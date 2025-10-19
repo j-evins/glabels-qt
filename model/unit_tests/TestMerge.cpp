@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestMerge.h"
 
 #include "merge/Factory.h"
@@ -184,7 +185,7 @@ void TestMerge::text()
 	merge->setSource( file.fileName() );
 	QCOMPARE( merge->source(), file.fileName() );
 
-	const QList<Record*>& recordList = merge->recordList();
+	const QList<Record>& recordList = merge->recordList();
 	QCOMPARE( recordList.size(), 6 );
 
 	//
@@ -193,54 +194,54 @@ void TestMerge::text()
 	const char* h1 = keyed ? "header1" : "1";
 	const char* h2 = keyed ? "header 2" : "2";
 	const char* h3 = keyed ? "header3" : "3";
-	const Record* record;
+	Record record;
 
 	record = recordList[0];
-	QVERIFY( record->contains( h1 ) );
-	QCOMPARE( record->value( h1 ), QString( "  val11" ) );
-	QVERIFY( record->contains( h2 ) );
-	QCOMPARE( record->value( h2 ), QString( "\"val 12\"" ) );
-	QVERIFY( record->contains( h3 ) );
-	QCOMPARE( record->value( h3 ), QString( "  \"val 13\"" ) ); // NOTE: Treats as unquoted due to leading spaces
+	QVERIFY( record.contains( h1 ) );
+	QCOMPARE( record.value( h1 ), QString( "  val11" ) );
+	QVERIFY( record.contains( h2 ) );
+	QCOMPARE( record.value( h2 ), QString( "\"val 12\"" ) );
+	QVERIFY( record.contains( h3 ) );
+	QCOMPARE( record.value( h3 ), QString( "  \"val 13\"" ) ); // NOTE: Treats as unquoted due to leading spaces
 
 	record = recordList[1];
-	QVERIFY( record->contains( h1 ) );
-	QCOMPARE( record->value( h1 ), QString( "  val21\"" ) );
-	QVERIFY( record->contains( h2 ) );
-	QCOMPARE( record->value( h2 ), QString( "\"val 22" ) );
-	QVERIFY( record->contains( h3 ) );
-	QCOMPARE( record->value( h3 ), QString( "" ) );
+	QVERIFY( record.contains( h1 ) );
+	QCOMPARE( record.value( h1 ), QString( "  val21\"" ) );
+	QVERIFY( record.contains( h2 ) );
+	QCOMPARE( record.value( h2 ), QString( "\"val 22" ) );
+	QVERIFY( record.contains( h3 ) );
+	QCOMPARE( record.value( h3 ), QString( "" ) );
 
 	record = recordList[2];
-	QVERIFY( record->contains( h1 ) );
-	QCOMPARE( record->value( h1 ), QString( "\"\"" ) );
-	QVERIFY( record->contains( h2 ) );
-	QCOMPARE( record->value( h2 ), QString( "val \"32" ) );
-	QVERIFY( record->contains( h3 ) );
-	QCOMPARE( record->value( h3 ), QString( "val \"\"33" ) );
+	QVERIFY( record.contains( h1 ) );
+	QCOMPARE( record.value( h1 ), QString( "\"\"" ) );
+	QVERIFY( record.contains( h2 ) );
+	QCOMPARE( record.value( h2 ), QString( "val \"32" ) );
+	QVERIFY( record.contains( h3 ) );
+	QCOMPARE( record.value( h3 ), QString( "val \"\"33" ) );
 
 	record = recordList[3];
-	QVERIFY( record->contains( h1 ) );
-	QCOMPARE( record->value( h1 ), QString( "" ) );
-	QVERIFY( record->contains( h2 ) );
-	QCOMPARE( record->value( h2 ), QString( "" ) );
-	QVERIFY( record->contains( h3 ) );
-	QCOMPARE( record->value( h3 ), QString( "" ) );
+	QVERIFY( record.contains( h1 ) );
+	QCOMPARE( record.value( h1 ), QString( "" ) );
+	QVERIFY( record.contains( h2 ) );
+	QCOMPARE( record.value( h2 ), QString( "" ) );
+	QVERIFY( record.contains( h3 ) );
+	QCOMPARE( record.value( h3 ), QString( "" ) );
 
 	record = recordList[4];
-	QVERIFY( record->contains( h1 ) );
-	QCOMPARE( record->value( h1 ), QString( "val\n \t r \\ x51" ) );
-	QVERIFY( record->contains( h2 ) );
-	QCOMPARE( record->value( h2 ), QString( "val\n \t r \\ x52" ) );
-	QVERIFY( !record->contains( h3 ) );
+	QVERIFY( record.contains( h1 ) );
+	QCOMPARE( record.value( h1 ), QString( "val\n \t r \\ x51" ) );
+	QVERIFY( record.contains( h2 ) );
+	QCOMPARE( record.value( h2 ), QString( "val\n \t r \\ x52" ) );
+	QVERIFY( !record.contains( h3 ) );
 
 	record = recordList[5];
-	QVERIFY( record->contains( h1 ) );
-	QCOMPARE( record->value( h1 ), QString( "val \"61" ) );
-	QVERIFY( record->contains( h2 ) );
-	QCOMPARE( record->value( h2 ), QString( "val\"" ).append( delim ).append( "\n\"\u2019\\52" ) ); // NOTE: CR missing (QIODevice::Text strips all CRs from stream)
-	QVERIFY( record->contains( h3 ) );
-	QCOMPARE( record->value( h3 ), QString( "val63" ) );
+	QVERIFY( record.contains( h1 ) );
+	QCOMPARE( record.value( h1 ), QString( "val \"61" ) );
+	QVERIFY( record.contains( h2 ) );
+	QCOMPARE( record.value( h2 ), QString( "val\"" ).append( delim ).append( "\n\"\u2019\\52" ) ); // NOTE: CR missing (QIODevice::Text strips all CRs from stream)
+	QVERIFY( record.contains( h3 ) );
+	QCOMPARE( record.value( h3 ), QString( "val63" ) );
 
 	//
 	// Selection
@@ -249,13 +250,11 @@ void TestMerge::text()
 	merge->unselectAll();
 	QCOMPARE( merge->nSelectedRecords(), 0 );
 
-	record = recordList[1];
-	merge->select( (Record*)record );
+	merge->setSelected( 1 );
 	QCOMPARE( merge->nSelectedRecords(), 1 );
 	QCOMPARE( merge->selectedRecords().size(), 1 );
-	QCOMPARE( merge->selectedRecords().first(), record ); // Pointers same
 
-	merge->unselect( (Record*)record );
+	merge->setSelected( 1, false );
 	QCOMPARE( merge->nSelectedRecords(), 0 );
 	QCOMPARE( merge->selectedRecords().size(), 0 );
 
@@ -291,15 +290,15 @@ void TestMerge::text()
 	QCOMPARE( cloneMerge->id(), merge->id() );
 	QCOMPARE( cloneMerge->source(), merge->source() );
 	QCOMPARE( cloneMerge->recordList().size(), merge->recordList().size() );
-	QCOMPARE( *(cloneMerge->recordList()[0]), *(merge->recordList()[0]) ); // Pointers different
-	QCOMPARE( *(cloneMerge->recordList()[1]), *(merge->recordList()[1]) );
-	QCOMPARE( *(cloneMerge->recordList()[2]), *(merge->recordList()[2]) );
-	QCOMPARE( *(cloneMerge->recordList()[3]), *(merge->recordList()[3]) );
-	QCOMPARE( *(cloneMerge->recordList()[4]), *(merge->recordList()[4]) );
-	QCOMPARE( *(cloneMerge->recordList()[5]), *(merge->recordList()[5]) );
+	QCOMPARE( cloneMerge->recordList()[0], merge->recordList()[0] );
+	QCOMPARE( cloneMerge->recordList()[1], merge->recordList()[1] );
+	QCOMPARE( cloneMerge->recordList()[2], merge->recordList()[2] );
+	QCOMPARE( cloneMerge->recordList()[3], merge->recordList()[3] );
+	QCOMPARE( cloneMerge->recordList()[4], merge->recordList()[4] );
+	QCOMPARE( cloneMerge->recordList()[5], merge->recordList()[5] );
 	QCOMPARE( cloneMerge->nSelectedRecords(), merge->nSelectedRecords() );
 	QCOMPARE( cloneMerge->selectedRecords().size(), merge->selectedRecords().size() );
-	QCOMPARE( *(cloneMerge->selectedRecords()[0]), *(merge->selectedRecords()[0]) );
+	QCOMPARE( cloneMerge->selectedRecords()[0], merge->selectedRecords()[0] );
 	QCOMPARE( cloneMerge->keys(), merge->keys() );
 	QCOMPARE( cloneMerge->primaryKey(), merge->primaryKey() );
 	delete cloneMerge;
@@ -333,14 +332,13 @@ void TestMerge::record()
 	QVERIFY( record.contains( "key" ) );
 	QCOMPARE( record["key"], QString( "val" ) );
 
-	Record* cloneRecord = record.clone();
-	QCOMPARE( cloneRecord->isSelected(), true );
-	QVERIFY( cloneRecord->contains( "key" ) );
-	QCOMPARE( cloneRecord->value( "key" ), QString( "val" ) );
-	delete cloneRecord;
+	Record cloneRecord = record;
+	QCOMPARE( cloneRecord.isSelected(), true );
+	QVERIFY( cloneRecord.contains( "key" ) );
+	QCOMPARE( cloneRecord.value( "key" ), QString( "val" ) );
 
 	record.setSelected( false );
-	Record record2( &record );
+	Record record2( record );
 	QCOMPARE( record2.isSelected(), false );
 	QVERIFY( record2.contains( "key" ) );
 	QCOMPARE( record2["key"], QString( "val" ) );

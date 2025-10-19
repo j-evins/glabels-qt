@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "Text.h"
 
 #include "Record.h"
@@ -34,7 +35,10 @@ namespace glabels
 		/// Constructor
 		///
 		Text::Text( QChar delimiter, bool line1HasKeys )
-			: mDelimeter(delimiter), mLine1HasKeys(line1HasKeys), mNFieldsMax(0)
+			: Merge(),
+			  mDelimeter(delimiter),
+			  mLine1HasKeys(line1HasKeys),
+			  mNFieldsMax(0)
 		{
 		}
 
@@ -44,8 +48,10 @@ namespace glabels
 		///
 		Text::Text( const Text* merge )
 			: Merge( merge ),
-			  mDelimeter(merge->mDelimeter), mLine1HasKeys(merge->mLine1HasKeys),
-			  mKeys(merge->mKeys), mNFieldsMax(merge->mNFieldsMax)
+			  mDelimeter(merge->mDelimeter),
+			  mLine1HasKeys(merge->mLine1HasKeys),
+			  mKeys(merge->mKeys),
+			  mNFieldsMax(merge->mNFieldsMax)
 		{
 		}
 
@@ -115,24 +121,25 @@ namespace glabels
 		///
 		/// Read next record
 		///
-		Record* Text::readNextRecord()
+		Record Text::readNextRecord()
 		{
 			QStringList values = parseLine();
 			if ( !values.isEmpty() )
 			{
-				auto* record = new Record();
+				Record record;
 
 				int iField = 0;
-				foreach ( QString value, values )
+				for ( const auto& value : values )
 				{
-					(*record)[ keyFromIndex(iField) ] = value;
+					record[ keyFromIndex(iField) ] = value;
 					iField++;
 				}
 				mNFieldsMax = std::max( mNFieldsMax, iField );
 
 				return record;
 			}
-			return nullptr;
+
+			return NullRecord();
 		}
 
 

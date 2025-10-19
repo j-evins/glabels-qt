@@ -41,7 +41,7 @@ namespace glabels
 		public:
 			None();
 			None( const None* merge );
-			~None() override = default;
+			virtual ~None() = default;
 
 
 			/////////////////////////////////
@@ -67,7 +67,7 @@ namespace glabels
 		protected:
 			void open() override;
 			void close() override;
-			Record* readNextRecord() override;
+			Record readNextRecord() override;
 		
 		};
 

@@ -313,7 +313,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, nullptr, variables );
+					printLabel( painter, merge::NullRecord(), variables );
 
 					painter->restore();  // From before clip
 
@@ -346,7 +346,7 @@ namespace glabels
 			int iItem = mStartItem;
 			int iCurrentPage = 0;
 
-			const QList<merge::Record*> records = mMerge->selectedRecords();
+			auto records = mMerge->selectedRecords();
 			int iRecord = 0;
 			int nRecords = records.size();
 
@@ -421,7 +421,7 @@ namespace glabels
 			int iItem = mStartItem;
 			int iCurrentPage = 0;
 
-			const QList<merge::Record*> records = mMerge->selectedRecords();
+			auto records = mMerge->selectedRecords();
 			int iRecord = 0;
 			int nRecords = records.size();
 
@@ -570,9 +570,9 @@ namespace glabels
 		}
 
 	
-		void PageRenderer::printLabel( QPainter*      painter,
-		                               merge::Record* record,
-		                               Variables&     variables ) const
+		void PageRenderer::printLabel( QPainter*            painter,
+		                               const merge::Record& record,
+		                               Variables&           variables ) const
 		{
 			painter->save();
 

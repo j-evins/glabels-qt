@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "LabelEditor.h"
 
 #include "Cursors.h"
@@ -38,10 +39,10 @@
 #include "model/Markup.h"
 #include "model/Settings.h"
 
+#include <QDebug>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QtMath>
-#include <QtDebug>
 
 
 namespace glabels
@@ -1243,7 +1244,7 @@ namespace glabels
 	void
 	LabelEditor::drawObjectsLayer( QPainter* painter )
 	{
-		mModel->draw( painter, true, nullptr, model::Variables() );
+		mModel->draw( painter, true, merge::NullRecord(), model::Variables() );
 	}
 
 
