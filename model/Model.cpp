@@ -1454,8 +1454,7 @@ namespace glabels
 			{
 				QClipboard *clipboard = QApplication::clipboard();
 		
-				QByteArray buffer;
-				XmlLabelCreator::serializeObjects( getSelection(), this, buffer );
+				auto buffer = XmlLabelCreator::serializeObjects( getSelection(), this );
 
 				auto *mimeData = new QMimeData;
 				mimeData->setData( MIME_TYPE, buffer );

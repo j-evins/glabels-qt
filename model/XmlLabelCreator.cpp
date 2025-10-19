@@ -82,10 +82,9 @@ namespace glabels
 		}
 
 
-		void
+		QByteArray
 		XmlLabelCreator::serializeObjects( const QList<ModelObject*>& objects,
-		                                   const Model*               model,
-		                                   QByteArray&                buffer )
+		                                   const Model*               model )
 		{
 			QDomDocument doc;
 
@@ -99,7 +98,7 @@ namespace glabels
 			createDataNode( root, model, objects );
 			createObjectsNode( root, model, objects, false );
 
-			buffer = doc.toByteArray( 2 );
+			return doc.toByteArray( 2 );
 		}
 
 

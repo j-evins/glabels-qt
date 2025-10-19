@@ -82,11 +82,11 @@ void TestXmlLabel::serializeDeserialize()
 	// Empty object list
 	//
 	QCOMPARE( objects.count(), 0 );
-	XmlLabelCreator::serializeObjects( objects, model, buffer );
+	buffer = XmlLabelCreator::serializeObjects( objects, model );
 	outObjects = XmlLabelParser::deserializeObjects( buffer, model );
 	QCOMPARE( objects.count(), outObjects.count() );
 	QCOMPARE( objects, outObjects );
-	XmlLabelCreator::serializeObjects( outObjects, model, outBuffer );
+	outBuffer = XmlLabelCreator::serializeObjects( outObjects, model );
 	QCOMPARE( buffer, outBuffer );
 
 	//
@@ -119,7 +119,7 @@ void TestXmlLabel::serializeDeserialize()
 	QCOMPARE( objects.count(), 11 );
 
 	buffer.clear();
-	XmlLabelCreator::serializeObjects( objects, model, buffer );
+	buffer = XmlLabelCreator::serializeObjects( objects, model );
 
 	QVERIFY( svgRelative.remove() ); // Delete to make sure it's not read from file on parse
 
@@ -195,7 +195,7 @@ void TestXmlLabel::serializeDeserialize()
 	}
 
 	outBuffer.clear();
-	XmlLabelCreator::serializeObjects( outObjects, model, outBuffer );
+	outBuffer = XmlLabelCreator::serializeObjects( outObjects, model );
 
 	QCOMPARE( buffer, outBuffer );
 
