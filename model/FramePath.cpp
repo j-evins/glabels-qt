@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FramePath.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -132,22 +135,29 @@ namespace glabels
 		}
 
 
+		// Debugging support
+		void FramePath::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FramePath{ "
+			              << id() << "," 
+			              << path() << "," 
+			              << xWaste() << "," 
+			              << yWaste() << "," 
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+
 	}
-}
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FramePath& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FramePath{ "
-	              << frame.id() << "," 
-	              << frame.path() << "," 
-	              << frame.xWaste() << "," 
-	              << frame.yWaste() << "," 
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
 }

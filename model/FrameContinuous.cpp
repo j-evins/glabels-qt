@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameContinuous.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -137,24 +140,31 @@ namespace glabels
 		}
 
 
+		// Debugging support
+		void FrameContinuous::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameContinuous{ "
+			              << id() << "," 
+			              << w() << "," 
+			              << h() << "," 
+			              << hMin() << "," 
+			              << hMax() << "," 
+			              << hDefault() << ","
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+
 	}
-}
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FrameContinuous& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameContinuous{ "
-	              << frame.id() << "," 
-	              << frame.w() << "," 
-	              << frame.h() << "," 
-	              << frame.hMin() << "," 
-	              << frame.hMax() << "," 
-	              << frame.hDefault() << ","
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
 }

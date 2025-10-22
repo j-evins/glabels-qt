@@ -22,24 +22,31 @@
 #define model_Markup_h
 
 
-#include "Frame.h"
+#include "Distance.h"
 
 #include <QPainterPath>
+
+#include <memory>
 
 
 namespace glabels
 {
 	namespace model
 	{
+		class Frame; // Forward reference
+
 
 		class Markup
 		{
 		public:
 			virtual ~Markup() = default;
 
-			virtual Markup* dup() const = 0;
+			virtual std::unique_ptr<Markup> clone() const = 0;
 
-			virtual QPainterPath path( const Frame* frame ) const;
+			virtual QPainterPath path( const Frame& frame ) const;
+
+                        // Debugging support
+			virtual void print( QDebug& dbg ) const = 0;
 
 		protected:
 			QPainterPath mPath;
@@ -54,12 +61,15 @@ namespace glabels
 			MarkupMargin( const Distance& xSize,
 			              const Distance& ySize );
 
-			QPainterPath path( const Frame* frame ) const override;
+			QPainterPath path( const Frame& frame ) const override;
 
 			Distance xSize() const;
 			Distance ySize() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mXSize;
@@ -80,7 +90,10 @@ namespace glabels
 			Distance x2() const;
 			Distance y2() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX1;
@@ -105,7 +118,10 @@ namespace glabels
 			Distance h() const;
 			Distance r() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX1;
@@ -129,7 +145,10 @@ namespace glabels
 			Distance w() const;
 			Distance h() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX1;
@@ -150,7 +169,10 @@ namespace glabels
 			Distance y0() const;
 			Distance r() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX0;
@@ -161,6 +183,10 @@ namespace glabels
 
 	}
 }
+
+
+// Debugging support
+QDebug operator<<( QDebug dbg, const glabels::model::Markup& markup );
 
 
 #endif // model_Markup_h

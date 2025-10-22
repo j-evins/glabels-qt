@@ -57,6 +57,9 @@ namespace glabels
 			QPainterPath marginPath( const Distance& xSize,
 			                         const Distance& ySize ) const override;
 
+			// Debugging support
+			void print( QDebug& dbg ) const override;
+
 
 		private:
 			Distance mR;
@@ -69,10 +72,6 @@ namespace glabels
 
 	}
 }
-
-
-// Debugging support
-QDebug operator<<( QDebug dbg, const glabels::model::FrameRound& frame );
 
 
 #endif // model_FrameRound_h

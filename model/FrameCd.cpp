@@ -18,12 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameCd.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels
@@ -207,24 +208,33 @@ namespace glabels
 			return path;
 		}
 
+		
+		// Debugging support
+		void FrameCd::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameCd{ "
+			              << id() << "," 
+			              << r1() << "," 
+			              << r2() << "," 
+			              << waste() << "," 
+			              << w() << "," 
+			              << h() << ","
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
 	}
 }
 
 
-QDebug operator<<( QDebug dbg, const glabels::model::FrameCd& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameCd{ "
-	              << frame.id() << "," 
-	              << frame.r1() << "," 
-	              << frame.r2() << "," 
-	              << frame.waste() << "," 
-	              << frame.w() << "," 
-	              << frame.h() << ","
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
-}

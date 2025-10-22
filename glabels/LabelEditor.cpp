@@ -1228,9 +1228,9 @@ namespace glabels
 				painter->translate( -mModel->frame()->w().pt(), 0 );
 			}
 
-			foreach( model::Markup* markup, mModel->frame()->markups() )
+			for( auto& markup : mModel->frame()->markups() )
 			{
-				painter->drawPath( markup->path( mModel->frame() ) );
+				painter->drawPath( markup->path( *mModel->frame() ) );
 			}
 
 			painter->restore();

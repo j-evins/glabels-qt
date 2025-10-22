@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TemplateDesigner.h"
 
 #include "SelectProductDialog.h"
@@ -34,14 +35,16 @@
 #include "model/PageRenderer.h"
 #include "model/Settings.h"
 
+#include <QDebug>
 #include <QMessageBox>
 #include <QPrintDialog>
 #include <QPrinter>
 #include <QVBoxLayout>
-#include <QtDebug>
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
+
 
 namespace glabels
 {
@@ -393,7 +396,7 @@ namespace glabels
 			model::Distance yMargin( field( "rect.yMargin" ).toDouble(), units );
 
 			frame = new model::FrameRect( w, h, r, xWaste, yWaste );
-			frame->addMarkup( new model::MarkupMargin( xMargin, yMargin ) );
+			frame->addMarkup( model::MarkupMargin( xMargin, yMargin ) );
 		}
 		else if ( field( "shape.round" ).toBool() )
 		{
@@ -402,7 +405,7 @@ namespace glabels
 			model::Distance margin( field( "round.margin" ).toDouble(), units );
 
 			frame = new model::FrameRound( r, waste );
-			frame->addMarkup( new model::MarkupMargin( margin ) );
+			frame->addMarkup( model::MarkupMargin( margin ) );
 		}
 		else if ( field( "shape.ellipse" ).toBool() )
 		{
@@ -412,7 +415,7 @@ namespace glabels
 			model::Distance margin( field( "ellipse.margin" ).toDouble(), units );
 
 			frame = new model::FrameEllipse( w, h, waste );
-			frame->addMarkup( new model::MarkupMargin( margin ) );
+			frame->addMarkup( model::MarkupMargin( margin ) );
 		}
 		else
 		{
@@ -424,7 +427,7 @@ namespace glabels
 			model::Distance margin( field( "cd.margin" ).toDouble(), units );
 
 			frame = new model::FrameCd( r1, r2, xClip, yClip, waste );
-			frame->addMarkup( new model::MarkupMargin( margin ) );
+			frame->addMarkup( model::MarkupMargin( margin ) );
 		}
 		t.addFrame( frame );
 
@@ -550,9 +553,9 @@ namespace glabels
 			setField( "cd.waste", frameCd->waste().inUnits( units ) );
 		}
 
-		foreach( auto markup, frame->markups() )
+		for( auto& markup : frame->markups() )
 		{
-			if ( auto markupMargin = dynamic_cast<const model::MarkupMargin*>( markup ) )
+			if ( auto markupMargin = dynamic_cast<const model::MarkupMargin*>( markup.get() ) )
 			{
 				setField( "rect.xMargin",   markupMargin->xSize().inUnits( units ) );
 				setField( "rect.yMargin",   markupMargin->ySize().inUnits( units ) );
@@ -565,28 +568,30 @@ namespace glabels
 		auto layouts = frame->layouts();
 		if ( layouts.size() == 1 )
 		{
-			setField( "oneLayout.nx", layouts[0].nx() );
-			setField( "oneLayout.ny", layouts[0].ny() );
-			setField( "oneLayout.x0", layouts[0].x0().inUnits( units ) );
-			setField( "oneLayout.y0", layouts[0].y0().inUnits( units ) );
-			setField( "oneLayout.dx", layouts[0].dx().inUnits( units ) );
-			setField( "oneLayout.dy", layouts[0].dy().inUnits( units ) );
+			setField( "oneLayout.nx", layouts.front().nx() );
+			setField( "oneLayout.ny", layouts.front().ny() );
+			setField( "oneLayout.x0", layouts.front().x0().inUnits( units ) );
+			setField( "oneLayout.y0", layouts.front().y0().inUnits( units ) );
+			setField( "oneLayout.dx", layouts.front().dx().inUnits( units ) );
+			setField( "oneLayout.dy", layouts.front().dy().inUnits( units ) );
 		}
 		else if ( layouts.size() > 1 )
 		{
-			setField( "twoLayout.nx1", layouts[0].nx() );
-			setField( "twoLayout.ny1", layouts[0].ny() );
-			setField( "twoLayout.x01", layouts[0].x0().inUnits( units ) );
-			setField( "twoLayout.y01", layouts[0].y0().inUnits( units ) );
-			setField( "twoLayout.dx1", layouts[0].dx().inUnits( units ) );
-			setField( "twoLayout.dy1", layouts[0].dy().inUnits( units ) );
+			auto it = layouts.begin();
+			setField( "twoLayout.nx1", it->nx() );
+			setField( "twoLayout.ny1", it->ny() );
+			setField( "twoLayout.x01", it->x0().inUnits( units ) );
+			setField( "twoLayout.y01", it->y0().inUnits( units ) );
+			setField( "twoLayout.dx1", it->dx().inUnits( units ) );
+			setField( "twoLayout.dy1", it->dy().inUnits( units ) );
 
-			setField( "twoLayout.nx2", layouts[1].nx() );
-			setField( "twoLayout.ny2", layouts[1].ny() );
-			setField( "twoLayout.x02", layouts[1].x0().inUnits( units ) );
-			setField( "twoLayout.y02", layouts[1].y0().inUnits( units ) );
-			setField( "twoLayout.dx2", layouts[1].dx().inUnits( units ) );
-			setField( "twoLayout.dy2", layouts[1].dy().inUnits( units ) );
+			std::advance( it, 1 );
+			setField( "twoLayout.nx2", it->nx() );
+			setField( "twoLayout.ny2", it->ny() );
+			setField( "twoLayout.x02", it->x0().inUnits( units ) );
+			setField( "twoLayout.y02", it->y0().inUnits( units ) );
+			setField( "twoLayout.dx2", it->dx().inUnits( units ) );
+			setField( "twoLayout.dy2", it->dy().inUnits( units ) );
 		}
 	}
 	

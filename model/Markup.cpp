@@ -18,7 +18,10 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "Markup.h"
+
+#include "Frame.h"
 
 
 namespace glabels
@@ -26,7 +29,7 @@ namespace glabels
 	namespace model
 	{
 
-		QPainterPath Markup::path( const Frame* frame ) const
+		QPainterPath Markup::path( const Frame& frame ) const
 		{
 			// Use cached path -- default does not depend on frame size
 			return mPath;
@@ -46,16 +49,16 @@ namespace glabels
 		}
 	
 
-		QPainterPath MarkupMargin::path( const Frame* frame ) const
+		QPainterPath MarkupMargin::path( const Frame& frame ) const
 		{
 			// Re-calculate path -- frame size may have changed
-			return frame->marginPath( mXSize, mYSize );
+			return frame.marginPath( mXSize, mYSize );
 		}
 
 	
-		Markup* MarkupMargin::dup() const
+		std::unique_ptr<Markup> MarkupMargin::clone() const
 		{
-			return new MarkupMargin( mXSize, mYSize );
+			return std::make_unique<MarkupMargin>( mXSize, mYSize );
 		}
 
 
@@ -71,6 +74,14 @@ namespace glabels
 		}
 
 
+		void MarkupMargin::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupMargin{ "
+			              << mXSize << "," << mYSize
+			              << " }";
+		}
+
+
 		MarkupLine::MarkupLine( const Distance& x1,
 		                        const Distance& y1,
 		                        const Distance& x2,
@@ -82,9 +93,9 @@ namespace glabels
 		}
 
 
-		Markup* MarkupLine::dup() const
+		std::unique_ptr<Markup> MarkupLine::clone() const
 		{
-			return new MarkupLine( mX1, mY1, mX2, mY2 );
+			return std::make_unique<MarkupLine>( mX1, mY1, mX2, mY2 );
 		}
 
 	
@@ -112,6 +123,15 @@ namespace glabels
 		}
 
 
+		void MarkupLine::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupLine{ "
+			              << mX1 << "," << mY1 << ","
+			              << mX2 << "," << mY2
+			              << " }";
+		}
+
+
 		MarkupRect::MarkupRect( const Distance& x1,
 		                        const Distance& y1,
 		                        const Distance& w,
@@ -123,9 +143,9 @@ namespace glabels
 		}
 
 
-		Markup* MarkupRect::dup() const
+		std::unique_ptr<Markup> MarkupRect::clone() const
 		{
-			return new MarkupRect( mX1, mY1, mW, mH, mR );
+			return std::make_unique<MarkupRect>( mX1, mY1, mW, mH, mR );
 		}
 	
 
@@ -159,6 +179,16 @@ namespace glabels
 		}
 
 	
+		void MarkupRect::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupRect{ "
+			              << mX1 << "," << mY1 << ","
+			              << mW << "," << mH << ","
+			              << mR
+			              << " }";
+		}
+
+
 		MarkupEllipse::MarkupEllipse( const Distance& x1,
 		                              const Distance& y1,
 		                              const Distance& w,
@@ -169,9 +199,9 @@ namespace glabels
 		}
 
 
-		Markup* MarkupEllipse::dup() const
+		std::unique_ptr<Markup> MarkupEllipse::clone() const
 		{
-			return new MarkupEllipse( mX1, mY1, mW, mH );
+			return std::make_unique<MarkupEllipse>( mX1, mY1, mW, mH );
 		}
 
 	
@@ -199,6 +229,15 @@ namespace glabels
 		}
 
 
+		void MarkupEllipse::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupEllipse{ "
+			              << mX1 << "," << mY1 << ","
+			              << mW << "," << mH
+			              << " }";
+		}
+
+
 		MarkupCircle::MarkupCircle( const Distance& x0,
 		                            const Distance& y0,
 		                            const Distance& r )
@@ -207,9 +246,9 @@ namespace glabels
 			mPath.addEllipse( (x0-r).pt(), (y0-r).pt(), 2*r.pt(), 2*r.pt() );
 		}
 
-		Markup* MarkupCircle::dup() const
+		std::unique_ptr<Markup> MarkupCircle::clone() const
 		{
-			return new MarkupCircle( mX0, mY0, mR );
+			return std::make_unique<MarkupCircle>( mX0, mY0, mR );
 		}
 
 
@@ -230,5 +269,25 @@ namespace glabels
 			return mR;
 		}
 
+
+		void MarkupCircle::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupCircle{ "
+			              << mX0 << "," << mY0 << ","
+			              << mR
+			              << " }";
+		}
+
 	}
 }
+
+
+QDebug operator<<( QDebug dbg, const glabels::model::Markup& markup )
+{
+	QDebugStateSaver saver(dbg);
+
+	markup.print( dbg );
+
+	return dbg;
+}
+	

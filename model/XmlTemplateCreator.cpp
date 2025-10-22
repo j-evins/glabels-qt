@@ -263,25 +263,25 @@ namespace glabels
 
 		void XmlTemplateCreator::createLabelNodeCommon( QDomElement &node, const Frame *frame )
 		{
-			foreach ( Markup* markup, frame->markups() )
+			for ( auto& markup : frame->markups() )
 			{
-				if ( auto* markupMargin = dynamic_cast<MarkupMargin*>(markup) )
+				if ( auto* markupMargin = dynamic_cast<MarkupMargin*>(markup.get()) )
 				{
 					createMarkupMarginNode( node, markupMargin );
 				}
-				else if ( auto* markupLine = dynamic_cast<MarkupLine*>(markup) )
+				else if ( auto* markupLine = dynamic_cast<MarkupLine*>(markup.get()) )
 				{
 					createMarkupLineNode( node, markupLine );
 				}
-				else if ( auto* markupCircle = dynamic_cast<MarkupCircle*>(markup) )
+				else if ( auto* markupCircle = dynamic_cast<MarkupCircle*>(markup.get()) )
 				{
 					createMarkupCircleNode( node, markupCircle );
 				}
-				else if ( auto* markupRect = dynamic_cast<MarkupRect*>(markup) )
+				else if ( auto* markupRect = dynamic_cast<MarkupRect*>(markup.get()) )
 				{
 					createMarkupRectNode( node, markupRect );
 				}
-				else if ( auto* markupEllipse = dynamic_cast<MarkupEllipse*>(markup) )
+				else if ( auto* markupEllipse = dynamic_cast<MarkupEllipse*>(markup.get()) )
 				{
 					createMarkupEllipseNode( node, markupEllipse );
 				}

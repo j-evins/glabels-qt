@@ -476,11 +476,11 @@ namespace glabels
 
 			if ( size > Distance(0) )
 			{
-				frame->addMarkup( new MarkupMargin( size ) );
+				frame->addMarkup( MarkupMargin( size ) );
 			}
 			else
 			{
-				frame->addMarkup( new MarkupMargin( xSize, ySize ) );
+				frame->addMarkup( MarkupMargin( xSize, ySize ) );
 			}
 		}
 
@@ -492,7 +492,7 @@ namespace glabels
 			Distance x2 = XmlUtil::getLengthAttr( node, "x2", Distance(0) );
 			Distance y2 = XmlUtil::getLengthAttr( node, "y2", Distance(0) );
 
-			frame->addMarkup( new MarkupLine( x1, y1, x2, y2 ) );
+			frame->addMarkup( MarkupLine( x1, y1, x2, y2 ) );
 		}
 
 
@@ -502,7 +502,7 @@ namespace glabels
 			Distance y0 = XmlUtil::getLengthAttr( node, "y0", Distance(0) );
 			Distance r  = XmlUtil::getLengthAttr( node, "radius", Distance(0) );
 
-			frame->addMarkup( new MarkupCircle( x0, y0, r ) );
+			frame->addMarkup( MarkupCircle( x0, y0, r ) );
 		}
 
 
@@ -514,7 +514,7 @@ namespace glabels
 			Distance h  = XmlUtil::getLengthAttr( node, "h", Distance(0) );
 			Distance r  = XmlUtil::getLengthAttr( node, "r", Distance(0) );
 
-			frame->addMarkup( new MarkupRect( x1, y1, w, h, r ) );
+			frame->addMarkup( MarkupRect( x1, y1, w, h, r ) );
 		}
 
 
@@ -525,7 +525,7 @@ namespace glabels
 			Distance w  = XmlUtil::getLengthAttr( node, "w", Distance(0) );
 			Distance h  = XmlUtil::getLengthAttr( node, "h", Distance(0) );
 
-			frame->addMarkup( new MarkupEllipse( x1, y1, w, h ) );
+			frame->addMarkup( MarkupEllipse( x1, y1, w, h ) );
 		}
 
 

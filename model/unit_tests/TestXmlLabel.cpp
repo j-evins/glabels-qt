@@ -511,18 +511,18 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( frameRect->yWaste().in(), 0.0625 );
 
 	QCOMPARE( model->frame()->markups().size(), 1 );
-	MarkupMargin* markupMargin = dynamic_cast<MarkupMargin*>( model->frame()->markups()[0] );
+	MarkupMargin* markupMargin = dynamic_cast<MarkupMargin*>( model->frame()->markups().front().get() );
 	QVERIFY( markupMargin );
 	QCOMPARE( markupMargin->xSize().in(), 0.0625 );
 	QCOMPARE( markupMargin->ySize().in(), 0.0625 );
 
 	QCOMPARE( model->frame()->layouts().size(), 1 );
-	QCOMPARE( model->frame()->layouts()[0].nx(), 2 );
-	QCOMPARE( model->frame()->layouts()[0].ny(), 4 );
-	QCOMPARE( model->frame()->layouts()[0].x0().in(), 0.6875 );
-	QCOMPARE( model->frame()->layouts()[0].y0().in(), 0.583333 );
-	QCOMPARE( model->frame()->layouts()[0].dx().in(), 3.75 );
-	QCOMPARE( model->frame()->layouts()[0].dy().in(), 2.5 );
+	QCOMPARE( model->frame()->layouts().front().nx(), 2 );
+	QCOMPARE( model->frame()->layouts().front().ny(), 4 );
+	QCOMPARE( model->frame()->layouts().front().x0().in(), 0.6875 );
+	QCOMPARE( model->frame()->layouts().front().y0().in(), 0.583333 );
+	QCOMPARE( model->frame()->layouts().front().dx().in(), 3.75 );
+	QCOMPARE( model->frame()->layouts().front().dy().in(), 2.5 );
 
 	QCOMPARE( model->rotate(), false );
 
