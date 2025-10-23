@@ -42,9 +42,9 @@ int main( int argc, char **argv )
 {
 	QApplication app( argc, argv );
 
-	QCoreApplication::setOrganizationName( "glabels.org" );
-	QCoreApplication::setOrganizationDomain( "glabels.org" );
-	QCoreApplication::setApplicationName( "glabels-qt" );
+	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+	QCoreApplication::setOrganizationDomain( glabels::model::Version::ORGANIZATION_DOMAIN );
+	QCoreApplication::setApplicationName( glabels::model::Version::APPLICATION_NAME );
 	QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
 
 	QIcon::setThemeName( "glabels-flat" );
@@ -90,6 +90,7 @@ int main( int argc, char **argv )
 	//
 	// Initialize subsystems
 	//
+	glabels::model::Settings::init();
 	glabels::model::Db::init();
 	glabels::merge::Factory::init();
 	glabels::barcode::Backends::init();

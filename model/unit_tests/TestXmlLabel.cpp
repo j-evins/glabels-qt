@@ -26,12 +26,16 @@
 #include "model/XmlLabelParser.h"
 
 #include "barcode/Backends.h"
+
+#include "model/Db.h"
 #include "model/ColorNode.h"
 #include "model/FrameRect.h"
 #include "model/Markup.h"
 #include "model/Model.h"
 #include "model/PageRenderer.h"
+#include "model/Settings.h"
 #include "model/Size.h"
+#include "model/Version.h"
 
 #include "model/ModelBarcodeObject.h"
 #include "model/ModelBoxObject.h"
@@ -40,7 +44,6 @@
 #include "model/ModelImageObject.h"
 #include "model/ModelTextObject.h"
 
-#include "model/Db.h"
 #include "merge/Factory.h"
 #include "merge/Merge.h"
 #include "merge/TextCsvKeys.h"
@@ -65,6 +68,9 @@ namespace
 
 void TestXmlLabel::initTestCase()
 {
+	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+
+	Settings::init();
 	Db::init();
 	Factory::init();
 	Backends::init();

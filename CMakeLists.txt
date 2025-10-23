@@ -14,6 +14,10 @@ set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/"
 #=======================================
 # Version Information
 #=======================================
+set (ORGANIZATION_NAME "glabels.org")
+set (ORGANIZATION_DOMAIN "glabels.org")
+set (APPLICATION_NAME "glabels-qt")
+
 set (WEBSITE  "glabels.org")
 set (BUG_WEBSITE  "https://github.com/j-evins/glabels-qt/issues")
 

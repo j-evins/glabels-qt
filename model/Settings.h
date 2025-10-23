@@ -28,6 +28,8 @@
 #include <QSettings>
 #include <QStringList>
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -53,6 +55,7 @@ namespace glabels
 			Settings() = default;
 
 		public:
+			static void init();
 			static Settings* instance();
 
 	
@@ -110,7 +113,7 @@ namespace glabels
 			
 			
 		private:
-			static Settings mInstance;
+			static std::unique_ptr<Settings> mInstance;
 			static const int mMaxRecentFiles{5};
 
 		};

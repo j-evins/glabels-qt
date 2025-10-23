@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestModel.h"
 
 #include "model/Model.h"
@@ -28,6 +29,8 @@
 #include "model/FrameRect.h"
 #include "model/FrameContinuous.h"
 #include "model/Region.h"
+#include "model/Settings.h"
+#include "model/Version.h"
 
 #include "merge/Factory.h"
 #include "merge/Merge.h"
@@ -35,6 +38,7 @@
 #include "merge/TextCsv.h"
 #include "merge/TextCsvKeys.h"
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QRegularExpression>
 
@@ -47,6 +51,9 @@ using namespace glabels::merge;
 
 void TestModel::initTestCase()
 {
+	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+
+	Settings::init();
 	Factory::init();
 }
 
