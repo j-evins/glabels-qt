@@ -48,9 +48,9 @@ namespace glabels
 		}
 
 
-		Frame* FrameRect::dup() const
+		std::unique_ptr<Frame> FrameRect::clone() const
 		{
-			return new FrameRect( *this );
+			return std::make_unique<FrameRect>( *this );
 		}
 
 
@@ -102,9 +102,9 @@ namespace glabels
 		}
 
 
-		bool FrameRect::isSimilarTo( Frame* other ) const
+		bool FrameRect::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherRect = dynamic_cast<FrameRect*>(other) )
+			if ( auto *otherRect = dynamic_cast<const FrameRect*>(&other) )
 			{
 				if ( (fabs( mW - otherRect->mW ) <= EPSILON) &&
 				     (fabs( mH - otherRect->mH ) <= EPSILON) )

@@ -87,6 +87,7 @@ namespace glabels
 		double itemXWaste();
 		double itemYWaste();
 		model::Template buildTemplate();
+		void addLayouts( model::Frame& frame );
 		void printTestSheet();
 		void loadFromTemplate( const model::Template& tmplate );
 		bool isBasedOnCopy();

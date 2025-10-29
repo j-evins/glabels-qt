@@ -665,7 +665,7 @@ namespace glabels
 
 			XmlTemplateParser parser;
 
-			foreach ( QString fileName, dir.entryList( filters, QDir::Files ) )
+			for ( auto& fileName : dir.entryList( filters, QDir::Files ) )
 			{
 				auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
 				for ( auto& tmplate : list )
@@ -703,7 +703,7 @@ namespace glabels
 
 			XmlTemplateParser parser;
 
-			foreach ( QString fileName, dir.entryList( filters, QDir::Files ) )
+			for ( auto& fileName : dir.entryList( filters, QDir::Files ) )
 			{
 				auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
 				for ( auto& tmplate : list )

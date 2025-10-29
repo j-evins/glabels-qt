@@ -94,9 +94,9 @@ namespace glabels
 		}
 
 
-		Frame* FrameCd::dup() const
+		std::unique_ptr<Frame> FrameCd::clone() const
 		{
-			return new FrameCd( *this );
+			return std::make_unique<FrameCd>( *this );
 		}
 	
 
@@ -146,9 +146,9 @@ namespace glabels
 		}
 
 
-		bool FrameCd::isSimilarTo( Frame* other ) const
+		bool FrameCd::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherCd = dynamic_cast<FrameCd*>(other) )
+			if ( auto *otherCd = dynamic_cast<const FrameCd*>(&other) )
 			{
 				if ( (fabs( mW  - otherCd->mW )  <= EPSILON) &&
 				     (fabs( mH  - otherCd->mH )  <= EPSILON) &&

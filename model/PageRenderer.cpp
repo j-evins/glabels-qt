@@ -501,7 +501,7 @@ namespace glabels
 				Distance w = mModel->frame()->w();
 				Distance h = mModel->frame()->h();
 
-				foreach ( const Layout& layout, mModel->frame()->layouts() )
+				for ( auto& layout : mModel->frame()->layouts() )
 				{
 					Distance xMin = layout.x0();
 					Distance yMin = layout.y0();

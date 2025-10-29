@@ -49,9 +49,9 @@ namespace glabels
 		}
 
 	
-		Frame* FramePath::dup() const
+		std::unique_ptr<Frame> FramePath::clone() const
 		{
-			return new FramePath( *this );
+			return std::make_unique<FramePath>( *this );
 		}
 
 
@@ -103,9 +103,9 @@ namespace glabels
 		}
 
 
-		bool FramePath::isSimilarTo( Frame* other ) const
+		bool FramePath::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherPath = dynamic_cast<FramePath*>(other) )
+			if ( auto *otherPath = dynamic_cast<const FramePath*>(&other) )
 			{
 				if ( mPath == otherPath->mPath )
 				{

@@ -131,10 +131,8 @@ namespace glabels
 		painter.setBrush( brush );
 		painter.setPen( pen );
 
-		model::Frame *frame = tmplate.frames().first();
-		QVector<model::Point> origins = frame->getOrigins();
-
-		foreach ( model::Point p0, origins )
+		auto frame = tmplate.frame();
+		for ( model::Point p0 : frame->getOrigins() )
 		{
 			drawLabelOutline( painter, frame, p0 );
 		}

@@ -101,9 +101,9 @@ namespace glabels
 	///
 	void PropertiesView::onLabelSizeChanged()
 	{
-		auto  tmplate   = mModel->tmplate();
-		auto* frame     = tmplate.frames().first();
-		bool  isRotated = mModel->rotate();
+		auto tmplate   = mModel->tmplate();
+		auto frame     = tmplate.frame();
+		bool isRotated = mModel->rotate();
 
 		preview->setTemplate( tmplate );
 		preview->setShowArrow( true );
@@ -209,7 +209,7 @@ namespace glabels
 	void PropertiesView::onOrientationActivated()
 	{
 		auto tmplate = mModel->tmplate();
-		const model::Frame*    frame   = tmplate.frames().first();
+		auto frame   = tmplate.frame();
 
 		// Make sure index actually changed.
 		int index = orientationCombo->currentIndex();
@@ -251,7 +251,7 @@ namespace glabels
 			mModel->setTmplate( tmplate );
 
 			// Don't rotate circular or round labels
-			const model::Frame *frame = tmplate.frames().first();
+			auto frame = tmplate.frame();
 			if ( frame->w() == frame->h() )
 			{
 				mModel->setRotate( false );

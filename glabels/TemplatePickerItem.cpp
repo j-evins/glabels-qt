@@ -55,7 +55,7 @@ namespace glabels
 	///
 	void TemplatePickerItem::setMode( QListView::ViewMode mode )
 	{
-		auto* frame = mTmplate.frames().first();
+		auto frame = mTmplate.frame();
 
 		switch ( mode )
 		{

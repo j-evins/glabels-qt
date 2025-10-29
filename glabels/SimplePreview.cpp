@@ -188,9 +188,9 @@ namespace glabels
 	///
 	void SimplePreview::drawLabels()
 	{
-		model::Frame *frame = mTmplate.frames().first();
+		auto frame = mTmplate.frame();
 
-		foreach (model::Point origin, frame->getOrigins() )
+		for ( model::Point origin : frame->getOrigins() )
 		{
 			drawLabel( origin.x(), origin.y(), frame->path() );
 		}
@@ -223,7 +223,7 @@ namespace glabels
 	///
 	void SimplePreview::drawArrow()
 	{
-		model::Frame *frame = mTmplate.frames().first();
+		auto frame = mTmplate.frame();
 
 		model::Distance w = frame->w();
 		model::Distance h = frame->h();

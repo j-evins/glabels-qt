@@ -41,7 +41,7 @@ namespace glabels
 
 			FrameRound( const FrameRound &other ) = default;
 
-			Frame *dup() const override;
+			std::unique_ptr<Frame> clone() const override;
 
 			Distance r() const;
 			Distance waste() const;
@@ -50,7 +50,7 @@ namespace glabels
 			Distance h() const override;
 
 			QString sizeDescription( const Units& units ) const override;
-			bool isSimilarTo( Frame* other ) const override;
+			bool isSimilarTo( const Frame& other ) const override;
 
 			const QPainterPath& path() const override;
 			const QPainterPath& clipPath() const override;

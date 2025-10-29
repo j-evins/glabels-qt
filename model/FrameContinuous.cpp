@@ -43,9 +43,9 @@ namespace glabels
 		}
 
 	
-		Frame* FrameContinuous::dup() const
+		std::unique_ptr<Frame> FrameContinuous::clone() const
 		{
-			return new FrameContinuous( *this );
+			return std::make_unique<FrameContinuous>( *this );
 		}
 
 
@@ -79,11 +79,12 @@ namespace glabels
 		}
 
 
-		void FrameContinuous::setH( const Distance& h )
+		bool FrameContinuous::setH( const Distance& h )
 		{
 			mH = h;
 			mPath = QPainterPath(); // clear path
 			mPath.addRect( 0, 0, mW.pt(), mH.pt() );
+			return true;
 		}
 		
 
@@ -102,9 +103,9 @@ namespace glabels
 		}
 
 
-		bool FrameContinuous::isSimilarTo( Frame* other ) const
+		bool FrameContinuous::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherContinuous = dynamic_cast<FrameContinuous*>(other) )
+			if ( auto *otherContinuous = dynamic_cast<const FrameContinuous*>(&other) )
 			{
 				if ( fabs( mW - otherContinuous->mW ) <= EPSILON )
 				{

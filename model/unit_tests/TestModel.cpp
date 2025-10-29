@@ -75,8 +75,8 @@ void TestModel::model()
 	QCOMPARE( model.h(), Distance( 0 ) );
 
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 100, 400 );
-	FrameRect* frame = new FrameRect( 100, 200, 5, 0, 0, "rect1" );
-	QVERIFY( frame->w() != frame->h() );
+	FrameRect frame( 100, 200, 5, 0, 0, "rect1" );
+	QVERIFY( frame.w() != frame.h() );
 	tmplate.addFrame( frame );
 	model.setTmplate( tmplate ); // Copies
 	QCOMPARE( model.tmplate().brand(), QString( "Test Brand" ) );
@@ -87,11 +87,11 @@ void TestModel::model()
 	QCOMPARE( model.tmplate().pageHeight(), Distance( 400 ) );
 	QVERIFY( model.isModified() );
 
-	QVERIFY( model.frame()->id() == frame->id() );
+	QVERIFY( model.frame()->id() == frame.id() );
 	QCOMPARE( model.w(), Distance( 100 ) );
 	QCOMPARE( model.h(), Distance( 200 ) );
-	QCOMPARE( model.w(), frame->w() );
-	QCOMPARE( model.h(), frame->h() );
+	QCOMPARE( model.w(), frame.w() );
+	QCOMPARE( model.h(), frame.h() );
 
 	model.clearModified();
 	QVERIFY( !model.isModified() );
@@ -104,8 +104,8 @@ void TestModel::model()
 	QVERIFY( model.rotate() );
 	QVERIFY( model.isModified() );
 
-	QCOMPARE( model.w(), frame->h() );
-	QCOMPARE( model.h(), frame->w() );
+	QCOMPARE( model.w(), frame.h() );
+	QCOMPARE( model.h(), frame.w() );
 
 	model.setRotate( false );
 	QVERIFY( !model.rotate() );
@@ -114,20 +114,20 @@ void TestModel::model()
 	QVERIFY( !model.isModified() );
 
 	model.setH( 300 ); // Default does nothing
-	QCOMPARE( model.h(), Distance( 200 ) );
-	QVERIFY( model.isModified() ); // Set anyway
+	QCOMPARE( model.h(), Distance( 200 ) );  // Should still bee 200
+	QVERIFY( !model.isModified() );          // Should not be modified
 
 	// Continuous frame implements setH()
 	Template tmplate2( "Test Brand2", "part2", "desc2", "testPaperId2", 100, 400 );
-	FrameContinuous* frame2 = new FrameContinuous( 100, 0, 500, 200, "continuous1" );
-	QCOMPARE( frame2->h(), Distance( 200 ) );
+	FrameContinuous frame2( 100, 0, 500, 200, "continuous1" );
+	QCOMPARE( frame2.h(), Distance( 200 ) );
 	tmplate2.addFrame( frame2 );
 	model.setTmplate( tmplate2 );
-	QVERIFY( model.frame()->id() == frame2->id() );
+	QVERIFY( model.frame()->id() == frame2.id() );
 	QCOMPARE( model.w(), Distance( 100 ) );
 	QCOMPARE( model.h(), Distance( 200 ) );
-	QCOMPARE( model.w(), frame2->w() );
-	QCOMPARE( model.h(), frame2->h() );
+	QCOMPARE( model.w(), frame2.w() );
+	QCOMPARE( model.h(), frame2.h() );
 
 	model.clearModified();
 	QVERIFY( !model.isModified() );
@@ -305,7 +305,7 @@ void TestModel::saveRestore()
 	// Set template/frame
 	//
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 110, 410 );
-	FrameRect* frame = new FrameRect( 120, 220, 5, 0, 0, "rect1" );
+	FrameRect frame( 120, 220, 5, 0, 0, "rect1" );
 	tmplate.addFrame( frame );
 	model->setTmplate( tmplate ); // Copies
 	QCOMPARE( model->tmplate().brand(), QString( "Test Brand" ) );
@@ -395,7 +395,7 @@ void TestModel::saveRestore()
 
 	// Modify original
 	Template tmplate2( "Test Brand2", "part2", "desc2", "testPaperId2", 230, 630 );
-	FrameRect* frame2 = new FrameRect( 240, 340, 5, 0, 0, "rect2" );
+	FrameRect frame2( 240, 340, 5, 0, 0, "rect2" );
 	tmplate2.addFrame( frame2 );
 	model->setTmplate( tmplate2 );
 	QCOMPARE( model->tmplate().brand(), QString( "Test Brand2" ) );

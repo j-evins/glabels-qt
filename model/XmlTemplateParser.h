@@ -58,13 +58,13 @@ namespace glabels
 			void parseLabelCdNode( const QDomElement& node, Template& tmplate );
 			void parseLabelPathNode( const QDomElement& node, Template& tmplate );
 			void parseLabelContinuousNode( const QDomElement& node, Template& tmplate );
-			void parseLabelNodeCommon( const QDomElement& node, Frame *frame );
-			void parseLayoutNode( const QDomElement& node, Frame *frame );
-			void parseMarkupMarginNode( const QDomElement& node, Frame *frame );
-			void parseMarkupLineNode( const QDomElement& node, Frame *frame );
-			void parseMarkupCircleNode( const QDomElement& node, Frame *frame );
-			void parseMarkupRectNode( const QDomElement& node, Frame *frame );
-			void parseMarkupEllipseNode( const QDomElement& node, Frame *frame );
+			void parseLabelNodeCommon( const QDomElement& node, Frame& frame );
+			void parseLayoutNode( const QDomElement& node, Frame& frame );
+			void parseMarkupMarginNode( const QDomElement& node, Frame& frame );
+			void parseMarkupLineNode( const QDomElement& node, Frame& frame );
+			void parseMarkupCircleNode( const QDomElement& node, Frame& frame );
+			void parseMarkupRectNode( const QDomElement& node, Frame& frame );
+			void parseMarkupEllipseNode( const QDomElement& node, Frame& frame );
 
 		};
 

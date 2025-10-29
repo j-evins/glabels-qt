@@ -103,13 +103,13 @@ namespace glabels
 				createMetaNode( node, "product_url", tmplate.productUrl() );
 			}
 #if TODO
-			foreach ( QString categoryId, tmplate.categoryIds() )
+			for ( auto& categoryId : tmplate.categoryIds() )
 			{
 				createMetaNode( node, "category", categoryId );
 			}
 #endif
 
-			foreach ( Frame* frame, tmplate.frames() )
+			if ( auto frame = tmplate.frame() )
 			{
 				createLabelNode( node, frame );
 			}
@@ -291,7 +291,7 @@ namespace glabels
 				}
 			}
 
-			foreach ( const Layout& layout, frame->layouts() )
+			for ( auto& layout : frame->layouts() )
 			{
 				createLayoutNode( node, layout );
 			}

@@ -43,9 +43,9 @@ namespace glabels
 		}
 	
 
-		Frame* FrameRound::dup() const
+		std::unique_ptr<Frame> FrameRound::clone() const
 		{
-			return new FrameRound( *this );
+			return std::make_unique<FrameRound>( *this );
 		}
 
 	
@@ -89,9 +89,9 @@ namespace glabels
 		}
 
 
-		bool FrameRound::isSimilarTo( Frame* other ) const
+		bool FrameRound::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherRound = dynamic_cast<FrameRound*>(other) )
+			if ( auto *otherRound = dynamic_cast<const FrameRound*>(&other) )
 			{
 				if ( fabs( mR - otherRound->mR ) <= EPSILON )
 				{

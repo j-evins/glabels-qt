@@ -43,7 +43,7 @@ namespace glabels
 
 			FrameContinuous( const FrameContinuous& other ) = default;
 
-			Frame* dup() const override;
+			std::unique_ptr<Frame> clone() const override;
 
 			Distance w() const override;
 			Distance h() const override;
@@ -52,11 +52,11 @@ namespace glabels
 			Distance hMax() const;
 			Distance hDefault() const;
 
-			void setH( const Distance& h ) override;
+			bool setH( const Distance& h ) override;
 
 			QString sizeDescription( const Units& units ) const override;
 
-			bool isSimilarTo( Frame* other ) const override;
+			bool isSimilarTo( const Frame& other ) const override;
 
 			const QPainterPath& path() const override;
 			const QPainterPath& clipPath() const override;

@@ -237,7 +237,7 @@ namespace glabels
 			return;
 		}
 		
-		auto* frame     = tmplate.frames().first();
+		auto frame = tmplate.frame();
 
 		preview->setTemplate( tmplate );
 

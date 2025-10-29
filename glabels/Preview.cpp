@@ -125,7 +125,7 @@ namespace glabels
 	{
 		QBrush brush( labelNumberColor );
 
-		model::Frame *frame = mModel->tmplate().frames().first();
+		auto frame = mModel->tmplate().frame();
 
 		model::Distance w = frame->w();
 		model::Distance h = frame->h();
@@ -145,10 +145,10 @@ namespace glabels
 
 	void Preview::drawLabelNumberOverlay()
 	{
-		model::Frame *frame = mModel->tmplate().frames().first();
+		auto frame = mModel->tmplate().frame();
 		auto i = 0;
 
-		foreach (model::Point origin, frame->getOrigins() )
+		for ( model::Point origin : frame->getOrigins() )
 		{
 			i++;
 			drawLabelNumberOverlaySingle( origin.x(), origin.y(), frame->path(), i);
@@ -202,9 +202,9 @@ namespace glabels
 	///
 	void Preview::drawLabels()
 	{
-		model::Frame *frame = mModel->tmplate().frames().first();
+		auto frame = mModel->tmplate().frame();
 
-		foreach (model::Point origin, frame->getOrigins() )
+		for ( model::Point origin : frame->getOrigins() )
 		{
 			drawLabel( origin.x(), origin.y(), frame->path() );
 		}

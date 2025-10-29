@@ -57,7 +57,7 @@ namespace glabels
 
 			Template( const Template& other );
 
-			~Template();
+			~Template() = default;
 
 			Template& operator=( const Template& other );
 
@@ -100,14 +100,16 @@ namespace glabels
 			QString name() const;
 
 			void addCategory( const QString& categoryId );
-			void addFrame( Frame* frame );
+			void addFrame( const Frame& frame );
 
-			const QList<Frame*>& frames() const;
+			const Frame* frame( const QString& id = "0" ) const;
 
 			bool operator==( const Template& other ) const;
 
 			bool hasCategory( const QString& categoryId ) const;
 			bool isSimilarTo( const Template& other ) const;
+
+			bool setH( const Distance& h );
 
 
 		private:
@@ -133,7 +135,7 @@ namespace glabels
 			QString        mProductUrl;
 			QStringList    mCategoryIds;
 
-			QList<Frame*>  mFrames;
+			std::unique_ptr<Frame> mFrame;  // TODO: support multiple frames mapped by ID
 		};
 
 	}

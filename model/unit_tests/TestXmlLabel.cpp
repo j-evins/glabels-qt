@@ -280,7 +280,7 @@ void TestXmlLabel::writeReadFile()
 	/// Add template
 	///
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 110, 410 );
-	FrameRect* frame = new FrameRect( 120, 220, 5, 0, 0, "rect1" );
+	FrameRect frame( 120, 220, 5, 0, 0, "rect1" );
 	tmplate.addFrame( frame );
 	model->setTmplate( tmplate ); // Copies
 

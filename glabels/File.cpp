@@ -59,7 +59,7 @@ namespace glabels
 			model->setTmplate( tmplate );
 			
 			// Intelligently decide to rotate label by default
-			const model::Frame* frame = tmplate.frames().first();
+			auto frame = tmplate.frame();
 			model->setRotate( frame->h() > frame->w() );
 
 			model->clearModified();

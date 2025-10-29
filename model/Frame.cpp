@@ -19,15 +19,8 @@
  */
 
 
-#include "Frame.h"
 
-#include "FrameCd.h"
-#include "FrameContinuous.h"
-#include "FrameEllipse.h"
-#include "FramePath.h"
-#include "FrameRect.h"
-#include "FrameRound.h"
-#include "Markup.h"
+#include "Frame.h"
 
 #include <QDebug>
 
@@ -98,7 +91,7 @@ namespace glabels
 			QVector<Point> origins( nLabels() );
 
 			int i = 0;
-			foreach ( const Layout& layout, mLayouts )
+			for ( auto& layout : mLayouts )
 			{
 				for ( int iy = 0; iy < layout.ny(); iy++ )
 				{
@@ -147,9 +140,10 @@ namespace glabels
 		}
 
 
-		void Frame::setH( const Distance& h )
+		bool Frame::setH( const Distance& h )
 		{
 			// Default implementation does nothing
+			return false;
 		}
 
 	}

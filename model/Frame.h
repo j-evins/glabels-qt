@@ -51,7 +51,8 @@ namespace glabels
 
 		public:
 			virtual ~Frame() = default;
-			virtual Frame* dup() const = 0;
+
+			virtual std::unique_ptr<Frame> clone() const = 0;
 
 			QString id() const;
 			int nLabels() const;
@@ -67,10 +68,10 @@ namespace glabels
 			virtual Distance w() const = 0;
 			virtual Distance h() const = 0;
 
-			virtual void setH( const Distance& h );
+			virtual bool setH( const Distance& h );
 
 			virtual QString sizeDescription( const Units& units ) const = 0;
-			virtual bool isSimilarTo( Frame* other ) const = 0;
+			virtual bool isSimilarTo( const Frame& other ) const = 0;
 
 			virtual const QPainterPath& path() const = 0;
 			virtual const QPainterPath& clipPath() const = 0;

@@ -43,9 +43,9 @@ namespace glabels
 		}
 
 
-		Frame* FrameEllipse::dup() const
+		std::unique_ptr<Frame> FrameEllipse::clone() const
 		{
-			return new FrameEllipse( *this );
+			return std::make_unique<FrameEllipse>( *this );
 		}
 
 
@@ -85,9 +85,9 @@ namespace glabels
 		}
 
 
-		bool FrameEllipse::isSimilarTo( Frame* other ) const
+		bool FrameEllipse::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto* otherEllipse = dynamic_cast<FrameEllipse*>(other) )
+			if ( auto* otherEllipse = dynamic_cast<const FrameEllipse*>(&other) )
 			{
 				if ( (fabs( mW - otherEllipse->mW ) <= EPSILON) &&
 				     (fabs( mH - otherEllipse->mH ) <= EPSILON) )

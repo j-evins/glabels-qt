@@ -384,7 +384,6 @@ namespace glabels
 		
 		auto t = model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, "", true );
 
-		model::Frame* frame;
 		if ( field( "shape.rect" ).toBool() )
 		{
 			model::Distance w( field( "rect.w" ).toDouble(), units );
@@ -395,8 +394,10 @@ namespace glabels
 			model::Distance xMargin( field( "rect.xMargin" ).toDouble(), units );
 			model::Distance yMargin( field( "rect.yMargin" ).toDouble(), units );
 
-			frame = new model::FrameRect( w, h, r, xWaste, yWaste );
-			frame->addMarkup( model::MarkupMargin( xMargin, yMargin ) );
+			model::FrameRect frame( w, h, r, xWaste, yWaste );
+			frame.addMarkup( model::MarkupMargin( xMargin, yMargin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
 		else if ( field( "shape.round" ).toBool() )
 		{
@@ -404,8 +405,10 @@ namespace glabels
 			model::Distance waste( field( "round.waste" ).toDouble(), units );
 			model::Distance margin( field( "round.margin" ).toDouble(), units );
 
-			frame = new model::FrameRound( r, waste );
-			frame->addMarkup( model::MarkupMargin( margin ) );
+			model::FrameRound frame( r, waste );
+			frame.addMarkup( model::MarkupMargin( margin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
 		else if ( field( "shape.ellipse" ).toBool() )
 		{
@@ -414,8 +417,10 @@ namespace glabels
 			model::Distance waste( field( "ellipse.waste" ).toDouble(), units );
 			model::Distance margin( field( "ellipse.margin" ).toDouble(), units );
 
-			frame = new model::FrameEllipse( w, h, waste );
-			frame->addMarkup( model::MarkupMargin( margin ) );
+			model::FrameEllipse frame( w, h, waste );
+			frame.addMarkup( model::MarkupMargin( margin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
 		else
 		{
@@ -426,10 +431,22 @@ namespace glabels
 			model::Distance waste( field( "cd.waste" ).toDouble(), units );
 			model::Distance margin( field( "cd.margin" ).toDouble(), units );
 
-			frame = new model::FrameCd( r1, r2, xClip, yClip, waste );
-			frame->addMarkup( model::MarkupMargin( margin ) );
+			model::FrameCd frame( r1, r2, xClip, yClip, waste );
+			frame.addMarkup( model::MarkupMargin( margin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
-		t.addFrame( frame );
+
+		return t;
+	}
+
+
+	///
+	/// Add layouts to frame
+	///
+	void TemplateDesigner::addLayouts( model::Frame& frame )
+	{
+		model::Units units = model::Settings::units();
 
 		if ( field( "nLayouts.one" ).toBool() )
 		{
@@ -440,7 +457,7 @@ namespace glabels
 			model::Distance dx( field( "oneLayout.dx" ).toDouble(), units );
 			model::Distance dy( field( "oneLayout.dy" ).toDouble(), units );
 
-			frame->addLayout( model::Layout( nx, ny, x0, y0, dx, dy ) );
+			frame.addLayout( model::Layout( nx, ny, x0, y0, dx, dy ) );
 		}
 		else
 		{
@@ -458,14 +475,12 @@ namespace glabels
 			model::Distance dx2( field( "twoLayout.dx2" ).toDouble(), units );
 			model::Distance dy2( field( "twoLayout.dy2" ).toDouble(), units );
 
-			frame->addLayout( model::Layout( nx1, ny1, x01, y01, dx1, dy1 ) );
-			frame->addLayout( model::Layout( nx2, ny2, x02, y02, dx2, dy2 ) );
+			frame.addLayout( model::Layout( nx1, ny1, x01, y01, dx1, dy1 ) );
+			frame.addLayout( model::Layout( nx2, ny2, x02, y02, dx2, dy2 ) );
 		}
-
-		return t;
 	}
 
-
+	
 	///
 	/// Print test sheet
 	///
@@ -516,7 +531,7 @@ namespace glabels
 		setField( "pageSize.h",        tmplate.pageHeight().inUnits( units ) );
 		setField( "pageSize.rollW",    tmplate.rollWidth().inUnits( units ) );
 
-		const model::Frame* frame = tmplate.frames().first();
+		auto frame = tmplate.frame();
 		if ( auto frameRect = dynamic_cast<const model::FrameRect*>( frame ) )
 		{
 			setField( "shape.rect", true );
@@ -643,11 +658,11 @@ namespace glabels
 		{
 			if ( auto td = dynamic_cast<TemplateDesigner*>( wizard() ) )
 			{
-				if ( dynamic_cast<model::FramePath*>(tmplate.frames().constFirst()) )
+				if ( dynamic_cast<const model::FramePath*>(tmplate.frame()) )
 				{
 					td->mIsTemplatePathBased = true;
 				}
-				else if ( dynamic_cast<model::FrameContinuous*>(tmplate.frames().constFirst()) )
+				else if ( dynamic_cast<const model::FrameContinuous*>(tmplate.frame()) )
 				{
 					td->mIsTemplateContinuousBased = true;
 				}

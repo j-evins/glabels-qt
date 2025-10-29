@@ -177,7 +177,7 @@ namespace glabels
 		///
 		const Frame* Model::frame() const
 		{
-			return mTmplate.frames().constFirst();
+			return mTmplate.frame();
 		}
 
 
@@ -228,10 +228,9 @@ namespace glabels
 		///
 		Distance Model::w() const
 		{
-			auto& frames = mTmplate.frames();
-			if ( !frames.isEmpty() )
+			auto frame = mTmplate.frame();
+			if ( frame )
 			{
-				auto* frame = mTmplate.frames().constFirst();
 				return mRotate ? frame->h() : frame->w();
 			}
 			else
@@ -246,10 +245,9 @@ namespace glabels
 		///
 		Distance Model::h() const
 		{
-			auto& frames = mTmplate.frames();
-			if ( !frames.isEmpty() )
+			auto frame = mTmplate.frame();
+			if ( frame )
 			{
-				auto* frame = mTmplate.frames().constFirst();
 				return mRotate ? frame->w() : frame->h();
 			}
 			else
@@ -264,10 +262,8 @@ namespace glabels
 		///
 		void Model::setH( const Distance& h )
 		{
-			if ( auto* frame = mTmplate.frames().first() )
+			if ( mTmplate.setH( h ) )
 			{
-				frame->setH( h );
-
 				setModified();
 
 				emit changed();

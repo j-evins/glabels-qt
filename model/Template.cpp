@@ -83,21 +83,15 @@ namespace glabels
 			mFileName      = other.mFileName;
 			mIsUserDefined = other.mIsUserDefined;
 
-			foreach ( Frame* frame, other.mFrames )
+			if ( other.mFrame )
 			{
-				addFrame( frame->dup() );
+				mFrame = other.mFrame->clone();
 			}
 
-			foreach ( QString categoryId, other.mCategoryIds )
+			for ( auto& categoryId : other.mCategoryIds )
 			{
 				addCategory( categoryId );
 			}
-		}
-
-
-		Template::~Template()
-		{
-			qDeleteAll( mFrames );
 		}
 
 
@@ -121,17 +115,13 @@ namespace glabels
 				mFileName      = other.mFileName;
 				mIsUserDefined = other.mIsUserDefined;
 
-				while ( !mFrames.isEmpty() )
+				if ( other.mFrame )
 				{
-					delete mFrames.takeFirst();
-				}
-				foreach ( Frame* frame, other.mFrames )
-				{
-					addFrame( frame->dup() );
+					mFrame = other.mFrame->clone();
 				}
 
 				mCategoryIds.clear();
-				foreach ( QString categoryId, other.mCategoryIds )
+				for ( auto& categoryId : other.mCategoryIds )
 				{
 					addCategory( categoryId );
 				}
@@ -237,8 +227,7 @@ namespace glabels
 		Distance Template::pageHeight() const
 		{
 			// Adjust height if continuous tape
-			const model::Frame* frame = mFrames.constFirst();
-			if ( const auto* frameContinuous = dynamic_cast<const model::FrameContinuous*>(frame) )
+			if ( const auto* frameContinuous = dynamic_cast<const model::FrameContinuous*>( mFrame.get() ) )
 			{
 				return frameContinuous->h();
 			}
@@ -333,9 +322,9 @@ namespace glabels
 		}
 	
 
-		const QList<Frame*>& Template::frames() const
+		const Frame* Template::frame( const QString& id ) const
 		{
-			return mFrames;
+			return mFrame.get();
 		}
 
 
@@ -345,9 +334,9 @@ namespace glabels
 		}
 
 
-		void Template::addFrame( Frame* frame )
+		void Template::addFrame( const Frame& frame )
 		{
-			mFrames << frame;
+			mFrame = frame.clone();
 		}
 
 
@@ -359,7 +348,7 @@ namespace glabels
 
 		bool Template::hasCategory( const QString& categoryId ) const
 		{
-			foreach ( QString testCategoryId, mCategoryIds )
+			for ( auto& testCategoryId : mCategoryIds )
 			{
 				if ( categoryId == testCategoryId )
 				{
@@ -382,18 +371,18 @@ namespace glabels
 			}
 
 			// Are frames similar
-			Frame* frame1 = mFrames.first();
-			Frame* frame2 = other.mFrames.first();
-			if ( !frame1->isSimilarTo( frame2 ) )
+			auto& frame1 = mFrame;
+			auto& frame2 = other.mFrame;
+			if ( !frame1->isSimilarTo( *frame2 ) )
 			{
 				return false;
 			}
 
 			// Are they layed out similarly?
-			foreach ( const Layout& layout1, frame1->layouts() )
+			for ( auto& layout1 : frame1->layouts() )
 			{
 				bool matchFound = false;
-				foreach ( const Layout& layout2, frame2->layouts() )
+				for ( auto& layout2 : frame2->layouts() )
 				{
 					if ( layout1.isSimilarTo( layout2 ) )
 					{
@@ -410,6 +399,18 @@ namespace glabels
 			return true;
 		}
 
+
+		bool Template::setH( const Distance& h )
+		{
+			if ( mFrame )
+			{
+				return mFrame->setH( h );
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 	}
 }
@@ -429,7 +430,7 @@ QDebug operator<<( QDebug dbg, const glabels::model::Template& tmplate )
 	              << tmplate.isSizeUs() << ","
 	              << tmplate.isSizeOther() << ","
 	              << tmplate.isRoll() << ","
-	              << *tmplate.frames().constFirst() << ","
+	              << *tmplate.frame() << ","
 	              << " }";
 	return dbg;
 }
