@@ -24,7 +24,7 @@
 
 #include "ColorNode.h"
 #include "Distance.h"
-#include "Handles.h"
+#include "Handle.h"
 #include "Outline.h"
 #include "TextNode.h"
 #include "Variables.h"
@@ -408,7 +408,7 @@ namespace glabels
 			void flipHoriz();
 			void flipVert();
 			bool isLocatedAt( double scale, const Distance& x, const Distance& y ) const;
-			Handle* handleAt( double scale, const Distance& x, const Distance& y ) const;
+			const Handle& handleAt( double scale, const Distance& x, const Distance& y ) const;
 
 
 			///////////////////////////////////////////////////////////////
@@ -458,7 +458,7 @@ namespace glabels
 
 			Outline           mOutline;
 
-			std::list<std::unique_ptr<Handle>> mHandles;
+			QList<Handle>     mHandles;
 
 
 			///////////////////////////////////////////////////////////////

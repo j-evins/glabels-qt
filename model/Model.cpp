@@ -468,20 +468,22 @@ namespace glabels
 		///
 		/// Handle at x,y
 		///
-		Handle* Model::handleAt( double          scale,
-		                         const Distance& x,
-		                         const Distance& y ) const
+		const Handle& Model::handleAt( double   scale,
+		                               Distance x,
+		                               Distance y ) const
 		{
+			static Handle nullHandle;
+			
 			foreach( ModelObject* object, mObjectList )
 			{
-				Handle* handle = object->handleAt( scale, x, y );
-				if ( handle )
+				auto& handle = object->handleAt( scale, x, y );
+				if ( !handle.isNull() )
 				{
 					return handle;
 				}
 			}
 
-			return nullptr;
+			return nullHandle;
 		}
 
 

@@ -22,7 +22,7 @@
 #define LabelEditor_h
 
 
-#include "model/Handles.h"
+#include "model/Handle.h"
 #include "model/Model.h"
 #include "model/ModelObject.h"
 #include "model/Region.h"
@@ -205,9 +205,9 @@ namespace glabels
 		model::Distance      mMoveLastY;
 
 		/* ArrowResize state */
-		model::ModelObject*  mResizeObject;
-		model::Handle*       mResizeHandle;
-		bool                 mResizeHonorAspect;
+		model::ModelObject*     mResizeObject;
+		model::Handle::Location mResizeHandleLocation;
+		bool                    mResizeHonorAspect;
 
 		/* CreateDrag state */
 		CreateType           mCreateObjectType;

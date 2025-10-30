@@ -96,12 +96,12 @@ namespace glabels
 
 		mState = IdleState;
 
-		mSelectRegionVisible = false;
-		mResizeObject        = nullptr;
-		mResizeHandle        = nullptr;
-		mResizeHonorAspect   = false;
-		mCreateObjectType    = Box;
-		mCreateObject        = nullptr;
+		mSelectRegionVisible  = false;
+		mResizeObject         = nullptr;
+		mResizeHandleLocation = model::Handle::NULL_HANDLE;
+		mResizeHonorAspect    = false;
+		mCreateObjectType     = Box;
+		mCreateObject         = nullptr;
 
 		setMouseTracking( true );
 		setFocusPolicy(Qt::StrongFocus);
@@ -460,15 +460,15 @@ namespace glabels
 				case IdleState:
 				{
 					model::ModelObject* object = nullptr;
-					model::Handle* handle = nullptr;
-					if ( mModel->isSelectionAtomic() &&
-					     (handle = mModel->handleAt( mScale, xWorld, yWorld )) != nullptr )
+					auto& handle = mModel->handleAt( mScale, xWorld, yWorld );
+
+					if ( mModel->isSelectionAtomic() && !handle.isNull() )
 					{
 						//
 						// Start an object resize
 						//
-						mResizeObject = handle->owner();
-						mResizeHandle = handle;
+						mResizeObject = handle.owner();
+						mResizeHandleLocation = handle.location();
 						mResizeHonorAspect = event->modifiers() & Qt::ControlModifier;
 						if ( mResizeObject->lockAspectRatio() )
 						{
@@ -633,7 +633,7 @@ namespace glabels
 
 			case IdleState:
 				if ( mModel->isSelectionAtomic() &&
-				     mModel->handleAt( mScale, xWorld, yWorld ) )
+				     !mModel->handleAt( mScale, xWorld, yWorld ).isNull() )
 				{
 					setCursor( Qt::CrossCursor );
 				}
@@ -801,7 +801,6 @@ namespace glabels
 	                                 const model::Distance& yWorld )
 	{
 		QPointF p( xWorld.pt(), yWorld.pt() );
-		model::Handle::Location location = mResizeHandle->location();
 	
 		/*
 		 * Change point to object relative coordinates
@@ -825,7 +824,7 @@ namespace glabels
 		 * Calculate new size
 		 */
 		double w, h;
-		switch ( location )
+		switch ( mResizeHandleLocation )
 		{
 		case model::Handle::NW:
 			w = std::max( x2 - p.x(), 0.0 );
@@ -880,11 +879,11 @@ namespace glabels
 		/*
 		 * Set size
 		 */
-		if ( !(location == model::Handle::P1) && !(location == model::Handle::P2) )
+		if ( !(mResizeHandleLocation == model::Handle::P1) && !(mResizeHandleLocation == model::Handle::P2) )
 		{
 			if ( mResizeHonorAspect )
 			{
-				switch ( location )
+				switch ( mResizeHandleLocation )
 				{
 				case model::Handle::E:
 				case model::Handle::W:
@@ -909,7 +908,7 @@ namespace glabels
 			/*
 			 * Adjust origin, if needed.
 			 */
-			switch ( location )
+			switch ( mResizeHandleLocation )
 			{
 			case model::Handle::NW:
 				x0 += x2 - mResizeObject->w().pt();

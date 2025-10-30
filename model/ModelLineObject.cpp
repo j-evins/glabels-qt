@@ -44,8 +44,8 @@ namespace glabels
 		///
 		ModelLineObject::ModelLineObject()
 		{
-			mHandles.push_back( std::make_unique<HandleP1>( this ) );
-			mHandles.push_back( std::make_unique<HandleP2>( this ) );
+			mHandles.push_back( Handle( this, Handle::P1 ) );
+			mHandles.push_back( Handle( this, Handle::P2 ) );
 
 			mLineWidth       = 1.0;
 			mLineColorNode   = ColorNode( QColor( 0, 0, 0 ) );
@@ -71,8 +71,8 @@ namespace glabels
 		               matrix,
 		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
 		{
-			mHandles.push_back( std::make_unique<HandleP1>( this ) );
-			mHandles.push_back( std::make_unique<HandleP2>( this ) );
+			mHandles.push_back( Handle( this, Handle::P1 ) );
+			mHandles.push_back( Handle( this, Handle::P2 ) );
 
 			mLineWidth       = lineWidth;
 			mLineColorNode   = lineColorNode;

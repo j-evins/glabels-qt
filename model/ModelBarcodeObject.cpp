@@ -61,14 +61,14 @@ namespace glabels
 		{
 			mOutline.setOwner( this );
 
-			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
-			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
-			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
-			mHandles.push_back( std::make_unique<HandleEast>( this ) );
-			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
-			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
-			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
-			mHandles.push_back( std::make_unique<HandleWest>( this ) );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mBcStyle        = barcode::Backends::defaultStyle();
 			mBcTextFlag     = mBcStyle.canText();
@@ -99,14 +99,14 @@ namespace glabels
 		{
 			mOutline.setOwner( this );
 
-			mHandles.push_back( std::make_unique<HandleNorthWest>( this ) );
-			mHandles.push_back( std::make_unique<HandleNorth>( this ) );
-			mHandles.push_back( std::make_unique<HandleNorthEast>( this ) );
-			mHandles.push_back( std::make_unique<HandleEast>( this ) );
-			mHandles.push_back( std::make_unique<HandleSouthEast>( this ) );
-			mHandles.push_back( std::make_unique<HandleSouth>( this ) );
-			mHandles.push_back( std::make_unique<HandleSouthWest>( this ) );
-			mHandles.push_back( std::make_unique<HandleWest>( this ) );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mBcStyle        = bcStyle;
 			mBcTextFlag     = bcTextFlag;

@@ -128,7 +128,7 @@ namespace glabels
 
 			for ( auto& handle : object->mHandles )
 			{
-				mHandles.push_back( handle->clone( this ) );
+				mHandles.push_back( Handle( this, handle.location() ) );
 			}
 	
 			mMatrix          = object->mMatrix;
@@ -1187,10 +1187,12 @@ namespace glabels
 		///
 		/// Is one of this object's handles locate at x,y?  If so, return it.
 		///
-		Handle* ModelObject::handleAt( double          scale,
-		                               const Distance& x,
-		                               const Distance& y ) const
+		const Handle& ModelObject::handleAt( double          scale,
+		                                     const Distance& x,
+		                                     const Distance& y ) const
 		{
+			static Handle nullHandle;
+
 			if ( mSelectedFlag )
 			{
 				QPointF p( x.pt(), y.pt() );
@@ -1198,15 +1200,15 @@ namespace glabels
 
 				for ( auto& handle : mHandles )
 				{
-					QPainterPath handlePath = mMatrix.map( handle->path( scale ) );
+					QPainterPath handlePath = mMatrix.map( handle.path( scale ) );
 					if ( handlePath.contains( p ) )
 					{
-						return handle.get();
+						return handle;
 					}
 				}
 			}
 
-			return nullptr;
+			return nullHandle;
 		}
 
 
@@ -1251,7 +1253,7 @@ namespace glabels
 
 			for( auto& handle : mHandles )
 			{
-				handle->draw( painter, scale );
+				handle.draw( painter, scale );
 			}
 		
 			painter->restore();

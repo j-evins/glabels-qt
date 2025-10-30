@@ -132,9 +132,9 @@ namespace glabels
 			                       const Distance& x,
 			                       const Distance& y ) const;
 		
-			Handle* handleAt( double          scale,
-			                  const Distance& x,
-			                  const Distance& y ) const;
+			const Handle& handleAt( double   scale,
+			                        Distance x,
+			                        Distance y ) const;
 
 
 			/////////////////////////////////
