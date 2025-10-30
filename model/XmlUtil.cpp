@@ -43,7 +43,7 @@ namespace glabels
 		}
 
 
-		void XmlUtil::setUnits( const Units& units )
+		void XmlUtil::setUnits( Units units )
 		{
 			mUnits = units;
 		}
@@ -181,7 +181,7 @@ namespace glabels
 
 		Distance XmlUtil::getLengthAttr( const QDomElement& node,
 		                                 const QString&     name,
-		                                 const Distance&    default_value )
+		                                 Distance           default_value )
 		{
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
@@ -307,9 +307,9 @@ namespace glabels
 		}
 
 
-		Units XmlUtil::getUnitsAttr( const QDomElement&    node,
-		                             const QString&        name,
-		                             const Units&          default_value )
+		Units XmlUtil::getUnitsAttr( const QDomElement& node,
+		                             const QString&     name,
+		                             Units              default_value )
 		{
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
@@ -321,9 +321,9 @@ namespace glabels
 		}
 
 
-		QPainterPath XmlUtil::getPathDataAttr( const QDomElement&    node,
-		                                       const QString&        name,
-		                                       const Units&          units )
+		QPainterPath XmlUtil::getPathDataAttr( const QDomElement& node,
+		                                       const QString&     name,
+		                                       Units              units )
 		{
 			QPainterPath d;
 
@@ -488,7 +488,7 @@ namespace glabels
 
 		void XmlUtil::setLengthAttr( QDomElement&    node,
 		                             const QString&  name,
-		                             const Distance& value )
+		                             Distance        value )
 		{
 			node.setAttribute( name, QString::number(value.inUnits(mUnits)) + mUnits.toIdString() );
 		}
@@ -566,7 +566,7 @@ namespace glabels
 	
 		void XmlUtil::setUnitsAttr( QDomElement&   node,
 		                            const QString& name,
-		                            const Units&   value )
+		                            Units          value )
 		{
 			node.setAttribute( name, value.toIdString() );
 		}
@@ -575,7 +575,7 @@ namespace glabels
 		void XmlUtil::setPathDataAttr( QDomElement&        node,
 		                               const QString&      name,
 		                               const QPainterPath& path,
-		                               const Units&        units )
+		                               Units               units )
 		{
 			QString pathString;
 			for ( int i = 0; i < path.elementCount(); i++ )

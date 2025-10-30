@@ -70,7 +70,9 @@ namespace glabels
 		void update();
 		void drawPaper();
 		void drawLabels();
-		void drawLabel( const model::Distance& x, const model::Distance& y, const QPainterPath& path );
+		void drawLabel( model::Distance     x,
+		                model::Distance     y,
+		                const QPainterPath& path );
 		void drawArrow();
 
 

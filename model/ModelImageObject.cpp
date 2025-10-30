@@ -77,21 +77,29 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject( const Distance&  x0,
-		                                    const Distance&  y0,
-		                                    const Distance&  w,
-		                                    const Distance&  h,
-		                                    bool             lockAspectRatio,
-		                                    const TextNode&  filenameNode,
+		ModelImageObject::ModelImageObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
+		                                    bool              lockAspectRatio,
+		                                    const TextNode&   filenameNode,
 		                                    const QTransform& matrix,
-		                                    bool             shadowState,
-		                                    const Distance&  shadowX,
-		                                    const Distance&  shadowY,
-		                                    double           shadowOpacity,
-		                                    const ColorNode& shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		                                    bool              shadowState,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
+		                                    double            shadowOpacity,
+		                                    const ColorNode&  shadowColorNode )
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
 			mOutline.setOwner( this );
 
@@ -113,22 +121,30 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject( const Distance&  x0,
-		                                    const Distance&  y0,
-		                                    const Distance&  w,
-		                                    const Distance&  h,
-		                                    bool             lockAspectRatio,
-		                                    const QString&   filename,
-		                                    const QImage&    image,
+		ModelImageObject::ModelImageObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
+		                                    bool              lockAspectRatio,
+		                                    const QString&    filename,
+		                                    const QImage&     image,
 		                                    const QTransform& matrix,
-		                                    bool             shadowState,
-		                                    const Distance&  shadowX,
-		                                    const Distance&  shadowY,
-		                                    double           shadowOpacity,
-		                                    const ColorNode& shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		                                    bool              shadowState,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
+		                                    double            shadowOpacity,
+		                                    const ColorNode&  shadowColorNode )
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
 			mOutline.setOwner( this );
 
@@ -149,22 +165,30 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject( const Distance&   x0,
-		                                    const Distance&   y0,
-		                                    const Distance&   w,
-		                                    const Distance&   h,
+		ModelImageObject::ModelImageObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
 		                                    bool              lockAspectRatio,
 		                                    const QString&    filename,
 		                                    const QByteArray& svg,
 		                                    const QTransform& matrix,
 		                                    bool              shadowState,
-		                                    const Distance&   shadowX,
-		                                    const Distance&   shadowY,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
 		                                    double            shadowOpacity,
 		                                    const ColorNode&  shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
 			mOutline.setOwner( this );
 

@@ -33,11 +33,15 @@ namespace glabels
 	{
 
 		FramePath::FramePath( const QPainterPath& path,
-		                      const Distance&     xWaste,
-		                      const Distance&     yWaste,
-		                      const Units&        originalUnits,
+		                      Distance            xWaste,
+		                      Distance            yWaste,
+		                      Units               originalUnits,
 		                      const QString&      id )
-			: Frame(id), mXWaste(xWaste), mYWaste(yWaste), mPath(path), mOriginalUnits(originalUnits)
+			: Frame(id),
+			  mXWaste(xWaste),
+			  mYWaste(yWaste),
+			  mPath(path),
+			  mOriginalUnits(originalUnits)
 		{
 			QRectF r = path.boundingRect();
 			
@@ -85,7 +89,7 @@ namespace glabels
 		}
 
 
-		QString FramePath::sizeDescription( const Units& units ) const
+		QString FramePath::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -128,8 +132,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FramePath::marginPath( const Distance& xSize,
-		                                    const Distance& ySize ) const
+		QPainterPath FramePath::marginPath( Distance xSize, Distance ySize ) const
 		{
 			return mPath; // No margin
 		}

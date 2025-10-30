@@ -110,7 +110,7 @@ namespace glabels
 			Distance w() const;
 			Distance h() const;
 
-			void setH( const Distance& h );
+			void setH( Distance h );
 
 			const QList<ModelObject*>& objectList() const;
 
@@ -128,9 +128,9 @@ namespace glabels
 			void addObject( ModelObject* object );
 			void deleteObject( ModelObject* object );
 
-			ModelObject* objectAt( double          scale,
-			                       const Distance& x,
-			                       const Distance& y ) const;
+			ModelObject* objectAt( double   scale,
+			                       Distance x,
+			                       Distance y ) const;
 		
 			const Handle& handleAt( double   scale,
 			                        Distance x,
@@ -189,7 +189,7 @@ namespace glabels
 			void centerSelection();
 			void centerSelectionHoriz();
 			void centerSelectionVert();
-			void moveSelection( const Distance& dx, const Distance& dy );
+			void moveSelection( Distance dx, Distance dy );
 			void setSelectionFontFamily( const QString& fontFamily );
 			void setSelectionFontSize( double fontSize );
 			void setSelectionFontWeight( QFont::Weight fontWeight );
@@ -198,7 +198,7 @@ namespace glabels
 			void setSelectionTextVAlign( Qt::Alignment textVAlign );
 			void setSelectionTextLineSpacing( double textLineSpacing );
 			void setSelectionTextColorNode( ColorNode textColorNode );
-			void setSelectionLineWidth( const Distance& lineWidth );
+			void setSelectionLineWidth( Distance lineWidth );
 			void setSelectionLineColorNode( ColorNode lineColorNode );
 			void setSelectionFillColorNode( ColorNode fillColorNode );
 

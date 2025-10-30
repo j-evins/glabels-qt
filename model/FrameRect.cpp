@@ -32,13 +32,18 @@ namespace glabels
 	namespace model
 	{
 
-		FrameRect::FrameRect( const Distance& w,
-		                      const Distance& h,
-		                      const Distance& r,
-		                      const Distance& xWaste,
-		                      const Distance& yWaste,
-		                      const QString&  id )
-			: Frame(id), mW(w), mH(h), mR(r), mXWaste(xWaste), mYWaste(yWaste)
+		FrameRect::FrameRect( Distance       w,
+		                      Distance       h,
+		                      Distance       r,
+		                      Distance       xWaste,
+		                      Distance       yWaste,
+		                      const QString& id )
+			: Frame(id),
+			  mW(w),
+			  mH(h),
+			  mR(r),
+			  mXWaste(xWaste),
+			  mYWaste(yWaste)
 		{
 			mPath.addRoundedRect( 0, 0, mW.pt(), mH.pt(), mR.pt(), mR.pt() );
 		
@@ -84,7 +89,7 @@ namespace glabels
 		}
 
 
-		QString FrameRect::sizeDescription( const Units& units ) const
+		QString FrameRect::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -128,8 +133,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FrameRect::marginPath( const Distance& xSize,
-		                                    const Distance& ySize ) const
+		QPainterPath FrameRect::marginPath( Distance xSize, Distance ySize ) const
 		{
 			Distance w = mW - 2*xSize;
 			Distance h = mH - 2*ySize;

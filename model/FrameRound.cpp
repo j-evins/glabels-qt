@@ -32,10 +32,12 @@ namespace glabels
 	namespace model
 	{
 
-		FrameRound::FrameRound( const Distance& r,
-		                        const Distance& waste,
-		                        const QString&  id )
-			: Frame(id), mR(r), mWaste(waste)
+		FrameRound::FrameRound( Distance       r,
+		                        Distance       waste,
+		                        const QString& id )
+			: Frame(id),
+			  mR(r),
+			  mWaste(waste)
 		{
 			mPath.addEllipse( 0, 0, 2*mR.pt(), 2*mR.pt() );
 			mClipPath.addEllipse( -mWaste.pt(), -mWaste.pt(),
@@ -73,7 +75,7 @@ namespace glabels
 		}
 
 
-		QString FrameRound::sizeDescription( const Units& units ) const
+		QString FrameRound::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -114,8 +116,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FrameRound::marginPath( const Distance& xSize,
-		                                     const Distance& ySize ) const
+		QPainterPath FrameRound::marginPath( Distance xSize, Distance ySize ) const
 		{
 			// Note: ignore ySize, assume xSize == ySize
 			Distance size = xSize;

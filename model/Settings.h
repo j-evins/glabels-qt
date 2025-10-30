@@ -23,6 +23,7 @@
 
 
 #include "Distance.h"
+#include "Units.h"
 
 #include <QListView>
 #include <QSettings>
@@ -71,7 +72,7 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			static Units units();
-			static void setUnits( const Units& units );
+			static void setUnits( Units units );
 
 			static PageSizeFamily preferedPageSizeFamily();
 			static void setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily );

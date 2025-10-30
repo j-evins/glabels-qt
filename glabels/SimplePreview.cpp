@@ -200,9 +200,9 @@ namespace glabels
 	///
 	/// Draw a Single Label at x,y
 	///
-	void SimplePreview::drawLabel( const model::Distance& x,
-	                               const model::Distance& y,
-	                               const QPainterPath&    path )
+	void SimplePreview::drawLabel( model::Distance     x,
+	                               model::Distance     y,
+	                               const QPainterPath& path )
 	{
 		QBrush brush( labelColor );
 		QPen pen( labelOutlineColor );

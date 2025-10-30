@@ -260,7 +260,7 @@ namespace glabels
 		///
 		/// Set height (if variable length)
 		///
-		void Model::setH( const Distance& h )
+		void Model::setH( Distance h )
 		{
 			if ( mTmplate.setH( h ) )
 			{
@@ -445,9 +445,9 @@ namespace glabels
 		///
 		/// Object at x,y
 		///
-		ModelObject* Model::objectAt( double          scale,
-		                              const Distance& x,
-		                              const Distance& y ) const
+		ModelObject* Model::objectAt( double   scale,
+		                              Distance x,
+		                              Distance y ) const
 		{
 			/* Search object list in reverse order.  I.e. from top to bottom. */
 			QList<ModelObject*>::const_iterator it = mObjectList.end();
@@ -1218,7 +1218,7 @@ namespace glabels
 		///
 		/// Move Selected Objects By dx,dy
 		///
-		void Model::moveSelection( const Distance& dx, const Distance& dy )
+		void Model::moveSelection( Distance dx, Distance dy )
 		{
 			foreach ( ModelObject* object, mObjectList )
 			{
@@ -1389,7 +1389,7 @@ namespace glabels
 		///
 		/// Set Line Width Of Selected Objects
 		///
-		void Model::setSelectionLineWidth( const Distance& lineWidth )
+		void Model::setSelectionLineWidth( Distance lineWidth )
 		{
 			foreach ( ModelObject* object, mObjectList )
 			{

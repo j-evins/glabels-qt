@@ -55,21 +55,29 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelLineObject::ModelLineObject( const Distance&   x0,
-		                                  const Distance&   y0,
-		                                  const Distance&   dx,
-		                                  const Distance&   dy,
-		                                  const Distance&   lineWidth,
+		ModelLineObject::ModelLineObject( Distance          x0,
+		                                  Distance          y0,
+		                                  Distance          dx,
+		                                  Distance          dy,
+		                                  Distance          lineWidth,
 		                                  const ColorNode&  lineColorNode,
 		                                  const QTransform& matrix,
 		                                  bool              shadowState,
-		                                  const Distance&   shadowX,
-		                                  const Distance&   shadowY,
+		                                  Distance          shadowX,
+		                                  Distance          shadowY,
 		                                  double            shadowOpacity,
 		                                  const ColorNode&  shadowColorNode )
-		: ModelObject( x0, y0, dx, dy, false /*lockAspectRatio*/,
+		: ModelObject( x0,
+		               y0,
+		               dx,
+		               dy,
+		               false /*lockAspectRatio*/,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
 			mHandles.push_back( Handle( this, Handle::P1 ) );
 			mHandles.push_back( Handle( this, Handle::P2 ) );
@@ -111,7 +119,7 @@ namespace glabels
 		///
 		/// Line Width Property Setter
 		///
-		void ModelLineObject::setLineWidth( const Distance& value )
+		void ModelLineObject::setLineWidth( Distance value )
 		{
 			if ( mLineWidth != value )
 			{

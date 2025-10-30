@@ -33,15 +33,15 @@ namespace glabels
 	namespace model
 	{
 
-		Template::Template( const QString&  brand,
-		                    const QString&  part,
-		                    const QString&  description,
-		                    const QString&  paperId,
-		                    const Distance& pageWidth,
-		                    const Distance& pageHeight,
-		                    const Distance& rollWidth,
-		                    const QString&  fileName,
-		                    bool            isUserDefined )
+		Template::Template( const QString& brand,
+		                    const QString& part,
+		                    const QString& description,
+		                    const QString& paperId,
+		                    Distance       pageWidth,
+		                    Distance       pageHeight,
+		                    Distance       rollWidth,
+		                    const QString& fileName,
+		                    bool           isUserDefined )
 			: mBrand(brand),
 			  mPart(part),
 			  mDescription(description),
@@ -188,7 +188,7 @@ namespace glabels
 		}
 	
 
-		QString Template::paperDescription( const Units& units ) const
+		QString Template::paperDescription( Units units ) const
 		{
 			if ( mPaperId == "other" )
 			{
@@ -400,7 +400,7 @@ namespace glabels
 		}
 
 
-		bool Template::setH( const Distance& h )
+		bool Template::setH( Distance h )
 		{
 			if ( mFrame )
 			{

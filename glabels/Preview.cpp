@@ -121,7 +121,11 @@ namespace glabels
 		}
 	}
 
-	void Preview::drawLabelNumberOverlaySingle(const model::Distance& x, const model::Distance& y, const QPainterPath& path, uint32_t labelInstance)
+
+	void Preview::drawLabelNumberOverlaySingle( model::Distance     x,
+	                                            model::Distance     y,
+	                                            const QPainterPath& path,
+	                                            uint32_t            labelInstance)
 	{
 		QBrush brush( labelNumberColor );
 
@@ -143,6 +147,7 @@ namespace glabels
 		mScene->addItem( labelNumberItem );
 	}
 
+
 	void Preview::drawLabelNumberOverlay()
 	{
 		auto frame = mModel->tmplate().frame();
@@ -155,6 +160,7 @@ namespace glabels
 		}
 	}
 
+	
 	///
 	/// Resize Event Handler
 	///
@@ -214,7 +220,9 @@ namespace glabels
 	///
 	/// Draw a Single Label at x,y
 	///
-	void Preview::drawLabel( const model::Distance& x, const model::Distance& y, const QPainterPath& path )
+	void Preview::drawLabel( model::Distance     x,
+	                         model::Distance     y,
+	                         const QPainterPath& path )
 	{
 		QBrush brush( labelColor );
 		QPen pen( labelOutlineColor );

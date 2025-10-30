@@ -32,12 +32,17 @@ namespace glabels
 	namespace model
 	{
 
-		FrameContinuous::FrameContinuous( const Distance& w,
-		                                  const Distance& hMin,
-		                                  const Distance& hMax,
-		                                  const Distance& hDefault,
-		                                  const QString&  id )
-			: Frame(id), mW(w), mHMin(hMin), mHMax(hMax), mHDefault(hDefault), mH(hDefault)
+		FrameContinuous::FrameContinuous( Distance       w,
+		                                  Distance       hMin,
+		                                  Distance       hMax,
+		                                  Distance       hDefault,
+		                                  const QString& id )
+			: Frame(id),
+			  mW(w),
+			  mHMin(hMin),
+			  mHMax(hMax),
+			  mHDefault(hDefault),
+			  mH(hDefault)
 		{
 			mPath.addRect( 0, 0, mW.pt(), mH.pt() );
 		}
@@ -79,7 +84,7 @@ namespace glabels
 		}
 
 
-		bool FrameContinuous::setH( const Distance& h )
+		bool FrameContinuous::setH( Distance h )
 		{
 			mH = h;
 			mPath = QPainterPath(); // clear path
@@ -88,7 +93,7 @@ namespace glabels
 		}
 		
 
-		QString FrameContinuous::sizeDescription( const Units& units ) const
+		QString FrameContinuous::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -128,8 +133,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FrameContinuous::marginPath( const Distance& xSize,
-		                                          const Distance& ySize ) const
+		QPainterPath FrameContinuous::marginPath( Distance xSize, Distance ySize ) const
 		{
 			Distance w = mW - 2*xSize;
 			Distance h = mH - 2*ySize;

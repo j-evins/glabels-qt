@@ -79,10 +79,10 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelTextObject::ModelTextObject( const Distance&       x0,
-		                                  const Distance&       y0,
-		                                  const Distance&       w,
-		                                  const Distance&       h,
+		ModelTextObject::ModelTextObject( Distance              x0,
+		                                  Distance              y0,
+		                                  Distance              w,
+		                                  Distance              h,
 		                                  bool                  lockAspectRatio,
 		                                  const QString&        text,
 		                                  const QString&        fontFamily,
@@ -98,13 +98,21 @@ namespace glabels
 		                                  bool                  textAutoShrink,
 		                                  const QTransform&     matrix,
 		                                  bool                  shadowState,
-		                                  const Distance&       shadowX,
-		                                  const Distance&       shadowY,
+		                                  Distance              shadowX,
+		                                  Distance              shadowY,
 		                                  double                shadowOpacity,
 		                                  const ColorNode&      shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
 			mOutline.setOwner( this );
 

@@ -33,7 +33,9 @@ namespace glabels
 	{
 
 		Frame::Frame( const QString& id )
-			: mId(id), mNLabels(0), mLayoutDescription("")
+			: mId(id),
+			  mNLabels(0),
+			  mLayoutDescription("")
 		{
 			// empty
 		}
@@ -140,7 +142,7 @@ namespace glabels
 		}
 
 
-		bool Frame::setH( const Distance& h )
+		bool Frame::setH( Distance h )
 		{
 			// Default implementation does nothing
 			return false;

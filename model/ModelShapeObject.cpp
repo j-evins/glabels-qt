@@ -54,23 +54,31 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelShapeObject::ModelShapeObject( const Distance&  x0,
-		                                    const Distance&  y0,
-		                                    const Distance&  w,
-		                                    const Distance&  h,
-		                                    bool             lockAspectRatio,
-		                                    const Distance&  lineWidth,
-		                                    const ColorNode& lineColorNode,
-		                                    const ColorNode& fillColorNode,
+		ModelShapeObject::ModelShapeObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
+		                                    bool              lockAspectRatio,
+		                                    Distance          lineWidth,
+		                                    const ColorNode&  lineColorNode,
+		                                    const ColorNode&  fillColorNode,
 		                                    const QTransform& matrix,
-		                                    bool             shadowState,
-		                                    const Distance&  shadowX,
-		                                    const Distance&  shadowY,
-		                                    double           shadowOpacity,
-		                                    const ColorNode& shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		                                    bool              shadowState,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
+		                                    double            shadowOpacity,
+		                                    const ColorNode&  shadowColorNode )
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
 			mOutline.setOwner( this );
 
@@ -112,7 +120,7 @@ namespace glabels
 		///
 		/// Line Width Property Setter
 		///
-		void ModelShapeObject::setLineWidth( const Distance& value )
+		void ModelShapeObject::setLineWidth( Distance value )
 		{
 			if ( mLineWidth != value )
 			{

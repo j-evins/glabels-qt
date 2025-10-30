@@ -45,15 +45,15 @@ namespace glabels
 
 			Template() = default;
 
-			Template( const QString&  brand,
-			          const QString&  part,
-			          const QString&  description,
-			          const QString&  paperId,
-			          const Distance& pageWidth,
-			          const Distance& pageHeight,
-			          const Distance& rollWidth = 0,
-			          const QString&  fileName = "",
-			          bool            isUserDefined = false );
+			Template( const QString& brand,
+			          const QString& part,
+			          const QString& description,
+			          const QString& paperId,
+			          Distance       pageWidth,
+			          Distance       pageHeight,
+			          Distance       rollWidth = 0,
+			          const QString& fileName = "",
+			          bool           isUserDefined = false );
 
 			Template( const Template& other );
 
@@ -75,7 +75,7 @@ namespace glabels
 			QString part() const;
 			QString description() const;
 
-			QString paperDescription( const Units& units ) const;
+			QString paperDescription( Units units ) const;
 			QString paperId() const;
 			Distance pageWidth() const;
 			Distance pageHeight() const;
@@ -109,7 +109,7 @@ namespace glabels
 			bool hasCategory( const QString& categoryId ) const;
 			bool isSimilarTo( const Template& other ) const;
 
-			bool setH( const Distance& h );
+			bool setH( Distance h );
 
 
 		private:

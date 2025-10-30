@@ -135,8 +135,8 @@ namespace glabels
 		// Private methods
 		/////////////////////////////////////
 	private:
-		void handleResizeMotion( const model::Distance& xWorld,
-		                         const model::Distance& yWorld );
+		void handleResizeMotion( model::Distance xWorld,
+		                         model::Distance yWorld );
 
 		void drawBgLayer( QPainter* painter );
 		void drawGridLayer( QPainter* painter );

@@ -82,7 +82,7 @@ namespace glabels
 		}
 
 
-		void Settings::setUnits( const Units& units )
+		void Settings::setUnits( Units units )
 		{
 			QString idString = units.toIdString();
 

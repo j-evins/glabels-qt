@@ -43,20 +43,20 @@ namespace glabels
 		public:
 			ModelBoxObject();
 
-			ModelBoxObject( const Distance&  x0,
-			                const Distance&  y0,
-			                const Distance&  w,
-			                const Distance&  h,
-			                bool             lockAspectRatio,
-			                const Distance&  lineWidth,
-			                const ColorNode& lineColorNode,
-			                const ColorNode& fillColorNode,
+			ModelBoxObject( Distance          x0,
+			                Distance          y0,
+			                Distance          w,
+			                Distance          h,
+			                bool              lockAspectRatio,
+			                Distance          lineWidth,
+			                const ColorNode&  lineColorNode,
+			                const ColorNode&  fillColorNode,
 			                const QTransform& matrix = QTransform(),
-			                bool             shadowState = false,
-			                const Distance&  shadowX = 0,
-			                const Distance&  shadowY = 0,
-			                double           shadowOpacity = 1.0,
-			                const ColorNode& shadowColorNode = ColorNode() );
+			                bool              shadowState = false,
+			                Distance          shadowX = 0,
+			                Distance          shadowY = 0,
+			                double            shadowOpacity = 1.0,
+			                const ColorNode&  shadowColorNode = ColorNode() );
 
 			ModelBoxObject( const ModelBoxObject* object );
 		

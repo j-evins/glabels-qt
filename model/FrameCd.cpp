@@ -32,13 +32,18 @@ namespace glabels
 	namespace model
 	{
 
-		FrameCd::FrameCd( const Distance& r1,
-		                  const Distance& r2,
-		                  const Distance& w,
-		                  const Distance& h,
-		                  const Distance& waste,
-		                  const QString&  id )
-			: Frame(id), mR1(r1), mR2(r2), mW(w), mH(h), mWaste(waste)
+		FrameCd::FrameCd( Distance       r1,
+		                  Distance       r2,
+		                  Distance       w,
+		                  Distance       h,
+		                  Distance       waste,
+		                  const QString& id )
+			: Frame(id),
+			  mR1(r1),
+			  mR2(r2),
+			  mW(w),
+			  mH(h),
+			  mWaste(waste)
 		{
 			Distance wReal = (mW == 0) ? 2*mR1 : mW;
 			Distance hReal = (mH == 0) ? 2*mR1 : mH;
@@ -130,7 +135,7 @@ namespace glabels
 		}
 	
 
-		QString FrameCd::sizeDescription( const Units& units ) const
+		QString FrameCd::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -174,8 +179,7 @@ namespace glabels
 		}
 	
 
-		QPainterPath FrameCd::marginPath( const Distance& xSize,
-		                                  const Distance& ySize ) const
+		QPainterPath FrameCd::marginPath( Distance xSize, Distance ySize ) const
 		{
 			// Note: ignore ySize, assume xSize == ySize
 			Distance size = xSize;

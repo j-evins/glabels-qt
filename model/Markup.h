@@ -56,10 +56,10 @@ namespace glabels
 		class MarkupMargin : public Markup
 		{
 		public:
-			MarkupMargin( const Distance& size );
+			MarkupMargin( Distance size );
 
-			MarkupMargin( const Distance& xSize,
-			              const Distance& ySize );
+			MarkupMargin( Distance xSize,
+			              Distance ySize );
 
 			QPainterPath path( const Frame& frame ) const override;
 
@@ -80,10 +80,10 @@ namespace glabels
 		class MarkupLine : public Markup
 		{
 		public:
-			MarkupLine( const Distance& x1,
-			            const Distance& y1,
-			            const Distance& x2,
-			            const Distance& y2 );
+			MarkupLine( Distance x1,
+			            Distance y1,
+			            Distance x2,
+			            Distance y2 );
 
 			Distance x1() const;
 			Distance y1() const;
@@ -106,11 +106,11 @@ namespace glabels
 		class MarkupRect : public Markup
 		{
 		public:
-			MarkupRect( const Distance& x1,
-			            const Distance& y1,
-			            const Distance& w,
-			            const Distance& h,
-			            const Distance& r );
+			MarkupRect( Distance x1,
+			            Distance y1,
+			            Distance w,
+			            Distance h,
+			            Distance r );
 
 			Distance x1() const;
 			Distance y1() const;
@@ -135,10 +135,10 @@ namespace glabels
 		class MarkupEllipse : public Markup
 		{
 		public:
-			MarkupEllipse( const Distance& x1,
-			               const Distance& y1,
-			               const Distance& w,
-			               const Distance& h );
+			MarkupEllipse( Distance x1,
+			               Distance y1,
+			               Distance w,
+			               Distance h );
 
 			Distance x1() const;
 			Distance y1() const;
@@ -161,9 +161,9 @@ namespace glabels
 		class MarkupCircle : public Markup
 		{
 		public:
-			MarkupCircle( const Distance& x0,
-			              const Distance& y0,
-			              const Distance& r );
+			MarkupCircle( Distance x0,
+			              Distance y0,
+			              Distance r );
 
 			Distance x0() const;
 			Distance y0() const;

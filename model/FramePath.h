@@ -36,9 +36,9 @@ namespace glabels
 
 		public:
 			FramePath( const QPainterPath& path,
-			           const Distance&     xWaste,
-			           const Distance&     yWaste,
-			           const Units&        originalUnits,
+			           Distance            xWaste,
+			           Distance            yWaste,
+			           Units               originalUnits,
 			           const QString&      id = "0" );
 
 			FramePath( const FramePath& other ) = default;
@@ -53,14 +53,13 @@ namespace glabels
 			Distance w() const override;
 			Distance h() const override;
 
-			QString sizeDescription( const Units& units ) const override;
+			QString sizeDescription( Units units ) const override;
 
 			bool isSimilarTo( const Frame& other ) const override;
 
 			const QPainterPath& path() const override;
 			const QPainterPath& clipPath() const override;
-			QPainterPath marginPath( const Distance& xSize,
-			                         const Distance& ySize ) const override;
+			QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
 
                         // Debugging support
 			void print( QDebug& dbg ) const override;

@@ -70,11 +70,16 @@ namespace glabels
 	private:
 		void drawPaper();
 		void drawLabels();
-		void drawLabel( const model::Distance& x, const model::Distance& y, const QPainterPath& path );
+		void drawLabel( model::Distance     x,
+		                model::Distance     y,
+		                const QPainterPath& path );
 		
 		void drawPreviewOverlay();
 
-		void drawLabelNumberOverlaySingle(const model::Distance& x, const model::Distance& y, const QPainterPath& path, uint32_t labelInstance);
+		void drawLabelNumberOverlaySingle( model::Distance     x,
+		                                   model::Distance     y,
+		                                   const QPainterPath& path,
+		                                   uint32_t            labelInstance);
 		void drawLabelNumberOverlay();
 
 

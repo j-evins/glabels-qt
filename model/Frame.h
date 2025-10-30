@@ -68,15 +68,14 @@ namespace glabels
 			virtual Distance w() const = 0;
 			virtual Distance h() const = 0;
 
-			virtual bool setH( const Distance& h );
+			virtual bool setH( Distance h );
 
-			virtual QString sizeDescription( const Units& units ) const = 0;
+			virtual QString sizeDescription( Units units ) const = 0;
 			virtual bool isSimilarTo( const Frame& other ) const = 0;
 
 			virtual const QPainterPath& path() const = 0;
 			virtual const QPainterPath& clipPath() const = 0;
-			virtual QPainterPath marginPath( const Distance& xSize,
-			                                 const Distance& ySize ) const = 0;
+			virtual QPainterPath marginPath( Distance xSize, Distance ySize ) const = 0;
 
                         // Debugging support
 			virtual void print( QDebug& dbg ) const = 0;

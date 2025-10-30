@@ -49,10 +49,10 @@ namespace glabels
 		public:
 			ModelBarcodeObject();
 
-			ModelBarcodeObject( const Distance&       x0,
-			                    const Distance&       y0,
-			                    const Distance&       w,
-			                    const Distance&       h,
+			ModelBarcodeObject( Distance              x0,
+			                    Distance              y0,
+			                    Distance              w,
+			                    Distance              h,
 			                    bool                  lockAspectRatio,
 			                    const barcode::Style& bcStyle,
 			                    bool                  bcTextFlag,

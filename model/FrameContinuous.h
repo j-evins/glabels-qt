@@ -35,11 +35,11 @@ namespace glabels
 			Q_DECLARE_TR_FUNCTIONS(FrameContinuous)
 
 		public:
-			FrameContinuous( const Distance& w,
-			                 const Distance& hMin,
-			                 const Distance& hMax,
-			                 const Distance& hDefault,
-			                 const QString&  id = "0" );
+			FrameContinuous( Distance       w,
+			                 Distance       hMin,
+			                 Distance       hMax,
+			                 Distance       hDefault,
+			                 const QString& id = "0" );
 
 			FrameContinuous( const FrameContinuous& other ) = default;
 
@@ -52,16 +52,15 @@ namespace glabels
 			Distance hMax() const;
 			Distance hDefault() const;
 
-			bool setH( const Distance& h ) override;
+			bool setH( Distance h ) override;
 
-			QString sizeDescription( const Units& units ) const override;
+			QString sizeDescription( Units units ) const override;
 
 			bool isSimilarTo( const Frame& other ) const override;
 
 			const QPainterPath& path() const override;
 			const QPainterPath& clipPath() const override;
-			QPainterPath marginPath( const Distance& xSize,
-			                         const Distance& ySize ) const override;
+			QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
 
                         // Debugging support
 			void print( QDebug& dbg ) const override;

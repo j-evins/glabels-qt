@@ -51,24 +51,34 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelBoxObject::ModelBoxObject( const Distance&  x0,
-		                                const Distance&  y0,
-		                                const Distance&  w,
-		                                const Distance&  h,
-		                                bool             lockAspectRatio,
-		                                const Distance&  lineWidth,
-		                                const ColorNode& lineColorNode,
-		                                const ColorNode& fillColorNode,
+		ModelBoxObject::ModelBoxObject( Distance          x0,
+		                                Distance          y0,
+		                                Distance          w,
+		                                Distance          h,
+		                                bool              lockAspectRatio,
+		                                Distance          lineWidth,
+		                                const ColorNode&  lineColorNode,
+		                                const ColorNode&  fillColorNode,
 		                                const QTransform& matrix,
-		                                bool             shadowState,
-		                                const Distance&  shadowX,
-		                                const Distance&  shadowY,
-		                                double           shadowOpacity,
-		                                const ColorNode& shadowColorNode )
-		: ModelShapeObject( x0, y0, w, h, lockAspectRatio,
-		                    lineWidth, lineColorNode, fillColorNode,
+		                                bool              shadowState,
+		                                Distance          shadowX,
+		                                Distance          shadowY,
+		                                double            shadowOpacity,
+		                                const ColorNode&  shadowColorNode )
+		: ModelShapeObject( x0,
+		                    y0,
+		                    w,
+		                    h,
+		                    lockAspectRatio,
+		                    lineWidth,
+		                    lineColorNode,
+		                    fillColorNode,
 		                    matrix,
-		                    shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		                    shadowState,
+		                    shadowX,
+		                    shadowY,
+		                    shadowOpacity,
+		                    shadowColorNode )
 		{
 			// empty
 		}

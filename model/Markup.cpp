@@ -36,15 +36,17 @@ namespace glabels
 		}
 
 	
-		MarkupMargin::MarkupMargin( const Distance& size )
-			: mXSize(size), mYSize(size)
+		MarkupMargin::MarkupMargin( Distance size )
+			: mXSize(size),
+			  mYSize(size)
 		{
 		}
 	
 
-		MarkupMargin::MarkupMargin( const Distance& xSize,
-		                            const Distance& ySize )
-			: mXSize(xSize), mYSize(ySize)
+		MarkupMargin::MarkupMargin( Distance xSize,
+		                            Distance ySize )
+			: mXSize(xSize),
+			  mYSize(ySize)
 		{
 		}
 	
@@ -82,11 +84,14 @@ namespace glabels
 		}
 
 
-		MarkupLine::MarkupLine( const Distance& x1,
-		                        const Distance& y1,
-		                        const Distance& x2,
-		                        const Distance& y2 )
-			: mX1(x1), mY1(y1), mX2(x2), mY2(y2)
+		MarkupLine::MarkupLine( Distance x1,
+		                        Distance y1,
+		                        Distance x2,
+		                        Distance y2 )
+			: mX1(x1),
+			  mY1(y1),
+			  mX2(x2),
+			  mY2(y2)
 		{
 			mPath.moveTo( x1.pt(), y1.pt() );
 			mPath.lineTo( x2.pt(), y2.pt() );
@@ -132,12 +137,16 @@ namespace glabels
 		}
 
 
-		MarkupRect::MarkupRect( const Distance& x1,
-		                        const Distance& y1,
-		                        const Distance& w,
-		                        const Distance& h,
-		                        const Distance& r )
-			: mX1(x1), mY1(y1), mW(w), mH(h), mR(r)
+		MarkupRect::MarkupRect( Distance x1,
+		                        Distance y1,
+		                        Distance w,
+		                        Distance h,
+		                        Distance r )
+			: mX1(x1),
+			  mY1(y1),
+			  mW(w),
+			  mH(h),
+			  mR(r)
 		{
 			mPath.addRoundedRect( x1.pt(), y1.pt(), w.pt(), h.pt(), r.pt(), r.pt() );
 		}
@@ -189,11 +198,14 @@ namespace glabels
 		}
 
 
-		MarkupEllipse::MarkupEllipse( const Distance& x1,
-		                              const Distance& y1,
-		                              const Distance& w,
-		                              const Distance& h )
-			: mX1(x1), mY1(y1), mW(w), mH(h)
+		MarkupEllipse::MarkupEllipse( Distance x1,
+		                              Distance y1,
+		                              Distance w,
+		                              Distance h )
+			: mX1(x1),
+			  mY1(y1),
+			  mW(w),
+			  mH(h)
 		{
 			mPath.addEllipse( x1.pt(), y1.pt(), w.pt(), h.pt() );
 		}
@@ -238,10 +250,12 @@ namespace glabels
 		}
 
 
-		MarkupCircle::MarkupCircle( const Distance& x0,
-		                            const Distance& y0,
-		                            const Distance& r )
-			: mX0(x0), mY0(y0), mR(r)
+		MarkupCircle::MarkupCircle( Distance x0,
+		                            Distance y0,
+		                            Distance r )
+			: mX0(x0),
+			  mY0(y0),
+			  mR(r)
 		{
 			mPath.addEllipse( (x0-r).pt(), (y0-r).pt(), 2*r.pt(), 2*r.pt() );
 		}

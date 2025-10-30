@@ -797,8 +797,8 @@ namespace glabels
 	/// Handle resize motion
 	///
 	void
-	LabelEditor::handleResizeMotion( const model::Distance& xWorld,
-	                                 const model::Distance& yWorld )
+	LabelEditor::handleResizeMotion( model::Distance xWorld,
+	                                 model::Distance yWorld )
 	{
 		QPointF p( xWorld.pt(), yWorld.pt() );
 	
