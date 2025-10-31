@@ -83,15 +83,6 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	VariablesView::~VariablesView()
-	{
-		// empty
-	}
-
-
-	///
 	/// Set Model
 	///
 	void VariablesView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )

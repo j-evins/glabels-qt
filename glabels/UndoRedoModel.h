@@ -45,7 +45,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		UndoRedoModel( model::Model* model );
-		~UndoRedoModel() override;
+		virtual ~UndoRedoModel() = default;
 
 
 		/////////////////////////////////

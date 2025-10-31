@@ -61,15 +61,6 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	PropertiesView::~PropertiesView()
-	{
-		// empty
-	}
-
-
-	///
 	/// Set Model
 	///
 	void PropertiesView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )

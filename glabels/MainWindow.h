@@ -21,6 +21,9 @@
 #ifndef MainWindow_h
 #define MainWindow_h
 
+
+#include "UndoRedoModel.h"
+
 #include <model/Model.h>
 
 #include <QAction>
@@ -35,6 +38,8 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -46,7 +51,6 @@ namespace glabels
 	class PrintView;
 	class PropertiesView;
 	class StartupView;
-	class UndoRedoModel;
 	class VariablesView;
 
 
@@ -63,7 +67,7 @@ namespace glabels
 		/////////////////////////////////////
 	public:
 		MainWindow();
-		~MainWindow() override;
+		virtual ~MainWindow() = default;
 
 
 		/////////////////////////////////////
@@ -194,8 +198,17 @@ namespace glabels
 
 		/////////////////////////////////////
 		// Private Data
+		// owned and managed by us
 		/////////////////////////////////////
 	private:
+		std::unique_ptr<model::Model>  mModel;
+		std::unique_ptr<UndoRedoModel> mUndoRedoModel;
+
+		
+		/////////////////////////////////////
+		// Private Data
+		// owned by QMainWindow
+		/////////////////////////////////////
 		QMenu*    fileMenu;
 		QMenu*    fileRecentMenu;
 		QMenu*    editMenu;
@@ -218,9 +231,6 @@ namespace glabels
 		
 		QToolBar* fileToolBar;
 		QToolBar* editorToolBar;
-
-		model::Model*        mModel;
-		UndoRedoModel*       mUndoRedoModel;
 
 		QToolBar*            mContents;
 		QToolButton*         mWelcomeButton;

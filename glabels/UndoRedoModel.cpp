@@ -39,15 +39,6 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	UndoRedoModel::~UndoRedoModel()
-	{
-		// empty
-	}
-
-
-	///
 	/// Checkpoint
 	///
 	void UndoRedoModel::checkpoint( const QString& description )

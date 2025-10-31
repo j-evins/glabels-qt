@@ -175,9 +175,9 @@ namespace glabels
 		///
 		/// Get frame
 		///
-		const Frame* Model::frame() const
+		const Frame* Model::frame( const QString& id ) const
 		{
-			return mTmplate.frame();
+			return mTmplate.frame( id );
 		}
 
 

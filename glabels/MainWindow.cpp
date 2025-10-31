@@ -29,7 +29,6 @@
 #include "PrintView.h"
 #include "PropertiesView.h"
 #include "StartupView.h"
-#include "UndoRedoModel.h"
 #include "VariablesView.h"
 
 #include "model/Db.h"
@@ -63,7 +62,7 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	MainWindow::MainWindow() : mModel(nullptr), mUndoRedoModel(nullptr)
+	MainWindow::MainWindow()
 	{
 		setWindowIcon( QIcon::fromTheme( "glabels" ) );
 
@@ -205,27 +204,11 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	MainWindow::~MainWindow()
-	{
-		if ( mUndoRedoModel )
-		{
-			delete mUndoRedoModel;
-		}
-		if ( mModel )
-		{
-			delete mModel;
-		}
-	}
-
-
-	///
 	/// Get model accessor
 	///
 	model::Model* MainWindow::model() const
 	{
-		return mModel;
+		return mModel.get();
 	}
 
 
@@ -234,15 +217,15 @@ namespace glabels
 	///
 	void MainWindow::setModel( model::Model* model )
 	{
-		mModel = model; // Ownership passes to us
-		mUndoRedoModel = new UndoRedoModel( mModel );
+		mModel.reset( model );
+		mUndoRedoModel = std::make_unique<UndoRedoModel>( mModel.get() );
 	
-		mPropertiesView->setModel( mModel, mUndoRedoModel );
-		mLabelEditor->setModel( mModel, mUndoRedoModel );
-		mObjectEditor->setModel( mModel, mUndoRedoModel );
-		mMergeView->setModel( mModel, mUndoRedoModel );
-		mVariablesView->setModel( mModel, mUndoRedoModel );
-		mPrintView->setModel( mModel );
+		mPropertiesView->setModel( mModel.get(), mUndoRedoModel.get() );
+		mLabelEditor->setModel( mModel.get(), mUndoRedoModel.get() );
+		mObjectEditor->setModel( mModel.get(), mUndoRedoModel.get() );
+		mMergeView->setModel( mModel.get(), mUndoRedoModel.get() );
+		mVariablesView->setModel( mModel.get(), mUndoRedoModel.get() );
+		mPrintView->setModel( mModel.get() );
 
 		mEditorButton->setChecked( true );
 		mPages->setCurrentIndex( EDITOR_PAGE_INDEX );
@@ -251,11 +234,11 @@ namespace glabels
 		setTitle();
 
 		connect( mLabelEditor, SIGNAL(contextMenuActivate(model::Point)), this, SLOT(onContextMenuActivate(model::Point)) );
-		connect( mModel, SIGNAL(nameChanged()), this, SLOT(onNameChanged()) );
-		connect( mModel, SIGNAL(modifiedChanged()), this, SLOT(onModifiedChanged()) );
-		connect( mModel, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()) );
-		connect( mModel, SIGNAL(changed()), this, SLOT(onLabelChanged()) );
-		connect( mUndoRedoModel, SIGNAL(changed()), this, SLOT(onUndoRedoChanged()) );
+		connect( mModel.get(), SIGNAL(nameChanged()), this, SLOT(onNameChanged()) );
+		connect( mModel.get(), SIGNAL(modifiedChanged()), this, SLOT(onModifiedChanged()) );
+		connect( mModel.get(), SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()) );
+		connect( mModel.get(), SIGNAL(changed()), this, SLOT(onLabelChanged()) );
+		connect( mUndoRedoModel.get(), SIGNAL(changed()), this, SLOT(onUndoRedoChanged()) );
 	}
 
 
@@ -264,7 +247,7 @@ namespace glabels
 	///
 	bool MainWindow::isEmpty() const
 	{
-		return mModel == nullptr;
+		return !mModel;
 	}
 
 
@@ -1030,7 +1013,7 @@ namespace glabels
 	///
 	void MainWindow::setTitle()
 	{
-		if ( mModel == nullptr )
+		if ( !mModel )
 		{
 			setWindowTitle( "gLabels" );
 		}

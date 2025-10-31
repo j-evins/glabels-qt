@@ -50,15 +50,6 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	MergeView::~MergeView()
-	{
-		// empty
-	}
-
-
-	///
 	/// Set Model
 	///
 	void MergeView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
