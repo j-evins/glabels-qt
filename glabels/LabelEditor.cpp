@@ -635,11 +635,11 @@ namespace glabels
 				if ( mModel->isSelectionAtomic() &&
 				     !mModel->handleAt( mScale, xWorld, yWorld ).isNull() )
 				{
-					setCursor( Qt::CrossCursor );
+					setCursor( Cursors::Crosshair() );
 				}
 				else if ( mModel->objectAt( mScale, xWorld, yWorld ) )
 				{
-					setCursor( Qt::SizeAllCursor );
+					setCursor( Cursors::Move() );
 				}
 				else
 				{

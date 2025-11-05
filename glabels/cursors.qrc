@@ -4,9 +4,11 @@
 <qresource>
 	<file>cursors/32x32/cursor_barcode.png</file>
 	<file>cursors/32x32/cursor_box.png</file>
+	<file>cursors/32x32/cursor_crosshair.png</file>
 	<file>cursors/32x32/cursor_ellipse.png</file>
 	<file>cursors/32x32/cursor_image.png</file>
 	<file>cursors/32x32/cursor_line.png</file>
+	<file>cursors/32x32/cursor_move.png</file>
 	<file>cursors/32x32/cursor_text.png</file>
 </qresource>
 </RCC>
