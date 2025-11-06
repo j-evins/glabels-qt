@@ -66,7 +66,7 @@ namespace glabels
 				if ( denom[i] == 1.0 )
 				{
 					/* Simple integer. */
-					return QString().arg(x, 0, 'f', 0);
+					return QString("%1").arg(x, 0, 'f', 0);
 				}
 				auto n = int( x * denom[i] + 0.5 );
 				auto d = int( denom[i] );

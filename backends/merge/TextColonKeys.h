@@ -42,7 +42,7 @@ namespace glabels
 		private:
 			TextColonKeys();
 			TextColonKeys( const TextColonKeys* merge );
-			~TextColonKeys() override = default;
+			virtual ~TextColonKeys() = default;
 
 
 			/////////////////////////////////

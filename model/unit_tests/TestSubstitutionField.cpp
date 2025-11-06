@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestSubstitutionField.h"
 
 #include "model/SubstitutionField.h"
@@ -34,7 +35,7 @@ void TestSubstitutionField::parseValid()
 	// Valid substitution fields (concatenated in single input string)
 	//
 	QString input = "${1234}${abc:=ABC}${x:%08.2f}${y:%08.2f:=12.34}${ADDR2:n}${FüññýßútLæg@lÑªmê}${Also_a legal-name}";
-	QStringRef s = &input;
+	model::ParserState s( input );
 	
 	model::SubstitutionField f1;
 	QCOMPARE( model::SubstitutionField::parse( s, f1 ), true );
@@ -87,49 +88,49 @@ void TestSubstitutionField::parseInvalid()
 	// Ordinary text
 	//
 	QString input5 = "Abcdefg";
-	QStringRef s5 = &input5;
+	model::ParserState s5( input5 );
 	model::SubstitutionField f5;
 	QCOMPARE( model::SubstitutionField::parse( s5, f5 ), false );
-	QCOMPARE( s5, QStringRef( &input5 ) ); // Should not advance string reference
+	QCOMPARE( s5.pos(), model::ParserState( input5 ).pos() ); // Should not advance string reference
 
 	//
 	// Invalid substitution fields (which are treated as ordinary text)
 	//
 	QString input6 = "$abc";
-	QStringRef s6 = &input6;
+	model::ParserState s6( input6 );
 	model::SubstitutionField f6;
 	QCOMPARE( model::SubstitutionField::parse( s6, f6 ), false );
-	QCOMPARE( s6, QStringRef( &input6 ) ); // Should not advance string reference
+	QCOMPARE( s6.pos(), model::ParserState( input6 ).pos() ); // Should not advance string reference
 
 	QString input7 = "${abc";
-	QStringRef s7 = &input7;
+	model::ParserState s7( input7 );
 	model::SubstitutionField f7;
 	QCOMPARE( model::SubstitutionField::parse( s7, f7 ), false );
-	QCOMPARE( s7, QStringRef( &input7 ) ); // Should not advance string reference
+	QCOMPARE( s7.pos(), model::ParserState( input7 ).pos() ); // Should not advance string reference
 
 	QString input8 = "${abc:}";
-	QStringRef s8 = &input8;
+	model::ParserState s8( input8 );
 	model::SubstitutionField f8;
 	QCOMPARE( model::SubstitutionField::parse( s8, f8 ), false );
-	QCOMPARE( s8, QStringRef( &input8 ) ); // Should not advance string reference
+	QCOMPARE( s8.pos(), model::ParserState( input8 ).pos() ); // Should not advance string reference
 
 	// Even though format is invalid, let it slide.  Overall structure still good.  Format will be ignored.
 	QString input9 = "${abc:%3.2}";
-	QStringRef s9 = &input9;
+	model::ParserState s9( input9 );
 	model::SubstitutionField f9;
 	QCOMPARE( model::SubstitutionField::parse( s9, f9 ), true );
 
 	QString input10 = "${embedded\nnew-line}";
-	QStringRef s10 = &input10;
+	model::ParserState s10( input10 );
 	model::SubstitutionField f10;
 	QCOMPARE( model::SubstitutionField::parse( s10, f10 ), false );
-	QCOMPARE( s10, QStringRef( &input10 ) ); // Should not advance string reference
+	QCOMPARE( s10.pos(), model::ParserState( input10 ).pos() ); // Should not advance string reference
 
 	QString input11 = "${how-about-a\ttab}";
-	QStringRef s11 = &input11;
+	model::ParserState s11( input11 );
 	model::SubstitutionField f11;
 	QCOMPARE( model::SubstitutionField::parse( s11, f11 ), false );
-	QCOMPARE( s11, QStringRef( &input11 ) ); // Should not advance string reference
+	QCOMPARE( s11.pos(), model::ParserState( input11 ).pos() ); // Should not advance string reference
 }
 
 
@@ -174,10 +175,10 @@ void TestSubstitutionField::simpleEvaluation()
 	record1[ "3" ] = "Opqrstu";
 	record1[ "4" ] = "Vwxyz!@";
 
-	QCOMPARE( f1.evaluate( &record1, &variables ), QString( "Abcdefg" ) );
-	QCOMPARE( f2.evaluate( &record1, &variables ), QString( "Hijklmn" ) );
-	QCOMPARE( f3.evaluate( &record1, &variables ), QString( "Opqrstu" ) );
-	QCOMPARE( f4.evaluate( &record1, &variables ), QString( "Vwxyz!@" ) );
+	QCOMPARE( f1.evaluate( record1, variables ), QString( "Abcdefg" ) );
+	QCOMPARE( f2.evaluate( record1, variables ), QString( "Hijklmn" ) );
+	QCOMPARE( f3.evaluate( record1, variables ), QString( "Opqrstu" ) );
+	QCOMPARE( f4.evaluate( record1, variables ), QString( "Vwxyz!@" ) );
 
 	merge::Record record2;
 	record2[ "1" ] = "1234567";
@@ -185,10 +186,10 @@ void TestSubstitutionField::simpleEvaluation()
 	record2[ "3" ] = "8901234";
 	record2[ "4" ] = "#$%^&*";
 
-	QCOMPARE( f1.evaluate( &record2, &variables ), QString( "1234567" ) );
-	QCOMPARE( f2.evaluate( &record2, &variables ), QString( "FooBar" ) );
-	QCOMPARE( f3.evaluate( &record2, &variables ), QString( "8901234" ) );
-	QCOMPARE( f4.evaluate( &record2, &variables ), QString( "#$%^&*" ) );
+	QCOMPARE( f1.evaluate( record2, variables ), QString( "1234567" ) );
+	QCOMPARE( f2.evaluate( record2, variables ), QString( "FooBar" ) );
+	QCOMPARE( f3.evaluate( record2, variables ), QString( "8901234" ) );
+	QCOMPARE( f4.evaluate( record2, variables ), QString( "#$%^&*" ) );
 }
 
 
@@ -209,17 +210,17 @@ void TestSubstitutionField::defaultValueEvaluation()
 	record1[ "3" ] = "Opqrstu";
 	record1[ "4" ] = "Vwxyz!@";
 
-	QCOMPARE( f1.evaluate( &record1, &variables ), QString( "Abcdefg" ) );
-	QCOMPARE( f2.evaluate( &record1, &variables ), QString( "Hijklmn" ) );
-	QCOMPARE( f3.evaluate( &record1, &variables ), QString( "Opqrstu" ) );
-	QCOMPARE( f4.evaluate( &record1, &variables ), QString( "Vwxyz!@" ) );
+	QCOMPARE( f1.evaluate( record1, variables ), QString( "Abcdefg" ) );
+	QCOMPARE( f2.evaluate( record1, variables ), QString( "Hijklmn" ) );
+	QCOMPARE( f3.evaluate( record1, variables ), QString( "Opqrstu" ) );
+	QCOMPARE( f4.evaluate( record1, variables ), QString( "Vwxyz!@" ) );
 
 	merge::Record record2; // All fields empty
 
-	QCOMPARE( f1.evaluate( &record2, &variables ), QString( "foo1" ) );
-	QCOMPARE( f2.evaluate( &record2, &variables ), QString( "foo2" ) );
-	QCOMPARE( f3.evaluate( &record2, &variables ), QString( "foo3" ) );
-	QCOMPARE( f4.evaluate( &record2, &variables ), QString( "foo4" ) );
+	QCOMPARE( f1.evaluate( record2, variables ), QString( "foo1" ) );
+	QCOMPARE( f2.evaluate( record2, variables ), QString( "foo2" ) );
+	QCOMPARE( f3.evaluate( record2, variables ), QString( "foo3" ) );
+	QCOMPARE( f4.evaluate( record2, variables ), QString( "foo4" ) );
 
 	merge::Record record3;
 	record3[ "1" ] = "xyzzy";
@@ -227,10 +228,10 @@ void TestSubstitutionField::defaultValueEvaluation()
 	// Field "3" empty
 	record3[ "4" ] = "plugh";
 	
-	QCOMPARE( f1.evaluate( &record3, &variables ), QString( "xyzzy" ) );
-	QCOMPARE( f2.evaluate( &record3, &variables ), QString( "foo2" ) );
-	QCOMPARE( f3.evaluate( &record3, &variables ), QString( "foo3" ) );
-	QCOMPARE( f4.evaluate( &record3, &variables ), QString( "plugh" ) );
+	QCOMPARE( f1.evaluate( record3, variables ), QString( "xyzzy" ) );
+	QCOMPARE( f2.evaluate( record3, variables ), QString( "foo2" ) );
+	QCOMPARE( f3.evaluate( record3, variables ), QString( "foo3" ) );
+	QCOMPARE( f4.evaluate( record3, variables ), QString( "plugh" ) );
 }
 
 
@@ -261,15 +262,15 @@ void TestSubstitutionField::formattedStringEvaluation()
 	record1[ "7" ] = "-100";
 	record1[ "8" ] = "3.14";
 	
-	QCOMPARE( f1.evaluate( &record1, &variables ), QString( "         0" ) );
-	QCOMPARE( f2.evaluate( &record1, &variables ), QString( "         1" ) );
-	QCOMPARE( f3.evaluate( &record1, &variables ), QString( "        -1" ) );
-	QCOMPARE( f4.evaluate( &record1, &variables ), QString( "      3.14" ) );
+	QCOMPARE( f1.evaluate( record1, variables ), QString( "         0" ) );
+	QCOMPARE( f2.evaluate( record1, variables ), QString( "         1" ) );
+	QCOMPARE( f3.evaluate( record1, variables ), QString( "        -1" ) );
+	QCOMPARE( f4.evaluate( record1, variables ), QString( "      3.14" ) );
 
-	QCOMPARE( f5.evaluate( &record1, &variables ), QString( "0         " ) );
-	QCOMPARE( f6.evaluate( &record1, &variables ), QString( "100       " ) );
-	QCOMPARE( f7.evaluate( &record1, &variables ), QString( "-100      " ) );
-	QCOMPARE( f8.evaluate( &record1, &variables ), QString( "3.14      " ) );
+	QCOMPARE( f5.evaluate( record1, variables ), QString( "0         " ) );
+	QCOMPARE( f6.evaluate( record1, variables ), QString( "100       " ) );
+	QCOMPARE( f7.evaluate( record1, variables ), QString( "-100      " ) );
+	QCOMPARE( f8.evaluate( record1, variables ), QString( "3.14      " ) );
 }
 
 
@@ -300,15 +301,15 @@ void TestSubstitutionField::formattedFloatEvaluation()
 	record1[ "7" ] = "-100";
 	record1[ "8" ] = "3.14";
 	
-	QCOMPARE( f1.evaluate( &record1, &variables ), QString( "+0.00" ) );
-	QCOMPARE( f2.evaluate( &record1, &variables ), QString( "+1.00" ) );
-	QCOMPARE( f3.evaluate( &record1, &variables ), QString( "-1.00" ) );
-	QCOMPARE( f4.evaluate( &record1, &variables ), QString( "+3.14" ) );
+	QCOMPARE( f1.evaluate( record1, variables ), QString( "+0.00" ) );
+	QCOMPARE( f2.evaluate( record1, variables ), QString( "+1.00" ) );
+	QCOMPARE( f3.evaluate( record1, variables ), QString( "-1.00" ) );
+	QCOMPARE( f4.evaluate( record1, variables ), QString( "+3.14" ) );
 
-	QCOMPARE( f5.evaluate( &record1, &variables ), QString( "+0.00e+00" ) );
-	QCOMPARE( f6.evaluate( &record1, &variables ), QString( "+1.00e+02" ) );
-	QCOMPARE( f7.evaluate( &record1, &variables ), QString( "-1.00e+02" ) );
-	QCOMPARE( f8.evaluate( &record1, &variables ), QString( "+3.14e+00" ) );
+	QCOMPARE( f5.evaluate( record1, variables ), QString( "+0.00e+00" ) );
+	QCOMPARE( f6.evaluate( record1, variables ), QString( "+1.00e+02" ) );
+	QCOMPARE( f7.evaluate( record1, variables ), QString( "-1.00e+02" ) );
+	QCOMPARE( f8.evaluate( record1, variables ), QString( "+3.14e+00" ) );
 }
 
 
@@ -339,15 +340,15 @@ void TestSubstitutionField::formattedIntEvaluation()
 	record1[ "7" ] = "-1";
 	record1[ "8" ] = "314";
 	
-	QCOMPARE( f1.evaluate( &record1, &variables ), QString( "00000000" ) );
-	QCOMPARE( f2.evaluate( &record1, &variables ), QString( "00000001" ) );
-	QCOMPARE( f3.evaluate( &record1, &variables ), QString( "-0000001" ) );
-	QCOMPARE( f4.evaluate( &record1, &variables ), QString( "00000000" ) ); // Invalid integer value
+	QCOMPARE( f1.evaluate( record1, variables ), QString( "00000000" ) );
+	QCOMPARE( f2.evaluate( record1, variables ), QString( "00000001" ) );
+	QCOMPARE( f3.evaluate( record1, variables ), QString( "-0000001" ) );
+	QCOMPARE( f4.evaluate( record1, variables ), QString( "00000000" ) ); // Invalid integer value
 
-	QCOMPARE( f5.evaluate( &record1, &variables ), QString( "00000064" ) ); // 100(decimal) == 64(hex)
-	QCOMPARE( f6.evaluate( &record1, &variables ), QString( "00000100" ) );
-	QCOMPARE( f7.evaluate( &record1, &variables ), QString( "00000000" ) ); // Invalid unsigned integer
-	QCOMPARE( f8.evaluate( &record1, &variables ), QString( "0000013a" ) ); // 314(decimal) == 13a(hex)
+	QCOMPARE( f5.evaluate( record1, variables ), QString( "00000064" ) ); // 100(decimal) == 64(hex)
+	QCOMPARE( f6.evaluate( record1, variables ), QString( "00000100" ) );
+	QCOMPARE( f7.evaluate( record1, variables ), QString( "00000000" ) ); // Invalid unsigned integer
+	QCOMPARE( f8.evaluate( record1, variables ), QString( "0000013a" ) ); // 314(decimal) == 13a(hex)
 }
 
 
@@ -370,7 +371,7 @@ void TestSubstitutionField::newLineEvaluation()
 	merge::Record record3;
 	// ADDR2 not defined
 
-	QCOMPARE( addr2.evaluate( &record1, &variables ), QString( "\nApt. 5B" ) ); // Prepends a newline
-	QCOMPARE( addr2.evaluate( &record2, &variables ), QString( "" ) ); // Evaluates empty
-	QCOMPARE( addr2.evaluate( &record3, &variables ), QString( "" ) ); // Evaluates empty
+	QCOMPARE( addr2.evaluate( record1, variables ), QString( "\nApt. 5B" ) ); // Prepends a newline
+	QCOMPARE( addr2.evaluate( record2, variables ), QString( "" ) ); // Evaluates empty
+	QCOMPARE( addr2.evaluate( record3, variables ), QString( "" ) ); // Evaluates empty
 }

@@ -34,7 +34,9 @@ namespace glabels
 		{
 
 		public:
+			Category() = default;
 			Category( const QString& id, const QString& name );
+			~Category() = default;
 
 			QString id() const;
 			QString name() const;

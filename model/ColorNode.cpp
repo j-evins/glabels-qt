@@ -18,9 +18,8 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ColorNode.h"
 
-#include "merge/Record.h"
+#include "ColorNode.h"
 
 
 namespace glabels
@@ -175,25 +174,25 @@ namespace glabels
 		///
 		/// Get color, expand if necessary
 		///
-		QColor ColorNode::color( const merge::Record* record,
-		                         const Variables*     variables ) const
+		QColor ColorNode::color( const merge::Record& record,
+		                         const Variables&     variables ) const
 		{
 			QColor value = QColor( 192, 192, 192, 128 );
 			
-			bool haveRecordField = mIsField && record &&
-				record->contains(mKey) &&
-				!record->value(mKey).isEmpty();
-			bool haveVariable = mIsField && variables &&
-				variables->contains(mKey) &&
-				!(*variables)[mKey].value().isEmpty();
+			bool haveRecordField = mIsField &&
+				record.contains(mKey) &&
+				!record.value(mKey).isEmpty();
+			bool haveVariable = mIsField &&
+				variables.contains(mKey) &&
+				!variables[mKey].value().isEmpty();
 
 			if ( haveRecordField )
 			{
-				value = QColor( record->value(mKey) );
+				value = QColor( record.value(mKey) );
 			}
 			else if ( haveVariable )
 			{
-				value = QColor( (*variables)[mKey].value() );
+				value = QColor( variables[mKey].value() );
 			}
 			else if ( !mIsField )
 			{

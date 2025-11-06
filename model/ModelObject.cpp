@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelObject.h"
 
 #include "ColorNode.h"
@@ -43,7 +44,8 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelObject::ModelObject() : QObject(nullptr)
+		ModelObject::ModelObject()
+			: QObject(nullptr)
 		{
 			mId = msNextId++;
 
@@ -61,25 +63,24 @@ namespace glabels
 			mShadowOpacity   = 0.5;
 
 			mSelectedFlag = false;
-
-			mOutline = nullptr;
 		}
 
 
 		///
 		/// Constructor
 		///
-		ModelObject::ModelObject( const Distance&  x0,
-		                          const Distance&  y0,
-		                          const Distance&  w,
-		                          const Distance&  h,
-		                          bool             lockAspectRatio,
+		ModelObject::ModelObject( Distance          x0,
+		                          Distance          y0,
+		                          Distance          w,
+		                          Distance          h,
+		                          bool              lockAspectRatio,
 		                          const QTransform& matrix,
-		                          bool             shadowState,
-		                          const Distance&  shadowX,
-		                          const Distance&  shadowY,
-		                          double           shadowOpacity,
-		                          const ColorNode& shadowColorNode ) : QObject(nullptr)
+		                          bool              shadowState,
+		                          Distance          shadowX,
+		                          Distance          shadowY,
+		                          double            shadowOpacity,
+		                          const ColorNode&  shadowColorNode )
+			: QObject(nullptr)
 		{
 			mId = msNextId++;
 
@@ -97,8 +98,6 @@ namespace glabels
 			mShadowOpacity   = shadowOpacity;
 
 			mSelectedFlag = false;
-
-			mOutline = nullptr;
 		}
 	
 		
@@ -123,30 +122,18 @@ namespace glabels
 			mShadowOpacity   = object->mShadowOpacity;
 			mShadowColorNode = object->mShadowColorNode;
 
-			foreach ( Handle* handle, object->mHandles )
+			if ( object->mOutline.isEnabled() )
 			{
-				mHandles.append( handle->clone( this ) );
+				mOutline = object->mOutline;
+				mOutline.setOwner( this );
+			}
+
+			for ( auto& handle : object->mHandles )
+			{
+				mHandles.push_back( Handle( this, handle.location() ) );
 			}
 	
-			if ( object->mOutline )
-			{
-				mOutline = object->mOutline->clone( this );
-			}
-			else
-			{
-				mOutline = nullptr;
-			}
-
 			mMatrix          = object->mMatrix;
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelObject::~ModelObject()
-		{
-			// empty
 		}
 
 
@@ -198,7 +185,7 @@ namespace glabels
 		///
 		/// X0 Property Setter
 		///
-		void ModelObject::setX0( const Distance& value )
+		void ModelObject::setX0( Distance value )
 		{
 			if ( mX0 != value )
 			{
@@ -220,7 +207,7 @@ namespace glabels
 		///
 		/// Y0 Property Setter
 		///
-		void ModelObject::setY0( const Distance& value )
+		void ModelObject::setY0( Distance value )
 		{
 			if ( mY0 != value )
 			{
@@ -242,7 +229,7 @@ namespace glabels
 		///
 		/// W (Width) Property Setter
 		///
-		void ModelObject::setW( const Distance& value )
+		void ModelObject::setW( Distance value )
 		{
 			if ( mW != value )
 			{
@@ -265,7 +252,7 @@ namespace glabels
 		///
 		/// H (Height) Property Setter
 		///
-		void ModelObject::setH( const Distance& value )
+		void ModelObject::setH( Distance value )
 		{
 			if ( mH != value )
 			{
@@ -354,7 +341,7 @@ namespace glabels
 		///
 		/// Shadow X Property Setter
 		///
-		void ModelObject::setShadowX( const Distance& value )
+		void ModelObject::setShadowX( Distance value )
 		{
 			if ( mShadowX != value )
 			{
@@ -376,7 +363,7 @@ namespace glabels
 		///
 		/// Shadow Y Property Setter
 		///
-		void ModelObject::setShadowY( const Distance& value )
+		void ModelObject::setShadowY( Distance value )
 		{
 			if ( mShadowY != value )
 			{
@@ -704,9 +691,10 @@ namespace glabels
 		/// Virtual Image Property Default Getter
 		/// (Overridden by concrete class)
 		///
-		const QImage* ModelObject::image() const
+		const QImage& ModelObject::image() const
 		{
-			return nullptr;
+			static QImage dummyImage;
+			return dummyImage;
 		}
 
 
@@ -734,9 +722,10 @@ namespace glabels
 		/// Virtual SVG Property Default Getter
 		/// (Overridden by concrete class)
 		///
-		QByteArray ModelObject::svg() const
+		const QByteArray& ModelObject::svg() const
 		{
-			return QByteArray();
+			static QByteArray dummySvg;
+			return dummySvg;
 		}
 
 
@@ -764,7 +753,7 @@ namespace glabels
 		/// Virtual Line Width Property Default Setter
 		/// (Overridden by concrete class)
 		///
-		void ModelObject::setLineWidth( const Distance& value )
+		void ModelObject::setLineWidth( Distance value )
 		{
 			// empty
 		}
@@ -973,8 +962,8 @@ namespace glabels
 		///
 		/// Set Absolute Position
 		///
-		void ModelObject::setPosition( const Distance& x0,
-		                               const Distance& y0 )
+		void ModelObject::setPosition( Distance x0,
+		                               Distance y0 )
 		{
 			if ( ( mX0 != x0 ) || ( mY0 != y0 ) )
 			{
@@ -989,8 +978,8 @@ namespace glabels
 		///
 		/// Set Relative Position
 		///
-		void ModelObject::setPositionRelative( const Distance& dx,
-		                                       const Distance& dy )
+		void ModelObject::setPositionRelative( Distance dx,
+		                                       Distance dy )
 		{
 			if ( ( dx != 0 ) || ( dy != 0 ) )
 			{
@@ -1014,8 +1003,8 @@ namespace glabels
 		///
 		/// Set Size
 		///
-		void ModelObject::setSize( const Distance& w,
-		                           const Distance& h )
+		void ModelObject::setSize( Distance w,
+		                           Distance h )
 		{
 			mW = w;
 			mH = h;
@@ -1028,7 +1017,7 @@ namespace glabels
 		///
 		/// Set Size
 		///
-		void ModelObject::setSize( const Size& size )
+		void ModelObject::setSize( Size size )
 		{
 			mW = size.w();
 			mH = size.h();
@@ -1041,8 +1030,8 @@ namespace glabels
 		///
 		/// Set Size (But Maintain Current Aspect Ratio)
 		///
-		void ModelObject::setSizeHonorAspect( const Distance& w,
-		                                      const Distance& h )
+		void ModelObject::setSizeHonorAspect( Distance w,
+		                                      Distance h )
 		{
 			double aspectRatio = mH / mW;
 			Distance wNew = w;
@@ -1064,7 +1053,7 @@ namespace glabels
 		///
 		/// Set Width (But Maintain Current Aspect Ratio)
 		///
-		void ModelObject::setWHonorAspect( const Distance& w )
+		void ModelObject::setWHonorAspect( Distance w )
 		{
 			double aspectRatio = mH / mW;
 			Distance h = w * aspectRatio;
@@ -1083,7 +1072,7 @@ namespace glabels
 		///
 		/// Set Height (But Maintain Current Aspect Ratio)
 		///
-		void ModelObject::setHHonorAspect( const Distance& h )
+		void ModelObject::setHHonorAspect( Distance h )
 		{
 			double aspectRatio = mH / mW;
 			Distance w = h / aspectRatio;
@@ -1169,9 +1158,9 @@ namespace glabels
 		///
 		/// Is this object located at x,y?
 		///
-		bool ModelObject::isLocatedAt( double          scale,
-		                               const Distance& x,
-		                               const Distance& y ) const
+		bool ModelObject::isLocatedAt( double   scale,
+		                               Distance x,
+		                               Distance y ) const
 		{
 			QPointF p( x.pt(), y.pt() );
 
@@ -1185,9 +1174,9 @@ namespace glabels
 			{
 				return true;
 			}
-			else if ( isSelected() && mOutline )
+			else if ( isSelected() )
 			{
-				if ( mOutline->hoverPath( scale ).contains( p ) )
+				if ( mOutline.hoverPath( scale ).contains( p ) )
 				{
 					return true;
 				}
@@ -1200,18 +1189,20 @@ namespace glabels
 		///
 		/// Is one of this object's handles locate at x,y?  If so, return it.
 		///
-		Handle* ModelObject::handleAt( double          scale,
-		                               const Distance& x,
-		                               const Distance& y ) const
+		const Handle& ModelObject::handleAt( double   scale,
+		                                     Distance x,
+		                                     Distance y ) const
 		{
+			static Handle nullHandle;
+
 			if ( mSelectedFlag )
 			{
 				QPointF p( x.pt(), y.pt() );
 				p -= QPointF( mX0.pt(), mY0.pt() ); // Translate point to x0,y0
 
-				foreach ( Handle* handle, mHandles )
+				for ( auto& handle : mHandles )
 				{
-					QPainterPath handlePath = mMatrix.map( handle->path( scale ) );
+					QPainterPath handlePath = mMatrix.map( handle.path( scale ) );
 					if ( handlePath.contains( p ) )
 					{
 						return handle;
@@ -1219,17 +1210,17 @@ namespace glabels
 				}
 			}
 
-			return nullptr;
+			return nullHandle;
 		}
 
 
 		///
 		/// Draw object + shadow
 		///
-		void ModelObject::draw( QPainter*      painter,
-		                        bool           inEditor,
-		                        merge::Record* record,
-		                        Variables*     variables ) const
+		void ModelObject::draw( QPainter*            painter,
+		                        bool                 inEditor,
+		                        const merge::Record& record,
+		                        const Variables&     variables ) const
 		{
 			painter->save();
 			painter->translate( mX0.pt(), mY0.pt() );
@@ -1260,14 +1251,11 @@ namespace glabels
 			painter->translate( mX0.pt(), mY0.pt() );
 			painter->setTransform( mMatrix, true );
 
-			if ( mOutline )
-			{
-				mOutline->draw( painter );
-			}
+			mOutline.draw( painter );
 
-			foreach( Handle* handle, mHandles )
+			for( auto& handle : mHandles )
 			{
-				handle->draw( painter, scale );
+				handle.draw( painter, scale );
 			}
 		
 			painter->restore();

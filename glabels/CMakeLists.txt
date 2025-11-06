@@ -19,7 +19,6 @@ set (glabels_sources
   FieldButton.cpp
   File.cpp
   Help.cpp
-  Icons.cpp
   LabelEditor.cpp
   MainWindow.cpp
   MergeView.cpp
@@ -107,9 +106,9 @@ set (glabels_resource_files
   images.qrc
 )
 
-qt5_wrap_cpp (glabels_moc_sources ${glabels_qobject_headers})
-qt5_wrap_ui (glabels_forms_headers ${glabels_forms})
-qt5_add_resources (glabels_qrc_sources ${glabels_resource_files})
+qt6_wrap_cpp (glabels_moc_sources ${glabels_qobject_headers})
+qt6_wrap_ui (glabels_forms_headers ${glabels_forms})
+qt6_add_resources (glabels_qrc_sources ${glabels_resource_files})
 
 if (WIN32)
   # Windows resource file
@@ -137,7 +136,7 @@ target_include_directories (glabels-qt
 
 target_link_libraries (glabels-qt
   Model
-  Qt5::Widgets
+  Qt6::Widgets
 )
 
 #=======================================
@@ -145,11 +144,11 @@ target_link_libraries (glabels-qt
 #=======================================
 install (TARGETS glabels-qt RUNTIME DESTINATION bin)
 
-install (FILES icons/apps/scalable/glabels.svg DESTINATION share/icons/hicolor/scalable/apps)
-install (FILES icons/apps/16x16/glabels.svg    DESTINATION share/icons/hicolor/16x16/apps)
-install (FILES icons/apps/22x22/glabels.svg    DESTINATION share/icons/hicolor/22x22/apps)
-install (FILES icons/apps/32x32/glabels.svg    DESTINATION share/icons/hicolor/32x32/apps)
-install (FILES icons/apps/48x48/glabels.svg    DESTINATION share/icons/hicolor/48x48/apps)
+install (FILES icons/glabels-flat/scalable/apps/glabels.svg DESTINATION share/icons/hicolor/scalable/apps)
+install (FILES icons/glabels-flat/16x16/apps/glabels.svg    DESTINATION share/icons/hicolor/16x16/apps)
+install (FILES icons/glabels-flat/22x22/apps/glabels.svg    DESTINATION share/icons/hicolor/22x22/apps)
+install (FILES icons/glabels-flat/32x32/apps/glabels.svg    DESTINATION share/icons/hicolor/32x32/apps)
+install (FILES icons/glabels-flat/48x48/apps/glabels.svg    DESTINATION share/icons/hicolor/48x48/apps)
 
 install (FILES icons/mimetypes/scalable/x-glabels-project.svg DESTINATION share/icons/hicolor/scalable/mimetypes)
 install (FILES icons/mimetypes/16x16/x-glabels-project.svg    DESTINATION share/icons/hicolor/16x16/mimetypes)
@@ -173,7 +172,6 @@ if (WIN32)
                 env PATH="${QT_BIN_DIR}" "${WINDEPLOYQT_EXECUTABLE}"
                     --verbose 0
                     --no-compiler-runtime
-                    --no-angle
                     --no-opengl-sw
                     \"$<TARGET_FILE:glabels-qt>\"
         )
@@ -198,7 +196,6 @@ if (WIN32)
                     --verbose 0
                     --release
                     --no-compiler-runtime
-                    --no-angle
                     --no-opengl-sw
                     \"$<TARGET_FILE:glabels-qt>\"
         )

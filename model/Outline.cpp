@@ -45,11 +45,12 @@ namespace glabels
 
 
 		///
-		/// Outline Constructor
+		/// Set owner and enable outline
 		///
-		Outline::Outline( ModelObject* owner )
-			: mOwner(owner)
+		void Outline::setOwner( ModelObject* owner )
 		{
+			mOwner = owner;
+
 			mDashes << dashSize << dashSize;
 
 			mPen1.setColor( outlineColor1 );
@@ -68,32 +69,11 @@ namespace glabels
 
 
 		///
-		/// Outline Copy constructor
+		/// Is enabled?  (I.e. not all objects have an outline (e.g. line objects))
 		///
-		Outline::Outline( const Outline* outline, ModelObject* newOwner )
-			: mOwner(newOwner)
+		bool Outline::isEnabled() const
 		{
-			mDashes = outline->mDashes;
-			mPen1   = outline->mPen1;
-			mPen2   = outline->mPen2;
-		}
-
-
-		///
-		/// Outline Destructor
-		///
-		Outline::~Outline()
-		{
-			// empty
-		}
-
-
-		///
-		/// Clone Outline
-		///
-		Outline* Outline::clone( ModelObject* newOwner ) const
-		{
-			return new Outline( this, newOwner );
+			return mOwner;
 		}
 
 
@@ -102,17 +82,20 @@ namespace glabels
 		///
 		void Outline::draw( QPainter* painter ) const
 		{
-			painter->save();
+			if ( mOwner )
+			{
+				painter->save();
 
-			painter->setBrush( Qt::NoBrush );
+				painter->setBrush( Qt::NoBrush );
 
-			painter->setPen( mPen1 );
-			painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
+				painter->setPen( mPen1 );
+				painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
 
-			painter->setPen( mPen2 );
-			painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
+				painter->setPen( mPen2 );
+				painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
 
-			painter->restore();
+				painter->restore();
+			}
 		}
 
 
@@ -121,16 +104,19 @@ namespace glabels
 		///
 		QPainterPath Outline::hoverPath( double scale ) const
 		{
-			double s = 1 / scale;
-
 			QPainterPath path;
 
-			path.addRect( -s*slopPixels, -s*slopPixels,
-			              mOwner->w().pt()+s*2*slopPixels, mOwner->h().pt()+s*2*slopPixels );
-			path.closeSubpath();
-			path.addRect( s*slopPixels, s*slopPixels,
-			              mOwner->w().pt()-s*2*slopPixels, mOwner->h().pt()-s*2*slopPixels );
-	
+			if ( mOwner )
+			{
+				double s = 1 / scale;
+
+				path.addRect( -s*slopPixels, -s*slopPixels,
+				              mOwner->w().pt()+s*2*slopPixels, mOwner->h().pt()+s*2*slopPixels );
+				path.closeSubpath();
+				path.addRect( s*slopPixels, s*slopPixels,
+				              mOwner->w().pt()-s*2*slopPixels, mOwner->h().pt()-s*2*slopPixels );
+			}
+
 			return path;
 		}
 

@@ -27,7 +27,6 @@
 #include "Template.h"
 #include "Vendor.h"
 
-#include <QCoreApplication>
 #include <QDir>
 #include <QList>
 #include <QString>
@@ -40,60 +39,55 @@ namespace glabels
 
 		class Db
 		{
-			Q_DECLARE_TR_FUNCTIONS(Db)
 
-		private:
-			Db();
-
-		
 		public:
+			Db() = delete;
+
 			static void init();
-			static Db* instance();
 
 
-			static const QList<Paper*>& papers();
+			static const QList<Paper>& papers();
 			static const QStringList& paperIds();
 			static const QStringList& paperNames();
 
-			static const QList<Category*>& categories();
+			static const QList<Category>& categories();
 			static const QStringList& categoryIds();
 			static const QStringList& categoryNames();
 
-			static const QList<Vendor*>& vendors();
+			static const QList<Vendor>& vendors();
 			static const QStringList& vendorNames();
 
-			static const QList<Template*>& templates();
+			static QList<Template> templates();
 
 
-			static void registerPaper( Paper *paper );
-			static const Paper *lookupPaperFromName( const QString& name );
-			static const Paper *lookupPaperFromId( const QString& id );
+			static const Paper lookupPaperFromName( const QString& name );
+			static const Paper lookupPaperFromId( const QString& id );
 			static QString lookupPaperIdFromName( const QString& name );
 			static QString lookupPaperNameFromId( const QString& id );
 			static bool isPaperIdKnown( const QString& id );
 
-			static void registerCategory( Category *category );
-			static const Category *lookupCategoryFromName( const QString& name );
-			static const Category *lookupCategoryFromId( const QString& id );
+			static const Category lookupCategoryFromName( const QString& name );
+			static const Category lookupCategoryFromId( const QString& id );
 			static QString lookupCategoryIdFromName( const QString& name );
 			static QString lookupCategoryNameFromId( const QString& id );
 			static bool isCategoryIdKnown( const QString& id );
 
-			static void registerVendor( Vendor *vendor );
-			static const Vendor *lookupVendorFromName( const QString& name );
+			static const Vendor lookupVendorFromName( const QString& name );
 			static QString lookupVendorUrlFromName( const QString& name );
 			static bool isVendorNameKnown( const QString& id );
 
-			static void registerTemplate( Template *tmplate );
-			static const Template *lookupTemplateFromName( const QString& name );
-			static const Template *lookupTemplateFromBrandPart( const QString& brand,
-			                                                    const QString& part );
+			static const Template lookupTemplateFromName( const QString& name );
+			static const Template lookupTemplateFromBrandPart( const QString& brand,
+			                                                   const QString& part );
+			static const Template lookupUserTemplateFromBrandPart( const QString& brand,
+			                                                       const QString& part );
 			static bool isTemplateKnown( const QString& brand, const QString& part );
 			static bool isSystemTemplateKnown( const QString& brand, const QString& part );
+			static bool isUserTemplateKnown( const QString& brand, const QString& part );
 			static QStringList getNameListOfSimilarTemplates( const QString& name );
 
-			static QString userTemplateFilename( const QString& brand, const QString& part );
-			static void registerUserTemplate( Template *tmplate );
+			static QString userTemplateFileName( const QString& brand, const QString& part );
+			static void registerUserTemplate( const Template &tmplate );
 			static void deleteUserTemplateByBrandPart( const QString& brand,
 			                                           const QString& part );
 
@@ -108,30 +102,44 @@ namespace glabels
 
 			static void readPapers();
 			static void readPapersFromDir( const QDir& dir );
+			static void registerPaper( const Paper& paper );
 
 			static void readCategories();
 			static void readCategoriesFromDir( const QDir& dir );
+			static void registerCategory( const Category& category );
 
 			static void readVendors();
 			static void readVendorsFromDir( const QDir& dir );
+			static void registerVendor( const Vendor& vendor );
 
 			static void readTemplates();
-			static void readTemplatesFromDir( const QDir& dir, bool isUserDefined );
+			static void readTemplatesFromDir( const QDir& dir );
+			static void registerTemplate( const Template& tmplate );
+
+			static void readUserTemplatesFromDir( const QDir& dir );
 
 
 		private:
-			static QList<Paper*>    mPapers;
-			static QStringList      mPaperIds;
-			static QStringList      mPaperNames;
+			static QList<Paper>           mPapers;
+			static QMap<QString,Paper>    mPapersNameMap;
+			static QMap<QString,Paper>    mPapersIdMap;
+			static QStringList            mPaperIds;
+			static QStringList            mPaperNames;
 
-			static QList<Category*> mCategories;
-			static QStringList      mCategoryIds;
-			static QStringList      mCategoryNames;
+			static QList<Category>        mCategories;
+			static QMap<QString,Category> mCategoriesNameMap;
+			static QMap<QString,Category> mCategoriesIdMap;
+			static QStringList            mCategoryIds;
+			static QStringList            mCategoryNames;
 
-			static QList<Vendor*>   mVendors;
-			static QStringList      mVendorNames;
+			static QList<Vendor>          mVendors;
+			static QMap<QString,Vendor>   mVendorsNameMap;
+			static QStringList            mVendorNames;
 
-			static QList<Template*> mTemplates;
+			static QList<Template>        mTemplates;
+			static QMap<QString,Template> mTemplatesNameMap;
+
+			static QMap<QString,Template> mUserTemplatesNameMap;
 
 		};
 

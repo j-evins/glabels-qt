@@ -48,7 +48,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		PropertiesView( QWidget *parent = nullptr );
-		~PropertiesView() override;
+		virtual ~PropertiesView() = default;
 
 
 		/////////////////////////////////

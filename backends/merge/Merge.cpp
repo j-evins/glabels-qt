@@ -18,9 +18,8 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Merge.h"
 
-#include "Record.h"
+#include "Merge.h"
 
 
 namespace glabels
@@ -31,25 +30,11 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		Merge::Merge( const Merge* merge ) : mId(merge->mId), mSource(merge->mSource)
+		Merge::Merge( const Merge* merge )
+			: mId(merge->mId),
+			  mSource(merge->mSource),
+			  mRecordList(merge->mRecordList)
 		{
-			foreach ( Record* record, merge->mRecordList )
-			{
-				mRecordList << record->clone();
-			}
-		}
-
-
-		///
-		/// Destructor
-		///
-		Merge::~Merge()
-		{
-			foreach ( Record* record, mRecordList )
-			{
-				delete record;
-			}
-			mRecordList.clear();
 		}
 
 
@@ -79,16 +64,12 @@ namespace glabels
 			mSource = source;
 
 			// Clear out any old records
-			foreach ( Record* record, mRecordList )
-			{
-				delete record;
-			}
 			mRecordList.clear();
 
 			open();
-			for ( Record* record = readNextRecord(); record != nullptr; record = readNextRecord() )
+			for ( Record record = readNextRecord(); !record.isEmpty(); record = readNextRecord() )
 			{
-				mRecordList.append( record );
+				mRecordList.push_back( record );
 			}
 			close();
 		
@@ -99,32 +80,12 @@ namespace glabels
 		///
 		/// Get record list
 		///
-		const QList<Record*>& Merge::recordList( ) const
+		const QList<Record>& Merge::recordList( ) const
 		{
 			return mRecordList;
 		}
 
 
-		///
-		/// Select matching record
-		///
-		void Merge::select( Record* record )
-		{
-			record->setSelected( true );
-			emit selectionChanged();
-		}
-	
-
-		///
-		/// Unselect matching record
-		///
-		void Merge::unselect( Record* record )
-		{
-			record->setSelected( false );
-			emit selectionChanged();
-		}
-
-	
 		///
 		/// Select/unselect i'th record
 		///
@@ -132,7 +93,7 @@ namespace glabels
 		{
 			if ( (i >= 0) && (i < mRecordList.size()) )
 			{
-				mRecordList[i]->setSelected( state );
+				mRecordList[i].setSelected( state );
 				emit selectionChanged();
 			}
 		}
@@ -143,9 +104,9 @@ namespace glabels
 		///
 		void Merge::selectAll()
 		{
-			foreach ( Record* record, mRecordList )
+			for ( auto& record : mRecordList )
 			{
-				record->setSelected( true );
+				record.setSelected( true );
 			}
 			emit selectionChanged();
 		}
@@ -156,9 +117,9 @@ namespace glabels
 		///
 		void Merge::unselectAll()
 		{
-			foreach ( Record* record, mRecordList )
+			for ( auto& record : mRecordList )
 			{
-				record->setSelected( false );
+				record.setSelected( false );
 			}
 			emit selectionChanged();
 		}
@@ -171,9 +132,9 @@ namespace glabels
 		{
 			int count = 0;
 
-			foreach ( Record* record, mRecordList )
+			for ( const auto& record : mRecordList )
 			{
-				if ( record->isSelected() )
+				if ( record.isSelected() )
 				{
 					count++;
 				}
@@ -186,13 +147,13 @@ namespace glabels
 		///
 		/// Return list of selected records
 		///
-		const QList<Record*> Merge::selectedRecords() const
+		const QList<Record> Merge::selectedRecords() const
 		{
-			QList<Record*> list;
+			QList<Record> list;
 
-			foreach ( Record* record, mRecordList )
+			for ( const auto& record : mRecordList )
 			{
-				if ( record->isSelected() )
+				if ( record.isSelected() )
 				{
 					list.append( record );
 				}

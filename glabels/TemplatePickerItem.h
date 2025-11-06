@@ -39,25 +39,35 @@ namespace glabels
 	public:
 		static const int SIZE = 80;
 
+		
 		/////////////////////////////////
 		// Life Cycle
 		/////////////////////////////////
 	public:
-		TemplatePickerItem( model::Template *tmplate, QListWidget *parent = nullptr );
+		TemplatePickerItem( const model::Template& tmplate,
+		                    QListView::ViewMode    mode,
+		                    QListWidget*           parent = nullptr );
+
+
+		/////////////////////////////////
+		// Manipulate widget
+		/////////////////////////////////
+	public:
+		void setMode( QListView::ViewMode mode );
 
 
 		/////////////////////////////////
 		// Properties
 		/////////////////////////////////
 	public:
-		const model::Template *tmplate() const;
+		model::Template tmplate() const;
 
 
 		/////////////////////////////////
 		// Private Data
 		/////////////////////////////////
 	private:
-		model::Template *mTmplate;
+		model::Template mTmplate;
 
 	};
 

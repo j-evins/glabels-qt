@@ -116,16 +116,7 @@ namespace glbarcode
 		/**
 		 * Indirection "[]" operator
 		 */
-		inline T* operator[]( int i )
-		{
-			return (mData + (mNx * i));
-		}
-
-
-		/**
-		 * Indirection "[]" operator
-		 */
-		inline T const*const operator[]( int i ) const
+		inline T* operator[]( int i ) const
 		{
 			return (mData + (mNx * i));
 		}

@@ -34,13 +34,13 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlTemplateCreator::writeTemplates( const QList<const Template*> tmplates, const QString &fileName )
+		bool XmlTemplateCreator::writeTemplates( const QList<Template> tmplates, const QString &fileName )
 		{
 			QDomDocument doc( "Glabels-templates" );
 			QDomElement root = doc.createElement( "Glabels-templates" );
 			doc.appendChild( root );
 
-			foreach ( const Template* tmplate, tmplates )
+			for ( auto& tmplate : tmplates )
 			{
 				createTemplateNode( root, tmplate );
 			}
@@ -66,9 +66,9 @@ namespace glabels
 		}
 
 
-		bool XmlTemplateCreator::writeTemplate( const Template* tmplate, const QString& fileName )
+		bool XmlTemplateCreator::writeTemplate( const Template& tmplate, const QString& fileName )
 		{
-			QList<const Template*> tmplates;
+			QList<Template> tmplates;
 
 			tmplates.append(tmplate);
 
@@ -76,40 +76,40 @@ namespace glabels
 		}
 
 
-		void XmlTemplateCreator::createTemplateNode( QDomElement &parent, const Template* tmplate )
+		void XmlTemplateCreator::createTemplateNode( QDomElement &parent, const Template& tmplate )
 		{
 			QDomDocument doc = parent.ownerDocument();
 			QDomElement node = doc.createElement( "Template" );
 			parent.appendChild( node );
 
-			XmlUtil::setStringAttr( node, "brand", tmplate->brand() );
-			XmlUtil::setStringAttr( node, "part", tmplate->part() );
+			XmlUtil::setStringAttr( node, "brand", tmplate.brand() );
+			XmlUtil::setStringAttr( node, "part", tmplate.part() );
 
-			XmlUtil::setStringAttr( node, "size", tmplate->paperId() );
-			if ( tmplate->isSizeOther() )
+			XmlUtil::setStringAttr( node, "size", tmplate.paperId() );
+			if ( tmplate.isSizeOther() )
 			{
-				XmlUtil::setLengthAttr( node, "width", tmplate->pageWidth() );
-				XmlUtil::setLengthAttr( node, "height", tmplate->pageHeight() );
+				XmlUtil::setLengthAttr( node, "width", tmplate.pageWidth() );
+				XmlUtil::setLengthAttr( node, "height", tmplate.pageHeight() );
 			}
-			if ( tmplate->isRoll() )
+			if ( tmplate.isRoll() )
 			{
-				XmlUtil::setLengthAttr( node, "roll_width", tmplate->rollWidth() );
+				XmlUtil::setLengthAttr( node, "roll_width", tmplate.rollWidth() );
 			}
 
-			XmlUtil::setStringAttr( node, "description", tmplate->description() );
+			XmlUtil::setStringAttr( node, "description", tmplate.description() );
 
-			if ( !tmplate->productUrl().isEmpty() )
+			if ( !tmplate.productUrl().isEmpty() )
 			{
-				createMetaNode( node, "product_url", tmplate->productUrl() );
+				createMetaNode( node, "product_url", tmplate.productUrl() );
 			}
 #if TODO
-			foreach ( QString categoryId, tmplate->categoryIds() )
+			for ( auto& categoryId : tmplate.categoryIds() )
 			{
 				createMetaNode( node, "category", categoryId );
 			}
 #endif
 
-			foreach ( Frame* frame, tmplate->frames() )
+			if ( auto frame = tmplate.frame() )
 			{
 				createLabelNode( node, frame );
 			}
@@ -263,25 +263,25 @@ namespace glabels
 
 		void XmlTemplateCreator::createLabelNodeCommon( QDomElement &node, const Frame *frame )
 		{
-			foreach ( Markup* markup, frame->markups() )
+			for ( auto& markup : frame->markups() )
 			{
-				if ( auto* markupMargin = dynamic_cast<MarkupMargin*>(markup) )
+				if ( auto* markupMargin = dynamic_cast<MarkupMargin*>(markup.get()) )
 				{
 					createMarkupMarginNode( node, markupMargin );
 				}
-				else if ( auto* markupLine = dynamic_cast<MarkupLine*>(markup) )
+				else if ( auto* markupLine = dynamic_cast<MarkupLine*>(markup.get()) )
 				{
 					createMarkupLineNode( node, markupLine );
 				}
-				else if ( auto* markupCircle = dynamic_cast<MarkupCircle*>(markup) )
+				else if ( auto* markupCircle = dynamic_cast<MarkupCircle*>(markup.get()) )
 				{
 					createMarkupCircleNode( node, markupCircle );
 				}
-				else if ( auto* markupRect = dynamic_cast<MarkupRect*>(markup) )
+				else if ( auto* markupRect = dynamic_cast<MarkupRect*>(markup.get()) )
 				{
 					createMarkupRectNode( node, markupRect );
 				}
-				else if ( auto* markupEllipse = dynamic_cast<MarkupEllipse*>(markup) )
+				else if ( auto* markupEllipse = dynamic_cast<MarkupEllipse*>(markup.get()) )
 				{
 					createMarkupEllipseNode( node, markupEllipse );
 				}
@@ -291,7 +291,7 @@ namespace glabels
 				}
 			}
 
-			foreach ( const Layout& layout, frame->layouts() )
+			for ( auto& layout : frame->layouts() )
 			{
 				createLayoutNode( node, layout );
 			}

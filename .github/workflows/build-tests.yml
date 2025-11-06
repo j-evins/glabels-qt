@@ -1,0 +1,146 @@
+# This workflow performs test builds across a diversity of supported platforms
+#
+#     - ubuntu-latest  - gcc
+#     - ubuntu-latest  - clang
+#     - ubuntu-24.04   - gcc   (For backwards compatablity)
+#     - windows-latest - cl
+#     - macos-latest   - clang
+#
+      
+
+name: Multi-Platform Build Tests
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        include:
+          - os: ubuntu-latest
+            build_type: Release
+            c_compiler: gcc
+            cpp_compiler: g++
+          - os: ubuntu-latest
+            build_type: Release
+            c_compiler: clang
+            cpp_compiler: clang++
+          - os: ubuntu-22.04
+            build_type: Release
+            c_compiler: gcc
+            cpp_compiler: g++
+          - os: windows-latest
+            build_type: Release
+            c_compiler: cl
+            cpp_compiler: cl
+          - os: macos-latest
+            build_type: Release
+            c_compiler: clang
+            cpp_compiler: clang++
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        # Checkout full-depth to facilitate auto versioning
+        fetch-depth: 0
+
+    - name: Install optional dependencies (Ubuntu)
+      if: startsWith( matrix.os, 'ubuntu-' )
+      shell: bash
+      run: |
+        # install packages
+        sudo apt-get update
+        sudo apt-get -y install xvfb
+        sudo apt-get -y install pkgconf libqrencode-dev
+        sudo apt-get -y install barcode
+        # install zint-2.15.0 from source
+        wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz && tar xzf zint-2.15.0-src.tar.gz && ( cd zint-2.15.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
+
+    - name: Pre-install vcpkg (Windows)
+      if: startsWith( matrix.os, 'windows-' )
+      shell: bash
+      run: |
+        git clone --depth 1 https://github.com/microsoft/vcpkg.git
+
+    - name: Restore vcpkg cache (Windows)
+      if: startsWith(matrix.os, 'windows-')
+      uses: actions/cache@v4
+      with:
+        path: |
+          ${{ github.workspace }}/vcpkg/installed
+          ${{ github.workspace }}/vcpkg/downloads
+        key: vcpkg-${{ runner.os }}-${{ hashFiles('.github/workflows/build-tests.yml') }}
+        restore-keys: |
+          vcpkg-${{ runner.os }}-
+
+    - name: Install optional dependencies (Windows)
+      if: startsWith( matrix.os, 'windows-' )
+      shell: bash
+      run: |
+        # install packages
+        ./vcpkg/bootstrap-vcpkg.sh
+        ./vcpkg/vcpkg install pkgconf
+        ./vcpkg/vcpkg install zlib
+        ./vcpkg/vcpkg install libqrencode
+        ./vcpkg/vcpkg install zint
+        echo "TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" >> $GITHUB_ENV
+
+    - name: Install optional dependencies (MacOS)
+      if: startsWith( matrix.os, 'macos-' )
+      shell: bash
+      run: |
+        # install packages
+        brew install zlib
+        brew install qrencode
+        brew install zint
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.2.*'
+        install-deps: 'true'
+        archives: 'qtbase qtsvg qttools icu qttranslations'
+
+    - name: Set reusable strings
+      id: strings
+      shell: bash
+      run: |
+        echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+    - name: Configure CMake
+      run: >
+        cmake -B ${{ steps.strings.outputs.build-output-dir }}
+        -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
+        -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
+        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DCMAKE_TOOLCHAIN_FILE=${{ env.TOOLCHAIN_FILE }}
+        -S ${{ github.workspace }}
+
+    - name: Build
+      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+
+    - name: Test (Ubuntu)
+      if: startsWith( matrix.os, 'ubuntu-' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: xvfb-run ctest --build-config ${{ matrix.build_type }}
+
+    - name: Test (Windows)
+      if: startsWith( matrix.os, 'windows-' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ctest --build-config ${{ matrix.build_type }}
+
+    - name: Test (MacOS)
+      if: startsWith( matrix.os, 'macos-' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ctest --build-config ${{ matrix.build_type }}
+
+#    - name: Tmate
+#      uses: mxschmitt/action-tmate@v3
+#      if: failure()
+

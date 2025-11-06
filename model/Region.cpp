@@ -29,7 +29,11 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		Region::Region() : mX1(0), mY1(0), mX2(0), mY2(0)
+		Region::Region()
+			: mX1(0),
+			  mY1(0),
+			  mX2(0),
+			  mY2(0)
 		{
 			// empty
 		}
@@ -38,9 +42,14 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		Region::Region( const Distance& x1, const Distance& y1,
-		                const Distance& x2, const Distance& y2 )
-			: mX1(x1), mY1(y1), mX2(x2), mY2(y2)
+		Region::Region( Distance x1,
+		                Distance y1,
+		                Distance x2,
+		                Distance y2 )
+			: mX1(x1),
+			  mY1(y1),
+			  mX2(x2),
+			  mY2(y2)
 		{
 			// empty
 		}
@@ -58,7 +67,7 @@ namespace glabels
 		///
 		/// Set x1
 		///
-		void Region::setX1( const Distance& value )
+		void Region::setX1( Distance value )
 		{
 			mX1 = value;
 		}
@@ -76,7 +85,7 @@ namespace glabels
 		///
 		/// Set y1
 		///
-		void Region::setY1( const Distance& value )
+		void Region::setY1( Distance value )
 		{
 			mY1 = value;
 		}
@@ -94,7 +103,7 @@ namespace glabels
 		///
 		/// Set x2
 		///
-		void Region::setX2( const Distance& value )
+		void Region::setX2( Distance value )
 		{
 			mX2 = value;
 		}
@@ -112,7 +121,7 @@ namespace glabels
 		///
 		/// Set y2
 		///
-		void Region::setY2( const Distance& value )
+		void Region::setY2( Distance value )
 		{
 			mY2 = value;
 		}

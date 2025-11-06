@@ -42,7 +42,7 @@ namespace glabels
 		private:
 			TextColon();
 			TextColon( const TextColon* merge );
-			~TextColon() override = default;
+			virtual ~TextColon() = default;
 
 
 			/////////////////////////////////

@@ -97,18 +97,18 @@ namespace glabels
 			auto tmplate = mModel->tmplate();
 
 			// For "Roll" templates, allow extra room to draw continuation break lines.
-			model::Distance drawHeight = mModel->tmplate()->pageHeight();
+			model::Distance drawHeight = mModel->tmplate().pageHeight();
 			model::Distance drawOffset = 0;
-			if ( tmplate->isRoll() )
+			if ( tmplate.isRoll() )
 			{
-				drawHeight = 1.2 * tmplate->pageHeight();
-				drawOffset = 0.1 * tmplate->pageHeight();
+				drawHeight = 1.2 * tmplate.pageHeight();
+				drawOffset = 0.1 * tmplate.pageHeight();
 			}
 			
 			// Set scene up with a 5% margin around paper
-			model::Distance x = -0.05 * tmplate->pageWidth();
+			model::Distance x = -0.05 * tmplate.pageWidth();
 			model::Distance y = -0.05 * drawHeight - drawOffset;
-			model::Distance w = 1.10 * tmplate->pageWidth();
+			model::Distance w = 1.10 * tmplate.pageWidth();
 			model::Distance h = 1.10 * drawHeight;
 
 			mScene->setSceneRect( x.pt(), y.pt(), w.pt(), h.pt() );
@@ -121,11 +121,15 @@ namespace glabels
 		}
 	}
 
-	void Preview::drawLabelNumberOverlaySingle(const model::Distance& x, const model::Distance& y, const QPainterPath& path, uint32_t labelInstance)
+
+	void Preview::drawLabelNumberOverlaySingle( model::Distance     x,
+	                                            model::Distance     y,
+	                                            const QPainterPath& path,
+	                                            uint32_t            labelInstance)
 	{
 		QBrush brush( labelNumberColor );
 
-		model::Frame *frame = mModel->tmplate()->frames().first();
+		auto frame = mModel->tmplate().frame();
 
 		model::Distance w = frame->w();
 		model::Distance h = frame->h();
@@ -143,18 +147,20 @@ namespace glabels
 		mScene->addItem( labelNumberItem );
 	}
 
+
 	void Preview::drawLabelNumberOverlay()
 	{
-		model::Frame *frame = mModel->tmplate()->frames().first();
+		auto frame = mModel->tmplate().frame();
 		auto i = 0;
 
-		foreach (model::Point origin, frame->getOrigins() )
+		for ( model::Point origin : frame->getOrigins() )
 		{
 			i++;
 			drawLabelNumberOverlaySingle( origin.x(), origin.y(), frame->path(), i);
 		}
 	}
 
+	
 	///
 	/// Resize Event Handler
 	///
@@ -181,9 +187,9 @@ namespace glabels
 
 		QAbstractGraphicsShapeItem* pageItem;
 		auto tmplate = mModel->tmplate();
-		if ( !tmplate->isRoll() )
+		if ( !tmplate.isRoll() )
 		{
-			pageItem = new QGraphicsRectItem( 0, 0, tmplate->pageWidth().pt(), tmplate->pageHeight().pt() );
+			pageItem = new QGraphicsRectItem( 0, 0, tmplate.pageWidth().pt(), tmplate.pageHeight().pt() );
 		}
 		else
 		{
@@ -202,9 +208,9 @@ namespace glabels
 	///
 	void Preview::drawLabels()
 	{
-		model::Frame *frame = mModel->tmplate()->frames().first();
+		auto frame = mModel->tmplate().frame();
 
-		foreach (model::Point origin, frame->getOrigins() )
+		for ( model::Point origin : frame->getOrigins() )
 		{
 			drawLabel( origin.x(), origin.y(), frame->path() );
 		}
@@ -214,7 +220,9 @@ namespace glabels
 	///
 	/// Draw a Single Label at x,y
 	///
-	void Preview::drawLabel( const model::Distance& x, const model::Distance& y, const QPainterPath& path )
+	void Preview::drawLabel( model::Distance     x,
+	                         model::Distance     y,
+	                         const QPainterPath& path )
 	{
 		QBrush brush( labelColor );
 		QPen pen( labelOutlineColor );

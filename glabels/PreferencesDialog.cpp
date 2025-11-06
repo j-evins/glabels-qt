@@ -34,7 +34,10 @@ namespace glabels
 	{
 		setupUi( this );
 
-		switch ( model::Settings::units().toEnum() )
+		
+		auto units = model::Settings::units();
+		
+		switch ( units.toEnum() )
 		{
 		case model::Units::IN:
 			unitsInchesRadio->setChecked( true );
@@ -52,6 +55,33 @@ namespace glabels
 			unitsPointsRadio->setChecked( true );
 			break;
 		}
+
+
+		switch ( model::Settings::gridOrigin() )
+		{
+		case model::Settings::ORIGIN_CENTER:
+			gridOriginCenterRadio->setChecked( true );
+			break;
+		case model::Settings::ORIGIN_TL:
+			gridOriginTlRadio->setChecked( true );
+			break;
+		default:
+			gridOriginTlRadio->setChecked( true );
+			break;
+		}
+
+
+		auto gridSpacing = model::Settings::gridSpacing();
+		
+		gridSpacingSpin->setDecimals( units.resolutionDigits() );
+		gridSpacingSpin->setSingleStep( units.resolution() );
+		gridSpacingSpin->setMinimum( units.resolution() );
+		gridSpacingSpin->setSuffix( " " + units.toIdString() );
+		gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
+
+
+		connect( model::Settings::instance(), SIGNAL(changed()),
+		         this, SLOT(onSettingsChanged()) );
 	}
 
 
@@ -81,5 +111,62 @@ namespace glabels
 			model::Settings::setUnits( model::Units::pt() );
 		}
 	}
+
+
+	///
+	/// Grid Origin Radios Changed
+	///
+	void PreferencesDialog::onGridOriginRadiosChanged()
+	{
+		if ( gridOriginTlRadio->isChecked() )
+		{
+			model::Settings::setGridOrigin( model::Settings::ORIGIN_TL );
+		}
+		else if ( gridOriginCenterRadio->isChecked() )
+		{
+			model::Settings::setGridOrigin( model::Settings::ORIGIN_CENTER );
+		}
+	}
+
+
+	///
+	/// Grid Spacing Spin Changed
+	///
+	void PreferencesDialog::onGridSpacingSpinChanged()
+	{
+		auto units = model::Settings::units();
+
+		auto spacing = model::Distance( gridSpacingSpin->value(), units );
+
+		model::Settings::setGridSpacing( spacing );
+	}
+
+
+	///
+	/// Grid Spacing Reset Button Clicked
+	///
+	void PreferencesDialog::onGridSpacingResetButtonClicked()
+	{
+		model::Settings::resetGridSpacing();
+	}
+
+
+	///
+	/// Settings Changed
+	///
+	void PreferencesDialog::onSettingsChanged()
+	{
+		auto units = model::Settings::units();
+		auto gridSpacing = model::Settings::gridSpacing();
+
+		gridSpacingSpin->blockSignals( true );
+		gridSpacingSpin->setDecimals( units.resolutionDigits() );
+		gridSpacingSpin->setSingleStep( units.resolution() );
+		gridSpacingSpin->setMinimum( units.resolution() );
+		gridSpacingSpin->setSuffix( " " + units.toIdString() );
+		gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
+		gridSpacingSpin->blockSignals( false );
+	}
+
 
 } // namespace glabels

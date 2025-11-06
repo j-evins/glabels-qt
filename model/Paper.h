@@ -35,11 +35,13 @@ namespace glabels
 		class Paper
 		{
 		public:
-			Paper( const QString&  id,
-			       const QString&  name,
-			       const Distance& width,
-			       const Distance& height,
-			       const QString&  pwgSize );
+			Paper() = default;
+			Paper( const QString& id,
+			       const QString& name,
+			       Distance       width,
+			       Distance       height,
+			       const QString& pwgSize );
+			~Paper() = default;
 
 			QString id() const;
 			QString name() const;

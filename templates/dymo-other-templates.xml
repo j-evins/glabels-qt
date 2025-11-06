@@ -74,7 +74,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 11353 Multipurpose labels.                                     -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="11353" size="Other" width="13mm" height="25mm" _description="Multipurpose labels">
+  <Template brand="Dymo" part="11353" size="other" width="13mm" height="25mm" _description="Multipurpose labels">
     <Meta category="label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="13mm" height="25mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -86,7 +86,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 11355 Return address labels.                                   -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="11355" size="Other" width="19mm" height="51mm" _description="Return address labels">
+  <Template brand="Dymo" part="11355" size="other" width="19mm" height="51mm" _description="Return address labels">
     <Meta category="label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="19mm" height="51mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -98,7 +98,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 11356 Small Name Badge labels.                                 -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="11356" size="Other" width="41mm" height="89mm" _description="Name badge labels">
+  <Template brand="Dymo" part="11356" size="other" width="41mm" height="89mm" _description="Name badge labels">
     <Meta category="label"/>
     <Meta category="name-badge"/>
     <Label-rectangle id="0" width="41mm" height="89mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -110,7 +110,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 30256 Address labels.                                          -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="30256" size="Other" width="59mm" height="102mm" _description="Address labels">
+  <Template brand="Dymo" part="30256" size="other" width="59mm" height="102mm" _description="Address labels">
     <Meta category="label"/>
     <Meta category="media"/>
     <Label-rectangle id="0" width="59mm" height="102mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -122,7 +122,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 30327 File folder labels.                                      -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="30327" size="Other" width="14mm" height="87mm" _description="File folder labels">
+  <Template brand="Dymo" part="30327" size="other" width="14mm" height="87mm" _description="File folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="filing"/>
@@ -135,7 +135,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 30258 Multipurpose labels (was 3.5" Disk labels).              -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="30258" size="Other" width="54mm" height="70mm" _description="Multipurpose labels">
+  <Template brand="Dymo" part="30258" size="other" width="54mm" height="70mm" _description="Multipurpose labels">
     <Meta category="label"/>
     <Meta category="media"/>
     <Label-rectangle id="0" width="54mm" height="70mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -147,7 +147,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 30332 File folder labels.                                      -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="30332" size="Other" width="25mm" height="25mm" _description="File folder labels">
+  <Template brand="Dymo" part="30332" size="other" width="25mm" height="25mm" _description="File folder labels">
     <Meta category="label"/>
     <Meta category="square-label"/>
     <Meta category="filing"/>
@@ -160,7 +160,7 @@
  <!-- =================================================================== -->
  <!-- Dymo 30374 Name badge.                                              -->
  <!-- =================================================================== -->
-  <Template brand="Dymo" part="30374" size="Other" width="51mm" height="89mm" _description="Name badge labels">
+  <Template brand="Dymo" part="30374" size="other" width="51mm" height="89mm" _description="Name badge labels">
     <Meta category="label"/>
     <Meta category="name-badge"/>
     <Label-rectangle id="0" width="51mm" height="89mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -172,7 +172,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 30376 Hanging Folder labels.                                   -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="30376" size="Other" width="14mm" height="51mm" _description="Hanging folder labels">
+  <Template brand="Dymo" part="30376" size="other" width="14mm" height="51mm" _description="Hanging folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="filing"/>
@@ -185,7 +185,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 30856 Name badge                                               -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="30856" size="Other" width="62mm" height="106mm" _description="Name badge labels">
+  <Template brand="Dymo" part="30856" size="other" width="62mm" height="106mm" _description="Name badge labels">
     <Meta category="label"/>
     <Meta category="name-badge"/>
     <Label-rectangle id="0" width="62mm" height="106mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -197,7 +197,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 99012 Large address labels.                                    -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="99012" size="Other" width="36mm" height="89mm" _description="Large address labels">
+  <Template brand="Dymo" part="99012" size="other" width="36mm" height="89mm" _description="Large address labels">
     <Meta category="label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="36mm" height="89mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -209,7 +209,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 99013 Large address labels. Transparent Plastic                -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="99013" size="Other" width="36mm" height="89mm" _description="Large address labels">
+  <Template brand="Dymo" part="99013" size="other" width="36mm" height="89mm" _description="Large address labels">
     <Meta category="label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="36mm" height="89mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -221,7 +221,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 99014 Shipping address labels.                                 -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="99014" size="Other" width="54mm" height="101mm" _description="Address labels">
+  <Template brand="Dymo" part="99014" size="other" width="54mm" height="101mm" _description="Address labels">
     <Meta category="label"/>
     <Meta category="mail"/>
     <Meta category="name-badge"/>
@@ -234,7 +234,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 99015 Name badge.                                              -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="99015" size="Other" width="54mm" height="70mm" _description="Name badge labels">
+  <Template brand="Dymo" part="99015" size="other" width="54mm" height="70mm" _description="Name badge labels">
     <Meta category="label"/>
     <Meta category="name-badge"/>
     <Label-rectangle id="0" width="54mm" height="70mm" round="0pt" x_waste="0pt" y_waste="0pt">
@@ -246,7 +246,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 99017 Hanging Folder labels.                                   -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="99017" size="Other" width="12mm" height="50mm" _description="Hanging folder labels">
+  <Template brand="Dymo" part="99017" size="other" width="12mm" height="50mm" _description="Hanging folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="filing"/>
@@ -259,7 +259,7 @@
   <!-- =================================================================== -->
   <!-- Dymo 99019 Lever arch labels.                                       -->
   <!-- =================================================================== -->
-  <Template brand="Dymo" part="99019" size="Other" width="59mm" height="190mm" _description="File folder labels">
+  <Template brand="Dymo" part="99019" size="other" width="59mm" height="190mm" _description="File folder labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta category="filing"/>

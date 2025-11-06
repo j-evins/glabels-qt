@@ -47,9 +47,6 @@ namespace glabels
 
 
 		PageRenderer::PageRenderer( const Model* model )
-			: mModel(nullptr), mMerge(nullptr), mVariables(nullptr), mNCopies(0), mStartItem(0), mLastItem(0),
-			  mPrintOutlines(false), mPrintCropMarks(false), mPrintReverse(false),
-			  mIPage(0), mIsMerge(false), mNPages(0), mNItemsPerPage(0)
 		{
 			if ( model )
 			{
@@ -65,7 +62,6 @@ namespace glabels
 			connect( mModel, SIGNAL(changed()), this, SLOT(onModelChanged()) );
 	
 			onModelChanged();
-			mVariables = mModel->variables();
 		}
 
 	
@@ -171,7 +167,7 @@ namespace glabels
 		{
 			if ( mModel )
 			{
-				return QRectF( 0, 0, mModel->tmplate()->pageWidth().pt(), mModel->tmplate()->pageHeight().pt() );
+				return QRectF( 0, 0, mModel->tmplate().pageWidth().pt(), mModel->tmplate().pageHeight().pt() );
 			}
 			else
 			{
@@ -235,7 +231,7 @@ namespace glabels
 		///
 		void PageRenderer::print( QPrinter* printer ) const
 		{
-			QSizeF pageSize( mModel->tmplate()->pageWidth().pt(), mModel->tmplate()->pageHeight().pt() );
+			QSizeF pageSize( mModel->tmplate().pageWidth().pt(), mModel->tmplate().pageHeight().pt() );
 			printer->setPageSize( QPageSize(pageSize, QPageSize::Point) );
 			printer->setFullPage( true );
 			printer->setPageMargins( QMarginsF(0, 0, 0, 0), QPageLayout::Point );
@@ -301,7 +297,8 @@ namespace glabels
 			int iCopy = 0;
 			int iItem = mStartItem;
 			int iCurrentPage = 0;
-			mVariables->resetVariables();
+
+			Variables variables( mModel->constVariables() );
 
 			while ( (iCopy < mNCopies) && (iCurrentPage <= iPage) )
 			{
@@ -316,7 +313,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, nullptr, mVariables );
+					printLabel( painter, merge::NullRecord(), variables );
 
 					painter->restore();  // From before clip
 
@@ -331,11 +328,11 @@ namespace glabels
 				iCurrentPage = iItem / mNItemsPerPage;
 
 				// User variable book keeping
-				mVariables->incrementVariablesOnItem();
-				mVariables->incrementVariablesOnCopy();
+				variables.incrementVariablesOnItem();
+				variables.incrementVariablesOnCopy();
 				if ( (iItem % mNItemsPerPage) == 0 /* starting a new page */ )
 				{
-					mVariables->incrementVariablesOnPage();
+					variables.incrementVariablesOnPage();
 				}
 			}
 		}
@@ -349,7 +346,7 @@ namespace glabels
 			int iItem = mStartItem;
 			int iCurrentPage = 0;
 
-			const QList<merge::Record*> records = mMerge->selectedRecords();
+			auto records = mMerge->selectedRecords();
 			int iRecord = 0;
 			int nRecords = records.size();
 
@@ -358,7 +355,7 @@ namespace glabels
 				return;
 			}
 			
-			mVariables->resetVariables();
+			Variables variables( mModel->constVariables() );
 
 			while ( (iCopy < mNCopies) && (iCurrentPage <= iPage) )
 			{
@@ -373,7 +370,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, records[iRecord], mVariables );
+					printLabel( painter, records[iRecord], variables );
 
 					painter->restore();  // From before clip
 
@@ -403,14 +400,14 @@ namespace glabels
 				iCurrentPage = iItem / mNItemsPerPage;
 
 				// User variable book keeping
-				mVariables->incrementVariablesOnItem();
+				variables.incrementVariablesOnItem();
 				if ( iRecord == 0 )
 				{
-					mVariables->incrementVariablesOnCopy();
+					variables.incrementVariablesOnCopy();
 				}
 				if ( (iItem % mNItemsPerPage) == 0 /* starting a new page */ )
 				{
-					mVariables->incrementVariablesOnPage();
+					variables.incrementVariablesOnPage();
 				}
 			}
 		}
@@ -424,7 +421,7 @@ namespace glabels
 			int iItem = mStartItem;
 			int iCurrentPage = 0;
 
-			const QList<merge::Record*> records = mMerge->selectedRecords();
+			auto records = mMerge->selectedRecords();
 			int iRecord = 0;
 			int nRecords = records.size();
 
@@ -433,7 +430,7 @@ namespace glabels
 				return;
 			}
 			
-			mVariables->resetVariables();
+			Variables variables( mModel->constVariables() );
 
 			while ( (iRecord < nRecords) && (iCurrentPage <= iPage) )
 			{
@@ -448,7 +445,7 @@ namespace glabels
 					painter->save();
 
 					clipLabel( painter );
-					printLabel( painter, records[iRecord], mVariables );
+					printLabel( painter, records[iRecord], variables );
 
 					painter->restore();  // From before clip
 
@@ -478,15 +475,15 @@ namespace glabels
 				iCurrentPage = iItem / mNItemsPerPage;
 
 				// User variable book keeping
-				mVariables->incrementVariablesOnItem();
-				mVariables->incrementVariablesOnCopy();
+				variables.incrementVariablesOnItem();
+				variables.incrementVariablesOnCopy();
 				if ( iCopy == 0 )
 				{
-					mVariables->resetOnCopyVariables();
+					variables.resetOnCopyVariables();
 				}
 				if ( (iItem % mNItemsPerPage) == 0 /* starting a new page */ )
 				{
-					mVariables->incrementVariablesOnPage();
+					variables.incrementVariablesOnPage();
 				}
 			}
 		}
@@ -504,7 +501,7 @@ namespace glabels
 				Distance w = mModel->frame()->w();
 				Distance h = mModel->frame()->h();
 
-				foreach ( const Layout& layout, mModel->frame()->layouts() )
+				for ( auto& layout : mModel->frame()->layouts() )
 				{
 					Distance xMin = layout.x0();
 					Distance yMin = layout.y0();
@@ -519,8 +516,8 @@ namespace glabels
 						Distance y1 = max( yMin-tickOffset, Distance::pt(0) );
 						Distance y2 = max( y1-tickLength, Distance::pt(0) );
 
-						Distance y3 = min( yMax+tickOffset, mModel->tmplate()->pageHeight() );
-						Distance y4 = min( y3+tickLength, mModel->tmplate()->pageHeight() );
+						Distance y3 = min( yMax+tickOffset, mModel->tmplate().pageHeight() );
+						Distance y4 = min( y3+tickLength, mModel->tmplate().pageHeight() );
 
 						painter->drawLine( x1.pt(), y1.pt(), x1.pt(), y2.pt() );
 						painter->drawLine( x2.pt(), y1.pt(), x2.pt(), y2.pt() );
@@ -536,8 +533,8 @@ namespace glabels
 						Distance x1 = max( xMin-tickOffset, Distance::pt(0) );
 						Distance x2 = max( x1-tickLength, Distance::pt(0) );
 
-						Distance x3 = min( xMax+tickOffset, mModel->tmplate()->pageWidth() );
-						Distance x4 = min( x3+tickLength, mModel->tmplate()->pageWidth() );
+						Distance x3 = min( xMax+tickOffset, mModel->tmplate().pageWidth() );
+						Distance x4 = min( x3+tickLength, mModel->tmplate().pageWidth() );
 
 						painter->drawLine( x1.pt(), y1.pt(), x2.pt(), y1.pt() );
 						painter->drawLine( x1.pt(), y2.pt(), x2.pt(), y2.pt() );
@@ -573,9 +570,9 @@ namespace glabels
 		}
 
 	
-		void PageRenderer::printLabel( QPainter*      painter,
-		                               merge::Record* record,
-		                               Variables*     variables ) const
+		void PageRenderer::printLabel( QPainter*            painter,
+		                               const merge::Record& record,
+		                               Variables&           variables ) const
 		{
 			painter->save();
 

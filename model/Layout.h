@@ -36,14 +36,14 @@ namespace glabels
 		{
 		
 		public:
-			Layout( int             nx,
-			        int             ny,
-			        const Distance& x0,
-			        const Distance& y0,
-			        const Distance& dx,
-			        const Distance& dy );
+			Layout( int      nx,
+			        int      ny,
+			        Distance x0,
+			        Distance y0,
+			        Distance dx,
+			        Distance dy );
 
-			Layout( const Layout &other );
+			Layout( const Layout& other ) = default;
 
 			int nx() const;
 			int ny() const;

@@ -21,6 +21,9 @@
 #ifndef MainWindow_h
 #define MainWindow_h
 
+
+#include "UndoRedoModel.h"
+
 #include <model/Model.h>
 
 #include <QAction>
@@ -35,6 +38,8 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -46,7 +51,6 @@ namespace glabels
 	class PrintView;
 	class PropertiesView;
 	class StartupView;
-	class UndoRedoModel;
 	class VariablesView;
 
 
@@ -63,7 +67,7 @@ namespace glabels
 		/////////////////////////////////////
 	public:
 		MainWindow();
-		~MainWindow() override;
+		virtual ~MainWindow() = default;
 
 
 		/////////////////////////////////////
@@ -109,6 +113,7 @@ namespace glabels
 		void editCut();
 		void editCopy();
 		void editPaste();
+		void editContextPaste();
 		void editDelete();
 		void editSelectAll();
 		void editUnSelectAll();
@@ -142,6 +147,7 @@ namespace glabels
 		void objectsAlignTop();
 		void objectsAlignVCenter();
 		void objectsAlignBottom();
+		void objectsCenter();
 		void objectsCenterHoriz();
 		void objectsCenterVert();
 
@@ -149,10 +155,10 @@ namespace glabels
 		void helpReportBug();
 		void helpAbout();
 
-		void onContextMenuActivate();
+		void onContextMenuActivate( model::Point );
 
 		void onZoomChanged();
-		void onPointerMoved( double, double );
+		void onPointerMoved( model::Point );
 		void onPointerExit();
 
 		void onNameChanged();
@@ -192,8 +198,17 @@ namespace glabels
 
 		/////////////////////////////////////
 		// Private Data
+		// owned and managed by us
 		/////////////////////////////////////
 	private:
+		std::unique_ptr<model::Model>  mModel;
+		std::unique_ptr<UndoRedoModel> mUndoRedoModel;
+
+		
+		/////////////////////////////////////
+		// Private Data
+		// owned by QMainWindow
+		/////////////////////////////////////
 		QMenu*    fileMenu;
 		QMenu*    fileRecentMenu;
 		QMenu*    editMenu;
@@ -216,9 +231,6 @@ namespace glabels
 		
 		QToolBar* fileToolBar;
 		QToolBar* editorToolBar;
-
-		model::Model*        mModel;
-		UndoRedoModel*       mUndoRedoModel;
 
 		QToolBar*            mContents;
 		QToolButton*         mWelcomeButton;
@@ -301,6 +313,7 @@ namespace glabels
 		QAction*  objectsAlignTopAction;
 		QAction*  objectsAlignVCenterAction;
 		QAction*  objectsAlignBottomAction;
+		QAction*  objectsCenterAction;
 		QAction*  objectsCenterHorizAction;
 		QAction*  objectsCenterVertAction;
 

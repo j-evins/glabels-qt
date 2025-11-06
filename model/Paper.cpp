@@ -26,12 +26,16 @@ namespace glabels
 	namespace model
 	{
 	
-		Paper::Paper( const QString&  id,
-		              const QString&  name,
-		              const Distance& width,
-		              const Distance& height,
-		              const QString&  pwgSize )
-			: mId(id), mName(name), mWidth(width), mHeight(height), mPwgSize(pwgSize)
+		Paper::Paper( const QString& id,
+		              const QString& name,
+		              Distance       width,
+		              Distance       height,
+		              const QString& pwgSize )
+			: mId(id),
+			  mName(name),
+			  mWidth(width),
+			  mHeight(height),
+			  mPwgSize(pwgSize)
 		{
 			// empty
 		}

@@ -49,7 +49,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		MergeView( QWidget *parent = nullptr );
-		~MergeView() override;
+		virtual ~MergeView() = default;
 
 
 		/////////////////////////////////
@@ -79,6 +79,7 @@ namespace glabels
 	private:
 		void loadHeaders( merge::Merge* merge );
 		void loadTable( merge::Merge* merge );
+		static QString printableTextForView( QString text );
 
 
 		/////////////////////////////////

@@ -22,8 +22,11 @@
 #define model_XmlPaperParser_h
 
 
-#include <QString>
+#include "Paper.h"
+
 #include <QDomElement>
+#include <QList>
+#include <QString>
 
 
 namespace glabels
@@ -36,11 +39,11 @@ namespace glabels
 		public:
 			XmlPaperParser() = default;
 
-			bool readFile( const QString &fileName );
+			QList<Paper> readFile( const QString &fileName );
 
 		private:
-			void parseRootNode( const QDomElement &node );
-			void parsePaperSizeNode( const QDomElement &node );
+			QList<Paper> parseRootNode( const QDomElement &node );
+			Paper parsePaperSizeNode( const QDomElement &node );
 		};
 
 	}

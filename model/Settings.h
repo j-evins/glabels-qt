@@ -23,9 +23,13 @@
 
 
 #include "Distance.h"
+#include "Units.h"
 
+#include <QListView>
 #include <QSettings>
 #include <QStringList>
+
+#include <memory>
 
 
 namespace glabels
@@ -42,13 +46,14 @@ namespace glabels
 	
 		public:
 			enum PageSizeFamily { ISO, US, };
-
+			enum GridOrigin { ORIGIN_TL, ORIGIN_CENTER };
+			
 
 			/////////////////////////////////
 			// Life Cycle
 			/////////////////////////////////
 		private:
-			Settings();
+			Settings() = default;
 
 		public:
 			static void init();
@@ -67,7 +72,7 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			static Units units();
-			static void setUnits( const Units& units );
+			static void setUnits( Units units );
 
 			static PageSizeFamily preferedPageSizeFamily();
 			static void setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily );
@@ -87,6 +92,9 @@ namespace glabels
 			static QStringList searchCategoryList();
 			static void setSearchCategoryList( const QStringList& searchCategoryList );
 
+			static QListView::ViewMode templatePickerMode();
+			static void setTemplatePickerMode( QListView::ViewMode viewMode );
+
 			static QStringList recentTemplateList();
 			static void addToRecentTemplateList( const QString& name );
 
@@ -94,9 +102,19 @@ namespace glabels
 			static QStringList recentFileList();
 			static void addToRecentFileList( const QString& filePath );
 
+			static QString recentPrinter();
+			static void setRecentPrinter( const QString& printer );
 
+			static GridOrigin gridOrigin();
+			static void setGridOrigin( GridOrigin origin );
+
+			static Distance gridSpacing();
+			static void setGridSpacing( Distance spacing );
+			static void resetGridSpacing();
+			
+			
 		private:
-			static Settings* mInstance;
+			static std::unique_ptr<Settings> mInstance;
 			static const int mMaxRecentFiles{5};
 
 		};

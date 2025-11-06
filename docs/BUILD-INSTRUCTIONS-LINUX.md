@@ -5,13 +5,23 @@ gLabels Linux Build Instructions
 ### Prerequisites
 
 - g++
-- CMake 2.8.12+
-- Qt5 5.15+ Development Packages ( Qt5Core, Qt5Widgets, Qt5PrintSupport, Qt5Xml, Qt5Svg )
-- zlib 1.2+ Development Package
+- CMake 3.22+
+- Qt6 6.2+ Development Packages ( Qt6Core, Qt6Widgets, Qt6PrintSupport, Qt6Xml, Qt6Svg, Qt6Test )
+
 
 > Even if the above library packages are installed, their corresponding development packages
 > may also need to be installed.  Development packages are usually named something like
-> libraryName-dev or libraryName-devel.
+> libraryName-dev or libraryName-devel.  Also, package names can vary significantly between
+> distributions as well as between versions of the same distribution.  Finding the exact package
+> names for your particular distribution, may require some trial-and-error and googling.
+
+#### Optional Dependencies
+
+- zlib 1.2+ Development Package
+- gnu barcode 0.98+ (Distributions do not always install the `barcode.h` file needed for external projects)
+- libqrencode 3.4= Development Package
+- libzint 2.15+
+
 
 ### Compile and Install
 
@@ -26,37 +36,42 @@ $ make
 $ sudo make install
 </pre>
 
-## Example: Ubuntu 19.04
+
+## Example: Ubuntu 24.04
 
 ### Installing Prerequisites
 ```
-sudo apt install cmake
-sudo apt install qtbase5-dev libqt5svg5-dev qttools5-dev zlib1g-dev
+$ sudo apt install cmake
+$ sudo apt install qt6-base-dev qt6-svg-dev qt6-tools-dev
 ```
+
+_ZLib (Optional)_
+```
+$ sudo apt install zlib1g-dev
+```
+
 _QREncode (Optional)_
 ```
-sudo apt install pkgconf libqrencode-dev
+$ sudo apt install pkgconf libqrencode-dev
 ```
 _Zint (Optional)_
 
 Install zint from source:
 ```
-wget https://downloads.sourceforge.net/project/zint/zint/2.6.3/zint-2.6.3_final.tar.gz
-tar xzf zint-2.6.3_final.tar.gz
-cd zint-2.6.3.src/
-mkdir build && cd build && cmake .. && make
-sudo make install
+$ wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz
+$ tar xzf zint-2.15.0-src.tar.gz
+$ cd zint-2.15.0-src/
+$ mkdir build && cd build && cmake .. && make
+$ sudo make install
+$ sudo ldconfig
 ```
+
 _GNU Barcode (Optional)_
 
-As of version 0.99, GNU Barcode no longer installs its library.  So install 0.98 from source:
 ```
-wget https://ftp.gnu.org/gnu/barcode/barcode-0.98.tar.gz
-tar xzf barcode-0.98.tar.gz
-cd barcode-0.98/
-./configure && make
-sudo make install
+$ sudo apt install barcode
 ```
+
 ### Compile and Install gLabels
 
 ```
@@ -67,6 +82,8 @@ $ cmake ..
 $ make
 $ sudo make install
 ```
+
+
 ## Example: Fedora 35
 
 ### Installing Prerequisites
@@ -76,12 +93,12 @@ We assume the build system already has things like cmake and the GNU C++ suite i
 $ sudo dnf install qt5-qtbase-devel qt5-qtsvg-devel qt5-linguist qt5-qttools
 ```
 These installs will pull in additional packages to fill out their prerequisites.
-Fedora has a different package naming scheme that Ubuntu. This is to distinguish the QT5
+Fedora has a different package naming scheme than Ubuntu. This is to distinguish the QT6
 packages from the QT3 and QT4 packages that they still support for compatibility.
 If the Cmake pass or build has missing package errors or warnings, you can search for the needed
 package with:
 ```
-$ sudo dnf search qt5 |grep <package name substring>
+$ sudo dnf search qt6 |grep <package name substring>
 ```
 
 ### Compile and Install gLabels into /usr/local

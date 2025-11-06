@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelLineObject.h"
 
 #include <QBrush>
@@ -43,10 +44,8 @@ namespace glabels
 		///
 		ModelLineObject::ModelLineObject()
 		{
-			mOutline = nullptr;
-
-			mHandles << new HandleP1( this );
-			mHandles << new HandleP2( this );
+			mHandles.push_back( Handle( this, Handle::P1 ) );
+			mHandles.push_back( Handle( this, Handle::P2 ) );
 
 			mLineWidth       = 1.0;
 			mLineColorNode   = ColorNode( QColor( 0, 0, 0 ) );
@@ -56,32 +55,32 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelLineObject::ModelLineObject( const Distance&  x0,
-		                                  const Distance&  y0,
-		                                  const Distance&  dx,
-		                                  const Distance&  dy,
-		                                  const Distance&  lineWidth,
-		                                  const ColorNode& lineColorNode,
+		ModelLineObject::ModelLineObject( Distance          x0,
+		                                  Distance          y0,
+		                                  Distance          dx,
+		                                  Distance          dy,
+		                                  Distance          lineWidth,
+		                                  const ColorNode&  lineColorNode,
 		                                  const QTransform& matrix,
-		                                  bool             shadowState,
-		                                  const Distance&  shadowX,
-		                                  const Distance&  shadowY,
-		                                  double           shadowOpacity,
-		                                  const ColorNode& shadowColorNode )
-		: ModelObject( x0, y0, dx, dy, false /*lockAspectRatio*/,
+		                                  bool              shadowState,
+		                                  Distance          shadowX,
+		                                  Distance          shadowY,
+		                                  double            shadowOpacity,
+		                                  const ColorNode&  shadowColorNode )
+		: ModelObject( x0,
+		               y0,
+		               dx,
+		               dy,
+		               false /*lockAspectRatio*/,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
-			mOutline = new Outline( this );
-
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::P1 ) );
+			mHandles.push_back( Handle( this, Handle::P2 ) );
 
 			mLineWidth       = lineWidth;
 			mLineColorNode   = lineColorNode;
@@ -96,19 +95,6 @@ namespace glabels
 		{
 			mLineWidth       = object->mLineWidth;
 			mLineColorNode   = object->mLineColorNode;
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelLineObject::~ModelLineObject()
-		{
-			foreach( Handle* handle, mHandles )
-			{
-				delete handle;
-			}
-			mHandles.clear();
 		}
 
 
@@ -133,7 +119,7 @@ namespace glabels
 		///
 		/// Line Width Property Setter
 		///
-		void ModelLineObject::setLineWidth( const Distance& value )
+		void ModelLineObject::setLineWidth( Distance value )
 		{
 			if ( mLineWidth != value )
 			{
@@ -186,10 +172,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelLineObject::drawShadow( QPainter*      painter,
-		                                  bool           inEditor,
-		                                  merge::Record* record,
-		                                  Variables*     variables ) const
+		void ModelLineObject::drawShadow( QPainter*            painter,
+		                                  bool                 inEditor,
+		                                  const merge::Record& record,
+		                                  const Variables&     variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor shadowColor = mShadowColorNode.color( record, variables );
@@ -207,10 +193,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelLineObject::drawObject( QPainter*      painter,
-		                                  bool           inEditor,
-		                                  merge::Record* record,
-		                                  Variables*     variables ) const
+		void ModelLineObject::drawObject( QPainter*            painter,
+		                                  bool                 inEditor,
+		                                  const merge::Record& record,
+		                                  const Variables&     variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 

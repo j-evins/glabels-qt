@@ -263,8 +263,7 @@
             <string>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons.qrc">
-             <normaloff>:/icons/flat/32x32/glabels-uncollated.svg</normaloff>:/icons/flat/32x32/glabels-uncollated.svg</iconset>
+            <iconset theme="glabels-uncollated"/>
            </property>
           </item>
           <item>
@@ -272,8 +271,7 @@
             <string>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons.qrc">
-             <normaloff>:/icons/flat/32x32/glabels-collated.svg</normaloff>:/icons/flat/32x32/glabels-collated.svg</iconset>
+            <iconset theme="glabels-collated"/>
            </property>
           </item>
          </widget>
@@ -294,8 +292,7 @@
             <string>Merge groups are contiguous</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons.qrc">
-             <normaloff>:/icons/flat/32x32/glabels-merge-group-contiguous.svg</normaloff>:/icons/flat/32x32/glabels-merge-group-contiguous.svg</iconset>
+            <iconset theme="glabels-merge-group-contiguous"/>
            </property>
           </item>
           <item>
@@ -303,8 +300,7 @@
             <string>Merge groups start on a new page</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons.qrc">
-             <normaloff>:/icons/flat/32x32/glabels-merge-group-page.svg</normaloff>:/icons/flat/32x32/glabels-merge-group-page.svg</iconset>
+            <iconset theme="glabels-merge-group-page"/>
            </property>
           </item>
          </widget>
@@ -452,8 +448,7 @@
         <string>Print...</string>
        </property>
        <property name="icon">
-        <iconset resource="../icons.qrc">
-         <normaloff>:/icons/flat/32x32/glabels-print.svg</normaloff>:/icons/flat/32x32/glabels-print.svg</iconset>
+        <iconset theme="glabels-print"/>
        </property>
        <property name="iconSize">
         <size>

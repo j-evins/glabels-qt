@@ -52,14 +52,14 @@ namespace glabels
 		SelectProductDialog dialog;
 		dialog.exec();
 
-		const model::Template* tmplate = dialog.tmplate();
-		if ( tmplate )
+		auto tmplate = dialog.tmplate();
+		if ( !tmplate.isNull() )
 		{
 			auto* model = new model::Model();
 			model->setTmplate( tmplate );
 			
 			// Intelligently decide to rotate label by default
-			const model::Frame* frame = tmplate->frames().first();
+			auto frame = tmplate.frame();
 			model->setRotate( frame->h() > frame->w() );
 
 			model->clearModified();

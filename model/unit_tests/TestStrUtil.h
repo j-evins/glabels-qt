@@ -1,6 +1,6 @@
-/*  Icons.cpp
+/*  TestColorNode.h
  *
- *  Copyright (C) 2017  Jaye Evins <evins@snaught.com>
+ *  Copyright (C) 2019  Jaye Evins <evins@snaught.com>
  *
  *  This file is part of gLabels-qt.
  *
@@ -18,4 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Icons.h"
+#include <QtTest/QtTest>
+
+
+class TestStrUtil : public QObject
+{
+	Q_OBJECT
+
+private slots:
+	void formatFraction();
+};

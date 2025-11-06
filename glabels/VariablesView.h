@@ -47,7 +47,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		VariablesView( QWidget *parent = nullptr );
-		~VariablesView() override;
+		virtual ~VariablesView() = default;
 
 
 		/////////////////////////////////

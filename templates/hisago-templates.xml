@@ -1092,7 +1092,7 @@
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=GB2600"/>
   </Template>
 
-  <Template brand="Hisago" part="OP2501" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP2501" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP2501"/>
@@ -1101,7 +1101,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP2502" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP2502" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP2502"/>
@@ -1110,7 +1110,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP2503" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP2503" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP2503"/>
@@ -1119,7 +1119,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP2504" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP2504" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP2504"/>
@@ -1128,7 +1128,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP2505" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP2505" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP2505"/>
@@ -1161,7 +1161,7 @@
   <!-- OP920-B  -->
   <!-- OP920-R  -->
 
-  <Template brand="Hisago" part="OP1903-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1903-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1903-N"/>
@@ -1170,7 +1170,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1904-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1904-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1904-N"/>
@@ -1179,7 +1179,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1905-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1905-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1905-N"/>
@@ -1188,7 +1188,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1906-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1906-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1906-N"/>
@@ -1197,7 +1197,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1900-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1900-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1900-N"/>
@@ -1206,7 +1206,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1901-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1901-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1901-N"/>
@@ -1215,7 +1215,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1902-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1902-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1902-N"/>
@@ -1224,7 +1224,7 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Hisago" part="OP1907-N" size="Other" width="100mm" height="148mm" _description="Rectangular labels">
+  <Template brand="Hisago" part="OP1907-N" size="other" width="100mm" height="148mm" _description="Rectangular labels">
     <Meta category="label"/>
     <Meta category="rectangle-label"/>
     <Meta product_url="https://www.hisago.co.jp/Search/detail.asp?id=OP1907-N"/>

@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameRound.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -29,10 +32,12 @@ namespace glabels
 	namespace model
 	{
 
-		FrameRound::FrameRound( const Distance& r,
-		                        const Distance& waste,
-		                        const QString&  id )
-			: Frame(id), mR(r), mWaste(waste)
+		FrameRound::FrameRound( Distance       r,
+		                        Distance       waste,
+		                        const QString& id )
+			: Frame(id),
+			  mR(r),
+			  mWaste(waste)
 		{
 			mPath.addEllipse( 0, 0, 2*mR.pt(), 2*mR.pt() );
 			mClipPath.addEllipse( -mWaste.pt(), -mWaste.pt(),
@@ -40,9 +45,9 @@ namespace glabels
 		}
 	
 
-		Frame* FrameRound::dup() const
+		std::unique_ptr<Frame> FrameRound::clone() const
 		{
-			return new FrameRound( *this );
+			return std::make_unique<FrameRound>( *this );
 		}
 
 	
@@ -70,7 +75,7 @@ namespace glabels
 		}
 
 
-		QString FrameRound::sizeDescription( const Units& units ) const
+		QString FrameRound::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -86,9 +91,9 @@ namespace glabels
 		}
 
 
-		bool FrameRound::isSimilarTo( Frame* other ) const
+		bool FrameRound::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherRound = dynamic_cast<FrameRound*>(other) )
+			if ( auto *otherRound = dynamic_cast<const FrameRound*>(&other) )
 			{
 				if ( fabs( mR - otherRound->mR ) <= EPSILON )
 				{
@@ -111,8 +116,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FrameRound::marginPath( const Distance& xSize,
-		                                     const Distance& ySize ) const
+		QPainterPath FrameRound::marginPath( Distance xSize, Distance ySize ) const
 		{
 			// Note: ignore ySize, assume xSize == ySize
 			Distance size = xSize;
@@ -125,21 +129,30 @@ namespace glabels
 			return path;
 		}
 
+
+		// Debugging support
+		void FrameRound::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameRound{ "
+			              << id() << "," 
+			              << r() << "," 
+			              << waste() << "," 
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+
 	}
 }
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FrameRound& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameRound{ "
-	              << frame.id() << "," 
-	              << frame.r() << "," 
-	              << frame.waste() << "," 
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
-}
+		

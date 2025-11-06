@@ -22,7 +22,8 @@
 
 #include <QTextStream>
 #include <QCoreApplication>
-#include <QtDebug>
+#include <QDebug>
+#include <QIODevice>
 
 
 namespace glabels
@@ -33,37 +34,18 @@ namespace glabels
 		//
 		// Static data
 		//
-		XmlUtil* XmlUtil::mInstance = nullptr;
-
-
-		XmlUtil::XmlUtil()
-		{
-			mUnits = Units(Units::PT);
-		}
-
-
-		void XmlUtil::init()
-		{
-			if ( mInstance == nullptr )
-			{
-				mInstance = new XmlUtil();
-			}
-		}
+		Units XmlUtil::mUnits = Units(Units::PT);
 
 
 		Units XmlUtil::units()
 		{
-			init();
-
-			return mInstance->mUnits;
+			return mUnits;
 		}
 
 
-		void XmlUtil::setUnits( const Units& units )
+		void XmlUtil::setUnits( Units units )
 		{
-			init();
-
-			mInstance->mUnits = units;
+			mUnits = units;
 		}
 
 
@@ -71,8 +53,6 @@ namespace glabels
 		                                const QString&     name,
 		                                const QString&     default_value )
 		{
-			init();
-
 			return node.attribute( name, default_value );
 		}
 
@@ -81,8 +61,6 @@ namespace glabels
 		                               const QString&     name,
 		                               double             default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -107,8 +85,6 @@ namespace glabels
 		                           const QString&     name,
 		                           bool               default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -144,8 +120,6 @@ namespace glabels
 		                         const QString&     name,
 		                         int                default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -170,8 +144,6 @@ namespace glabels
 		                               const QString&     name,
 		                               uint32_t           default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -196,8 +168,6 @@ namespace glabels
 		                               const QString&     name,
 		                               const QString&     default_value )
 		{
-			init();
-
 			QString i18nString = node.attribute( QString("_").append(name), "" );
 
 			if ( i18nString == "" )
@@ -211,10 +181,8 @@ namespace glabels
 
 		Distance XmlUtil::getLengthAttr( const QDomElement& node,
 		                                 const QString&     name,
-		                                 const Distance&    default_value )
+		                                 Distance           default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -242,8 +210,6 @@ namespace glabels
 		                                      const QString&     name,
 		                                      QFont::Weight      default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -271,8 +237,6 @@ namespace glabels
 		                                         const QString&     name,
 		                                         Qt::Alignment      default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -316,8 +280,6 @@ namespace glabels
 		                                                const QString&        name,
 		                                                QTextOption::WrapMode default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -345,12 +307,10 @@ namespace glabels
 		}
 
 
-		Units XmlUtil::getUnitsAttr( const QDomElement&    node,
-		                             const QString&        name,
-		                             const Units&          default_value )
+		Units XmlUtil::getUnitsAttr( const QDomElement& node,
+		                             const QString&     name,
+		                             Units              default_value )
 		{
-			init();
-
 			QString valueString = node.attribute( name, "" );
 			if ( valueString != "" )
 			{
@@ -361,12 +321,10 @@ namespace glabels
 		}
 
 
-		QPainterPath XmlUtil::getPathDataAttr( const QDomElement&    node,
-		                                       const QString&        name,
-		                                       const Units&          units )
+		QPainterPath XmlUtil::getPathDataAttr( const QDomElement& node,
+		                                       const QString&     name,
+		                                       Units              units )
 		{
-			init();
-
 			QPainterPath d;
 
 			//
@@ -492,8 +450,6 @@ namespace glabels
 		                             const QString& name,
 		                             const QString& value )
 		{
-			init();
-
 			node.setAttribute( name, value );
 		}
 
@@ -502,8 +458,6 @@ namespace glabels
 		                             const QString& name,
 		                             double         value )
 		{
-			init();
-
 			node.setAttribute( name, QString::number(value) );
 		}
 
@@ -512,8 +466,6 @@ namespace glabels
 		                           const QString& name,
 		                           bool           value )
 		{
-			init();
-
 			node.setAttribute( name, value ? "true" : "false" );
 		}
 
@@ -522,8 +474,6 @@ namespace glabels
 		                          const QString& name,
 		                          int            value )
 		{
-			init();
-
 			node.setAttribute( name, QString::number(value) );
 		}
 
@@ -532,20 +482,15 @@ namespace glabels
 		                           const QString& name,
 		                           uint32_t       value )
 		{
-			init();
-
 			node.setAttribute( name, "0x" + QString::number(value, 16) );
 		}
 
 
 		void XmlUtil::setLengthAttr( QDomElement&    node,
 		                             const QString&  name,
-		                             const Distance& value )
+		                             Distance        value )
 		{
-			init();
-
-			Units units = mInstance->mUnits;
-			node.setAttribute( name, QString::number(value.inUnits(units)) + units.toIdString() );
+			node.setAttribute( name, QString::number(value.inUnits(mUnits)) + mUnits.toIdString() );
 		}
 
 
@@ -621,7 +566,7 @@ namespace glabels
 	
 		void XmlUtil::setUnitsAttr( QDomElement&   node,
 		                            const QString& name,
-		                            const Units&   value )
+		                            Units          value )
 		{
 			node.setAttribute( name, value.toIdString() );
 		}
@@ -630,7 +575,7 @@ namespace glabels
 		void XmlUtil::setPathDataAttr( QDomElement&        node,
 		                               const QString&      name,
 		                               const QPainterPath& path,
-		                               const Units&        units )
+		                               Units               units )
 		{
 			QString pathString;
 			for ( int i = 0; i < path.elementCount(); i++ )

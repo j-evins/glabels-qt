@@ -43,7 +43,7 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			Size();
-			Size( const Distance& w, const Distance& h );
+			Size( Distance w, Distance h );
 	
 
 			/////////////////////////////////
@@ -54,14 +54,14 @@ namespace glabels
 			// w Property
 			//
 			Distance w() const;
-			void setW( const Distance& value );
+			void setW( Distance value );
 
 
 			//
 			// H Property
 			//
 			Distance h() const;
-			void setH( const Distance& value );
+			void setH( Distance value );
 
 
 			/////////////////////////////////

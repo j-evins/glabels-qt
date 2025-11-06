@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "XmlTemplateParser.h"
 
 #include "Db.h"
@@ -32,10 +33,10 @@
 #include "Template.h"
 #include "XmlUtil.h"
 
-#include <QFile>
+#include <QDebug>
 #include <QDomDocument>
 #include <QDomNode>
-#include <QtDebug>
+#include <QFile>
 
 
 namespace glabels
@@ -43,7 +44,7 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlTemplateParser::readFile( const QString &fileName, bool isUserDefined )
+		QList<Template> XmlTemplateParser::readFile( const QString& fileName )
 		{
 			QFile file( fileName );
 
@@ -51,7 +52,7 @@ namespace glabels
 			{
 				qWarning() << "Error: Cannot read file " << fileName
 				           << ": " << file.errorString();
-				return false;
+				return QList<Template>(); // Empty list
 			}
 
 
@@ -65,35 +66,79 @@ namespace glabels
 				qWarning() << "Error: Parse error at line " << errorLine
 				           << "column " << errorColumn
 				           << ": " << errorString;
-				return false;
+				return QList<Template>(); // Empty list
 			}
 
 			QDomElement root = doc.documentElement();
 			if ( root.tagName() != "Glabels-templates" )
 			{
 				qWarning() << "Error: Not a Glabels-templates file";
-				return false;
+				return QList<Template>(); // Empty list
 			}
 
-			parseRootNode( root, isUserDefined );
-			return true;
+			return parseRootNode( root, fileName, TEMPLATE_PASS );
 		}
 
 
-		void XmlTemplateParser::parseRootNode( const QDomElement &node, bool isUserDefined )
+		QList<Template> XmlTemplateParser::readEquivsFromFile( const QString& fileName )
 		{
+			QFile file( fileName );
+
+			if ( !file.open( QFile::ReadOnly | QFile::Text) )
+			{
+				qWarning() << "Error: Cannot read file " << fileName
+				           << ": " << file.errorString();
+				return QList<Template>(); // Empty list
+			}
+
+
+			QDomDocument doc;
+			QString      errorString;
+			int          errorLine;
+			int          errorColumn;
+
+			if ( !doc.setContent( &file, false, &errorString, &errorLine, &errorColumn ) )
+			{
+				qWarning() << "Error: Parse error at line " << errorLine
+				           << "column " << errorColumn
+				           << ": " << errorString;
+				return QList<Template>(); // Empty list
+			}
+
+			QDomElement root = doc.documentElement();
+			if ( root.tagName() != "Glabels-templates" )
+			{
+				qWarning() << "Error: Not a Glabels-templates file";
+				return QList<Template>(); // Empty list
+			}
+
+			return parseRootNode( root, fileName, EQUIV_PASS );
+		}
+
+
+		QList<Template> XmlTemplateParser::parseRootNode( const QDomElement& node,
+		                                                  const QString&     fileName,
+		                                                  Pass               pass )
+		{
+			QList<Template> list;
+
 			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
 			{
 				if ( child.toElement().tagName() == "Template" )
 				{
-					Template *tmplate = parseTemplateNode( child.toElement(), isUserDefined );
-					if ( tmplate != nullptr )
+					bool isEquivNode = child.toElement().hasAttribute( "equiv" );
+					if ( ( (pass == TEMPLATE_PASS) && !isEquivNode ) ||
+					     ( (pass == EQUIV_PASS) && isEquivNode ) )
 					{
-						Db::registerTemplate( tmplate );
-					}
-					else
-					{
-						qWarning() << "Warning: could not create template, Ignored.";
+						auto tmplate = parseTemplateNode( child.toElement(), fileName );
+						if ( !tmplate.isNull() )
+						{
+							list.push_back( tmplate );
+						}
+						else
+						{
+							qWarning() << "Warning: could not create template, Ignored.";
+						}
 					}
 				}
 				else if ( !child.isComment() )
@@ -103,10 +148,13 @@ namespace glabels
 					           << ", Ignored.";
 				}
 			}
+
+			return list;
 		}
 
 
-		Template *XmlTemplateParser::parseTemplateNode( const QDomElement &node, bool isUserDefined )
+		Template XmlTemplateParser::parseTemplateNode( const QDomElement& node,
+		                                               const QString&     fileName )
 		{
 			QString brand = XmlUtil::getStringAttr( node, "brand", "" );
 			QString part  = XmlUtil::getStringAttr( node, "part", "" );
@@ -124,12 +172,12 @@ namespace glabels
 				else
 				{
 					qWarning() << "Error: missing name or brand/part attributes.";
-					return nullptr;
+					return Template();
 				}
 			}
 
 
-			Template *tmplate = nullptr;
+			Template tmplate;
 
 			QString equivPart = XmlUtil::getStringAttr( node, "equiv", "" );
 			if ( equivPart != nullptr )
@@ -157,15 +205,10 @@ namespace glabels
 
 				if ( Db::isPaperIdKnown( paperId ) )
 				{
-					const Paper *paper = Db::lookupPaperFromId( paperId );
-					if ( paper == nullptr )
-					{
-						qWarning() << "Error: unknown paper ID: " << paperId;
-						return nullptr;
-					}
+					auto paper = Db::lookupPaperFromId( paperId );
 
-					tmplate = new Template( brand, part, description,
-					                        paper->id(), paper->width(), paper->height(), isUserDefined );
+					tmplate = Template( brand, part, description,
+					                    paper.id(), paper.width(), paper.height(), 0, fileName );
 				}
 				else
 				{
@@ -173,7 +216,14 @@ namespace glabels
 					Distance height = XmlUtil::getLengthAttr( node, "height", Distance(0) );
 					Distance rollWidth = XmlUtil::getLengthAttr( node, "roll_width", Distance(0) );
 
-					tmplate = new Template( brand, part, description, paperId, width, height, rollWidth, isUserDefined );
+					tmplate = Template( brand,
+					                    part,
+					                    description,
+					                    paperId,
+					                    width,
+					                    height,
+					                    rollWidth,
+					                    fileName );
 				}
 
 				for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
@@ -219,23 +269,23 @@ namespace glabels
 		}
 
 
-		void XmlTemplateParser::parseMetaNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseMetaNode( const QDomElement& node, Template& tmplate )
 		{
 			QString productUrl = XmlUtil::getStringAttr( node, "product_url", "" );
 			if ( productUrl != "" )
 			{
-				tmplate->setProductUrl( productUrl );
+				tmplate.setProductUrl( productUrl );
 			}
 		
 			QString categoryId = XmlUtil::getStringAttr( node, "category", "" );
 			if ( categoryId != "" )
 			{
-				tmplate->addCategory( categoryId );
+				tmplate.addCategory( categoryId );
 			}
 		}
 
 
-		void XmlTemplateParser::parseLabelRectangleNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseLabelRectangleNode( const QDomElement& node, Template& tmplate )
 		{
 			QString id = XmlUtil::getStringAttr( node, "id", "0" );
 
@@ -257,15 +307,15 @@ namespace glabels
 				yWaste = XmlUtil::getLengthAttr( node, "y_waste", Distance(0) );
 			}
 
-			Frame *frame = new FrameRect( w, h, r, xWaste, yWaste, id );
+			FrameRect frame( w, h, r, xWaste, yWaste, id );
 
 			parseLabelNodeCommon( node, frame );
 
-			tmplate->addFrame( frame );
+			tmplate.addFrame( frame );
 		}
 
 
-		void XmlTemplateParser::parseLabelEllipseNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseLabelEllipseNode( const QDomElement& node, Template& tmplate )
 		{
 			QString id    = XmlUtil::getStringAttr( node, "id", "0" );
 
@@ -273,30 +323,30 @@ namespace glabels
 			Distance h     = XmlUtil::getLengthAttr( node, "height", Distance(0) );
 			Distance waste = XmlUtil::getLengthAttr( node, "waste", Distance(0) );
 
-			Frame *frame = new FrameEllipse( w, h, waste, id );
+			FrameEllipse frame( w, h, waste, id );
 
 			parseLabelNodeCommon( node, frame );
 
-			tmplate->addFrame( frame );
+			tmplate.addFrame( frame );
 		}
 
 
-		void XmlTemplateParser::parseLabelRoundNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseLabelRoundNode( const QDomElement& node, Template& tmplate )
 		{
 			QString id    = XmlUtil::getStringAttr( node, "id", "0" );
 
 			Distance r     = XmlUtil::getLengthAttr( node, "radius", Distance(0) );
 			Distance waste = XmlUtil::getLengthAttr( node, "waste", Distance(0) );
 
-			Frame *frame = new FrameRound( r, waste, id );
+			FrameRound frame( r, waste, id );
 
 			parseLabelNodeCommon( node, frame );
 
-			tmplate->addFrame( frame );
+			tmplate.addFrame( frame );
 		}
 
 
-		void XmlTemplateParser::parseLabelCdNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseLabelCdNode( const QDomElement& node, Template& tmplate )
 		{
 			QString id    = XmlUtil::getStringAttr( node, "id", "0" );
 
@@ -306,15 +356,15 @@ namespace glabels
 			Distance h     = XmlUtil::getLengthAttr( node, "height", Distance(0) );
 			Distance waste = XmlUtil::getLengthAttr( node, "waste", Distance(0) );
 
-			Frame *frame = new FrameCd( r1, r2, w, h, waste, id );
+			FrameCd frame( r1, r2, w, h, waste, id );
 
 			parseLabelNodeCommon( node, frame );
 
-			tmplate->addFrame( frame );
+			tmplate.addFrame( frame );
 		}
 
 
-		void XmlTemplateParser::parseLabelPathNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseLabelPathNode( const QDomElement& node, Template& tmplate )
 		{
 			QString id    = XmlUtil::getStringAttr( node, "id", "0" );
 
@@ -335,15 +385,15 @@ namespace glabels
 				yWaste = XmlUtil::getLengthAttr( node, "y_waste", Distance(0) );
 			}
 
-			Frame *frame = new FramePath( d, xWaste, yWaste, dUnits, id );
+			FramePath frame( d, xWaste, yWaste, dUnits, id );
 
 			parseLabelNodeCommon( node, frame );
 
-			tmplate->addFrame( frame );
+			tmplate.addFrame( frame );
 		}
 
 
-		void XmlTemplateParser::parseLabelContinuousNode( const QDomElement &node, Template *tmplate )
+		void XmlTemplateParser::parseLabelContinuousNode( const QDomElement& node, Template& tmplate )
 		{
 			QString id = XmlUtil::getStringAttr( node, "id", "0" );
 
@@ -353,19 +403,19 @@ namespace glabels
 			Distance hMax     = XmlUtil::getLengthAttr( node, "max_height", Distance(0) );
 			Distance hDefault = XmlUtil::getLengthAttr( node, "default_height", Distance(0) );
 
-			Frame *frame = new FrameContinuous( w, hMin, hMax, hDefault, id );
+			FrameContinuous frame( w, hMin, hMax, hDefault, id );
 			if ( h > Distance(0) )
 			{
-				frame->setH( h );
+				frame.setH( h );
 			}
 
 			parseLabelNodeCommon( node, frame );
 
-			tmplate->addFrame( frame );
+			tmplate.addFrame( frame );
 		}
 
 
-		void XmlTemplateParser::parseLabelNodeCommon( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseLabelNodeCommon( const QDomElement& node, Frame& frame )
 		{
 			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
 			{
@@ -403,7 +453,7 @@ namespace glabels
 		}
 
 
-		void XmlTemplateParser::parseLayoutNode( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseLayoutNode( const QDomElement& node, Frame& frame )
 		{
 			int      nX = XmlUtil::getIntAttr( node, "nx", 1 );
 			int      nY = XmlUtil::getIntAttr( node, "ny", 1 );
@@ -414,11 +464,11 @@ namespace glabels
 			Distance dX = XmlUtil::getLengthAttr( node, "dx", Distance(0) );
 			Distance dY = XmlUtil::getLengthAttr( node, "dy", Distance(0) );
 
-			frame->addLayout( Layout( nX, nY, x0, y0, dX, dY ) );
+			frame.addLayout( Layout( nX, nY, x0, y0, dX, dY ) );
 		}
 
 
-		void XmlTemplateParser::parseMarkupMarginNode( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseMarkupMarginNode( const QDomElement& node, Frame& frame )
 		{
 			Distance size  = XmlUtil::getLengthAttr( node, "size", Distance(0) );
 			Distance xSize = XmlUtil::getLengthAttr( node, "x_size", Distance(0) );
@@ -426,37 +476,37 @@ namespace glabels
 
 			if ( size > Distance(0) )
 			{
-				frame->addMarkup( new MarkupMargin( size ) );
+				frame.addMarkup( MarkupMargin( size ) );
 			}
 			else
 			{
-				frame->addMarkup( new MarkupMargin( xSize, ySize ) );
+				frame.addMarkup( MarkupMargin( xSize, ySize ) );
 			}
 		}
 
 
-		void XmlTemplateParser::parseMarkupLineNode( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseMarkupLineNode( const QDomElement& node, Frame& frame )
 		{
 			Distance x1 = XmlUtil::getLengthAttr( node, "x1", Distance(0) );
 			Distance y1 = XmlUtil::getLengthAttr( node, "y1", Distance(0) );
 			Distance x2 = XmlUtil::getLengthAttr( node, "x2", Distance(0) );
 			Distance y2 = XmlUtil::getLengthAttr( node, "y2", Distance(0) );
 
-			frame->addMarkup( new MarkupLine( x1, y1, x2, y2 ) );
+			frame.addMarkup( MarkupLine( x1, y1, x2, y2 ) );
 		}
 
 
-		void XmlTemplateParser::parseMarkupCircleNode( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseMarkupCircleNode( const QDomElement& node, Frame& frame )
 		{
 			Distance x0 = XmlUtil::getLengthAttr( node, "x0", Distance(0) );
 			Distance y0 = XmlUtil::getLengthAttr( node, "y0", Distance(0) );
 			Distance r  = XmlUtil::getLengthAttr( node, "radius", Distance(0) );
 
-			frame->addMarkup( new MarkupCircle( x0, y0, r ) );
+			frame.addMarkup( MarkupCircle( x0, y0, r ) );
 		}
 
 
-		void XmlTemplateParser::parseMarkupRectNode( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseMarkupRectNode( const QDomElement& node, Frame& frame )
 		{
 			Distance x1 = XmlUtil::getLengthAttr( node, "x1", Distance(0) );
 			Distance y1 = XmlUtil::getLengthAttr( node, "y1", Distance(0) );
@@ -464,18 +514,18 @@ namespace glabels
 			Distance h  = XmlUtil::getLengthAttr( node, "h", Distance(0) );
 			Distance r  = XmlUtil::getLengthAttr( node, "r", Distance(0) );
 
-			frame->addMarkup( new MarkupRect( x1, y1, w, h, r ) );
+			frame.addMarkup( MarkupRect( x1, y1, w, h, r ) );
 		}
 
 
-		void XmlTemplateParser::parseMarkupEllipseNode( const QDomElement &node, Frame *frame )
+		void XmlTemplateParser::parseMarkupEllipseNode( const QDomElement& node, Frame& frame )
 		{
 			Distance x1 = XmlUtil::getLengthAttr( node, "x1", Distance(0) );
 			Distance y1 = XmlUtil::getLengthAttr( node, "y1", Distance(0) );
 			Distance w  = XmlUtil::getLengthAttr( node, "w", Distance(0) );
 			Distance h  = XmlUtil::getLengthAttr( node, "h", Distance(0) );
 
-			frame->addMarkup( new MarkupEllipse( x1, y1, w, h ) );
+			frame.addMarkup( MarkupEllipse( x1, y1, w, h ) );
 		}
 
 

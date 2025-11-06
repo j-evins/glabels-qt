@@ -22,7 +22,10 @@
 #define model_XmlCategoryParser_h
 
 
+#include "Category.h"
+
 #include <QDomElement>
+#include <QList>
 #include <QString>
 
 
@@ -36,11 +39,11 @@ namespace glabels
 		public:
 			XmlCategoryParser() = default;
 
-			bool readFile( const QString &fileName );
+			QList<Category> readFile( const QString &fileName );
 
 		private:
-			void parseRootNode( const QDomElement &node );
-			void parseCategoryNode( const QDomElement &node );
+			QList<Category> parseRootNode( const QDomElement &node );
+			Category parseCategoryNode( const QDomElement &node );
 		};
 
 	}

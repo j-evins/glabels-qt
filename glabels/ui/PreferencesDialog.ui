@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>318</width>
-    <height>295</height>
+    <height>357</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>gLabels - Preferences</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
+   <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
       <number>0</number>
@@ -90,9 +90,100 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Grid</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Configure grid behavior.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Origin</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QRadioButton" name="gridOriginTlRadio">
+              <property name="text">
+               <string>Top left corner</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="gridOriginCenterRadio">
+              <property name="text">
+               <string>Center</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Spacing</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="gridSpacingSpin"/>
+           </item>
+           <item>
+            <widget class="QPushButton" name="gridSpacingResetButton">
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="text">
+              <string>Reset</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="1" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -113,8 +204,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>289</x>
-     <y>368</y>
+     <x>298</x>
+     <y>347</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -129,8 +220,8 @@
    <slot>onUnitsRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>269</x>
-     <y>184</y>
+     <x>285</x>
+     <y>246</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -145,8 +236,8 @@
    <slot>onUnitsRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>269</x>
-     <y>102</y>
+     <x>285</x>
+     <y>144</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -161,8 +252,8 @@
    <slot>onUnitsRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>269</x>
-     <y>131</y>
+     <x>285</x>
+     <y>178</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -177,8 +268,8 @@
    <slot>onUnitsRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>264</x>
-     <y>154</y>
+     <x>285</x>
+     <y>212</y>
     </hint>
     <hint type="destinationlabel">
      <x>295</x>
@@ -193,8 +284,8 @@
    <slot>onUnitsRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>243</x>
-     <y>215</y>
+     <x>266</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
      <x>295</x>
@@ -202,9 +293,75 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>gridSpacingSpin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onGridSpacingSpinChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>7</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gridOriginTlRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onGridOriginRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>311</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gridOriginCenterRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onGridOriginRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gridSpacingResetButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onGridSpacingResetButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onUnitsRadiosChanged()</slot>
-  <slot>onPreferedPaperSizesRadiosChanged()</slot>
+  <slot>onGridSpacingSpinChanged()</slot>
+  <slot>onGridOriginRadiosChanged()</slot>
+  <slot>onGridSpacingResetButtonClicked()</slot>
  </slots>
 </ui>

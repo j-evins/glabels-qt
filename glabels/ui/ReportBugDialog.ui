@@ -151,8 +151,7 @@
            <string>Copy</string>
           </property>
           <property name="icon">
-           <iconset resource="../icons.qrc">
-            <normaloff>:/icons/flat/24x24/glabels-edit-copy.svg</normaloff>:/icons/flat/24x24/glabels-edit-copy.svg</iconset>
+           <iconset theme="glabels-edit-copy"/>
           </property>
           <property name="iconSize">
            <size>

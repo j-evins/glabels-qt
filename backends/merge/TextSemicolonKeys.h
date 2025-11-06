@@ -42,7 +42,7 @@ namespace glabels
 		private:
 			TextSemicolonKeys();
 			TextSemicolonKeys( const TextSemicolonKeys* merge );
-			~TextSemicolonKeys() override = default;
+			virtual ~TextSemicolonKeys() = default;
 
 
 			/////////////////////////////////

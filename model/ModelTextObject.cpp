@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelTextObject.h"
 
 #include "Size.h"
@@ -49,16 +50,16 @@ namespace glabels
 		///
 		ModelTextObject::ModelTextObject()
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mText              = "";
 			mFontFamily        = "Sans";
@@ -78,10 +79,10 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelTextObject::ModelTextObject( const Distance&       x0,
-		                                  const Distance&       y0,
-		                                  const Distance&       w,
-		                                  const Distance&       h,
+		ModelTextObject::ModelTextObject( Distance              x0,
+		                                  Distance              y0,
+		                                  Distance              w,
+		                                  Distance              h,
 		                                  bool                  lockAspectRatio,
 		                                  const QString&        text,
 		                                  const QString&        fontFamily,
@@ -97,24 +98,32 @@ namespace glabels
 		                                  bool                  textAutoShrink,
 		                                  const QTransform&     matrix,
 		                                  bool                  shadowState,
-		                                  const Distance&       shadowX,
-		                                  const Distance&       shadowY,
+		                                  Distance              shadowX,
+		                                  Distance              shadowY,
 		                                  double                shadowOpacity,
 		                                  const ColorNode&      shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mText              = text;
 			mFontFamily        = fontFamily;
@@ -161,13 +170,8 @@ namespace glabels
 		///
 		ModelTextObject::~ModelTextObject()
 		{
-			delete mOutline;
-
-			foreach( Handle* handle, mHandles )
-			{
-				delete handle;
-			}
-			mHandles.clear();
+			qDeleteAll( mEditorLayouts );
+			mEditorLayouts.clear();
 		}
 
 
@@ -484,21 +488,21 @@ namespace glabels
 			QRectF boundingRect;
 			for ( int i = 0; i < document.blockCount(); i++ )
 			{
-				QTextLayout* layout = new QTextLayout( document.findBlockByNumber(i).text() );
+				QTextLayout layout( document.findBlockByNumber(i).text() );
 		
-				layout->setFont( font );
-				layout->setTextOption( textOption );
-				layout->setCacheEnabled(true);
+				layout.setFont( font );
+				layout.setTextOption( textOption );
+				layout.setCacheEnabled(true);
 
-				layout->beginLayout();
-				for ( QTextLine l = layout->createLine(); l.isValid(); l = layout->createLine() )
+				layout.beginLayout();
+				for ( QTextLine l = layout.createLine(); l.isValid(); l = layout.createLine() )
 				{
 					l.setPosition( QPointF( x, y ) );
 					y += dy;
 				}
-				layout->endLayout();
+				layout.endLayout();
 
-				boundingRect = layout->boundingRect().united( boundingRect );
+				boundingRect = layout.boundingRect().united( boundingRect );
 			}
 
 			return Size( boundingRect.width() + 2*marginPts, boundingRect.height() + 2*marginPts );
@@ -517,10 +521,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelTextObject::drawShadow( QPainter*      painter,
-		                                  bool           inEditor,
-		                                  merge::Record* record,
-		                                  Variables*     variables ) const
+		void ModelTextObject::drawShadow( QPainter*            painter,
+		                                  bool                 inEditor,
+		                                  const merge::Record& record,
+		                                  const Variables&     variables ) const
 		{
 			QColor textColor = mTextColorNode.color( record, variables );
 
@@ -544,10 +548,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelTextObject::drawObject( QPainter*      painter,
-		                                  bool           inEditor,
-		                                  merge::Record* record,
-		                                  Variables*     variables ) const
+		void ModelTextObject::drawObject( QPainter*            painter,
+		                                  bool                 inEditor,
+		                                  const merge::Record& record,
+		                                  const Variables&     variables ) const
 		{
 			QColor textColor = mTextColorNode.color( record, variables );
 
@@ -697,10 +701,10 @@ namespace glabels
 		/// Draw text in final printout or preview
 		///
 		void
-		ModelTextObject::drawText( QPainter*      painter,
-		                           const QColor&  color,
-		                           merge::Record* record,
-		                           Variables*     variables ) const
+		ModelTextObject::drawText( QPainter*            painter,
+		                           const QColor&        color,
+		                           const merge::Record& record,
+		                           const Variables&     variables ) const
 		{
 			painter->save();
 
@@ -794,7 +798,8 @@ namespace glabels
 		/// Determine auto shrink font size
 		///
 		double
-		ModelTextObject::autoShrinkFontSize( merge::Record* record, Variables* variables ) const
+		ModelTextObject::autoShrinkFontSize( const merge::Record& record,
+		                                     const Variables&     variables ) const
 		{
 			QFont font;
 			font.setFamily( mFontFamily );

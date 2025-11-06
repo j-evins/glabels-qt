@@ -46,9 +46,9 @@ namespace glabels
 		public:
 			XmlTemplateCreator() = default;
 
-			bool writeTemplates( const QList<const Template*> tmplates, const QString& fileName );
-			bool writeTemplate( const Template* tmplate, const QString& fileName );
-			void createTemplateNode( QDomElement& parent, const Template* tmplate );
+			bool writeTemplates( const QList<Template> tmplates, const QString& fileName );
+			bool writeTemplate( const Template& tmplate, const QString& fileName );
+			void createTemplateNode( QDomElement& parent, const Template& tmplate );
 
 		private:
 			void createMetaNode( QDomElement& parent, const QString& attr, const QString& value );

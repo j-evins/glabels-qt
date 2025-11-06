@@ -27,9 +27,6 @@
 #include "model/Model.h"
 #include "model/PageRenderer.h"
 
-#include <QPrinter>
-#include <QPrintDialog>
-
 
 namespace glabels
 {
@@ -47,7 +44,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		PrintView( QWidget *parent = nullptr );
-		~PrintView() override;
+		virtual ~PrintView() = default;
 
 
 		/////////////////////////////////
@@ -71,11 +68,8 @@ namespace glabels
 		/////////////////////////////////
 	private:
 		model::Model*       mModel;
-		QPrinter*           mPrinter;
 		model::PageRenderer mRenderer;
 
-		QPrintDialog*       mPrintDialog;
-		
 		bool                mBlocked;
 
 	};

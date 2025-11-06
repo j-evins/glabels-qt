@@ -18,9 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "Settings.h"
 
+#include "Version.h"
+
 #include <QLocale>
+#include <QPrinterInfo>
 #include <QString>
 #include <QtDebug>
 
@@ -33,20 +37,19 @@ namespace glabels
 		//
 		// Static data
 		//
-		Settings* Settings::mInstance = nullptr;
+		std::unique_ptr<Settings> Settings::mInstance;
 
-
-		Settings::Settings()
-		{
-			// empty
-		}
 
 
 		void Settings::init()
 		{
-			if ( mInstance == nullptr )
+			// Note: init() hould be called after
+			//   - QCoreApplication::setOrganizationName(), and
+			//   - QCoreApplication::setApplicationName()
+
+			if ( !mInstance )
 			{
-				mInstance = new Settings();
+				mInstance.reset( new Settings() );
 			}
 		}
 
@@ -54,8 +57,7 @@ namespace glabels
 		Settings* Settings::instance()
 		{
 			init();
-
-			return mInstance;
+			return mInstance.get();
 		}
 
 
@@ -80,7 +82,7 @@ namespace glabels
 		}
 
 
-		void Settings::setUnits( const Units& units )
+		void Settings::setUnits( Units units )
 		{
 			QString idString = units.toIdString();
 
@@ -96,7 +98,7 @@ namespace glabels
 		{
 			// Guess at a suitable default
 			QString defaultFamily;
-			switch (QLocale::system().country())
+			switch (QLocale::system().territory())
 			{
 			case QLocale::UnitedStates:
 			case QLocale::Canada:
@@ -262,6 +264,28 @@ namespace glabels
 		}
 
 
+		QListView::ViewMode Settings::templatePickerMode()
+		{
+			QString defaultMode = "icon";
+	
+			mInstance->beginGroup( "TemplatePicker" );
+			QString returnMode = mInstance->value( "viewMode", defaultMode ).toString();
+			mInstance->endGroup();
+
+			return returnMode == "icon" ? QListView::IconMode : QListView::ListMode;
+		}
+
+
+		void Settings::setTemplatePickerMode( QListView::ViewMode viewMode )
+		{
+			mInstance->beginGroup( "TemplatePicker" );
+			mInstance->setValue( "viewMode", viewMode == QListView::IconMode ? "icon" : "list" );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
 		QStringList Settings::recentTemplateList()
 		{
 			QStringList defaultList;
@@ -332,6 +356,88 @@ namespace glabels
 
 			emit mInstance->changed();
 		}
+
+
+		QString Settings::recentPrinter()
+		{
+			mInstance->beginGroup( "Recent" );
+			QString printer = mInstance->value( "printer", QPrinterInfo::defaultPrinterName() ).toString();
+			mInstance->endGroup();
+
+			return printer;
+		}
+
+
+		void Settings::setRecentPrinter( const QString& printer )
+		{
+			mInstance->beginGroup( "Recent" );
+			mInstance->setValue( "printer", printer );
+			mInstance->endGroup();
+		}
+
+
+		Settings::GridOrigin Settings::gridOrigin()
+		{
+			mInstance->beginGroup( "Grid" );
+			QString value = mInstance->value( "origin", "top_left" ).toString();
+			mInstance->endGroup();
+
+			return (value == "top_left") ? ORIGIN_TL : ORIGIN_CENTER;
+		}
+
+
+		void Settings::setGridOrigin( GridOrigin origin )
+		{
+			mInstance->beginGroup( "Grid" );
+			mInstance->setValue( "origin", origin == ORIGIN_TL ? "top_left" : "center" );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
+		Distance Settings::gridSpacing()
+		{
+			// Guess at a suitable default
+			QString defaultSpacingString;
+			if ( QLocale::system().measurementSystem() == QLocale::ImperialSystem )
+			{
+				defaultSpacingString = Distance::in(0.125).toString( Units::IN );
+			}
+			else
+			{
+				defaultSpacingString = Distance::mm(5).toString( Units::MM );
+			}
+	
+			mInstance->beginGroup( "Grid" );
+			QString spacingString = mInstance->value( "spacing", defaultSpacingString ).toString();
+			mInstance->endGroup();
+
+			return Distance::fromString( spacingString );
+		}
+
+
+		void Settings::setGridSpacing( Distance spacing )
+		{
+			QString spacingString = spacing.toString( Settings::units() );
+
+			mInstance->beginGroup( "Grid" );
+			mInstance->setValue( "spacing", spacingString );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
+		void Settings::resetGridSpacing()
+		{
+			mInstance->beginGroup( "Grid" );
+			mInstance->remove( "spacing" );
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
 
 	}
 }

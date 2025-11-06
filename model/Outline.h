@@ -25,6 +25,8 @@
 #include <QPainter>
 #include <QPainterPath>
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -36,7 +38,7 @@ namespace glabels
 
 
 		///
-		/// Outline Base Class
+		/// Outline Class
 		///
 		class Outline
 		{
@@ -44,15 +46,15 @@ namespace glabels
 			// Lifecycle Methods
 			////////////////////////////
 		public:
-			Outline( ModelObject* owner );
-			Outline( const Outline* outline, ModelObject* newOwner );
-			virtual ~Outline();
+			Outline() = default;
+			~Outline() = default;
 
-	
+
 			////////////////////////////
-			// Duplication
+			// Ownership
 			////////////////////////////
-			Outline* clone( ModelObject* newOwner ) const;
+			void setOwner( ModelObject* owner );
+			bool isEnabled() const;
 
 
 			////////////////////////////
@@ -67,7 +69,7 @@ namespace glabels
 			// Private Data
 			////////////////////////////
 		private:
-			ModelObject* mOwner;
+			ModelObject*   mOwner{ nullptr };
 
 			QVector<qreal> mDashes;
 			QPen           mPen1;

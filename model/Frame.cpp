@@ -18,15 +18,11 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
+
 #include "Frame.h"
 
-#include "FrameCd.h"
-#include "FrameContinuous.h"
-#include "FrameEllipse.h"
-#include "FramePath.h"
-#include "FrameRect.h"
-#include "FrameRound.h"
-#include "Markup.h"
+#include <QDebug>
 
 #include <algorithm>
 
@@ -37,7 +33,9 @@ namespace glabels
 	{
 
 		Frame::Frame( const QString& id )
-			: mId(id), mNLabels(0), mLayoutDescription("")
+			: mId(id),
+			  mNLabels(0),
+			  mLayoutDescription("")
 		{
 			// empty
 		}
@@ -48,14 +46,14 @@ namespace glabels
 			mId = other.mId;
 			mNLabels = 0;
 
-			foreach ( const Layout& layout, other.mLayouts )
+			for ( const auto& layout : other.mLayouts )
 			{
 				addLayout( layout );
 			}
 		
-			foreach ( Markup *markup, other.mMarkups )
+			for ( const auto& markup : other.mMarkups )
 			{
-				addMarkup( markup->dup() );
+				mMarkups.push_back( markup->clone() );
 			}
 		}
 
@@ -78,13 +76,13 @@ namespace glabels
 		}
 
 	
-		const QList<Layout>& Frame::layouts() const
+		const std::list<Layout>& Frame::layouts() const
 		{
 			return mLayouts;
 		}
 
 	
-		const QList<Markup*>& Frame::markups() const
+		const std::list<std::unique_ptr<Markup>>& Frame::markups() const
 		{
 			return mMarkups;
 		}
@@ -95,7 +93,7 @@ namespace glabels
 			QVector<Point> origins( nLabels() );
 
 			int i = 0;
-			foreach ( const Layout& layout, mLayouts )
+			for ( auto& layout : mLayouts )
 			{
 				for ( int iy = 0; iy < layout.ny(); iy++ )
 				{
@@ -114,7 +112,7 @@ namespace glabels
 
 		void Frame::addLayout( const Layout& layout )
 		{
-			mLayouts << layout;
+			mLayouts.push_back( layout );
 
 			// Update total number of labels
 			mNLabels += layout.nx() * layout.ny();
@@ -138,15 +136,16 @@ namespace glabels
 		}
 
 
-		void Frame::addMarkup( Markup *markup )
+		void Frame::addMarkup( const Markup& markup )
 		{
-			mMarkups << markup;
+			mMarkups.push_back( markup.clone() );
 		}
 
 
-		void Frame::setH( const Distance& h )
+		bool Frame::setH( Distance h )
 		{
 			// Default implementation does nothing
+			return false;
 		}
 
 	}
@@ -155,42 +154,9 @@ namespace glabels
 
 QDebug operator<<( QDebug dbg, const glabels::model::Frame& frame )
 {
-	if ( auto* frameCd = dynamic_cast<const glabels::model::FrameCd*>(&frame) )
-	{
-		dbg << *frameCd;
-		return dbg;
-	}
-	else if ( auto* frameContinuous = dynamic_cast<const glabels::model::FrameContinuous*>(&frame) )
-	{
-		dbg << *frameContinuous;
-		return dbg;
-	}
-	else if ( auto* frameEllipse = dynamic_cast<const glabels::model::FrameEllipse*>(&frame) )
-	{
-		dbg << *frameEllipse;
-		return dbg;
-	}
-	else if ( auto* framePath = dynamic_cast<const glabels::model::FramePath*>(&frame) )
-	{
-		dbg << *framePath;
-		return dbg;
-	}
-	else if ( auto* frameRect = dynamic_cast<const glabels::model::FrameRect*>(&frame) )
-	{
-		dbg << *frameRect;
-		return dbg;
-	}
-	else if ( auto* frameRound = dynamic_cast<const glabels::model::FrameRound*>(&frame) )
-	{
-		dbg << *frameRound;
-		return dbg;
-	}
-	else
-	{
-		QDebugStateSaver saver(dbg);
+	QDebugStateSaver saver(dbg);
 
-		dbg.nospace() << "UNKNOWN FRAME";
+	frame.print( dbg );
 
-		return dbg;
-	}
+	return dbg;
 }

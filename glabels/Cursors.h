@@ -35,6 +35,20 @@ namespace glabels
 	{
 
 		
+		class Crosshair : public QCursor
+		{
+		public:
+			Crosshair();
+		};
+
+
+		class Move : public QCursor
+		{
+		public:
+			Move();
+		};
+
+
 		class Barcode : public QCursor
 		{
 		public:

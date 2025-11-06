@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameContinuous.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -29,20 +32,25 @@ namespace glabels
 	namespace model
 	{
 
-		FrameContinuous::FrameContinuous( const Distance& w,
-		                                  const Distance& hMin,
-		                                  const Distance& hMax,
-		                                  const Distance& hDefault,
-		                                  const QString&  id )
-			: Frame(id), mW(w), mHMin(hMin), mHMax(hMax), mHDefault(hDefault), mH(hDefault)
+		FrameContinuous::FrameContinuous( Distance       w,
+		                                  Distance       hMin,
+		                                  Distance       hMax,
+		                                  Distance       hDefault,
+		                                  const QString& id )
+			: Frame(id),
+			  mW(w),
+			  mHMin(hMin),
+			  mHMax(hMax),
+			  mHDefault(hDefault),
+			  mH(hDefault)
 		{
 			mPath.addRect( 0, 0, mW.pt(), mH.pt() );
 		}
 
 	
-		Frame* FrameContinuous::dup() const
+		std::unique_ptr<Frame> FrameContinuous::clone() const
 		{
-			return new FrameContinuous( *this );
+			return std::make_unique<FrameContinuous>( *this );
 		}
 
 
@@ -76,15 +84,16 @@ namespace glabels
 		}
 
 
-		void FrameContinuous::setH( const Distance& h )
+		bool FrameContinuous::setH( Distance h )
 		{
 			mH = h;
 			mPath = QPainterPath(); // clear path
 			mPath.addRect( 0, 0, mW.pt(), mH.pt() );
+			return true;
 		}
 		
 
-		QString FrameContinuous::sizeDescription( const Units& units ) const
+		QString FrameContinuous::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -99,9 +108,9 @@ namespace glabels
 		}
 
 
-		bool FrameContinuous::isSimilarTo( Frame* other ) const
+		bool FrameContinuous::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherContinuous = dynamic_cast<FrameContinuous*>(other) )
+			if ( auto *otherContinuous = dynamic_cast<const FrameContinuous*>(&other) )
 			{
 				if ( fabs( mW - otherContinuous->mW ) <= EPSILON )
 				{
@@ -124,8 +133,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FrameContinuous::marginPath( const Distance& xSize,
-		                                          const Distance& ySize ) const
+		QPainterPath FrameContinuous::marginPath( Distance xSize, Distance ySize ) const
 		{
 			Distance w = mW - 2*xSize;
 			Distance h = mH - 2*ySize;
@@ -137,24 +145,31 @@ namespace glabels
 		}
 
 
+		// Debugging support
+		void FrameContinuous::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameContinuous{ "
+			              << id() << "," 
+			              << w() << "," 
+			              << h() << "," 
+			              << hMin() << "," 
+			              << hMax() << "," 
+			              << hDefault() << ","
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+
 	}
-}
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FrameContinuous& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameContinuous{ "
-	              << frame.id() << "," 
-	              << frame.w() << "," 
-	              << frame.h() << "," 
-	              << frame.hMin() << "," 
-	              << frame.hMax() << "," 
-	              << frame.hDefault() << ","
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
 }

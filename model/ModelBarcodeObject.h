@@ -28,6 +28,8 @@
 
 #include "glbarcode/Barcode.h"
 
+#include <memory>
+
 
 namespace glabels
 {
@@ -47,10 +49,10 @@ namespace glabels
 		public:
 			ModelBarcodeObject();
 
-			ModelBarcodeObject( const Distance&       x0,
-			                    const Distance&       y0,
-			                    const Distance&       w,
-			                    const Distance&       h,
+			ModelBarcodeObject( Distance              x0,
+			                    Distance              y0,
+			                    Distance              w,
+			                    Distance              h,
 			                    bool                  lockAspectRatio,
 			                    const barcode::Style& bcStyle,
 			                    bool                  bcTextFlag,
@@ -61,7 +63,7 @@ namespace glabels
 
 			ModelBarcodeObject( const ModelBarcodeObject* object );
 
-			~ModelBarcodeObject() override;
+			virtual ~ModelBarcodeObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -127,15 +129,15 @@ namespace glabels
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		protected:
-			void drawShadow( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawShadow( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 			
-			void drawObject( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawObject( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 			
 			QPainterPath hoverPath( double scale ) const override;
 
@@ -149,10 +151,10 @@ namespace glabels
 
 			void drawBcInEditor( QPainter* painter, const QColor& color ) const;
 
-			void drawBc( QPainter*      painter,
-			             const QColor&  color,
-			             merge::Record* record,
-			             Variables*     variables ) const;
+			void drawBc( QPainter*            painter,
+			             const QColor&        color,
+			             const merge::Record& record,
+			             const Variables&     variables ) const;
 
 			void drawPlaceHolder( QPainter* painter, const QColor& color, const QString& text ) const;
 
@@ -169,8 +171,8 @@ namespace glabels
 			RawText             mBcData;
 			ColorNode           mBcColorNode;
 
-			glbarcode::Barcode* mEditorBarcode;
-			glbarcode::Barcode* mEditorDefaultBarcode;
+			std::unique_ptr<glbarcode::Barcode> mEditorBarcode;
+			std::unique_ptr<glbarcode::Barcode> mEditorDefaultBarcode;
 		
 			QPainterPath mHoverPath;
 

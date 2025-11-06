@@ -2,8 +2,7 @@
 
 ![Cover Image](docs/images/cover-image.png)
 
-[![Travis Build Status](https://travis-ci.org/j-evins/glabels-qt.svg?branch=master)](https://travis-ci.org/j-evins/glabels-qt)
-[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/github/j-evins/glabels-qt?branch=master&svg=true)](https://ci.appveyor.com/project/j-evins/glabels-qt)
+[![Multi-Platform Build Tests](https://github.com/j-evins/glabels-qt/actions/workflows/build-tests.yml/badge.svg?branch=master&event=push)](https://github.com/j-evins/glabels-qt/actions/workflows/build-tests.yml)
 
 *******************************************************************************
 
@@ -14,7 +13,7 @@ gLabels-qt is the development version of the next major version of gLabels (a.k.
 
 ## What's new in gLabels 4?
 
-- A complete rewrite, based on the Qt5 framework.
+- A complete rewrite, based on the Qt6 framework.
 - A new UI layout based on common activities.
 - Cross-platform support
 - User-defined variables
@@ -30,14 +29,9 @@ There are currently no official releases of gLabels 4.
 
 ### Continuous Integration Snapshots
 
-Continuous integration snapshots are not official releases.  These snapshots represent the latest
-bleeding-edge development (unstable) code.  Please, DO NOT use it in a production environment.  Do not
-expect compatibility or consistency of features between snapshots.
+Currently there are no self-hosted binary snapshot releases available.  I plan to make these available again once 4.0 is more imminint.  In the mean time, I encourage you to try building the code yourself.
 
-Pre-release Linux [AppImage](http:appimage.org) and Windows installer binaries are available in
-**[Releases](https://github.com/j-evins/glabels-qt/releases)**.
-
-Some third-party packages are also available:
+Some third-party packages may be available available:
 
 
 | Platform  | Files                                                                                | Notes                                                         |

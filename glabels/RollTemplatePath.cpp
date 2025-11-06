@@ -29,16 +29,16 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	RollTemplatePath::RollTemplatePath( const model::Template* tmplate )
+	RollTemplatePath::RollTemplatePath( const model::Template& tmplate )
 	{
-		if ( !tmplate->isRoll() )
+		if ( !tmplate.isRoll() )
 		{
 			qWarning() << "Not a \"Roll\" template type.";
 		}
 
-		model::Distance x0 = (tmplate->pageWidth() - tmplate->rollWidth()) / 2.0;
-		model::Distance w = tmplate->rollWidth();
-		model::Distance h = tmplate->pageHeight();
+		model::Distance x0 = (tmplate.pageWidth() - tmplate.rollWidth()) / 2.0;
+		model::Distance w = tmplate.rollWidth();
+		model::Distance h = tmplate.pageHeight();
 		model::Distance c = 0.07*h;
 		model::Distance b = 0.03*h;
 

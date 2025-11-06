@@ -46,10 +46,10 @@ namespace glabels
 		public:
 			ModelTextObject();
 		
-			ModelTextObject( const Distance&       x0,
-			                 const Distance&       y0,
-			                 const Distance&       w,
-			                 const Distance&       h,
+			ModelTextObject( Distance              x0,
+			                 Distance              y0,
+			                 Distance              w,
+			                 Distance              h,
 			                 bool                  lockAspectRatio,
 			                 const QString&        text,
 			                 const QString&        fontFamily,
@@ -65,14 +65,14 @@ namespace glabels
 			                 bool                  textAutoShrink,
 			                 const QTransform&     matrix = QTransform(),
 			                 bool                  shadowState = false,
-			                 const Distance&       shadowX = 0,
-			                 const Distance&       shadowY = 0,
+			                 Distance              shadowX = 0,
+			                 Distance              shadowY = 0,
 			                 double                shadowOpacity = 1.0,
 			                 const ColorNode&      shadowColorNode = ColorNode() );
 
 			ModelTextObject( const ModelTextObject* object );
 		
-			~ModelTextObject() override;
+			virtual ~ModelTextObject();
 
 
 			///////////////////////////////////////////////////////////////
@@ -186,15 +186,15 @@ namespace glabels
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		protected:
-			void drawShadow( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawShadow( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 			
-			void drawObject( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawObject( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 
 			QPainterPath hoverPath( double scale ) const override;
 
@@ -209,13 +209,13 @@ namespace glabels
 			void drawTextInEditor( QPainter*     painter,
 			                       const QColor& color ) const;
 			
-			void drawText( QPainter*      painter,
-			               const QColor&  color,
-			               merge::Record* record,
-			               Variables*     variables ) const;
+			void drawText( QPainter*            painter,
+			               const QColor&        color,
+			               const merge::Record& record,
+			               const Variables&     variables ) const;
 			
-			double autoShrinkFontSize( merge::Record* record,
-			                           Variables*     variables ) const;
+			double autoShrinkFontSize( const merge::Record& record,
+			                           const Variables&     variables ) const;
 	
 
 			///////////////////////////////////////////////////////////////

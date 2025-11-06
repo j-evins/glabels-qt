@@ -271,15 +271,14 @@ namespace glabels
 		
 				if ( tagName == "Template" )
 				{
-					Template* tmplate = XmlTemplateParser().parseTemplateNode( child.toElement() );
-					if ( tmplate == nullptr )
+					auto tmplate = XmlTemplateParser().parseTemplateNode( child.toElement() );
+					if ( tmplate.isNull() )
 					{
 						qWarning() << "Unable to parse template";
 						delete model;
 						return nullptr;
 					}
 					model->setTmplate( tmplate ); // Copies arg
-					delete tmplate;
 				}
 				else if ( tagName == "Objects" )
 				{
@@ -795,7 +794,7 @@ namespace glabels
 			auto increment = Variable::idStringToIncrement( incrementString );
 
 			Variable v( type, name, initialValue, increment, stepSize );
-			model->variables()->addVariable( v );
+			model->variables().addVariable( v );
 		}
 
 

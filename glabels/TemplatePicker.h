@@ -22,6 +22,8 @@
 #define TemplatePicker_h
 
 
+#include "TemplatePickerItem.h"
+
 #include "model/Template.h"
 
 #include <QList>
@@ -38,19 +40,21 @@ namespace glabels
 	{
 		Q_OBJECT
 
-
 		/////////////////////////////////
 		// Life Cycle
 		/////////////////////////////////
 	public:
-		TemplatePicker( QWidget *parent = nullptr );
+		TemplatePicker( QWidget* parent = nullptr );
 
 
 		/////////////////////////////////
 		// Properties
 		/////////////////////////////////
 	public:
-		void setTemplates( const QList <model::Template*> &tmplates );
+		void setTemplates( const QList<model::Template>& tmplates );
+
+		void setMode( QListView::ViewMode mode );
+		QListView::ViewMode mode() const;
 
 
 		/////////////////////////////////
@@ -62,7 +66,9 @@ namespace glabels
 
 		void applyFilter( const QStringList& names );
 
-		const model::Template *selectedTemplate();
+		 model::Template selectedTemplate() const;
+		TemplatePickerItem* selectedItem() const;
+		
 
 	};
 

@@ -42,8 +42,11 @@ namespace glabels
 			{
 			protected:
 				int symbology;
-			
-			
+				int option_2;
+
+
+				Base();
+
 				bool validate( const std::string& rawData ) override;
 
 				void vectorize( const std::string& encodedData,
@@ -133,6 +136,19 @@ namespace glabels
 
 
 			/**
+			 * Channel Barcode
+			 */
+			class Channel : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
 			 * Cbr Barcode
 			 */
 			class Cbr : public Base
@@ -140,6 +156,19 @@ namespace glabels
 			public:
 				static Barcode* create();
 			
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Codeblock-F Barcode
+			 */
+			class Cblockf : public Base
+			{
+			public:
+				static Barcode* create();
+
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
@@ -205,6 +234,19 @@ namespace glabels
 			public:
 				static Barcode* create();
 			
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Code 2 of 5 Industrial Barcode
+			 */
+			class C25ind : public Base
+			{
+			public:
+				static Barcode* create();
+
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
@@ -367,6 +409,32 @@ namespace glabels
 
 
 			/**
+			 * DotCode Barcode
+			 */
+			class Dotcode : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * DPD Code Barcode
+			 */
+			class Dpd : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
 			 * Kix Barcode
 			 */
 			class Kix : public Base
@@ -387,6 +455,58 @@ namespace glabels
 			public:
 				static Barcode* create();
 			
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * EAN-14 Barcode
+			 */
+			class Ean14 : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Facing Identification Mark Barcode
+			 */
+			class Fim : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Flattermarken Barcode
+			 */
+			class Flat : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Han Xin Barcode
+			 */
+			class Hanxin : public Base
+			{
+			public:
+				static Barcode* create();
+
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
@@ -465,6 +585,19 @@ namespace glabels
 			public:
 				static Barcode* create();
 			
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * HIBC Codablock-F Barcode
+			 */
+			class Hibcblkf : public Base
+			{
+			public:
+				static Barcode* create();
+
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
@@ -822,6 +955,32 @@ namespace glabels
 
 
 			/**
+			 * BC412 (SEMI T1-95) Barcode
+			 */
+			class Bc412 : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * CEPNet Barcode
+			 */
+			class Cepnet : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
 			 * Pdf Barcode
 			 */
 			class Pdf : public Base
@@ -861,6 +1020,19 @@ namespace glabels
 
 
 			/**
+			 * rMQR Barcode
+			 */
+			class Rmqr : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
 			 * Rm4 Barcode
 			 */
 			class Rm4 : public Base
@@ -868,6 +1040,32 @@ namespace glabels
 			public:
 				static Barcode* create();
 			
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Royal Mail 4-State Mailmark Barcode
+			 */
+			class Rm4sm : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Royal Mail 2-D Mailmark Barcode
+			 */
+			class Rm2dm : public Base
+			{
+			public:
+				static Barcode* create();
+
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};
@@ -900,6 +1098,19 @@ namespace glabels
 
 
 			/**
+			 * UPU S10 Barcode
+			 */
+			class UpuS10 : public Base
+			{
+			public:
+				static Barcode* create();
+
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
 			 * Usps Barcode
 			 */
 			class Usps : public Base
@@ -920,6 +1131,19 @@ namespace glabels
 			public:
 				static Barcode* create();
 			
+			protected:
+				std::string encode( const std::string& cookedData ) override;
+			};
+
+
+			/**
+			 * Vehicle Identification Number Barcode
+			 */
+			class Vin : public Base
+			{
+			public:
+				static Barcode* create();
+
 			protected:
 				std::string encode( const std::string& cookedData ) override;
 			};

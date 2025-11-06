@@ -25,6 +25,7 @@
 #include "Template.h"
 
 #include <QDomElement>
+#include <QList>
 #include <QString>
 
 
@@ -38,25 +39,32 @@ namespace glabels
 		public:
 			XmlTemplateParser() = default;
 
-			bool readFile( const QString &fileName, bool isUserDefined = false );
-			Template *parseTemplateNode( const QDomElement &node, bool isUserDefined = false );
+			QList<Template> readFile( const QString& fileName );
+			QList<Template> readEquivsFromFile( const QString& fileName );
+			Template parseTemplateNode( const QDomElement& node,
+			                            const QString&     fileName = "" );
 
 		private:
-			void parseRootNode( const QDomElement &node, bool isUserDefined );
-			void parseMetaNode( const QDomElement &node, Template *tmplate );
-			void parseLabelRectangleNode( const QDomElement &node, Template *tmplate );
-			void parseLabelEllipseNode( const QDomElement &node, Template *tmplate );
-			void parseLabelRoundNode( const QDomElement &node, Template *tmplate );
-			void parseLabelCdNode( const QDomElement &node, Template *tmplate );
-			void parseLabelPathNode( const QDomElement &node, Template *tmplate );
-			void parseLabelContinuousNode( const QDomElement &node, Template *tmplate );
-			void parseLabelNodeCommon( const QDomElement &node, Frame *frame );
-			void parseLayoutNode( const QDomElement &node, Frame *frame );
-			void parseMarkupMarginNode( const QDomElement &node, Frame *frame );
-			void parseMarkupLineNode( const QDomElement &node, Frame *frame );
-			void parseMarkupCircleNode( const QDomElement &node, Frame *frame );
-			void parseMarkupRectNode( const QDomElement &node, Frame *frame );
-			void parseMarkupEllipseNode( const QDomElement &node, Frame *frame );
+			enum Pass { TEMPLATE_PASS, EQUIV_PASS };
+
+			QList<Template> parseRootNode( const QDomElement& node,
+			                               const QString&     fileName,
+			                               Pass               pass );
+			
+			void parseMetaNode( const QDomElement& node, Template& tmplate );
+			void parseLabelRectangleNode( const QDomElement& node, Template& tmplate );
+			void parseLabelEllipseNode( const QDomElement& node, Template& tmplate );
+			void parseLabelRoundNode( const QDomElement& node, Template& tmplate );
+			void parseLabelCdNode( const QDomElement& node, Template& tmplate );
+			void parseLabelPathNode( const QDomElement& node, Template& tmplate );
+			void parseLabelContinuousNode( const QDomElement& node, Template& tmplate );
+			void parseLabelNodeCommon( const QDomElement& node, Frame& frame );
+			void parseLayoutNode( const QDomElement& node, Frame& frame );
+			void parseMarkupMarginNode( const QDomElement& node, Frame& frame );
+			void parseMarkupLineNode( const QDomElement& node, Frame& frame );
+			void parseMarkupCircleNode( const QDomElement& node, Frame& frame );
+			void parseMarkupRectNode( const QDomElement& node, Frame& frame );
+			void parseMarkupEllipseNode( const QDomElement& node, Frame& frame );
 
 		};
 

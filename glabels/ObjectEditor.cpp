@@ -364,7 +364,7 @@ namespace glabels
 
 				if ( dynamic_cast<model::ModelBoxObject*>(mObject) )
 				{
-					titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-box.svg") );
+					titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-box" ).pixmap( 24 ) );
 					titleLabel->setText( tr("Box object properties") );
 
 					notebook->addTab( lineFillPage, tr("line/fill") );
@@ -385,7 +385,7 @@ namespace glabels
 				}
 				else if ( dynamic_cast<model::ModelEllipseObject*>(mObject) )
 				{
-					titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-ellipse.svg") );
+					titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-ellipse" ).pixmap( 24 ) );
 					titleLabel->setText( tr("Ellipse object properties") );
 
 					notebook->addTab( lineFillPage, tr("line/fill") );
@@ -406,7 +406,7 @@ namespace glabels
 				}
 				else if ( dynamic_cast<model::ModelImageObject*>(mObject) )
 				{
-					titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-image.svg") );
+					titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-image" ).pixmap( 24 ) );
 					titleLabel->setText( tr("Image object properties") );
 
 					notebook->addTab( imagePage, tr("image") );
@@ -426,7 +426,7 @@ namespace glabels
 				}
 				else if ( dynamic_cast<model::ModelLineObject*>(mObject) )
 				{
-					titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-line.svg") );
+					titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-line" ).pixmap( 24 ) );
 					titleLabel->setText( tr("Line object properties") );
 
 					notebook->addTab( lineFillPage, tr("line/fill") );
@@ -447,7 +447,7 @@ namespace glabels
 				}
 				else if ( dynamic_cast<model::ModelTextObject*>(mObject) )
 				{
-					titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-text.svg") );
+					titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-text" ).pixmap( 24 ) );
 					titleLabel->setText( tr("Text object properties") );
 
 					notebook->addTab( textPage, tr("text") );
@@ -467,7 +467,7 @@ namespace glabels
 				}
 				else if ( dynamic_cast<model::ModelBarcodeObject*>(mObject) )
 				{
-					titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-barcode.svg") );
+					titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-barcode" ).pixmap( 24 ) );
 					titleLabel->setText( tr("Barcode object properties") );
 
 					notebook->addTab( barcodePage, tr("barcode") );
@@ -496,7 +496,7 @@ namespace glabels
 			{
 				mObject = nullptr;
 
-				titleImageLabel->setPixmap( QPixmap(":icons/flat/24x24/glabels-object-properties.svg") );
+				titleImageLabel->setPixmap( QIcon::fromTheme( "glabels-object-properties" ).pixmap( 24 ) );
 				titleLabel->setText( tr("Object properties") );
 				setEnabled( false );
 			}

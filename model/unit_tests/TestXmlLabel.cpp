@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestXmlLabel.h"
 #include "Test_Constants.h"
 
@@ -25,12 +26,16 @@
 #include "model/XmlLabelParser.h"
 
 #include "barcode/Backends.h"
+
+#include "model/Db.h"
 #include "model/ColorNode.h"
 #include "model/FrameRect.h"
 #include "model/Markup.h"
 #include "model/Model.h"
 #include "model/PageRenderer.h"
+#include "model/Settings.h"
 #include "model/Size.h"
+#include "model/Version.h"
 
 #include "model/ModelBarcodeObject.h"
 #include "model/ModelBoxObject.h"
@@ -39,12 +44,13 @@
 #include "model/ModelImageObject.h"
 #include "model/ModelTextObject.h"
 
-#include "model/Db.h"
 #include "merge/Factory.h"
 #include "merge/Merge.h"
 #include "merge/TextCsvKeys.h"
 
-#include <QtDebug>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
 
 
 QTEST_MAIN(TestXmlLabel)
@@ -62,6 +68,8 @@ namespace
 
 void TestXmlLabel::initTestCase()
 {
+	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+
 	Settings::init();
 	Db::init();
 	Factory::init();
@@ -80,11 +88,11 @@ void TestXmlLabel::serializeDeserialize()
 	// Empty object list
 	//
 	QCOMPARE( objects.count(), 0 );
-	XmlLabelCreator::serializeObjects( objects, model, buffer );
+	buffer = XmlLabelCreator::serializeObjects( objects, model );
 	outObjects = XmlLabelParser::deserializeObjects( buffer, model );
 	QCOMPARE( objects.count(), outObjects.count() );
 	QCOMPARE( objects, outObjects );
-	XmlLabelCreator::serializeObjects( outObjects, model, outBuffer );
+	outBuffer = XmlLabelCreator::serializeObjects( outObjects, model );
 	QCOMPARE( buffer, outBuffer );
 
 	//
@@ -117,7 +125,7 @@ void TestXmlLabel::serializeDeserialize()
 	QCOMPARE( objects.count(), 11 );
 
 	buffer.clear();
-	XmlLabelCreator::serializeObjects( objects, model, buffer );
+	buffer = XmlLabelCreator::serializeObjects( objects, model );
 
 	QVERIFY( svgRelative.remove() ); // Delete to make sure it's not read from file on parse
 
@@ -172,14 +180,7 @@ void TestXmlLabel::serializeDeserialize()
 			QCOMPARE( objects.at(i)->filenameNode().data(), outObjects.at(i)->filenameNode().data() );
 		}
 
-		if ( objects.at(i)->image() )
-		{
-			QCOMPARE( *(objects.at(i)->image()), *(outObjects.at(i)->image()) );
-		}
-		else
-		{
-			QCOMPARE( objects.at(i)->image(), outObjects.at(i)->image() );
-		}
+		QCOMPARE( objects.at(i)->image(), outObjects.at(i)->image() );
 		QCOMPARE( objects.at(i)->svg(), outObjects.at(i)->svg() );
 
 		QCOMPARE( objects.at(i)->lineWidth(), outObjects.at(i)->lineWidth() );
@@ -200,12 +201,12 @@ void TestXmlLabel::serializeDeserialize()
 	}
 
 	outBuffer.clear();
-	XmlLabelCreator::serializeObjects( outObjects, model, outBuffer );
+	outBuffer = XmlLabelCreator::serializeObjects( outObjects, model );
 
 	QCOMPARE( buffer, outBuffer );
 
-	delete model->merge();
-	delete model->variables();
+	qDeleteAll( objects );
+	qDeleteAll( outObjects );
 	delete model;
 }
 
@@ -279,23 +280,22 @@ void TestXmlLabel::writeReadFile()
 	/// Add template
 	///
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 110, 410 );
-	FrameRect* frame = new FrameRect( 120, 220, 5, 0, 0, "rect1" );
+	FrameRect frame( 120, 220, 5, 0, 0, "rect1" );
 	tmplate.addFrame( frame );
-	model->setTmplate( &tmplate ); // Copies
+	model->setTmplate( tmplate ); // Copies
 
 	///
 	/// Add variables
 	///
-	Variables vars;
 	Variable s( Variable::Type::STRING, "s", "initial", Variable::Increment::NEVER );
 	Variable c( Variable::Type::COLOR, "c", "red", Variable::Increment::PER_COPY );
 	Variable i( Variable::Type::INTEGER, "i", "123", Variable::Increment::PER_ITEM, "1" );
 	Variable f( Variable::Type::FLOATING_POINT, "f", "12.3", Variable::Increment::PER_PAGE, "0.2" );
-	model->variables()->addVariable( s );
-	model->variables()->addVariable( c );
-	model->variables()->addVariable( i );
-	model->variables()->addVariable( f );
-	QCOMPARE( model->variables()->size(), 4 );
+	model->variables().addVariable( s );
+	model->variables().addVariable( c );
+	model->variables().addVariable( i );
+	model->variables().addVariable( f );
+	QCOMPARE( model->variables().size(), 4 );
 
 	//
 	// Add merge
@@ -350,12 +350,12 @@ void TestXmlLabel::writeReadFile()
 	QCOMPARE( readModel->dir(), model->dir() );
 	QCOMPARE( readModel->fileName(), model->fileName() );
 
-	QCOMPARE( readModel->tmplate()->brand(), model->tmplate()->brand() );
-	QCOMPARE( readModel->tmplate()->part(), model->tmplate()->part() );
-	QCOMPARE( readModel->tmplate()->description(), model->tmplate()->description() );
-	QCOMPARE( readModel->tmplate()->paperId(), model->tmplate()->paperId() );
-	QCOMPARE( readModel->tmplate()->pageWidth().pt(), model->tmplate()->pageWidth().pt() );
-	QCOMPARE( readModel->tmplate()->pageHeight().pt(), model->tmplate()->pageHeight().pt() );
+	QCOMPARE( readModel->tmplate().brand(), model->tmplate().brand() );
+	QCOMPARE( readModel->tmplate().part(), model->tmplate().part() );
+	QCOMPARE( readModel->tmplate().description(), model->tmplate().description() );
+	QCOMPARE( readModel->tmplate().paperId(), model->tmplate().paperId() );
+	QCOMPARE( readModel->tmplate().pageWidth().pt(), model->tmplate().pageWidth().pt() );
+	QCOMPARE( readModel->tmplate().pageHeight().pt(), model->tmplate().pageHeight().pt() );
 
 	QCOMPARE( readModel->frame()->id(), model->frame()->id() );
 	QCOMPARE( readModel->frame()->w().pt(), model->frame()->w().pt() );
@@ -421,14 +421,7 @@ void TestXmlLabel::writeReadFile()
 			QCOMPARE( readObjects.at(i)->filenameNode().data(), modelObjects.at(i)->filenameNode().data() );
 		}
 
-		if ( readObjects.at(i)->image() )
-		{
-			QCOMPARE( *(readObjects.at(i)->image()), *(modelObjects.at(i)->image()) );
-		}
-		else
-		{
-			QCOMPARE( readObjects.at(i)->image(), modelObjects.at(i)->image() );
-		}
+		QCOMPARE( readObjects.at(i)->image(), modelObjects.at(i)->image() );
 		QCOMPARE( readObjects.at(i)->svg(), modelObjects.at(i)->svg() );
 
 		QCOMPARE( readObjects.at(i)->lineWidth(), modelObjects.at(i)->lineWidth() );
@@ -452,11 +445,11 @@ void TestXmlLabel::writeReadFile()
 	QCOMPARE( readObjects[11]->filenameNode().data(), pngRelativeFileName );
 	QCOMPARE( readObjects[12]->filenameNode().data(), svgRelativeFileName );
 
-	QCOMPARE( readModel->variables()->size(), model->variables()->size() );
-	for ( const auto& modelV : *model->variables() )
+	QCOMPARE( readModel->variables().size(), model->variables().size() );
+	for ( const auto& modelV : model->variables() )
 	{
-		QVERIFY( readModel->variables()->hasVariable( modelV.name() ) );
-		const auto& readV = readModel->variables()->value( modelV.name() );
+		QVERIFY( readModel->variables().hasVariable( modelV.name() ) );
+		const auto& readV = readModel->variables().value( modelV.name() );
 		QCOMPARE( readV.type(), modelV.type() );
 		QCOMPARE( readV.initialValue(), modelV.initialValue() );
 		if ( readV.type() == Variable::Type::INTEGER || readV.type() == Variable::Type::FLOATING_POINT )
@@ -472,37 +465,47 @@ void TestXmlLabel::writeReadFile()
 	QCOMPARE( readModel->merge()->recordList().size(), model->merge()->recordList().size() );
 	for ( int i = 0; i < readModel->merge()->recordList().size(); i++ )
 	{
-		QCOMPARE( readModel->merge()->recordList().at(i)->keys(), model->merge()->recordList().at(i)->keys() );
-		QCOMPARE( readModel->merge()->recordList().at(i)->values(), model->merge()->recordList().at(i)->values() );
+		QCOMPARE( readModel->merge()->recordList().at(i).keys(), model->merge()->recordList().at(i).keys() );
+		QCOMPARE( readModel->merge()->recordList().at(i).values(), model->merge()->recordList().at(i).values() );
 	}
 
-	delete readModel->merge();
-	delete readModel->variables();
 	delete readModel;
 
-	delete model->merge();
-	delete model->variables();
 	delete model;
 }
 
 
 void TestXmlLabel::parser_3ReadFile()
 {
-	// Current path is "build/model/unit_tests" so go up 3 levels
-	QFileInfo glabelsFileInfo( "../../../model/unit_tests/data/glabels-3/crew-orientation-name-tags-7.glabels" );
+	// FIX ME:  Currently the test glabels-3 file hardcodes a relative path to its CSV file.
+	//          With this relative path, it is assumed that
+	//
+	//            1) The test is being run from CTEST, which runs it in <build-dir>/model/unit_tests
+	//            2) The build directory is a subdirectory of the top-level glabels-qt source
+	//               directory.
+	//
+	//          This test is verifying backwards compatability with glabels-3 files.  Data files need
+	//          to be treated as relocatable.  This is not only an issue with unit tests, but affects
+	//          normal use cases where files are moved around.  Normally, the data file path within
+	//          the glabels file is absolute.  Perhaps, if the data file cannot be found at the
+	//          absolute path, an attempt should be made guess at the relative path (maybe sitting
+	//          in the same directory as the glabels file.  For glabels-4 files, the relative path
+	//          should be encoded in the file.
+
+	QFileInfo glabelsFileInfo( QString( "%1/data/glabels-3/crew-orientation-name-tags-7.glabels" ).arg( QString(TEST_DIR) ) );
 	QVERIFY( glabelsFileInfo.isReadable() );
 
-	Model* model = XmlLabelParser::readFile( glabelsFileInfo.filePath() );
+	Model* model = XmlLabelParser::readFile( glabelsFileInfo.absoluteFilePath() );
 	QVERIFY( model );
-
+		
 	QCOMPARE( model->fileName(), glabelsFileInfo.filePath() );
 
-	QCOMPARE( model->tmplate()->brand(), QString( "Avery" ) );
-	QCOMPARE( model->tmplate()->part(), QString( "5395" ) );
-	QCOMPARE( model->tmplate()->description(), QString( "Name Badge Labels" ) );
-	QCOMPARE( model->tmplate()->paperId(), QString( "US-Letter" ) );
-	QCOMPARE( model->tmplate()->pageWidth().in(), 8.5 );
-	QCOMPARE( model->tmplate()->pageHeight().in(), 11.0 );
+	QCOMPARE( model->tmplate().brand(), QString( "Avery" ) );
+	QCOMPARE( model->tmplate().part(), QString( "5395" ) );
+	QCOMPARE( model->tmplate().description(), QString( "Name Badge Labels" ) );
+	QCOMPARE( model->tmplate().paperId(), QString( "US-Letter" ) );
+	QCOMPARE( model->tmplate().pageWidth().in(), 8.5 );
+	QCOMPARE( model->tmplate().pageHeight().in(), 11.0 );
 
 	QCOMPARE( model->frame()->id(), QString( "0" ) );
 	const FrameRect* frameRect = dynamic_cast<const FrameRect*>( model->frame() );
@@ -514,18 +517,18 @@ void TestXmlLabel::parser_3ReadFile()
 	QCOMPARE( frameRect->yWaste().in(), 0.0625 );
 
 	QCOMPARE( model->frame()->markups().size(), 1 );
-	MarkupMargin* markupMargin = dynamic_cast<MarkupMargin*>( model->frame()->markups()[0] );
+	MarkupMargin* markupMargin = dynamic_cast<MarkupMargin*>( model->frame()->markups().front().get() );
 	QVERIFY( markupMargin );
 	QCOMPARE( markupMargin->xSize().in(), 0.0625 );
 	QCOMPARE( markupMargin->ySize().in(), 0.0625 );
 
 	QCOMPARE( model->frame()->layouts().size(), 1 );
-	QCOMPARE( model->frame()->layouts()[0].nx(), 2 );
-	QCOMPARE( model->frame()->layouts()[0].ny(), 4 );
-	QCOMPARE( model->frame()->layouts()[0].x0().in(), 0.6875 );
-	QCOMPARE( model->frame()->layouts()[0].y0().in(), 0.583333 );
-	QCOMPARE( model->frame()->layouts()[0].dx().in(), 3.75 );
-	QCOMPARE( model->frame()->layouts()[0].dy().in(), 2.5 );
+	QCOMPARE( model->frame()->layouts().front().nx(), 2 );
+	QCOMPARE( model->frame()->layouts().front().ny(), 4 );
+	QCOMPARE( model->frame()->layouts().front().x0().in(), 0.6875 );
+	QCOMPARE( model->frame()->layouts().front().y0().in(), 0.583333 );
+	QCOMPARE( model->frame()->layouts().front().dx().in(), 3.75 );
+	QCOMPARE( model->frame()->layouts().front().dy().in(), 2.5 );
 
 	QCOMPARE( model->rotate(), false );
 
@@ -606,7 +609,7 @@ void TestXmlLabel::parser_3ReadFile()
 	QVERIFY( !model->merge()->source().isEmpty() ); // Merge source hacked to work relatively so not realistic
 	QCOMPARE( model->merge()->recordList().size(), 4 );
 
-	QCOMPARE( model->merge()->recordList()[0]->keys().size(), 3 );
+	QCOMPARE( model->merge()->recordList()[0].keys().size(), 3 );
 	QList<QString> keys, values0, values1, values2, values3;
 	keys << "Department" << "Name" << "SN";
 	values0 << "Management" << "Jim Kirk" << "SC937-0176 CEC";
@@ -614,17 +617,15 @@ void TestXmlLabel::parser_3ReadFile()
 	values2 << "Medicine" << "Leonard McCoy" << "unknown";
 	values3 << "Engineering" << "Montgomery Scott" << "SE-197-54T";
 
-	QCOMPARE( model->merge()->recordList()[0]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[0]->values(), values0 );
-	QCOMPARE( model->merge()->recordList()[1]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[1]->values(), values1 );
-	QCOMPARE( model->merge()->recordList()[2]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[2]->values(), values2 );
-	QCOMPARE( model->merge()->recordList()[3]->keys(), keys );
-	QCOMPARE( model->merge()->recordList()[3]->values(), values3 );
+	QCOMPARE( model->merge()->recordList()[0].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[0].values(), values0 );
+	QCOMPARE( model->merge()->recordList()[1].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[1].values(), values1 );
+	QCOMPARE( model->merge()->recordList()[2].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[2].values(), values2 );
+	QCOMPARE( model->merge()->recordList()[3].keys(), keys );
+	QCOMPARE( model->merge()->recordList()[3].values(), values3 );
 
-	delete model->merge();
-	delete model->variables();
 	delete model;
 }
 
@@ -697,7 +698,5 @@ void TestXmlLabel::parser_3Barcode()
 		QCOMPARE( modelBarcodeObject->bcStyle().fullId(), QString( "code39" ) );
 	}
 
-	delete model->merge();
-	delete model->variables();
 	delete model;
 }

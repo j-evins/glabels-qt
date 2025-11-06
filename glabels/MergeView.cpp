@@ -18,19 +18,21 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "MergeView.h"
 
 #include "merge/Factory.h"
 
 #include "model/FileUtil.h"
 
+#include <QDebug>
 #include <QFileDialog>
 #include <QFileInfo>
-#include <QtDebug>
 
 
 namespace glabels
 {
+	const QChar NEWLINE_CHAR = QChar(0x23CE);
 
 	///
 	/// Constructor
@@ -44,15 +46,6 @@ namespace glabels
 
 		mMergeFormatNames = merge::Factory::nameList();
 		formatCombo->addItems( mMergeFormatNames );
-	}
-
-
-	///
-	/// Destructor
-	///
-	MergeView::~MergeView()
-	{
-		// empty
 	}
 
 
@@ -143,13 +136,13 @@ namespace glabels
 	{
 		mBlock = true;  // Don't recurse
 	
-		const QList<merge::Record*>& records = mModel->merge()->recordList();
+		auto& records = mModel->merge()->recordList();
 
 		int iRow = 0;
-		foreach ( merge::Record* record, records )
+		for ( auto& record : records )
 		{
 			QTableWidgetItem* item = recordsTable->item( iRow, 0 );
-			item->setCheckState( record->isSelected() ? Qt::Checked : Qt::Unchecked );
+			item->setCheckState( record.isSelected() ? Qt::Checked : Qt::Unchecked );
 
 			iRow++;
 		}
@@ -273,32 +266,34 @@ namespace glabels
 	{
 		mBlock = true;
 
-		const QList<merge::Record*>& records = merge->recordList();
+		auto& records = merge->recordList();
 		recordsTable->setRowCount( records.size() );
 
 		int iRow = 0;
-		foreach ( merge::Record* record, records )
+		for ( auto record : records )
 		{
 			// First column for primary field
 			auto* item = new QTableWidgetItem();
-			if ( record->contains( mPrimaryKey ) )
+			if ( record.contains( mPrimaryKey ) )
 			{
-				item->setText( (*record)[mPrimaryKey] );
+				auto text = printableTextForView( record[mPrimaryKey] );
+				item->setText( text );
 			}
 			item->setFlags( Qt::ItemIsEnabled | Qt::ItemIsUserCheckable );
-			item->setCheckState( record->isSelected() ? Qt::Checked : Qt::Unchecked );
+			item->setCheckState( record.isSelected() ? Qt::Checked : Qt::Unchecked );
 			recordsTable->setItem( iRow, 0, item );
 			recordsTable->resizeColumnToContents( 0 );
 
 			// Starting on 2nd column, 1 column per field, skip primary field
 			int iCol = 1;
-			foreach ( QString key, mKeys )
+			for ( auto& key : mKeys )
 			{
 				if ( key != mPrimaryKey )
 				{
-					if ( record->contains( key ) )
+					if ( record.contains( key ) )
 					{
-						auto* item = new QTableWidgetItem( (*record)[key] );
+						auto text = printableTextForView( record[key] );
+						auto* item = new QTableWidgetItem( text );
 						item->setFlags( Qt::ItemIsEnabled );
 						recordsTable->setItem( iRow, iCol, item );
 						recordsTable->resizeColumnToContents( iCol );
@@ -319,4 +314,18 @@ namespace glabels
 		mBlock = false;
 	}
 
+
+	///
+	/// modify text to be printable e.g. replace newlines
+	///
+	QString MergeView::printableTextForView( QString text )
+	{
+		// Replace windows style newlines
+		text.replace("\r\n", NEWLINE_CHAR);
+
+		// Replace unix style newlines
+		text.replace("\n", NEWLINE_CHAR);
+
+		return text;
+	}
 } // namespace glabels

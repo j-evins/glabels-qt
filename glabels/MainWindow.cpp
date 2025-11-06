@@ -22,7 +22,6 @@
 
 #include "File.h"
 #include "Help.h"
-#include "Icons.h"
 #include "LabelEditor.h"
 #include "MergeView.h"
 #include "ObjectEditor.h"
@@ -30,7 +29,6 @@
 #include "PrintView.h"
 #include "PropertiesView.h"
 #include "StartupView.h"
-#include "UndoRedoModel.h"
 #include "VariablesView.h"
 
 #include "model/Db.h"
@@ -64,9 +62,9 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	MainWindow::MainWindow() : mModel(nullptr), mUndoRedoModel(nullptr)
+	MainWindow::MainWindow()
 	{
-		setWindowIcon( Icons::Glabels() );
+		setWindowIcon( QIcon::fromTheme( "glabels" ) );
 
 		createActions();
 		createMenus();
@@ -99,7 +97,7 @@ namespace glabels
 		// Add "Welcome" page
 		mPages->addWidget( welcomePage );
 		mWelcomeButton = new QToolButton( this );
-		mWelcomeButton->setIcon( Icons::Glabels() );
+		mWelcomeButton->setIcon( QIcon::fromTheme( "glabels" ) );
 		mWelcomeButton->setText( tr("Welcome") );
 		mWelcomeButton->setToolButtonStyle( Qt::ToolButtonTextUnderIcon );
 		mWelcomeButton->setCheckable( true );
@@ -111,7 +109,7 @@ namespace glabels
 		// Add "Editor" page
 		mPages->addWidget( editorPage );
 		mEditorButton = new QToolButton( this );
-		mEditorButton->setIcon( Icons::Edit() );
+		mEditorButton->setIcon( QIcon::fromTheme( "glabels-edit" ) );
 		mEditorButton->setText( tr("Edit") );
 		mEditorButton->setToolButtonStyle( Qt::ToolButtonTextUnderIcon );
 		mEditorButton->setCheckable( true );
@@ -123,7 +121,7 @@ namespace glabels
 		// Add "Properties" page
 		mPages->addWidget( propertiesPage );
 		mPropertiesButton = new QToolButton( this );
-		mPropertiesButton->setIcon( Icons::Properties() );
+		mPropertiesButton->setIcon( QIcon::fromTheme( "glabels-properties" ) );
 		mPropertiesButton->setText( tr("Properties") );
 		mPropertiesButton->setToolButtonStyle( Qt::ToolButtonTextUnderIcon );
 		mPropertiesButton->setCheckable( true );
@@ -135,7 +133,7 @@ namespace glabels
 		// Add "Merge" page
 		mPages->addWidget( mergePage );
 		mMergeButton = new QToolButton( this );
-		mMergeButton->setIcon( Icons::Merge() );
+		mMergeButton->setIcon( QIcon::fromTheme( "glabels-merge" ) );
 		mMergeButton->setText( tr("Merge") );
 		mMergeButton->setToolButtonStyle( Qt::ToolButtonTextUnderIcon );
 		mMergeButton->setCheckable( true );
@@ -147,7 +145,7 @@ namespace glabels
 		// Add "Variables" page
 		mPages->addWidget( variablesPage );
 		mVariablesButton = new QToolButton( this );
-		mVariablesButton->setIcon( Icons::Variables() );
+		mVariablesButton->setIcon( QIcon::fromTheme( "glabels-variables" ) );
 		mVariablesButton->setText( tr("Variables") );
 		mVariablesButton->setToolButtonStyle( Qt::ToolButtonTextUnderIcon );
 		mVariablesButton->setCheckable( true );
@@ -159,7 +157,7 @@ namespace glabels
 		// Add "Print" page
 		mPages->addWidget( printPage );
 		mPrintButton = new QToolButton( this );
-		mPrintButton->setIcon( Icons::FilePrint() );
+		mPrintButton->setIcon( QIcon::fromTheme( "glabels-print" ) );
 		mPrintButton->setText( tr("Print") );
 		mPrintButton->setToolButtonStyle( Qt::ToolButtonTextUnderIcon );
 		mPrintButton->setCheckable( true );
@@ -196,8 +194,8 @@ namespace glabels
 		connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
 		connect( QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(clipboardChanged()) );
 #if 0
-		connect( mLabelEditor, SIGNAL(pointerMoved(double, double)),
-		         this, SLOT(onPointerMoved(double, double)) );
+		connect( mLabelEditor, SIGNAL(pointerMoved(model::Point)),
+		         this, SLOT(onPointerMoved(modelPoint)) );
 		connect( mLabelEditor, SIGNAL(pointerExited()), this, SLOT(onPointerExit()) );
 #endif
 
@@ -206,29 +204,11 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	MainWindow::~MainWindow()
-	{
-		if ( mUndoRedoModel )
-		{
-			delete mUndoRedoModel;
-		}
-		if ( mModel )
-		{
-			delete mModel->merge(); // Ownership of final Merge instance is ours
-			delete mModel->variables(); // Ownership of Variables instance is ours
-			delete mModel;
-		}
-	}
-
-
-	///
 	/// Get model accessor
 	///
 	model::Model* MainWindow::model() const
 	{
-		return mModel;
+		return mModel.get();
 	}
 
 
@@ -237,15 +217,15 @@ namespace glabels
 	///
 	void MainWindow::setModel( model::Model* model )
 	{
-		mModel = model; // Ownership passes to us
-		mUndoRedoModel = new UndoRedoModel( mModel );
+		mModel.reset( model );
+		mUndoRedoModel = std::make_unique<UndoRedoModel>( mModel.get() );
 	
-		mPropertiesView->setModel( mModel, mUndoRedoModel );
-		mLabelEditor->setModel( mModel, mUndoRedoModel );
-		mObjectEditor->setModel( mModel, mUndoRedoModel );
-		mMergeView->setModel( mModel, mUndoRedoModel );
-		mVariablesView->setModel( mModel, mUndoRedoModel );
-		mPrintView->setModel( mModel );
+		mPropertiesView->setModel( mModel.get(), mUndoRedoModel.get() );
+		mLabelEditor->setModel( mModel.get(), mUndoRedoModel.get() );
+		mObjectEditor->setModel( mModel.get(), mUndoRedoModel.get() );
+		mMergeView->setModel( mModel.get(), mUndoRedoModel.get() );
+		mVariablesView->setModel( mModel.get(), mUndoRedoModel.get() );
+		mPrintView->setModel( mModel.get() );
 
 		mEditorButton->setChecked( true );
 		mPages->setCurrentIndex( EDITOR_PAGE_INDEX );
@@ -253,12 +233,12 @@ namespace glabels
 		manageActions();
 		setTitle();
 
-		connect( mLabelEditor, SIGNAL(contextMenuActivate()), this, SLOT(onContextMenuActivate()) );
-		connect( mModel, SIGNAL(nameChanged()), this, SLOT(onNameChanged()) );
-		connect( mModel, SIGNAL(modifiedChanged()), this, SLOT(onModifiedChanged()) );
-		connect( mModel, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()) );
-		connect( mModel, SIGNAL(changed()), this, SLOT(onLabelChanged()) );
-		connect( mUndoRedoModel, SIGNAL(changed()), this, SLOT(onUndoRedoChanged()) );
+		connect( mLabelEditor, SIGNAL(contextMenuActivate(model::Point)), this, SLOT(onContextMenuActivate(model::Point)) );
+		connect( mModel.get(), SIGNAL(nameChanged()), this, SLOT(onNameChanged()) );
+		connect( mModel.get(), SIGNAL(modifiedChanged()), this, SLOT(onModifiedChanged()) );
+		connect( mModel.get(), SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()) );
+		connect( mModel.get(), SIGNAL(changed()), this, SLOT(onLabelChanged()) );
+		connect( mUndoRedoModel.get(), SIGNAL(changed()), this, SLOT(onUndoRedoChanged()) );
 	}
 
 
@@ -267,7 +247,7 @@ namespace glabels
 	///
 	bool MainWindow::isEmpty() const
 	{
-		return mModel == nullptr;
+		return !mModel;
 	}
 
 
@@ -295,13 +275,13 @@ namespace glabels
 	{
 		/* File actions */
 		fileNewAction = new QAction( tr("&New..."), this );
-		fileNewAction->setIcon( Icons::FileNew() );
+		fileNewAction->setIcon( QIcon::fromTheme( "glabels-file-new" ) );
 		fileNewAction->setShortcut( QKeySequence::New );
 		fileNewAction->setStatusTip( tr("Create a new gLabels project") );
 		connect( fileNewAction, SIGNAL(triggered()), this, SLOT(fileNew()) );
 
 		fileOpenAction = new QAction( tr("&Open..."), this );
-		fileOpenAction->setIcon( Icons::FileOpen() );
+		fileOpenAction->setIcon( QIcon::fromTheme( "glabels-file-open" ) );
 		fileOpenAction->setShortcut( QKeySequence::Open );
 		fileOpenAction->setStatusTip( tr("Open an existing gLabels project") );
 		connect( fileOpenAction, SIGNAL(triggered()), this, SLOT(fileOpen()) );
@@ -309,40 +289,41 @@ namespace glabels
 		for ( int i = 0; i < model::Settings::maxRecentFiles(); i++ )
 		{
 			auto* action = new QAction( this );
+			action->setIcon( QIcon::fromTheme( "glabels" ) );
 			action->setVisible( false );
 			fileRecentActionList.append( action );
 			connect( action, SIGNAL(triggered()), this, SLOT(fileOpenRecent()) );
 		}
 
 		fileSaveAction = new QAction( tr("&Save"), this );
-		fileSaveAction->setIcon( Icons::FileSave() );
+		fileSaveAction->setIcon( QIcon::fromTheme( "glabels-file-save" ) );
 		fileSaveAction->setShortcut( QKeySequence::Save );
 		fileSaveAction->setStatusTip( tr("Save current gLabels project") );
 		connect( fileSaveAction, SIGNAL(triggered()), this, SLOT(fileSave()) );
 
 		fileSaveAsAction = new QAction( tr("Save &As..."), this );
-		fileSaveAsAction->setIcon( Icons::FileSaveAs() );
+		fileSaveAsAction->setIcon( QIcon::fromTheme( "glabels-file-save-as" ) );
 		fileSaveAsAction->setShortcut( QKeySequence::SaveAs );
 		fileSaveAsAction->setStatusTip( tr("Save current gLabels project to a different name") );
 		connect( fileSaveAsAction, SIGNAL(triggered()), this, SLOT(fileSaveAs()) );
 
 		fileShowEditorPageAction = new QAction( tr("&Edit") , this );
-		fileShowEditorPageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_1 ) );
+		fileShowEditorPageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_1 ) );
 		fileShowEditorPageAction->setStatusTip( tr("Select project Edit mode") );
 		connect( fileShowEditorPageAction, SIGNAL(triggered()), this, SLOT(fileShowEditorPage()) );
 
 		fileShowPropertiesPageAction = new QAction( tr("P&roperties") , this );
-		fileShowPropertiesPageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_2 ) );
+		fileShowPropertiesPageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_2 ) );
 		fileShowPropertiesPageAction->setStatusTip( tr("Select project Properties mode") );
 		connect( fileShowPropertiesPageAction, SIGNAL(triggered()), this, SLOT(fileShowPropertiesPage()) );
 
 		fileShowMergePageAction = new QAction( tr("&Merge") , this );
-		fileShowMergePageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_3 ) );
+		fileShowMergePageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_3 ) );
 		fileShowMergePageAction->setStatusTip( tr("Select project Merge mode") );
 		connect( fileShowMergePageAction, SIGNAL(triggered()), this, SLOT(fileShowMergePage()) );
 
 		fileShowVariablesPageAction = new QAction( tr("&Variables") , this );
-		fileShowVariablesPageAction->setShortcut( QKeySequence( Qt::CTRL + Qt::Key_4 ) );
+		fileShowVariablesPageAction->setShortcut( QKeySequence( Qt::CTRL | Qt::Key_4 ) );
 		fileShowVariablesPageAction->setStatusTip( tr("Select project Variables mode") );
 		connect( fileShowVariablesPageAction, SIGNAL(triggered()), this, SLOT(fileShowVariablesPage()) );
 
@@ -382,19 +363,19 @@ namespace glabels
 		connect( editRedoAction, SIGNAL(triggered()), this, SLOT(editRedo()) );
 
 		editCutAction = new QAction( tr("Cut"), this );
-		editCutAction->setIcon( Icons::EditCut() );
+		editCutAction->setIcon( QIcon::fromTheme( "glabels-edit-cut" ) );
 		editCutAction->setShortcut( QKeySequence::Cut );
 		editCutAction->setStatusTip( tr("Cut the selection") );
 		connect( editCutAction, SIGNAL(triggered()), this, SLOT(editCut()) );
 
 		editCopyAction = new QAction( tr("&Copy"), this );
-		editCopyAction->setIcon( Icons::EditCopy() );
+		editCopyAction->setIcon( QIcon::fromTheme( "glabels-edit-copy" ) );
 		editCopyAction->setShortcut( QKeySequence::Copy );
 		editCopyAction->setStatusTip( tr("Copy the selection") );
 		connect( editCopyAction, SIGNAL(triggered()), this, SLOT(editCopy()) );
 
 		editPasteAction = new QAction( tr("&Paste"), this );
-		editPasteAction->setIcon( Icons::EditPaste() );
+		editPasteAction->setIcon( QIcon::fromTheme( "glabels-edit-paste" ) );
 		editPasteAction->setShortcut( QKeySequence::Paste );
 		editPasteAction->setStatusTip( tr("Paste the clipboard") );
 		connect( editPasteAction, SIGNAL(triggered()), this, SLOT(editPaste()) );
@@ -446,133 +427,138 @@ namespace glabels
 		connect( viewMarkupAction, SIGNAL(toggled(bool)), this, SLOT(viewMarkup(bool)) );
 
 		viewZoomInAction = new QAction( tr("Zoom &In"), this );
-		viewZoomInAction->setIcon( Icons::ZoomIn() );
+		viewZoomInAction->setIcon( QIcon::fromTheme( "glabels-zoom-in" ) );
 		viewZoomInAction->setShortcut( QKeySequence::ZoomIn );
 		viewZoomInAction->setStatusTip( tr("Increase magnification") );
 		connect( viewZoomInAction, SIGNAL(triggered()), this, SLOT(viewZoomIn()) );
 
 		viewZoomOutAction = new QAction( tr("Zoom &Out"), this );
-		viewZoomOutAction->setIcon( Icons::ZoomOut() );
+		viewZoomOutAction->setIcon( QIcon::fromTheme( "glabels-zoom-out" ) );
 		viewZoomOutAction->setShortcut( QKeySequence::ZoomOut );
 		viewZoomOutAction->setStatusTip( tr("Decrease magnification") );
 		connect( viewZoomOutAction, SIGNAL(triggered()), this, SLOT(viewZoomOut()) );
 
 		viewZoom1To1Action = new QAction( tr("Zoom &1 to 1"), this );
-		viewZoom1To1Action->setIcon( Icons::ZoomOriginal() );
+		viewZoom1To1Action->setIcon( QIcon::fromTheme( "glabels-zoom-one-to-one" ) );
 		viewZoom1To1Action->setStatusTip( tr("Restore scale to 100%") );
 		connect( viewZoom1To1Action, SIGNAL(triggered()), this, SLOT(viewZoom1To1()) );
 
 		viewZoomToFitAction = new QAction( tr("Zoom to &Fit"), this );
-		viewZoomToFitAction->setIcon( Icons::ZoomBestFit() );
+		viewZoomToFitAction->setIcon( QIcon::fromTheme( "glabels-zoom-to-fit" ) );
 		viewZoomToFitAction->setStatusTip( tr("Set scale to fit window") );
 		connect( viewZoomToFitAction, SIGNAL(triggered()), this, SLOT(viewZoomToFit()) );
 
 
 		/* Object actions */
 		objectsArrowModeAction = new QAction( tr("Select Mode"), this );
-		objectsArrowModeAction->setIcon( Icons::Arrow() );
+		objectsArrowModeAction->setIcon( QIcon::fromTheme( "glabels-arrow" ) );
 		objectsArrowModeAction->setStatusTip( tr("Select, move and modify objects") );
 		connect( objectsArrowModeAction, SIGNAL(triggered()), this, SLOT(objectsArrowMode()) );
 
 		objectsCreateTextAction = new QAction( tr("Text"), this );
-		objectsCreateTextAction->setIcon( Icons::Text() );
+		objectsCreateTextAction->setIcon( QIcon::fromTheme( "glabels-text" ) );
 		objectsCreateTextAction->setStatusTip( tr("Create text object") );
 		connect( objectsCreateTextAction, SIGNAL(triggered()), this, SLOT(objectsCreateText()) );
 
 		objectsCreateBoxAction = new QAction( tr("Box"), this );
-		objectsCreateBoxAction->setIcon( Icons::Box() );
+		objectsCreateBoxAction->setIcon( QIcon::fromTheme( "glabels-box" ) );
 		objectsCreateBoxAction->setStatusTip( tr("Create box object") );
 		connect( objectsCreateBoxAction, SIGNAL(triggered()), this, SLOT(objectsCreateBox()) );
 
 		objectsCreateLineAction = new QAction( tr("Line"), this );
-		objectsCreateLineAction->setIcon( Icons::Line() );
+		objectsCreateLineAction->setIcon( QIcon::fromTheme( "glabels-line" ) );
 		objectsCreateLineAction->setStatusTip( tr("Create line object") );
 		connect( objectsCreateLineAction, SIGNAL(triggered()), this, SLOT(objectsCreateLine()) );
 
 		objectsCreateEllipseAction = new QAction( tr("Ellipse"), this );
-		objectsCreateEllipseAction->setIcon( Icons::Ellipse() );
+		objectsCreateEllipseAction->setIcon( QIcon::fromTheme( "glabels-ellipse" ) );
 		objectsCreateEllipseAction->setStatusTip( tr("Create ellipse/circle object") );
 		connect( objectsCreateEllipseAction, SIGNAL(triggered()), this, SLOT(objectsCreateEllipse()) );
 
 		objectsCreateImageAction = new QAction( tr("Image"), this );
-		objectsCreateImageAction->setIcon( Icons::Image() );
+		objectsCreateImageAction->setIcon( QIcon::fromTheme( "glabels-image" ) );
 		objectsCreateImageAction->setStatusTip( tr("Create image object") );
 		connect( objectsCreateImageAction, SIGNAL(triggered()), this, SLOT(objectsCreateImage()) );
 
 		objectsCreateBarcodeAction = new QAction( tr("Barcode"), this );
-		objectsCreateBarcodeAction->setIcon( Icons::Barcode() );
+		objectsCreateBarcodeAction->setIcon( QIcon::fromTheme( "glabels-barcode" ) );
 		objectsCreateBarcodeAction->setStatusTip( tr("Create barcode object") );
 		connect( objectsCreateBarcodeAction, SIGNAL(triggered()), this, SLOT(objectsCreateBarcode()) );
 
 		objectsOrderRaiseAction = new QAction( tr("Bring To Front"), this );
-		objectsOrderRaiseAction->setIcon( Icons::OrderTop() );
+		objectsOrderRaiseAction->setIcon( QIcon::fromTheme( "glabels-order-top" ) );
 		objectsOrderRaiseAction->setStatusTip( tr("Raise selection to top") );
 		connect( objectsOrderRaiseAction, SIGNAL(triggered()), this, SLOT(objectsOrderRaise()) );
 
 		objectsOrderLowerAction = new QAction( tr("Send To Back"), this );
-		objectsOrderLowerAction->setIcon( Icons::OrderBottom() );
+		objectsOrderLowerAction->setIcon( QIcon::fromTheme( "glabels-order-bottom" ) );
 		objectsOrderLowerAction->setStatusTip( tr("Lower selection to bottom") );
 		connect( objectsOrderLowerAction, SIGNAL(triggered()), this, SLOT(objectsOrderLower()) );
 
 		objectsXformRotateLeftAction = new QAction( tr("Rotate Left"), this );
-		objectsXformRotateLeftAction->setIcon( Icons::RotateLeft() );
+		objectsXformRotateLeftAction->setIcon( QIcon::fromTheme( "glabels-rotate-left" ) );
 		objectsXformRotateLeftAction->setStatusTip( tr("Rotate object(s) 90 degrees counter-clockwise") );
 		connect( objectsXformRotateLeftAction, SIGNAL(triggered()), this, SLOT(objectsXformRotateLeft()) );
 
 		objectsXformRotateRightAction = new QAction( tr("Rotate Right"), this );
-		objectsXformRotateRightAction->setIcon( Icons::RotateRight() );
+		objectsXformRotateRightAction->setIcon( QIcon::fromTheme( "glabels-rotate-right" ) );
 		objectsXformRotateRightAction->setStatusTip( tr("Rotate object(s) 90 degrees clockwise") );
 		connect( objectsXformRotateRightAction, SIGNAL(triggered()), this, SLOT(objectsXformRotateRight()) );
 
 		objectsXformFlipHorizAction = new QAction( tr("Flip Horizontally"), this );
-		objectsXformFlipHorizAction->setIcon( Icons::FlipHoriz() );
+		objectsXformFlipHorizAction->setIcon( QIcon::fromTheme( "glabels-flip-horiz" ) );
 		objectsXformFlipHorizAction->setStatusTip( tr("Flip object(s) horizontally") );
 		connect( objectsXformFlipHorizAction, SIGNAL(triggered()), this, SLOT(objectsXformFlipHoriz()) );
 
 		objectsXformFlipVertAction = new QAction( tr("Flip Vertically"), this );
-		objectsXformFlipVertAction->setIcon( Icons::FlipVert() );
+		objectsXformFlipVertAction->setIcon( QIcon::fromTheme( "glabels-flip-vert" ) );
 		objectsXformFlipVertAction->setStatusTip( tr("Flip object(s) vertically") );
 		connect( objectsXformFlipVertAction, SIGNAL(triggered()), this, SLOT(objectsXformFlipVert()) );
 
 		objectsAlignLeftAction = new QAction( tr("Align Left"), this );
-		objectsAlignLeftAction->setIcon( Icons::AlignLeft() );
+		objectsAlignLeftAction->setIcon( QIcon::fromTheme( "glabels-align-left" ) );
 		objectsAlignLeftAction->setStatusTip( tr("Align objects to left edges") );
 		connect( objectsAlignLeftAction, SIGNAL(triggered()), this, SLOT(objectsAlignLeft()) );
 
 		objectsAlignHCenterAction = new QAction( tr("Align Center"), this );
-		objectsAlignHCenterAction->setIcon( Icons::AlignHCenter() );
+		objectsAlignHCenterAction->setIcon( QIcon::fromTheme( "glabels-align-center" ) );
 		objectsAlignHCenterAction->setStatusTip( tr("Align objects to horizontal centers") );
 		connect( objectsAlignHCenterAction, SIGNAL(triggered()), this, SLOT(objectsAlignHCenter()) );
 
 		objectsAlignRightAction = new QAction( tr("Align Right"), this );
-		objectsAlignRightAction->setIcon( Icons::AlignRight() );
+		objectsAlignRightAction->setIcon( QIcon::fromTheme( "glabels-align-right" ) );
 		objectsAlignRightAction->setStatusTip( tr("Align objects to right edges") );
 		connect( objectsAlignRightAction, SIGNAL(triggered()), this, SLOT(objectsAlignRight()) );
 
 		objectsAlignTopAction = new QAction( tr("Align Top"), this );
-		objectsAlignTopAction->setIcon( Icons::AlignTop() );
+		objectsAlignTopAction->setIcon( QIcon::fromTheme( "glabels-align-top" ) );
 		objectsAlignTopAction->setStatusTip( tr("Align objects to top edges") );
 		connect( objectsAlignTopAction, SIGNAL(triggered()), this, SLOT(objectsAlignTop()) );
 
 		objectsAlignVCenterAction = new QAction( tr("Align Middle"), this );
-		objectsAlignVCenterAction->setIcon( Icons::AlignVCenter() );
+		objectsAlignVCenterAction->setIcon( QIcon::fromTheme( "glabels-align-vcenter" ) );
 		objectsAlignVCenterAction->setStatusTip( tr("Align objects to vertical centers") );
 		connect( objectsAlignVCenterAction, SIGNAL(triggered()), this, SLOT(objectsAlignVCenter()) );
 
 		objectsAlignBottomAction = new QAction( tr("Align Bottom"), this );
-		objectsAlignBottomAction->setIcon( Icons::AlignBottom() );
+		objectsAlignBottomAction->setIcon( QIcon::fromTheme( "glabels-align-bottom" ) );
 		objectsAlignBottomAction->setStatusTip( tr("Align objects to bottom edges") );
 		connect( objectsAlignBottomAction, SIGNAL(triggered()), this, SLOT(objectsAlignBottom()) );
 
 		objectsCenterHorizAction = new QAction( tr("Center Horizontally"), this );
-		objectsCenterHorizAction->setIcon( Icons::CenterHoriz() );
+		objectsCenterHorizAction->setIcon( QIcon::fromTheme( "glabels-center-horiz" ) );
 		objectsCenterHorizAction->setStatusTip( tr("Horizontally center objects in label") );
 		connect( objectsCenterHorizAction, SIGNAL(triggered()), this, SLOT(objectsCenterHoriz()) );
 
 		objectsCenterVertAction = new QAction( tr("Center Vertically"), this );
-		objectsCenterVertAction->setIcon( Icons::CenterVert() );
+		objectsCenterVertAction->setIcon( QIcon::fromTheme( "glabels-center-vert" ) );
 		objectsCenterVertAction->setStatusTip( tr("Vertically center objects in label") );
 		connect( objectsCenterVertAction, SIGNAL(triggered()), this, SLOT(objectsCenterVert()) );
+
+		objectsCenterAction = new QAction( tr("Center Both"), this );
+		objectsCenterAction->setIcon( QIcon::fromTheme( "glabels-center" ) );
+		objectsCenterAction->setStatusTip( tr("Center objects in label") );
+		connect( objectsCenterAction, SIGNAL(triggered()), this, SLOT(objectsCenter()) );
 
 
 		/* Help actions */
@@ -594,19 +580,19 @@ namespace glabels
 
 		/* Context menu version of edit actions */
 		contextCutAction = new QAction( tr("Cut"), this );
-		contextCutAction->setIcon( Icons::EditCut() );
+		contextCutAction->setIcon( QIcon::fromTheme( "glabels-edit-cut" ) );
 		contextCutAction->setStatusTip( tr("Cut the selection") );
 		connect( contextCutAction, SIGNAL(triggered()), this, SLOT(editCut()) );
 
 		contextCopyAction = new QAction( tr("&Copy"), this );
-		contextCopyAction->setIcon( Icons::EditCopy() );
+		contextCopyAction->setIcon( QIcon::fromTheme( "glabels-edit-copy" ) );
 		contextCopyAction->setStatusTip( tr("Copy the selection") );
 		connect( contextCopyAction, SIGNAL(triggered()), this, SLOT(editCopy()) );
 
 		contextPasteAction = new QAction( tr("&Paste"), this );
-		contextPasteAction->setIcon( Icons::EditPaste() );
+		contextPasteAction->setIcon( QIcon::fromTheme( "glabels-edit-paste" ) );
 		contextPasteAction->setStatusTip( tr("Paste the clipboard") );
-		connect( contextPasteAction, SIGNAL(triggered()), this, SLOT(editPaste()) );
+		connect( contextPasteAction, SIGNAL(triggered()), this, SLOT(editContextPaste()) );
 
 		contextDeleteAction = new QAction( tr("&Delete"), this );
 		contextDeleteAction->setIcon( QIcon::fromTheme( "edit-delete" ) );
@@ -623,7 +609,7 @@ namespace glabels
 		fileMenu = menuBar()->addMenu( tr("&File") );
 		fileMenu->addAction( fileNewAction );
 		fileMenu->addAction( fileOpenAction );
-		fileRecentMenu = fileMenu->addMenu( Icons::FileRecent(), tr("Open Recent") );
+		fileRecentMenu = fileMenu->addMenu( QIcon::fromTheme( "glabels-file-recent" ), tr("Open Recent") );
 		for ( auto* action : fileRecentActionList )
 		{
 			fileRecentMenu->addAction( action );
@@ -698,6 +684,7 @@ namespace glabels
 		objectsCenterMenu = objectsMenu->addMenu( tr("Center") );
 		objectsCenterMenu->addAction( objectsCenterHorizAction );
 		objectsCenterMenu->addAction( objectsCenterVertAction );
+		objectsCenterMenu->addAction( objectsCenterAction );
 
 		helpMenu = menuBar()->addMenu( tr("&Help") );
 		helpMenu->addAction( helpContentsAction );
@@ -724,6 +711,7 @@ namespace glabels
 		contextCenterMenu = contextMenu->addMenu( tr("Center") );
 		contextCenterMenu->addAction( objectsCenterHorizAction );
 		contextCenterMenu->addAction( objectsCenterVertAction );
+		contextCenterMenu->addAction( objectsCenterAction );
 		contextMenu->addSeparator();
 		contextMenu->addAction( contextCutAction );
 		contextMenu->addAction( contextCopyAction );
@@ -1005,6 +993,7 @@ namespace glabels
 		objectsCenterMenu->setEnabled( isEditorPage && hasSelection );
 		objectsCenterHorizAction->setEnabled( isEditorPage && hasSelection );
 		objectsCenterVertAction->setEnabled( isEditorPage && hasSelection );
+		objectsCenterAction->setEnabled( isEditorPage && hasSelection );
 
 		// Help actions
 		helpContentsAction->setEnabled( true );
@@ -1024,7 +1013,7 @@ namespace glabels
 	///
 	void MainWindow::setTitle()
 	{
-		if ( mModel == nullptr )
+		if ( !mModel )
 		{
 			setWindowTitle( "gLabels" );
 		}
@@ -1337,7 +1326,21 @@ namespace glabels
 	void MainWindow::editPaste()
 	{
 		mUndoRedoModel->checkpoint( tr("Paste") );
-		mModel->paste();
+		mModel->paste( model::Point() );
+	}
+
+
+	///
+	/// Edit->Paste Action (from context menu)
+	///
+	void MainWindow::editContextPaste()
+	{
+		// Extract original context menu click location
+		auto *action = qobject_cast<QAction *>(sender());
+		auto p = action->data().value<model::Point>();
+
+		mUndoRedoModel->checkpoint( tr("Paste") );
+		mModel->paste( p );
 	}
 
 
@@ -1651,6 +1654,16 @@ namespace glabels
 
 
 	///
+	/// Objects->Center Action
+	///
+	void MainWindow::objectsCenter()
+	{
+		mUndoRedoModel->checkpoint( tr("Center") );
+		mModel->centerSelection();
+	}
+
+
+	///
 	/// Objects->Center->Vertically Action
 	///
 	void MainWindow::objectsCenterVert()
@@ -1690,8 +1703,13 @@ namespace glabels
 	///
 	/// Context Menu Activation
 	///
-	void MainWindow::onContextMenuActivate()
+	void MainWindow::onContextMenuActivate( model::Point p )
 	{
+		// Save click location for potential paste action
+		QVariant variant;
+		variant.setValue( p );
+		contextPasteAction->setData( variant );
+
 		if ( mModel->isSelectionEmpty() )
 		{
 			noSelectionContextMenu->popup( QCursor::pos() );
@@ -1718,10 +1736,12 @@ namespace glabels
 	///
 	/// Pointer moved: update Cursor Information in Status Bar
 	///
-	void MainWindow::onPointerMoved( double x, double y )
+	void MainWindow::onPointerMoved( model::Point p )
 	{
-		/* TODO: convert x,y to locale units and set precision accordingly. */
-		cursorInfoLabel->setText( QString( "%1, %2" ).arg(x).arg(y) );
+		/* TODO: set precision accordingly. */
+		auto units = model::Settings::units();
+		cursorInfoLabel->setText( QString( "%1, %2" ).arg( p.x().toString(units) )
+		                                             .arg( p.y().toString(units) ) );
 	}
 
 

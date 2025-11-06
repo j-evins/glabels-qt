@@ -27,32 +27,6 @@ namespace glabels
 	{
 
 		///
-		/// Constructor
-		///
-		Record::Record() : mSelected( true )
-		{
-		}
-
-
-		///
-		/// Constructor
-		///
-		Record::Record( const Record* record )
-			: QMap<QString,QString>(*record), mSelected(record->mSelected)
-		{
-		}
-
-
-		///
-		/// Clone
-		///
-		Record* Record::clone() const
-		{
-			return new Record( this );
-		}
-
-
-		///
 		/// Is record selected?
 		///
 		bool Record::isSelected() const

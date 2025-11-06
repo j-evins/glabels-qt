@@ -42,5 +42,5 @@ target_include_directories (glbarcode
 )
 
 target_link_libraries (glbarcode
-  Qt5::Widgets
+  Qt6::Widgets
 )

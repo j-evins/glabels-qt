@@ -18,7 +18,10 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "Markup.h"
+
+#include "Frame.h"
 
 
 namespace glabels
@@ -26,36 +29,38 @@ namespace glabels
 	namespace model
 	{
 
-		QPainterPath Markup::path( const Frame* frame ) const
+		QPainterPath Markup::path( const Frame& frame ) const
 		{
 			// Use cached path -- default does not depend on frame size
 			return mPath;
 		}
 
 	
-		MarkupMargin::MarkupMargin( const Distance& size )
-			: mXSize(size), mYSize(size)
+		MarkupMargin::MarkupMargin( Distance size )
+			: mXSize(size),
+			  mYSize(size)
 		{
 		}
 	
 
-		MarkupMargin::MarkupMargin( const Distance& xSize,
-		                            const Distance& ySize )
-			: mXSize(xSize), mYSize(ySize)
+		MarkupMargin::MarkupMargin( Distance xSize,
+		                            Distance ySize )
+			: mXSize(xSize),
+			  mYSize(ySize)
 		{
 		}
 	
 
-		QPainterPath MarkupMargin::path( const Frame* frame ) const
+		QPainterPath MarkupMargin::path( const Frame& frame ) const
 		{
 			// Re-calculate path -- frame size may have changed
-			return frame->marginPath( mXSize, mYSize );
+			return frame.marginPath( mXSize, mYSize );
 		}
 
 	
-		Markup* MarkupMargin::dup() const
+		std::unique_ptr<Markup> MarkupMargin::clone() const
 		{
-			return new MarkupMargin( mXSize, mYSize );
+			return std::make_unique<MarkupMargin>( mXSize, mYSize );
 		}
 
 
@@ -71,20 +76,31 @@ namespace glabels
 		}
 
 
-		MarkupLine::MarkupLine( const Distance& x1,
-		                        const Distance& y1,
-		                        const Distance& x2,
-		                        const Distance& y2 )
-			: mX1(x1), mY1(y1), mX2(x2), mY2(y2)
+		void MarkupMargin::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupMargin{ "
+			              << mXSize << "," << mYSize
+			              << " }";
+		}
+
+
+		MarkupLine::MarkupLine( Distance x1,
+		                        Distance y1,
+		                        Distance x2,
+		                        Distance y2 )
+			: mX1(x1),
+			  mY1(y1),
+			  mX2(x2),
+			  mY2(y2)
 		{
 			mPath.moveTo( x1.pt(), y1.pt() );
 			mPath.lineTo( x2.pt(), y2.pt() );
 		}
 
 
-		Markup* MarkupLine::dup() const
+		std::unique_ptr<Markup> MarkupLine::clone() const
 		{
-			return new MarkupLine( mX1, mY1, mX2, mY2 );
+			return std::make_unique<MarkupLine>( mX1, mY1, mX2, mY2 );
 		}
 
 	
@@ -112,20 +128,33 @@ namespace glabels
 		}
 
 
-		MarkupRect::MarkupRect( const Distance& x1,
-		                        const Distance& y1,
-		                        const Distance& w,
-		                        const Distance& h,
-		                        const Distance& r )
-			: mX1(x1), mY1(y1), mW(w), mH(h), mR(r)
+		void MarkupLine::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupLine{ "
+			              << mX1 << "," << mY1 << ","
+			              << mX2 << "," << mY2
+			              << " }";
+		}
+
+
+		MarkupRect::MarkupRect( Distance x1,
+		                        Distance y1,
+		                        Distance w,
+		                        Distance h,
+		                        Distance r )
+			: mX1(x1),
+			  mY1(y1),
+			  mW(w),
+			  mH(h),
+			  mR(r)
 		{
 			mPath.addRoundedRect( x1.pt(), y1.pt(), w.pt(), h.pt(), r.pt(), r.pt() );
 		}
 
 
-		Markup* MarkupRect::dup() const
+		std::unique_ptr<Markup> MarkupRect::clone() const
 		{
-			return new MarkupRect( mX1, mY1, mW, mH, mR );
+			return std::make_unique<MarkupRect>( mX1, mY1, mW, mH, mR );
 		}
 	
 
@@ -159,19 +188,32 @@ namespace glabels
 		}
 
 	
-		MarkupEllipse::MarkupEllipse( const Distance& x1,
-		                              const Distance& y1,
-		                              const Distance& w,
-		                              const Distance& h )
-			: mX1(x1), mY1(y1), mW(w), mH(h)
+		void MarkupRect::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupRect{ "
+			              << mX1 << "," << mY1 << ","
+			              << mW << "," << mH << ","
+			              << mR
+			              << " }";
+		}
+
+
+		MarkupEllipse::MarkupEllipse( Distance x1,
+		                              Distance y1,
+		                              Distance w,
+		                              Distance h )
+			: mX1(x1),
+			  mY1(y1),
+			  mW(w),
+			  mH(h)
 		{
 			mPath.addEllipse( x1.pt(), y1.pt(), w.pt(), h.pt() );
 		}
 
 
-		Markup* MarkupEllipse::dup() const
+		std::unique_ptr<Markup> MarkupEllipse::clone() const
 		{
-			return new MarkupEllipse( mX1, mY1, mW, mH );
+			return std::make_unique<MarkupEllipse>( mX1, mY1, mW, mH );
 		}
 
 	
@@ -199,17 +241,28 @@ namespace glabels
 		}
 
 
-		MarkupCircle::MarkupCircle( const Distance& x0,
-		                            const Distance& y0,
-		                            const Distance& r )
-			: mX0(x0), mY0(y0), mR(r)
+		void MarkupEllipse::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupEllipse{ "
+			              << mX1 << "," << mY1 << ","
+			              << mW << "," << mH
+			              << " }";
+		}
+
+
+		MarkupCircle::MarkupCircle( Distance x0,
+		                            Distance y0,
+		                            Distance r )
+			: mX0(x0),
+			  mY0(y0),
+			  mR(r)
 		{
 			mPath.addEllipse( (x0-r).pt(), (y0-r).pt(), 2*r.pt(), 2*r.pt() );
 		}
 
-		Markup* MarkupCircle::dup() const
+		std::unique_ptr<Markup> MarkupCircle::clone() const
 		{
-			return new MarkupCircle( mX0, mY0, mR );
+			return std::make_unique<MarkupCircle>( mX0, mY0, mR );
 		}
 
 
@@ -230,5 +283,25 @@ namespace glabels
 			return mR;
 		}
 
+
+		void MarkupCircle::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "MarkupCircle{ "
+			              << mX0 << "," << mY0 << ","
+			              << mR
+			              << " }";
+		}
+
 	}
 }
+
+
+QDebug operator<<( QDebug dbg, const glabels::model::Markup& markup )
+{
+	QDebugStateSaver saver(dbg);
+
+	markup.print( dbg );
+
+	return dbg;
+}
+	

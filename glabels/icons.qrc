@@ -3,121 +3,144 @@
 <RCC version="1.0">
 <qresource>
 
-	<file>icons/flat/16x16/glabels-align-bottom.svg</file>
-	<file>icons/flat/16x16/glabels-align-hcenter.svg</file>
-	<file>icons/flat/16x16/glabels-align-left.svg</file>
-	<file>icons/flat/16x16/glabels-align-right.svg</file>
-	<file>icons/flat/16x16/glabels-align-top.svg</file>
-	<file>icons/flat/16x16/glabels-align-vcenter.svg</file>
-	<file>icons/flat/16x16/glabels-arrow.svg</file>
-	<file>icons/flat/16x16/glabels-barcode.svg</file>
-	<file>icons/flat/16x16/glabels-box.svg</file>
-	<file>icons/flat/16x16/glabels-center-horiz.svg</file>
-	<file>icons/flat/16x16/glabels-center-vert.svg</file>
-	<file>icons/flat/16x16/glabels-edit-clear.svg</file>
-	<file>icons/flat/16x16/glabels-edit-copy.svg</file>
-	<file>icons/flat/16x16/glabels-edit-cut.svg</file>
-	<file>icons/flat/16x16/glabels-edit-paste.svg</file>
-	<file>icons/flat/16x16/glabels-ellipse.svg</file>
-	<file>icons/flat/16x16/glabels-file-new.svg</file>
-	<file>icons/flat/16x16/glabels-file-open.svg</file>
-	<file>icons/flat/16x16/glabels-file-recent.svg</file>
-	<file>icons/flat/16x16/glabels-file-save.svg</file>
-	<file>icons/flat/16x16/glabels-file-save-as.svg</file>
-	<file>icons/flat/16x16/glabels-flip-horiz.svg</file>
-	<file>icons/flat/16x16/glabels-flip-vert.svg</file>
-	<file>icons/flat/16x16/glabels-image.svg</file>
-	<file>icons/flat/16x16/glabels-line.svg</file>
-	<file>icons/flat/16x16/glabels-order-bottom.svg</file>
-	<file>icons/flat/16x16/glabels-order-top.svg</file>
-	<file>icons/flat/16x16/glabels-rotate-left.svg</file>
-	<file>icons/flat/16x16/glabels-rotate-right.svg</file>
-	<file>icons/flat/16x16/glabels-text.svg</file>
-	<file>icons/flat/16x16/glabels-zoom-in.svg</file>
-	<file>icons/flat/16x16/glabels-zoom-one-to-one.svg</file>
-	<file>icons/flat/16x16/glabels-zoom-out.svg</file>
-	<file>icons/flat/16x16/glabels-zoom-to-fit.svg</file>
-	<file>icons/apps/16x16/glabels.svg</file>
-	
-	<file>icons/flat/22x22/glabels-align-text-center.svg</file>
-	<file>icons/flat/22x22/glabels-align-text-left.svg</file>
-	<file>icons/flat/22x22/glabels-align-text-right.svg</file>
-	<file>icons/flat/22x22/glabels-arrow.svg</file>
-	<file>icons/flat/22x22/glabels-barcode.svg</file>
-	<file>icons/flat/22x22/glabels-box.svg</file>
-	<file>icons/flat/22x22/glabels-edit-copy.svg</file>
-	<file>icons/flat/22x22/glabels-edit-cut.svg</file>
-	<file>icons/flat/22x22/glabels-edit-paste.svg</file>
-	<file>icons/flat/22x22/glabels-ellipse.svg</file>
-	<file>icons/flat/22x22/glabels-file-new.svg</file>
-	<file>icons/flat/22x22/glabels-file-open.svg</file>
-	<file>icons/flat/22x22/glabels-file-recent.svg</file>
-	<file>icons/flat/22x22/glabels-file-save.svg</file>
-	<file>icons/flat/22x22/glabels-file-save-as.svg</file>
-	<file>icons/flat/22x22/glabels-format-text-bold.svg</file>
-	<file>icons/flat/22x22/glabels-format-text-italic.svg</file>
-	<file>icons/flat/22x22/glabels-format-text-underline.svg</file>
-	<file>icons/flat/22x22/glabels-image.svg</file>
-	<file>icons/flat/22x22/glabels-line.svg</file>
-	<file>icons/flat/22x22/glabels-text.svg</file>
-	<file>icons/flat/22x22/glabels-valign-text-bottom.svg</file>
-	<file>icons/flat/22x22/glabels-valign-text-middle.svg</file>
-	<file>icons/flat/22x22/glabels-valign-text-top.svg</file>
-	<file>icons/flat/22x22/glabels-zoom-in.svg</file>
-	<file>icons/flat/22x22/glabels-zoom-one-to-one.svg</file>
-	<file>icons/flat/22x22/glabels-zoom-out.svg</file>
-	<file>icons/flat/22x22/glabels-zoom-to-fit.svg</file>
-	<file>icons/apps/22x22/glabels.svg</file>
-	
-	<file>icons/flat/24x24/glabels-align-text-center.svg</file>
-	<file>icons/flat/24x24/glabels-align-text-left.svg</file>
-	<file>icons/flat/24x24/glabels-align-text-right.svg</file>
-	<file>icons/flat/24x24/glabels-arrow.svg</file>
-	<file>icons/flat/24x24/glabels-barcode.svg</file>
-	<file>icons/flat/24x24/glabels-box.svg</file>
-	<file>icons/flat/24x24/glabels-edit-copy.svg</file>
-	<file>icons/flat/24x24/glabels-edit-cut.svg</file>
-	<file>icons/flat/24x24/glabels-edit-paste.svg</file>
-	<file>icons/flat/24x24/glabels-ellipse.svg</file>
-	<file>icons/flat/24x24/glabels-file-new.svg</file>
-	<file>icons/flat/24x24/glabels-file-open.svg</file>
-	<file>icons/flat/24x24/glabels-file-recent.svg</file>
-	<file>icons/flat/24x24/glabels-file-save.svg</file>
-	<file>icons/flat/24x24/glabels-file-save-as.svg</file>
-	<file>icons/flat/24x24/glabels-format-text-bold.svg</file>
-	<file>icons/flat/24x24/glabels-format-text-italic.svg</file>
-	<file>icons/flat/24x24/glabels-format-text-underline.svg</file>
-	<file>icons/flat/24x24/glabels-image.svg</file>
-	<file>icons/flat/24x24/glabels-line.svg</file>
-	<file>icons/flat/24x24/glabels-object-properties.svg</file>
-	<file>icons/flat/24x24/glabels-text.svg</file>
-	<file>icons/flat/24x24/glabels-valign-text-bottom.svg</file>
-	<file>icons/flat/24x24/glabels-valign-text-middle.svg</file>
-	<file>icons/flat/24x24/glabels-valign-text-top.svg</file>
+	<!-- flat icon theme index -->
+	<file>icons/glabels-flat/index.theme</file>
 
-	<file>icons/flat/32x32/glabels-collated.svg</file>
-	<file>icons/flat/32x32/glabels-file-new.svg</file>
-	<file>icons/flat/32x32/glabels-file-open.svg</file>
-	<file>icons/flat/32x32/glabels-file-recent.svg</file>
-	<file>icons/flat/32x32/glabels-label-orientation-horiz.svg</file>
-	<file>icons/flat/32x32/glabels-label-orientation-vert.svg</file>
-	<file>icons/flat/32x32/glabels-merge-group-contiguous.svg</file>
-	<file>icons/flat/32x32/glabels-merge-group-page.svg</file>
-	<file>icons/flat/32x32/glabels-print.svg</file>
-	<file>icons/flat/32x32/glabels-select-product.svg</file>
-	<file>icons/flat/32x32/glabels-uncollated.svg</file>
-	<file>icons/apps/32x32/glabels.svg</file>
+	<!-- flat: 16 x 16 -->
+	<file>icons/glabels-flat/16x16/actions/glabels-align-bottom.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-align-hcenter.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-align-left.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-align-right.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-align-top.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-align-vcenter.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-arrow.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-barcode.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-box.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-center-horiz.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-center.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-center-vert.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-edit-clear.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-edit-copy.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-edit-cut.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-edit-paste.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-ellipse.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-file-new.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-file-open.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-file-recent.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-file-save-as.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-file-save.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-flip-horiz.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-flip-vert.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-image.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-line.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-order-bottom.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-order-top.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-rotate-left.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-rotate-right.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-text.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-zoom-in.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-zoom-one-to-one.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-zoom-out.svg</file>
+	<file>icons/glabels-flat/16x16/actions/glabels-zoom-to-fit.svg</file>
 
-	<file>icons/flat/48x48/glabels-edit.svg</file>
-	<file>icons/flat/48x48/glabels-merge.svg</file>
-	<file>icons/flat/48x48/glabels-print.svg</file>
-	<file>icons/flat/48x48/glabels-properties.svg</file>
-	<file>icons/flat/48x48/glabels-variables.svg</file>
-	<file>icons/apps/48x48/glabels.svg</file>
+	<file>icons/glabels-flat/16x16/apps/glabels.svg</file>
 
-	<file>icons/apps/128x128/glabels.svg</file>
-	
-	<file>icons/apps/scalable/glabels.svg</file>
+	<!-- flat: 22 x 22 -->
+	<file>icons/glabels-flat/22x22/actions/glabels-align-text-center.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-align-text-left.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-align-text-right.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-arrow.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-barcode.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-box.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-edit-copy.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-edit-cut.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-edit-paste.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-ellipse.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-file-new.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-file-open.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-file-recent.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-file-save-as.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-file-save.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-format-text-bold.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-format-text-italic.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-format-text-underline.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-image.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-line.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-text.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-valign-text-bottom.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-valign-text-middle.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-valign-text-top.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-view-grid.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-view-list.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-zoom-in.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-zoom-one-to-one.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-zoom-out.svg</file>
+	<file>icons/glabels-flat/22x22/actions/glabels-zoom-to-fit.svg</file>
+
+	<file>icons/glabels-flat/22x22/apps/glabels.svg</file>
+
+	<!-- flat: 24 x 24 -->
+	<file>icons/glabels-flat/24x24/actions/glabels-align-text-center.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-align-text-left.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-align-text-right.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-arrow.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-barcode.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-box.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-edit-copy.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-edit-cut.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-edit-paste.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-ellipse.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-file-new.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-file-open.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-file-recent.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-file-save-as.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-file-save.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-format-text-bold.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-format-text-italic.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-format-text-underline.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-image.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-line.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-object-properties.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-text.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-valign-text-bottom.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-valign-text-middle.svg</file>
+	<file>icons/glabels-flat/24x24/actions/glabels-valign-text-top.svg</file>
+
+	<!-- flat: 32 x 32 -->
+	<file>icons/glabels-flat/32x32/actions/glabels-collated.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-file-new.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-file-open.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-file-recent.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-label-orientation-horiz.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-label-orientation-vert.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-merge-group-contiguous.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-merge-group-page.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-print.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-select-product.svg</file>
+	<file>icons/glabels-flat/32x32/actions/glabels-uncollated.svg</file>
+
+	<file>icons/glabels-flat/32x32/apps/glabels.svg</file>
+
+	<!-- flat: 48 x 48 -->
+	<file>icons/glabels-flat/48x48/actions/glabels-edit.svg</file>
+	<file>icons/glabels-flat/48x48/actions/glabels-merge.svg</file>
+	<file>icons/glabels-flat/48x48/actions/glabels-print.svg</file>
+	<file>icons/glabels-flat/48x48/actions/glabels-properties.svg</file>
+	<file>icons/glabels-flat/48x48/actions/glabels-variables.svg</file>
+
+	<file>icons/glabels-flat/48x48/apps/glabels.svg</file>
+
+	<!-- flat: 128 x 128 -->
+	<file>icons/glabels-flat/128x128/apps/glabels.svg</file>
+
+	<!-- flat: scalable -->
+	<file>icons/glabels-flat/scalable/apps/glabels.svg</file>
+
+	<!-- mimetypes -->
+	<file>icons/mimetypes/16x16/x-glabels-project.svg</file>
+	<file>icons/mimetypes/22x22/x-glabels-project.svg</file>
+	<file>icons/mimetypes/24x24/x-glabels-project.svg</file>
+	<file>icons/mimetypes/scalable/x-glabels-project.svg</file>
 
 </qresource>
 </RCC>

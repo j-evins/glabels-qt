@@ -42,7 +42,7 @@ namespace glabels
 		private:
 			TextCsvKeys();
 			TextCsvKeys( const TextCsvKeys* merge );
-			~TextCsvKeys() override = default;
+			virtual ~TextCsvKeys() = default;
 
 
 			/////////////////////////////////

@@ -21,7 +21,8 @@
 #include "Distance.h"
 
 #include <QTextStream>
-#include <QtDebug>
+#include <QDebug>
+#include <QIODevice>
 
 
 namespace glabels
@@ -55,7 +56,7 @@ namespace glabels
 		}
 
 
-		Distance::Distance( double d, const Units& units )
+		Distance::Distance( double d, Units units )
 		{
 			switch (units.toEnum())
 			{
@@ -127,7 +128,7 @@ namespace glabels
 		}
 
 
-		double Distance::inUnits( const Units& units ) const
+		double Distance::inUnits( Units units ) const
 		{
 			double d;
 
@@ -187,7 +188,7 @@ namespace glabels
 		}
 
 
-		QString Distance::toString( const Units& units ) const
+		QString Distance::toString( Units units ) const
 		{
 			return QString::number( inUnits(units) ) + units.toIdString();
 		}
@@ -210,7 +211,7 @@ namespace glabels
 }
 
 
-QDebug operator<<( QDebug dbg, const glabels::model::Distance& distance )
+QDebug operator<<( QDebug dbg, glabels::model::Distance distance )
 {
 	QDebugStateSaver saver(dbg);
 

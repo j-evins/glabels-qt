@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestModelImageObject.h"
 #include "Test_Constants.h"
 
@@ -85,7 +86,7 @@ void TestModelImageObject::readImageFile()
 	QFileInfo pngGreenFileInfo( pngGreen.fileName() );
 
 	Variable var( Variable::Type::STRING, "var", pngGreenFileInfo.fileName(), Variable::Increment::PER_ITEM ); // Relative path
-	model.variables()->addVariable( var );
+	model.variables().addVariable( var );
 
 	model.addObject( object.clone() );
 
@@ -103,7 +104,7 @@ void TestModelImageObject::readImageFile()
 	QFileInfo svgMagentaFileInfo( svgMagenta.fileName() );
 
 	Variable var2( Variable::Type::STRING, "var2", svgMagentaFileInfo.fileName(), Variable::Increment::PER_ITEM ); // Absolute path
-	model.variables()->addVariable( var2 );
+	model.variables().addVariable( var2 );
 
 	model.addObject( object.clone() );
 
@@ -187,7 +188,7 @@ void TestModelImageObject::readImageFile()
 	///
 	/// Draw
 	///
-	const QList<Record*> records = merge->selectedRecords();
+	const QList<Record> records = merge->selectedRecords();
 	QCOMPARE( records.size(), 8 );
 
 	QImage paintDevice( 10, 10 * model.objectList().size() * records.size(), QImage::Format_RGB32 );
@@ -207,7 +208,7 @@ void TestModelImageObject::readImageFile()
 	{
 		// Merge
 		qDebug() << "record" << i;
-		color = records[i]->value( "type" ) == "png" ? Qt::blue : Qt::red;
+		color = records[i].value( "type" ) == "png" ? Qt::blue : Qt::red;
 		QCOMPARE( paintDevice.pixelColor( 1, 0 + i * yTranslate ), white );
 		QCOMPARE( paintDevice.pixelColor( 1, 1 + i * yTranslate ), color );
 		QCOMPARE( paintDevice.pixelColor( 1, 8 + i * yTranslate ), color );
@@ -246,7 +247,4 @@ void TestModelImageObject::readImageFile()
 		QCOMPARE( paintDevice.pixelColor( 1, 49 + i * yTranslate ), white );
 		QCOMPARE( paintDevice.pixelColor( 9, 49 + i * yTranslate ), magentaShadow );
 	}
-
-	delete model.merge();
-	delete model.variables();
 }

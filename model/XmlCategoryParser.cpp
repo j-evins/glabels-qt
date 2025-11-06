@@ -18,10 +18,9 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "XmlCategoryParser.h"
 
-#include "Category.h"
-#include "Db.h"
 #include "XmlUtil.h"
 
 #include <QDomDocument>
@@ -35,7 +34,7 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlCategoryParser::readFile( const QString &fileName )
+		QList<Category> XmlCategoryParser::readFile( const QString &fileName )
 		{
 			QFile file( fileName );
 
@@ -43,7 +42,7 @@ namespace glabels
 			{
 				qWarning() << "Error: Cannot read file " << fileName
 				           << ": " << file.errorString();
-				return false;
+				return QList<Category>(); // Empty list
 			}
 
 
@@ -57,28 +56,29 @@ namespace glabels
 				qWarning() << "Error: Parse error at line " << errorLine
 				           << "column " << errorColumn
 				           << ": " << errorString;
-				return false;
+				return QList<Category>(); // Empty list
 			}
 
 			QDomElement root = doc.documentElement();
 			if ( root.tagName() != "Glabels-categories" )
 			{
 				qWarning() << "Error: Not a Glabels-categories file.";
-				return false;
+				return QList<Category>(); // Empty list
 			}
 
-			parseRootNode( root );
-			return true;
+			return parseRootNode( root );
 		}
 
 
-		void XmlCategoryParser::parseRootNode( const QDomElement &node )
+		QList<Category> XmlCategoryParser::parseRootNode( const QDomElement &node )
 		{
+			QList<Category> list;
+
 			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
 			{
 				if ( child.toElement().tagName() == "Category" )
 				{
-					parseCategoryNode( child.toElement() );
+					list.push_back( parseCategoryNode( child.toElement() ) );
 				}
 				else if ( !child.isComment() )
 				{
@@ -87,19 +87,17 @@ namespace glabels
 					           << ", Ignored.";
 				}
 			}
+
+			return list;
 		}
 
 
-		void XmlCategoryParser::parseCategoryNode( const QDomElement &node )
+		Category XmlCategoryParser::parseCategoryNode( const QDomElement &node )
 		{
 			QString id   = XmlUtil::getStringAttr( node, "id", "" );
 			QString name = XmlUtil::getI18nAttr( node, "name", "" );
 
-			auto *category = new Category( id, name );
-			if ( category != nullptr )
-			{
-				Db::registerCategory( category );
-			}
+			return Category( id, name );
 		}
 
 

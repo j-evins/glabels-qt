@@ -104,36 +104,35 @@ namespace glabels
 			void printCropMarks( QPainter* painter ) const;
 			void printOutline( QPainter* painter ) const;
 			void clipLabel( QPainter* painter ) const;
-			void printLabel( QPainter* painter, merge::Record* record, Variables* variables ) const;
+			void printLabel( QPainter* painter, const merge::Record& record, Variables& variables ) const;
 
 
 			/////////////////////////////////
 			// Private Data
 			/////////////////////////////////
 		private:
-			const Model*        mModel;
-			const merge::Merge* mMerge;
-			Variables*          mVariables;
-	
-			int               mNCopies;
-			int               mStartItem;
-			int               mLastItem;
-			int               mNGroups;
-			int               mNItemsPerGroup;
-			int               mNPagesPerGroup;
-			int               mIPage;
+			const Model*        mModel{ nullptr };
+			const merge::Merge* mMerge{ nullptr };
 
-			bool              mIsMerge;
+			int               mNCopies{ 0 };
+			int               mStartItem{ 0 };
+			int               mLastItem{ 0 };
+			int               mNGroups{ 0 };
+			int               mNItemsPerGroup{ 0 };
+			int               mNPagesPerGroup{ 0 };
+			int               mIPage{ 0 };
 
-			int               mNItems;
-			int               mNPages;
-			int               mNItemsPerPage;
+			bool              mIsMerge{ false };
 
-			bool              mIsCollated;
-			bool              mAreGroupsContiguous;
-			bool              mPrintOutlines;
-			bool              mPrintCropMarks;
-			bool              mPrintReverse;
+			int               mNItems{ 0 };
+			int               mNPages{ 0 };
+			int               mNItemsPerPage{ 0 };
+
+			bool              mIsCollated{ false };
+			bool              mAreGroupsContiguous{ false };
+			bool              mPrintOutlines{ false };
+			bool              mPrintCropMarks{ false };
+			bool              mPrintReverse{ false };
 
 			QVector<Point>    mOrigins;
 		};

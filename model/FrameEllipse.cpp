@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameEllipse.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -29,20 +32,23 @@ namespace glabels
 	namespace model
 	{
 
-		FrameEllipse::FrameEllipse( const Distance& w,
-		                            const Distance& h,
-		                            const Distance& waste,
-		                            const QString&  id )
-			: Frame(id), mW(w), mH(h), mWaste(waste)
+		FrameEllipse::FrameEllipse( Distance       w,
+		                            Distance       h,
+		                            Distance       waste,
+		                            const QString& id )
+			: Frame(id),
+			  mW(w),
+			  mH(h),
+			  mWaste(waste)
 		{
 			mPath.addEllipse( 0, 0, mW.pt(), mH.pt() );
 			mClipPath.addEllipse( -mWaste.pt(), -mWaste.pt(), (mW+2*mWaste).pt(), (mH+2*mWaste).pt() );
 		}
 
 
-		Frame* FrameEllipse::dup() const
+		std::unique_ptr<Frame> FrameEllipse::clone() const
 		{
-			return new FrameEllipse( *this );
+			return std::make_unique<FrameEllipse>( *this );
 		}
 
 
@@ -64,7 +70,7 @@ namespace glabels
 		}
 
 
-		QString FrameEllipse::sizeDescription( const Units& units ) const
+		QString FrameEllipse::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -82,9 +88,9 @@ namespace glabels
 		}
 
 
-		bool FrameEllipse::isSimilarTo( Frame* other ) const
+		bool FrameEllipse::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto* otherEllipse = dynamic_cast<FrameEllipse*>(other) )
+			if ( auto* otherEllipse = dynamic_cast<const FrameEllipse*>(&other) )
 			{
 				if ( (fabs( mW - otherEllipse->mW ) <= EPSILON) &&
 				     (fabs( mH - otherEllipse->mH ) <= EPSILON) )
@@ -108,8 +114,7 @@ namespace glabels
 		}
 
 	
-		QPainterPath FrameEllipse::marginPath( const Distance& xSize,
-		                                       const Distance& ySize ) const
+		QPainterPath FrameEllipse::marginPath( Distance xSize, Distance ySize ) const
 		{
 			// Note: ignore ySize, assume xSize == ySize
 			Distance size = xSize;
@@ -123,22 +128,30 @@ namespace glabels
 			return path;
 		}
 
+
+		// Debugging support
+		void FrameEllipse::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameEllipse{ "
+			              << id() << "," 
+			              << w() << "," 
+			              << h() << "," 
+			              << waste() << "," 
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+		
 	}
-}
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FrameEllipse& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameEllipse{ "
-	              << frame.id() << "," 
-	              << frame.w() << "," 
-	              << frame.h() << "," 
-	              << frame.waste() << "," 
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
 }

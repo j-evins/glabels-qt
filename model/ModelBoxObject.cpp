@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelBoxObject.h"
 
 #include <QBrush>
@@ -50,24 +51,34 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelBoxObject::ModelBoxObject( const Distance&  x0,
-		                                const Distance&  y0,
-		                                const Distance&  w,
-		                                const Distance&  h,
-		                                bool             lockAspectRatio,
-		                                const Distance&  lineWidth,
-		                                const ColorNode& lineColorNode,
-		                                const ColorNode& fillColorNode,
+		ModelBoxObject::ModelBoxObject( Distance          x0,
+		                                Distance          y0,
+		                                Distance          w,
+		                                Distance          h,
+		                                bool              lockAspectRatio,
+		                                Distance          lineWidth,
+		                                const ColorNode&  lineColorNode,
+		                                const ColorNode&  fillColorNode,
 		                                const QTransform& matrix,
-		                                bool             shadowState,
-		                                const Distance&  shadowX,
-		                                const Distance&  shadowY,
-		                                double           shadowOpacity,
-		                                const ColorNode& shadowColorNode )
-		: ModelShapeObject( x0, y0, w, h, lockAspectRatio,
-		                    lineWidth, lineColorNode, fillColorNode,
+		                                bool              shadowState,
+		                                Distance          shadowX,
+		                                Distance          shadowY,
+		                                double            shadowOpacity,
+		                                const ColorNode&  shadowColorNode )
+		: ModelShapeObject( x0,
+		                    y0,
+		                    w,
+		                    h,
+		                    lockAspectRatio,
+		                    lineWidth,
+		                    lineColorNode,
+		                    fillColorNode,
 		                    matrix,
-		                    shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		                    shadowState,
+		                    shadowX,
+		                    shadowY,
+		                    shadowOpacity,
+		                    shadowColorNode )
 		{
 			// empty
 		}
@@ -78,15 +89,6 @@ namespace glabels
 		///
 		ModelBoxObject::ModelBoxObject( const ModelBoxObject* object )
 			: ModelShapeObject( object )
-		{
-			// empty
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelBoxObject::~ModelBoxObject()
 		{
 			// empty
 		}
@@ -104,10 +106,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelBoxObject::drawShadow( QPainter*      painter,
-		                                 bool           inEditor,
-		                                 merge::Record* record,
-		                                 Variables*     variables ) const
+		void ModelBoxObject::drawShadow( QPainter*            painter,
+		                                 bool                 inEditor,
+		                                 const merge::Record& record,
+		                                 const Variables&     variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor fillColor = mFillColorNode.color( record, variables );
@@ -152,10 +154,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelBoxObject::drawObject( QPainter*      painter,
-		                                 bool           inEditor,
-		                                 merge::Record* record,
-		                                 Variables*     variables ) const
+		void ModelBoxObject::drawObject( QPainter*            painter,
+		                                 bool                 inEditor,
+		                                 const merge::Record& record,
+		                                 const Variables&     variables ) const
 		{
 			QColor lineColor = mLineColorNode.color( record, variables );
 			QColor fillColor = mFillColorNode.color( record, variables );

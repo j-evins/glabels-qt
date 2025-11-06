@@ -22,7 +22,6 @@
 #include "model/Db.h"
 #include "model/Model.h"
 #include "model/PageRenderer.h"
-#include "model/Settings.h"
 #include "model/Version.h"
 #include "model/XmlLabelParser.h"
 
@@ -69,7 +68,7 @@ int main( int argc, char **argv )
 	// Setup translators
 	//
 	QLocale locale = QLocale::system();
-	QString qtTranslationsDir = QLibraryInfo::location( QLibraryInfo::TranslationsPath );
+	QString qtTranslationsDir = QLibraryInfo::path( QLibraryInfo::TranslationsPath );
 	QString myTranslationsDir = glabels::model::FileUtil::translationsDir().canonicalPath();
 	
 	QTranslator qtTranslator;
@@ -188,7 +187,7 @@ int main( int argc, char **argv )
 		glabels::model::Model *model = glabels::model::XmlLabelParser::readFile( filename );
 		if ( model )
 		{
-			model->variables()->setVariables( variableDefinitions );
+			model->variables().setVariables( variableDefinitions );
 
 			QPrinter printer( QPrinter::HighResolution );
 			printer.setColorMode( QPrinter::Color );

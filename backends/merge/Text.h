@@ -21,6 +21,7 @@
 #ifndef merge_Text_h
 #define merge_Text_h
 
+
 #include "Merge.h"
 
 #include <QFile>
@@ -43,7 +44,7 @@ namespace glabels
 		protected:
 			Text( QChar delimiter, bool line1HasKeys );
 			Text( const Text* merge );
-			~Text() override = default;
+			virtual ~Text() = default;
 
 
 			/////////////////////////////////
@@ -55,7 +56,7 @@ namespace glabels
 		protected:
 			void open() override;
 			void close() override;
-			Record* readNextRecord() override;
+			Record readNextRecord() override;
 
 
 			/////////////////////////////////

@@ -52,6 +52,7 @@ namespace glabels
 		{
 			QString basename = QFileInfo( filename ).completeBaseName();
 			auto* action = new QAction( basename, this );
+			action->setIcon( QIcon::fromTheme( "glabels" ) );
 			action->setData( filename );
 			connect( action, SIGNAL(triggered()), this, SLOT(onOpenRecentAction()) );
 			recentMenu->addAction( action );

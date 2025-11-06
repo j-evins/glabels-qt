@@ -6,7 +6,7 @@
   <!-- =================================================================== -->
   <!-- Type J CD/DVD Tray.                                                 -->
   <!-- =================================================================== -->
-  <Template brand="Canon" part="Type J Tray" size="Other" width="135mm" height="295mm" _description="CD/DVD tray">
+  <Template brand="Canon" part="Type J Tray" size="other" width="135mm" height="295mm" _description="CD/DVD tray">
     <Label-cd id="0" radius="59mm" hole="11mm" waste="2mm">
       <Markup-margin size="3.175mm"/>
       <Layout nx="1" ny="1" x0="5.6mm" y0="58.5mm" dx="122mm" dy="122mm"/>

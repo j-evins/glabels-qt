@@ -22,7 +22,7 @@
 #define LabelEditor_h
 
 
-#include "model/Handles.h"
+#include "model/Handle.h"
 #include "model/Model.h"
 #include "model/ModelObject.h"
 #include "model/Region.h"
@@ -57,9 +57,9 @@ namespace glabels
 		// Signals
 		/////////////////////////////////////
 	signals:
-		void contextMenuActivate();
+		void contextMenuActivate( model::Point p );
 		void zoomChanged();
-		void pointerMoved( const model::Distance& x, const model::Distance& y );
+		void pointerMoved( model::Point p );
 		void pointerExited();
 		void modeChanged();
 
@@ -126,14 +126,17 @@ namespace glabels
 		void leaveEvent( QEvent* event ) override;
 		void keyPressEvent( QKeyEvent* event ) override;
 		void paintEvent( QPaintEvent* event ) override;
+		void dragEnterEvent( QDragEnterEvent *event ) override;
+		void dragMoveEvent( QDragMoveEvent *event ) override;
+		void dropEvent( QDropEvent *event ) override;
 
 
 		/////////////////////////////////////
 		// Private methods
 		/////////////////////////////////////
 	private:
-		void handleResizeMotion( const model::Distance& xWorld,
-		                         const model::Distance& yWorld );
+		void handleResizeMotion( model::Distance xWorld,
+		                         model::Distance yWorld );
 
 		void drawBgLayer( QPainter* painter );
 		void drawGridLayer( QPainter* painter );
@@ -202,9 +205,9 @@ namespace glabels
 		model::Distance      mMoveLastY;
 
 		/* ArrowResize state */
-		model::ModelObject*  mResizeObject;
-		model::Handle*       mResizeHandle;
-		bool                 mResizeHonorAspect;
+		model::ModelObject*     mResizeObject;
+		model::Handle::Location mResizeHandleLocation;
+		bool                    mResizeHonorAspect;
 
 		/* CreateDrag state */
 		CreateType           mCreateObjectType;
