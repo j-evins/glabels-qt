@@ -2193,6 +2193,7 @@
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
+        <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
