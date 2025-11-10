@@ -1,24 +1,22 @@
 <?xml version="1.0"?>
-<Glabels-document xmlns="http://glabels.org/xmlns/2.3/">
-  <Template brand="Avery" part="5395" size="US-Letter" description="Name Badge Labels">
-    <Label-rectangle id="0" width="3.375in" height="2.33333in" round="0.1875in" x_waste="0.0625in" y_waste="0.0625in">
-      <Markup-margin size="0.0625in"/>
-      <Layout nx="2" ny="4" x0="0.6875in" y0="0.583333in" dx="3.75in" dy="2.5in"/>
+<Glabels-document version="4.0">
+  <Template description="Name Badge Labels" size="US-Letter" brand="Avery" part="5395">
+    <Label-rectangle round="13.5pt" id="0" y_waste="4.5pt" height="168pt" width="243pt" x_waste="4.5pt">
+      <Markup-margin size="4.5pt"/>
+      <Layout dy="180pt" dx="270pt" x0="49.5pt" nx="2" ny="4" y0="42pt"/>
     </Label-rectangle>
   </Template>
-  <Objects id="0" rotate="False">
-    <Object-text x="0.150603in" y="0.2625in" w="0in" h="0in" justify="Left" auto_shrink="False" a0="1" a1="0" a2="0" a3="1" a4="0" a5="0">
-      <Span color="0x3366ffff" font_family="Sans" font_size="16" font_weight="Bold" font_italic="False" line_spacing="1">Hello, my name is</Span>
+  <Objects id="0" rotate="false">
+    <Object-text font_underline="false" font_italic="false" shadow_x="0pt" w="147.266pt" auto_shrink="false" a2="0" h="28pt" font_family="Sans" valign="top" line_spacing="1" a4="0" shadow="false" font_weight="bold" align="left" a5="0" wrap="word" shadow_color="0x0" x="10.8434pt" color="0x3366ffff" lock_aspect_ratio="false" font_size="12" a3="1" shadow_opacity="1" a0="1" shadow_y="0pt" a1="0" y="18.9pt">
+      <p>Hello, my name is</p>
     </Object-text>
-    <Object-text x="0.150603in" y="0.645in" w="3.1125in" h="0.361111in" justify="Left" auto_shrink="False" a0="1" a1="0" a2="0" a3="1" a4="0" a5="0">
-      <Span color="0x000000ff" font_family="Sans" font_size="20" font_weight="Regular" font_italic="False" line_spacing="1">
-        <Field name="Name"/>
-      </Span>
+    <Object-text font_underline="false" font_italic="false" shadow_x="0pt" w="227.157pt" auto_shrink="false" a2="0" h="34pt" font_family="Sans" valign="top" line_spacing="1" a4="0" shadow="false" font_weight="normal" align="left" a5="0" wrap="word" shadow_color="0x0" x="10.8434pt" color="0xff" lock_aspect_ratio="false" font_size="15" a3="1" shadow_opacity="1" a0="1" shadow_y="0pt" a1="0" y="46.44pt">
+      <p>${Name}</p>
     </Object-text>
-    <Object-text x="0.150603in" y="1.14in" w="0in" h="0in" justify="Left" auto_shrink="False" a0="1" a1="0" a2="0" a3="1" a4="0" a5="0">
-      <Span color="0x000000ff" font_family="Sans" font_size="11" font_weight="Regular" font_italic="False" line_spacing="1">Department: <Field name="Department"/></Span>
+    <Object-text font_underline="false" font_italic="false" shadow_x="0pt" w="152.172pt" auto_shrink="false" a2="0" h="21pt" font_family="Sans" valign="top" line_spacing="1" a4="0" shadow="false" font_weight="normal" align="left" a5="0" wrap="word" shadow_color="0x0" x="10.8434pt" color="0xff" lock_aspect_ratio="false" font_size="8.25" a3="1" shadow_opacity="1" a0="1" shadow_y="0pt" a1="0" y="82.08pt">
+      <p>Department: ${Department}</p>
     </Object-text>
-    <Object-barcode x="0.150603in" y="1.395in" w="3.06944in" h="0.847222in" backend="built-in" style="Code39" text="True" checksum="True" color="0x000000ff" field="SN" format="10" a0="1" a1="0" a2="0" a3="1" a4="0" a5="0"/>
+    <Object-barcode style="code39" w="221pt" a2="0" h="61pt" backend="" a4="0" a5="0" text="true" checksum="true" x="10.8434pt" color="0xff" lock_aspect_ratio="false" a3="1" data="${SN}" a0="1" a1="0" y="100.44pt"/>
   </Objects>
   <Merge type="Text/Comma/Line1Keys" src="/home/evins/GLabels/test-data/crew-orientation-list.csv"/>
   <Data/>

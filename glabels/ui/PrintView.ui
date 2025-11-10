@@ -263,7 +263,8 @@
             <string>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-uncollated"/>
+            <iconset theme="glabels-uncollated">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
           <item>
@@ -271,7 +272,8 @@
             <string>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-collated"/>
+            <iconset theme="glabels-collated">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
          </widget>
@@ -292,7 +294,8 @@
             <string>Merge groups are contiguous</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-merge-group-contiguous"/>
+            <iconset theme="glabels-merge-group-contiguous">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
           <item>
@@ -300,7 +303,8 @@
             <string>Merge groups start on a new page</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-merge-group-page"/>
+            <iconset theme="glabels-merge-group-page">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
          </widget>
@@ -448,7 +452,8 @@
         <string>Print...</string>
        </property>
        <property name="icon">
-        <iconset theme="glabels-print"/>
+        <iconset theme="glabels-print">
+         <normaloff>.</normaloff>.</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -491,7 +496,7 @@
           </size>
          </property>
          <property name="text">
-          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(Will print a total of xxxx items on nnn pages.)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">(Will print a total of xxxx items on nnn pages.)</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
