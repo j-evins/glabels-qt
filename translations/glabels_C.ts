@@ -241,10 +241,12 @@
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
+        <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 per sheet</source>
+        <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1894,10 +1896,12 @@
     </message>
     <message>
         <source>Undo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

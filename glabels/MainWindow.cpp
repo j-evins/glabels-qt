@@ -921,7 +921,8 @@ namespace glabels
 			if ( mUndoRedoModel->canUndo() )
 			{
 				editUndoAction->setEnabled( true );
-				/* Translators: %1 is the action description to undo. */
+				// TRANSLATORS
+				//:   %1 is the action name/description (e.g. move, delete, ...)  to undo.
 				editUndoAction->setText( QString( tr("Undo %1") ).arg( mUndoRedoModel->undoDescription() ) );
 			}
 			else
@@ -932,7 +933,8 @@ namespace glabels
 			if ( mUndoRedoModel->canRedo() )
 			{
 				editRedoAction->setEnabled( true );
-				/* Translators: %1 is the action description to redo. */
+				// TRANSLATORS
+				//:   %1 is the action name/description (e.g. move, delete, ...) to redo.
 				editRedoAction->setText( QString( tr("Redo %1") ).arg( mUndoRedoModel->redoDescription() ) );
 			}
 			else
