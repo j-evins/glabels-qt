@@ -24,8 +24,9 @@
 #include "model/Settings.h"
 
 #include <QPrinter>
+#include <QPrinterInfo>
 #include <QPrintDialog>
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels
@@ -40,7 +41,9 @@ namespace glabels
 		setupUi( this );
 
 		titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Print") ) );
-
+		
+		loadAvailablePrinters();
+		
 		preview->setRenderer( &mRenderer );
 	}
 
@@ -56,6 +59,29 @@ namespace glabels
 		connect( mModel, SIGNAL(changed()), this, SLOT(onModelChanged()) );
 
 		onModelChanged();
+	}
+
+
+	///
+	/// Load available printers
+	///
+	void PrintView::loadAvailablePrinters()
+	{
+		destinationCombo->blockSignals( true );
+		
+		destinationCombo->clear();
+		for ( auto& printerName : QPrinterInfo::availablePrinterNames() )
+		{
+			destinationCombo->addItem( QIcon::fromTheme( "glabels-print" ), printerName  );
+		}
+
+		if ( destinationCombo->count() )
+		{
+			destinationCombo->insertSeparator( destinationCombo->count() );
+		}
+		destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
+		
+		destinationCombo->blockSignals( false );
 	}
 
 
@@ -181,9 +207,25 @@ namespace glabels
 
 
 	///
+	/// Browse Button Clicked handler
+	///
+	void PrintView::onBrowseButtonClicked()
+	{
+	}
+
+
+	///
 	/// Print Button Clicked handler
 	///
 	void PrintView::onPrintButtonClicked()
+	{
+	}
+
+
+	///
+	/// System Dialog Button Clicked handler
+	///
+	void PrintView::onSystemDialogButtonClicked()
 	{
 		QPrinter printer( QPrinter::HighResolution );
 		printer.setColorMode( QPrinter::Color );
