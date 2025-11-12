@@ -42,7 +42,7 @@ namespace glabels
 		mCurrentAvailablePrinters = QPrinterInfo::availablePrinterNames();
 
 		mTimer.reset( new QTimer( this ) );
-		connect( mTimer.get(), SIGNAL(timeout()), this, SLOT(onTimer()) );
+		connect( mTimer.get(), SIGNAL(timeout()), this, SLOT(onTimerTimeout()) );
 		mTimer->start( 1000 );
 	}
 
@@ -62,9 +62,18 @@ namespace glabels
 
 
 	///
+	/// Get available printers
+	///
+	const QStringList& PrinterMonitor::availablePrinters() const
+	{
+		return mCurrentAvailablePrinters;
+	}
+
+
+	///
 	/// On timer timeout
 	///
-	void PrinterMonitor::onTimer()
+	void PrinterMonitor::onTimerTimeout()
 	{
 		auto newAvailablePrinters = QPrinterInfo::availablePrinterNames();
 		if ( newAvailablePrinters != mCurrentAvailablePrinters )
@@ -75,4 +84,5 @@ namespace glabels
 		}
 	}
 
+	
 } // namespace glabels

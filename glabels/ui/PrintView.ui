@@ -58,8 +58,8 @@
        <property name="title">
         <string>Destination</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
          <widget class="QComboBox" name="destinationCombo">
           <property name="styleSheet">
            <string notr="true">text-align:left; padding:3px;</string>
@@ -77,45 +77,6 @@
            <string/>
           </property>
          </widget>
-        </item>
-        <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_17">
-          <item>
-           <widget class="QLineEdit" name="filenameLineEdit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>231</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="placeholderText">
-             <string>None</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="browseButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Browse...</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
        </layout>
       </widget>
@@ -933,22 +894,6 @@
     <hint type="destinationlabel">
      <x>254</x>
      <y>6</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>browseButton</sender>
-   <signal>clicked()</signal>
-   <receiver>PrintView</receiver>
-   <slot>onBrowseButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>322</x>
-     <y>154</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>297</x>
-     <y>4</y>
     </hint>
    </hints>
   </connection>

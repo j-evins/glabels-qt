@@ -21,12 +21,16 @@
 
 #include "PrintView.h"
 
+#include "PrinterMonitor.h"
+
 #include "model/Settings.h"
 
+#include <QDebug>
+#include <QFileDialog>
+#include <QMessageBox>
 #include <QPrinter>
 #include <QPrinterInfo>
 #include <QPrintDialog>
-#include <QDebug>
 
 
 namespace glabels
@@ -42,8 +46,15 @@ namespace glabels
 
 		titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Print") ) );
 		
-		loadAvailablePrinters();
+		auto* printerMonitor = PrinterMonitor::instance();
+		loadDestinations( printerMonitor->availablePrinters() );
+		connect( printerMonitor, SIGNAL(availablePrintersChanged(const QStringList&)),
+		         this, SLOT(onAvailablePrintersChanged(const QStringList&)) );
 		
+		destinationCombo->blockSignals( true );
+		destinationCombo->setCurrentText( model::Settings::recentPrinter() );
+		destinationCombo->blockSignals( false );
+
 		preview->setRenderer( &mRenderer );
 	}
 
@@ -63,25 +74,11 @@ namespace glabels
 
 
 	///
-	/// Load available printers
+	/// Available printers changed handler
 	///
-	void PrintView::loadAvailablePrinters()
+	void PrintView::onAvailablePrintersChanged( const QStringList& printers )
 	{
-		destinationCombo->blockSignals( true );
-		
-		destinationCombo->clear();
-		for ( auto& printerName : QPrinterInfo::availablePrinterNames() )
-		{
-			destinationCombo->addItem( QIcon::fromTheme( "glabels-print" ), printerName  );
-		}
-
-		if ( destinationCombo->count() )
-		{
-			destinationCombo->insertSeparator( destinationCombo->count() );
-		}
-		destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
-		
-		destinationCombo->blockSignals( false );
+		loadDestinations( printers );
 	}
 
 
@@ -207,18 +204,55 @@ namespace glabels
 
 
 	///
-	/// Browse Button Clicked handler
-	///
-	void PrintView::onBrowseButtonClicked()
-	{
-	}
-
-
-	///
 	/// Print Button Clicked handler
 	///
 	void PrintView::onPrintButtonClicked()
 	{
+		auto printerName = destinationCombo->currentText();
+		auto printerInfo = QPrinterInfo::printerInfo( printerName );
+		bool isPrinter = !printerInfo.isNull();
+
+		QPrinter printer( QPrinter::HighResolution );
+		printer.setColorMode( QPrinter::Color );
+
+		if ( isPrinter )
+		{
+			printer.setPrinterName( printerName );
+			mRenderer.print( &printer );
+			model::Settings::setRecentPrinter( printerName );
+		}
+		else
+		{
+			QString fileName =
+				QFileDialog::getSaveFileName( this,
+				                              tr("Print to file (PDF)"),
+				                              defaultPdf(),
+				                              tr("PDF files (*.pdf);;All files (*)"),
+				                              nullptr,
+				                              QFileDialog::DontConfirmOverwrite	);
+			if ( !fileName.isEmpty() )
+			{
+				if ( QFileInfo::exists(fileName) )
+				{
+					QMessageBox msgBox( this );
+					msgBox.setWindowTitle( tr("Print to file (PDF)") );
+					msgBox.setIcon( QMessageBox::Warning );
+					msgBox.setText( tr("%1 already exists.").arg(fileName) );
+					msgBox.setInformativeText( tr("Do you want to overwrite it?") );
+					msgBox.setStandardButtons( QMessageBox::Yes | QMessageBox::No );
+					msgBox.setDefaultButton( QMessageBox::No );
+
+					if ( msgBox.exec() == QMessageBox::No )
+					{
+						return;
+					}
+				}
+			
+				printer.setOutputFileName( fileName );
+				printer.setOutputFormat( QPrinter::PdfFormat );
+				mRenderer.print( &printer );
+			}
+		}
 	}
 
 
@@ -227,9 +261,12 @@ namespace glabels
 	///
 	void PrintView::onSystemDialogButtonClicked()
 	{
+		auto printerName = destinationCombo->currentText();
+		auto printerInfo = QPrinterInfo::printerInfo( printerName );
+
 		QPrinter printer( QPrinter::HighResolution );
 		printer.setColorMode( QPrinter::Color );
-		printer.setPrinterName( model::Settings::recentPrinter() );
+		printer.setPrinterName( printerInfo.printerName() );
 
 		QPrintDialog printDialog( &printer, this );
 		printDialog.setOption( QAbstractPrintDialog::PrintToFile,        true );
@@ -245,6 +282,53 @@ namespace glabels
 
 			model::Settings::setRecentPrinter( printer.printerName() );
 		}
+	}
+
+
+	///
+	/// Load available printers
+	///
+	void PrintView::loadDestinations( const QStringList& printers )
+	{
+		destinationCombo->blockSignals( true );
+		
+		auto savedSelection = destinationCombo->currentText();
+
+		destinationCombo->clear();
+		for ( auto& printerName : printers )
+		{
+			destinationCombo->addItem( QIcon::fromTheme( "glabels-print" ), printerName  );
+		}
+
+		if ( destinationCombo->count() )
+		{
+			destinationCombo->insertSeparator( destinationCombo->count() );
+		}
+		destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
+
+		if ( savedSelection.isEmpty() )
+		{
+			destinationCombo->setCurrentIndex( 0 );
+		}
+		else
+		{
+			destinationCombo->setCurrentText( savedSelection );
+		}
+		
+		destinationCombo->blockSignals( false );
+	}
+
+
+	///
+	/// Generate default PDF filename
+	///
+	QString PrintView::defaultPdf()
+	{
+		if ( !mModel )
+		{
+			return "output.pdf";
+		}
+		return mModel->dirPath() + "/" + mModel->shortName() + ".pdf";
 	}
 
 

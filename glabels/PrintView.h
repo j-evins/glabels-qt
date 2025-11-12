@@ -57,13 +57,20 @@ namespace glabels
 		// Slots
 		/////////////////////////////////
 	private slots:
-		void loadAvailablePrinters();
+		void onAvailablePrintersChanged( const QStringList& printers );
 		void onModelChanged();
 		void updateView();
 		void onFormChanged();
-		void onBrowseButtonClicked();
 		void onPrintButtonClicked();
 		void onSystemDialogButtonClicked();
+
+
+		/////////////////////////////////
+		// Private methods
+		/////////////////////////////////
+	private:
+		void loadDestinations( const QStringList& printers );
+		QString defaultPdf();
 
 
 		/////////////////////////////////
