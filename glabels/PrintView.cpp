@@ -51,9 +51,7 @@ namespace glabels
 		connect( printerMonitor, SIGNAL(availablePrintersChanged(const QStringList&)),
 		         this, SLOT(onAvailablePrintersChanged(const QStringList&)) );
 		
-		destinationCombo->blockSignals( true );
-		destinationCombo->setCurrentText( model::Settings::recentPrinter() );
-		destinationCombo->blockSignals( false );
+		setDestination( model::Settings::recentPrinter() );
 
 		preview->setRenderer( &mRenderer );
 	}
@@ -78,7 +76,9 @@ namespace glabels
 	///
 	void PrintView::onAvailablePrintersChanged( const QStringList& printers )
 	{
+		auto savedSelection = destinationCombo->currentText();
 		loadDestinations( printers );
+		setDestination( savedSelection );
 	}
 
 
@@ -261,12 +261,9 @@ namespace glabels
 	///
 	void PrintView::onSystemDialogButtonClicked()
 	{
-		auto printerName = destinationCombo->currentText();
-		auto printerInfo = QPrinterInfo::printerInfo( printerName );
-
 		QPrinter printer( QPrinter::HighResolution );
 		printer.setColorMode( QPrinter::Color );
-		printer.setPrinterName( printerInfo.printerName() );
+		printer.setPrinterName( destinationCombo->currentText() );
 
 		QPrintDialog printDialog( &printer, this );
 		printDialog.setOption( QAbstractPrintDialog::PrintToFile,        true );
@@ -280,7 +277,10 @@ namespace glabels
 		{
 			mRenderer.print( &printer );
 
-			model::Settings::setRecentPrinter( printer.printerName() );
+			if ( !printer.printerName().isEmpty() )
+			{
+				model::Settings::setRecentPrinter( printer.printerName() );
+			}
 		}
 	}
 
@@ -292,8 +292,6 @@ namespace glabels
 	{
 		destinationCombo->blockSignals( true );
 		
-		auto savedSelection = destinationCombo->currentText();
-
 		destinationCombo->clear();
 		for ( auto& printerName : printers )
 		{
@@ -305,15 +303,6 @@ namespace glabels
 			destinationCombo->insertSeparator( destinationCombo->count() );
 		}
 		destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
-
-		if ( savedSelection.isEmpty() )
-		{
-			destinationCombo->setCurrentIndex( 0 );
-		}
-		else
-		{
-			destinationCombo->setCurrentText( savedSelection );
-		}
 		
 		destinationCombo->blockSignals( false );
 	}
@@ -329,6 +318,40 @@ namespace glabels
 			return "output.pdf";
 		}
 		return mModel->dirPath() + "/" + mModel->shortName() + ".pdf";
+	}
+
+
+	///
+	/// Set destination to printerName if valid, or to a fallback value
+	///
+	void PrintView::setDestination( const QString& printerName )
+	{
+		destinationCombo->blockSignals( true );
+
+		auto printerInfo = QPrinterInfo::printerInfo( printerName );
+
+		if ( !printerInfo.isNull() )
+		{
+			// printerName is a valid printer
+			destinationCombo->setCurrentText( printerName );
+		}
+		else
+		{
+			auto defaultPrinterName = QPrinterInfo::defaultPrinterName();
+			auto defaultPrinterInfo = QPrinterInfo::printerInfo( defaultPrinterName );
+			if ( !defaultPrinterInfo.isNull() )
+			{
+				// defaultPinterName is a valid printer
+				destinationCombo->setCurrentText( defaultPrinterName );
+			}
+			else
+			{
+				// No default printer available, set to first item in combo (probably "print to file")
+				destinationCombo->setCurrentIndex( 0 );
+			}
+		}
+
+		destinationCombo->blockSignals( false );
 	}
 
 

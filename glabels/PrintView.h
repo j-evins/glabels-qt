@@ -71,6 +71,7 @@ namespace glabels
 	private:
 		void loadDestinations( const QStringList& printers );
 		QString defaultPdf();
+		void setDestination( const QString& printerName );
 
 
 		/////////////////////////////////
