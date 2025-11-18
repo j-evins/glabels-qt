@@ -41,7 +41,7 @@ $ sudo make install
 
 ### Installing Prerequisites
 ```
-$ sudo apt install cmake
+$ sudo apt install build-essential cmake
 $ sudo apt install qt6-base-dev qt6-svg-dev qt6-tools-dev
 ```
 

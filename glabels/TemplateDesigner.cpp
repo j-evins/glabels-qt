@@ -1580,6 +1580,8 @@ namespace glabels
 			QMessageBox msgBox( wizard() );
 			msgBox.setWindowTitle( tr("Save Product Template") );
 			msgBox.setIcon( QMessageBox::Warning );
+			// TRANSLATORS
+			//:   %1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).
 			msgBox.setText( tr("User product template (%1 %2) already exists.").arg(brand).arg(part) );
 			msgBox.setInformativeText( tr("Do you want to replace it?") );
 			msgBox.setStandardButtons( QMessageBox::Yes | QMessageBox::No );

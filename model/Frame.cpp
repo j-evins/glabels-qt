@@ -120,17 +120,17 @@ namespace glabels
 			// Update layout description
 			if ( mLayouts.size() == 1 )
 			{
-				/*
-				 * Translators: %1 = number of labels across a page,
-				 *              %2 = number of labels down a page,
-				 *              %3 = total number of labels on a page (sheet).
-				 */
+				// TRANSLATORS
+				//:   %1 = number of labels across a page,
+				//:   %2 = number of labels down a page,
+				//:   %3 = total number of labels on a page (sheet).
 				mLayoutDescription = QString( tr("%1 x %2 (%3 per sheet)") )
 					.arg(layout.nx()).arg(layout.ny()).arg(mNLabels);
 			}
 			else
 			{
-				/* Translators: %1 is the total number of labels on a page (sheet). */
+				// TRANSLATORS
+				//:   %1 is the total number of labels on a page (sheet).
 				mLayoutDescription = QString( tr("%1 per sheet") ).arg(mNLabels);
 			}
 		}

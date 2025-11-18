@@ -1,6 +1,6 @@
-/*  PrintView.h
+/*  PrinterMonitor.h
  *
- *  Copyright (C) 2013-2016  Jaye Evins <evins@snaught.com>
+ *  Copyright (C) 2025  Jaye Evins <evins@snaught.com>
  *
  *  This file is part of gLabels-qt.
  *
@@ -18,74 +18,70 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PrintView_h
-#define PrintView_h
+#ifndef PrinterMonitor_h
+#define PrinterMonitor_h
 
 
-#include "ui_PrintView.h"
+#include <QObject>
+#include <QStringList>
+#include <QTimer>
 
-#include "model/Model.h"
-#include "model/PageRenderer.h"
+#include <memory>
 
 
 namespace glabels
 {
 
 	///
-	/// Print View Widget
+	/// Printer Monitor
 	///
-	class PrintView : public QWidget, public Ui_PrintView
+	class PrinterMonitor : public QObject
 	{
 		Q_OBJECT
-
 
 		/////////////////////////////////
 		// Life Cycle
 		/////////////////////////////////
+	private:
+		PrinterMonitor();
+
 	public:
-		PrintView( QWidget *parent = nullptr );
-		virtual ~PrintView() = default;
+		static PrinterMonitor* instance();
 
 
 		/////////////////////////////////
 		// Public methods
 		/////////////////////////////////
-		void setModel( model::Model* model );
+	public:
+		const QStringList& availablePrinters() const;
 
 
 		/////////////////////////////////
 		// Slots
 		/////////////////////////////////
 	private slots:
-		void onAvailablePrintersChanged( const QStringList& printers );
-		void onModelChanged();
-		void updateView();
-		void onFormChanged();
-		void onPrintButtonClicked();
-		void onSystemDialogButtonClicked();
+		void onTimerTimeout();
+			
+
+		/////////////////////////////////
+		// Signals
+		/////////////////////////////////
+	signals:
+		void availablePrintersChanged( const QStringList& availablePrinters );
 
 
 		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void loadDestinations( const QStringList& printers );
-		QString defaultPdf();
-		void setDestination( const QString& printerName );
-
-
-		/////////////////////////////////
-		// Private Data
+		// Private Members
 		/////////////////////////////////
 	private:
-		model::Model*       mModel;
-		model::PageRenderer mRenderer;
+		static std::unique_ptr<PrinterMonitor> mInstance;
 
-		bool                mBlocked;
+		std::unique_ptr<QTimer> mTimer;
+		QStringList mCurrentAvailablePrinters;
 
 	};
 
 }
 
 
-#endif // PrintView_h
+#endif // PrinterMonitor_h

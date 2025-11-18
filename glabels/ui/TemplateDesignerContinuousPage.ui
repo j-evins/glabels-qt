@@ -32,7 +32,7 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>

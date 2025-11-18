@@ -29,7 +29,7 @@ There are currently no official releases of gLabels 4.
 
 ### Continuous Integration Snapshots
 
-Currently there are no self-hosted binary snapshot releases available.  I plan to make these available again once 4.0 is more imminint.  In the mean time, I encourage you to try building the code yourself.
+Currently there are no self-hosted binary snapshot releases available.  I plan to make these available again once 4.0 is more imminent.  In the mean time, I encourage you to try building the code yourself.
 
 Some third-party packages may be available available:
 
