@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "Size.h"
 
 
@@ -38,7 +39,9 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		Size::Size( const Distance& w, const Distance& h ) : mW(w), mH(h)
+		Size::Size( Distance w, Distance h )
+			: mW(w),
+			  mH(h)
 		{
 			// empty
 		}
@@ -56,7 +59,7 @@ namespace glabels
 		///
 		/// Set w
 		///
-		void Size::setW( const Distance& value )
+		void Size::setW( Distance value )
 		{
 			mW = value;
 		}
@@ -74,7 +77,7 @@ namespace glabels
 		///
 		/// Set h
 		///
-		void Size::setH( const Distance& value )
+		void Size::setH( Distance value )
 		{
 			mH = value;
 		}

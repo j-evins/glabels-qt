@@ -197,7 +197,7 @@ namespace glabels
 
 
 	void ColorPaletteDialog::setKeys( const merge::Merge*     merge,
-	                                  const model::Variables* variables )
+	                                  const model::Variables& variables )
 	{
 		if (mFieldButton)
 		{
@@ -265,7 +265,7 @@ namespace glabels
 				mColorNode = newColorNode;
 			
 				// TRANSLATORS
-				//: %1 = color specification in hex. String must not contain a colon (:).
+				//:   %1 = color specification in hex. String must not contain a colon (:).
 				mColorHistory->addColor( mColorNode.color(),
 				                         QString(tr("Custom Color %1")).arg(mColorNode.color().name()) );
 

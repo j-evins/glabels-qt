@@ -43,24 +43,24 @@ namespace glabels
 		protected:
 			ModelShapeObject();
 
-			ModelShapeObject( const Distance&  x0,
-			                  const Distance&  y0,
-			                  const Distance&  w,
-			                  const Distance&  h,
-			                  bool             lockAspectRatio,
-			                  const Distance&  lineWidth,
-			                  const ColorNode& lineColorNode,
-			                  const ColorNode& fillColorNode,
+			ModelShapeObject( Distance          x0,
+			                  Distance          y0,
+			                  Distance          w,
+			                  Distance          h,
+			                  bool              lockAspectRatio,
+			                  Distance          lineWidth,
+			                  const ColorNode&  lineColorNode,
+			                  const ColorNode&  fillColorNode,
 			                  const QTransform& matrix,
-			                  bool             shadowState,
-			                  const Distance&  shadowX,
-			                  const Distance&  shadowY,
-			                  double           shadowOpacity,
-			                  const ColorNode& shadowColorNode );
+			                  bool              shadowState,
+			                  Distance          shadowX,
+			                  Distance          shadowY,
+			                  double            shadowOpacity,
+			                  const ColorNode&  shadowColorNode );
 
 			ModelShapeObject( const ModelShapeObject* object );
 		public:
-			~ModelShapeObject() override;
+			virtual ~ModelShapeObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -71,7 +71,7 @@ namespace glabels
 			// Shape Property: lineWidth
 			//
 			Distance lineWidth() const override;
-			void setLineWidth( const Distance& value ) override;
+			void setLineWidth( Distance value ) override;
 
 
 			//

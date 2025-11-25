@@ -45,35 +45,37 @@ namespace glabels
 
 			Template() = default;
 
-			Template( const QString&  brand,
-			          const QString&  part,
-			          const QString&  description,
-			          const QString&  paperId,
-			          const Distance& pageWidth,
-			          const Distance& pageHeight,
-			          const Distance& rollWidth = 0,
-			          bool            isUserDefined = false );
+			Template( const QString& brand,
+			          const QString& part,
+			          const QString& description,
+			          const QString& paperId,
+			          Distance       pageWidth,
+			          Distance       pageHeight,
+			          Distance       rollWidth = 0,
+			          const QString& fileName = "",
+			          bool           isUserDefined = false );
 
 			Template( const Template& other );
 
-			~Template();
+			~Template() = default;
 
 			Template& operator=( const Template& other );
 
-			// Generic full page template
-			static Template* fullPage( const QString& paperId );
-
 			// From equivalent part number
-			static Template* fromEquiv( const QString& brand,
-			                            const QString& part,
-			                            const QString& equivPart );
+			static Template fromEquiv( const QString& brand,
+			                           const QString& part,
+			                           const QString& equivPart );
 
+			static QString brandPartToName( const QString& brand,
+			                                const QString& part );
+
+			bool isNull() const;
 
 			QString brand() const;
 			QString part() const;
 			QString description() const;
 
-			QString paperDescription( const Units& units ) const;
+			QString paperDescription( Units units ) const;
 			QString paperId() const;
 			Distance pageWidth() const;
 			Distance pageHeight() const;
@@ -83,7 +85,11 @@ namespace glabels
 			bool isSizeOther() const;
 			bool isRoll() const;
 
+			QString fileName() const;
+			void setFileName( const QString& fileName );
+
 			bool isUserDefined() const;
+			void setIsUserDefined( bool isUserDefined );
 
 			QString equivPart() const;
 			void setEquivPart( const QString& value );
@@ -94,39 +100,42 @@ namespace glabels
 			QString name() const;
 
 			void addCategory( const QString& categoryId );
-			void addFrame( Frame* frame );
+			void addFrame( const Frame& frame );
 
-			const QList<Frame*>& frames() const;
+			const Frame* frame( const QString& id = "0" ) const;
 
 			bool operator==( const Template& other ) const;
 
 			bool hasCategory( const QString& categoryId ) const;
-			bool isSimilarTo( const Template* other ) const;
+			bool isSimilarTo( const Template& other ) const;
+
+			bool setH( Distance h );
 
 
 		private:
-			QString mBrand;
-			QString mPart;
-			QString mDescription;
+			QString        mBrand;
+			QString        mPart;
+			QString        mDescription;
 
-			QString  mPaperId;
-			Distance mPageWidth;
-			Distance mPageHeight;
-			Distance mRollWidth;
+			QString        mPaperId;
+			Distance       mPageWidth;
+			Distance       mPageHeight;
+			Distance       mRollWidth;
 
-			bool     mIsSizeIso{ false };
-			bool     mIsSizeUs{ false };
-			bool     mIsRoll{ false };
+			bool           mIsSizeIso{ false };
+			bool           mIsSizeUs{ false };
+			bool           mIsRoll{ false };
 
-			bool     mIsUserDefined{ false };
+			QString        mFileName;
+			bool           mIsUserDefined{ false };
 
-			QString mEquivPart;
-			QString mName;
+			QString        mEquivPart;
+			QString        mName;
 
 			QString        mProductUrl;
 			QStringList    mCategoryIds;
 
-			QList<Frame*>  mFrames;
+			std::unique_ptr<Frame> mFrame;  // TODO: support multiple frames mapped by ID
 		};
 
 	}

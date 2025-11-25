@@ -24,14 +24,16 @@
 
 #include "Distance.h"
 #include "Layout.h"
+#include "Markup.h"
 #include "Point.h"
 
 #include <QCoreApplication>
 #include <QDebug>
-#include <QList>
 #include <QPainterPath>
 #include <QString>
 #include <QVector>
+
+#include <list>
 
 
 namespace glabels
@@ -39,10 +41,6 @@ namespace glabels
 	namespace model
 	{
 	
-		// Forward references
-		class Markup;
-
-
 		class Frame
 		{
 			Q_DECLARE_TR_FUNCTIONS(Frame)
@@ -52,32 +50,35 @@ namespace glabels
 			Frame( const Frame& other );
 
 		public:
-			virtual ~Frame();
-			virtual Frame* dup() const = 0;
+			virtual ~Frame() = default;
+
+			virtual std::unique_ptr<Frame> clone() const = 0;
 
 			QString id() const;
 			int nLabels() const;
 			QString layoutDescription() const;
-			const QList<Layout>&  layouts() const;
-			const QList<Markup*>& markups() const;
+			const std::list<Layout>&  layouts() const;
+			const std::list<std::unique_ptr<Markup>>& markups() const;
 
 			QVector<Point> getOrigins() const;
 
 			void addLayout( const Layout& layout );
-			void addMarkup( Markup* markup );
+			void addMarkup( const Markup& markup );
 
 			virtual Distance w() const = 0;
 			virtual Distance h() const = 0;
 
-			virtual void setH( const Distance& h );
+			virtual bool setH( Distance h );
 
-			virtual QString sizeDescription( const Units& units ) const = 0;
-			virtual bool isSimilarTo( Frame* other ) const = 0;
+			virtual QString sizeDescription( Units units ) const = 0;
+			virtual bool isSimilarTo( const Frame& other ) const = 0;
 
 			virtual const QPainterPath& path() const = 0;
 			virtual const QPainterPath& clipPath() const = 0;
-			virtual QPainterPath marginPath( const Distance& xSize,
-			                                 const Distance& ySize ) const = 0;
+			virtual QPainterPath marginPath( Distance xSize, Distance ySize ) const = 0;
+
+                        // Debugging support
+			virtual void print( QDebug& dbg ) const = 0;
 
 
 		private:
@@ -85,8 +86,8 @@ namespace glabels
 			int     mNLabels;
 			QString mLayoutDescription;
 
-			QList<Layout>  mLayouts;
-			QList<Markup*> mMarkups;
+			std::list<Layout>                  mLayouts;
+			std::list<std::unique_ptr<Markup>> mMarkups;
 		};
 
 	}

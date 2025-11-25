@@ -51,7 +51,7 @@ namespace glabels
 		// Properties
 		/////////////////////////////////
 	public:
-		void setTemplate( const model::Template *tmplate );
+		void setTemplate( const model::Template& tmplate );
 		void setShowArrow( bool showArrow );
 		void setRotate( bool rotateFlag );
 
@@ -70,7 +70,9 @@ namespace glabels
 		void update();
 		void drawPaper();
 		void drawLabels();
-		void drawLabel( const model::Distance& x, const model::Distance& y, const QPainterPath& path );
+		void drawLabel( model::Distance     x,
+		                model::Distance     y,
+		                const QPainterPath& path );
 		void drawArrow();
 
 
@@ -78,11 +80,11 @@ namespace glabels
 		// Private Data
 		/////////////////////////////////
 	private:
-		const model::Template* mTmplate    { nullptr };
-		bool                   mShowArrow  { false };
-		bool                   mRotateFlag { false };
+		model::Template mTmplate;
+		bool            mShowArrow  { false };
+		bool            mRotateFlag { false };
 
-		QGraphicsScene*        mScene { nullptr };
+		QGraphicsScene* mScene { nullptr };
 
 	};
 

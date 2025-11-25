@@ -21,6 +21,8 @@
 
 #include "Settings.h"
 
+#include "Version.h"
+
 #include <QLocale>
 #include <QPrinterInfo>
 #include <QString>
@@ -35,20 +37,19 @@ namespace glabels
 		//
 		// Static data
 		//
-		Settings* Settings::mInstance = nullptr;
+		std::unique_ptr<Settings> Settings::mInstance;
 
-
-		Settings::Settings()
-		{
-			// empty
-		}
 
 
 		void Settings::init()
 		{
-			if ( mInstance == nullptr )
+			// Note: init() hould be called after
+			//   - QCoreApplication::setOrganizationName(), and
+			//   - QCoreApplication::setApplicationName()
+
+			if ( !mInstance )
 			{
-				mInstance = new Settings();
+				mInstance.reset( new Settings() );
 			}
 		}
 
@@ -56,8 +57,7 @@ namespace glabels
 		Settings* Settings::instance()
 		{
 			init();
-
-			return mInstance;
+			return mInstance.get();
 		}
 
 
@@ -82,7 +82,7 @@ namespace glabels
 		}
 
 
-		void Settings::setUnits( const Units& units )
+		void Settings::setUnits( Units units )
 		{
 			QString idString = units.toIdString();
 

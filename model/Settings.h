@@ -23,10 +23,13 @@
 
 
 #include "Distance.h"
+#include "Units.h"
 
 #include <QListView>
 #include <QSettings>
 #include <QStringList>
+
+#include <memory>
 
 
 namespace glabels
@@ -50,7 +53,7 @@ namespace glabels
 			// Life Cycle
 			/////////////////////////////////
 		private:
-			Settings();
+			Settings() = default;
 
 		public:
 			static void init();
@@ -69,7 +72,7 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			static Units units();
-			static void setUnits( const Units& units );
+			static void setUnits( Units units );
 
 			static PageSizeFamily preferedPageSizeFamily();
 			static void setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily );
@@ -111,7 +114,7 @@ namespace glabels
 			
 			
 		private:
-			static Settings* mInstance;
+			static std::unique_ptr<Settings> mInstance;
 			static const int mMaxRecentFiles{5};
 
 		};

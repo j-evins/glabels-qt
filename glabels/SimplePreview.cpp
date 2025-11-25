@@ -78,7 +78,7 @@ namespace glabels
 	///
 	/// Template Property Setter
 	///
-	void SimplePreview::setTemplate( const model::Template *tmplate )
+	void SimplePreview::setTemplate( const model::Template& tmplate )
 	{
 		mTmplate = tmplate;
 		update();
@@ -121,21 +121,21 @@ namespace glabels
 	{
 		mScene->clear();
 
-		if ( mTmplate != nullptr )
+		if ( !mTmplate.isNull() )
 		{
 			// For "Roll" templates, allow extra room to draw continuation break lines.
-			model::Distance drawHeight = mTmplate->pageHeight();
+			model::Distance drawHeight = mTmplate.pageHeight();
 			model::Distance drawOffset = 0;
-			if ( mTmplate->isRoll() )
+			if ( mTmplate.isRoll() )
 			{
-				drawHeight = 1.2 * mTmplate->pageHeight();
-				drawOffset = 0.1 * mTmplate->pageHeight();
+				drawHeight = 1.2 * mTmplate.pageHeight();
+				drawOffset = 0.1 * mTmplate.pageHeight();
 			}
 			
 			// Set scene up with a 5% margin around paper
-			model::Distance x = -0.05 * mTmplate->pageWidth();
+			model::Distance x = -0.05 * mTmplate.pageWidth();
 			model::Distance y = -0.05 * drawHeight - drawOffset;
-			model::Distance w = 1.10 * mTmplate->pageWidth();
+			model::Distance w = 1.10 * mTmplate.pageWidth();
 			model::Distance h = 1.10 * drawHeight;
 
 			mScene->setSceneRect( x.pt(), y.pt(), w.pt(), h.pt() );
@@ -167,9 +167,9 @@ namespace glabels
 		pen.setWidthF( paperOutlineWidthPixels );
 
 		QAbstractGraphicsShapeItem* pageItem;
-		if ( !mTmplate->isRoll() )
+		if ( !mTmplate.isRoll() )
 		{
-			pageItem = new QGraphicsRectItem( 0, 0, mTmplate->pageWidth().pt(), mTmplate->pageHeight().pt() );
+			pageItem = new QGraphicsRectItem( 0, 0, mTmplate.pageWidth().pt(), mTmplate.pageHeight().pt() );
 		}
 		else
 		{
@@ -188,9 +188,9 @@ namespace glabels
 	///
 	void SimplePreview::drawLabels()
 	{
-		model::Frame *frame = mTmplate->frames().first();
+		auto frame = mTmplate.frame();
 
-		foreach (model::Point origin, frame->getOrigins() )
+		for ( model::Point origin : frame->getOrigins() )
 		{
 			drawLabel( origin.x(), origin.y(), frame->path() );
 		}
@@ -200,9 +200,9 @@ namespace glabels
 	///
 	/// Draw a Single Label at x,y
 	///
-	void SimplePreview::drawLabel( const model::Distance& x,
-	                               const model::Distance& y,
-	                               const QPainterPath&    path )
+	void SimplePreview::drawLabel( model::Distance     x,
+	                               model::Distance     y,
+	                               const QPainterPath& path )
 	{
 		QBrush brush( labelColor );
 		QPen pen( labelOutlineColor );
@@ -223,7 +223,7 @@ namespace glabels
 	///
 	void SimplePreview::drawArrow()
 	{
-		model::Frame *frame = mTmplate->frames().first();
+		auto frame = mTmplate.frame();
 
 		model::Distance w = frame->w();
 		model::Distance h = frame->h();

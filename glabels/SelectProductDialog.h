@@ -46,7 +46,7 @@ namespace glabels
 		/////////////////////////////////
 		// Accessors
 		/////////////////////////////////
-		const model::Template* tmplate() const;
+		model::Template tmplate() const;
 
 
 		/////////////////////////////////

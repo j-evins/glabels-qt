@@ -24,7 +24,7 @@
 
 #include "ColorNode.h"
 #include "Distance.h"
-#include "Handles.h"
+#include "Handle.h"
 #include "Outline.h"
 #include "TextNode.h"
 #include "Variables.h"
@@ -36,6 +36,9 @@
 #include <QFont>
 #include <QTransform>
 #include <QPainter>
+
+#include <list>
+#include <memory>
 
 
 namespace glabels
@@ -61,22 +64,22 @@ namespace glabels
 		protected:
 			ModelObject();
 		
-			ModelObject( const Distance&  x0,
-			             const Distance&  y0,
-			             const Distance&  w,
-			             const Distance&  h,
-			             bool             lockAspectRatio = false,
+			ModelObject( Distance          x0,
+			             Distance          y0,
+			             Distance          w,
+			             Distance          h,
+			             bool              lockAspectRatio = false,
 			             const QTransform& matrix = QTransform(),
-			             bool             shadowState = false,
-			             const Distance&  shadowX = 0,
-			             const Distance&  shadowY = 0,
-			             double           shadowOpacity = 1.0,
-			             const ColorNode& shadowColorNode = ColorNode() );
+			             bool              shadowState = false,
+			             Distance          shadowX = 0,
+			             Distance          shadowY = 0,
+			             double            shadowOpacity = 1.0,
+			             const ColorNode&  shadowColorNode = ColorNode() );
 		
 			ModelObject( const ModelObject* object );
 		
 		public:
-			~ModelObject() override;
+			virtual ~ModelObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -114,28 +117,28 @@ namespace glabels
 			// x0 Property ( x coordinate of origin )
 			//
 			Distance x0() const;
-			void setX0( const Distance& value );
+			void setX0( Distance value );
 		
 
 			//
 			// y0 Property ( y coordinate of origin )
 			//
 			Distance y0() const;
-			void setY0( const Distance& value );
+			void setY0( Distance value );
 		
 
 			//
 			// w Property ( width of bounding box )
 			//
 			Distance w() const;
-			void setW( const Distance& value );
+			void setW( Distance value );
 		
 
 			//
 			// h Property ( height of bounding box )
 			//
 			Distance h() const;
-			void setH( const Distance& value );
+			void setH( Distance value );
 
 
 			//
@@ -163,14 +166,14 @@ namespace glabels
 			// Shadow x Offset Property
 			//
 			Distance shadowX() const;
-			void setShadowX( const Distance& value );
+			void setShadowX( Distance value );
 		
 
 			//
 			// Shadow y Offset Property
 			//
 			Distance shadowY() const;
-			void setShadowY( const Distance& value );
+			void setShadowY( Distance value );
 		
 
 			//
@@ -295,7 +298,7 @@ namespace glabels
 			//
 			// Virtual Image Property: image
 			//
-			virtual const QImage* image() const;
+			virtual const QImage& image() const;
 			virtual void setImage( const QImage& value );
 			virtual void setImage( const QString& name, const QImage& value );
 
@@ -303,7 +306,7 @@ namespace glabels
 			//
 			// Virtual Image Property: svg
 			//
-			virtual QByteArray svg() const;
+			virtual const QByteArray& svg() const;
 			virtual void setSvg( const QString& name, const QByteArray& value );
 
 
@@ -315,7 +318,7 @@ namespace glabels
 			// Virtual Shape Property: lineWidth
 			//
 			virtual Distance lineWidth() const;
-			virtual void setLineWidth( const Distance& value );
+			virtual void setLineWidth( Distance value );
 
 
 			//
@@ -392,43 +395,43 @@ namespace glabels
 			// Position and Size methods
 			///////////////////////////////////////////////////////////////
 		public:
-			void setPosition( const Distance& x0, const Distance& y0 );
-			void setPositionRelative( const Distance& dx, const Distance& dy );
+			void setPosition( Distance x0, Distance y0 );
+			void setPositionRelative( Distance dx, Distance dy );
 			Size size() const;
-			void setSize( const Distance& w, const Distance& h );
-			void setSize( const Size& size );
-			void setSizeHonorAspect( const Distance& w, const Distance& h );
-			void setWHonorAspect( const Distance& w );
-			void setHHonorAspect( const Distance& h );
+			void setSize( Distance w, Distance h );
+			void setSize( Size size );
+			void setSizeHonorAspect( Distance w, Distance h );
+			void setWHonorAspect( Distance w );
+			void setHHonorAspect( Distance h );
 			Region getExtent();
 			void rotate( double thetaDegs );
 			void flipHoriz();
 			void flipVert();
-			bool isLocatedAt( double scale, const Distance& x, const Distance& y ) const;
-			Handle* handleAt( double scale, const Distance& x, const Distance& y ) const;
+			bool isLocatedAt( double scale, Distance x, Distance y ) const;
+			const Handle& handleAt( double scale, Distance x, Distance y ) const;
 
 
 			///////////////////////////////////////////////////////////////
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		public:
-			void draw( QPainter*      painter,
-			           bool           inEditor,
-			           merge::Record* record,
-			           Variables*     variables ) const;
+			void draw( QPainter*            painter,
+			           bool                 inEditor,
+			           const merge::Record& record,
+			           const Variables&     variables ) const;
 			
 			void drawSelectionHighlight( QPainter* painter, double scale ) const;
 
 		protected:
-			virtual void drawShadow( QPainter*      painter,
-			                         bool           inEditor,
-			                         merge::Record* record,
-			                         Variables*     variables ) const = 0;
+			virtual void drawShadow( QPainter*            painter,
+			                         bool                 inEditor,
+			                         const merge::Record& record,
+			                         const Variables&     variables ) const = 0;
 			
-			virtual void drawObject( QPainter*      painter,
-			                         bool           inEditor,
-			                         merge::Record* record,
-			                         Variables*     variables ) const = 0;
+			virtual void drawObject( QPainter*            painter,
+			                         bool                 inEditor,
+			                         const merge::Record& record,
+			                         const Variables&     variables ) const = 0;
 			
 			virtual QPainterPath hoverPath( double scale ) const = 0;
 
@@ -453,8 +456,9 @@ namespace glabels
 			double            mShadowOpacity;
 			ColorNode         mShadowColorNode;
 
-			QList<Handle*>    mHandles;
-			Outline*          mOutline;
+			Outline           mOutline;
+
+			QList<Handle>     mHandles;
 
 
 			///////////////////////////////////////////////////////////////

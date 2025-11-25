@@ -41,7 +41,7 @@ namespace glabels
 		public:
 			Distance();
 			Distance( double d, Units::Enum unitsEnum = Units::PT );
-			Distance( double d, const Units& units );
+			Distance( double d, Units units );
 			Distance( double d, const QString& unitsId );
 
 			static Distance pt( double dPts );
@@ -57,38 +57,38 @@ namespace glabels
 			double mm() const;
 			double cm() const;
 			double pc() const;
-			double inUnits( const Units& units ) const;
+			double inUnits( Units units ) const;
 			double inUnits( Units::Enum unitsEnum ) const;
 			double inUnits( const QString& unitsId ) const;
 
 
-			QString toString( const Units& units ) const;
+			QString toString( Units units ) const;
 			QString toString( Units::Enum unitsEnum ) const;
 			QString toString( const QString& unitsId ) const;
 
-			Distance& operator+=( const Distance& d );
-			Distance& operator-=( const Distance& d );
+			Distance& operator+=( Distance d );
+			Distance& operator-=( Distance d );
 			Distance& operator*=( double f );
 			Distance operator-();
 
-			friend inline Distance operator+( const Distance& d1, const Distance& d2 );
-			friend inline Distance operator-( const Distance& d1, const Distance& d2 );
-			friend inline Distance operator*( double x, const Distance& d );
-			friend inline Distance operator*( const Distance& d, double x );
-			friend inline double   operator/( const Distance& d1, const Distance& d2 );
-			friend inline Distance operator/( const Distance& d, double x );
+			friend inline Distance operator+( Distance d1, Distance d2 );
+			friend inline Distance operator-( Distance d1, Distance d2 );
+			friend inline Distance operator*( double x, Distance d );
+			friend inline Distance operator*( Distance d, double x );
+			friend inline double   operator/( Distance d1, Distance d2 );
+			friend inline Distance operator/( Distance d, double x );
 		
-			friend inline bool operator<( const Distance& d1, const Distance& d2 );
-			friend inline bool operator<=( const Distance& d1, const Distance& d2 );
-			friend inline bool operator>( const Distance& d1, const Distance& d2 );
-			friend inline bool operator>=( const Distance& d1, const Distance& d2 );
-			friend inline bool operator==( const Distance& d1, const Distance& d2 );
-			friend inline bool operator!=( const Distance& d1, const Distance& d2 );
+			friend inline bool operator<( Distance d1, Distance d2 );
+			friend inline bool operator<=( Distance d1, Distance d2 );
+			friend inline bool operator>( Distance d1, Distance d2 );
+			friend inline bool operator>=( Distance d1, Distance d2 );
+			friend inline bool operator==( Distance d1, Distance d2 );
+			friend inline bool operator!=( Distance d1, Distance d2 );
 		
-			friend inline Distance fabs( const Distance& d );
-			friend inline Distance min( const Distance& d1, const Distance& d2 );
-			friend inline Distance max( const Distance& d1, const Distance& d2 );
-			friend inline Distance fmod( const Distance& d1, const Distance& d2 );
+			friend inline Distance fabs( Distance d );
+			friend inline Distance min( Distance d1, Distance d2 );
+			friend inline Distance max( Distance d1, Distance d2 );
+			friend inline Distance fmod( Distance d1, Distance d2 );
 
 		
 		private:
@@ -101,7 +101,7 @@ namespace glabels
 
 
 // Debugging support
-QDebug operator<<( QDebug dbg, const glabels::model::Distance& distance );
+QDebug operator<<( QDebug dbg, const glabels::model::Distance distance );
 
 
 //
@@ -190,14 +190,14 @@ namespace glabels
 		}
 
 
-		inline Distance& Distance::operator+=( const Distance& d )
+		inline Distance& Distance::operator+=( Distance d )
 		{
 			mDPts += d.mDPts;
 			return *this;
 		}
 
 	
-		inline Distance& Distance::operator-=( const Distance& d )
+		inline Distance& Distance::operator-=( Distance d )
 		{
 			mDPts -= d.mDPts;
 			return *this;
@@ -217,97 +217,97 @@ namespace glabels
 		}
 
 	
-		inline Distance operator+( const Distance& d1, const Distance& d2 )
+		inline Distance operator+( Distance d1, Distance d2 )
 		{
 			return Distance::pt( d1.mDPts + d2.mDPts );
 		}
 	
 
-		inline Distance operator-( const Distance& d1, const Distance& d2 )
+		inline Distance operator-( Distance d1, Distance d2 )
 		{
 			return Distance::pt( d1.mDPts - d2.mDPts );
 		}
 	
 
-		inline Distance operator*( double x, const Distance& d )
+		inline Distance operator*( double x, Distance d )
 		{
 			return Distance::pt( x * d.mDPts );
 		}
 
 
-		inline Distance operator*( const Distance& d, double x )
+		inline Distance operator*( Distance d, double x )
 		{
 			return Distance::pt( d.mDPts * x );
 		}
 
 	
-		inline double operator/( const Distance& d1, const Distance& d2 )
+		inline double operator/( Distance d1, Distance d2 )
 		{
 			return d1.mDPts / d2.mDPts;
 		}
 
 
-		inline Distance operator/( const Distance& d, double x )
+		inline Distance operator/( Distance d, double x )
 		{
 			return Distance::pt( d.mDPts / x );
 		}
 
 
-		inline bool operator<( const Distance& d1, const Distance& d2 )
+		inline bool operator<( Distance d1, Distance d2 )
 		{
 			return d1.mDPts < d2.mDPts;
 		}
 	
 
-		inline bool operator<=( const Distance& d1, const Distance& d2 )
+		inline bool operator<=( Distance d1, Distance d2 )
 		{
 			return d1.mDPts <= d2.mDPts;
 		}
 	
 
-		inline bool operator>( const Distance& d1, const Distance& d2 )
+		inline bool operator>( Distance d1, Distance d2 )
 		{
 			return d1.mDPts > d2.mDPts;
 		}
 	
 
-		inline bool operator>=( const Distance& d1, const Distance& d2 )
+		inline bool operator>=( Distance d1, Distance d2 )
 		{
 			return d1.mDPts >= d2.mDPts;
 		}
 	
 
-		inline bool operator==( const Distance& d1, const Distance& d2 )
+		inline bool operator==( Distance d1, Distance d2 )
 		{
 			return d1.mDPts == d2.mDPts;
 		}
 
 
-		inline bool operator!=( const Distance& d1, const Distance& d2 )
+		inline bool operator!=( Distance d1, Distance d2 )
 		{
 			return d1.mDPts != d2.mDPts;
 		}
 
 
-		inline Distance fabs( const Distance& d )
+		inline Distance fabs( Distance d )
 		{
 			return Distance::pt( qFabs( d.mDPts ) );
 		}
 
 	
-		inline Distance min( const Distance& d1, const Distance& d2 )
+		inline Distance min( Distance d1, Distance d2 )
 		{
 			return (d1.mDPts < d2.mDPts) ? d1 : d2;
 		}
 
 	
-		inline Distance max( const Distance& d1, const Distance& d2 )
+		inline Distance max( Distance d1, Distance d2 )
 		{
 			return (d1.mDPts > d2.mDPts) ? d1 : d2;
 		}
 
 
-		inline Distance fmod( const Distance& d1, const Distance& d2 )
+		inline Distance fmod( Distance d1, Distance d2 )
 		{
 			return Distance::pt( std::fmod( d1.mDPts, d2.mDPts ) );
 		}

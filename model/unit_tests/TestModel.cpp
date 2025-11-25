@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TestModel.h"
 
 #include "model/Model.h"
@@ -29,6 +30,7 @@
 #include "model/FrameContinuous.h"
 #include "model/Region.h"
 #include "model/Settings.h"
+#include "model/Version.h"
 
 #include "merge/Factory.h"
 #include "merge/Merge.h"
@@ -36,6 +38,7 @@
 #include "merge/TextCsv.h"
 #include "merge/TextCsvKeys.h"
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QRegularExpression>
 
@@ -48,8 +51,10 @@ using namespace glabels::merge;
 
 void TestModel::initTestCase()
 {
-	Factory::init();
+	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+
 	Settings::init();
+	Factory::init();
 }
 
 
@@ -70,23 +75,23 @@ void TestModel::model()
 	QCOMPARE( model.h(), Distance( 0 ) );
 
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 100, 400 );
-	FrameRect* frame = new FrameRect( 100, 200, 5, 0, 0, "rect1" );
-	QVERIFY( frame->w() != frame->h() );
+	FrameRect frame( 100, 200, 5, 0, 0, "rect1" );
+	QVERIFY( frame.w() != frame.h() );
 	tmplate.addFrame( frame );
-	model.setTmplate( &tmplate ); // Copies
-	QCOMPARE( model.tmplate()->brand(), QString( "Test Brand" ) );
-	QCOMPARE( model.tmplate()->part(), QString( "part" ) );
-	QCOMPARE( model.tmplate()->description(), QString( "desc" ) );
-	QCOMPARE( model.tmplate()->paperId(), QString( "testPaperId" ) );
-	QCOMPARE( model.tmplate()->pageWidth(), Distance( 100 ) );
-	QCOMPARE( model.tmplate()->pageHeight(), Distance( 400 ) );
+	model.setTmplate( tmplate ); // Copies
+	QCOMPARE( model.tmplate().brand(), QString( "Test Brand" ) );
+	QCOMPARE( model.tmplate().part(), QString( "part" ) );
+	QCOMPARE( model.tmplate().description(), QString( "desc" ) );
+	QCOMPARE( model.tmplate().paperId(), QString( "testPaperId" ) );
+	QCOMPARE( model.tmplate().pageWidth(), Distance( 100 ) );
+	QCOMPARE( model.tmplate().pageHeight(), Distance( 400 ) );
 	QVERIFY( model.isModified() );
 
-	QVERIFY( model.frame()->id() == frame->id() );
+	QVERIFY( model.frame()->id() == frame.id() );
 	QCOMPARE( model.w(), Distance( 100 ) );
 	QCOMPARE( model.h(), Distance( 200 ) );
-	QCOMPARE( model.w(), frame->w() );
-	QCOMPARE( model.h(), frame->h() );
+	QCOMPARE( model.w(), frame.w() );
+	QCOMPARE( model.h(), frame.h() );
 
 	model.clearModified();
 	QVERIFY( !model.isModified() );
@@ -99,8 +104,8 @@ void TestModel::model()
 	QVERIFY( model.rotate() );
 	QVERIFY( model.isModified() );
 
-	QCOMPARE( model.w(), frame->h() );
-	QCOMPARE( model.h(), frame->w() );
+	QCOMPARE( model.w(), frame.h() );
+	QCOMPARE( model.h(), frame.w() );
 
 	model.setRotate( false );
 	QVERIFY( !model.rotate() );
@@ -109,20 +114,20 @@ void TestModel::model()
 	QVERIFY( !model.isModified() );
 
 	model.setH( 300 ); // Default does nothing
-	QCOMPARE( model.h(), Distance( 200 ) );
-	QVERIFY( model.isModified() ); // Set anyway
+	QCOMPARE( model.h(), Distance( 200 ) );  // Should still bee 200
+	QVERIFY( !model.isModified() );          // Should not be modified
 
 	// Continuous frame implements setH()
 	Template tmplate2( "Test Brand2", "part2", "desc2", "testPaperId2", 100, 400 );
-	FrameContinuous* frame2 = new FrameContinuous( 100, 0, 500, 200, "continuous1" );
-	QCOMPARE( frame2->h(), Distance( 200 ) );
+	FrameContinuous frame2( 100, 0, 500, 200, "continuous1" );
+	QCOMPARE( frame2.h(), Distance( 200 ) );
 	tmplate2.addFrame( frame2 );
-	model.setTmplate( &tmplate2 );
-	QVERIFY( model.frame()->id() == frame2->id() );
+	model.setTmplate( tmplate2 );
+	QVERIFY( model.frame()->id() == frame2.id() );
 	QCOMPARE( model.w(), Distance( 100 ) );
 	QCOMPARE( model.h(), Distance( 200 ) );
-	QCOMPARE( model.w(), frame2->w() );
-	QCOMPARE( model.h(), frame2->h() );
+	QCOMPARE( model.w(), frame2.w() );
+	QCOMPARE( model.h(), frame2.h() );
 
 	model.clearModified();
 	QVERIFY( !model.isModified() );
@@ -300,10 +305,10 @@ void TestModel::saveRestore()
 	// Set template/frame
 	//
 	Template tmplate( "Test Brand", "part", "desc", "testPaperId", 110, 410 );
-	FrameRect* frame = new FrameRect( 120, 220, 5, 0, 0, "rect1" );
+	FrameRect frame( 120, 220, 5, 0, 0, "rect1" );
 	tmplate.addFrame( frame );
-	model->setTmplate( &tmplate ); // Copies
-	QCOMPARE( model->tmplate()->brand(), QString( "Test Brand" ) );
+	model->setTmplate( tmplate ); // Copies
+	QCOMPARE( model->tmplate().brand(), QString( "Test Brand" ) );
 	QVERIFY( model->isModified() );
 
 	model->clearModified();
@@ -327,9 +332,9 @@ void TestModel::saveRestore()
 
 	Variable i( Variable::Type::INTEGER, "i", "2", Variable::Increment::PER_ITEM, "2" );
 	Variable f( Variable::Type::FLOATING_POINT, "f", "6.54", Variable::Increment::PER_COPY, "0.12" );
-	model->variables()->addVariable( i );
+	model->variables().addVariable( i );
 	QVERIFY( model->isModified() );
-	model->variables()->addVariable( f );
+	model->variables().addVariable( f );
 	QVERIFY( model->isModified() );
 
 	model->clearModified();
@@ -375,7 +380,6 @@ void TestModel::saveRestore()
 	Model* saved = model->save();
 	QVERIFY( saved->isModified() );
 	QCOMPARE( saved->merge(), model->merge() ); // Shared
-	QCOMPARE( saved->variables(), model->variables() ); // Shared
 	QCOMPARE( saved->isModified(), model->isModified() );
 	QCOMPARE( saved->shortName(), modelShortName );
 	QCOMPARE( saved->shortName(), model->shortName() );
@@ -391,10 +395,10 @@ void TestModel::saveRestore()
 
 	// Modify original
 	Template tmplate2( "Test Brand2", "part2", "desc2", "testPaperId2", 230, 630 );
-	FrameRect* frame2 = new FrameRect( 240, 340, 5, 0, 0, "rect2" );
+	FrameRect frame2( 240, 340, 5, 0, 0, "rect2" );
 	tmplate2.addFrame( frame2 );
-	model->setTmplate( &tmplate2 );
-	QCOMPARE( model->tmplate()->brand(), QString( "Test Brand2" ) );
+	model->setTmplate( tmplate2 );
+	QCOMPARE( model->tmplate().brand(), QString( "Test Brand2" ) );
 	QCOMPARE( model->w(), Distance( 240 ) );
 	QCOMPARE( model->h(), Distance( 340 ) );
 
@@ -419,21 +423,20 @@ void TestModel::saveRestore()
 	QCOMPARE( merge2->source(), csv2.fileName() );
 	QCOMPARE( merge2->recordList().size(), 4 );
 
-	model->setMerge( merge2 ); // Deletes original so saved->merge() now invalid
+	model->setMerge( merge2 );
 	QCOMPARE( model->merge(), merge2 );
 
 	Model* modified = model->save();
 	QCOMPARE( modified->merge(), merge2 ); // Shared
 
 	Variable c( Variable::Type::COLOR, "c", "blue", Variable::Increment::PER_PAGE );
-	model->variables()->addVariable( c );
-	QCOMPARE( model->variables(), saved->variables() ); // Shared.
+	model->variables().addVariable( c );
 
 	// Verify differences
 	QVERIFY( model->shortName() != modelShortName );
 	QVERIFY( model->shortName() != saved->shortName() );
 	QVERIFY( model->fileName() != saved->fileName() );
-	QVERIFY( model->tmplate()->brand() != saved->tmplate()->brand() );
+	QVERIFY( model->tmplate().brand() != saved->tmplate().brand() );
 	QVERIFY( model->rotate() != saved->rotate() );
 	QVERIFY( model->w() != saved->w() );
 	QVERIFY( model->h() != saved->h() );
@@ -448,7 +451,7 @@ void TestModel::saveRestore()
 	QCOMPARE( model->shortName(), modelShortName );
 	QCOMPARE( model->shortName(), saved->shortName() );
 	QCOMPARE( model->fileName(), saved->fileName() );
-	QCOMPARE( model->tmplate()->brand(), saved->tmplate()->brand() );
+	QCOMPARE( model->tmplate().brand(), saved->tmplate().brand() );
 	QCOMPARE( model->rotate(), saved->rotate() );
 	QCOMPARE( model->w(), saved->w() );
 	QCOMPARE( model->h(), saved->h() );
@@ -459,16 +462,12 @@ void TestModel::saveRestore()
 	QCOMPARE( model->objectList().at(1)->x0(), saved->objectList().at(1)->x0() );
 	QCOMPARE( model->objectList().at(1)->y0(), saved->objectList().at(1)->y0() );
 
-	QCOMPARE( model->merge(), merge2 ); // Unchanged
-	QVERIFY( model->merge() != saved->merge() ); // NOTE saved->merge() now points to deleted object
-	QCOMPARE( model->variables(), saved->variables() ); // Unchanged
-
 	// Unrestore
 	model->restore( modified );
 	QVERIFY( model->shortName() != modelShortName );
 	QVERIFY( model->shortName() != saved->shortName() );
 	QVERIFY( model->fileName() != saved->fileName() );
-	QVERIFY( model->tmplate()->brand() != saved->tmplate()->brand() );
+	QVERIFY( model->tmplate().brand() != saved->tmplate().brand() );
 	QVERIFY( model->rotate() != saved->rotate() );
 	QVERIFY( model->w() != saved->w() );
 	QVERIFY( model->h() != saved->h() );
@@ -477,11 +476,10 @@ void TestModel::saveRestore()
 	QVERIFY( model->objectList().at(0)->x0() != saved->objectList().at(0)->x0() );
 	QVERIFY( model->objectList().at(0)->y0() != saved->objectList().at(0)->y0() );
 	QCOMPARE( model->merge(), merge2 ); // Same
-	QCOMPARE( model->variables(), saved->variables() ); // Same
 
 	QCOMPARE( model->shortName(), modified->shortName() );
 	QCOMPARE( model->fileName(), modified->fileName() );
-	QCOMPARE( model->tmplate()->brand(), modified->tmplate()->brand() );
+	QCOMPARE( model->tmplate().brand(), modified->tmplate().brand() );
 	QCOMPARE( model->rotate(), modified->rotate() );
 	QCOMPARE( model->w(), modified->w() );
 	QCOMPARE( model->h(), modified->h() );
@@ -489,8 +487,6 @@ void TestModel::saveRestore()
 	QCOMPARE( model->objectList().at(0)->x0(), modified->objectList().at(0)->x0() );
 	QCOMPARE( model->objectList().at(0)->y0(), modified->objectList().at(0)->y0() );
 
-	delete model->merge(); // Final instance owned by us
-	delete model->variables(); // Instance owned by us
 	delete model;
 	delete saved;
 	delete modified;

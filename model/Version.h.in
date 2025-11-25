@@ -29,6 +29,10 @@ namespace glabels
 
 		namespace Version
 		{
+			const QString ORGANIZATION_NAME   = "@ORGANIZATION_NAME@";
+			const QString ORGANIZATION_DOMAIN = "@ORGANIZATION_DOMAIN@";
+			const QString APPLICATION_NAME    = "@APPLICATION_NAME@";
+
 			const QString WEBSITE = "http://@WEBSITE@";
 			const QString BUG_WEBSITE = "@BUG_WEBSITE@";
 

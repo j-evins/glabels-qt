@@ -30,7 +30,7 @@
 #include "XmlTemplateCreator.h"
 #include "XmlVendorParser.h"
 
-#include <QtDebug>
+#include <QDebug>
 #include <QtGlobal>
 
 #include <algorithm>
@@ -48,9 +48,9 @@ namespace glabels
 		{
 			const QString    empty = "";
 	
-			bool partNameLessThan( const Template *a, const Template *b )
+			bool partNameLessThan( const Template& a, const Template& b )
 			{
-				return StrUtil::comparePartNames( a->name(), b->name() ) < 0;
+				return StrUtil::comparePartNames( a.name(), b.name() ) < 0;
 			}
 		}
 
@@ -58,18 +58,29 @@ namespace glabels
 		//
 		// Static data
 		//
-		QList<Paper*>    Db::mPapers;
-		QStringList      Db::mPaperIds;
-		QStringList      Db::mPaperNames;
-		QList<Category*> Db::mCategories;
-		QStringList      Db::mCategoryIds;
-		QStringList      Db::mCategoryNames;
-		QList<Vendor*>   Db::mVendors;
-		QStringList      Db::mVendorNames;
-		QList<Template*> Db::mTemplates;
+		QList<Paper>           Db::mPapers;
+		QMap<QString,Paper>    Db::mPapersNameMap;
+		QMap<QString,Paper>    Db::mPapersIdMap;
+		QStringList            Db::mPaperIds;
+		QStringList            Db::mPaperNames;
+
+		QList<Category>        Db::mCategories;
+		QMap<QString,Category> Db::mCategoriesNameMap;
+		QMap<QString,Category> Db::mCategoriesIdMap;
+		QStringList            Db::mCategoryIds;
+		QStringList            Db::mCategoryNames;
+
+		QList<Vendor>          Db::mVendors;
+		QMap<QString,Vendor>   Db::mVendorsNameMap;
+		QStringList            Db::mVendorNames;
+
+		QList<Template>        Db::mTemplates;
+		QMap<QString,Template> Db::mTemplatesNameMap;
+
+		QMap<QString,Template> Db::mUserTemplatesNameMap;
 
 	
-		Db::Db()
+		void Db::init()
 		{
 			readPapers();
 			readCategories();
@@ -77,21 +88,8 @@ namespace glabels
 			readTemplates();
 		}
 
-
-		void Db::init()
-		{
-			instance();
-		}
-
 	
-		Db* Db::instance()
-		{
-			static auto* db = new Db();
-			return db;
-		}
-
-
-		const QList<Paper*>& Db::papers()
+		const QList<Paper>& Db::papers()
 		{
 			return mPapers;
 		}
@@ -109,7 +107,7 @@ namespace glabels
 		}
 
 
-		const QList<Category*>& Db::categories()
+		const QList<Category>& Db::categories()
 		{
 			return mCategories;
 		}
@@ -127,7 +125,7 @@ namespace glabels
 		}
 
 
-		const QList<Vendor*>& Db::vendors()
+		const QList<Vendor>& Db::vendors()
 		{
 			return mVendors;
 		}
@@ -139,383 +137,251 @@ namespace glabels
 		}
 
 
-		const QList<Template*>& Db::templates()
+		QList<Template> Db::templates()
 		{
-			return mTemplates;
+			auto list = mTemplates;
+			list.append( mUserTemplatesNameMap.values() );
+
+			std::stable_sort( list.begin(), list.end(), partNameLessThan );
+
+			return list;
 		}
 
 
-		void Db::registerPaper( Paper *paper )
+		const Paper Db::lookupPaperFromName( const QString& name )
 		{
-			if ( !isPaperIdKnown( paper->id() ) )
-			{
-				mPapers << paper;
-				mPaperIds << paper->id();
-				mPaperNames << paper->name();
-			}
-			else
-			{
-				qWarning() << "Duplicate paper ID: " << paper->id();
-			}
-		}
-
-
-		const Paper *Db::lookupPaperFromName( const QString& name )
-		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL paper name.";
-				return mPapers.first();
+				return Paper();
 			}
 
-			foreach ( Paper *paper, mPapers )
+			auto it = mPapersNameMap.find( name );
+			if ( it != mPapersNameMap.end() )
 			{
-				if ( paper->name() == name )
-				{
-					return paper;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown paper name: " << name;
-			return nullptr;
+			return Paper();
 		}
 
 
-		const Paper *Db::lookupPaperFromId( const QString& id )
+		const Paper Db::lookupPaperFromId( const QString& id )
 		{
-			if ( id.isNull() || id.isEmpty() )
+			if ( id.isEmpty() )
 			{
-				qWarning() << "NULL paper ID.";
-				return mPapers.first();
+				qWarning() << "NULL paper id.";
+				return Paper();
 			}
 
-			foreach ( Paper *paper, mPapers )
+			auto it = mPapersIdMap.find( id );
+			if ( it != mPapersIdMap.end() )
 			{
-				if ( paper->id() == id )
-				{
-					return paper;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown paper ID: " << id;
-			return nullptr;
+			return Paper();
 		}
 
 
 		QString Db::lookupPaperIdFromName( const QString& name )
 		{
-			if ( !name.isNull() && !name.isEmpty() )
-			{
-				if ( name == tr("Other") )
-				{
-					return "other";
-				}
-				else if ( name == tr("Roll") )
-				{
-					return "roll";
-				}
-
-				const Paper *paper = lookupPaperFromName( name );
-				if ( paper != nullptr )
-				{
-					return paper->id();
-				}
-			}
-
-			qWarning() << "Unknown paper name: " << name;
-			return empty;
+			return lookupPaperFromName( name ).id();
 		}
 
 
 		QString Db::lookupPaperNameFromId( const QString& id )
 		{
-			if ( !id.isNull() && !id.isEmpty() )
-			{
-				if ( id == "other" )
-				{
-					return tr("Other");
-				}
-				else if ( id == "roll" )
-				{
-					return tr("Roll");
-				}
-
-				const Paper *paper = lookupPaperFromId( id );
-				if ( paper != nullptr )
-				{
-					return paper->name();
-				}
-			}
-
-			qWarning() << "Unknown paper id: " << id;
-			return empty;
+			return lookupPaperFromId( id ).name();
 		}
 
 
 		bool Db::isPaperIdKnown( const QString& id )
 		{
-			foreach ( Paper *paper, mPapers )
-			{
-				if ( paper->id() == id )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mPapersIdMap.contains( id );
 		}
 
 
-		void Db::registerCategory( Category *category )
+		const Category Db::lookupCategoryFromName( const QString& name )
 		{
-			if ( !isCategoryIdKnown( category->id() ) )
-			{
-				mCategories << category;
-				mCategoryIds << category->id();
-				mCategoryNames << category->name();
-			}
-			else
-			{
-				qWarning() << "Duplicate category ID: " << category->id();
-			}
-		}
-
-
-		const Category *Db::lookupCategoryFromName( const QString& name )
-		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL category name.";
-				return mCategories.first();
+				return Category();
 			}
 
-			foreach ( Category *category, mCategories )
+			auto it = mCategoriesNameMap.find( name );
+			if ( it != mCategoriesNameMap.end() )
 			{
-				if ( category->name() == name )
-				{
-					return category;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown category name: \"%s\"." << name;
-			return nullptr;
+			return Category();
 		}
 
 
-		const Category *Db::lookupCategoryFromId( const QString& id )
+		const Category Db::lookupCategoryFromId( const QString& id )
 		{
-			if ( id.isNull() || id.isEmpty() )
+			if ( id.isEmpty() )
 			{
-				qDebug() << "NULL category ID.";
-				return mCategories.first();
+				qWarning() << "NULL category id.";
+				return Category();
 			}
 
-			foreach ( Category *category, mCategories )
+			auto it = mCategoriesIdMap.find( id );
+			if ( it != mCategoriesIdMap.end() )
 			{
-				if ( category->id() == id )
-				{
-					return category;
-				}
+				return *it;
 			}
 
-			qWarning() << "Unknown category ID: " << id;
-			return nullptr;
+			qWarning() << "Unknown category ID: \"%s\"." << id;
+			return Category();
 		}
 
 
 		QString Db::lookupCategoryIdFromName( const QString& name )
 		{
-			if ( !name.isNull() && !name.isEmpty() )
-			{
-				const Category *category = lookupCategoryFromName( name );
-				if ( category != nullptr )
-				{
-					return category->id();
-				}
-			}
-
-			qWarning() << "Unknown category name: " << name;
-			return empty;
+			return lookupCategoryFromName( name ).id();
 		}
 
 
 		QString Db::lookupCategoryNameFromId( const QString& id )
 		{
-			if ( !id.isNull() && !id.isEmpty() )
-			{
-				const Category *category = lookupCategoryFromId( id );
-				if ( category != nullptr )
-				{
-					return category->name();
-				}
-			}
-
-			qWarning() << "Unknown category id: " << id;
-			return empty;
+			return lookupCategoryFromId( id ).name();
 		}
 
 
 		bool Db::isCategoryIdKnown( const QString& id )
 		{
-			foreach ( Category *category, mCategories )
-			{
-				if ( category->id() == id )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mCategoriesIdMap.contains( id );
 		}
 
 
-		void Db::registerVendor( Vendor *vendor )
+		const Vendor Db::lookupVendorFromName( const QString& name )
 		{
-			if ( !isVendorNameKnown( vendor->name() ) )
-			{
-				mVendors << vendor;
-				mVendorNames << vendor->name();
-			}
-			else
-			{
-				qWarning() << "Duplicate vendor name: " << vendor->name();
-			}
-		}
-
-
-		const Vendor *Db::lookupVendorFromName( const QString& name )
-		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL vendor name.";
-				return mVendors.first();
+				return Vendor();
 			}
 
-			foreach ( Vendor *vendor, mVendors )
+			auto it = mVendorsNameMap.find( name );
+			if ( it != mVendorsNameMap.end() )
 			{
-				if ( vendor->name() == name )
-				{
-					return vendor;
-				}
+				return *it;
 			}
 
 			qWarning() << "Unknown vendor name: " << name;
-			return nullptr;
+			return Vendor();
 		}
 
 
 		QString Db::lookupVendorUrlFromName( const QString& name )
 		{
-			if ( !name.isNull() && !name.isEmpty() )
-			{
-				const Vendor *vendor = lookupVendorFromName( name );
-				if ( vendor != nullptr )
-				{
-					return vendor->url();
-				}
-			}
-
-			qWarning() << "Unknown vendor name: " << name;
-			return empty;
+			return lookupVendorFromName( name ).url();
 		}
 
 
 		bool Db::isVendorNameKnown( const QString& name )
 		{
-			foreach ( Vendor *vendor, mVendors )
-			{
-				if ( vendor->name() == name )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			return mVendorsNameMap.contains( name );
 		}
 
 
-		void Db::registerTemplate( Template *tmplate )
+		const Template Db::lookupTemplateFromName( const QString& name )
 		{
-			if ( !isTemplateKnown( tmplate->brand(), tmplate->part() ) )
-			{
-				mTemplates << tmplate;
-			}
-			else
-			{
-				qWarning() << "Duplicate template name: " << tmplate->name();
-			}
-		}
-
-
-		const Template *Db::lookupTemplateFromName( const QString& name )
-		{
-			if ( name.isNull() || name.isEmpty() )
+			if ( name.isEmpty() )
 			{
 				qWarning() << "NULL template name.";
-				return mTemplates.first();
+				return Template();
 			}
 
-			foreach ( Template *tmplate, mTemplates )
+			auto it = mTemplatesNameMap.find( name );
+			if ( it != mTemplatesNameMap.end() )
 			{
-				if ( tmplate->name() == name )
-				{
-					return tmplate;
-				}
+				return *it;
+			}
+
+			auto it2 = mUserTemplatesNameMap.find( name );
+			if ( it2 != mUserTemplatesNameMap.end() )
+			{
+				return *it2;
 			}
 
 			qWarning() << "Unknown template name: " << name;
-			return nullptr;
+			return Template();
 		}
 
 
-		const Template *Db::lookupTemplateFromBrandPart( const QString& brand, const QString& part )
+		const Template Db::lookupTemplateFromBrandPart( const QString& brand, const QString& part )
 		{
-			if ( brand.isNull() || brand.isEmpty() || part.isNull() || part.isEmpty() )
+			if ( brand.isEmpty() || part.isEmpty() )
 			{
 				qWarning() << "NULL template brand and/or part.";
-				return mTemplates.first();
+				return Template();
 			}
 
-			foreach ( Template *tmplate, mTemplates )
+			auto name = Template::brandPartToName( brand, part );
+
+			auto it = mTemplatesNameMap.find( name );
+			if ( it != mTemplatesNameMap.end() )
 			{
-				if ( (tmplate->brand() == brand) && (tmplate->part() == part) )
-				{
-					return tmplate;
-				}
+				return *it;
+			}
+
+			auto it2 = mUserTemplatesNameMap.find( name );
+			if ( it2 != mUserTemplatesNameMap.end() )
+			{
+				return *it2;
 			}
 
 			qWarning() << "Unknown template brand, part: " << brand << ", " << part;
-			return nullptr;
+			return Template();
+		}
+
+
+		const Template Db::lookupUserTemplateFromBrandPart( const QString& brand, const QString& part )
+		{
+			if ( brand.isEmpty() || part.isEmpty() )
+			{
+				qWarning() << "NULL template brand and/or part.";
+				return Template();
+			}
+
+			auto name = Template::brandPartToName( brand, part );
+
+			auto it = mUserTemplatesNameMap.find( name );
+			if ( it != mUserTemplatesNameMap.end() )
+			{
+				return *it;
+			}
+
+			qWarning() << "Unknown user template brand, part: " << brand << ", " << part;
+			return Template();
 		}
 
 
 		bool Db::isTemplateKnown( const QString& brand, const QString& part )
 		{
-			foreach ( Template *tmplate, mTemplates )
-			{
-				if ( (tmplate->brand() == brand) && (tmplate->part() == part) )
-				{
-					return true;
-				}
-			}
-
-			return false;
+			auto name = Template::brandPartToName( brand, part );
+			return mTemplatesNameMap.contains( name ) || mUserTemplatesNameMap.contains( name );
 		}
 
 
 		bool Db::isSystemTemplateKnown( const QString& brand, const QString& part )
 		{
-			foreach ( Template *tmplate, mTemplates )
-			{
-				if ( (tmplate->brand() == brand) &&
-				     (tmplate->part() == part)   &&
-				     !tmplate->isUserDefined() )
-				{
-					return true;
-				}
-			}
+			auto name = Template::brandPartToName( brand, part );
+			return mTemplatesNameMap.contains( name );
+		}
 
-			return false;
+
+		bool Db::isUserTemplateKnown( const QString& brand, const QString& part )
+		{
+			auto name = Template::brandPartToName( brand, part );
+			return mUserTemplatesNameMap.contains( name );
 		}
 
 
@@ -523,20 +389,20 @@ namespace glabels
 		{
 			QStringList list;
 
-			const Template *tmplate1 = lookupTemplateFromName( name );
-			if ( tmplate1 == nullptr )
+			auto tmplate1 = lookupTemplateFromName( name );
+			if ( tmplate1.isNull() )
 			{
 				qWarning() << "Unknown template name: " << name;
 				return list;
 			}
 
-			foreach (const Template *tmplate2, mTemplates )
+			for ( auto& tmplate2 : templates() )
 			{
-				if ( tmplate1->name() != tmplate2->name() )
+				if ( tmplate1.name() != tmplate2.name() )
 				{
-					if ( tmplate1->isSimilarTo( tmplate2 ) )
+					if ( tmplate1.isSimilarTo( tmplate2 ) )
 					{
-						list << tmplate2->name();
+						list << tmplate2.name();
 					}
 				}
 			}
@@ -545,51 +411,53 @@ namespace glabels
 		}
 
 
-		QString Db::userTemplateFilename( const QString& brand, const QString& part )
+		QString Db::userTemplateFileName( const QString& brand, const QString& part )
 		{
-			QString filename = brand + "_" + part + ".template";
-			return FileUtil::userTemplatesDir().filePath( filename );
+			QString fileName = brand + "_" + part + ".template";
+			return FileUtil::userTemplatesDir().filePath( fileName );
 		}
 
 
-		void Db::registerUserTemplate( Template *tmplate )
+		void Db::registerUserTemplate( const Template& tmplate )
 		{
-			QString filename = userTemplateFilename( tmplate->brand(), tmplate->part() );
+			if ( isTemplateKnown( tmplate.brand(), tmplate.part() ) )
+			{
+				qWarning() << "Duplicate template name: " << tmplate.name();
+				return;
+			}
+
+			QString fileName = userTemplateFileName( tmplate.brand(), tmplate.part() );
 
 			// Write file
-			if ( XmlTemplateCreator().writeTemplate( tmplate, filename ) )
+			if ( XmlTemplateCreator().writeTemplate( tmplate, fileName ) )
 			{
 				// Add template to list of registered templates
-				registerTemplate( tmplate );
-				Settings::addToRecentTemplateList( tmplate->name() );
+				mUserTemplatesNameMap[ tmplate.name() ] = tmplate;
+				mUserTemplatesNameMap[ tmplate.name() ].setFileName( fileName );
+				mUserTemplatesNameMap[ tmplate.name() ].setIsUserDefined( true );
+
+				Settings::addToRecentTemplateList( tmplate.name() );
+
 			}
 			else
 			{
-				qWarning() << "Problem writing user template" << filename;
+				qWarning() << "Problem writing user template" << fileName;
 			}
 		}
 
 
 		void Db::deleteUserTemplateByBrandPart( const QString& brand, const QString& part )
 		{
-			Template* tmplate;
-			foreach ( Template *candidate, mTemplates )
+			auto tmplate = lookupUserTemplateFromBrandPart( brand, part );
+			if ( !tmplate.isNull() && tmplate.isUserDefined() )
 			{
-				if ( candidate->isUserDefined() &&
-				     (candidate->brand() == brand) && (candidate->part() == part) )
-				{
-					tmplate = candidate;
-					break;
-				}
+				mUserTemplatesNameMap.remove( Template::brandPartToName( brand, part ) );
+
+				QFile( tmplate.fileName() ).remove();
 			}
-
-			if ( tmplate )
+			else
 			{
-				mTemplates.removeOne( tmplate );
-				delete tmplate;
-
-				QString filename = userTemplateFilename( brand, part );
-				QFile( filename ).remove();
+				qWarning() << "Not a user defined template:" << tmplate.name();
 			}
 		}
 
@@ -598,14 +466,14 @@ namespace glabels
 		{
 			qDebug() << "KNOWN PAPERS:";
 
-			foreach ( Paper *paper, mPapers )
+			for ( auto& paper : mPapers )
 			{
 				qDebug() << "paper "
-				         << "id="       << paper->id()          << ", "
-				         << "name="     << paper->name()        << ", "
-				         << "width="    << paper->width().pt()  << "pts, "
-				         << "height="   << paper->height().pt() << "pts, "
-				         << "pwg_size=" << paper->pwgSize();
+				         << "id="       << paper.id()          << ", "
+				         << "name="     << paper.name()        << ", "
+				         << "width="    << paper.width().pt()  << "pts, "
+				         << "height="   << paper.height().pt() << "pts, "
+				         << "pwg_size=" << paper.pwgSize();
 			}
 
 			qDebug();
@@ -616,11 +484,11 @@ namespace glabels
 		{
 			qDebug() << "KNOWN CATEGORIES:";
 
-			foreach ( Category *category, mCategories )
+			for ( auto& category : mCategories )
 			{
 				qDebug() << "category "
-				         << "id="    << category->id()   << ", "
-				         << "name="  << category->name();
+				         << "id="    << category.id()   << ", "
+				         << "name="  << category.name();
 			}
 
 			qDebug();
@@ -631,11 +499,11 @@ namespace glabels
 		{
 			qDebug() << "KNOWN VENDORS:";
 
-			foreach ( Vendor *vendor, mVendors )
+			for ( auto& vendor : mVendors )
 			{
 				qDebug() << "vendor "
-				         << "name='" << vendor->name() << ", "
-				         << "url='"  << vendor->url();
+				         << "name='" << vendor.name() << ", "
+				         << "url='"  << vendor.url();
 			}
 
 			qDebug();
@@ -646,12 +514,12 @@ namespace glabels
 		{
 			qDebug() << "KNOWN TEMPLATES:";
 
-			foreach ( Template *tmplate, mTemplates )
+			for ( auto& tmplate : mTemplates )
 			{
 				qDebug() << "template "
-				         << "brand="       << tmplate->brand()       << ", "
-				         << "part="        << tmplate->part()        << ", "
-				         << "description=" << tmplate->description();
+				         << "brand="       << tmplate.brand()       << ", "
+				         << "part="        << tmplate.part()        << ", "
+				         << "description=" << tmplate.description();
 			}
 
 			qDebug();
@@ -668,12 +536,33 @@ namespace glabels
 		{
 			XmlPaperParser parser;
 
-			foreach ( QString fileName, dir.entryList( QDir::Files ) )
+			for ( auto fileName : dir.entryList( QDir::Files ) )
 			{
 				if ( fileName == "paper-sizes.xml" )
 				{
-					parser.readFile( dir.absoluteFilePath( fileName ) );
+					auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+					for ( auto& paper : list )
+					{
+						registerPaper( paper );
+					}
 				}
+			}
+		}
+
+
+		void Db::registerPaper( const Paper& paper )
+		{
+			if ( !isPaperIdKnown( paper.id() ) )
+			{
+				mPapers.push_back( paper );
+				mPapersNameMap[ paper.name() ] = paper;
+				mPapersIdMap[ paper.id() ] = paper;
+				mPaperIds.push_back( paper.id() );
+				mPaperNames.push_back( paper.name() );
+			}
+			else
+			{
+				qWarning() << "Duplicate paper ID: " << paper.id();
 			}
 		}
 
@@ -688,12 +577,33 @@ namespace glabels
 		{
 			XmlCategoryParser parser;
 
-			foreach ( QString fileName, dir.entryList( QDir::Files ) )
+			for ( auto fileName : dir.entryList( QDir::Files ) )
 			{
 				if ( fileName == "categories.xml" )
 				{
-					parser.readFile( dir.absoluteFilePath( fileName ) );
+					auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+					for ( auto& category : list )
+					{
+						registerCategory( category );
+					}
 				}
+			}
+		}
+
+
+		void Db::registerCategory( const Category& category )
+		{
+			if ( !isCategoryIdKnown( category.id() ) )
+			{
+				mCategories.push_back( category );
+				mCategoriesNameMap[ category.name() ] = category;
+				mCategoriesIdMap[ category.id() ] = category;
+				mCategoryIds.push_back( category.id() );
+				mCategoryNames.push_back( category.name() );
+			}
+			else
+			{
+				qWarning() << "Duplicate category ID: " << category.id();
 			}
 		}
 
@@ -708,36 +618,98 @@ namespace glabels
 		{
 			XmlVendorParser parser;
 
-			foreach ( QString fileName, dir.entryList( QDir::Files ) )
+			for ( auto fileName : dir.entryList( QDir::Files ) )
 			{
 				if ( fileName == "vendors.xml" )
 				{
-					parser.readFile( dir.absoluteFilePath( fileName ) );
+					auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+					for ( auto& vendor : list )
+					{
+						registerVendor( vendor );
+					}
 				}
+			}
+		}
+
+
+		void Db::registerVendor( const Vendor& vendor )
+		{
+			if ( !isVendorNameKnown( vendor.name() ) )
+			{
+				mVendors.push_back( vendor );
+				mVendorsNameMap[ vendor.name() ] = vendor;
+				mVendorNames.push_back( vendor.name() );
+			}
+			else
+			{
+				qWarning() << "Duplicate vendor name: " << vendor.name();
 			}
 		}
 
 
 		void Db::readTemplates()
 		{
-			readTemplatesFromDir( FileUtil::systemTemplatesDir(), false );
-			readTemplatesFromDir( FileUtil::manualUserTemplatesDir(), false );
-			readTemplatesFromDir( FileUtil::userTemplatesDir(), true );
+			readTemplatesFromDir( FileUtil::systemTemplatesDir() );
+			readTemplatesFromDir( FileUtil::manualUserTemplatesDir() );
 
 			std::stable_sort( mTemplates.begin(), mTemplates.end(), partNameLessThan );
+
+			readUserTemplatesFromDir( FileUtil::userTemplatesDir() );
 		}
 
 
-		void Db::readTemplatesFromDir( const QDir& dir, bool isUserDefined )
+		void Db::readTemplatesFromDir( const QDir& dir )
 		{
 			QStringList filters;
 			filters << "*-templates.xml" << "*.template";
 
 			XmlTemplateParser parser;
 
-			foreach ( QString fileName, dir.entryList( filters, QDir::Files ) )
+			for ( auto& fileName : dir.entryList( filters, QDir::Files ) )
 			{
-				parser.readFile( dir.absoluteFilePath( fileName ), isUserDefined );
+				auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+				for ( auto& tmplate : list )
+				{
+					registerTemplate( tmplate );
+				}
+
+				list = parser.readEquivsFromFile( dir.absoluteFilePath( fileName ) );
+				for ( auto& tmplate : list )
+				{
+					registerTemplate( tmplate );
+				}
+			}
+		}
+
+
+		void Db::registerTemplate( const Template& tmplate )
+		{
+			if ( !isTemplateKnown( tmplate.brand(), tmplate.part() ) )
+			{
+				mTemplates.push_back( tmplate );
+				mTemplatesNameMap[ tmplate.name() ] = tmplate;
+			}
+			else
+			{
+				qWarning() << "Duplicate template name: " << tmplate.name();
+			}
+		}
+
+
+		void Db::readUserTemplatesFromDir( const QDir& dir )
+		{
+			QStringList filters;
+			filters << "*-templates.xml" << "*.template";
+
+			XmlTemplateParser parser;
+
+			for ( auto& fileName : dir.entryList( filters, QDir::Files ) )
+			{
+				auto list = parser.readFile( dir.absoluteFilePath( fileName ) );
+				for ( auto& tmplate : list )
+				{
+					registerUserTemplate( tmplate );
+				}
 			}
 		}
 

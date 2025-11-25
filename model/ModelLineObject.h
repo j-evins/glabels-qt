@@ -43,22 +43,22 @@ namespace glabels
 		public:
 			ModelLineObject();
 
-			ModelLineObject( const Distance&  x0,
-			                 const Distance&  y0,
-			                 const Distance&  w,
-			                 const Distance&  h,
-			                 const Distance&  lineWidth,
-			                 const ColorNode& lineColorNode,
+			ModelLineObject( Distance          x0,
+			                 Distance          y0,
+			                 Distance          w,
+			                 Distance          h,
+			                 Distance          lineWidth,
+			                 const ColorNode&  lineColorNode,
 			                 const QTransform& matrix = QTransform(),
-			                 bool             shadowState = false,
-			                 const Distance&  shadowX = 0,
-			                 const Distance&  shadowY = 0,
-			                 double           shadowOpacity = 1.0,
-			                 const ColorNode& shadowColorNode = ColorNode() );
+			                 bool              shadowState = false,
+			                 Distance          shadowX = 0,
+			                 Distance          shadowY = 0,
+			                 double            shadowOpacity = 1.0,
+			                 const ColorNode&  shadowColorNode = ColorNode() );
 
 			ModelLineObject( const ModelLineObject* object );
 		
-			~ModelLineObject() override;
+			virtual ~ModelLineObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -75,7 +75,7 @@ namespace glabels
 			// Line Property: lineWidth
 			//
 			Distance lineWidth() const override;
-			void setLineWidth( const Distance& value ) override;
+			void setLineWidth( Distance value ) override;
 
 
 			//
@@ -97,15 +97,15 @@ namespace glabels
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		protected:
-			void drawShadow( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawShadow( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 			
-			void drawObject( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawObject( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 
 			QPainterPath hoverPath( double scale ) const override;
 

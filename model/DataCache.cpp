@@ -43,13 +43,14 @@ namespace glabels
 					TextNode filenameNode = imageObject->filenameNode();
 					if ( !filenameNode.isField()  )
 					{
-						if ( const QImage* image = imageObject->image() )
+						auto& image = imageObject->image();
+						if ( !image.isNull() )
 						{
-							addImage( filenameNode.data(), *image );
+							addImage( filenameNode.data(), image );
 						}
 						else
 						{
-							QByteArray svg = imageObject->svg();
+							auto& svg = imageObject->svg();
 							if ( !svg.isEmpty() )
 							{
 								addSvg( filenameNode.data(), svg );

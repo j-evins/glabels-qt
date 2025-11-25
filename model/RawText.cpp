@@ -23,6 +23,7 @@
 
 #include "ParserState.h"
 
+#include <QDebug>
 #include <QRegularExpression>
 
 
@@ -70,7 +71,7 @@ namespace glabels
 		///
 		/// Expand all place holders
 		///
-		QString RawText::expand( merge::Record* record, Variables* variables ) const
+		QString RawText::expand( const merge::Record& record, const Variables& variables ) const
 		{
 			QString text;
 		

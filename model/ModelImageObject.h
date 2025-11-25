@@ -45,50 +45,50 @@ namespace glabels
 		public:
 			ModelImageObject();
 
-			ModelImageObject( const Distance&  x0,
-			                  const Distance&  y0,
-			                  const Distance&  w,
-			                  const Distance&  h,
-			                  bool             lockAspectRatio,
-			                  const TextNode&  filenameNode,
+			ModelImageObject( Distance          x0,
+			                  Distance          y0,
+			                  Distance          w,
+			                  Distance          h,
+			                  bool              lockAspectRatio,
+			                  const TextNode&   filenameNode,
 			                  const QTransform& matrix = QTransform(),
-			                  bool             shadowState = false,
-			                  const Distance&  shadowX = 0,
-			                  const Distance&  shadowY = 0,
-			                  double           shadowOpacity = 1.0,
-			                  const ColorNode& shadowColorNode = ColorNode() );
+			                  bool              shadowState = false,
+			                  Distance          shadowX = 0,
+			                  Distance          shadowY = 0,
+			                  double            shadowOpacity = 1.0,
+			                  const ColorNode&  shadowColorNode = ColorNode() );
 
-			ModelImageObject( const Distance&  x0,
-			                  const Distance&  y0,
-			                  const Distance&  w,
-			                  const Distance&  h,
-			                  bool             lockAspectRatio,
-			                  const QString&   filename,
-			                  const QImage&    image,
+			ModelImageObject( Distance  x0,
+			                  Distance  y0,
+			                  Distance  w,
+			                  Distance  h,
+			                  bool              lockAspectRatio,
+			                  const QString&    filename,
+			                  const QImage&     image,
 			                  const QTransform& matrix = QTransform(),
-			                  bool             shadowState = false,
-			                  const Distance&  shadowX = 0,
-			                  const Distance&  shadowY = 0,
-			                  double           shadowOpacity = 1.0,
-			                  const ColorNode& shadowColorNode = ColorNode() );
+			                  bool              shadowState = false,
+			                  Distance          shadowX = 0,
+			                  Distance          shadowY = 0,
+			                  double            shadowOpacity = 1.0,
+			                  const ColorNode&  shadowColorNode = ColorNode() );
 
-			ModelImageObject( const Distance&   x0,
-			                  const Distance&   y0,
-			                  const Distance&   w,
-			                  const Distance&   h,
+			ModelImageObject( Distance          x0,
+			                  Distance          y0,
+			                  Distance          w,
+			                  Distance          h,
 			                  bool              lockAspectRatio,
 			                  const QString&    filename,
 			                  const QByteArray& svg,
 			                  const QTransform& matrix = QTransform(),
 			                  bool              shadowState = false,
-			                  const Distance&   shadowX = 0,
-			                  const Distance&   shadowY = 0,
+			                  Distance          shadowX = 0,
+			                  Distance          shadowY = 0,
 			                  double            shadowOpacity = 1.0,
 			                  const ColorNode&  shadowColorNode = ColorNode() );
 
 			ModelImageObject( const ModelImageObject* object );
 		
-			~ModelImageObject() override;
+			virtual ~ModelImageObject() = default;
 
 
 			///////////////////////////////////////////////////////////////
@@ -110,14 +110,14 @@ namespace glabels
 			//
 			// Image Property: image
 			//
-			const QImage* image() const override;
+			const QImage& image() const override;
 			void setImage( const QImage& value ) override;
 			void setImage( const QString& name, const QImage& value ) override;
 
 			//
 			// Image Property: svg
 			//
-			QByteArray svg() const override;
+			const QByteArray& svg() const override;
 			void setSvg( const QString& name, const QByteArray& value ) override;
 
 			//
@@ -135,15 +135,15 @@ namespace glabels
 			// Drawing operations
 			///////////////////////////////////////////////////////////////
 		protected:
-			void drawShadow( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawShadow( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 			
-			void drawObject( QPainter*      painter,
-			                 bool           inEditor,
-			                 merge::Record* record,
-			                 Variables*     variables ) const override;
+			void drawObject( QPainter*            painter,
+			                 bool                 inEditor,
+			                 const merge::Record& record,
+			                 const Variables&     variables ) const override;
 			
 			QPainterPath hoverPath( double scale ) const override;
 
@@ -154,24 +154,22 @@ namespace glabels
 			void loadImage();
 
 			bool readImageFile( const QString& fileName,
-			                    QImage*&       image,
-			                    QSvgRenderer*& svgRenderer,
+			                    QImage&        image,
 			                    QByteArray&    svg ) const;
 
-			QImage* createShadowImage( const QImage& image,
-			                           const QColor& color ) const;
+			QImage createShadowImage( const QImage& image,
+			                          const QColor& color ) const;
 	
 
 			///////////////////////////////////////////////////////////////
 			// Private Members
 			///////////////////////////////////////////////////////////////
 		protected:
-			TextNode       mFilenameNode;
-			QImage*        mImage;
-			QSvgRenderer*  mSvgRenderer;
-			QByteArray     mSvg;
+			TextNode     mFilenameNode;
+			QImage       mImage;
+			QByteArray   mSvg;
 
-			static QImage* smDefaultImage;
+			static QImage smDefaultImage;
 
 		};
 

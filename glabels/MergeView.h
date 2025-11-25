@@ -49,7 +49,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		MergeView( QWidget *parent = nullptr );
-		~MergeView() override;
+		virtual ~MergeView() = default;
 
 
 		/////////////////////////////////

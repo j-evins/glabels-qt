@@ -18,10 +18,9 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "XmlPaperParser.h"
 
-#include "Db.h"
-#include "Paper.h"
 #include "XmlUtil.h"
 
 #include <QDomDocument>
@@ -35,7 +34,7 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlPaperParser::readFile( const QString &fileName )
+		QList<Paper> XmlPaperParser::readFile( const QString &fileName )
 		{
 			QFile file( fileName );
 
@@ -43,7 +42,7 @@ namespace glabels
 			{
 				qWarning() << "Error: Cannot read file " << fileName
 				           << ": " << file.errorString();
-				return false;
+				return QList<Paper>(); // Empty list
 			}
 
 
@@ -57,28 +56,30 @@ namespace glabels
 				qWarning() << "Error: Parse error at line " << errorLine
 				           << "column " << errorColumn
 				           << ": " << errorString;
-				return false;
+				return QList<Paper>(); // Empty list
 			}
 
 			QDomElement root = doc.documentElement();
 			if ( root.tagName() != "Glabels-paper-sizes" )
 			{
 				qWarning() << "Error: Not a Glabels-paper-sizes file.";
-				return false;
+				return QList<Paper>(); // Empty list
 			}
 
-			parseRootNode( root );
-			return true;
+			return parseRootNode( root );
+
 		}
 
 
-		void XmlPaperParser::parseRootNode( const QDomElement &node )
+		QList<Paper> XmlPaperParser::parseRootNode( const QDomElement &node )
 		{
+			QList<Paper> list;
+			
 			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
 			{
 				if ( child.toElement().tagName() == "Paper-size" )
 				{
-					parsePaperSizeNode( child.toElement() );
+					list.push_back( parsePaperSizeNode( child.toElement() ) );
 				}
 				else if ( !child.isComment() )
 				{
@@ -87,10 +88,12 @@ namespace glabels
 					           << ", Ignored.";
 				}
 			}
+
+			return list;
 		}
 
 
-		void XmlPaperParser::parsePaperSizeNode( const QDomElement &node )
+		Paper XmlPaperParser::parsePaperSizeNode( const QDomElement &node )
 		{
 			QString id      = XmlUtil::getStringAttr( node, "id", "" );
 			QString name    = XmlUtil::getI18nAttr( node, "name", "" );
@@ -100,11 +103,7 @@ namespace glabels
 
 			QString pwgSize = XmlUtil::getStringAttr( node, "pwg_size", "" );
 
-			auto *paper = new Paper( id, name, width, height, pwgSize );
-			if ( paper != nullptr )
-			{
-				Db::registerPaper( paper );
-			}
+			return Paper( id, name, width, height, pwgSize );
 		}
 
 

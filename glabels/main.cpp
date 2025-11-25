@@ -23,7 +23,6 @@
 #include "model/FileUtil.h"
 #include "model/Db.h"
 #include "model/Model.h"
-#include "model/Settings.h"
 #include "model/Version.h"
 #include "model/XmlLabelParser.h"
 
@@ -43,9 +42,9 @@ int main( int argc, char **argv )
 {
 	QApplication app( argc, argv );
 
-	QCoreApplication::setOrganizationName( "glabels.org" );
-	QCoreApplication::setOrganizationDomain( "glabels.org" );
-	QCoreApplication::setApplicationName( "glabels-qt" );
+	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+	QCoreApplication::setOrganizationDomain( glabels::model::Version::ORGANIZATION_DOMAIN );
+	QCoreApplication::setApplicationName( glabels::model::Version::APPLICATION_NAME );
 	QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
 
 	QIcon::setThemeName( "glabels-flat" );

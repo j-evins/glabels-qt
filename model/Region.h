@@ -43,8 +43,10 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			Region();
-			Region( const Distance& x1, const Distance& y1,
-			        const Distance& x2, const Distance& y2 );
+			Region( Distance x1,
+			        Distance y1,
+			        Distance x2,
+			        Distance y2 );
 	
 
 			/////////////////////////////////
@@ -55,21 +57,21 @@ namespace glabels
 			// X1 Property
 			//
 			Distance x1() const;
-			void setX1( const Distance& value );
+			void setX1( Distance value );
 
 
 			//
 			// Y1 Property
 			//
 			Distance y1() const;
-			void setY1( const Distance& value );
+			void setY1( Distance value );
 
 
 			//
 			// X2 Property
 			//
 			Distance x2() const;
-			void setX2( const Distance& value );
+			void setX2( Distance value );
 
 
 
@@ -77,7 +79,7 @@ namespace glabels
 			// Y2 Property
 			//
 			Distance y2() const;
-			void setY2( const Distance& value );
+			void setY2( Distance value );
 
 
 			/////////////////////////////////

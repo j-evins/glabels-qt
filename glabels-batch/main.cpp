@@ -22,7 +22,6 @@
 #include "model/Db.h"
 #include "model/Model.h"
 #include "model/PageRenderer.h"
-#include "model/Settings.h"
 #include "model/Version.h"
 #include "model/XmlLabelParser.h"
 
@@ -188,7 +187,7 @@ int main( int argc, char **argv )
 		glabels::model::Model *model = glabels::model::XmlLabelParser::readFile( filename );
 		if ( model )
 		{
-			model->variables()->setVariables( variableDefinitions );
+			model->variables().setVariables( variableDefinitions );
 
 			QPrinter printer( QPrinter::HighResolution );
 			printer.setColorMode( QPrinter::Color );

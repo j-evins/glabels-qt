@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "LabelEditor.h"
 
 #include "Cursors.h"
@@ -38,10 +39,10 @@
 #include "model/Markup.h"
 #include "model/Settings.h"
 
+#include <QDebug>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QtMath>
-#include <QtDebug>
 
 
 namespace glabels
@@ -95,12 +96,12 @@ namespace glabels
 
 		mState = IdleState;
 
-		mSelectRegionVisible = false;
-		mResizeObject        = nullptr;
-		mResizeHandle        = nullptr;
-		mResizeHonorAspect   = false;
-		mCreateObjectType    = Box;
-		mCreateObject        = nullptr;
+		mSelectRegionVisible  = false;
+		mResizeObject         = nullptr;
+		mResizeHandleLocation = model::Handle::NULL_HANDLE;
+		mResizeHonorAspect    = false;
+		mCreateObjectType     = Box;
+		mCreateObject         = nullptr;
 
 		setMouseTracking( true );
 		setFocusPolicy(Qt::StrongFocus);
@@ -459,15 +460,15 @@ namespace glabels
 				case IdleState:
 				{
 					model::ModelObject* object = nullptr;
-					model::Handle* handle = nullptr;
-					if ( mModel->isSelectionAtomic() &&
-					     (handle = mModel->handleAt( mScale, xWorld, yWorld )) != nullptr )
+					auto& handle = mModel->handleAt( mScale, xWorld, yWorld );
+
+					if ( mModel->isSelectionAtomic() && !handle.isNull() )
 					{
 						//
 						// Start an object resize
 						//
-						mResizeObject = handle->owner();
-						mResizeHandle = handle;
+						mResizeObject = handle.owner();
+						mResizeHandleLocation = handle.location();
 						mResizeHonorAspect = event->modifiers() & Qt::ControlModifier;
 						if ( mResizeObject->lockAspectRatio() )
 						{
@@ -632,13 +633,13 @@ namespace glabels
 
 			case IdleState:
 				if ( mModel->isSelectionAtomic() &&
-				     mModel->handleAt( mScale, xWorld, yWorld ) )
+				     !mModel->handleAt( mScale, xWorld, yWorld ).isNull() )
 				{
-					setCursor( Qt::CrossCursor );
+					setCursor( Cursors::Crosshair() );
 				}
 				else if ( mModel->objectAt( mScale, xWorld, yWorld ) )
 				{
-					setCursor( Qt::SizeAllCursor );
+					setCursor( Cursors::Move() );
 				}
 				else
 				{
@@ -796,11 +797,10 @@ namespace glabels
 	/// Handle resize motion
 	///
 	void
-	LabelEditor::handleResizeMotion( const model::Distance& xWorld,
-	                                 const model::Distance& yWorld )
+	LabelEditor::handleResizeMotion( model::Distance xWorld,
+	                                 model::Distance yWorld )
 	{
 		QPointF p( xWorld.pt(), yWorld.pt() );
-		model::Handle::Location location = mResizeHandle->location();
 	
 		/*
 		 * Change point to object relative coordinates
@@ -824,7 +824,7 @@ namespace glabels
 		 * Calculate new size
 		 */
 		double w, h;
-		switch ( location )
+		switch ( mResizeHandleLocation )
 		{
 		case model::Handle::NW:
 			w = std::max( x2 - p.x(), 0.0 );
@@ -879,11 +879,11 @@ namespace glabels
 		/*
 		 * Set size
 		 */
-		if ( !(location == model::Handle::P1) && !(location == model::Handle::P2) )
+		if ( !(mResizeHandleLocation == model::Handle::P1) && !(mResizeHandleLocation == model::Handle::P2) )
 		{
 			if ( mResizeHonorAspect )
 			{
-				switch ( location )
+				switch ( mResizeHandleLocation )
 				{
 				case model::Handle::E:
 				case model::Handle::W:
@@ -908,7 +908,7 @@ namespace glabels
 			/*
 			 * Adjust origin, if needed.
 			 */
-			switch ( location )
+			switch ( mResizeHandleLocation )
 			{
 			case model::Handle::NW:
 				x0 += x2 - mResizeObject->w().pt();
@@ -1227,9 +1227,9 @@ namespace glabels
 				painter->translate( -mModel->frame()->w().pt(), 0 );
 			}
 
-			foreach( model::Markup* markup, mModel->frame()->markups() )
+			for( auto& markup : mModel->frame()->markups() )
 			{
-				painter->drawPath( markup->path( mModel->frame() ) );
+				painter->drawPath( markup->path( *mModel->frame() ) );
 			}
 
 			painter->restore();
@@ -1243,7 +1243,7 @@ namespace glabels
 	void
 	LabelEditor::drawObjectsLayer( QPainter* painter )
 	{
-		mModel->draw( painter, true, nullptr, nullptr );
+		mModel->draw( painter, true, merge::NullRecord(), model::Variables() );
 	}
 
 

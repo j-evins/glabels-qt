@@ -30,26 +30,23 @@ namespace glabels
 	namespace model
 	{
 
-		Layout::Layout( int             nx,
-		                int             ny,
-		                const Distance& x0,
-		                const Distance& y0,
-		                const Distance& dx,
-		                const Distance& dy )
-			: mNx(nx), mNy(ny), mX0(x0), mY0(y0), mDx(dx), mDy(dy)
+		Layout::Layout( int      nx,
+		                int      ny,
+		                Distance x0,
+		                Distance y0,
+		                Distance dx,
+		                Distance dy )
+			: mNx(nx),
+			  mNy(ny),
+			  mX0(x0),
+			  mY0(y0),
+			  mDx(dx),
+			  mDy(dy)
 		{
 			// empty
 		}
 
 	
-		Layout::Layout( const Layout& other )
-			: mNx(other.mNx), mNy(other.mNy), mX0(other.mX0), mY0(other.mY0),
-			  mDx(other.mDx), mDy(other.mDy)
-		{
-			// empty
-		}
-
-
 		int Layout::nx() const
 		{
 			return mNx;

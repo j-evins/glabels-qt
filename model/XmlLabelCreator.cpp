@@ -82,10 +82,9 @@ namespace glabels
 		}
 
 
-		void
+		QByteArray
 		XmlLabelCreator::serializeObjects( const QList<ModelObject*>& objects,
-		                                   const Model*               model,
-		                                   QByteArray&                buffer )
+		                                   const Model*               model )
 		{
 			QDomDocument doc;
 
@@ -99,7 +98,7 @@ namespace glabels
 			createDataNode( root, model, objects );
 			createObjectsNode( root, model, objects, false );
 
-			buffer = doc.toByteArray( 2 );
+			return doc.toByteArray( 2 );
 		}
 
 
@@ -122,7 +121,7 @@ namespace glabels
 				createMergeNode( root, model );
 			}
 
-			if ( model->variables()->size() != 0 )
+			if ( model->constVariables().size() != 0 )
 			{
 				createVariablesNode( root, model );
 			}
@@ -508,7 +507,7 @@ namespace glabels
 			QDomElement node = doc.createElement( "Variables" );
 			parent.appendChild( node );
 
-			for ( const auto& v : *model->variables() )
+			for ( const auto& v : model->constVariables() )
 			{
 				createVariableNode( node, v );
 			}

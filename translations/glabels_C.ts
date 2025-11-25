@@ -168,17 +168,6 @@
     </message>
 </context>
 <context>
-    <name>Db</name>
-    <message>
-        <source>Other</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Roll</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
@@ -252,10 +241,12 @@
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
+        <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 per sheet</source>
+        <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -628,11 +619,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Print...</source>
+        <source>Start groups at position:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start groups at position:</source>
+        <source>Destination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use system print dialog...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -671,10 +670,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select another product for this gLabels project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Change product</source>
         <translation type="unfinished"></translation>
     </message>
@@ -704,6 +699,10 @@
     </message>
     <message>
         <source>Similar Products</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select another product for this gLabels project.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -893,7 +892,7 @@
 <context>
     <name>TemplateDesignerContinuousPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -919,10 +918,6 @@
 <context>
     <name>TemplateDesignerIntroPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This dialog will help you create a custom product template. Let&apos;s get started:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copy/Edit Product</source>
         <translation type="unfinished"></translation>
     </message>
@@ -936,6 +931,10 @@
     </message>
     <message>
         <source>Create a new product template from scratch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1046,7 +1045,7 @@
 <context>
     <name>TemplateDesignerPathPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1211,15 +1210,7 @@
 <context>
     <name>VariablesView</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Edit selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1227,11 +1218,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete</source>
+        <source>Add variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit selected variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete selected variable</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1905,10 +1904,12 @@
     </message>
     <message>
         <source>Undo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2120,6 +2121,22 @@
         <source>(Will print a total of %1 items on 1 page.)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Print to file (PDF)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PDF files (*.pdf);;All files (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 already exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want to overwrite it?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
@@ -2200,6 +2217,7 @@
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
+        <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -57,9 +57,8 @@ namespace glabels
 			static void writeBuffer( const Model* model,
 			                         QByteArray&  buffer );
 			
-			static void serializeObjects( const QList<ModelObject*>& objects,
-			                              const Model*               model,
-			                              QByteArray&                buffer );
+			static QByteArray serializeObjects( const QList<ModelObject*>& objects,
+			                                    const Model*               model );
 
 		private:
 			static void createDoc( QDomDocument& doc,

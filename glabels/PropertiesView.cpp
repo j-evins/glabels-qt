@@ -61,15 +61,6 @@ namespace glabels
 
 
 	///
-	/// Destructor
-	///
-	PropertiesView::~PropertiesView()
-	{
-		// empty
-	}
-
-
-	///
 	/// Set Model
 	///
 	void PropertiesView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
@@ -101,41 +92,41 @@ namespace glabels
 	///
 	void PropertiesView::onLabelSizeChanged()
 	{
-		auto* tmplate   = mModel->tmplate();
-		auto* frame     = tmplate->frames().first();
-		bool  isRotated = mModel->rotate();
+		auto tmplate   = mModel->tmplate();
+		auto frame     = tmplate.frame();
+		bool isRotated = mModel->rotate();
 
 		preview->setTemplate( tmplate );
 		preview->setShowArrow( true );
 		preview->setRotate( isRotated );
 
-		const model::Vendor* vendor = model::Db::lookupVendorFromName( tmplate->brand() );
-		if ( (vendor != nullptr) && (vendor->url() != nullptr) )
+		vendorLabel->setText( tmplate.brand() );
+		if ( model::Db::isVendorNameKnown( tmplate.brand() ) )
 		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor->url(), vendor->name() );
-			vendorLabel->setText( markup );
-		}
-		else
-		{
-			vendorLabel->setText( tmplate->brand() );
+			auto vendor = model::Db::lookupVendorFromName( tmplate.brand() );
+			if ( !vendor.url().isEmpty() )
+			{
+				QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor.url(), vendor.name() );
+				vendorLabel->setText( markup );
+			}
 		}
 
-		if ( tmplate->productUrl() != nullptr )
+		if ( !tmplate.productUrl().isEmpty() )
 		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate->productUrl(), tmplate->part() );
+			QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate.productUrl(), tmplate.part() );
 			partLabel->setText( markup );
 		}
 		else
 		{
-			partLabel->setText( tmplate->part() );
+			partLabel->setText( tmplate.part() );
 		}
 
-		descriptionLabel->setText( tmplate->description() );
-		pageSizeLabel->setText( tmplate->paperDescription( mUnits ) );
+		descriptionLabel->setText( tmplate.description() );
+		pageSizeLabel->setText( tmplate.paperDescription( mUnits ) );
 		labelSizeLabel->setText( frame->sizeDescription( mUnits ) );
 		layoutLabel->setText( frame->layoutDescription() );
 
-		QStringList list = model::Db::getNameListOfSimilarTemplates( tmplate->name() );
+		QStringList list = model::Db::getNameListOfSimilarTemplates( tmplate.name() );
 		if ( list.isEmpty() )
 		{
 			similarProductsGroupBox->hide();
@@ -208,8 +199,8 @@ namespace glabels
 	///
 	void PropertiesView::onOrientationActivated()
 	{
-		const model::Template* tmplate = mModel->tmplate();
-		const model::Frame*    frame   = tmplate->frames().first();
+		auto tmplate = mModel->tmplate();
+		auto frame   = tmplate.frame();
 
 		// Make sure index actually changed.
 		int index = orientationCombo->currentIndex();
@@ -243,15 +234,15 @@ namespace glabels
 		SelectProductDialog selectProductDialog( this );
 		selectProductDialog.exec();
 
-		const model::Template* tmplate = selectProductDialog.tmplate();
-		if ( tmplate )
+		auto tmplate = selectProductDialog.tmplate();
+		if ( !tmplate.isNull() )
 		{
 			mUndoRedoModel->checkpoint( tr("Change Product") );
 
 			mModel->setTmplate( tmplate );
 
 			// Don't rotate circular or round labels
-			const model::Frame *frame = tmplate->frames().first();
+			auto frame = tmplate.frame();
 			if ( frame->w() == frame->h() )
 			{
 				mModel->setRotate( false );

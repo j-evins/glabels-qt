@@ -52,7 +52,7 @@ namespace glabels
 			/////////////////////////////////
 			QString toString() const;
 			std::string toStdString() const;
-			QString expand( merge::Record* record, Variables* variables ) const;
+			QString expand( const merge::Record& record, const Variables& variables ) const;
 			bool hasPlaceHolders() const;
 			bool isEmpty() const;
 
@@ -71,7 +71,7 @@ namespace glabels
 
 			struct Token
 			{
-				bool              isField;
+				bool              isField{ false };
 				QString           text;
 				SubstitutionField field;
 			};

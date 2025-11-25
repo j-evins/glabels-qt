@@ -60,7 +60,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		void setKeys( const merge::Merge*     merge,
-		              const model::Variables* variables );
+		              const model::Variables& variables );
 
 
 		/////////////////////////////////

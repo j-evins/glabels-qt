@@ -73,7 +73,7 @@ namespace glabels
 		qsizetype
 		ParserState::charsLeft() const
 		{
-			return mString->size() - mPos;
+			return std::max( mString->size() - mPos, qsizetype(0) );
 		}
 
 

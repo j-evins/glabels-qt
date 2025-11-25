@@ -33,14 +33,15 @@ namespace glabels
 	namespace model
 	{
 
-		Template::Template( const QString&  brand,
-		                    const QString&  part,
-		                    const QString&  description,
-		                    const QString&  paperId,
-		                    const Distance& pageWidth,
-		                    const Distance& pageHeight,
-		                    const Distance& rollWidth,
-		                    bool            isUserDefined )
+		Template::Template( const QString& brand,
+		                    const QString& part,
+		                    const QString& description,
+		                    const QString& paperId,
+		                    Distance       pageWidth,
+		                    Distance       pageHeight,
+		                    Distance       rollWidth,
+		                    const QString& fileName,
+		                    bool           isUserDefined )
 			: mBrand(brand),
 			  mPart(part),
 			  mDescription(description),
@@ -48,15 +49,16 @@ namespace glabels
 			  mPageWidth(pageWidth),
 			  mPageHeight(pageHeight),
 			  mRollWidth(rollWidth),
+			  mFileName(fileName),
 			  mIsUserDefined(isUserDefined)
 		{
-			mName.append( brand ).append( " " ).append( part );
+			mName = brandPartToName( brand, part );
 
 			if ( Db::isPaperIdKnown( paperId ) )
 			{
-				const Paper* paper = Db::lookupPaperFromId( paperId );
-				mIsSizeIso = paper->isSizeIso();
-				mIsSizeUs  = paper->isSizeUs();
+				auto paper = Db::lookupPaperFromId( paperId );
+				mIsSizeIso = paper.isSizeIso();
+				mIsSizeUs  = paper.isSizeUs();
 			}
 
 			mIsRoll = (paperId == "roll");
@@ -65,37 +67,30 @@ namespace glabels
 
 		Template::Template( const Template& other )
 		{
-			mBrand       = other.mBrand;
-			mPart        = other.mPart;
-			mDescription = other.mDescription;
-			mPaperId     = other.mPaperId;
-			mPageWidth   = other.mPageWidth;
-			mPageHeight  = other.mPageHeight;
-			mRollWidth   = other.mRollWidth;
-			mIsSizeIso   = other.mIsSizeIso;
-			mIsSizeUs    = other.mIsSizeUs;
-			mIsRoll      = other.mIsRoll;
-			mEquivPart   = other.mEquivPart;
-			mName        = other.mName;
-			mProductUrl  = other.mProductUrl;
+			mBrand         = other.mBrand;
+			mPart          = other.mPart;
+			mDescription   = other.mDescription;
+			mPaperId       = other.mPaperId;
+			mPageWidth     = other.mPageWidth;
+			mPageHeight    = other.mPageHeight;
+			mRollWidth     = other.mRollWidth;
+			mIsSizeIso     = other.mIsSizeIso;
+			mIsSizeUs      = other.mIsSizeUs;
+			mIsRoll        = other.mIsRoll;
+			mEquivPart     = other.mEquivPart;
+			mName          = other.mName;
+			mProductUrl    = other.mProductUrl;
+			mFileName      = other.mFileName;
+			mIsUserDefined = other.mIsUserDefined;
 
-			foreach ( Frame* frame, other.mFrames )
+			if ( other.mFrame )
 			{
-				addFrame( frame->dup() );
+				mFrame = other.mFrame->clone();
 			}
 
-			foreach ( QString categoryId, other.mCategoryIds )
+			for ( auto& categoryId : other.mCategoryIds )
 			{
 				addCategory( categoryId );
-			}
-		}
-
-
-		Template::~Template()
-		{
-			while ( !mFrames.isEmpty() )
-			{
-				delete mFrames.takeFirst();
 			}
 		}
 
@@ -104,31 +99,29 @@ namespace glabels
 		{
 			if ( this != &other )
 			{
-				mBrand       = other.mBrand;
-				mPart        = other.mPart;
-				mDescription = other.mDescription;
-				mPaperId     = other.mPaperId;
-				mPageWidth   = other.mPageWidth;
-				mPageHeight  = other.mPageHeight;
-				mRollWidth   = other.mRollWidth;
-				mIsSizeIso   = other.mIsSizeIso;
-				mIsSizeUs    = other.mIsSizeUs;
-				mIsRoll      = other.mIsRoll;
-				mEquivPart   = other.mEquivPart;
-				mName        = other.mName;
-				mProductUrl  = other.mProductUrl;
+				mBrand         = other.mBrand;
+				mPart          = other.mPart;
+				mDescription   = other.mDescription;
+				mPaperId       = other.mPaperId;
+				mPageWidth     = other.mPageWidth;
+				mPageHeight    = other.mPageHeight;
+				mRollWidth     = other.mRollWidth;
+				mIsSizeIso     = other.mIsSizeIso;
+				mIsSizeUs      = other.mIsSizeUs;
+				mIsRoll        = other.mIsRoll;
+				mEquivPart     = other.mEquivPart;
+				mName          = other.mName;
+				mProductUrl    = other.mProductUrl;
+				mFileName      = other.mFileName;
+				mIsUserDefined = other.mIsUserDefined;
 
-				while ( !mFrames.isEmpty() )
+				if ( other.mFrame )
 				{
-					delete mFrames.takeFirst();
-				}
-				foreach ( Frame* frame, other.mFrames )
-				{
-					addFrame( frame->dup() );
+					mFrame = other.mFrame->clone();
 				}
 
 				mCategoryIds.clear();
-				foreach ( QString categoryId, other.mCategoryIds )
+				for ( auto& categoryId : other.mCategoryIds )
 				{
 					addCategory( categoryId );
 				}
@@ -138,29 +131,19 @@ namespace glabels
 		}
 
 
-		// Generic full page template
-		Template* Template::fullPage( const QString& paperId )
-		{
-			// TODO
-			return nullptr;
-		}
-
-
 		// From equivalent part number
-		Template* Template::fromEquiv( const QString& brand,
-		                               const QString& part,
-		                               const QString& equivPart )
+		Template Template::fromEquiv( const QString& brand,
+		                              const QString& part,
+		                              const QString& equivPart )
 		{
-			const Template* other = Db::lookupTemplateFromBrandPart( brand, equivPart );
-			if ( other != nullptr )
+			if ( Db::isTemplateKnown( brand, equivPart ) )
 			{
-				Template* tmplate = new Template( *other );
+				auto tmplate = Db::lookupTemplateFromBrandPart( brand, equivPart );
 
-				tmplate->mPart      = part;
-				tmplate->mEquivPart = equivPart;
+				tmplate.mPart      = part;
+				tmplate.mEquivPart = equivPart;
 
-				tmplate->mName = "";
-				tmplate->mName.append( brand ).append( " " ).append( part );
+				tmplate.mName = brandPartToName( brand, part );
 
 				return tmplate;
 			}
@@ -169,11 +152,24 @@ namespace glabels
 				qWarning() << "Error: cannot create equivalent template for "
 				           << brand << ", " << equivPart
 				           << ". Forward references not supported.";
-				return nullptr;
+				return Template();
 			}
 		}
 
 
+		QString Template::brandPartToName( const QString& brand,
+		                                   const QString& part )
+		{
+			return QString( "%1 %2" ).arg( brand ).arg( part );
+		}
+
+
+		bool Template::isNull() const
+		{
+			return mBrand.isEmpty() || mPart.isEmpty();
+		}
+
+	
 		QString Template::brand() const
 		{
 			return mBrand;
@@ -192,7 +188,7 @@ namespace glabels
 		}
 	
 
-		QString Template::paperDescription( const Units& units ) const
+		QString Template::paperDescription( Units units ) const
 		{
 			if ( mPaperId == "other" )
 			{
@@ -231,8 +227,7 @@ namespace glabels
 		Distance Template::pageHeight() const
 		{
 			// Adjust height if continuous tape
-			const model::Frame* frame = mFrames.constFirst();
-			if ( const auto* frameContinuous = dynamic_cast<const model::FrameContinuous*>(frame) )
+			if ( const auto* frameContinuous = dynamic_cast<const model::FrameContinuous*>( mFrame.get() ) )
 			{
 				return frameContinuous->h();
 			}
@@ -273,9 +268,27 @@ namespace glabels
 		}
 	
 
+		QString Template::fileName() const
+		{
+			return mFileName;
+		}
+
+	
+		void Template::setFileName( const QString& value )
+		{
+			mFileName = value;
+		}
+	
+
 		bool Template::isUserDefined() const
 		{
 			return mIsUserDefined;
+		}
+	
+
+		void Template::setIsUserDefined( bool isUserDefined )
+		{
+			mIsUserDefined = isUserDefined;
 		}
 	
 
@@ -309,9 +322,9 @@ namespace glabels
 		}
 	
 
-		const QList<Frame*>& Template::frames() const
+		const Frame* Template::frame( const QString& id ) const
 		{
-			return mFrames;
+			return mFrame.get();
 		}
 
 
@@ -321,9 +334,9 @@ namespace glabels
 		}
 
 
-		void Template::addFrame( Frame* frame )
+		void Template::addFrame( const Frame& frame )
 		{
-			mFrames << frame;
+			mFrame = frame.clone();
 		}
 
 
@@ -335,7 +348,7 @@ namespace glabels
 
 		bool Template::hasCategory( const QString& categoryId ) const
 		{
-			foreach ( QString testCategoryId, mCategoryIds )
+			for ( auto& testCategoryId : mCategoryIds )
 			{
 				if ( categoryId == testCategoryId )
 				{
@@ -347,29 +360,29 @@ namespace glabels
 		}
 
 
-		bool Template::isSimilarTo( const Template* other ) const
+		bool Template::isSimilarTo( const Template& other ) const
 		{
 			// Does page size match?
-			if ( (mPaperId    != other->mPaperId)    ||
-			     (mPageWidth  != other->mPageWidth ) ||
-			     (mPageHeight != other->mPageHeight ) )
+			if ( (mPaperId    != other.mPaperId)    ||
+			     (mPageWidth  != other.mPageWidth ) ||
+			     (mPageHeight != other.mPageHeight ) )
 			{
 				return false;
 			}
 
 			// Are frames similar
-			Frame* frame1 = mFrames.first();
-			Frame* frame2 = other->mFrames.first();
-			if ( !frame1->isSimilarTo( frame2 ) )
+			auto& frame1 = mFrame;
+			auto& frame2 = other.mFrame;
+			if ( !frame1->isSimilarTo( *frame2 ) )
 			{
 				return false;
 			}
 
 			// Are they layed out similarly?
-			foreach ( const Layout& layout1, frame1->layouts() )
+			for ( auto& layout1 : frame1->layouts() )
 			{
 				bool matchFound = false;
-				foreach ( const Layout& layout2, frame2->layouts() )
+				for ( auto& layout2 : frame2->layouts() )
 				{
 					if ( layout1.isSimilarTo( layout2 ) )
 					{
@@ -386,6 +399,18 @@ namespace glabels
 			return true;
 		}
 
+
+		bool Template::setH( Distance h )
+		{
+			if ( mFrame )
+			{
+				return mFrame->setH( h );
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 	}
 }
@@ -405,7 +430,7 @@ QDebug operator<<( QDebug dbg, const glabels::model::Template& tmplate )
 	              << tmplate.isSizeUs() << ","
 	              << tmplate.isSizeOther() << ","
 	              << tmplate.isRoll() << ","
-	              << *tmplate.frames().constFirst() << ","
+	              << *tmplate.frame() << ","
 	              << " }";
 	return dbg;
 }

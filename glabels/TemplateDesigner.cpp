@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "TemplateDesigner.h"
 
 #include "SelectProductDialog.h"
@@ -34,14 +35,16 @@
 #include "model/PageRenderer.h"
 #include "model/Settings.h"
 
+#include <QDebug>
 #include <QMessageBox>
 #include <QPrintDialog>
 #include <QPrinter>
 #include <QVBoxLayout>
-#include <QtDebug>
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
+
 
 namespace glabels
 {
@@ -367,7 +370,7 @@ namespace glabels
 	///
 	/// Build template from wizard pages
 	///
-	model::Template* TemplateDesigner::buildTemplate()
+	model::Template TemplateDesigner::buildTemplate()
 	{
 		model::Units units = model::Settings::units();
 
@@ -379,9 +382,8 @@ namespace glabels
 		model::Distance pageH( field( "pageSize.h" ).toDouble(), units );
 		model::Distance pageRollW( field( "pageSize.rollW" ).toDouble(), units );
 		
-		auto t = new model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, true );
+		auto t = model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, "", true );
 
-		model::Frame* frame;
 		if ( field( "shape.rect" ).toBool() )
 		{
 			model::Distance w( field( "rect.w" ).toDouble(), units );
@@ -392,8 +394,10 @@ namespace glabels
 			model::Distance xMargin( field( "rect.xMargin" ).toDouble(), units );
 			model::Distance yMargin( field( "rect.yMargin" ).toDouble(), units );
 
-			frame = new model::FrameRect( w, h, r, xWaste, yWaste );
-			frame->addMarkup( new model::MarkupMargin( xMargin, yMargin ) );
+			model::FrameRect frame( w, h, r, xWaste, yWaste );
+			frame.addMarkup( model::MarkupMargin( xMargin, yMargin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
 		else if ( field( "shape.round" ).toBool() )
 		{
@@ -401,8 +405,10 @@ namespace glabels
 			model::Distance waste( field( "round.waste" ).toDouble(), units );
 			model::Distance margin( field( "round.margin" ).toDouble(), units );
 
-			frame = new model::FrameRound( r, waste );
-			frame->addMarkup( new model::MarkupMargin( margin ) );
+			model::FrameRound frame( r, waste );
+			frame.addMarkup( model::MarkupMargin( margin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
 		else if ( field( "shape.ellipse" ).toBool() )
 		{
@@ -411,8 +417,10 @@ namespace glabels
 			model::Distance waste( field( "ellipse.waste" ).toDouble(), units );
 			model::Distance margin( field( "ellipse.margin" ).toDouble(), units );
 
-			frame = new model::FrameEllipse( w, h, waste );
-			frame->addMarkup( new model::MarkupMargin( margin ) );
+			model::FrameEllipse frame( w, h, waste );
+			frame.addMarkup( model::MarkupMargin( margin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
 		else
 		{
@@ -423,10 +431,22 @@ namespace glabels
 			model::Distance waste( field( "cd.waste" ).toDouble(), units );
 			model::Distance margin( field( "cd.margin" ).toDouble(), units );
 
-			frame = new model::FrameCd( r1, r2, xClip, yClip, waste );
-			frame->addMarkup( new model::MarkupMargin( margin ) );
+			model::FrameCd frame( r1, r2, xClip, yClip, waste );
+			frame.addMarkup( model::MarkupMargin( margin ) );
+			addLayouts( frame );
+			t.addFrame( frame );
 		}
-		t->addFrame( frame );
+
+		return t;
+	}
+
+
+	///
+	/// Add layouts to frame
+	///
+	void TemplateDesigner::addLayouts( model::Frame& frame )
+	{
+		model::Units units = model::Settings::units();
 
 		if ( field( "nLayouts.one" ).toBool() )
 		{
@@ -437,7 +457,7 @@ namespace glabels
 			model::Distance dx( field( "oneLayout.dx" ).toDouble(), units );
 			model::Distance dy( field( "oneLayout.dy" ).toDouble(), units );
 
-			frame->addLayout( model::Layout( nx, ny, x0, y0, dx, dy ) );
+			frame.addLayout( model::Layout( nx, ny, x0, y0, dx, dy ) );
 		}
 		else
 		{
@@ -455,14 +475,12 @@ namespace glabels
 			model::Distance dx2( field( "twoLayout.dx2" ).toDouble(), units );
 			model::Distance dy2( field( "twoLayout.dy2" ).toDouble(), units );
 
-			frame->addLayout( model::Layout( nx1, ny1, x01, y01, dx1, dy1 ) );
-			frame->addLayout( model::Layout( nx2, ny2, x02, y02, dx2, dy2 ) );
+			frame.addLayout( model::Layout( nx1, ny1, x01, y01, dx1, dy1 ) );
+			frame.addLayout( model::Layout( nx2, ny2, x02, y02, dx2, dy2 ) );
 		}
-
-		return t;
 	}
 
-
+	
 	///
 	/// Print test sheet
 	///
@@ -498,22 +516,22 @@ namespace glabels
 	///
 	/// Load wizard from template
 	///
-	void TemplateDesigner::loadFromTemplate( const model::Template* tmplate )
+	void TemplateDesigner::loadFromTemplate( const model::Template& tmplate )
 	{
 		mIsBasedOnCopy = true;
 
 		model::Units units = model::Settings::units();
 
-		setField( "name.brand",       tmplate->brand() );
-		setField( "name.part",        tmplate->part() + QString(" (%1)").arg( tr("Copy") ) );
-		setField( "name.description", tmplate->description() );
+		setField( "name.brand",       tmplate.brand() );
+		setField( "name.part",        tmplate.part() + QString(" (%1)").arg( tr("Copy") ) );
+		setField( "name.description", tmplate.description() );
 
-		setField( "pageSize.pageSize", model::Db::lookupPaperNameFromId( tmplate->paperId() ) );
-		setField( "pageSize.w",        tmplate->pageWidth().inUnits( units ) );
-		setField( "pageSize.h",        tmplate->pageHeight().inUnits( units ) );
-		setField( "pageSize.rollW",    tmplate->rollWidth().inUnits( units ) );
+		setField( "pageSize.pageSize", model::Db::lookupPaperNameFromId( tmplate.paperId() ) );
+		setField( "pageSize.w",        tmplate.pageWidth().inUnits( units ) );
+		setField( "pageSize.h",        tmplate.pageHeight().inUnits( units ) );
+		setField( "pageSize.rollW",    tmplate.rollWidth().inUnits( units ) );
 
-		const model::Frame* frame = tmplate->frames().first();
+		auto frame = tmplate.frame();
 		if ( auto frameRect = dynamic_cast<const model::FrameRect*>( frame ) )
 		{
 			setField( "shape.rect", true );
@@ -550,9 +568,9 @@ namespace glabels
 			setField( "cd.waste", frameCd->waste().inUnits( units ) );
 		}
 
-		foreach( auto markup, frame->markups() )
+		for( auto& markup : frame->markups() )
 		{
-			if ( auto markupMargin = dynamic_cast<const model::MarkupMargin*>( markup ) )
+			if ( auto markupMargin = dynamic_cast<const model::MarkupMargin*>( markup.get() ) )
 			{
 				setField( "rect.xMargin",   markupMargin->xSize().inUnits( units ) );
 				setField( "rect.yMargin",   markupMargin->ySize().inUnits( units ) );
@@ -565,28 +583,30 @@ namespace glabels
 		auto layouts = frame->layouts();
 		if ( layouts.size() == 1 )
 		{
-			setField( "oneLayout.nx", layouts[0].nx() );
-			setField( "oneLayout.ny", layouts[0].ny() );
-			setField( "oneLayout.x0", layouts[0].x0().inUnits( units ) );
-			setField( "oneLayout.y0", layouts[0].y0().inUnits( units ) );
-			setField( "oneLayout.dx", layouts[0].dx().inUnits( units ) );
-			setField( "oneLayout.dy", layouts[0].dy().inUnits( units ) );
+			setField( "oneLayout.nx", layouts.front().nx() );
+			setField( "oneLayout.ny", layouts.front().ny() );
+			setField( "oneLayout.x0", layouts.front().x0().inUnits( units ) );
+			setField( "oneLayout.y0", layouts.front().y0().inUnits( units ) );
+			setField( "oneLayout.dx", layouts.front().dx().inUnits( units ) );
+			setField( "oneLayout.dy", layouts.front().dy().inUnits( units ) );
 		}
 		else if ( layouts.size() > 1 )
 		{
-			setField( "twoLayout.nx1", layouts[0].nx() );
-			setField( "twoLayout.ny1", layouts[0].ny() );
-			setField( "twoLayout.x01", layouts[0].x0().inUnits( units ) );
-			setField( "twoLayout.y01", layouts[0].y0().inUnits( units ) );
-			setField( "twoLayout.dx1", layouts[0].dx().inUnits( units ) );
-			setField( "twoLayout.dy1", layouts[0].dy().inUnits( units ) );
+			auto it = layouts.begin();
+			setField( "twoLayout.nx1", it->nx() );
+			setField( "twoLayout.ny1", it->ny() );
+			setField( "twoLayout.x01", it->x0().inUnits( units ) );
+			setField( "twoLayout.y01", it->y0().inUnits( units ) );
+			setField( "twoLayout.dx1", it->dx().inUnits( units ) );
+			setField( "twoLayout.dy1", it->dy().inUnits( units ) );
 
-			setField( "twoLayout.nx2", layouts[1].nx() );
-			setField( "twoLayout.ny2", layouts[1].ny() );
-			setField( "twoLayout.x02", layouts[1].x0().inUnits( units ) );
-			setField( "twoLayout.y02", layouts[1].y0().inUnits( units ) );
-			setField( "twoLayout.dx2", layouts[1].dx().inUnits( units ) );
-			setField( "twoLayout.dy2", layouts[1].dy().inUnits( units ) );
+			std::advance( it, 1 );
+			setField( "twoLayout.nx2", it->nx() );
+			setField( "twoLayout.ny2", it->ny() );
+			setField( "twoLayout.x02", it->x0().inUnits( units ) );
+			setField( "twoLayout.y02", it->y0().inUnits( units ) );
+			setField( "twoLayout.dx2", it->dx().inUnits( units ) );
+			setField( "twoLayout.dy2", it->dy().inUnits( units ) );
 		}
 	}
 	
@@ -633,16 +653,16 @@ namespace glabels
 		SelectProductDialog dialog;
 		dialog.exec();
 
-		const model::Template* tmplate = dialog.tmplate();
-		if ( tmplate )
+		auto tmplate = dialog.tmplate();
+		if ( !tmplate.isNull() )
 		{
 			if ( auto td = dynamic_cast<TemplateDesigner*>( wizard() ) )
 			{
-				if ( dynamic_cast<model::FramePath*>(tmplate->frames().constFirst()) )
+				if ( dynamic_cast<const model::FramePath*>(tmplate.frame()) )
 				{
 					td->mIsTemplatePathBased = true;
 				}
-				else if ( dynamic_cast<model::FrameContinuous*>(tmplate->frames().constFirst()) )
+				else if ( dynamic_cast<const model::FrameContinuous*>(tmplate.frame()) )
 				{
 					td->mIsTemplateContinuousBased = true;
 				}
@@ -753,9 +773,9 @@ namespace glabels
 
 		if ( pageSizeCombo->currentText() != tr("Other") )
 		{
-			const model::Paper* paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
-			wSpin->setValue( paper->width().inUnits( model::Settings::units() ) );
-			hSpin->setValue( paper->height().inUnits( model::Settings::units() ) );
+			auto paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
+			wSpin->setValue( paper.width().inUnits( model::Settings::units() ) );
+			hSpin->setValue( paper.height().inUnits( model::Settings::units() ) );
 		}
 
 		registerField( "pageSize.pageSize", pageSizeCombo, "currentText" );
@@ -789,9 +809,9 @@ namespace glabels
 
 		if ( !isOther && !isRoll )
 		{
-			const model::Paper* paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
-			wSpin->setValue( paper->width().inUnits( model::Settings::units() ) );
-			hSpin->setValue( paper->height().inUnits( model::Settings::units() ) );
+			auto paper = model::Db::lookupPaperFromName( pageSizeCombo->currentText() );
+			wSpin->setValue( paper.width().inUnits( model::Settings::units() ) );
+			hSpin->setValue( paper.height().inUnits( model::Settings::units() ) );
 		}
 
 		if ( !isRoll )
@@ -1553,13 +1573,15 @@ namespace glabels
 		//
 		QString brand = field( "name.brand" ).toString();
 		QString part = field( "name.part" ).toString();
-		QString filename = model::Db::userTemplateFilename( brand, part );
+		QString filename = model::Db::userTemplateFileName( brand, part );
 
 		if ( QFileInfo::exists(filename) )
 		{
 			QMessageBox msgBox( wizard() );
 			msgBox.setWindowTitle( tr("Save Product Template") );
 			msgBox.setIcon( QMessageBox::Warning );
+			// TRANSLATORS
+			//:   %1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).
 			msgBox.setText( tr("User product template (%1 %2) already exists.").arg(brand).arg(part) );
 			msgBox.setInformativeText( tr("Do you want to replace it?") );
 			msgBox.setStandardButtons( QMessageBox::Yes | QMessageBox::No );

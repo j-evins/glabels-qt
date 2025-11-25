@@ -26,6 +26,20 @@
 namespace glabels
 {
 
+	Cursors::Crosshair::Crosshair()
+		: QCursor( QPixmap(":cursors/32x32/cursor_crosshair.png"), 15, 15 )
+	{
+		// empty
+	}
+
+
+	Cursors::Move::Move()
+		: QCursor( QPixmap(":cursors/32x32/cursor_move.png"), 15, 15 )
+	{
+		// empty
+	}
+
+
 	Cursors::Barcode::Barcode()
 		: QCursor( QPixmap(":cursors/32x32/cursor_barcode.png"), 7, 7 )
 	{

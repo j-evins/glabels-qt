@@ -18,10 +18,9 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "XmlVendorParser.h"
 
-#include "Db.h"
-#include "Vendor.h"
 #include "XmlUtil.h"
 
 #include <QDomDocument>
@@ -35,7 +34,7 @@ namespace glabels
 	namespace model
 	{
 
-		bool XmlVendorParser::readFile( const QString &fileName )
+		QList<Vendor> XmlVendorParser::readFile( const QString &fileName )
 		{
 			QFile file( fileName );
 
@@ -43,7 +42,7 @@ namespace glabels
 			{
 				qWarning() << "Error: Cannot read file " << fileName
 				           << ": " << file.errorString();
-				return false;
+				return QList<Vendor>(); // Empty list
 			}
 
 
@@ -57,28 +56,29 @@ namespace glabels
 				qWarning() << "Error: Parse error at line " << errorLine
 				           << "column " << errorColumn
 				           << ": " << errorString;
-				return false;
+				return QList<Vendor>(); // Empty list
 			}
 
 			QDomElement root = doc.documentElement();
 			if ( root.tagName() != "Glabels-vendors" )
 			{
 				qWarning() << "Error: Not a Glabels-vendors file.";
-				return false;
+				return QList<Vendor>(); // Empty list
 			}
 
-			parseRootNode( root );
-			return true;
+			return parseRootNode( root );
 		}
 
 
-		void XmlVendorParser::parseRootNode( const QDomElement &node )
+		QList<Vendor> XmlVendorParser::parseRootNode( const QDomElement &node )
 		{
+			QList<Vendor> list;
+
 			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
 			{
 				if ( child.toElement().tagName() == "Vendor" )
 				{
-					parseVendorNode( child.toElement() );
+					list.push_back( parseVendorNode( child.toElement() ) );
 				}
 				else if ( !child.isComment() )
 				{
@@ -87,19 +87,17 @@ namespace glabels
 					           << ", Ignored.";
 				}
 			}
+
+			return list;
 		}
 
 
-		void XmlVendorParser::parseVendorNode( const QDomElement &node )
+		Vendor XmlVendorParser::parseVendorNode( const QDomElement &node )
 		{
 			QString name = XmlUtil::getStringAttr( node, "name", "" );
 			QString url  = XmlUtil::getStringAttr( node, "url", "" );
 
-			auto *vendor = new Vendor( name, url );
-			if ( vendor != nullptr )
-			{
-				Db::registerVendor( vendor );
-			}
+			return Vendor( name, url );
 		}
 
 

@@ -22,7 +22,7 @@
 #define LabelEditor_h
 
 
-#include "model/Handles.h"
+#include "model/Handle.h"
 #include "model/Model.h"
 #include "model/ModelObject.h"
 #include "model/Region.h"
@@ -135,8 +135,8 @@ namespace glabels
 		// Private methods
 		/////////////////////////////////////
 	private:
-		void handleResizeMotion( const model::Distance& xWorld,
-		                         const model::Distance& yWorld );
+		void handleResizeMotion( model::Distance xWorld,
+		                         model::Distance yWorld );
 
 		void drawBgLayer( QPainter* painter );
 		void drawGridLayer( QPainter* painter );
@@ -205,9 +205,9 @@ namespace glabels
 		model::Distance      mMoveLastY;
 
 		/* ArrowResize state */
-		model::ModelObject*  mResizeObject;
-		model::Handle*       mResizeHandle;
-		bool                 mResizeHonorAspect;
+		model::ModelObject*     mResizeObject;
+		model::Handle::Location mResizeHandleLocation;
+		bool                    mResizeHonorAspect;
 
 		/* CreateDrag state */
 		CreateType           mCreateObjectType;

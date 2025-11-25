@@ -39,13 +39,13 @@ namespace glabels
 	public:
 		MiniPreviewPixmap();
 
-		MiniPreviewPixmap( const model::Template* tmplate, int width, int height );
+		MiniPreviewPixmap( const model::Template& tmplate, int width, int height );
 
 		
 	private:
-		void draw( const model::Template* tmplate, int width, int height );
-		void drawPaper( QPainter& painter, const model::Template* tmplate, double scale );
-		void drawLabelOutlines( QPainter& painter, const model::Template* tmplate, double scale );
+		void draw( const model::Template& tmplate, int width, int height );
+		void drawPaper( QPainter& painter, const model::Template& tmplate, double scale );
+		void drawLabelOutlines( QPainter& painter, const model::Template& tmplate, double scale );
 		void drawLabelOutline( QPainter& painter, const model::Frame *frame, const model::Point& point0 );
 		
 	};

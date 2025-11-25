@@ -108,9 +108,9 @@ namespace glabels
 		///
 		/// Read next record
 		///
-		Record* None::readNextRecord()
+		Record None::readNextRecord()
 		{
-			return nullptr;
+			return NullRecord();
 		}
 
 	} // namespace merge

@@ -41,16 +41,11 @@ namespace glabels
 
 		class XmlUtil
 		{
-		private:
-			XmlUtil();
-
-		
 		public:
-
-			static void init();
+			XmlUtil() = delete;
 
 			static Units units();
-			static void setUnits( const Units& units );
+			static void setUnits( Units units );
 
 			static QString  getStringAttr( const QDomElement& node,
 			                               const QString&     name,
@@ -78,7 +73,7 @@ namespace glabels
 
 			static Distance getLengthAttr( const QDomElement& node,
 			                               const QString&     name,
-			                               const Distance&    default_value );
+			                               Distance           default_value );
 
 			static QFont::Weight getWeightAttr( const QDomElement& node,
 			                                    const QString&     name,
@@ -94,11 +89,11 @@ namespace glabels
 
 			static Units getUnitsAttr(  const QDomElement& node,
 			                            const QString&     name,
-			                            const Units&       default_value );
+			                            Units              default_value );
 
-			static QPainterPath getPathDataAttr( const QDomElement&    node,
-			                                     const QString&        name,
-			                                     const Units&          units );
+			static QPainterPath getPathDataAttr( const QDomElement& node,
+			                                     const QString&     name,
+			                                     Units              units );
 
 
 			static void     setStringAttr( QDomElement&   node,
@@ -123,7 +118,7 @@ namespace glabels
 
 			static void     setLengthAttr( QDomElement&    node,
 			                               const QString&  name,
-			                               const Distance& value );
+			                               Distance        value );
 
 			static void     setWeightAttr( QDomElement&    node,
 			                               const QString&  name,
@@ -139,19 +134,15 @@ namespace glabels
 
 			static void     setUnitsAttr(  QDomElement&   node,
 			                               const QString& name,
-			                               const Units&   value );
+			                               Units          value );
 
 			static void     setPathDataAttr( QDomElement&        node,
 			                                 const QString&      name,
 			                                 const QPainterPath& value,
-			                                 const Units&        units );
-
-
+			                                 Units               units );
 		
 		private:
-			Units mUnits;
-
-			static XmlUtil* mInstance;
+			static Units mUnits;
 
 		};
 

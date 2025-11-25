@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameRect.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -29,13 +32,18 @@ namespace glabels
 	namespace model
 	{
 
-		FrameRect::FrameRect( const Distance& w,
-		                      const Distance& h,
-		                      const Distance& r,
-		                      const Distance& xWaste,
-		                      const Distance& yWaste,
-		                      const QString&  id )
-			: Frame(id), mW(w), mH(h), mR(r), mXWaste(xWaste), mYWaste(yWaste)
+		FrameRect::FrameRect( Distance       w,
+		                      Distance       h,
+		                      Distance       r,
+		                      Distance       xWaste,
+		                      Distance       yWaste,
+		                      const QString& id )
+			: Frame(id),
+			  mW(w),
+			  mH(h),
+			  mR(r),
+			  mXWaste(xWaste),
+			  mYWaste(yWaste)
 		{
 			mPath.addRoundedRect( 0, 0, mW.pt(), mH.pt(), mR.pt(), mR.pt() );
 		
@@ -45,9 +53,9 @@ namespace glabels
 		}
 
 
-		Frame* FrameRect::dup() const
+		std::unique_ptr<Frame> FrameRect::clone() const
 		{
-			return new FrameRect( *this );
+			return std::make_unique<FrameRect>( *this );
 		}
 
 
@@ -81,7 +89,7 @@ namespace glabels
 		}
 
 
-		QString FrameRect::sizeDescription( const Units& units ) const
+		QString FrameRect::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -99,9 +107,9 @@ namespace glabels
 		}
 
 
-		bool FrameRect::isSimilarTo( Frame* other ) const
+		bool FrameRect::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherRect = dynamic_cast<FrameRect*>(other) )
+			if ( auto *otherRect = dynamic_cast<const FrameRect*>(&other) )
 			{
 				if ( (fabs( mW - otherRect->mW ) <= EPSILON) &&
 				     (fabs( mH - otherRect->mH ) <= EPSILON) )
@@ -125,8 +133,7 @@ namespace glabels
 		}
 
 
-		QPainterPath FrameRect::marginPath( const Distance& xSize,
-		                                    const Distance& ySize ) const
+		QPainterPath FrameRect::marginPath( Distance xSize, Distance ySize ) const
 		{
 			Distance w = mW - 2*xSize;
 			Distance h = mH - 2*ySize;
@@ -139,24 +146,31 @@ namespace glabels
 		}
 
 
+		// Debugging support
+		void FrameRect::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameRect{ "
+			              << id() << "," 
+			              << w() << "," 
+			              << h() << "," 
+			              << r() << "," 
+			              << xWaste() << "," 
+			              << yWaste() << ","
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+
 	}
-}
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FrameRect& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameRect{ "
-	              << frame.id() << "," 
-	              << frame.w() << "," 
-	              << frame.h() << "," 
-	              << frame.r() << "," 
-	              << frame.xWaste() << "," 
-	              << frame.yWaste() << ","
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
 }

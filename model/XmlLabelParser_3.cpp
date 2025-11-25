@@ -104,15 +104,14 @@ namespace glabels
 		
 				if ( tagName == "Template" )
 				{
-					Template* tmplate = XmlTemplateParser().parseTemplateNode( childElement );
-					if ( tmplate == nullptr )
+					auto tmplate = XmlTemplateParser().parseTemplateNode( childElement );
+					if ( tmplate.isNull() )
 					{
 						qWarning() << "Unable to parse template";
 						delete label;
 						return nullptr;
 					}
 					label->setTmplate( tmplate ); // Copies arg
-					delete tmplate;
 				}
 				else if ( tagName == "Objects" )
 				{

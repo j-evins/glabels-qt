@@ -18,12 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FrameCd.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels
@@ -31,13 +32,18 @@ namespace glabels
 	namespace model
 	{
 
-		FrameCd::FrameCd( const Distance& r1,
-		                  const Distance& r2,
-		                  const Distance& w,
-		                  const Distance& h,
-		                  const Distance& waste,
-		                  const QString&  id )
-			: Frame(id), mR1(r1), mR2(r2), mW(w), mH(h), mWaste(waste)
+		FrameCd::FrameCd( Distance       r1,
+		                  Distance       r2,
+		                  Distance       w,
+		                  Distance       h,
+		                  Distance       waste,
+		                  const QString& id )
+			: Frame(id),
+			  mR1(r1),
+			  mR2(r2),
+			  mW(w),
+			  mH(h),
+			  mWaste(waste)
 		{
 			Distance wReal = (mW == 0) ? 2*mR1 : mW;
 			Distance hReal = (mH == 0) ? 2*mR1 : mH;
@@ -93,9 +99,9 @@ namespace glabels
 		}
 
 
-		Frame* FrameCd::dup() const
+		std::unique_ptr<Frame> FrameCd::clone() const
 		{
-			return new FrameCd( *this );
+			return std::make_unique<FrameCd>( *this );
 		}
 	
 
@@ -129,7 +135,7 @@ namespace glabels
 		}
 	
 
-		QString FrameCd::sizeDescription( const Units& units ) const
+		QString FrameCd::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -145,9 +151,9 @@ namespace glabels
 		}
 
 
-		bool FrameCd::isSimilarTo( Frame* other ) const
+		bool FrameCd::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherCd = dynamic_cast<FrameCd*>(other) )
+			if ( auto *otherCd = dynamic_cast<const FrameCd*>(&other) )
 			{
 				if ( (fabs( mW  - otherCd->mW )  <= EPSILON) &&
 				     (fabs( mH  - otherCd->mH )  <= EPSILON) &&
@@ -173,8 +179,7 @@ namespace glabels
 		}
 	
 
-		QPainterPath FrameCd::marginPath( const Distance& xSize,
-		                                  const Distance& ySize ) const
+		QPainterPath FrameCd::marginPath( Distance xSize, Distance ySize ) const
 		{
 			// Note: ignore ySize, assume xSize == ySize
 			Distance size = xSize;
@@ -207,24 +212,33 @@ namespace glabels
 			return path;
 		}
 
+		
+		// Debugging support
+		void FrameCd::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FrameCd{ "
+			              << id() << "," 
+			              << r1() << "," 
+			              << r2() << "," 
+			              << waste() << "," 
+			              << w() << "," 
+			              << h() << ","
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
 	}
 }
 
 
-QDebug operator<<( QDebug dbg, const glabels::model::FrameCd& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FrameCd{ "
-	              << frame.id() << "," 
-	              << frame.r1() << "," 
-	              << frame.r2() << "," 
-	              << frame.waste() << "," 
-	              << frame.w() << "," 
-	              << frame.h() << ","
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
-}

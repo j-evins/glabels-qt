@@ -18,6 +18,7 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelBarcodeObject.h"
 
 #include "Size.h"
@@ -58,16 +59,16 @@ namespace glabels
 		///
 		ModelBarcodeObject::ModelBarcodeObject()
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mBcStyle        = barcode::Backends::defaultStyle();
 			mBcTextFlag     = mBcStyle.canText();
@@ -76,9 +77,6 @@ namespace glabels
 			mBcData         = "";
 			mBcColorNode    = ColorNode( Qt::black );
 
-			mEditorBarcode = nullptr;
-			mEditorDefaultBarcode = nullptr;
-
 			update(); // Initialize cached editor layouts
 		}
 
@@ -86,10 +84,10 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelBarcodeObject::ModelBarcodeObject( const Distance&       x0,
-		                                        const Distance&       y0,
-		                                        const Distance&       w,
-		                                        const Distance&       h,
+		ModelBarcodeObject::ModelBarcodeObject( Distance              x0,
+		                                        Distance              y0,
+		                                        Distance              w,
+		                                        Distance              h,
 		                                        bool                  lockAspectRatio,
 		                                        const barcode::Style& bcStyle,
 		                                        bool                  bcTextFlag,
@@ -99,16 +97,16 @@ namespace glabels
 		                                        const QTransform&     matrix )
 		: ModelObject( x0, y0, w, h, lockAspectRatio, matrix )
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mBcStyle        = bcStyle;
 			mBcTextFlag     = bcTextFlag;
@@ -116,9 +114,6 @@ namespace glabels
 			mBcFormatDigits = mBcStyle.preferedN();
 			mBcData         = bcData;
 			mBcColorNode    = bcColorNode;
-
-			mEditorBarcode = nullptr;
-			mEditorDefaultBarcode = nullptr;
 
 			update(); // Initialize cached editor layouts
 		}
@@ -137,27 +132,7 @@ namespace glabels
 			mBcData         = object->mBcData;
 			mBcColorNode    = object->mBcColorNode;
 
-			mEditorBarcode = nullptr;
-			mEditorDefaultBarcode = nullptr;
-
 			update(); // Initialize cached editor layouts
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelBarcodeObject::~ModelBarcodeObject()
-		{
-			delete mOutline;
-
-			foreach( Handle* handle, mHandles )
-			{
-				delete handle;
-			}
-			mHandles.clear();
-
-			delete mEditorBarcode;
 		}
 
 
@@ -311,10 +286,10 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelBarcodeObject::drawShadow( QPainter*      painter,
-		                                     bool           inEditor,
-		                                     merge::Record* record,
-		                                     Variables*     variables ) const
+		void ModelBarcodeObject::drawShadow( QPainter*            painter,
+		                                     bool                 inEditor,
+		                                     const merge::Record& record,
+		                                     const Variables&     variables ) const
 		{
 			// Barcodes don't support shadows.
 		}
@@ -323,10 +298,10 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelBarcodeObject::drawObject( QPainter*      painter,
-		                                     bool           inEditor,
-		                                     merge::Record* record,
-		                                     Variables*     variables ) const
+		void ModelBarcodeObject::drawObject( QPainter*            painter,
+		                                     bool                 inEditor,
+		                                     const merge::Record& record,
+		                                     const Variables&     variables ) const
 		{
 			QColor bcColor = mBcColorNode.color( record, variables );
 
@@ -367,16 +342,12 @@ namespace glabels
 			//
 			// Build barcode from data
 			//
-			if ( mEditorBarcode )
-			{
-				delete mEditorBarcode;
-			}
-			mEditorBarcode = glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() );
+			mEditorBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() ) );
 			if ( !mEditorBarcode )
 			{
 				qWarning() << "Invalid barcode style" << mBcStyle.fullId() << "using \"code39\".";
 				mBcStyle = barcode::Backends::defaultStyle();
-				mEditorBarcode = glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() );
+				mEditorBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() ) );
 			}
 			mEditorBarcode->setChecksum(mBcChecksumFlag);
 			mEditorBarcode->setShowText(mBcTextFlag);
@@ -386,16 +357,12 @@ namespace glabels
 			//
 			// Build a place holder barcode to display in editor, if cannot display actual barcode
 			//
-			if ( mEditorDefaultBarcode )
-			{
-				delete mEditorDefaultBarcode;
-			}
-			mEditorDefaultBarcode = glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() );
+			mEditorDefaultBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.fullId().toStdString() ) );
 			if ( !mEditorDefaultBarcode )
 			{
 				qWarning() << "Invalid barcode style" << mBcStyle.fullId() << "using \"code39\".";
 				mBcStyle = barcode::Backends::defaultStyle();
-				mEditorDefaultBarcode = glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() );
+				mEditorDefaultBarcode.reset( glbarcode::Factory::createBarcode( mBcStyle.id().toStdString() ) );
 			}
 			mEditorDefaultBarcode->setChecksum(mBcChecksumFlag);
 			mEditorDefaultBarcode->setShowText(mBcTextFlag);
@@ -452,10 +419,10 @@ namespace glabels
 		/// Draw barcode in final printout or preview
 		///
 		void
-		ModelBarcodeObject::drawBc( QPainter*      painter,
-		                            const QColor&  color,
-		                            merge::Record* record,
-		                            Variables*     variables ) const
+		ModelBarcodeObject::drawBc( QPainter*            painter,
+		                            const QColor&        color,
+		                            const merge::Record& record,
+		                            const Variables&     variables ) const
 		{
 			painter->setPen( QPen( color ) );
 

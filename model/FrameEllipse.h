@@ -35,27 +35,29 @@ namespace glabels
 			Q_DECLARE_TR_FUNCTIONS(FrameEllipse)
 		
 		public:
-			FrameEllipse( const Distance& w,
-			              const Distance& h,
-			              const Distance& waste,
-			              const QString&  id = "0" );
+			FrameEllipse( Distance       w,
+			              Distance       h,
+			              Distance       waste,
+			              const QString& id = "0" );
 
 			FrameEllipse( const FrameEllipse& other ) = default;
 
-			Frame* dup() const override;
+			std::unique_ptr<Frame> clone() const override;
 
 			Distance waste() const;
 
 			Distance w() const override;
 			Distance h() const override;
 
-			QString sizeDescription( const Units& units ) const override;
-			bool isSimilarTo( Frame* other ) const override;
+			QString sizeDescription( Units units ) const override;
+			bool isSimilarTo( const Frame& other ) const override;
 
 			const QPainterPath& path() const override;
 			const QPainterPath& clipPath() const override;
-			QPainterPath marginPath( const Distance& xSize,
-			                         const Distance& ySize ) const override;
+			QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 
 		private:
@@ -70,10 +72,6 @@ namespace glabels
 
 	}
 }
-
-
-// Debugging support
-QDebug operator<<( QDebug dbg, const glabels::model::FrameEllipse& frame );
 
 
 #endif // model_FrameEllipse_h

@@ -18,17 +18,18 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "ModelImageObject.h"
 
 #include "Model.h"
 #include "Size.h"
 
 #include <QBrush>
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QImage>
 #include <QPen>
-#include <QtDebug>
 
 
 namespace glabels
@@ -39,7 +40,7 @@ namespace glabels
 		///
 		/// Static data
 		///
-		QImage* ModelImageObject::smDefaultImage = nullptr;
+		QImage ModelImageObject::smDefaultImage( ":images/checkerboard.png" );
 
 
 		//
@@ -56,23 +57,18 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject() : mImage(nullptr), mSvgRenderer(nullptr)
+		ModelImageObject::ModelImageObject()
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
-
-			if ( smDefaultImage == nullptr )
-			{
-				smDefaultImage = new QImage( ":images/checkerboard.png" );
-			}
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mLockAspectRatio = true;
 		}
@@ -81,42 +77,42 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject( const Distance&  x0,
-		                                    const Distance&  y0,
-		                                    const Distance&  w,
-		                                    const Distance&  h,
-		                                    bool             lockAspectRatio,
-		                                    const TextNode&  filenameNode,
+		ModelImageObject::ModelImageObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
+		                                    bool              lockAspectRatio,
+		                                    const TextNode&   filenameNode,
 		                                    const QTransform& matrix,
-		                                    bool             shadowState,
-		                                    const Distance&  shadowX,
-		                                    const Distance&  shadowY,
-		                                    double           shadowOpacity,
-		                                    const ColorNode& shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		                                    bool              shadowState,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
+		                                    double            shadowOpacity,
+		                                    const ColorNode&  shadowColorNode )
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
-
-			if ( smDefaultImage == nullptr )
-			{
-				smDefaultImage = new QImage( ":images/checkerboard.png" );
-			}
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
 			mFilenameNode = filenameNode;
-
-			mImage = nullptr;
-			mSvgRenderer = nullptr;
 
 			loadImage();
 		}
@@ -125,85 +121,92 @@ namespace glabels
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject( const Distance&  x0,
-		                                    const Distance&  y0,
-		                                    const Distance&  w,
-		                                    const Distance&  h,
-		                                    bool             lockAspectRatio,
-		                                    const QString&   filename,
-		                                    const QImage&    image,
+		ModelImageObject::ModelImageObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
+		                                    bool              lockAspectRatio,
+		                                    const QString&    filename,
+		                                    const QImage&     image,
 		                                    const QTransform& matrix,
-		                                    bool             shadowState,
-		                                    const Distance&  shadowX,
-		                                    const Distance&  shadowY,
-		                                    double           shadowOpacity,
-		                                    const ColorNode& shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		                                    bool              shadowState,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
+		                                    double            shadowOpacity,
+		                                    const ColorNode&  shadowColorNode )
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
-			if ( smDefaultImage == nullptr )
-			{
-				smDefaultImage = new QImage( ":images/checkerboard.png" );
-			}
-
-			mImage = new QImage(image);
+			mImage = image;
 			mFilenameNode = TextNode( false, filename );
-			mSvgRenderer = nullptr;
 		}
 
 
 		///
 		/// Constructor
 		///
-		ModelImageObject::ModelImageObject( const Distance&   x0,
-		                                    const Distance&   y0,
-		                                    const Distance&   w,
-		                                    const Distance&   h,
+		ModelImageObject::ModelImageObject( Distance          x0,
+		                                    Distance          y0,
+		                                    Distance          w,
+		                                    Distance          h,
 		                                    bool              lockAspectRatio,
 		                                    const QString&    filename,
 		                                    const QByteArray& svg,
 		                                    const QTransform& matrix,
 		                                    bool              shadowState,
-		                                    const Distance&   shadowX,
-		                                    const Distance&   shadowY,
+		                                    Distance          shadowX,
+		                                    Distance          shadowY,
 		                                    double            shadowOpacity,
 		                                    const ColorNode&  shadowColorNode )
-		: ModelObject( x0, y0, w, h, lockAspectRatio,
+		: ModelObject( x0,
+		               y0,
+		               w,
+		               h,
+		               lockAspectRatio,
 		               matrix,
-		               shadowState, shadowX, shadowY, shadowOpacity, shadowColorNode )
+		               shadowState,
+		               shadowX,
+		               shadowY,
+		               shadowOpacity,
+		               shadowColorNode )
 		{
-			mOutline = new Outline( this );
+			mOutline.setOwner( this );
 
-			mHandles << new HandleNorthWest( this );
-			mHandles << new HandleNorth( this );
-			mHandles << new HandleNorthEast( this );
-			mHandles << new HandleEast( this );
-			mHandles << new HandleSouthEast( this );
-			mHandles << new HandleSouth( this );
-			mHandles << new HandleSouthWest( this );
-			mHandles << new HandleWest( this );
+			mHandles.push_back( Handle( this, Handle::NW ) );
+			mHandles.push_back( Handle( this, Handle::N ) );
+			mHandles.push_back( Handle( this, Handle::NE ) );
+			mHandles.push_back( Handle( this, Handle::E ) );
+			mHandles.push_back( Handle( this, Handle::SE ) );
+			mHandles.push_back( Handle( this, Handle::S ) );
+			mHandles.push_back( Handle( this, Handle::SW ) );
+			mHandles.push_back( Handle( this, Handle::W ) );
 
-			if ( smDefaultImage == nullptr )
+			if ( QSvgRenderer( svg ).isValid() )
 			{
-				smDefaultImage = new QImage( ":images/checkerboard.png" );
+				mSvg = svg;
 			}
 
-			mSvg = svg;
-			mSvgRenderer = new QSvgRenderer( mSvg );
 			mFilenameNode = TextNode( false, filename );
-			mImage = nullptr;
 		}
 
 
@@ -213,47 +216,8 @@ namespace glabels
 		ModelImageObject::ModelImageObject( const ModelImageObject* object ) : ModelObject(object)
 		{
 			mFilenameNode = object->mFilenameNode;
-			if ( object->mImage )
-			{
-				mImage = new QImage( *object->mImage );
-			}
-			else
-			{
-				mImage = nullptr;
-			}
-			if ( object->mSvgRenderer )
-			{
-				mSvgRenderer = new QSvgRenderer( object->mSvg );
-			}
-			else
-			{
-				mSvgRenderer = nullptr;
-			}
+			mImage = object->mImage;
 			mSvg = object->mSvg;
-		}
-
-
-		///
-		/// Destructor
-		///
-		ModelImageObject::~ModelImageObject()
-		{
-			delete mOutline;
-
-			foreach( Handle* handle, mHandles )
-			{
-				delete handle;
-			}
-			mHandles.clear();
-
-			if ( mImage )
-			{
-				delete mImage;
-			}
-			if ( mSvgRenderer )
-			{
-				delete mSvgRenderer;
-			}
 		}
 
 
@@ -293,7 +257,7 @@ namespace glabels
 		///
 		/// Image image Property Getter
 		///
-		const QImage* ModelImageObject::image() const
+		const QImage& ModelImageObject::image() const
 		{
 			return mImage;
 		}
@@ -306,19 +270,10 @@ namespace glabels
 		{
 			if ( !value.isNull() )
 			{
-				if ( mImage )
-				{
-					delete mImage;
-					mImage = nullptr;
-				}
-				if ( mSvgRenderer )
-				{
-					delete mSvgRenderer;
-					mSvgRenderer = nullptr;
-				}
+				mSvg.clear();
 
-				mImage = new QImage(value);
-				quint16 cs = qChecksum( QByteArray( (const char*)mImage->constBits(), mImage->sizeInBytes() ) );
+				mImage = value;
+				quint16 cs = qChecksum( QByteArray( (const char*)mImage.constBits(), mImage.sizeInBytes() ) );
 				mFilenameNode = TextNode( false, QString("%image_%1%").arg( cs ) );
 
 				emit changed();
@@ -333,18 +288,9 @@ namespace glabels
 		{
 			if ( !value.isNull() )
 			{
-				if ( mImage )
-				{
-					delete mImage;
-					mImage = nullptr;
-				}
-				if ( mSvgRenderer )
-				{
-					delete mSvgRenderer;
-					mSvgRenderer = nullptr;
-				}
+				mSvg.clear();
 
-				mImage = new QImage(value);
+				mImage = value;
 				mFilenameNode = TextNode( false, name );
 
 				emit changed();
@@ -355,7 +301,7 @@ namespace glabels
 		///
 		/// Image svg Property Getter
 		///
-		QByteArray ModelImageObject::svg() const
+		const QByteArray& ModelImageObject::svg() const
 		{
 			return mSvg;
 		}
@@ -368,19 +314,13 @@ namespace glabels
 		{
 			if ( !value.isEmpty() )
 			{
-				if ( mImage )
-				{
-					delete mImage;
-					mImage = nullptr;
-				}
-				if ( mSvgRenderer )
-				{
-					delete mSvgRenderer;
-					mSvgRenderer = nullptr;
-				}
+				mImage = QImage();  // clear
+				mSvg.clear();
 
-				mSvg = value;
-				mSvgRenderer = new QSvgRenderer( mSvg );
+				if ( QSvgRenderer( value ).isValid() )
+				{
+					mSvg = value;
+				}
 				mFilenameNode = TextNode( false, name );
 
 				emit changed();
@@ -395,15 +335,15 @@ namespace glabels
 		{
 			Size size( Distance::pt(72), Distance::pt(72) );
 
-			if ( mImage )
+			if ( !mImage.isNull() )
 			{
-				QSize qsize = mImage->size();
+				QSize qsize = mImage.size();
 				size.setW( Distance::pt( qsize.width() ) );
 				size.setH( Distance::pt( qsize.height() ) );
 			}
-			else if ( mSvgRenderer )
+			else if ( !mSvg.isEmpty() )
 			{
-				QSize qsize = mSvgRenderer->defaultSize();
+				QSize qsize = QSvgRenderer( mSvg ).defaultSize();
 				size.setW( Distance::pt( qsize.width() ) );
 				size.setH( Distance::pt( qsize.height() ) );
 			}
@@ -415,23 +355,22 @@ namespace glabels
 		///
 		/// Draw shadow of object
 		///
-		void ModelImageObject::drawShadow( QPainter*      painter,
-		                                   bool           inEditor,
-		                                   merge::Record* record,
-		                                   Variables*     variables ) const
+		void ModelImageObject::drawShadow( QPainter*            painter,
+		                                   bool                 inEditor,
+		                                   const merge::Record& record,
+		                                   const Variables&     variables ) const
 		{
 			QRectF destRect( 0, 0, mW.pt(), mH.pt() );
 	
 			QColor shadowColor = mShadowColorNode.color( record, variables );
 			shadowColor.setAlphaF( mShadowOpacity );
 
-			if ( mImage && mImage->hasAlphaChannel() && (mImage->depth() == 32) )
+			if ( !mImage.isNull() && mImage.hasAlphaChannel() && (mImage.depth() == 32) )
 			{
-				QImage* shadowImage = createShadowImage( *mImage, shadowColor );
-				painter->drawImage( destRect, *shadowImage );
-				delete shadowImage;
+				auto shadowImage = createShadowImage( mImage, shadowColor );
+				painter->drawImage( destRect, shadowImage );
 			}
-			else if ( mImage || mSvgRenderer || inEditor )
+			else if ( !mImage.isNull() || !mSvg.isEmpty() || inEditor )
 			{
 				painter->setBrush( shadowColor );
 				painter->setPen( QPen( Qt::NoPen ) );
@@ -441,16 +380,14 @@ namespace glabels
 			else
 			{
 				QString filename = mFilenameNode.text( record, variables ).trimmed();
-				QImage* image;
-				QSvgRenderer* svgRenderer;
+				QImage image;
 				QByteArray svg;
-				if ( readImageFile( filename, image, svgRenderer, svg ) )
+				if ( readImageFile( filename, image, svg ) )
 				{
-					if ( image && image->hasAlphaChannel() && (image->depth() == 32) )
+					if ( !image.isNull() && image.hasAlphaChannel() && (image.depth() == 32) )
 					{
-						QImage* shadowImage = createShadowImage( *image, shadowColor );
-						painter->drawImage( destRect, *shadowImage );
-						delete shadowImage;
+						QImage shadowImage = createShadowImage( image, shadowColor );
+						painter->drawImage( destRect, shadowImage );
 					}
 					else
 					{
@@ -458,14 +395,6 @@ namespace glabels
 						painter->setPen( QPen( Qt::NoPen ) );
 
 						painter->drawRect( destRect );
-					}
-					if ( image )
-					{
-						delete image;
-					}
-					else
-					{
-						delete svgRenderer;
 					}
 				}
 			}
@@ -475,21 +404,21 @@ namespace glabels
 		///
 		/// Draw object itself
 		///
-		void ModelImageObject::drawObject( QPainter*      painter,
-		                                   bool           inEditor,
-		                                   merge::Record* record,
-		                                   Variables*     variables ) const
+		void ModelImageObject::drawObject( QPainter*            painter,
+		                                   bool                 inEditor,
+		                                   const merge::Record& record,
+		                                   const Variables&     variables ) const
 		{
 			QRectF destRect( 0, 0, mW.pt(), mH.pt() );
 	
-			if ( inEditor && (mFilenameNode.isField() || (!mImage && !mSvgRenderer) ) )
+			if ( inEditor && (mFilenameNode.isField() || (mImage.isNull() && mSvg.isEmpty()) ) )
 			{
 				//
 				// Render default place holder image
 				//
 				painter->save();
 				painter->setRenderHint( QPainter::SmoothPixmapTransform, false );
-				painter->drawImage( destRect, *smDefaultImage );
+				painter->drawImage( destRect, smDefaultImage );
 				painter->restore();
 
 				//
@@ -540,31 +469,28 @@ namespace glabels
 					                   labelText );
 				}
 			}
-			else if ( mImage )
+			else if ( !mImage.isNull() )
 			{
-				painter->drawImage( destRect, *mImage );
+				painter->drawImage( destRect, mImage );
 			}
-			else if ( mSvgRenderer )
+			else if ( !mSvg.isEmpty() )
 			{
-				mSvgRenderer->render( painter, destRect );
+				QSvgRenderer( mSvg ).render( painter, destRect );
 			}
 			else if ( mFilenameNode.isField() )
 			{
 				QString filename = mFilenameNode.text( record, variables ).trimmed();
-				QImage* image;
-				QSvgRenderer* svgRenderer;
+				QImage image;
 				QByteArray svg;
-				if ( readImageFile( filename, image, svgRenderer, svg ) )
+				if ( readImageFile( filename, image, svg ) )
 				{
-					if ( image )
+					if ( !image.isNull() )
 					{
-						painter->drawImage( destRect, *image );
-						delete image;
+						painter->drawImage( destRect, image );
 					}
-					else
+					else if ( !svg.isEmpty() )
 					{
-						svgRenderer->render( painter, destRect );
-						delete svgRenderer;
+						QSvgRenderer( svg ).render( painter, destRect );
 					}
 				}
 			}
@@ -588,34 +514,26 @@ namespace glabels
 		///
 		void ModelImageObject::loadImage()
 		{
-			if ( mImage )
-			{
-				delete mImage;
-				mImage = nullptr;
-			}
-			if ( mSvgRenderer )
-			{
-				delete mSvgRenderer;
-				mSvgRenderer = nullptr;
-			}
+			mImage = QImage(); // clear
+			mSvg.clear();
 
 			if ( !mFilenameNode.isField() )
 			{
 				QString filename = mFilenameNode.data();
-				if ( readImageFile( filename, mImage, mSvgRenderer, mSvg ) )
+				if ( readImageFile( filename, mImage, mSvg ) )
 				{
 					double aspectRatio = 0;
-					if ( mSvgRenderer )
+					if ( !mSvg.isEmpty() )
 					{
 						// Adjust size based on aspect ratio of SVG image
-						QRectF rect = mSvgRenderer->viewBoxF();
+						QRectF rect = QSvgRenderer( mSvg ).viewBoxF();
 						aspectRatio = rect.width() ? rect.height() / rect.width() : 0;
 					}
 					else
 					{
 						// Adjust size based on aspect ratio of image
-						double imageW = mImage->width();
-						double imageH = mImage->height();
+						double imageW = mImage.width();
+						double imageH = mImage.height();
 						aspectRatio = imageW ? imageH / imageW : 0;
 					}
 
@@ -639,12 +557,10 @@ namespace glabels
 		/// Read an image or svg file
 		///
 		bool ModelImageObject::readImageFile( const QString& fileName,
-		                                      QImage*&       image,
-		                                      QSvgRenderer*& svgRenderer,
+		                                      QImage&        image,
 		                                      QByteArray&    svg ) const
 		{
-			image = nullptr;
-			svgRenderer = nullptr;
+			image = QImage(); // clear
 			svg.clear();
 
 			if ( !fileName.isEmpty() )
@@ -667,48 +583,41 @@ namespace glabels
 						{
 							svg = file.readAll();
 							file.close();
-							svgRenderer = new QSvgRenderer( svg );
-							if ( !svgRenderer->isValid() )
+							QSvgRenderer renderer( svg );
+							if ( !renderer.isValid() )
 							{
-								delete svgRenderer;
-								svgRenderer = nullptr;
 								svg.clear();
 							}
 						}
 					}
 					else
 					{
-						image = new QImage( fileInfo.filePath() );
-						if ( image->isNull() )
-						{
-							delete image;
-							image = nullptr;
-						}
+						image = QImage( fileInfo.filePath() );
 					}
 				}
 			}
 
-			return image != nullptr || svgRenderer != nullptr;
+			return !image.isNull() || !svg.isEmpty();
 		}
 
 
 		///
 		/// Create shadow image
 		///
-		QImage* ModelImageObject::createShadowImage( const QImage& image,
-		                                             const QColor& color ) const
+		QImage ModelImageObject::createShadowImage( const QImage& image,
+		                                            const QColor& color ) const
 		{
 			int r = color.red();
 			int g = color.green();
 			int b = color.blue();
 			int a = color.alpha();
 		
-			auto* shadow = new QImage( image );
-			for ( int iy = 0; iy < shadow->height(); iy++ )
+			QImage shadow = image;
+			for ( int iy = 0; iy < shadow.height(); iy++ )
 			{
-				auto* scanLine = (QRgb*)shadow->scanLine( iy );
+				auto* scanLine = (QRgb*)shadow.scanLine( iy );
 		
-				for ( int ix = 0; ix < shadow->width(); ix++ )
+				for ( int ix = 0; ix < shadow.width(); ix++ )
 				{
 					scanLine[ix] = qRgba( r, g, b, (a*qAlpha(scanLine[ix]))/255 );
 				}

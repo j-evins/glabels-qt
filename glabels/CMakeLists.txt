@@ -26,6 +26,7 @@ set (glabels_sources
   NotebookUtil.cpp
   ObjectEditor.cpp
   PreferencesDialog.cpp
+  PrinterMonitor.cpp
   PrintView.cpp
   PropertiesView.cpp
   Preview.cpp
@@ -59,6 +60,7 @@ set (glabels_qobject_headers
   MergeView.h
   ObjectEditor.h
   PreferencesDialog.h
+  PrinterMonitor.h
   PrintView.h
   PropertiesView.h
   Preview.h

@@ -18,10 +18,13 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "FramePath.h"
 
 #include "Constants.h"
 #include "StrUtil.h"
+
+#include <QDebug>
 
 
 namespace glabels
@@ -30,11 +33,15 @@ namespace glabels
 	{
 
 		FramePath::FramePath( const QPainterPath& path,
-		                      const Distance&     xWaste,
-		                      const Distance&     yWaste,
-		                      const Units&        originalUnits,
+		                      Distance            xWaste,
+		                      Distance            yWaste,
+		                      Units               originalUnits,
 		                      const QString&      id )
-			: Frame(id), mXWaste(xWaste), mYWaste(yWaste), mPath(path), mOriginalUnits(originalUnits)
+			: Frame(id),
+			  mXWaste(xWaste),
+			  mYWaste(yWaste),
+			  mPath(path),
+			  mOriginalUnits(originalUnits)
 		{
 			QRectF r = path.boundingRect();
 			
@@ -46,9 +53,9 @@ namespace glabels
 		}
 
 	
-		Frame* FramePath::dup() const
+		std::unique_ptr<Frame> FramePath::clone() const
 		{
-			return new FramePath( *this );
+			return std::make_unique<FramePath>( *this );
 		}
 
 
@@ -82,7 +89,7 @@ namespace glabels
 		}
 
 
-		QString FramePath::sizeDescription( const Units& units ) const
+		QString FramePath::sizeDescription( Units units ) const
 		{
 			if ( units.toEnum() == Units::IN )
 			{
@@ -100,9 +107,9 @@ namespace glabels
 		}
 
 
-		bool FramePath::isSimilarTo( Frame* other ) const
+		bool FramePath::isSimilarTo( const Frame& other ) const
 		{
-			if ( auto *otherPath = dynamic_cast<FramePath*>(other) )
+			if ( auto *otherPath = dynamic_cast<const FramePath*>(&other) )
 			{
 				if ( mPath == otherPath->mPath )
 				{
@@ -125,29 +132,35 @@ namespace glabels
 		}
 
 
-		QPainterPath FramePath::marginPath( const Distance& xSize,
-		                                    const Distance& ySize ) const
+		QPainterPath FramePath::marginPath( Distance xSize, Distance ySize ) const
 		{
 			return mPath; // No margin
 		}
 
 
+		// Debugging support
+		void FramePath::print( QDebug& dbg ) const
+		{
+			dbg.nospace() << "FramePath{ "
+			              << id() << "," 
+			              << path() << "," 
+			              << xWaste() << "," 
+			              << yWaste() << "," 
+			              << "list{ ";
+			for ( auto& layout : layouts() )
+			{
+				dbg.nospace() << layout << ",";
+			}
+			dbg.nospace() << " }"
+			              << "list{ ";
+			for ( auto& markup : markups() )
+			{
+				dbg.nospace() << *markup << ",";
+			}
+			dbg.nospace() << " }"
+			              << " }";
+		}
+
+
 	}
-}
-
-
-QDebug operator<<( QDebug dbg, const glabels::model::FramePath& frame )
-{
-	QDebugStateSaver saver(dbg);
-
-	dbg.nospace() << "FramePath{ "
-	              << frame.id() << "," 
-	              << frame.path() << "," 
-	              << frame.xWaste() << "," 
-	              << frame.yWaste() << "," 
-	              << frame.layouts() << ","
-	              << frame.markups()
-	              << " }";
-
-	return dbg;
 }

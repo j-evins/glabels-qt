@@ -22,6 +22,8 @@
 #define merge_Merge_h
 
 
+#include "Record.h"
+
 #include <QObject>
 #include <QString>
 #include <QStringList>
@@ -52,7 +54,7 @@ namespace glabels
 			Merge() = default;
 			Merge( const Merge* merge );
 		public:
-			~Merge() override;
+			virtual ~Merge() = default;
 
 
 			/////////////////////////////////
@@ -69,21 +71,19 @@ namespace glabels
 			QString source() const;
 			void setSource( const QString& source );
 
-			const QList<Record*>& recordList( ) const;
+			const QList<Record>& recordList( ) const;
 
 
 			/////////////////////////////////
 			// Selection methods
 			/////////////////////////////////
 		public:
-			void select( Record* record );
-			void unselect( Record* record );
 			void setSelected( int i, bool state = true );
 			void selectAll();
 			void unselectAll();
 	
 			int nSelectedRecords() const;
-			const QList<Record*> selectedRecords() const;
+			const QList<Record> selectedRecords() const;
 
 
 			/////////////////////////////////
@@ -95,7 +95,7 @@ namespace glabels
 		protected:
 			virtual void open() = 0;
 			virtual void close() = 0;
-			virtual Record* readNextRecord() = 0;
+			virtual Record readNextRecord() = 0;
 		
 
 			/////////////////////////////////
@@ -110,10 +110,10 @@ namespace glabels
 			// Private data
 			/////////////////////////////////
 		protected:
-			QString             mId;
+			QString       mId;
 		private:
-			QString             mSource;
-			QList<Record*>      mRecordList;
+			QString       mSource;
+			QList<Record> mRecordList;
 		};
 
 	}

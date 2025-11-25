@@ -52,15 +52,15 @@ namespace glabels
 		categoriesCheckContainer->setEnabled( !model::Settings::searchAllCategories() );
 		mCategoryIdList = model::Settings::searchCategoryList();
 	
-		QList<model::Category*> categories = model::Db::categories();
-		foreach ( model::Category *category, categories )
+		auto categories = model::Db::categories();
+		for ( auto& category : categories )
 		{
-			QCheckBox* check = new QCheckBox( category->name() );
-			check->setChecked( mCategoryIdList.contains( category->id() ) );
+			QCheckBox* check = new QCheckBox( category.name() );
+			check->setChecked( mCategoryIdList.contains( category.id() ) );
 			categoriesLayout->addWidget( check );
 
 			mCheckList.append( check );
-			mCheckToCategoryMap[check] = category->id();
+			mCheckToCategoryMap[check] = category.id();
 
 			connect( check, SIGNAL(clicked()), this, SLOT(onCategoryCheckClicked()) );
 		}
@@ -78,7 +78,7 @@ namespace glabels
 			viewModeButton->setToolTip( tr( "Grid View" ) );
 		}
 		
-		QList<model::Template*> tmplates = model::Db::templates();
+		auto tmplates = model::Db::templates();
 		templatePicker->setTemplates( tmplates );
 
 		if ( model::Settings::recentTemplateList().count() > 0 )
@@ -93,7 +93,7 @@ namespace glabels
 	///
 	/// Get selected template
 	///
-	const model::Template* SelectProductDialog::tmplate() const
+	model::Template SelectProductDialog::tmplate() const
 	{
 		if ( mHasSelection )
 		{
@@ -101,7 +101,7 @@ namespace glabels
 		}
 		else
 		{
-			return nullptr;
+			return model::Template();
 		}
 	}
 
@@ -229,41 +229,41 @@ namespace glabels
 	///
 	void SelectProductDialog::onTemplatePickerSelectionChanged()
 	{
-		auto* tmplate   = templatePicker->selectedTemplate();
-		if ( !tmplate )
+		auto tmplate   = templatePicker->selectedTemplate();
+		if ( tmplate.isNull() )
 		{
 			productInfoWidget->setVisible( false );
 			selectButton->setEnabled( false );
 			return;
 		}
 		
-		auto* frame     = tmplate->frames().first();
+		auto frame = tmplate.frame();
 
 		preview->setTemplate( tmplate );
 
-		const model::Vendor* vendor = model::Db::lookupVendorFromName( tmplate->brand() );
-		if ( (vendor != nullptr) && (vendor->url() != nullptr) )
+		vendorLabel->setText( tmplate.brand() );
+		if ( model::Db::isVendorNameKnown( tmplate.brand() ) )
 		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor->url(), vendor->name() );
-			vendorLabel->setText( markup );
-		}
-		else
-		{
-			vendorLabel->setText( tmplate->brand() );
+			auto vendor = model::Db::lookupVendorFromName( tmplate.brand() );
+			if ( !vendor.url().isEmpty() )
+			{
+				QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor.url(), vendor.name() );
+				vendorLabel->setText( markup );
+			}
 		}
 
-		if ( tmplate->productUrl() != nullptr )
+		if ( !tmplate.productUrl().isEmpty() )
 		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate->productUrl(), tmplate->part() );
+			QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate.productUrl(), tmplate.part() );
 			partLabel->setText( markup );
 		}
 		else
 		{
-			partLabel->setText( tmplate->part() );
+			partLabel->setText( tmplate.part() );
 		}
 
-		descriptionLabel->setText( tmplate->description() );
-		pageSizeLabel->setText( tmplate->paperDescription( model::Settings::units() ) );
+		descriptionLabel->setText( tmplate.description() );
+		pageSizeLabel->setText( tmplate.paperDescription( model::Settings::units() ) );
 		labelSizeLabel->setText( frame->sizeDescription( model::Settings::units() ) );
 		layoutLabel->setText( frame->layoutDescription() );
 

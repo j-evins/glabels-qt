@@ -96,8 +96,8 @@ namespace glabels
 			/////////////////////////////////
 		public:
 			uint32_t rgba() const;
-			QColor color( const merge::Record* record,
-			              const Variables*     variables ) const;
+			QColor color( const merge::Record& record,
+			              const Variables&     variables ) const;
 
 
 			/////////////////////////////////

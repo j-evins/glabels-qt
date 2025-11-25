@@ -22,24 +22,31 @@
 #define model_Markup_h
 
 
-#include "Frame.h"
+#include "Distance.h"
 
 #include <QPainterPath>
+
+#include <memory>
 
 
 namespace glabels
 {
 	namespace model
 	{
+		class Frame; // Forward reference
+
 
 		class Markup
 		{
 		public:
 			virtual ~Markup() = default;
 
-			virtual Markup* dup() const = 0;
+			virtual std::unique_ptr<Markup> clone() const = 0;
 
-			virtual QPainterPath path( const Frame* frame ) const;
+			virtual QPainterPath path( const Frame& frame ) const;
+
+                        // Debugging support
+			virtual void print( QDebug& dbg ) const = 0;
 
 		protected:
 			QPainterPath mPath;
@@ -49,17 +56,20 @@ namespace glabels
 		class MarkupMargin : public Markup
 		{
 		public:
-			MarkupMargin( const Distance& size );
+			MarkupMargin( Distance size );
 
-			MarkupMargin( const Distance& xSize,
-			              const Distance& ySize );
+			MarkupMargin( Distance xSize,
+			              Distance ySize );
 
-			QPainterPath path( const Frame* frame ) const override;
+			QPainterPath path( const Frame& frame ) const override;
 
 			Distance xSize() const;
 			Distance ySize() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mXSize;
@@ -70,17 +80,20 @@ namespace glabels
 		class MarkupLine : public Markup
 		{
 		public:
-			MarkupLine( const Distance& x1,
-			            const Distance& y1,
-			            const Distance& x2,
-			            const Distance& y2 );
+			MarkupLine( Distance x1,
+			            Distance y1,
+			            Distance x2,
+			            Distance y2 );
 
 			Distance x1() const;
 			Distance y1() const;
 			Distance x2() const;
 			Distance y2() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX1;
@@ -93,11 +106,11 @@ namespace glabels
 		class MarkupRect : public Markup
 		{
 		public:
-			MarkupRect( const Distance& x1,
-			            const Distance& y1,
-			            const Distance& w,
-			            const Distance& h,
-			            const Distance& r );
+			MarkupRect( Distance x1,
+			            Distance y1,
+			            Distance w,
+			            Distance h,
+			            Distance r );
 
 			Distance x1() const;
 			Distance y1() const;
@@ -105,7 +118,10 @@ namespace glabels
 			Distance h() const;
 			Distance r() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX1;
@@ -119,17 +135,20 @@ namespace glabels
 		class MarkupEllipse : public Markup
 		{
 		public:
-			MarkupEllipse( const Distance& x1,
-			               const Distance& y1,
-			               const Distance& w,
-			               const Distance& h );
+			MarkupEllipse( Distance x1,
+			               Distance y1,
+			               Distance w,
+			               Distance h );
 
 			Distance x1() const;
 			Distance y1() const;
 			Distance w() const;
 			Distance h() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX1;
@@ -142,15 +161,18 @@ namespace glabels
 		class MarkupCircle : public Markup
 		{
 		public:
-			MarkupCircle( const Distance& x0,
-			              const Distance& y0,
-			              const Distance& r );
+			MarkupCircle( Distance x0,
+			              Distance y0,
+			              Distance r );
 
 			Distance x0() const;
 			Distance y0() const;
 			Distance r() const;
 
-			Markup* dup() const override;
+			std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+			void print( QDebug& dbg ) const override;
 
 		private:
 			Distance  mX0;
@@ -161,6 +183,10 @@ namespace glabels
 
 	}
 }
+
+
+// Debugging support
+QDebug operator<<( QDebug dbg, const glabels::model::Markup& markup );
 
 
 #endif // model_Markup_h

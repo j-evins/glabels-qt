@@ -104,7 +104,7 @@ namespace glabels
 			void printCropMarks( QPainter* painter ) const;
 			void printOutline( QPainter* painter ) const;
 			void clipLabel( QPainter* painter ) const;
-			void printLabel( QPainter* painter, merge::Record* record, Variables* variables ) const;
+			void printLabel( QPainter* painter, const merge::Record& record, Variables& variables ) const;
 
 
 			/////////////////////////////////
@@ -113,8 +113,7 @@ namespace glabels
 		private:
 			const Model*        mModel{ nullptr };
 			const merge::Merge* mMerge{ nullptr };
-			Variables*          mVariables{ nullptr };
-	
+
 			int               mNCopies{ 0 };
 			int               mStartItem{ 0 };
 			int               mLastItem{ 0 };

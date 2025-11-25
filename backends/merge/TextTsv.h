@@ -42,7 +42,7 @@ namespace glabels
 		private:
 			TextTsv();
 			TextTsv( const TextTsv* merge );
-			~TextTsv() override = default;
+			virtual ~TextTsv() = default;
 
 
 			/////////////////////////////////

@@ -49,14 +49,14 @@ namespace glabels
 	}
 
 
-	MiniPreviewPixmap::MiniPreviewPixmap( const model::Template* tmplate, int width, int height )
+	MiniPreviewPixmap::MiniPreviewPixmap( const model::Template& tmplate, int width, int height )
 		: QPixmap( width, height )
 	{
 		draw( tmplate, width, height );
 	}
 
 
-	void MiniPreviewPixmap::draw( const model::Template* tmplate, int width, int height )
+	void MiniPreviewPixmap::draw( const model::Template& tmplate, int width, int height )
 	{
 		fill( Qt::transparent );
 
@@ -66,11 +66,11 @@ namespace glabels
 		painter.setRenderHint( QPainter::Antialiasing, true );
 
 		// For "Roll" templates, allow extra room for tape width and continuation break lines
-		model::Distance drawWidth  = tmplate->pageWidth();
-		model::Distance drawHeight = tmplate->pageHeight();
-		if ( tmplate->isRoll() )
+		model::Distance drawWidth  = tmplate.pageWidth();
+		model::Distance drawHeight = tmplate.pageHeight();
+		if ( tmplate.isRoll() )
 		{
-			drawWidth   = tmplate->rollWidth();
+			drawWidth   = tmplate.rollWidth();
 			drawHeight *= 1.2;
 		}
 
@@ -87,8 +87,8 @@ namespace glabels
 		}
 		painter.scale( scale, scale );
 
-		model::Distance xOffset = ( model::Distance::pt(width/scale) - tmplate->pageWidth() ) / 2;
-		model::Distance yOffset = ( model::Distance::pt(height/scale) - tmplate->pageHeight() ) / 2;
+		model::Distance xOffset = ( model::Distance::pt(width/scale) - tmplate.pageWidth() ) / 2;
+		model::Distance yOffset = ( model::Distance::pt(height/scale) - tmplate.pageHeight() ) / 2;
 		painter.translate( xOffset.pt(), yOffset.pt() );
 
 		drawPaper( painter, tmplate, scale );
@@ -96,7 +96,7 @@ namespace glabels
 	}
 
 
-	void MiniPreviewPixmap::drawPaper( QPainter& painter, const model::Template* tmplate, double scale )
+	void MiniPreviewPixmap::drawPaper( QPainter& painter, const model::Template& tmplate, double scale )
 	{
 		QBrush brush( paperColor );
 		QPen pen( paperOutlineColor );
@@ -107,9 +107,9 @@ namespace glabels
 		painter.setBrush( brush );
 		painter.setPen( pen );
 
-		if ( !tmplate->isRoll() )
+		if ( !tmplate.isRoll() )
 		{
-			painter.drawRect( 0, 0, tmplate->pageWidth().pt(), tmplate->pageHeight().pt() );
+			painter.drawRect( 0, 0, tmplate.pageWidth().pt(), tmplate.pageHeight().pt() );
 		}
 		else
 		{
@@ -120,7 +120,7 @@ namespace glabels
 	}
 
 
-	void MiniPreviewPixmap::drawLabelOutlines( QPainter& painter, const model::Template* tmplate, double scale )
+	void MiniPreviewPixmap::drawLabelOutlines( QPainter& painter, const model::Template& tmplate, double scale )
 	{
 		QBrush brush( labelColor );
 		QPen pen( labelOutlineColor );
@@ -131,10 +131,8 @@ namespace glabels
 		painter.setBrush( brush );
 		painter.setPen( pen );
 
-		model::Frame *frame = tmplate->frames().first();
-		QVector<model::Point> origins = frame->getOrigins();
-
-		foreach ( model::Point p0, origins )
+		auto frame = tmplate.frame();
+		for ( model::Point p0 : frame->getOrigins() )
 		{
 			drawLabelOutline( painter, frame, p0 );
 		}

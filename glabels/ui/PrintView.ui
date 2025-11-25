@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>852</width>
-    <height>796</height>
+    <height>874</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -51,6 +51,34 @@
        <property name="text">
         <string notr="true">&lt;span style=&quot; font-size:18pt;&quot;&gt;Print&lt;/span&gt;</string>
        </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Destination</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QComboBox" name="destinationCombo">
+          <property name="styleSheet">
+           <string notr="true">text-align:left; padding:3px;</string>
+          </property>
+          <property name="currentText">
+           <string/>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
      <item>
@@ -263,7 +291,8 @@
             <string>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-uncollated"/>
+            <iconset theme="glabels-uncollated">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
           <item>
@@ -271,7 +300,8 @@
             <string>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-collated"/>
+            <iconset theme="glabels-collated">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
          </widget>
@@ -292,7 +322,8 @@
             <string>Merge groups are contiguous</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-merge-group-contiguous"/>
+            <iconset theme="glabels-merge-group-contiguous">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
           <item>
@@ -300,7 +331,8 @@
             <string>Merge groups start on a new page</string>
            </property>
            <property name="icon">
-            <iconset theme="glabels-merge-group-page"/>
+            <iconset theme="glabels-merge-group-page">
+             <normaloff>.</normaloff>.</iconset>
            </property>
           </item>
          </widget>
@@ -445,10 +477,11 @@
         <string notr="true">text-align:left; padding:3px;</string>
        </property>
        <property name="text">
-        <string>Print...</string>
+        <string>Print</string>
        </property>
        <property name="icon">
-        <iconset theme="glabels-print"/>
+        <iconset theme="glabels-print">
+         <normaloff>.</normaloff>.</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -491,7 +524,7 @@
           </size>
          </property>
          <property name="text">
-          <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;(Will print a total of xxxx items on nnn pages.)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string notr="true">(Will print a total of xxxx items on nnn pages.)</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -525,6 +558,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="systemDialogButton">
+       <property name="text">
+        <string>Use system print dialog...</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -640,8 +680,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>175</x>
-     <y>122</y>
+     <x>164</x>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -656,8 +696,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>182</x>
-     <y>444</y>
+     <x>216</x>
+     <y>574</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -672,8 +712,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>152</x>
-     <y>475</y>
+     <x>186</x>
+     <y>608</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -688,8 +728,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>156</x>
-     <y>506</y>
+     <x>190</x>
+     <y>642</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -704,8 +744,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>641</x>
-     <y>760</y>
+     <x>639</x>
+     <y>827</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -720,8 +760,8 @@
    <slot>onPrintButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>291</x>
-     <y>589</y>
+     <x>312</x>
+     <y>724</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -736,8 +776,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>243</y>
+     <x>156</x>
+     <y>390</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -752,8 +792,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>59</x>
-     <y>108</y>
+     <x>93</x>
+     <y>258</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -768,8 +808,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>142</x>
-     <y>149</y>
+     <x>188</x>
+     <y>299</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -784,8 +824,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>226</x>
-     <y>145</y>
+     <x>275</x>
+     <y>299</y>
     </hint>
     <hint type="destinationlabel">
      <x>8</x>
@@ -800,8 +840,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>52</x>
-     <y>261</y>
+     <x>85</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>3</x>
@@ -816,8 +856,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>231</x>
-     <y>314</y>
+     <x>264</x>
+     <y>449</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -832,12 +872,44 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>199</x>
-     <y>362</y>
+     <x>254</x>
+     <y>679</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
      <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>destinationCombo</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>PrintView</receiver>
+   <slot>onFormChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>289</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>systemDialogButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PrintView</receiver>
+   <slot>onSystemDialogButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>836</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>373</x>
+     <y>871</y>
     </hint>
    </hints>
   </connection>
@@ -846,6 +918,8 @@
   <slot>onPrintButtonClicked()</slot>
   <slot>onFormChanged()</slot>
   <slot>onPrinterPropertiesButtonClicked()</slot>
+  <slot>onBrowseButtonClicked()</slot>
+  <slot>onSystemDialogButtonClicked()</slot>
  </slots>
  <buttongroups>
   <buttongroup name="buttonGroup"/>

@@ -29,14 +29,9 @@ There are currently no official releases of gLabels 4.
 
 ### Continuous Integration Snapshots
 
-Continuous integration snapshots are not official releases.  These snapshots represent the latest
-bleeding-edge development (unstable) code.  Please, DO NOT use it in a production environment.  Do not
-expect compatibility or consistency of features between snapshots.
+Currently there are no self-hosted binary snapshot releases available.  I plan to make these available again once 4.0 is more imminent.  In the mean time, I encourage you to try building the code yourself.
 
-Pre-release Linux [AppImage](http:appimage.org) and Windows installer binaries are available in
-**[Releases](https://github.com/j-evins/glabels-qt/releases)**.
-
-Some third-party packages are also available:
+Some third-party packages may be available available:
 
 
 | Platform  | Files                                                                                | Notes                                                         |

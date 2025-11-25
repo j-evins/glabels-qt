@@ -38,20 +38,6 @@ namespace glabels
 		{
 
 			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		public:
-			Record();
-			Record( const Record* record );
-
-
-			/////////////////////////////////
-			// Object duplication
-			/////////////////////////////////
-			Record* clone() const;
-
-
-			/////////////////////////////////
 			// Properties
 			/////////////////////////////////
 		public:
@@ -63,10 +49,12 @@ namespace glabels
 			// Private data
 			/////////////////////////////////
 		private:
-			bool                  mSelected;
+			bool mSelected{ true };
 
 		};
 
+
+		using NullRecord = const Record;
 	}
 }
 

@@ -36,9 +36,9 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	TemplatePickerItem::TemplatePickerItem( model::Template*    tmplate,
-	                                        QListView::ViewMode mode,
-	                                        QListWidget*        parent )
+	TemplatePickerItem::TemplatePickerItem( const model::Template& tmplate,
+	                                        QListView::ViewMode    mode,
+	                                        QListWidget*           parent )
 		: QListWidgetItem( parent )
 	{
 		mTmplate = tmplate;
@@ -55,18 +55,18 @@ namespace glabels
 	///
 	void TemplatePickerItem::setMode( QListView::ViewMode mode )
 	{
-		auto* frame = mTmplate->frames().first();
+		auto frame = mTmplate.frame();
 
 		switch ( mode )
 		{
 			
 		case QListView::IconMode:
-			setText( mTmplate->name() );
+			setText( mTmplate.name() );
 			break;
 
 		case QListView::ListMode:
-			setText( "<b>" + mTmplate->name() + "</b><br/>" +
-			         mTmplate->description() + "<br/>" +
+			setText( "<b>" + mTmplate.name() + "</b><br/>" +
+			         mTmplate.description() + "<br/>" +
 			         frame->sizeDescription( model::Settings::units() ) + "<br/>" +
 			         frame->layoutDescription() );
 			break;
@@ -82,7 +82,7 @@ namespace glabels
 	///
 	/// Template Property Getter
 	///
-	const model::Template *TemplatePickerItem::tmplate() const
+	model::Template TemplatePickerItem::tmplate() const
 	{
 		return mTmplate;
 	}
