@@ -5,7 +5,7 @@ gLabels MacOS Build Instructions
 
 ```
 brew install cmake
-brew install qt@5
+brew install qt@6
 ```
 
 ## Compile and Install
@@ -26,7 +26,7 @@ fi
 cd <i>glabels_source_directory</i>
 mkdir build
 cd build
-$CMAKE_PATH -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH/qt@5 ..
+$CMAKE_PATH -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH/qt@6 ..
 make
 sudo make install
 </pre>
