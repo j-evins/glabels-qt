@@ -1,0 +1,34 @@
+name: Tag Snapshot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        # Checkout full-depth to facilitate auto versioning
+        fetch-depth: 0
+
+    - name: Set strings
+      id: strings
+      shell: bash
+      run: |
+        echo "version=3.99-master$(git rev-list --count master --)" >> "$GITHUB_OUTPUT"
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.strings.outputs.version }}
+        body: "Pre-4.0 development snapshot release"
+        draft: false
+        prerelease: true

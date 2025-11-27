@@ -45,7 +45,7 @@ endif ()
   
 execute_process(
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  COMMAND git log -1 --format=%h
+  COMMAND git show-ref --head --hash --abbrev head
   RESULT_VARIABLE COMMIT_HASH_VALID
   OUTPUT_VARIABLE COMMIT_HASH
   OUTPUT_STRIP_TRAILING_WHITESPACE
@@ -56,7 +56,7 @@ endif ()
   
 execute_process(
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  COMMAND git log -1 --format=%cd --date=short
+  COMMAND git rev-list -1 --no-commit-header --format=%cs HEAD
   RESULT_VARIABLE COMMIT_DATE_VALID
   OUTPUT_VARIABLE COMMIT_DATE
   OUTPUT_STRIP_TRAILING_WHITESPACE

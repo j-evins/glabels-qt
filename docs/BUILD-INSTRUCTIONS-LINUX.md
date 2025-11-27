@@ -84,13 +84,13 @@ $ sudo make install
 ```
 
 
-## Example: Fedora 35
+## Example: Fedora 42
 
 ### Installing Prerequisites
 We assume the build system already has things like cmake and the GNU C++ suite installed.
 
 ```
-$ sudo dnf install qt5-qtbase-devel qt5-qtsvg-devel qt5-linguist qt5-qttools
+$ sudo dnf install qt6-qtbase-devel qt6-qtsvg-devel qt6-linguist qt6-qttools-devel
 ```
 These installs will pull in additional packages to fill out their prerequisites.
 Fedora has a different package naming scheme than Ubuntu. This is to distinguish the QT6
