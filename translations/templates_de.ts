@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="de">
 <context>
     <name>XmlStrings</name>
     <message>
@@ -427,7 +427,7 @@
     </message>
     <message>
         <source>CD/DVD spine labels</source>
-        <translation>CD/DVD-Etiketten (Box-Schmalseite)</translation>
+        <translation>CD/DVD-Etiketten, Box-Schmalseite</translation>
     </message>
 </context>
 </TS>

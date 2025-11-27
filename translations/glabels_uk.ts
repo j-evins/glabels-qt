@@ -166,17 +166,6 @@
     </message>
 </context>
 <context>
-    <name>Db</name>
-    <message>
-        <source>Other</source>
-        <translation>Інше</translation>
-    </message>
-    <message>
-        <source>Roll</source>
-        <translation>Рулон</translation>
-    </message>
-</context>
-<context>
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
@@ -250,10 +239,12 @@
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
+        <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
         <translation>%1 x %2 (%3 на аркуш)</translation>
     </message>
     <message>
         <source>%1 per sheet</source>
+        <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
         <translation>%1 на аркуш</translation>
     </message>
 </context>
@@ -526,6 +517,34 @@
         <source>Picas</source>
         <translation>піки</translation>
     </message>
+    <message>
+        <source>Grid</source>
+        <translation>Сітка</translation>
+    </message>
+    <message>
+        <source>Configure grid behavior.</source>
+        <translation>Налаштувати параметри сітки.</translation>
+    </message>
+    <message>
+        <source>Origin</source>
+        <translation>Початок</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>Центр</translation>
+    </message>
+    <message>
+        <source>Spacing</source>
+        <translation>Інтервал</translation>
+    </message>
+    <message>
+        <source>Top left corner</source>
+        <translation>Верхній лівий кут</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Скинути</translation>
+    </message>
 </context>
 <context>
     <name>PrintView</name>
@@ -598,12 +617,20 @@
         <translation>Об&apos;єднані групи з нової сторінки</translation>
     </message>
     <message>
-        <source>Print...</source>
-        <translation>Надрукувати…</translation>
-    </message>
-    <message>
         <source>Start groups at position:</source>
         <translation>Розпочинати групи з позиції:</translation>
+    </message>
+    <message>
+        <source>Destination</source>
+        <translation>Призначення</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation>Друк</translation>
+    </message>
+    <message>
+        <source>Use system print dialog...</source>
+        <translation>Використовувати вікно друку системи…</translation>
     </message>
 </context>
 <context>
@@ -641,10 +668,6 @@
         <translation>Компонування:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select another product for this gLabels project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Виберіть інший продукт для цього проєкту gLabels.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Change product</source>
         <translation>Змінити продукт</translation>
     </message>
@@ -675,6 +698,10 @@
     <message>
         <source>Similar Products</source>
         <translation>Подібні продукти</translation>
+    </message>
+    <message>
+        <source>Select another product for this gLabels project.</source>
+        <translation>Виберіть інший продукт для цього проєкту gLabels.</translation>
     </message>
 </context>
 <context>
@@ -754,6 +781,42 @@
         <source>&amp;Cancel</source>
         <translation>&amp;Скасувати</translation>
     </message>
+    <message>
+        <source>Product information</source>
+        <translation>Дані щодо продукту</translation>
+    </message>
+    <message>
+        <source>Vendor:</source>
+        <translation>Виробник:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>Текстова мітка</translation>
+    </message>
+    <message>
+        <source>Part #:</source>
+        <translation>№ частини:</translation>
+    </message>
+    <message>
+        <source>Description:</source>
+        <translation>Опис:</translation>
+    </message>
+    <message>
+        <source>Page size:</source>
+        <translation>Розмір сторінки:</translation>
+    </message>
+    <message>
+        <source>Label size:</source>
+        <translation>Розмір етикетки:</translation>
+    </message>
+    <message>
+        <source>Layout:</source>
+        <translation>Компонування:</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation>Вибрати</translation>
+    </message>
 </context>
 <context>
     <name>StartupView</name>
@@ -827,8 +890,8 @@
 <context>
     <name>TemplateDesignerContinuousPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Натисніть &amp;quot;Скасувати&amp;quot;, щоб скасувати, або натисніть &amp;quot;Назад&amp;quot;, щоб розпочати роботу із іншим продуктом.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
+        <translation>Натисніть «Скасувати», щоб скасувати, або натисніть «Назад», щоб розпочати роботу із іншим продуктом.</translation>
     </message>
 </context>
 <context>
@@ -853,10 +916,6 @@
 <context>
     <name>TemplateDesignerIntroPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This dialog will help you create a custom product template. Let&apos;s get started:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;За допомогою цього вікна ви зможете створити нетиповий шаблон продукту. Почнімо:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Copy/Edit Product</source>
         <translation>Копіювати/Редагувати продукт</translation>
     </message>
@@ -871,6 +930,10 @@
     <message>
         <source>Create a new product template from scratch</source>
         <translation>Створити шаблон нового продукту з нуля</translation>
+    </message>
+    <message>
+        <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
+        <translation>За допомогою цього вікна ви зможете створити нетиповий шаблон продукту. Почнімо:</translation>
     </message>
 </context>
 <context>
@@ -980,8 +1043,8 @@
 <context>
     <name>TemplateDesignerPathPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Натисніть &amp;quot;Скасувати&amp;quot;, щоб скасувати, або натисніть &amp;quot;Назад&amp;quot;, щоб розпочати роботу із іншим продуктом.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
+        <translation>Натисніть «Скасувати», щоб скасувати, або натисніть «Назад», щоб розпочати роботу із іншим продуктом.</translation>
     </message>
 </context>
 <context>
@@ -1145,28 +1208,28 @@
 <context>
     <name>VariablesView</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Додати змінну&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Додати</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Edit selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Редагування вибраної змінної&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Edit</source>
         <translation>Змінити</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Вилучити вибрану змінну&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Вилучити</translation>
+    </message>
+    <message>
+        <source>Add variable</source>
+        <translation>Додати змінну</translation>
+    </message>
+    <message>
+        <source>Edit selected variable</source>
+        <translation>Редагувати позначен змінну</translation>
+    </message>
+    <message>
+        <source>Delete selected variable</source>
+        <translation>Вилучити позначену змінну</translation>
     </message>
 </context>
 <context>
@@ -1296,6 +1359,10 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     <message>
         <source>Resize</source>
         <translation>Змінити розмір</translation>
+    </message>
+    <message>
+        <source>Drop</source>
+        <translation>Скинути</translation>
     </message>
 </context>
 <context>
@@ -1842,11 +1909,21 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     </message>
     <message>
         <source>Undo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
         <translation>Скасувати %1</translation>
     </message>
     <message>
         <source>Redo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
         <translation>Повторити %1</translation>
+    </message>
+    <message>
+        <source>Center Both</source>
+        <translation>Центрувати обидва</translation>
+    </message>
+    <message>
+        <source>Center objects in label</source>
+        <translation>Центрувати об&apos;єкти на етикетці</translation>
     </message>
 </context>
 <context>
@@ -2049,6 +2126,22 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <source>(Will print a total of %1 items on 1 page.)</source>
         <translation>(Буде надруковано %1 елементів на 1 сторінці.)</translation>
     </message>
+    <message>
+        <source>Print to file (PDF)</source>
+        <translation>Надрукувати до файла (PDF)</translation>
+    </message>
+    <message>
+        <source>PDF files (*.pdf);;All files (*)</source>
+        <translation>файли PDF (*.pdf);;усі файли (*)</translation>
+    </message>
+    <message>
+        <source>%1 already exists.</source>
+        <translation>%1 вже існує.</translation>
+    </message>
+    <message>
+        <source>Do you want to overwrite it?</source>
+        <translation>Хочете його перезаписати?</translation>
+    </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
@@ -2085,6 +2178,17 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     </message>
 </context>
 <context>
+    <name>glabels::SelectProductDialog</name>
+    <message>
+        <source>List View</source>
+        <translation>Перегляд списком</translation>
+    </message>
+    <message>
+        <source>Grid View</source>
+        <translation>Перегляд таблицею</translation>
+    </message>
+</context>
+<context>
     <name>glabels::SimplePreview</name>
     <message>
         <source>Up</source>
@@ -2118,6 +2222,7 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
+        <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
         <translation>Шаблон продукту користувача (%1 %2) вже існує.</translation>
     </message>
     <message>
@@ -2474,10 +2579,6 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <translation>Код Aztec</translation>
     </message>
     <message>
-        <source>Aztec Rune</source>
-        <translation>Руна Aztec</translation>
-    </message>
-    <message>
         <source>Code One</source>
         <translation>Код One</translation>
     </message>
@@ -2488,10 +2589,6 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     <message>
         <source>Code 16K</source>
         <translation>Код 16K</translation>
-    </message>
-    <message>
-        <source>Code 2 of 5 Matrix</source>
-        <translation>Матричний код 2 з 5</translation>
     </message>
     <message>
         <source>Code 2 of 5 IATA</source>
@@ -2546,22 +2643,6 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <translation>GS1-128</translation>
     </message>
     <message>
-        <source>GS1 DataBar-14</source>
-        <translation>GS1 DataBar-14</translation>
-    </message>
-    <message>
-        <source>GS1 DataBar-14 Stacked</source>
-        <translation>GS1 DataBar-14 Stacked</translation>
-    </message>
-    <message>
-        <source>GS1 DataBar-14 Stacked Omni.</source>
-        <translation>GS1 DataBar-14 Stacked Omni.</translation>
-    </message>
-    <message>
-        <source>GS1 DataBar Extended Stacked</source>
-        <translation>GS1 DataBar Extended Stacked</translation>
-    </message>
-    <message>
         <source>HIBC Code 128</source>
         <translation>HIBC, код 128</translation>
     </message>
@@ -2580,10 +2661,6 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     <message>
         <source>HIBC PDF417</source>
         <translation>HIBC PDF417</translation>
-    </message>
-    <message>
-        <source>HIBC Micro PDF417</source>
-        <translation>HIBC Micro PDF417</translation>
     </message>
     <message>
         <source>HIBC Aztec Code</source>
@@ -2610,10 +2687,6 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <translation>Максікод</translation>
     </message>
     <message>
-        <source>Micro PDF417</source>
-        <translation>Мікро PDF417</translation>
-    </message>
-    <message>
         <source>Micro QR Code</source>
         <translation>Мікро QR-код</translation>
     </message>
@@ -2622,24 +2695,12 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <translation>MSI Plessey</translation>
     </message>
     <message>
-        <source>NVE-18</source>
-        <translation>NVE-18</translation>
-    </message>
-    <message>
         <source>PDF417</source>
         <translation>PDF417</translation>
     </message>
     <message>
-        <source>PDF417 Truncated</source>
-        <translation>PDF417 обрізаний</translation>
-    </message>
-    <message>
         <source>PLANET</source>
         <translation>PLANET</translation>
-    </message>
-    <message>
-        <source>PostNet</source>
-        <translation>PostNet</translation>
     </message>
     <message>
         <source>Pharmacode</source>
@@ -2650,16 +2711,8 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <translation>Pharmacode 2-track</translation>
     </message>
     <message>
-        <source>Pharmazentral Nummer (PZN)</source>
-        <translation>Pharmazentral Nummer (PZN)</translation>
-    </message>
-    <message>
         <source>QR Code</source>
         <translation>QR-код</translation>
-    </message>
-    <message>
-        <source>Royal Mail 4-State</source>
-        <translation>Британська королівська пошта, 4-State</translation>
     </message>
     <message>
         <source>Telepen</source>
@@ -2670,12 +2723,128 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
         <translation>Telepen числовий</translation>
     </message>
     <message>
-        <source>USPS One Code</source>
-        <translation>USPS One Code</translation>
-    </message>
-    <message>
         <source>UK Plessey</source>
         <translation>UK Plessey</translation>
+    </message>
+    <message>
+        <source>Aztec Runes</source>
+        <translation>Aztec Runes</translation>
+    </message>
+    <message>
+        <source>CEPNet (Brazilian Post)</source>
+        <translation>CEPNet (Пошта Бразилії)</translation>
+    </message>
+    <message>
+        <source>Codablock-F</source>
+        <translation>Codablock-F</translation>
+    </message>
+    <message>
+        <source>Code 2 of 5 Standard</source>
+        <translation>Стандартний код 2 з 5</translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Stacked</source>
+        <translation>GS1 DataBar Stacked</translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Stacked Omni.</source>
+        <translation>GS1 DataBar Stacked Omni.</translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Expanded Stacked</source>
+        <translation>GS1 DataBar Expanded Stacked</translation>
+    </message>
+    <message>
+        <source>HIBC MicroPDF417</source>
+        <translation>HIBC MicroPDF417</translation>
+    </message>
+    <message>
+        <source>MicroPDF417</source>
+        <translation>MicroPDF417</translation>
+    </message>
+    <message>
+        <source>NVE-18 (SSCC-18)</source>
+        <translation>NVE-18 (SSCC-18)</translation>
+    </message>
+    <message>
+        <source>PDF417 Compact</source>
+        <translation>PDF417 компактний</translation>
+    </message>
+    <message>
+        <source>Pharmazentralnummer (PZN)</source>
+        <translation>Pharmazentralnummer (PZN)</translation>
+    </message>
+    <message>
+        <source>Channel Code</source>
+        <translation>Channel Code</translation>
+    </message>
+    <message>
+        <source>Code 2 of 5 Industrial</source>
+        <translation>Промисловий код 2 з 5</translation>
+    </message>
+    <message>
+        <source>DotCode</source>
+        <translation>DotCode</translation>
+    </message>
+    <message>
+        <source>EAN-14</source>
+        <translation>EAN-14</translation>
+    </message>
+    <message>
+        <source>GS1 DataBar Omnidirectional</source>
+        <translation>GS1 DataBar Omnidirectional</translation>
+    </message>
+    <message>
+        <source>Han Xin</source>
+        <translation>Han Xin</translation>
+    </message>
+    <message>
+        <source>Flattermarken</source>
+        <translation>Flattermarken</translation>
+    </message>
+    <message>
+        <source>DPD Code</source>
+        <translation>DPD Code</translation>
+    </message>
+    <message>
+        <source>POSTNET</source>
+        <translation>POSTNET</translation>
+    </message>
+    <message>
+        <source>Royal Mail 4-State Mailmark</source>
+        <translation>Британська королівська пошта, 4-State Mailmark</translation>
+    </message>
+    <message>
+        <source>UPU S10</source>
+        <translation>UPU S10</translation>
+    </message>
+    <message>
+        <source>FIM (Facing ID Mark)</source>
+        <translation>FIM (Facing ID Mark)</translation>
+    </message>
+    <message>
+        <source>rMQR (Rectangular Micro QR)</source>
+        <translation>rMQR (Rectangular Micro QR)</translation>
+    </message>
+    <message>
+        <source>Royal Mail 4-State Customer</source>
+        <translation>Британська королівська пошта, 4-State Customer</translation>
+    </message>
+    <message>
+        <source>VIN (Vehicle ID Number)</source>
+        <translation>VIN (Vehicle ID Number)</translation>
+    </message>
+    <message>
+        <source>HIBC Codablock-F</source>
+        <translation>HIBC Codablock-F</translation>
+    </message>
+    <message>
+        <source>Royal Mail 2-D Mailmark</source>
+        <translation>Британська королівська пошта, 2-D Mailmark</translation>
+    </message>
+    <message>
+        <source>BC412 (SEMI TI-95)</source>
+        <translation>BC412 (SEMI TI-95)</translation>
     </message>
 </context>
 <context>

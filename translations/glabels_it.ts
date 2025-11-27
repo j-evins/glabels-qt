@@ -166,17 +166,6 @@
     </message>
 </context>
 <context>
-    <name>Db</name>
-    <message>
-        <source>Other</source>
-        <translation>Altro</translation>
-    </message>
-    <message>
-        <source>Roll</source>
-        <translation>Rotolo</translation>
-    </message>
-</context>
-<context>
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
@@ -250,10 +239,12 @@
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
+        <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
         <translation>%1 x %2 (%3 per foglio)</translation>
     </message>
     <message>
         <source>%1 per sheet</source>
+        <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
         <translation>%1 per foglio</translation>
     </message>
 </context>
@@ -526,6 +517,34 @@
         <source>Picas</source>
         <translation>Picas</translation>
     </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure grid behavior.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Origin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Spacing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Top left corner</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PrintView</name>
@@ -598,12 +617,20 @@
         <translation>I gruppi di unione iniziano in una nuova pagina</translation>
     </message>
     <message>
-        <source>Print...</source>
-        <translation>Stampa...</translation>
-    </message>
-    <message>
         <source>Start groups at position:</source>
         <translation>Inizia gruppi in posizione:</translation>
+    </message>
+    <message>
+        <source>Destination</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use system print dialog...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -641,10 +668,6 @@
         <translation>Layout:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select another product for this gLabels project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;testa/&gt;&lt;corpo&gt;&lt;p&gt;Seleziona un altro prodotto per questo progetto gLabels.&lt;/p&gt;&lt;/corpo&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Change product</source>
         <translation>Cambia prodotto</translation>
     </message>
@@ -675,6 +698,10 @@
     <message>
         <source>Similar Products</source>
         <translation>Prodotti Simili</translation>
+    </message>
+    <message>
+        <source>Select another product for this gLabels project.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -754,6 +781,42 @@
         <source>&amp;Cancel</source>
         <translation>Cancella</translation>
     </message>
+    <message>
+        <source>Product information</source>
+        <translation>Produktinformation</translation>
+    </message>
+    <message>
+        <source>Vendor:</source>
+        <translation>Anbieter:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>Part #:</source>
+        <translation>Bestellnummer:</translation>
+    </message>
+    <message>
+        <source>Description:</source>
+        <translation>Beschreibung:</translation>
+    </message>
+    <message>
+        <source>Page size:</source>
+        <translation>Seitengröße:</translation>
+    </message>
+    <message>
+        <source>Label size:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Layout:</source>
+        <translation>Ausrichtung:</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation>Auswählen</translation>
+    </message>
 </context>
 <context>
     <name>StartupView</name>
@@ -827,8 +890,8 @@
 <context>
     <name>TemplateDesignerContinuousPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fai clic su &amp;quot;Annulla&amp;quot; per uscire, oppure fai clic su &amp;quot;Indietro&amp;quot; per cominciare con un prodotto diverso.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -853,10 +916,6 @@
 <context>
     <name>TemplateDesignerIntroPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This dialog will help you create a custom product template. Let&apos;s get started:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Questa finestra di dialogo ti aiuterà a creare un modello di prodotto personalizzato.Cominciamo:&lt;/p&gt;&lt;/corpo&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Copy/Edit Product</source>
         <translation>Copia/Modifica prodotto</translation>
     </message>
@@ -871,6 +930,10 @@
     <message>
         <source>Create a new product template from scratch</source>
         <translation>Crea un nuovo modello di prodotto da zero</translation>
+    </message>
+    <message>
+        <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -980,8 +1043,8 @@
 <context>
     <name>TemplateDesignerPathPage</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click &amp;quot;Cancel&amp;quot; to quit, or click &amp;quot;Back&amp;quot; to begin with a different product.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fai clic su &amp;quot;Annulla&amp;quot; per uscire, oppure fai clic su &amp;quot;Indietro&amp;quot; per cominciare con un prodotto diverso.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1145,28 +1208,28 @@
 <context>
     <name>VariablesView</name>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aggiungi variabile&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Aggiungi</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Edit selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Modifica variabile selezionata&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete selected variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Elimina variabile selezionata&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Cancella</translation>
+    </message>
+    <message>
+        <source>Add variable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Edit selected variable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete selected variable</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1289,6 +1352,10 @@
     <message>
         <source>Resize</source>
         <translation>Ridimensiona</translation>
+    </message>
+    <message>
+        <source>Drop</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1835,11 +1902,21 @@
     </message>
     <message>
         <source>Undo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
         <translation>Annulla %1</translation>
     </message>
     <message>
         <source>Redo %1</source>
+        <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
         <translation>Ripeti %1</translation>
+    </message>
+    <message>
+        <source>Center Both</source>
+        <translation>In beiden Richtungen zentrieren</translation>
+    </message>
+    <message>
+        <source>Center objects in label</source>
+        <translation>Objekte zentrieren</translation>
     </message>
 </context>
 <context>
@@ -2042,6 +2119,22 @@
         <source>(Will print a total of %1 items on 1 page.)</source>
         <translation>(Stampa un totale di %1 articoli su 1 pagina.)</translation>
     </message>
+    <message>
+        <source>Print to file (PDF)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDF files (*.pdf);;All files (*)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 already exists.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to overwrite it?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
@@ -2078,6 +2171,17 @@
     </message>
 </context>
 <context>
+    <name>glabels::SelectProductDialog</name>
+    <message>
+        <source>List View</source>
+        <translation>Listenansicht</translation>
+    </message>
+    <message>
+        <source>Grid View</source>
+        <translation>Gitteransicht</translation>
+    </message>
+</context>
+<context>
     <name>glabels::SimplePreview</name>
     <message>
         <source>Up</source>
@@ -2111,6 +2215,7 @@
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
+        <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
         <translation>Il modello di prodotto utente (%1 %2) esiste già.</translation>
     </message>
     <message>
@@ -2467,10 +2572,6 @@
         <translation>Codice azteco</translation>
     </message>
     <message>
-        <source>Aztec Rune</source>
-        <translation>Runa Azteca</translation>
-    </message>
-    <message>
         <source>Code One</source>
         <translation>Code One</translation>
     </message>
@@ -2481,10 +2582,6 @@
     <message>
         <source>Code 16K</source>
         <translation>Codice 16K</translation>
-    </message>
-    <message>
-        <source>Code 2 of 5 Matrix</source>
-        <translation>Codice 2 di 5 Matrix</translation>
     </message>
     <message>
         <source>Code 2 of 5 IATA</source>
@@ -2539,22 +2636,6 @@
         <translation>GS1-128</translation>
     </message>
     <message>
-        <source>GS1 DataBar-14</source>
-        <translation>GS1 DataBar-14</translation>
-    </message>
-    <message>
-        <source>GS1 DataBar-14 Stacked</source>
-        <translation>GS1 DataBar-14 multiparte</translation>
-    </message>
-    <message>
-        <source>GS1 DataBar-14 Stacked Omni.</source>
-        <translation>GS1 DataBar-14 multiparte omni.</translation>
-    </message>
-    <message>
-        <source>GS1 DataBar Extended Stacked</source>
-        <translation>GS1 DataBar esteso in più parti</translation>
-    </message>
-    <message>
         <source>HIBC Code 128</source>
         <translation>HIBC Codice 128</translation>
     </message>
@@ -2573,10 +2654,6 @@
     <message>
         <source>HIBC PDF417</source>
         <translation>HIBC PDF417</translation>
-    </message>
-    <message>
-        <source>HIBC Micro PDF417</source>
-        <translation>HIBC Micro PDF417</translation>
     </message>
     <message>
         <source>HIBC Aztec Code</source>
@@ -2603,10 +2680,6 @@
         <translation>Maxicode</translation>
     </message>
     <message>
-        <source>Micro PDF417</source>
-        <translation>Micro PDF417</translation>
-    </message>
-    <message>
         <source>Micro QR Code</source>
         <translation>Micro QR Code</translation>
     </message>
@@ -2615,24 +2688,12 @@
         <translation>MSI Plessey</translation>
     </message>
     <message>
-        <source>NVE-18</source>
-        <translation>NVE-18</translation>
-    </message>
-    <message>
         <source>PDF417</source>
         <translation>PDF417</translation>
     </message>
     <message>
-        <source>PDF417 Truncated</source>
-        <translation>PDF417 abbreviato</translation>
-    </message>
-    <message>
         <source>PLANET</source>
         <translation>PLANET</translation>
-    </message>
-    <message>
-        <source>PostNet</source>
-        <translation>PostNet</translation>
     </message>
     <message>
         <source>Pharmacode</source>
@@ -2643,16 +2704,8 @@
         <translation>Codice farmaceutico a 2 tracce</translation>
     </message>
     <message>
-        <source>Pharmazentral Nummer (PZN)</source>
-        <translation>Numero centrale farmaceutica (PZN)</translation>
-    </message>
-    <message>
         <source>QR Code</source>
         <translation>Codice QR</translation>
-    </message>
-    <message>
-        <source>Royal Mail 4-State</source>
-        <translation>Royal Mail 4-State</translation>
     </message>
     <message>
         <source>Telepen</source>
@@ -2663,12 +2716,128 @@
         <translation>Telepen Numerico</translation>
     </message>
     <message>
-        <source>USPS One Code</source>
-        <translation>USPS One Code</translation>
-    </message>
-    <message>
         <source>UK Plessey</source>
         <translation>UK Plessey</translation>
+    </message>
+    <message>
+        <source>Aztec Runes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CEPNet (Brazilian Post)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Codablock-F</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code 2 of 5 Standard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GS1 DataBar Stacked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GS1 DataBar Stacked Omni.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GS1 DataBar Expanded Stacked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>HIBC MicroPDF417</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MicroPDF417</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NVE-18 (SSCC-18)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PDF417 Compact</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pharmazentralnummer (PZN)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Channel Code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Code 2 of 5 Industrial</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>DotCode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>EAN-14</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GS1 DataBar Omnidirectional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Han Xin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Flattermarken</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>DPD Code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>POSTNET</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Royal Mail 4-State Mailmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UPU S10</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>FIM (Facing ID Mark)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>rMQR (Rectangular Micro QR)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Royal Mail 4-State Customer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VIN (Vehicle ID Number)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>HIBC Codablock-F</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Royal Mail 2-D Mailmark</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>BC412 (SEMI TI-95)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
