@@ -70,6 +70,7 @@ namespace glabels
 			QString id() const;
 			QString source() const;
 			void setSource( const QString& source );
+			void reloadSource();
 
 			const QList<Record>& recordList( ) const;
 

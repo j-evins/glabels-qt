@@ -78,6 +78,41 @@ namespace glabels
 
 
 		///
+		/// Reload source
+		///
+		void Merge::reloadSource()
+		{
+			//  temporary map of original selections
+			QMap<QString,bool> origSelectionMap;
+
+			for ( auto& record : mRecordList )
+			{
+				origSelectionMap[ record[ primaryKey() ] ] = record.isSelected();
+			}
+
+			// Clear the original records
+			mRecordList.clear();
+
+			// Read the new records, preserve any original selections
+			open();
+			for ( Record record = readNextRecord(); !record.isEmpty(); record = readNextRecord() )
+			{
+				auto key = record[ primaryKey() ];
+				auto it = origSelectionMap.find( key );
+				if ( it != origSelectionMap.end() )
+				{
+					record.setSelected( it.value() );
+				}
+
+				mRecordList.push_back( record );
+			}
+			close();
+
+			emit sourceChanged();
+		}
+
+
+		///
 		/// Get record list
 		///
 		const QList<Record>& Merge::recordList( ) const
