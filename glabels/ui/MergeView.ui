@@ -131,6 +131,13 @@
             </property>
            </spacer>
           </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Reload</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
        </layout>
@@ -197,12 +204,28 @@
    <slot>onLocationBrowseButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>296</x>
-     <y>130</y>
+     <x>534</x>
+     <y>165</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
      <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MergeView</receiver>
+   <slot>onReloadButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>552</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>539</x>
+     <y>602</y>
     </hint>
    </hints>
   </connection>
@@ -212,5 +235,6 @@
   <slot>onUnselectAllButtonClicked()</slot>
   <slot>onFormatComboActivated()</slot>
   <slot>onLocationBrowseButtonClicked()</slot>
+  <slot>onReloadButtonClicked()</slot>
  </slots>
 </ui>

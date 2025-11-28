@@ -204,6 +204,15 @@ namespace glabels
 
 
 	///
+	/// Reload button clicked handler
+	///
+	void MergeView::onReloadButtonClicked()
+	{
+		mModel->merge()->reloadSource();
+	}
+
+
+	///
 	/// Cell changed handler
 	///
 	void MergeView::onCellChanged( int iRow, int iCol )

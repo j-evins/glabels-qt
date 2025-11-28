@@ -301,6 +301,10 @@
         <source>Browse...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ObjectEditor</name>

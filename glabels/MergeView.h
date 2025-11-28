@@ -70,6 +70,7 @@ namespace glabels
 		void onLocationBrowseButtonClicked();
 		void onSelectAllButtonClicked();
 		void onUnselectAllButtonClicked();
+		void onReloadButtonClicked();
 		void onCellChanged( int iRow, int iCol );
 
 
