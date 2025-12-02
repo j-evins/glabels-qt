@@ -29,14 +29,14 @@ There are currently no official releases of gLabels 4.
 
 ### Continuous Integration Snapshots
 
-Currently there are no self-hosted binary snapshot releases available.  I plan to make these available again once 4.0 is more imminent.  In the mean time, I encourage you to try building the code yourself.
+Binary snapshots can be downloaded from [GitHub Actions CI workflow artifacts](https://github.com/j-evins/glabels-qt/actions/workflows/build-tests.yml) or from [nightly.link](https://nightly.link/j-evins/glabels-qt/workflows/build-tests/master) without a GitHub account.
 
 Some third-party packages may be available available:
 
 
 | Platform  | Files                                                                                | Notes                                                         |
 |:----------|:-------------------------------------------------------------------------------------|:--------------------------------------------------------------|
-| Archlinux | [Archlinux User Repository Page](https://aur.archlinux.org/packages/glabels-qt-git/) | Maintained by [Mario Blättermann](https://github.com/mariobl) |
+| Arch Linux | [Arch Linux User Repository Page](https://aur.archlinux.org/packages/glabels-qt-git/) | Maintained by [Mario Blättermann](https://github.com/mariobl) |
 | Ubuntu    | [PPA Page](https://code.launchpad.net/~krisives/+archive/ubuntu/glabels-qt)          | Maintained by [Kristopher Ives](https://github.com/krisives)  |
 
 

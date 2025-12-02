@@ -112,6 +112,7 @@ jobs:
       shell: bash
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+        echo "install-output-dir=${{ github.workspace }}/install" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
       run: >
@@ -139,6 +140,19 @@ jobs:
       if: startsWith( matrix.os, 'macos-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: ctest --build-config ${{ matrix.build_type }}
+
+    - name: Install
+      run: >
+        cmake
+        --install ${{ steps.strings.outputs.build-output-dir }}
+        --config ${{ matrix.build_type }}
+        --prefix ${{ steps.strings.outputs.install-output-dir }}
+
+    - name: Upload install artifacts
+      uses: actions/upload-artifact@v5
+      with:
+        name: glabels-qt-${{ matrix.os }}-${{ matrix.c_compiler }}
+        path: ${{ steps.strings.outputs.install-output-dir }}
 
 #    - name: Tmate
 #      uses: mxschmitt/action-tmate@v3
