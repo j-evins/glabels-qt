@@ -60,7 +60,7 @@ jobs:
         sudo apt-get -y install pkgconf libqrencode-dev
         sudo apt-get -y install barcode
         # install zint-2.15.0 from source
-g        wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz && tar xzf zint-2.15.0-src.tar.gz && ( cd zint-2.15.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
+        wget https://downloads.sourceforge.net/project/zint/zint/2.15.0/zint-2.15.0-src.tar.gz && tar xzf zint-2.15.0-src.tar.gz && ( cd zint-2.15.0-src && mkdir build && cd build && cmake .. && make && sudo make install )
 
     - name: Pre-install vcpkg (Windows)
       if: startsWith( matrix.os, 'windows-' )
