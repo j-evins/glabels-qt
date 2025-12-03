@@ -22,6 +22,7 @@
 #include "Version.h"
 
 #include <QGuiApplication>
+#include <QLibraryInfo>
 #include <QLocale>
 #include <QSysInfo>
 #include <QTextStream>
@@ -46,6 +47,7 @@ namespace glabels
 			   << ">     Kernel: " << QSysInfo::kernelType() << " " << QSysInfo::kernelVersion() << "\n"
 			   << ">     Build CPU Architecture: " << QSysInfo::buildCpuArchitecture() << "\n"
 			   << ">     Current CPU Architecture: " << QSysInfo::currentCpuArchitecture() << "\n"
+			   << ">     Qt Version: " << QLibraryInfo::version().toString() << "\n"
 			   << ">     QPA Platform: " << QGuiApplication::platformName() << "\n"
 			   << "> " << "\n"
 
