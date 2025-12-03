@@ -128,17 +128,23 @@ jobs:
     - name: Test (Ubuntu)
       if: startsWith( matrix.os, 'ubuntu-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      run: xvfb-run ctest --build-config ${{ matrix.build_type }}
+      run: |
+        xvfb-run ./glabels/glabels-qt --Version
+        xvfb-run ctest --build-config ${{ matrix.build_type }}
 
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      run: ctest --build-config ${{ matrix.build_type }}
+      run: |
+        ./glabels/glabels-qt --Version
+        ctest --build-config ${{ matrix.build_type }}
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      run: ctest --build-config ${{ matrix.build_type }}
+      run: |
+        ./glabels/glabels-qt --Version
+        ctest --build-config ${{ matrix.build_type }}
 
 #    - name: Tmate
 #      uses: mxschmitt/action-tmate@v3
