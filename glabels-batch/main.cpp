@@ -142,10 +142,19 @@ int main( int argc, char **argv )
 	parser.addOptions( options );
 	parser.addHelpOption();
 	parser.addVersionOption();
+	parser.addOption( { { "V", "Version" }, QCoreApplication::translate( "main", "More detailed version information." ) } );
 	parser.addPositionalArgument( "file",
 	                              QCoreApplication::translate( "main", "gLabels project file to print." ),
 	                              "file" );
 	parser.process( app );
+
+	// Handle verbose version option
+	if ( parser.isSet( "Version" ) )
+	{
+		qInfo().noquote() << glabels::model::Version::details();
+		return 0;
+	}
+
 
 	//
 	// Parse variable definitions from command line, if any

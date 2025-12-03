@@ -31,11 +31,11 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QDebug>
 #include <QIcon>
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QTranslator>
-#include <QtDebug>
 
 
 int main( int argc, char **argv )
@@ -82,10 +82,19 @@ int main( int argc, char **argv )
 	parser.setApplicationDescription( QCoreApplication::translate( "main", "gLabels Label Designer" ) );
 	parser.addHelpOption();
 	parser.addVersionOption();
+	parser.addOption( { { "V", "Version" }, QCoreApplication::translate( "main", "More detailed version information." ) } );
 	parser.addPositionalArgument( "files",
 	                              QCoreApplication::translate( "main", "gLabels project files to open, optionally." ),
 	                              "[files...]" );
 	parser.process( app );
+
+	// Handle verbose version option
+	if ( parser.isSet( "Version" ) )
+	{
+		qInfo().noquote() << glabels::model::Version::details();
+		return 0;
+	}
+
 	
 	//
 	// Initialize subsystems

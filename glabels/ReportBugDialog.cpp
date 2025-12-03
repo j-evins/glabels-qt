@@ -23,9 +23,6 @@
 #include "model/Version.h"
 
 #include <QDesktopServices>
-#include <QGuiApplication>
-#include <QLocale>
-#include <QSysInfo>
 #include <QUrl>
 #include <QtDebug>
 
@@ -58,19 +55,7 @@ namespace glabels
 
 		p2Label->setText( QString( "<p>%1</p>" ).arg( directionsP2 ) );
 
-		infoText->append( "> GLABELS" );
-		infoText->append( ">     Version: " + model::Version::STRING );
-		infoText->append( "> " );
-	
-		infoText->append( "> SYSTEM INFO" );
-		infoText->append( ">     OS: " + QSysInfo::prettyProductName() );
-		infoText->append( ">     Kernel: " + QSysInfo::kernelType() + " " + QSysInfo::kernelVersion() );
-		infoText->append( ">     Build CPU Architecture: " + QSysInfo::buildCpuArchitecture() );
-		infoText->append( ">     Current CPU Architecture: " + QSysInfo::currentCpuArchitecture() );
-		infoText->append( "> " );
-
-		infoText->append( "> LOCALE" );
-		infoText->append( ">     Name: " + QLocale::system().name() );
+		infoText->append( model::Version::details() );
 
 		QString directionsP3 =
 			tr( "Be sure to include a detailed description of the problem and how to "

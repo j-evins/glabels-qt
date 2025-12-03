@@ -22,6 +22,9 @@
 #define model_Version_h
 
 
+#include <QString>
+
+
 namespace glabels
 {
 	namespace model
@@ -42,6 +45,8 @@ namespace glabels
 
 			const QString STRING  = "@VERSION_STRING@";
 			const QString LONG_STRING  = "@LONG_VERSION_STRING@";
+
+			QString details();
 		}
 
 	}

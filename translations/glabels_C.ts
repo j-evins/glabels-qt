@@ -2888,5 +2888,9 @@
         <source>gLabels project files to open, optionally.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>More detailed version information.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -59,6 +59,7 @@ set (Model_sources
   Units.cpp
   Variable.cpp
   Variables.cpp
+  Version.cpp
   Vendor.cpp
   XmlCategoryParser.cpp
   XmlLabelCreator.cpp
