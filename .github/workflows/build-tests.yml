@@ -136,7 +136,8 @@ jobs:
       if: startsWith( matrix.os, 'windows-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
-        ./glabels/${{ matrix.build_type }}/glabels-qt --Version
+        ./glabels/${{ matrix.build_type }}/glabels-qt --Version > glabels-out.txt 2>&1
+        cat glabels-out.txt
         ctest --build-config ${{ matrix.build_type }}
 
     - name: Test (MacOS)
