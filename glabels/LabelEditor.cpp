@@ -823,7 +823,8 @@ namespace glabels
 		/*
 		 * Calculate new size
 		 */
-		double w, h;
+		double w = 0.0;
+		double h = 0.0;
 		switch ( mResizeHandleLocation )
 		{
 		case model::Handle::NW:
