@@ -28,9 +28,6 @@
 
 namespace
 {
-	const double FONT_SCALE = 0.9;
-	const int W_PTS_DEFAULT = 144;
-	const int H_PTS_DEFAULT = 72;
 	const double TWO_DIVIDED_BY_SQRT3 = 1.15470053837925152902;
 }
 
