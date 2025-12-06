@@ -147,7 +147,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
    # Uncomment to always compile with debug symbols
    add_compile_options("-g")
 endif ()
-if (${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+if (${CMAKE_CXX_COMPILER_ID} MATCHES "^.*Clang$")
    #
    # Uncomment to compile everything with aggressively pedantic options
    # (not recommended -- only for testing -- also not portable)
@@ -155,7 +155,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
    add_compile_options("-Wall" "-Wextra" "-Wpedantic" "-Wno-unused-parameter" "-Werror")
 
    # Uncomment to always compile with debug symbols
-   add_compile_options("-g")
+   add_compile_options("-g --invalid-option-for-testing")
 endif ()
 
 
