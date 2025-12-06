@@ -36,8 +36,6 @@ namespace glabels
 		const int     wSwatch = 25;
 		const int     hSwatch = 25;
 
-		const int     hoverBgOutlineWidthPixels = 1;
-
 		const int     outlineWidthPixels = 1;
 	}
 
