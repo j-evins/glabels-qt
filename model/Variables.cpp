@@ -31,7 +31,8 @@ namespace glabels
 		/// Copy constructor
 		///
 		Variables::Variables( const Variables& other )
-			: QMap<QString,Variable>(other)
+			: QObject(),
+			  QMap<QString,Variable>(other)
 		{
 		}
 

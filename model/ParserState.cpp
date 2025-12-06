@@ -30,7 +30,7 @@ namespace glabels
 	{
 
 		ParserState::ParserState( const QString& string,
-		                          unsigned int   pos )
+		                          qsizetype      pos )
 			: mString(&string),
 			  mPos( pos )
 		{
@@ -38,7 +38,7 @@ namespace glabels
 
 
 		QChar
-		ParserState::operator[]( unsigned int i ) const
+		ParserState::operator[]( qsizetype i ) const
 		{
 			auto ii = mPos + i;
 			if ( ii < mString->size() )
@@ -55,7 +55,7 @@ namespace glabels
 		bool
 		ParserState::isNextSubString( const QString& s ) const
 		{
-			for ( unsigned int i = 0; i < s.size(); i++ )
+			for ( qsizetype i = 0; i < s.size(); i++ )
 			{
 				if ( operator[](i) != s[i] ) return false;
 			}
@@ -78,7 +78,7 @@ namespace glabels
 
 
 		void
-		ParserState::advanceChars( unsigned int i )
+		ParserState::advanceChars( qsizetype i )
 		{
 			mPos = std::min( mPos + i, mString->size() );
 		}

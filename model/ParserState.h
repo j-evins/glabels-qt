@@ -35,15 +35,15 @@ namespace glabels
 		public:
 			ParserState() = default;
 			ParserState( const QString& string,
-			             unsigned int   pos = 0 );
+			             qsizetype      pos = 0 );
 			~ParserState() = default;
 
-			QChar operator[]( unsigned int i ) const;
+			QChar operator[]( qsizetype i ) const;
 			bool isNextSubString( const QString& s ) const;
 			qsizetype pos() const;
 			qsizetype charsLeft() const;
 
-			void advanceChars( unsigned int i );
+			void advanceChars( qsizetype i );
 
 
 		private:

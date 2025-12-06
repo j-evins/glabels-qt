@@ -130,7 +130,7 @@ namespace glabels
 	{
 		model::Settings::setTemplatePickerMode( mode );
 		
-		for ( unsigned int i = 0; i < count(); i++ )
+		for ( int i = 0; i < count(); i++ )
 		{
 			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
@@ -182,7 +182,7 @@ namespace glabels
 	                                  bool isoMask, bool usMask, bool otherMask,
 	                                  bool anyCategory, const QStringList& categoryIds )
 	{
-		for ( unsigned int i = 0; i < count(); i++ )
+		for ( int i = 0; i < count(); i++ )
 		{
 			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
@@ -232,7 +232,7 @@ namespace glabels
 	///
 	void TemplatePicker::applyFilter( const QStringList& names )
 	{
-		for ( unsigned int i = 0; i < count(); i++ )
+		for ( int i = 0; i < count(); i++ )
 		{
 			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
 			{
