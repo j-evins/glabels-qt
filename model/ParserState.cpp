@@ -78,7 +78,7 @@ namespace glabels
 
 
 		void
-		ParserState::advanceChars( unsigned int i )
+		ParserState::advanceChars( qsizetype i )
 		{
 			mPos = std::min( mPos + i, mString->size() );
 		}

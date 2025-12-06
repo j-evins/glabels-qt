@@ -43,7 +43,7 @@ namespace glabels
 			qsizetype pos() const;
 			qsizetype charsLeft() const;
 
-			void advanceChars( unsigned int i );
+			void advanceChars( qsizetype i );
 
 
 		private:
