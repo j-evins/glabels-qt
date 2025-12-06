@@ -149,6 +149,9 @@ namespace glabels
 			case Units::PC:
 				d = pc();
 				break;
+			default:
+				d = mDPts;
+				break;
 			}
 
 			return d;
@@ -175,6 +178,9 @@ namespace glabels
 				break;
 			case Units::PC:
 				d = pc();
+				break;
+			default:
+				d = mDPts;
 				break;
 			}
 
