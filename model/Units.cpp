@@ -142,6 +142,8 @@ namespace glabels
 			case Units::PC:
 				idString = "pc";
 				break;
+			default:
+				idString = "pt";
 			}
 
 			return idString;
@@ -169,6 +171,8 @@ namespace glabels
 			case Units::PC:
 				nameString = tr("picas");
 				break;
+			default:
+				nameString = tr("points");
 			}
 
 			return nameString;
@@ -196,6 +200,9 @@ namespace glabels
 			case Units::PC:
 				value = 0.01;
 				break;
+			default:
+				value = 0.01;
+				break;
 			}
 
 			return value;
@@ -221,6 +228,9 @@ namespace glabels
 				digits = 3;
 				break;
 			case Units::PC:
+				digits = 2;
+				break;
+			default:
 				digits = 2;
 				break;
 			}
