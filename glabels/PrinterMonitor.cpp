@@ -21,8 +21,10 @@
 
 #include "PrinterMonitor.h"
 
-#include <QPrinterInfo>
 #include <QDebug>
+#include <QMutexLocker>
+#include <QPrinterInfo>
+#include <QtConcurrentRun>
 
 
 namespace glabels
@@ -39,11 +41,13 @@ namespace glabels
 	///
 	PrinterMonitor::PrinterMonitor()
 	{
+		using namespace std::chrono_literals;
+
 		mCurrentAvailablePrinters = QPrinterInfo::availablePrinterNames();
 
 		mTimer.reset( new QTimer( this ) );
 		connect( mTimer.get(), SIGNAL(timeout()), this, SLOT(onTimerTimeout()) );
-		mTimer->start( 1000 );
+		mTimer->start( 10s );
 	}
 
 
@@ -64,8 +68,9 @@ namespace glabels
 	///
 	/// Get available printers
 	///
-	const QStringList& PrinterMonitor::availablePrinters() const
+	QStringList PrinterMonitor::availablePrinters()
 	{
+		QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
 		return mCurrentAvailablePrinters;
 	}
 
@@ -75,9 +80,24 @@ namespace glabels
 	///
 	void PrinterMonitor::onTimerTimeout()
 	{
+		// Make sure previous poll is complete before starting a new one
+		if ( mPollStatus.isFinished() )
+		{
+			mPollStatus = QtConcurrent::run( &PrinterMonitor::asyncPoll, this );
+		}
+	}
+
+	
+	///
+	/// Asynchronous poll
+	///
+	void PrinterMonitor::asyncPoll()
+	{
 		auto newAvailablePrinters = QPrinterInfo::availablePrinterNames();
 		if ( newAvailablePrinters != mCurrentAvailablePrinters )
 		{
+			QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
+
 			mCurrentAvailablePrinters = newAvailablePrinters;
 
 			emit availablePrintersChanged( mCurrentAvailablePrinters );

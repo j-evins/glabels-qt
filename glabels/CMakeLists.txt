@@ -138,6 +138,7 @@ target_include_directories (glabels-qt
 
 target_link_libraries (glabels-qt
   Model
+  Qt6::Concurrent
   Qt6::Widgets
 )
 

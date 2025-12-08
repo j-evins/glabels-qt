@@ -22,6 +22,8 @@
 #define PrinterMonitor_h
 
 
+#include <QFuture>
+#include <QMutex>
 #include <QObject>
 #include <QStringList>
 #include <QTimer>
@@ -53,7 +55,7 @@ namespace glabels
 		// Public methods
 		/////////////////////////////////
 	public:
-		const QStringList& availablePrinters() const;
+		QStringList availablePrinters();
 
 
 		/////////////////////////////////
@@ -67,7 +69,14 @@ namespace glabels
 		// Signals
 		/////////////////////////////////
 	signals:
-		void availablePrintersChanged( const QStringList& availablePrinters );
+		void availablePrintersChanged( QStringList availablePrinters );
+
+
+		/////////////////////////////////
+		// Private methods
+		/////////////////////////////////
+	private:
+		void asyncPoll();
 
 
 		/////////////////////////////////
@@ -77,8 +86,11 @@ namespace glabels
 		static std::unique_ptr<PrinterMonitor> mInstance;
 
 		std::unique_ptr<QTimer> mTimer;
+		
 		QStringList mCurrentAvailablePrinters;
+		QMutex      mCurrentAvailablePrintersMutex;
 
+		QFuture<void> mPollStatus;
 	};
 
 }

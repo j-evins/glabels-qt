@@ -48,8 +48,8 @@ namespace glabels
 		
 		auto* printerMonitor = PrinterMonitor::instance();
 		loadDestinations( printerMonitor->availablePrinters() );
-		connect( printerMonitor, SIGNAL(availablePrintersChanged(const QStringList&)),
-		         this, SLOT(onAvailablePrintersChanged(const QStringList&)) );
+		connect( printerMonitor, SIGNAL(availablePrintersChanged(QStringList)),
+		         this, SLOT(onAvailablePrintersChanged(QStringList)) );
 		
 		setDestination( model::Settings::recentPrinter() );
 
@@ -74,7 +74,7 @@ namespace glabels
 	///
 	/// Available printers changed handler
 	///
-	void PrintView::onAvailablePrintersChanged( const QStringList& printers )
+	void PrintView::onAvailablePrintersChanged( QStringList printers )
 	{
 		auto savedSelection = destinationCombo->currentText();
 		loadDestinations( printers );

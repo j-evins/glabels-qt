@@ -57,7 +57,7 @@ namespace glabels
 		// Slots
 		/////////////////////////////////
 	private slots:
-		void onAvailablePrintersChanged( const QStringList& printers );
+		void onAvailablePrintersChanged( QStringList printers );
 		void onModelChanged();
 		void updateView();
 		void onFormChanged();
