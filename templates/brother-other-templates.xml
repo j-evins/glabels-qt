@@ -124,7 +124,6 @@
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-continuous>
   </Template>
- suitable for P-Touch label printers
   <Template brand="Brother" part="18mm P-Touch" _description="Continuous label 18 mm suitable for P-Touch label printers"
             size="roll" roll_width="23mm" width="17.98mm" >
     <Meta category="label"/>
