@@ -1,6 +1,6 @@
-/*  MergeView.h
+/*  MergeTableModel.h
  *
- *  Copyright (C) 2016  Jaye Evins <evins@snaught.com>
+ *  Copyright (C) 2025  Jaye Evins <evins@snaught.com>
  *
  *  This file is part of gLabels-qt.
  *
@@ -18,86 +18,63 @@
  *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MergeView_h
-#define MergeView_h
+#ifndef MergeTableModel_h
+#define MergeTableModel_h
 
-
-#include "ui_MergeView.h"
-
-#include "model/Model.h"
 
 #include "merge/Merge.h"
+
+#include <QAbstractTableModel>
 
 
 namespace glabels
 {
 
-	// Forward references
-	class UndoRedoModel;
-	
-
 	///
-	/// merge::Merge Property Editor Widget
+	/// MergeTable proxy model
 	///
-	class MergeView : public QWidget, public Ui_MergeView
+	class MergeTableModel : public QAbstractTableModel
 	{
 		Q_OBJECT
-
 
 		/////////////////////////////////
 		// Life Cycle
 		/////////////////////////////////
 	public:
-		MergeView( QWidget *parent = nullptr );
-		virtual ~MergeView() = default;
+		MergeTableModel( merge::Merge* merge, QObject* parent = nullptr );
 
 
 		/////////////////////////////////
 		// Public methods
 		/////////////////////////////////
-		void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+	public:
+		int rowCount( const QModelIndex& parent = QModelIndex() ) const override;
+		int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
 
+		QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+		QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const override;
+		bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
+		Qt::ItemFlags flags( const QModelIndex& index ) const override;
+		
 
 		/////////////////////////////////
-		// Slots
+		// Private slots
 		/////////////////////////////////
 	private slots:
-		void onMergeChanged();
-		void onMergeSourceChanged();
-
-		void onFormatComboActivated();
-		void onLocationBrowseButtonClicked();
-		void onSelectAllButtonClicked();
-		void onUnselectAllButtonClicked();
-		void onReloadButtonClicked();
+		void onSelectionChanged();
 
 
 		/////////////////////////////////
-		// Private methods
+		// Private Members
 		/////////////////////////////////
 	private:
-		static QString printableTextForView( QString text );
+		merge::Merge* mMerge;
 
-
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		QStringList  mMergeFormatNames;
-	
-		model::Model*  mModel;
-		UndoRedoModel* mUndoRedoModel;
-
-		QStringList mKeys;
-		QString     mPrimaryKey;
-
-		QString mCwd;
-
-		int  mOldFormatComboIndex;
-
+		QStringList mDisplayKeys;
+		
 	};
 
 }
 
 
-#endif // MergeView_h
+#endif // MergeTableModel_h

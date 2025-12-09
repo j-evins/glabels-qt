@@ -21,6 +21,7 @@ set (glabels_sources
   Help.cpp
   LabelEditor.cpp
   MainWindow.cpp
+  MergeTableModel.cpp
   MergeView.cpp
   MiniPreviewPixmap.cpp
   NotebookUtil.cpp
@@ -57,6 +58,7 @@ set (glabels_qobject_headers
   File.h
   LabelEditor.h
   MainWindow.h
+  MergeTableModel.h
   MergeView.h
   ObjectEditor.h
   PreferencesDialog.h

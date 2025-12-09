@@ -21,6 +21,8 @@
 
 #include "MergeView.h"
 
+#include "MergeTableModel.h"
+
 #include "merge/Factory.h"
 
 #include "model/FileUtil.h"
@@ -38,7 +40,7 @@ namespace glabels
 	/// Constructor
 	///
 	MergeView::MergeView( QWidget *parent )
-		: QWidget(parent), mModel(nullptr), mUndoRedoModel(nullptr), mBlock(false), mOldFormatComboIndex(0)
+		: QWidget(parent), mModel(nullptr), mUndoRedoModel(nullptr), mOldFormatComboIndex(0)
 	{
 		setupUi( this );
 
@@ -98,19 +100,10 @@ namespace glabels
 			break;
 		}
 
-		recordsTable->clear();
-		recordsTable->setColumnCount( 0 );
-		loadHeaders( mModel->merge() );
-		loadTable( mModel->merge() );
+		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
 
 		connect( mModel->merge(), SIGNAL(sourceChanged()),
 		         this, SLOT(onMergeSourceChanged()) );
-		
-		connect( mModel->merge(), SIGNAL(selectionChanged()),
-		         this, SLOT(onMergeSelectionChanged()) );
-
-		connect( recordsTable, SIGNAL(cellChanged(int,int)),
-		         this, SLOT(onCellChanged(int,int)) );
 	}
 
 
@@ -122,32 +115,7 @@ namespace glabels
 		QString fn = model::FileUtil::makeRelativeIfInDir( mModel->dir(), mModel->merge()->source() );
 		locationLineEdit->setText( fn );
 
-		recordsTable->clear();
-		recordsTable->setColumnCount( 0 );
-		loadHeaders( mModel->merge() );
-		loadTable( mModel->merge() );
-	}
-
-
-	///
-	/// Merge selection changed handler
-	///
-	void MergeView::onMergeSelectionChanged()
-	{
-		mBlock = true;  // Don't recurse
-	
-		auto& records = mModel->merge()->recordList();
-
-		int iRow = 0;
-		for ( auto& record : records )
-		{
-			QTableWidgetItem* item = recordsTable->item( iRow, 0 );
-			item->setCheckState( record.isSelected() ? Qt::Checked : Qt::Unchecked );
-
-			iRow++;
-		}
-
-		mBlock = false;
+		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
 	}
 
 
@@ -213,118 +181,6 @@ namespace glabels
 
 
 	///
-	/// Cell changed handler
-	///
-	void MergeView::onCellChanged( int iRow, int iCol )
-	{
-		if ( !mBlock )
-		{
-			QTableWidgetItem* item = recordsTable->item( iRow, 0 );
-			bool state = (item->checkState() == Qt::Unchecked) ? false : true;
-		
-			mModel->merge()->setSelected( iRow, state );
-		}
-	}
-
-
-	///
-	/// Load headers
-	///
-	void MergeView::loadHeaders( merge::Merge* merge )
-	{
-		mPrimaryKey = merge->primaryKey();
-		mKeys = merge->keys();
-
-		if ( mKeys.size() > 0 )
-		{
-			recordsTable->setColumnCount( mKeys.size() + 1 );  // Include extra column
-
-			// First column = primary Key
-			auto* item = new QTableWidgetItem( mPrimaryKey );
-			item->setFlags( Qt::ItemIsEnabled );
-			recordsTable->setHorizontalHeaderItem( 0, item );
-
-			// Starting on second column, one column per key, skip primary Key
-			int iCol = 1;
-			foreach ( QString key, mKeys )
-			{
-				if ( key != mPrimaryKey )
-				{
-					auto* item = new QTableWidgetItem( key );
-					item->setFlags( Qt::ItemIsEnabled );
-					recordsTable->setHorizontalHeaderItem( iCol, item );
-
-					iCol++;
-				}
-
-			}
-
-			// Extra dummy column to fill any extra horizontal space
-			auto* fillItem = new QTableWidgetItem();
-			fillItem->setFlags( Qt::NoItemFlags );
-			recordsTable->setHorizontalHeaderItem( iCol, fillItem );
-			recordsTable->horizontalHeader()->setStretchLastSection( true );
-		}
-	}
-
-
-	///
-	/// Load table
-	///
-	void MergeView::loadTable( merge::Merge* merge )
-	{
-		mBlock = true;
-
-		auto& records = merge->recordList();
-		recordsTable->setRowCount( records.size() );
-
-		int iRow = 0;
-		for ( auto record : records )
-		{
-			// First column for primary field
-			auto* item = new QTableWidgetItem();
-			if ( record.contains( mPrimaryKey ) )
-			{
-				auto text = printableTextForView( record[mPrimaryKey] );
-				item->setText( text );
-			}
-			item->setFlags( Qt::ItemIsEnabled | Qt::ItemIsUserCheckable );
-			item->setCheckState( record.isSelected() ? Qt::Checked : Qt::Unchecked );
-			recordsTable->setItem( iRow, 0, item );
-			recordsTable->resizeColumnToContents( 0 );
-
-			// Starting on 2nd column, 1 column per field, skip primary field
-			int iCol = 1;
-			for ( auto& key : mKeys )
-			{
-				if ( key != mPrimaryKey )
-				{
-					if ( record.contains( key ) )
-					{
-						auto text = printableTextForView( record[key] );
-						auto* item = new QTableWidgetItem( text );
-						item->setFlags( Qt::ItemIsEnabled );
-						recordsTable->setItem( iRow, iCol, item );
-						recordsTable->resizeColumnToContents( iCol );
-					}
-
-					iCol++;
-				}
-			}
-
-			// Extra dummy column to fill any extra horizontal space
-			auto* fillItem = new QTableWidgetItem();
-			fillItem->setFlags( Qt::NoItemFlags );
-			recordsTable->setItem( iRow, iCol, fillItem );
-
-			iRow++;
-		}
-
-		mBlock = false;
-	}
-
-
-	///
 	/// modify text to be printable e.g. replace newlines
 	///
 	QString MergeView::printableTextForView( QString text )
@@ -337,4 +193,6 @@ namespace glabels
 
 		return text;
 	}
+
+
 } // namespace glabels
