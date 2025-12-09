@@ -101,7 +101,6 @@ namespace glabels
 		}
 
 		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
-
 		recordsTableView->resizeColumnsToContents();
 
 		connect( mModel->merge(), SIGNAL(sourceChanged()),
@@ -118,6 +117,7 @@ namespace glabels
 		locationLineEdit->setText( fn );
 
 		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
+		recordsTableView->resizeColumnsToContents();
 	}
 
 
