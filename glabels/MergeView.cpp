@@ -102,6 +102,8 @@ namespace glabels
 
 		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
 
+		recordsTableView->resizeColumnsToContents();
+
 		connect( mModel->merge(), SIGNAL(sourceChanged()),
 		         this, SLOT(onMergeSourceChanged()) );
 	}
