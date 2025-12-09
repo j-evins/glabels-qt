@@ -61,7 +61,7 @@ namespace glabels
 				           << ": " << file.errorString();
 				return false;
 			}
-			
+
 			return true;
 		}
 
@@ -254,7 +254,7 @@ namespace glabels
 			XmlUtil::setLengthAttr( node, "width",          frame->w() );
 			XmlUtil::setLengthAttr( node, "height",         frame->h() );
 			XmlUtil::setLengthAttr( node, "min_height",     frame->hMin() );
-			XmlUtil::setLengthAttr( node, "max_height",     frame->hMin() );
+			XmlUtil::setLengthAttr( node, "max_height",     frame->hMax() );
 			XmlUtil::setLengthAttr( node, "default_height", frame->hDefault() );
 
 			createLabelNodeCommon( node, frame );
