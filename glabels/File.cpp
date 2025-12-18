@@ -130,6 +130,8 @@ namespace glabels
 			}
 			else
 			{
+				model::Settings::removeFromRecentFileList( fileName );
+
 				QMessageBox msgBox;
 				msgBox.setText( tr("Unable to open \"") + fileName + tr("\".") );
 				msgBox.setStandardButtons( QMessageBox::Ok );
@@ -168,6 +170,8 @@ namespace glabels
 			}
 			else
 			{
+				model::Settings::removeFromRecentFileList( fileName );
+
 				QMessageBox msgBox;
 				msgBox.setText( tr("Unable to open \"") + fileName + tr("\".") );
 				msgBox.setStandardButtons( QMessageBox::Ok );

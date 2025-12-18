@@ -54,8 +54,16 @@ namespace glabels
 		void onNewProjectButtonClicked();
 		void onOpenProjectButtonClicked();
 		void onOpenRecentAction();
+		void onSettingsChanged();
 
 	
+		/////////////////////////////////
+		// Private methods
+		/////////////////////////////////
+	private:
+		void loadRecentsMenu();
+
+
 		/////////////////////////////////
 		// Private data
 		/////////////////////////////////

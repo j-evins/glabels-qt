@@ -101,6 +101,7 @@ namespace glabels
 			static int maxRecentFiles();
 			static QStringList recentFileList();
 			static void addToRecentFileList( const QString& filePath );
+			static void removeFromRecentFileList( const QString& filePath );
 
 			static QString recentPrinter();
 			static void setRecentPrinter( const QString& printer );

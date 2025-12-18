@@ -47,18 +47,9 @@ namespace glabels
 
 		recentProjectButton->setEnabled( model::Settings::recentFileList().size() > 0 );
 
-		auto* recentMenu = new QMenu();
-		for ( auto& filename : model::Settings::recentFileList() )
-		{
-			QString basename = QFileInfo( filename ).completeBaseName();
-			auto* action = new QAction( basename, this );
-			action->setIcon( QIcon::fromTheme( "glabels" ) );
-			action->setData( filename );
-			connect( action, SIGNAL(triggered()), this, SLOT(onOpenRecentAction()) );
-			recentMenu->addAction( action );
-		}
-		recentMenu->setMinimumWidth( recentProjectButton->minimumWidth() );
-		recentProjectButton->setMenu( recentMenu );
+		loadRecentsMenu();
+
+		connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
 	}
 
 
@@ -91,5 +82,41 @@ namespace glabels
 			File::open( action->data().toString(), mWindow );
 		}
 	}
+
+
+	///
+	/// Settings changed Slot
+	///
+	void StartupView::onSettingsChanged()
+	{
+		// reload recents menu
+		loadRecentsMenu();
+	}
+
+
+	///
+	/// Create recents menu
+	///
+	void StartupView::loadRecentsMenu()
+	{
+		auto fileList = model::Settings::recentFileList();
+		
+		auto* recentMenu = new QMenu();
+
+		for ( auto& filename : fileList )
+		{
+			QString basename = QFileInfo( filename ).completeBaseName();
+			auto* action = new QAction( basename, this );
+			action->setIcon( QIcon::fromTheme( "glabels" ) );
+			action->setData( filename );
+			connect( action, SIGNAL(triggered()), this, SLOT(onOpenRecentAction()) );
+			recentMenu->addAction( action );
+		}
+		recentMenu->setMinimumWidth( recentProjectButton->minimumWidth() );
+
+		recentProjectButton->setMenu( recentMenu );
+		recentProjectButton->setEnabled( fileList.size() != 0 );
+	}
+
 
 } // namespace glabels

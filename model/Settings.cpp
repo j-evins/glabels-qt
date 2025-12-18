@@ -358,6 +358,20 @@ namespace glabels
 		}
 
 
+		void Settings::removeFromRecentFileList( const QString& filePath )
+		{
+			mInstance->beginGroup( "Recent" );
+
+			QStringList list = mInstance->value( "files" ).toStringList();
+			list.removeAll( filePath );
+			mInstance->setValue( "files", list );
+
+			mInstance->endGroup();
+
+			emit mInstance->changed();
+		}
+
+
 		QString Settings::recentPrinter()
 		{
 			mInstance->beginGroup( "Recent" );
