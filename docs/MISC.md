@@ -43,7 +43,7 @@ gLabels Version numbering
 * major version indicates a major change in architecture or technology
   - 2.x.x was based on gtk+-2
   - 3.x.x was based on gtk+-3
-  - 4.x.x is based on qt-5
+  - 4.x.x is based on qt-6
 * minor version indicates a minor change in features or design
   - A new stable branch will be created for each new minor version
 * micro version indicates a bugfix release
