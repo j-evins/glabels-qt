@@ -559,7 +559,7 @@
   </connection>
   <connection>
    <sender>templatePicker</sender>
-   <signal>itemSelectionChanged()</signal>
+   <signal>selectionChanged()</signal>
    <receiver>SelectProductDialog</receiver>
    <slot>onTemplatePickerSelectionChanged()</slot>
    <hints>

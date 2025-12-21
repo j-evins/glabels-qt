@@ -22,12 +22,11 @@
 #define TemplatePicker_h
 
 
-#include "TemplatePickerItem.h"
-
 #include "model/Template.h"
 
 #include <QList>
-#include <QListWidget>
+#include <QListView>
+#include <QStandardItemModel>
 
 
 namespace glabels
@@ -36,7 +35,7 @@ namespace glabels
 	///
 	/// Template Picker Widget
 	///
-	class TemplatePicker : public QListWidget
+	class TemplatePicker : public QListView
 	{
 		Q_OBJECT
 
@@ -60,15 +59,35 @@ namespace glabels
 		/////////////////////////////////
 		// Methods
 		/////////////////////////////////
+	public:
 		void applyFilter( const QString& searchString,
 		                  bool isoMask, bool usMask, bool otherMask,
 		                  bool anyCategory, const QStringList& categoryIds );
 
 		void applyFilter( const QStringList& names );
 
-		 model::Template selectedTemplate() const;
-		TemplatePickerItem* selectedItem() const;
-		
+		model::Template selectedTemplate() const;
+
+
+		/////////////////////////////////
+		// Signals
+		/////////////////////////////////
+	signals:
+		void selectionChanged();
+
+
+		/////////////////////////////////
+		// Private slots
+		/////////////////////////////////
+	private slots:
+		void onSelectionChanged();
+
+
+		/////////////////////////////////
+		// Private data
+		/////////////////////////////////
+	private:
+		QStandardItemModel* mModel;
 
 	};
 

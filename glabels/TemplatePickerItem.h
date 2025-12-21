@@ -25,7 +25,8 @@
 #include "model/Template.h"
 
 #include <QLabel>
-#include <QListWidget>
+#include <QListView>
+#include <QStandardItem>
 
 
 namespace glabels
@@ -34,7 +35,7 @@ namespace glabels
 	///
 	/// Template Picker Item Widget
 	///
-	class TemplatePickerItem : public QListWidgetItem
+	class TemplatePickerItem : public QStandardItem
 	{
 	public:
 		static const int SIZE = 80;
@@ -45,8 +46,7 @@ namespace glabels
 		/////////////////////////////////
 	public:
 		TemplatePickerItem( const model::Template& tmplate,
-		                    QListView::ViewMode    mode,
-		                    QListWidget*           parent = nullptr );
+		                    QListView::ViewMode    mode );
 
 
 		/////////////////////////////////

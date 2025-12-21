@@ -25,9 +25,8 @@
 
 #include "model/Settings.h"
 
-#include <QHBoxLayout>
+#include <QDebug>
 #include <QIcon>
-#include <QListWidgetItem>
 
 
 namespace glabels
@@ -37,9 +36,8 @@ namespace glabels
 	/// Constructor
 	///
 	TemplatePickerItem::TemplatePickerItem( const model::Template& tmplate,
-	                                        QListView::ViewMode    mode,
-	                                        QListWidget*           parent )
-		: QListWidgetItem( parent )
+	                                        QListView::ViewMode    mode )
+		: QStandardItem()
 	{
 		mTmplate = tmplate;
 
@@ -86,5 +84,6 @@ namespace glabels
 	{
 		return mTmplate;
 	}
+
 
 } // namespace glabels

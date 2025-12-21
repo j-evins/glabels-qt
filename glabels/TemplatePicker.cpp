@@ -21,6 +21,7 @@
 
 #include "TemplatePicker.h"
 
+#include "MiniPreviewPixmap.h"
 #include "TemplatePickerItem.h"
 
 #include "model/Settings.h"
@@ -98,14 +99,22 @@ namespace glabels
 	///
 	/// Constructor
 	///
-	TemplatePicker::TemplatePicker( QWidget* parent ) : QListWidget(parent)
+	TemplatePicker::TemplatePicker( QWidget* parent )
+		: QListView(parent)
 	{
+		mModel = new QStandardItemModel( this );
+		setModel( mModel );
+
 		setResizeMode( QListView::Adjust );
 		setUniformItemSizes( true );
 		setWordWrap( true );
 		setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
+		setSpacing( 24 );
 
 		setMode( model::Settings::templatePickerMode() );
+
+		connect( selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)),
+		         this, SLOT(onSelectionChanged()) );
 	}
 
 
@@ -115,10 +124,9 @@ namespace glabels
 	void TemplatePicker::setTemplates( const QList<model::Template>& tmplates )
 	{
 		auto mode = model::Settings::templatePickerMode();
-		
-		foreach (auto& tmplate, tmplates)
+		for ( auto& tmplate : tmplates )
 		{
-			new TemplatePickerItem( tmplate, mode, this );
+			mModel->appendRow( new TemplatePickerItem( tmplate, mode ) );
 		}
 	}
 
@@ -129,10 +137,11 @@ namespace glabels
 	void TemplatePicker::setMode( QListView::ViewMode mode )
 	{
 		model::Settings::setTemplatePickerMode( mode );
-		
-		for ( int i = 0; i < count(); i++ )
+		setViewMode( mode );
+
+		for ( int i = 0; i < mModel->rowCount(); i++ )
 		{
-			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
+			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
 			{
 				tItem->setMode( mode );
 			}
@@ -159,9 +168,10 @@ namespace glabels
 
 		}
 
-		if ( auto* selected = selectedItem() )
+		auto selection = selectedIndexes();
+		if ( selection.size() )
 		{
-			scrollToItem( selected, QAbstractItemView::PositionAtCenter );
+			scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
 		}
 	}
 
@@ -182,9 +192,9 @@ namespace glabels
 	                                  bool isoMask, bool usMask, bool otherMask,
 	                                  bool anyCategory, const QStringList& categoryIds )
 	{
-		for ( int i = 0; i < count(); i++ )
+		for ( int i = 0; i < mModel->rowCount(); i++ )
 		{
-			if (auto* tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
+			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
 			{
 				bool nameMask = tItem->tmplate().name().contains( searchString, Qt::CaseInsensitive );
 		
@@ -210,19 +220,20 @@ namespace glabels
 
 				if (  nameMask && sizeMask && categoryMask )
 				{
-					tItem->setHidden( false );
+					setRowHidden( i, false );
 				}
 				else
 				{
-					tItem->setHidden( true );
-					tItem->setSelected( false );
+					setRowHidden( i, true );
+					selectionModel()->select( tItem->index(), QItemSelectionModel::Deselect );
 				}
 			}
 		}
 
-		if ( auto* selected = selectedItem() )
+		auto selection = selectedIndexes();
+		if ( selection.size() )
 		{
-			scrollToItem( selected, QAbstractItemView::PositionAtCenter );
+			scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
 		}
 	}
 
@@ -232,9 +243,9 @@ namespace glabels
 	///
 	void TemplatePicker::applyFilter( const QStringList& names )
 	{
-		for ( int i = 0; i < count(); i++ )
+		for ( int i = 0; i < mModel->rowCount(); i++ )
 		{
-			if (auto *tItem = dynamic_cast<TemplatePickerItem *>(item(i)))
+			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
 			{
 				bool match = false;
 				foreach ( QString name, names )
@@ -248,19 +259,20 @@ namespace glabels
 
 				if (  match )
 				{
-					tItem->setHidden( false );
+					setRowHidden( i, false );
 				}
 				else
 				{
-					tItem->setHidden( true );
-					tItem->setSelected( false );
+					setRowHidden( i, true );
+					selectionModel()->select( tItem->index(), QItemSelectionModel::Deselect );
 				}
 			}
 		}
 
-		if ( auto* selected = selectedItem() )
+		auto selection = selectedIndexes();
+		if ( selection.size() )
 		{
-			scrollToItem( selected, QAbstractItemView::PositionAtCenter );
+			scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
 		}
 	}
 
@@ -270,27 +282,26 @@ namespace glabels
 	///
 	model::Template TemplatePicker::selectedTemplate() const
 	{
-		if ( auto* tItem = selectedItem() )
+		auto selectionList = selectedIndexes();
+		if ( selectionList.size() )
 		{
-			return tItem->tmplate();
+			int i = selectionList[0].row();
+			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
+			{
+				return tItem->tmplate();
+			}
 		}
-		
+
 		return model::Template();
 	}
 
 
 	///
-	/// Get Currently Selected Item
+	/// Handle selection changed from selection model
 	///
-	TemplatePickerItem* TemplatePicker::selectedItem() const
+	void TemplatePicker::onSelectionChanged()
 	{
-		QList<QListWidgetItem*> items = selectedItems();
-		if ( !items.isEmpty() )
-		{
-			return dynamic_cast<TemplatePickerItem*>( items.first() );
-		}
-		
-		return nullptr;
+		emit selectionChanged();
 	}
 
 

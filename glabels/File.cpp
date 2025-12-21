@@ -49,7 +49,7 @@ namespace glabels
 	///
 	bool File::newLabel( MainWindow *window )
 	{
-		SelectProductDialog dialog;
+		SelectProductDialog dialog( window );
 		dialog.exec();
 
 		auto tmplate = dialog.tmplate();
