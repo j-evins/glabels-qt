@@ -478,7 +478,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="glabels-view-grid"/>
+        <iconset theme="glabels-view-grid">
+         <normaloff>.</normaloff>.</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -548,8 +549,8 @@
    <slot>onPageSizeCheckClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>196</y>
+     <x>156</x>
+     <y>246</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
@@ -580,8 +581,8 @@
    <slot>onPageSizeCheckClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>170</y>
+     <x>158</x>
+     <y>215</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -612,8 +613,8 @@
    <slot>onSearchEntryTextChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>107</x>
-     <y>102</y>
+     <x>121</x>
+     <y>137</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -628,8 +629,8 @@
    <slot>onCategoryRadioClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>126</x>
-     <y>296</y>
+     <x>151</x>
+     <y>361</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -644,8 +645,8 @@
    <slot>onCategoryRadioClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>122</x>
-     <y>322</y>
+     <x>147</x>
+     <y>392</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -698,6 +699,22 @@
     <hint type="destinationlabel">
      <x>-2</x>
      <y>762</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pageSizeOtherCheck</sender>
+   <signal>clicked()</signal>
+   <receiver>SelectProductDialog</receiver>
+   <slot>onPageSizeCheckClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>6</x>
+     <y>290</y>
     </hint>
    </hints>
   </connection>
