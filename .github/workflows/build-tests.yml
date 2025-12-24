@@ -156,6 +156,8 @@ jobs:
       if: startsWith( matrix.os, 'ubuntu-latest' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       shell: bash
+      env:
+        TEST_DIR: ${{ github.workspace }}/test-data
       run: |
         run-x() { xvfb-run -a "$@"; }
         run-w() { wlheadless-run -c weston --log=/dev/null -- "$@"; }
@@ -167,8 +169,8 @@ jobs:
         #
         echo "simple-shapes.glabels"
         echo "---------------------"
-        run-x ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
-        comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
+        run-x ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf "$TEST_DIR/simple-shapes.glabels"
+        comparepdf -ca -v2 "$TEST_DIR/simple-shapes.pdf" simple-shapes-x.pdf
         #
         echo "===================="
         echo "Wayland render tests"
@@ -177,8 +179,8 @@ jobs:
         #
         echo "simple-shapes.glabels"
         echo "---------------------"
-        run-w ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
-        comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-w.pdf
+        run-w ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf "$TEST_DIR/simple-shapes.glabels"
+        comparepdf -ca -v2 "$TEST_DIR/simple-shapes.pdf" simple-shapes-w.pdf
 
 #    - name: Tmate
 #      uses: mxschmitt/action-tmate@v3
