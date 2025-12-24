@@ -156,8 +156,8 @@ jobs:
         xvfb-run ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
         echo "Wayland render tests"
-        wlheadless-run -c weston ./glabels-batch/glabels-batch-qt --Version
-        wlheadless-run -c weston ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        wlheadless-run -c weston -- ./glabels-batch/glabels-batch-qt --Version
+        wlheadless-run -c weston -- ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-w.pdf
 
 #    - name: Tmate
