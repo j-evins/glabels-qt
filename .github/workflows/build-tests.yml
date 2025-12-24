@@ -156,24 +156,27 @@ jobs:
       if: startsWith( matrix.os, 'ubuntu-latest' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
+        alias run-x='xvfb-run -a'
+        alias run-w='wlheadless-run -c weston --log=/dev/null --'
+        #
         echo "================"
         echo "X11 render tests"
         echo "================"
-        xvfb-run -a ./glabels-batch/glabels-batch-qt --Version
+        run-x ./glabels-batch/glabels-batch-qt --Version
         #
         echo "simple-shapes.glabels"
         echo "---------------------"
-        xvfb-run -a ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        run-x ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
         #
         echo "===================="
         echo "Wayland render tests"
         echo "===================="
-        wlheadless-run -c weston --log=/dev/null -- ./glabels-batch/glabels-batch-qt --Version
+        run-w ./glabels-batch/glabels-batch-qt --Version
         #
         echo "simple-shapes.glabels"
         echo "---------------------"
-        wlheadless-run -c weston --log=/dev/null -- ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        run-w ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-w.pdf
 
 #    - name: Tmate
