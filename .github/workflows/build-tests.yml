@@ -129,8 +129,8 @@ jobs:
       if: startsWith( matrix.os, 'ubuntu-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
-        xvfb-run ./glabels/glabels-qt --Version
-        xvfb-run ctest --build-config ${{ matrix.build_type }}
+        xvfb-run -a ./glabels/glabels-qt --Version
+        xvfb-run -a ctest --build-config ${{ matrix.build_type }}
 
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
@@ -159,11 +159,11 @@ jobs:
         echo "================"
         echo "X11 render tests"
         echo "================"
-        xvfb-run ./glabels-batch/glabels-batch-qt --Version
+        xvfb-run -a ./glabels-batch/glabels-batch-qt --Version
         #
         echo "simple-shapes.glabels"
         echo "---------------------"
-        xvfb-run ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        xvfb-run -a ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
         #
         echo "===================="
