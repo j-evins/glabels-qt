@@ -173,7 +173,7 @@ jobs:
         #
         echo "simple-shapes.glabels"
         echo "---------------------"
-        wlheadless-run -c weston --log=/dev/null -- ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels 2> /dev/null
+        wlheadless-run -c weston --log=/dev/null -- ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-w.pdf
 
 #    - name: Tmate
