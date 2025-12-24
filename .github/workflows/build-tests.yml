@@ -149,10 +149,16 @@ jobs:
       if: startsWith( matrix.os, 'ubuntu-latest' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
+        sudo apt-get -y install xwayland-run
         sudo apt-get -y install comparepdf
+        echo "X11 render tests"
         xvfb-run ./glabels-batch/glabels-batch-qt --Version
         xvfb-run ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
+        echo "Wayland render tests"
+        wlheadless-run -c weston ./glabels-batch/glabels-batch-qt --Version
+        wlheadless-run -c weston ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-w.pdf
 
 #    - name: Tmate
 #      uses: mxschmitt/action-tmate@v3
