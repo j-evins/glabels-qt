@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Glabels-document version="4.0">
+  <Template brand="Avery" description="Name badge labels" part="5095" size="US-Letter">
+    <Label-rectangle y_waste="4.5pt" height="168pt" id="0" round="13.5pt" width="243pt" x_waste="4.5pt">
+      <Markup-margin size="4.5pt"/>
+      <Layout dy="180pt" y0="42pt" nx="2" x0="49.5pt" ny="4" dx="270pt"/>
+    </Label-rectangle>
+  </Template>
+  <Objects id="0" rotate="false">
+    <Object-box line_width="1pt" a2="0" w="72pt" a1="0" shadow_x="1.3pt" x="18pt" shadow_y="1.3pt" h="72pt" line_color="0xff" shadow="false" a3="1" shadow_opacity="0.5" a4="0" a5="0" lock_aspect_ratio="false" y="45pt" fill_color="0xff00ff" shadow_color="0xff" a0="1"/>
+    <Object-ellipse line_width="1pt" a2="0" w="72pt" a1="0" shadow_x="1.3pt" x="108pt" shadow_y="1.3pt" h="72pt" line_color="0xff" shadow="false" a3="1" shadow_opacity="0.5" a4="0" a5="0" lock_aspect_ratio="false" y="45pt" fill_color="0xff00ff" shadow_color="0xff" a0="1"/>
+    <Object-line dy="-9.59164e-17pt" line_width="1pt" a2="0" a1="0" shadow_x="1.3pt" x="18pt" shadow_y="1.3pt" line_color="0xff" shadow="false" a3="1" shadow_opacity="0.5" a4="0" a5="0" y="135pt" dx="198pt" shadow_color="0xff" a0="1"/>
+  </Objects>
+  <Data/>
+</Glabels-document>
