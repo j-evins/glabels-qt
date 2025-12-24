@@ -149,7 +149,7 @@ jobs:
       if: startsWith( matrix.os, 'ubuntu-latest' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
-        sudo apt -y install comparepdf
+        sudo apt-get -y install comparepdf
         xvfb-run ./glabels/glabels-batch-qt --Version
         xvfb-run ./glabels/glabels-barch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
