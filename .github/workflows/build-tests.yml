@@ -145,19 +145,24 @@ jobs:
         ./glabels/glabels-qt --Version
         ctest --build-config ${{ matrix.build_type }}
 
-    - name: Render Tests (Ubuntu-latest)
+    - name: Install render test dependencies (Ubuntu-latest)
       if: startsWith( matrix.os, 'ubuntu-latest' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         sudo apt-get -y install xwayland-run
         sudo apt-get -y install comparepdf
+
+    - name: Render tests (Ubuntu-latest)
+      if: startsWith( matrix.os, 'ubuntu-latest' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: |
         echo "X11 render tests"
-        xvfb-run ./glabels-batch/glabels-batch-qt --Version
-        xvfb-run ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        xvfb-run ./glabels-batch/glabels-batch-qt --Version 2> /dev/null
+        xvfb-run ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels 2> /dev/null
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-x.pdf
         echo "Wayland render tests"
-        wlheadless-run -c weston -- ./glabels-batch/glabels-batch-qt --Version
-        wlheadless-run -c weston -- ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels
+        wlheadless-run -c weston -- ./glabels-batch/glabels-batch-qt --Version 2> /dev/null
+        wlheadless-run -c weston -- ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf ${{ github.workspace }}/test-data/simple-shapes.glabels 2> /dev/null
         comparepdf -ca -v2 ${{ github.workspace }}/test-data/simple-shapes.pdf simple-shapes-w.pdf
 
 #    - name: Tmate

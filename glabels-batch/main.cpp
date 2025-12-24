@@ -35,6 +35,7 @@
 #include <QLocale>
 #include <QPrinter>
 #include <QPrinterInfo>
+#include <QTextStream>
 #include <QTranslator>
 
 
@@ -151,7 +152,7 @@ int main( int argc, char **argv )
 	// Handle verbose version option
 	if ( parser.isSet( "Version" ) )
 	{
-		qInfo().noquote() << glabels::model::Version::details();
+		QTextStream(stdout) << glabels::model::Version::details() << Qt::endl;
 		return 0;
 	}
 
