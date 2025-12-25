@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Glabels-document version="4.0">
+  <Template size="US-Letter" part="5395" description="Name badge labels" brand="Avery">
+    <Label-rectangle id="0" y_waste="4.5pt" round="13.5pt" width="243pt" x_waste="4.5pt" height="168pt">
+      <Markup-margin size="4.5pt"/>
+      <Layout dx="270pt" ny="4" dy="180pt" nx="2" y0="42pt" x0="49.5pt"/>
+    </Label-rectangle>
+  </Template>
+  <Objects rotate="false" id="0">
+    <Object-barcode x="6.75pt" h="32.805pt" text="false" color="0xff" a2="0" a1="0" a5="0" y="67.5975pt" a4="0" w="229.5pt" a3="1" checksum="true" lock_aspect_ratio="false" a0="1" data="ABC 123" backend="" style="code39"/>
+  </Objects>
+  <Data/>
+</Glabels-document>
