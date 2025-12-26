@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Glabels-document version="4.0">
+  <Template height="254.636pt" roll_width="90.7087pt" brand="Brother" description="Address labels" size="roll" width="82.0913pt" part="DK-1201">
+    <Label-rectangle id="0" round="4.25197pt" height="254.636pt" y_waste="0pt" x_waste="0pt" width="82.0913pt">
+      <Markup-margin y_size="8.50394pt" x_size="4.25197pt"/>
+      <Layout y0="0pt" dy="0pt" x0="0pt" ny="1" dx="0pt" nx="1"/>
+    </Label-rectangle>
+  </Template>
+  <Objects id="0" rotate="true">
+    <Object-text font_underline="false" shadow="false" align="left" a5="0" a0="1" shadow_opacity="0.5" w="124pt" h="25pt" shadow_color="0xff" lock_aspect_ratio="false" a2="0" shadow_x="1.3pt" shadow_y="1.3pt" font_size="10" wrap="word" font_weight="normal" a1="0" a3="1" color="0xff" valign="top" x="18pt" a4="0" font_family="Liberation Sans" line_spacing="1" font_italic="false" auto_shrink="false" y="10pt">
+      <p>Liberation Sans 10</p>
+    </Object-text>
+    <Object-text font_underline="false" shadow="false" align="left" a5="0" a0="1" shadow_opacity="0.5" w="219pt" h="36pt" shadow_color="0xff" lock_aspect_ratio="false" a2="0" shadow_x="1.3pt" shadow_y="1.3pt" font_size="12" wrap="word" font_weight="bold" a1="0" a3="1" color="0xff" valign="top" x="18pt" a4="0" font_family="Liberation Sans" line_spacing="1" font_italic="false" auto_shrink="false" y="27pt">
+      <p>Liberation Sans 12 Bold</p>
+    </Object-text>
+    <Object-text font_underline="false" shadow="false" align="left" a5="0" a0="1" shadow_opacity="0.5" w="219pt" h="36pt" shadow_color="0xff" lock_aspect_ratio="false" a2="0" shadow_x="1.3pt" shadow_y="1.3pt" font_size="14" wrap="word" font_weight="normal" a1="0" a3="1" color="0xff" valign="top" x="18pt" a4="0" font_family="Liberation Sans" line_spacing="1" font_italic="true" auto_shrink="false" y="48pt">
+      <p>Liberation Sans 14 Italic</p>
+    </Object-text>
+  </Objects>
+  <Data/>
+</Glabels-document>

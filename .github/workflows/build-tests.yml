@@ -163,30 +163,29 @@ jobs:
         run-w() { wlheadless-run -c weston --log=/dev/null -- "$@"; }
         #
         #
-        echo "----------------------- X ----------------------------"
-        run-x fc-list : family
-        echo "----------------------- W ----------------------------"
-        run-w fc-list : family
-        echo "------------------------------------------------------"
         echo "================"
         echo "X11 render tests"
         echo "================"
         run-x ./glabels-batch/glabels-batch-qt --Version
         #
+        # echo "-- Available fonts (X) -------------------------------------------------"
+        # run-x fc-list : family
+        # echo "------------------------------------------------------------------------"
+        #
         echo "simple-shapes.glabels"
-        echo "---------------------"
+        echo "-----------------------------------"
         run-x ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf "$TEST_DIR/simple-shapes.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-shapes.pdf" simple-shapes-x.pdf
         #
         echo "simple-code39.glabels"
-        echo "---------------------"
+        echo "-----------------------------------"
         run-x ./glabels-batch/glabels-batch-qt -o simple-code39-x.pdf "$TEST_DIR/simple-code39.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-code39.pdf" simple-code39-x.pdf
         #
-        echo "simple-text-noto-sans.glabels"
-        echo "---------------------"
-        run-x ./glabels-batch/glabels-batch-qt -o simple-text-noto-sans-x.pdf "$TEST_DIR/simple-text-noto-sans.glabels"
-        comparepdf -ca -v2 "$TEST_DIR/simple-text-noto-sans.pdf" simple-text-noto-sans-x.pdf
+        echo "simple-text-liberation-sans.glabels"
+        echo "-----------------------------------"
+        run-x ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-x.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
+        comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-x.pdf
         #
         #
         echo "===================="
@@ -194,20 +193,24 @@ jobs:
         echo "===================="
         run-w ./glabels-batch/glabels-batch-qt --Version
         #
+        # echo "-- Available fonts (X) -------------------------------------------------"
+        # run-w fc-list : family
+        # echo "------------------------------------------------------------------------"
+        #
         echo "simple-shapes.glabels"
-        echo "---------------------"
+        echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf "$TEST_DIR/simple-shapes.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-shapes.pdf" simple-shapes-w.pdf
         #
         echo "simple-code39.glabels"
-        echo "---------------------"
+        echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-code39-w.pdf "$TEST_DIR/simple-code39.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-code39.pdf" simple-code39-w.pdf
         #
-        echo "simple-text-noto-sans.glabels"
-        echo "---------------------"
-        run-w ./glabels-batch/glabels-batch-qt -o simple-text-noto-sans-w.pdf "$TEST_DIR/simple-text-noto-sans.glabels"
-        comparepdf -ca -v2 "$TEST_DIR/simple-text-noto-sans.pdf" simple-text-noto-sans-w.pdf
+        echo "simple-text-liberation-sans.glabels"
+        echo "-----------------------------------"
+        run-w ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-w.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
+        comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-w.pdf
 
 
 #    - name: Tmate
