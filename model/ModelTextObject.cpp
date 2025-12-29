@@ -24,11 +24,11 @@
 #include "Size.h"
 
 #include <QBrush>
+#include <QDebug>
 #include <QPen>
 #include <QTextDocument>
 #include <QTextBlock>
 #include <QRegularExpression>
-#include <QtDebug>
 
 
 namespace glabels
@@ -712,10 +712,21 @@ namespace glabels
 			
 			QFont font;
 			font.setFamily( mFontFamily );
+			//font.setPixelSize( pixelSize( painter, mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize ) );
 			font.setPointSizeF( mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize );
 			font.setWeight( mFontWeight );
 			font.setItalic( mFontItalicFlag );
 			font.setUnderline( mFontUnderlineFlag );
+
+			qDebug() << "font family:" << QFontInfo(font).family()
+			         << "metrics h/ascent:" << QFontMetrics(font).height() << QFontMetrics(font).ascent()
+			         << "device dpi:" << painter->device()->logicalDpiX() << painter->device()->logicalDpiY()
+			         << "devicePixelRatio:" << painter->device()->devicePixelRatioF();
+			qDebug() << "font family:" << QFontInfo(font).family()
+			         << "metrics h/ascent:" << QFontMetricsF(font).height() << QFontMetricsF(font).ascent()
+			         << "device dpi:" << painter->device()->logicalDpiX() << painter->device()->logicalDpiY()
+			         << "devicePixelRatio:" << painter->device()->devicePixelRatioF();
+			qDebug() << "PIXEL Size = " << pixelSize( painter, mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize );
 
 			QTextOption textOption;
 			textOption.setAlignment( mTextHAlign );
@@ -861,5 +872,14 @@ namespace glabels
 		}
 
 
+		///
+		/// Calculate pixel size
+		///
+		int
+		ModelTextObject::pixelSize( QPainter* painter, double pointSize ) const
+		{
+			auto dpi = painter->device()->logicalDpiY();
+			return qMax( 1, qRound( pointSize * dpi/72.0 ) );
+		}
 	}
 }

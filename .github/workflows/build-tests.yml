@@ -212,6 +212,34 @@ jobs:
         run-w ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-w.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-w.pdf
 
+    - name: Install render test dependencies (MacOS)
+      if: startsWith( matrix.os, 'macos' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: |
+        brew install diff-pdf
+
+    - name: Render tests (MacOS)
+      if: startsWith( matrix.os, 'macos' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      shell: bash
+      env:
+        TEST_DIR: ${{ github.workspace }}/test-data
+      run: |
+        echo "simple-shapes.glabels"
+        echo "-----------------------------------"
+        ./glabels-batch/glabels-batch-qt -o simple-shapes-mac.pdf "$TEST_DIR/simple-shapes.glabels"
+        diff-pdf -v "$TEST_DIR/simple-shapes.pdf" simple-shapes-mac.pdf
+        #
+        echo "simple-code39.glabels"
+        echo "-----------------------------------"
+        ./glabels-batch/glabels-batch-qt -o simple-code39-mac.pdf "$TEST_DIR/simple-code39.glabels"
+        diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-mac.pdf
+        #
+        echo "simple-text-liberation-sans.glabels"
+        echo "-----------------------------------"
+        ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-mac.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
+        diff-pdf -v "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-mac.pdf
+
 
 #    - name: Tmate
 #      uses: mxschmitt/action-tmate@v3
