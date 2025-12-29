@@ -31,6 +31,26 @@
 #include <QRegularExpression>
 
 
+//
+// Private
+//
+namespace
+{
+	///
+	/// Calculate pixel size
+	///
+	/// Assume a virtual DPI of 96 pixels/inch for all QPainter contexts.
+	/// Ideally, we should use pointSizes for device independence, but as
+	/// Qt-6.4 on X11, Wayland, and MacOS this approach has better results.
+	///
+	int pixelSize( double pointSize )
+	{
+		const double virtual_dpi = 96;
+		return qMax( 1, qRound( pointSize * virtual_dpi/72.0 ) );
+	}
+}
+
+
 namespace glabels
 {
 	namespace model
@@ -467,7 +487,7 @@ namespace glabels
 		{
 			QFont font;
 			font.setFamily( mFontFamily );
-			font.setPointSizeF( mFontSize );
+			font.setPixelSize( pixelSize( mFontSize ) );
 			font.setWeight( mFontWeight );
 			font.setItalic( mFontItalicFlag );
 			font.setUnderline( mFontUnderlineFlag );
@@ -591,7 +611,7 @@ namespace glabels
 		{
 			QFont font;
 			font.setFamily( mFontFamily );
-			font.setPointSizeF( mFontSize );
+			font.setPixelSize( pixelSize( mFontSize ) );
 			font.setWeight( mFontWeight );
 			font.setItalic( mFontItalicFlag );
 			font.setUnderline( mFontUnderlineFlag );
@@ -712,21 +732,10 @@ namespace glabels
 			
 			QFont font;
 			font.setFamily( mFontFamily );
-			font.setPixelSize( pixelSize( painter, mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize ) );
-			//font.setPointSizeF( mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize );
+			font.setPixelSize( pixelSize( mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize ) );
 			font.setWeight( mFontWeight );
 			font.setItalic( mFontItalicFlag );
 			font.setUnderline( mFontUnderlineFlag );
-
-			qDebug() << "font family:" << QFontInfo(font).family()
-			         << "metrics h/ascent:" << QFontMetrics(font).height() << QFontMetrics(font).ascent()
-			         << "device dpi:" << painter->device()->logicalDpiX() << painter->device()->logicalDpiY()
-			         << "devicePixelRatio:" << painter->device()->devicePixelRatioF();
-			qDebug() << "font family:" << QFontInfo(font).family()
-			         << "metrics h/ascent:" << QFontMetricsF(font).height() << QFontMetricsF(font).ascent()
-			         << "device dpi:" << painter->device()->logicalDpiX() << painter->device()->logicalDpiY()
-			         << "devicePixelRatio:" << painter->device()->devicePixelRatioF();
-			qDebug() << "PIXEL Size = " << pixelSize( painter, mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize );
 
 			QTextOption textOption;
 			textOption.setAlignment( mTextHAlign );
@@ -827,7 +836,7 @@ namespace glabels
 			double candidateSize = mFontSize;
 			while ( candidateSize > 1.0 )
 			{
-				font.setPointSizeF( candidateSize );
+				font.setPixelSize( pixelSize( candidateSize ) );
 
 				// Line spacing is affected by font size
 				QFontMetricsF fontMetrics( font );
@@ -871,16 +880,5 @@ namespace glabels
 			return candidateSize;
 		}
 
-
-		///
-		/// Calculate pixel size
-		///
-		int
-		ModelTextObject::pixelSize( QPainter* painter, double pointSize ) const
-		{
-			auto dpi = painter->device()->logicalDpiY();
-			dpi = 96;
-			return qMax( 1, qRound( pointSize * dpi/72.0 ) );
-		}
 	}
 }

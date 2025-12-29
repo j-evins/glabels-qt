@@ -217,8 +217,6 @@ namespace glabels
 			double autoShrinkFontSize( const merge::Record& record,
 			                           const Variables&     variables ) const;
 
-			int pixelSize( QPainter* painter, double pointSize ) const;
-
 
 			///////////////////////////////////////////////////////////////
 			// Private Members

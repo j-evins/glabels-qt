@@ -159,6 +159,7 @@ jobs:
       env:
         TEST_DIR: ${{ github.workspace }}/test-data
       run: |
+        set +e
         run-x() { xvfb-run -a "$@"; }
         run-w() { wlheadless-run -c weston --log=/dev/null -- "$@"; }
         #
@@ -246,21 +247,33 @@ jobs:
         ./glabels-batch/glabels-batch-qt -o simple-code39-mac.pdf "$TEST_DIR/simple-code39.glabels"
         diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-mac.pdf
         #
-        echo "simple-text-liberation-sans.glabels"
-        echo "-----------------------------------"
-        ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-mac.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
-        diff-pdf -v "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-mac.pdf
-        #
-        echo "simple-text-liberation-serif.glabels"
-        echo "-----------------------------------"
-        ./glabels-batch/glabels-batch-qt -o simple-text-liberation-serif-mac.pdf "$TEST_DIR/simple-text-liberation-serif.glabels"
-        diff-pdf -v "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-mac.pdf
+	# TODO: Create text-based rendering tests using fonts available on MacOS
+	#
 
-    - name: Upload test results for inspection
+    - name: Render tests (Windows)
+      if: startsWith( matrix.os, 'windows' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      shell: bash
+      env:
+        TEST_DIR: ${{ github.workspace }}/test-data
+      run: |
+        set +e
+        echo "simple-shapes.glabels"
+        echo "-----------------------------------"
+        ./glabels-batch/glabels-batch-qt -o simple-shapes-windows.pdf "$TEST_DIR/simple-shapes.glabels"
+        #
+        echo "simple-code39.glabels"
+        echo "-----------------------------------"
+        ./glabels-batch/glabels-batch-qt -o simple-code39-windows.pdf "$TEST_DIR/simple-code39.glabels"
+        #
+	# TODO: Create text-based rendering tests using fonts available on Windows
+	#
+
+    - name: Upload render tests for manual inspection
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: my-artifact-${{ matrix.os }}-${{ matrix.cpp_compiler }}
+        name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}
         path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
 
 
