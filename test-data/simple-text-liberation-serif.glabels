@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<Glabels-document version="4.0">
+  <Template size="US-Letter" description="Full-page labels" brand="Avery" part="3114">
+    <Label-rectangle height="792pt" y_waste="0pt" id="0" round="0pt" x_waste="0pt" width="612pt">
+      <Markup-margin size="4.5pt"/>
+      <Layout nx="1" dy="0pt" dx="0pt" ny="1" y0="0pt" x0="0pt"/>
+    </Label-rectangle>
+  </Template>
+  <Objects id="0" rotate="false">
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="10" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="98pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 10</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="12" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="120pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 12</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="14" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="147pt" lock_aspect_ratio="false" a0="1" w="180pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 14</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="20" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="174pt" lock_aspect_ratio="false" a0="1" w="239pt" h="38pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 20</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="24" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="210pt" lock_aspect_ratio="false" a0="1" w="254pt" h="43pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 24</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="bold" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="10" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="255pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 10</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="bold" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="12" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="277pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 12</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="bold" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="14" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="304pt" lock_aspect_ratio="false" a0="1" w="180pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 14</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="bold" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="20" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="331pt" lock_aspect_ratio="false" a0="1" w="239pt" h="38pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 20</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="bold" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="24" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="367pt" lock_aspect_ratio="false" a0="1" w="287pt" h="43pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 24</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="10" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="408pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="true" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 10</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="12" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="430pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="true" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 12</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="14" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="457pt" lock_aspect_ratio="false" a0="1" w="180pt" h="22pt" font_italic="true" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 14</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="20" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="484pt" lock_aspect_ratio="false" a0="1" w="239pt" h="38pt" font_italic="true" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 20</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="false" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="24" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="520pt" lock_aspect_ratio="false" a0="1" w="254pt" h="43pt" font_italic="true" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 24</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="true" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="10" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="561pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 10</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="true" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="12" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="583pt" lock_aspect_ratio="false" a0="1" w="146pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 12</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="true" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="20" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="637pt" lock_aspect_ratio="false" a0="1" w="239pt" h="38pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 20</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="true" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="24" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="673pt" lock_aspect_ratio="false" a0="1" w="254pt" h="43pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 24</p>
+    </Object-text>
+    <Object-text wrap="word" a3="1" shadow_color="0xff" font_weight="normal" a4="0" shadow="false" font_underline="true" line_spacing="1" a5="0" auto_shrink="false" shadow_opacity="0.5" font_size="14" align="left" a1="0" font_family="Liberation Serif" color="0xff" shadow_x="1.3pt" valign="top" y="610pt" lock_aspect_ratio="false" a0="1" w="180pt" h="22pt" font_italic="false" shadow_y="1.3pt" x="183pt" a2="0">
+      <p>Liberation Serif 14</p>
+    </Object-text>
+  </Objects>
+  <Data/>
+</Glabels-document>

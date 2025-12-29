@@ -187,6 +187,11 @@ jobs:
         run-x ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-x.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-x.pdf
         #
+        echo "simple-text-liberation-serif.glabels"
+        echo "-----------------------------------"
+        run-x ./glabels-batch/glabels-batch-qt -o simple-text-liberation-serif-x.pdf "$TEST_DIR/simple-text-liberation-serif.glabels"
+        comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-x.pdf
+        #
         #
         echo "===================="
         echo "Wayland render tests"
@@ -211,6 +216,11 @@ jobs:
         echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-w.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-w.pdf
+        #
+        echo "simple-text-liberation-serif.glabels"
+        echo "-----------------------------------"
+        run-w ./glabels-batch/glabels-batch-qt -o simple-text-liberation-serif-w.pdf "$TEST_DIR/simple-text-liberation-serif.glabels"
+        comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-w.pdf
 
     - name: Install render test dependencies (MacOS)
       if: startsWith( matrix.os, 'macos' )
@@ -239,6 +249,17 @@ jobs:
         echo "-----------------------------------"
         ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-mac.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
         diff-pdf -v "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-mac.pdf
+        #
+        echo "simple-text-liberation-serif.glabels"
+        echo "-----------------------------------"
+        ./glabels-batch/glabels-batch-qt -o simple-text-liberation-serif-mac.pdf "$TEST_DIR/simple-text-liberation-serif.glabels"
+        diff-pdf -v "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-mac.pdf
+
+    - name: Upload test results for inspection
+      uses: actions/upload-artifact@v4
+      with:
+        name: my-artifact
+        path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
 
 
 #    - name: Tmate

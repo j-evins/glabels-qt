@@ -712,8 +712,8 @@ namespace glabels
 			
 			QFont font;
 			font.setFamily( mFontFamily );
-			//font.setPixelSize( pixelSize( painter, mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize ) );
-			font.setPointSizeF( mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize );
+			font.setPixelSize( pixelSize( painter, mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize ) );
+			//font.setPointSizeF( mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize );
 			font.setWeight( mFontWeight );
 			font.setItalic( mFontItalicFlag );
 			font.setUnderline( mFontUnderlineFlag );
@@ -879,6 +879,7 @@ namespace glabels
 		ModelTextObject::pixelSize( QPainter* painter, double pointSize ) const
 		{
 			auto dpi = painter->device()->logicalDpiY();
+			dpi = 96;
 			return qMax( 1, qRound( pointSize * dpi/72.0 ) );
 		}
 	}
