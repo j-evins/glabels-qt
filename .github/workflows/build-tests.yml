@@ -247,8 +247,8 @@ jobs:
         ./glabels-batch/glabels-batch-qt -o simple-code39-mac.pdf "$TEST_DIR/simple-code39.glabels"
         diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-mac.pdf
         #
-	# TODO: Create text-based rendering tests using fonts available on MacOS
-	#
+        # TODO: Create text-based rendering tests using fonts available on MacOS
+        #
 
     - name: Render tests (Windows)
       if: startsWith( matrix.os, 'windows' )
@@ -266,8 +266,8 @@ jobs:
         echo "-----------------------------------"
         ./glabels-batch/glabels-batch-qt -o simple-code39-windows.pdf "$TEST_DIR/simple-code39.glabels"
         #
-	# TODO: Create text-based rendering tests using fonts available on Windows
-	#
+        # TODO: Create text-based rendering tests using fonts available on Windows
+        #
 
     - name: Upload render tests for manual inspection
       if: always()
