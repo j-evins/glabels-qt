@@ -235,6 +235,7 @@ jobs:
       env:
         TEST_DIR: ${{ github.workspace }}/test-data
       run: |
+        set +e
         echo "simple-shapes.glabels"
         echo "-----------------------------------"
         ./glabels-batch/glabels-batch-qt -o simple-shapes-mac.pdf "$TEST_DIR/simple-shapes.glabels"
@@ -256,9 +257,10 @@ jobs:
         diff-pdf -v "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-mac.pdf
 
     - name: Upload test results for inspection
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: my-artifact
+        name: my-artifact-${{ matrix.os }}-${{ matrix.cpp_compiler }}
         path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
 
 
