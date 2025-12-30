@@ -218,7 +218,6 @@ jobs:
       shell: bash
       env:
         TEST_DIR: ${{ github.workspace }}/test-data
-        QT_LOGGING_TO_CONSOLE: 1
         QT_ASSUME_STDERR_HAS_CONSOLE: 1
       run: |
         set +e
