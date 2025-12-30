@@ -23,23 +23,18 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            build_type: Release
             c_compiler: gcc
             cpp_compiler: g++
           - os: ubuntu-latest
-            build_type: Release
             c_compiler: clang
             cpp_compiler: clang++
           - os: ubuntu-22.04
-            build_type: Release
             c_compiler: gcc
             cpp_compiler: g++
           - os: windows-latest
-            build_type: Release
             c_compiler: cl
             cpp_compiler: cl
           - os: macos-latest
-            build_type: Release
             c_compiler: clang
             cpp_compiler: clang++
 
@@ -118,32 +113,32 @@ jobs:
         cmake -B ${{ steps.strings.outputs.build-output-dir }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
-        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DCMAKE_BUILD_TYPE=Release
         -DCMAKE_TOOLCHAIN_FILE=${{ env.TOOLCHAIN_FILE }}
         -S ${{ github.workspace }}
 
     - name: Build
-      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+      run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config Release
 
     - name: Test (Ubuntu)
       if: startsWith( matrix.os, 'ubuntu-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         xvfb-run -a ./glabels/glabels-qt --Version
-        xvfb-run -a ctest --build-config ${{ matrix.build_type }}
+        xvfb-run -a ctest --build-config Release
 
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
-        ctest --build-config ${{ matrix.build_type }}
+        ctest --build-config Release
 
     - name: Test (MacOS)
       if: startsWith( matrix.os, 'macos-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         ./glabels/glabels-qt --Version
-        ctest --build-config ${{ matrix.build_type }}
+        ctest --build-config Release
 
     - name: Install render test dependencies (Ubuntu-latest)
       if: startsWith( matrix.os, 'ubuntu-latest' )
