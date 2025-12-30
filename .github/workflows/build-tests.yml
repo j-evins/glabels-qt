@@ -168,25 +168,19 @@ jobs:
         # run-x fc-list : family
         # echo "------------------------------------------------------------------------"
         #
-        echo "simple-shapes.glabels"
         echo "-----------------------------------"
         run-x ./glabels-batch/glabels-batch-qt -o simple-shapes-x.pdf "$TEST_DIR/simple-shapes.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-shapes.pdf" simple-shapes-x.pdf
-        #
-        echo "simple-code39.glabels"
         echo "-----------------------------------"
         run-x ./glabels-batch/glabels-batch-qt -o simple-code39-x.pdf "$TEST_DIR/simple-code39.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-code39.pdf" simple-code39-x.pdf
-        #
-        echo "simple-text-liberation-sans.glabels"
         echo "-----------------------------------"
         run-x ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-x.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-x.pdf
-        #
-        echo "simple-text-liberation-serif.glabels"
         echo "-----------------------------------"
         run-x ./glabels-batch/glabels-batch-qt -o simple-text-liberation-serif-x.pdf "$TEST_DIR/simple-text-liberation-serif.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-x.pdf
+        echo "-----------------------------------"
         #
         #
         echo "===================="
@@ -198,25 +192,19 @@ jobs:
         # run-w fc-list : family
         # echo "------------------------------------------------------------------------"
         #
-        echo "simple-shapes.glabels"
         echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-shapes-w.pdf "$TEST_DIR/simple-shapes.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-shapes.pdf" simple-shapes-w.pdf
-        #
-        echo "simple-code39.glabels"
         echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-code39-w.pdf "$TEST_DIR/simple-code39.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-code39.pdf" simple-code39-w.pdf
-        #
-        echo "simple-text-liberation-sans.glabels"
         echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-text-liberation-sans-w.pdf "$TEST_DIR/simple-text-liberation-sans.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-sans.pdf" simple-text-liberation-sans-w.pdf
-        #
-        echo "simple-text-liberation-serif.glabels"
         echo "-----------------------------------"
         run-w ./glabels-batch/glabels-batch-qt -o simple-text-liberation-serif-w.pdf "$TEST_DIR/simple-text-liberation-serif.glabels"
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-w.pdf
+        echo "-----------------------------------"
 
     - name: Install render test dependencies (MacOS)
       if: startsWith( matrix.os, 'macos' )
@@ -230,17 +218,16 @@ jobs:
       shell: bash
       env:
         TEST_DIR: ${{ github.workspace }}/test-data
+        QT_LOGGING_TO_CONSOLE: 1
+        QT_ASSUME_STDERR_HAS_CONSOLE: 1
       run: |
         set +e
         ./glabels-batch/Release/glabels-batch-qt --Version
-        #
-        echo "simple-shapes.glabels"
         echo "-----------------------------------"
         ./glabels-batch/Release/glabels-batch-qt -o simple-shapes-windows.pdf "$TEST_DIR/simple-shapes.glabels" 2>&1
-        #
-        echo "simple-code39.glabels"
         echo "-----------------------------------"
         ./glabels-batch/Release/glabels-batch-qt -o simple-code39-windows.pdf "$TEST_DIR/simple-code39.glabels" 2>&1
+        echo "-----------------------------------"
         #
         # TODO: Create text-based rendering tests using fonts available on Windows
         #
@@ -254,16 +241,13 @@ jobs:
       run: |
         set +e
         ./glabels-batch/glabels-batch-qt --Version
-        #
-        echo "simple-shapes.glabels"
         echo "-----------------------------------"
         ./glabels-batch/glabels-batch-qt -o simple-shapes-mac.pdf "$TEST_DIR/simple-shapes.glabels"
         diff-pdf -v "$TEST_DIR/simple-shapes.pdf" simple-shapes-mac.pdf
-        #
-        echo "simple-code39.glabels"
         echo "-----------------------------------"
         ./glabels-batch/glabels-batch-qt -o simple-code39-mac.pdf "$TEST_DIR/simple-code39.glabels"
         diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-mac.pdf
+        echo "-----------------------------------"
         #
         # TODO: Create text-based rendering tests using fonts available on MacOS
         #
