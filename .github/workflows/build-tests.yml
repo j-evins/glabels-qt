@@ -130,7 +130,10 @@ jobs:
     - name: Test (Windows)
       if: startsWith( matrix.os, 'windows-' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      env:
+        QT_ASSUME_STDERR_HAS_CONSOLE: 1
       run: |
+        ./glabels-batch/Release/glabels-batch-qt --Version
         ctest --build-config Release
 
     - name: Test (MacOS)
@@ -146,6 +149,18 @@ jobs:
       run: |
         sudo apt-get -y install xwayland-run
         sudo apt-get -y install comparepdf
+
+    - name: Install render test dependencies (Windows)
+      if: startsWith( matrix.os, 'windows' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: |
+        choco install diff-pdf
+
+    - name: Install render test dependencies (MacOS)
+      if: startsWith( matrix.os, 'macos' )
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: |
+        brew install diff-pdf
 
     - name: Render tests (Ubuntu-latest)
       if: startsWith( matrix.os, 'ubuntu-latest' )
@@ -206,12 +221,6 @@ jobs:
         comparepdf -ca -v2 "$TEST_DIR/simple-text-liberation-serif.pdf" simple-text-liberation-serif-w.pdf
         echo "-----------------------------------"
 
-    - name: Install render test dependencies (MacOS)
-      if: startsWith( matrix.os, 'macos' )
-      working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      run: |
-        brew install diff-pdf
-
     - name: Render tests (Windows)
       if: startsWith( matrix.os, 'windows' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
@@ -224,8 +233,10 @@ jobs:
         ./glabels-batch/Release/glabels-batch-qt --Version
         echo "-----------------------------------"
         ./glabels-batch/Release/glabels-batch-qt -o simple-shapes-windows.pdf "$TEST_DIR/simple-shapes.glabels" 2>&1
+        diff-pdf -v "$TEST_DIR/simple-shapes.pdf" simple-shapes-windows.pdf
         echo "-----------------------------------"
         ./glabels-batch/Release/glabels-batch-qt -o simple-code39-windows.pdf "$TEST_DIR/simple-code39.glabels" 2>&1
+        diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-windows.pdf
         echo "-----------------------------------"
         #
         # TODO: Create text-based rendering tests using fonts available on Windows
