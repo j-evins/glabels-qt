@@ -266,7 +266,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}-${{ github.job }}
+        name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}-${{ github.run_number }}
         path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
 
 
