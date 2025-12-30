@@ -224,7 +224,7 @@ jobs:
     - name: Render tests (Windows)
       if: startsWith( matrix.os, 'windows' )
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      shell: bash
+      shell: pwsh
       env:
         TEST_DIR: ${{ github.workspace }}/test-data
         QT_ASSUME_STDERR_HAS_CONSOLE: 1
