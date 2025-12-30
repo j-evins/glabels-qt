@@ -233,10 +233,10 @@ jobs:
         ./glabels-batch/Release/glabels-batch-qt --Version
         echo "-----------------------------------"
         ./glabels-batch/Release/glabels-batch-qt -o simple-shapes-windows.pdf "$TEST_DIR/simple-shapes.glabels" 2>&1
-        diff-pdf -v "$TEST_DIR/simple-shapes.pdf" simple-shapes-windows.pdf
+        diff-pdf -v "$TEST_DIR/simple-shapes.pdf" simple-shapes-windows.pdf 2>&1
         echo "-----------------------------------"
         ./glabels-batch/Release/glabels-batch-qt -o simple-code39-windows.pdf "$TEST_DIR/simple-code39.glabels" 2>&1
-        diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-windows.pdf
+        diff-pdf -v "$TEST_DIR/simple-code39.pdf" simple-code39-windows.pdf 2>&1
         echo "-----------------------------------"
         #
         # TODO: Create text-based rendering tests using fonts available on Windows
