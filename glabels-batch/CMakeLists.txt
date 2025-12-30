@@ -10,7 +10,7 @@ set (glabels-batch_sources
 #=====================================
 # Target
 #=====================================
-add_executable (glabels-batch-qt WIN32
+add_executable (glabels-batch-qt
   ${glabels-batch_sources}
 )
 
