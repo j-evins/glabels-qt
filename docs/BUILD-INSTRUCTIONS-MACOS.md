@@ -2,10 +2,16 @@ gLabels MacOS Build Instructions
 ================================
 
 ## Prerequisites
-
 ```
 brew install cmake
 brew install qt@6
+```
+
+## Optional dependencies
+```
+brew install zlib
+brew install qrencode
+brew install zint
 ```
 
 ## Compile and Install
