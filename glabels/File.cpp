@@ -123,7 +123,7 @@ namespace glabels
 					newWindow->setModel( model );
 					newWindow->show();
 				}
-				model::Settings::addToRecentFileList( fileName );
+				model::Settings::addToRecentFileList( model->fileName() );
 
 				// Save CWD
 				mCwd = QFileInfo( fileName ).absolutePath();
@@ -163,7 +163,7 @@ namespace glabels
 					newWindow->setModel( model );
 					newWindow->show();
 				}
-				model::Settings::addToRecentFileList( fileName );
+				model::Settings::addToRecentFileList( model->fileName() );
 
 				// Save CWD
 				mCwd = QFileInfo( fileName ).absolutePath();
@@ -198,7 +198,6 @@ namespace glabels
 		}
 
 		model::XmlLabelCreator::writeFile( window->model(), window->model()->fileName() );
-		window->model()->clearModified();
 		model::Settings::addToRecentFileList( window->model()->fileName() );
 
 		// Save CWD
@@ -254,8 +253,7 @@ namespace glabels
 			}
 			
 			model::XmlLabelCreator::writeFile( window->model(), fileName );
-			window->model()->clearModified();
-			model::Settings::addToRecentFileList( fileName );
+			model::Settings::addToRecentFileList( window->model()->fileName() );
 		
 			// Save CWD
 			mCwd = QFileInfo( fileName ).absolutePath();
