@@ -254,7 +254,6 @@ namespace glabels
 			}
 			
 			model::XmlLabelCreator::writeFile( window->model(), fileName );
-			window->model()->setFileName( fileName );
 			window->model()->clearModified();
 			model::Settings::addToRecentFileList( fileName );
 		

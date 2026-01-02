@@ -116,7 +116,6 @@ int main( int argc, char **argv )
 		glabels::model::Model *model = glabels::model::XmlLabelParser::readFile( filename );
 		if ( model )
 		{
-			model->setFileName( filename );
 			auto *newWindow = new glabels::MainWindow();
 			newWindow->setModel( model );
 			newWindow->show();
