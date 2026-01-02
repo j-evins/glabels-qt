@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "GLABELS-BATCH-QT" "1" "Dec 17, 2025" "" "gLabels"
+.TH "GLABELS-BATCH-QT" "1" "Jan 01, 2026" "" "gLabels"
 .SH NAME
 glabels-batch-qt \- print glabels project from command line
 .SH SYNOPSIS
@@ -37,7 +37,7 @@ glabels-batch-qt \- print glabels project from command line
 .sp
 \fBglabels\-batch\-qt\fP is a utility for printing a glabels project file
 from the command line.  This command takes exactly one project file, FILE.  If FILE
-is \(dq\-\(dq, it expects an XML glabels project to be provided on standard input.
+is "\-", it expects an XML glabels project to be provided on standard input.
 .SH OPTIONS
 .INDENT 0.0
 .TP
@@ -61,11 +61,15 @@ Send output to <printer>.
 .UNINDENT
 .INDENT 0.0
 .TP
+.B \-i <source>, \-\-input <source>
+Set merge input to <source> (typically a filename). If source is "\-", read from standard input.
+This option overrides the merge source specified in the original glabels project file.
+.UNINDENT
+.INDENT 0.0
+.TP
 .B \-o [<filename>], \-\-output [<filename>]
-.TP
-.B Set output filename to <filename>. If filename is \(dq\-\(dq, write to standard output.
-.TP
-.B (Default=\(dqoutput.pdf\(dq)
+Set output filename to <filename>. If filename is "\-", write to standard output.
+(Default="output.pdf")
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -136,9 +140,11 @@ On GNU/Linux platforms, \fBglabels\-batch\-qt\fP must be run from within a windo
 .INDENT 0.0
 .INDENT 3.5
 .sp
-.EX
+.nf
+.ft C
 xvfb\-run glabels\-batch\-qt \-o output.pdf myProject.glabels
-.EE
+.ft P
+.fi
 .UNINDENT
 .UNINDENT
 .SH REPORTING BUGS
