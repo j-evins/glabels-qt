@@ -100,6 +100,11 @@ int main( int argc, char **argv )
 		 QCoreApplication::translate( "main", "printer" ),
 		 QPrinterInfo::defaultPrinterName() },
 		
+		{{"i","input"},
+		 QCoreApplication::translate( "main", "Set merge input to <source> (typically a filename). Set to \"-\" for stdin." ),
+		 QCoreApplication::translate( "main", "source" ),
+		 "" },
+		
 		{{"o","output"},
 		 QCoreApplication::translate( "main", "Set output filename to <filename>. Set to \"-\" for stdout. (Default=\"output.pdf\")" ),
 		 QCoreApplication::translate( "main", "filename" ),
@@ -221,6 +226,17 @@ int main( int argc, char **argv )
 				qDebug() << "Batch mode.  printer =" << QPrinterInfo::defaultPrinterName();
 			}
 
+			if ( parser.isSet( "input" ) )
+			{
+				QString inputSource = parser.value( "input" );
+				if ( inputSource == "-" )
+				{
+					inputSource = STDIN_FILENAME;
+				}
+				qDebug() << "Merge source =" << inputSource;
+				model->merge()->setSource( inputSource );
+			}
+			
 			glabels::model::PageRenderer renderer( model );
 			if ( model->merge()->keys().empty() )
 			{

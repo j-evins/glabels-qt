@@ -35,6 +35,10 @@ OPTIONS
 
 	    Send output to <printer>.
 
+.. option::  -i [<source>], --input [<source>]
+	     Set merge input to <source> (typically a filename). If source is "-", read from standard input.
+	     This option overrides the merge source specified in the original glabels project file.
+
 .. option::  -o [<filename>], --output [<filename>]
 	     Set output filename to <filename>. If filename is "-", write to standard output.
 	     (Default="output.pdf")
