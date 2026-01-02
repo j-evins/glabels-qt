@@ -55,11 +55,19 @@ namespace glabels
 		Model*
 		XmlLabelParser::readFile( const QString& fileName )
 		{
-			QFile file( fileName );
+			QFileInfo fileInfo( fileName );
+			if ( !fileInfo.exists() )
+			{
+				qWarning() << fileName << "does not exist!";
+				return nullptr;
+			}
+			auto canonName = fileInfo.canonicalFilePath();
+			
+			QFile file( canonName );
 
 			if ( !file.open( QFile::ReadOnly ) )
 			{
-				qWarning() << "Error: Cannot read file" << fileName
+				qWarning() << "Error: Cannot read file" << canonName
 				           << ":" << file.errorString();
 				return nullptr;
 			}
@@ -71,6 +79,7 @@ namespace glabels
 			int          errorColumn;
 
 			QByteArray rawData = file.readAll();
+			file.close();
 			if ( ((rawData[0]&0xFF) == 0x1F) && ((rawData[1]&0xFF) == 0x8b) ) // gzip magic number 0x1F, 0x8B
 			{
 #if HAVE_ZLIB
@@ -105,7 +114,7 @@ namespace glabels
 				return nullptr;
 			}
 
-			return parseRootNode( root, fileName );
+			return parseRootNode( root, canonName );
 		}
 
 

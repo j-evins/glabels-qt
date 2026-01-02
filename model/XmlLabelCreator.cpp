@@ -61,14 +61,24 @@ namespace glabels
 				return;
 			}
 
-			model->setFileName( fileName );
-			model->clearModified();
-			
 			QDomDocument doc;
 			createDoc( doc, model );
 
 			QByteArray buffer = doc.toByteArray( 2 );
 			file.write( buffer.data(), buffer.size() );
+
+			file.close();
+
+			QFileInfo fileInfo( fileName );
+			if ( !fileInfo.exists() )
+			{
+				qWarning() << "Error:" << fileName << "does not exist after writing!";
+				return;
+			}
+			auto canonName = fileInfo.canonicalFilePath();
+
+			model->setFileName( canonName );
+			model->clearModified();
 		}
 
 
