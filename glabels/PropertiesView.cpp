@@ -138,7 +138,7 @@ namespace glabels
 			similarProductsNullBox->hide();
 
 			QString similarListString;
-			foreach ( QString name, list )
+			for ( QString name : list )
 			{
 				similarListString += name + "\n";
 			}

@@ -83,7 +83,7 @@ int main( int argc, char *argv[] )
 	QStringList filenameList = app.arguments();
 	filenameList.removeFirst();  // Remove 0th argument, which is the command name
 
-	foreach ( QString filename, filenameList )
+	for ( QString filename : filenameList )
 	{
 		parseFile( filename );
 	}
@@ -95,13 +95,13 @@ int main( int argc, char *argv[] )
 	out << "// Automatically generated with " << app.arguments().at(0) << Qt::endl;
 	out << "//" << Qt::endl;
 	out << "// Sources:" << Qt::endl;
-	foreach ( QString filename, filenameList )
+	for ( QString filename : filenameList )
 	{
 		out << "//         " << filename << Qt::endl;
 	}
 	out << "//" << Qt::endl;
 		
-	foreach ( QString string, stringList )
+	for ( QString string : stringList )
 	{
 		out << "QT_TRANSLATE_NOOP( \"XmlStrings\", \"" << string << "\" );" << Qt::endl;
 	}

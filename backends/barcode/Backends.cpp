@@ -556,7 +556,7 @@ namespace glabels
 
 		const Style& Backends::style( const QString& backendId, const QString& StyleId )
 		{
-			foreach ( const Style& bcStyle, mStyleList )
+			for ( const Style& bcStyle : mStyleList )
 			{
 				if ( (bcStyle.backendId() == backendId) && (bcStyle.id() == StyleId) )
 				{

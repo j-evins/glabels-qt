@@ -293,7 +293,7 @@ namespace glabels
 				{
 					model->setRotate( parseRotateAttr( child.toElement() ) );
 					auto list = parseObjectsNode( child.toElement(), model, data );
-					foreach ( ModelObject* object, list )
+					for ( ModelObject* object : list )
 					{
 						model->addObject( object );
 					}

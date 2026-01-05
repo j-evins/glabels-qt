@@ -298,7 +298,7 @@ namespace glabels
 	{
 		mCategoryIdList.clear();
 
-		foreach( QCheckBox* check, mCheckList )
+		for ( QCheckBox* check : mCheckList )
 		{
 			if ( check->isChecked() )
 			{

@@ -211,7 +211,7 @@ namespace glabels
 				else
 				{
 					categoryMask = false;
-					foreach ( QString id, categoryIds )
+					for ( QString id : categoryIds )
 					{
 						categoryMask = categoryMask || tItem->tmplate().hasCategory( id );
 					}
@@ -248,7 +248,7 @@ namespace glabels
 			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
 			{
 				bool match = false;
-				foreach ( QString name, names )
+				for ( QString name : names )
 				{
 					if ( tItem->tmplate().name() == name )
 					{

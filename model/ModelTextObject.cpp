@@ -672,7 +672,7 @@ namespace glabels
 				break;
 			}
 			QPainterPath hoverPath; // new empty hover path
-			foreach ( QTextLayout* layout, mEditorLayouts )
+			for ( QTextLayout* layout : mEditorLayouts )
 			{
 				for ( int j = 0; j < layout->lineCount(); j++ )
 				{
@@ -708,7 +708,7 @@ namespace glabels
 				painter->setPen( QPen( color ) );
 			}
 
-			foreach ( QTextLayout* layout, mEditorLayouts )
+			for ( QTextLayout* layout : mEditorLayouts )
 			{
 				layout->draw( painter, QPointF( 0, 0 ) );
 			}
@@ -790,7 +790,7 @@ namespace glabels
 				y = marginPts;
 				break;
 			}
-			foreach ( QTextLayout* layout, layouts )
+			for ( QTextLayout* layout : layouts )
 			{
 				for ( int j = 0; j < layout->lineCount(); j++ )
 				{
@@ -802,7 +802,7 @@ namespace glabels
 
 			// Draw layouts
 			painter->setPen( QPen( color ) );
-			foreach ( QTextLayout* layout, layouts )
+			for ( QTextLayout* layout : layouts )
 			{
 				layout->draw( painter, QPointF( 0, 0 ) );
 			}

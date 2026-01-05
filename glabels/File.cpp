@@ -289,7 +289,7 @@ namespace glabels
 	///
 	void File::exit()
 	{
-		foreach ( QWidget* qwidget, QApplication::topLevelWidgets() )
+		for ( QWidget* qwidget : QApplication::topLevelWidgets() )
 		{
 			if ( auto* window = qobject_cast<MainWindow*>(qwidget) )
 			{

@@ -36,7 +36,7 @@ namespace glabels
 
 		DataCache::DataCache( const QList<ModelObject*>& objects )
 		{
-			foreach( ModelObject* object, objects )
+			for ( ModelObject* object : objects )
 			{
 				if ( auto* imageObject = dynamic_cast<ModelImageObject*>(object) )
 				{

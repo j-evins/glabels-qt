@@ -153,7 +153,7 @@ namespace glabels
 			XmlUtil::setStringAttr( node, "id", "0" );
 			XmlUtil::setBoolAttr( node, "rotate", rotate );
 
-			foreach ( ModelObject* object, objects )
+			for ( ModelObject* object : objects )
 			{
 				if ( auto* boxObject = dynamic_cast<ModelBoxObject*>(object) )
 				{
@@ -560,13 +560,13 @@ namespace glabels
 
 			DataCache data( objects );
 
-			foreach ( QString name, data.imageNames() )
+			for ( QString name : data.imageNames() )
 			{
 				QString fn = FileUtil::makeRelativeIfInDir( model->dir(), name );
 				createPngFileNode( node, fn, data.getImage( name ) );
 			}
 
-			foreach ( QString name, data.svgNames() )
+			for ( QString name : data.svgNames() )
 			{
 				QString fn = FileUtil::makeRelativeIfInDir( model->dir(), name );
 				createSvgFileNode( node, fn, data.getSvg( name ) );

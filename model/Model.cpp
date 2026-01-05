@@ -95,10 +95,7 @@ namespace glabels
 		void Model::restore( const Model *savedModel )
 		{
 			// Clear current object list
-			foreach ( ModelObject* object, mObjectList )
-			{
-				delete object;
-			}
+			qDeleteAll( mObjectList );
 			mObjectList.clear();
 
 			// Now copy state
@@ -108,7 +105,7 @@ namespace glabels
 			mTmplate          = savedModel->mTmplate;
 			mRotate           = savedModel->mRotate;
 
-			foreach ( ModelObject* savedObject, savedModel->mObjectList )
+			for ( ModelObject* savedObject : savedModel->mObjectList )
 			{
 				ModelObject* object = savedObject->clone();
 		
@@ -474,7 +471,7 @@ namespace glabels
 		{
 			static Handle nullHandle;
 			
-			foreach( ModelObject* object, mObjectList )
+			for( ModelObject* object : mObjectList )
 			{
 				auto& handle = object->handleAt( scale, x, y );
 				if ( !handle.isNull() )
@@ -566,7 +563,7 @@ namespace glabels
 		///
 		void Model::selectAll()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				object->select();
 			}
@@ -580,7 +577,7 @@ namespace glabels
 		///
 		void Model::unselectAll()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				object->unselect();
 			}
@@ -599,7 +596,7 @@ namespace glabels
 			Distance rX2 = max( region.x1(), region.x2() );
 			Distance rY2 = max( region.y1(), region.y2() );
 
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				Region objectExtent = object->getExtent();
 
@@ -621,7 +618,7 @@ namespace glabels
 		///
 		bool Model::isSelectionEmpty()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -640,7 +637,7 @@ namespace glabels
 		{
 			int nSelected = 0;
 
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -663,7 +660,7 @@ namespace glabels
 		{
 			QList<ModelObject*> selectedList;
 
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -680,7 +677,7 @@ namespace glabels
 		///
 		ModelObject* Model::getFirstSelectedObject()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -697,7 +694,7 @@ namespace glabels
 		///
 		bool Model::canSelectionText()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() && object->canText() )
 				{
@@ -714,7 +711,7 @@ namespace glabels
 		///
 		bool Model::canSelectionFill()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() && object->canFill() )
 				{
@@ -731,7 +728,7 @@ namespace glabels
 		///
 		bool Model::canSelectionLineColor()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() && object->canLineColor() )
 				{
@@ -748,7 +745,7 @@ namespace glabels
 		///
 		bool Model::canSelectionLineWidth()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() && object->canLineWidth() )
 				{
@@ -767,7 +764,7 @@ namespace glabels
 		{
 			QList<ModelObject*> selectedList = getSelection();
 
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				deleteObject( object );
 			}
@@ -786,13 +783,13 @@ namespace glabels
 		{
 			QList<ModelObject*> selectedList = getSelection();
 
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				mObjectList.removeOne( object );
 			}
 
 			// Move to end of list, representing top most object.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				mObjectList.push_back( object );
 			}
@@ -810,13 +807,13 @@ namespace glabels
 		{
 			QList<ModelObject*> selectedList = getSelection();
 
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				mObjectList.removeOne( object );
 			}
 
 			// Move to front of list, representing bottom most object.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				mObjectList.push_front( object );
 			}
@@ -832,7 +829,7 @@ namespace glabels
 		///
 		void Model::rotateSelection( double thetaDegs )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -869,7 +866,7 @@ namespace glabels
 		///
 		void Model::flipSelectionHoriz()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -888,7 +885,7 @@ namespace glabels
 		///
 		void Model::flipSelectionVert()
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -916,14 +913,14 @@ namespace glabels
 
 			// Find left-most edge.
 			Distance x1_min = 7200; // Start with a very large value: 7200pts = 100in
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				if ( r.x1() < x1_min ) x1_min = r.x1();
 			}
 
 			// Now adjust the object positions to line up the left edges at left-most edge.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dx = x1_min - r.x1();
@@ -950,14 +947,14 @@ namespace glabels
 
 			// Find right-most edge.
 			Distance x1_max = -7200; // Start with a very large negative value: 7200pts = 100in
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				if ( r.x1() > x1_max ) x1_max = r.x1();
 			}
 
 			// Now adjust the object positions to line up the right edges at right-most edge.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dx = x1_max - r.x1();
@@ -985,7 +982,7 @@ namespace glabels
 			// Find average center of objects.
 			Distance xsum = 0;
 			int n = 0;
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				xsum += (r.x1() + r.x2()) / 2.0;
@@ -996,7 +993,7 @@ namespace glabels
 			// Find object closest to average center of objects.
 			Distance xcenter = 7200; // Start with very large value.
 			Distance dxmin = fabs( xavg - xcenter );
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dx = fabs( xavg - (r.x1() + r.x2())/2.0 );
@@ -1008,7 +1005,7 @@ namespace glabels
 			}
 
 			// Now adjust the object positions to line up with the center of this object.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dx = xcenter - (r.x1() + r.x2())/2.0;
@@ -1035,14 +1032,14 @@ namespace glabels
 
 			// Find top-most edge.
 			Distance y1_min = 7200; // Start with a very large value: 7200pts = 100in
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				if ( r.y1() < y1_min ) y1_min = r.y1();
 			}
 
 			// Now adjust the object positions to line up the top edges at top-most edge.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dy = y1_min - r.y1();
@@ -1069,14 +1066,14 @@ namespace glabels
 
 			// Find bottom-most edge.
 			Distance y1_max = -7200; // Start with a very large negative value: 7200pts = 100in
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				if ( r.y1() > y1_max ) y1_max = r.y1();
 			}
 
 			// Now adjust the object positions to line up the bottom edges at bottom-most edge.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dy = y1_max - r.y1();
@@ -1104,7 +1101,7 @@ namespace glabels
 			// Find average center of objects.
 			Distance ysum = 0;
 			int n = 0;
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				ysum += (r.y1() + r.y2()) / 2.0;
@@ -1115,7 +1112,7 @@ namespace glabels
 			// Find object closest to average center of objects.
 			Distance ycenter = 7200; // Start with very large value.
 			Distance dymin = fabs( yavg - ycenter );
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dy = fabs( yavg - (r.y1() + r.y2())/2.0 );
@@ -1127,7 +1124,7 @@ namespace glabels
 			}
 
 			// Now adjust the object positions to line up with the center of this object.
-			foreach ( ModelObject* object, selectedList )
+			for ( ModelObject* object : selectedList )
 			{
 				Region r = object->getExtent();
 				Distance dy = ycenter - (r.y1() + r.y2())/2.0;
@@ -1147,7 +1144,7 @@ namespace glabels
 		{
 			Distance xLabelCenter = w() / 2.0;
 
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1172,7 +1169,7 @@ namespace glabels
 			Distance xLabelCenter = w() / 2.0;
 			Distance yLabelCenter = h() / 2.0;
 
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1198,7 +1195,7 @@ namespace glabels
 		{
 			Distance yLabelCenter = h() / 2.0;
 
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1220,7 +1217,7 @@ namespace glabels
 		///
 		void Model::moveSelection( Distance dx, Distance dy )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1239,7 +1236,7 @@ namespace glabels
 		///
 		void Model::setSelectionFontFamily( const QString &fontFamily )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1258,7 +1255,7 @@ namespace glabels
 		///
 		void Model::setSelectionFontSize( double fontSize )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1277,7 +1274,7 @@ namespace glabels
 		///
 		void Model::setSelectionFontWeight( QFont::Weight fontWeight )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1296,7 +1293,7 @@ namespace glabels
 		///
 		void Model::setSelectionFontItalicFlag( bool fontItalicFlag )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1315,7 +1312,7 @@ namespace glabels
 		///
 		void Model::setSelectionTextHAlign( Qt::Alignment textHAlign )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1334,7 +1331,7 @@ namespace glabels
 		///
 		void Model::setSelectionTextVAlign( Qt::Alignment textVAlign )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1353,7 +1350,7 @@ namespace glabels
 		///
 		void Model::setSelectionTextLineSpacing( double textLineSpacing )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1372,7 +1369,7 @@ namespace glabels
 		///
 		void Model::setSelectionTextColorNode( ColorNode textColorNode )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1391,7 +1388,7 @@ namespace glabels
 		///
 		void Model::setSelectionLineWidth( Distance lineWidth )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1410,7 +1407,7 @@ namespace glabels
 		///
 		void Model::setSelectionLineColorNode( ColorNode lineColorNode )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1429,7 +1426,7 @@ namespace glabels
 		///
 		void Model::setSelectionFillColorNode( ColorNode fillColorNode )
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				if ( object->isSelected() )
 				{
@@ -1523,7 +1520,7 @@ namespace glabels
 			QList <ModelObject*> objects = XmlLabelParser::deserializeObjects( buffer, this );
 
 			unselectAll();
-			foreach ( ModelObject* object, objects )
+			for ( ModelObject* object : objects )
 			{
 				object->setPositionRelative( p.x(), p.y() );
 				addObject( object );
@@ -1613,7 +1610,7 @@ namespace glabels
 		                  const merge::Record& record,
 		                  const Variables&     variablesInstance ) const
 		{
-			foreach ( ModelObject* object, mObjectList )
+			for ( ModelObject* object : mObjectList )
 			{
 				object->draw( painter, inEditor, record, variablesInstance );
 			}

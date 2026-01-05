@@ -288,7 +288,7 @@ namespace glabels
 		QList<QColor> colorList = mColorHistory->getColors();
 	
 		int id = 0;
-		foreach ( QColor color, colorList )
+		for ( QColor color : colorList )
 		{
 			mHistoryItem[id]->setColor( id, color, nameList[id] );
 			mHistoryItem[id]->setEnabled( true );

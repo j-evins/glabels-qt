@@ -35,7 +35,7 @@ namespace glabels
 	///
 	BarcodeMenu::BarcodeMenu()
 	{
-		foreach ( const barcode::Style& bcStyle, barcode::Backends::styleList() )
+		for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
 		{
 			if ( bcStyle.backendId() == "" )
 			{
@@ -47,11 +47,11 @@ namespace glabels
 			}
 		}
 
-		foreach ( const QString& backendId, barcode::Backends::backendList() )
+		for ( const QString& backendId : barcode::Backends::backendList() )
 		{
 			QMenu* subMenu = addMenu( barcode::Backends::backendName( backendId ) );
 			
-			foreach ( const barcode::Style& bcStyle, barcode::Backends::styleList() )
+			for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
 			{
 				if ( bcStyle.backendId() == backendId )
 				{

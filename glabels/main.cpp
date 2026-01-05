@@ -112,7 +112,7 @@ int main( int argc, char **argv )
 	// Open each file in its own main window
 	//
 	bool openedFiles = false;
-	foreach ( QString filename, parser.positionalArguments() )
+	for ( QString filename : parser.positionalArguments() )
 	{
 		glabels::model::Model *model = glabels::model::XmlLabelParser::readFile( filename );
 		if ( model )

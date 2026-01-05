@@ -75,7 +75,7 @@ namespace glabels
 		{
 			QString text;
 		
-			foreach ( const Token& token, mTokens )
+			for ( const Token& token : mTokens )
 			{
 				if ( token.isField )
 				{

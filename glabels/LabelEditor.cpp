@@ -1283,7 +1283,7 @@ namespace glabels
 	{
 		painter->save();
 
-		foreach ( model::ModelObject* object, mModel->objectList() )
+		for ( model::ModelObject* object : mModel->objectList() )
 		{
 			if ( object->isSelected() )
 			{

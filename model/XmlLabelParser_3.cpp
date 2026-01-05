@@ -117,7 +117,7 @@ namespace glabels
 				{
 					label->setRotate( parseRotateAttr( childElement ) );
 					QList<ModelObject*> list = parseObjectsNode( childElement, data );
-					foreach ( ModelObject* object, list )
+					for ( ModelObject* object : list )
 					{
 						label->addObject( object );
 					}
