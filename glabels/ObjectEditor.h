@@ -33,93 +33,93 @@
 namespace glabels
 {
 
-	// Forward references
-	class UndoRedoModel;
-	
+        // Forward references
+        class UndoRedoModel;
+        
 
-	///
-	/// Object Editor Widget
-	///
-	class ObjectEditor : public QWidget, public Ui_ObjectEditor
-	{
-		Q_OBJECT
+        ///
+        /// Object Editor Widget
+        ///
+        class ObjectEditor : public QWidget, public Ui_ObjectEditor
+        {
+                Q_OBJECT
 
-		
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		ObjectEditor( QWidget *parent = nullptr );
-
-
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-		void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+                
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                ObjectEditor( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void hidePages();
-		void loadImagePage();
-		void loadLineFillPage();
-		void loadPositionPage();
-		void loadRectSizePage();
-		void loadLineSizePage();
-		void loadTextPage();
-		void loadBarcodePage();
-		void loadShadowPage();
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onSettingsChanged();
-		void onLabelSizeChanged();
-		void onSelectionChanged();
-		void onFieldsAvailableChanged();
-		void onObjectChanged();
-		void onObjectMoved();
-		void onObjectDestroyed();
-		void onLineControlsChanged();
-		void onFillControlsChanged();
-		void onImageFileButtonClicked();
-		void onImageKeySelected( QString key );
-		void onPositionControlsChanged();
-		void onRectSizeControlsChanged();
-		void onLineSizeControlsChanged();
-		void onTextControlsChanged();
-		void onTextInsertFieldKeySelected( QString key );
-		void onBarcodeControlsChanged();
-		void onBarcodeInsertFieldKeySelected( QString key );
-		void onResetImageSize();
-		void onShadowControlsChanged();
-		void onChanged();
-		
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                void hidePages();
+                void loadImagePage();
+                void loadLineFillPage();
+                void loadPositionPage();
+                void loadRectSizePage();
+                void loadLineSizePage();
+                void loadTextPage();
+                void loadBarcodePage();
+                void loadShadowPage();
 
-		/////////////////////////////////
-		// Private data
-		/////////////////////////////////
-	private:
-		model::Model*            mModel;
-		model::ModelObject*      mObject;
-		UndoRedoModel*           mUndoRedoModel;
-	
-		model::Units             mUnits;
-		int                      mSpinDigits;
-		double                   mSpinStep;
-	
-		QButtonGroup*            textHAlignGroup;
-		QButtonGroup*            textVAlignGroup;
 
-		QString                  mImageCwd;
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onSettingsChanged();
+                void onLabelSizeChanged();
+                void onSelectionChanged();
+                void onFieldsAvailableChanged();
+                void onObjectChanged();
+                void onObjectMoved();
+                void onObjectDestroyed();
+                void onLineControlsChanged();
+                void onFillControlsChanged();
+                void onImageFileButtonClicked();
+                void onImageKeySelected( QString key );
+                void onPositionControlsChanged();
+                void onRectSizeControlsChanged();
+                void onLineSizeControlsChanged();
+                void onTextControlsChanged();
+                void onTextInsertFieldKeySelected( QString key );
+                void onBarcodeControlsChanged();
+                void onBarcodeInsertFieldKeySelected( QString key );
+                void onResetImageSize();
+                void onShadowControlsChanged();
+                void onChanged();
+                
 
-		bool                     mBlocked;
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                model::Model*            mModel;
+                model::ModelObject*      mObject;
+                UndoRedoModel*           mUndoRedoModel;
+        
+                model::Units             mUnits;
+                int                      mSpinDigits;
+                double                   mSpinStep;
+        
+                QButtonGroup*            textHAlignGroup;
+                QButtonGroup*            textVAlignGroup;
 
-	};
+                QString                  mImageCwd;
+
+                bool                     mBlocked;
+
+        };
 
 }
 

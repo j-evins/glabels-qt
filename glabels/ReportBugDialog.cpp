@@ -30,59 +30,59 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	ReportBugDialog::ReportBugDialog( QWidget *parent )
-		: QDialog(parent)
-	{
-		setupUi( this );
+        ///
+        /// Constructor
+        ///
+        ReportBugDialog::ReportBugDialog( QWidget *parent )
+                : QDialog(parent)
+        {
+                setupUi( this );
 
-		QString title = tr("How to Report a Bug");
-		titleLabel->setText( QString( "<span style='font-size:14pt;font-weight:bold;'>%1</span>" ).arg( title ) );
-		
-		QString directionsP1 =
-			tr( "To submit a bug report, click on the button below.  This will open a "
-			    "web browser to the gLabels github issue tracking page." );
+                QString title = tr("How to Report a Bug");
+                titleLabel->setText( QString( "<span style='font-size:14pt;font-weight:bold;'>%1</span>" ).arg( title ) );
+                
+                QString directionsP1 =
+                        tr( "To submit a bug report, click on the button below.  This will open a "
+                            "web browser to the gLabels github issue tracking page." );
 
-		p1Label->setText( QString( "<p>%1</p>" ).arg( directionsP1 ) );
+                p1Label->setText( QString( "<p>%1</p>" ).arg( directionsP1 ) );
 
-		QString directionsP2 =
-			tr( "Before submitting a report, look through the existing issues for similar "
-			    "or related bugs.  If the issue has already been reported, please consider "
-			    "contributing to its report instead.  Otherwise, create a new issue report. "
-			    "Please paste the following information into the issue description." );
+                QString directionsP2 =
+                        tr( "Before submitting a report, look through the existing issues for similar "
+                            "or related bugs.  If the issue has already been reported, please consider "
+                            "contributing to its report instead.  Otherwise, create a new issue report. "
+                            "Please paste the following information into the issue description." );
 
-		p2Label->setText( QString( "<p>%1</p>" ).arg( directionsP2 ) );
+                p2Label->setText( QString( "<p>%1</p>" ).arg( directionsP2 ) );
 
-		infoText->append( model::Version::details() );
+                infoText->append( model::Version::details() );
 
-		QString directionsP3 =
-			tr( "Be sure to include a detailed description of the problem and how to "
-			    "recreate it.  Attach any screenshots and/or example glabels project "
-			    "files that may illustrate the problem." );
+                QString directionsP3 =
+                        tr( "Be sure to include a detailed description of the problem and how to "
+                            "recreate it.  Attach any screenshots and/or example glabels project "
+                            "files that may illustrate the problem." );
 
-		p3Label->setText( QString( "<p>%1</p>" ).arg( directionsP3 ) );
+                p3Label->setText( QString( "<p>%1</p>" ).arg( directionsP3 ) );
 
-	}
-
-
-	///
-	/// "Copy" Button Clicked Slot
-	///
-	void ReportBugDialog::onCopyButtonClicked()
-	{
-		infoText->selectAll();
-		infoText->copy();
-	}
+        }
 
 
-	///
-	/// "Website" Button Clicked Slot
-	///
-	void ReportBugDialog::onWebsiteButtonClicked()
-	{
-		QDesktopServices::openUrl( QUrl(model::Version::BUG_WEBSITE) );
-	}
+        ///
+        /// "Copy" Button Clicked Slot
+        ///
+        void ReportBugDialog::onCopyButtonClicked()
+        {
+                infoText->selectAll();
+                infoText->copy();
+        }
+
+
+        ///
+        /// "Website" Button Clicked Slot
+        ///
+        void ReportBugDialog::onWebsiteButtonClicked()
+        {
+                QDesktopServices::openUrl( QUrl(model::Version::BUG_WEBSITE) );
+        }
 
 } // namespace glabels

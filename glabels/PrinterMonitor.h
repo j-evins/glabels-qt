@@ -34,64 +34,64 @@
 namespace glabels
 {
 
-	///
-	/// Printer Monitor
-	///
-	class PrinterMonitor : public QObject
-	{
-		Q_OBJECT
+        ///
+        /// Printer Monitor
+        ///
+        class PrinterMonitor : public QObject
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	private:
-		PrinterMonitor();
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        private:
+                PrinterMonitor();
 
-	public:
-		static PrinterMonitor* instance();
-
-
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-	public:
-		QStringList availablePrinters();
+        public:
+                static PrinterMonitor* instance();
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onTimerTimeout();
-			
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void availablePrintersChanged( QStringList availablePrinters );
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+        public:
+                QStringList availablePrinters();
 
 
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void asyncPoll();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onTimerTimeout();
+                        
+
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void availablePrintersChanged( QStringList availablePrinters );
 
 
-		/////////////////////////////////
-		// Private Members
-		/////////////////////////////////
-	private:
-		static std::unique_ptr<PrinterMonitor> mInstance;
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                void asyncPoll();
 
-		std::unique_ptr<QTimer> mTimer;
-		
-		QStringList mCurrentAvailablePrinters;
-		QMutex      mCurrentAvailablePrintersMutex;
 
-		QFuture<void> mPollStatus;
-	};
+                /////////////////////////////////
+                // Private Members
+                /////////////////////////////////
+        private:
+                static std::unique_ptr<PrinterMonitor> mInstance;
+
+                std::unique_ptr<QTimer> mTimer;
+                
+                QStringList mCurrentAvailablePrinters;
+                QMutex      mCurrentAvailablePrintersMutex;
+
+                QFuture<void> mPollStatus;
+        };
 
 }
 

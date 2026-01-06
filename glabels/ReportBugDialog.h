@@ -27,30 +27,30 @@
 
 namespace glabels
 {
-	
-	///
-	/// "Report Bug" Dialog Widget
-	///
-	class ReportBugDialog : public QDialog, public Ui_ReportBugDialog
-	{
-		Q_OBJECT
+        
+        ///
+        /// "Report Bug" Dialog Widget
+        ///
+        class ReportBugDialog : public QDialog, public Ui_ReportBugDialog
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		ReportBugDialog( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                ReportBugDialog( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onCopyButtonClicked();
-		void onWebsiteButtonClicked();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onCopyButtonClicked();
+                void onWebsiteButtonClicked();
 
-	};
+        };
 
 }
 

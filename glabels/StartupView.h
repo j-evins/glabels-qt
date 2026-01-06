@@ -28,49 +28,49 @@
 namespace glabels
 {
 
-	// Forward references
-	class MainWindow;
+        // Forward references
+        class MainWindow;
 
 
-	///
-	/// Startup View Widget
-	///
-	class StartupView : public QWidget, public Ui_StartupView
-	{
-		Q_OBJECT
+        ///
+        /// Startup View Widget
+        ///
+        class StartupView : public QWidget, public Ui_StartupView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		StartupView( MainWindow* window );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                StartupView( MainWindow* window );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onNewProjectButtonClicked();
-		void onOpenProjectButtonClicked();
-		void onOpenRecentAction();
-		void onSettingsChanged();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onNewProjectButtonClicked();
+                void onOpenProjectButtonClicked();
+                void onOpenRecentAction();
+                void onSettingsChanged();
 
-	
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void loadRecentsMenu();
+        
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                void loadRecentsMenu();
 
 
-		/////////////////////////////////
-		// Private data
-		/////////////////////////////////
-	private:
-		MainWindow* mWindow;
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                MainWindow* mWindow;
 
-	};
+        };
 
 }
 

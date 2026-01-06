@@ -29,56 +29,56 @@
 namespace glabels
 {
 
-	///
-	/// Color History
-	///
-	class ColorHistory : public QObject
-	{
-		Q_OBJECT
+        ///
+        /// Color History
+        ///
+        class ColorHistory : public QObject
+        {
+                Q_OBJECT
 
-	public:
-		static const int MAX_COLORS = 9;
+        public:
+                static const int MAX_COLORS = 9;
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	private:
-		ColorHistory();
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        private:
+                ColorHistory();
 
-	public:
-		static ColorHistory* instance();
-
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void changed();
+        public:
+                static ColorHistory* instance();
 
 
-		/////////////////////////////////
-		// Public Methods
-		/////////////////////////////////
-	public:
-		void addColor( const QColor& color, const QString& name );
-		QList<QColor> getColors();
-		QStringList getNames();
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void changed();
 
 
-		/////////////////////////////////
-		// Private Methods
-		/////////////////////////////////
-	private:
-		QStringList readNameColorList();
-		void writeNameColorList( const QStringList& nameColorList );
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void addColor( const QColor& color, const QString& name );
+                QList<QColor> getColors();
+                QStringList getNames();
 
 
-		/////////////////////////////////
-		// Private Members
-		/////////////////////////////////
-	private:
+                /////////////////////////////////
+                // Private Methods
+                /////////////////////////////////
+        private:
+                QStringList readNameColorList();
+                void writeNameColorList( const QStringList& nameColorList );
 
-	};
+
+                /////////////////////////////////
+                // Private Members
+                /////////////////////////////////
+        private:
+
+        };
 
 }
 

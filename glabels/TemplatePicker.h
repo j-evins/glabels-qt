@@ -32,64 +32,64 @@
 namespace glabels
 {
 
-	///
-	/// Template Picker Widget
-	///
-	class TemplatePicker : public QListView
-	{
-		Q_OBJECT
+        ///
+        /// Template Picker Widget
+        ///
+        class TemplatePicker : public QListView
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		TemplatePicker( QWidget* parent = nullptr );
-
-
-		/////////////////////////////////
-		// Properties
-		/////////////////////////////////
-	public:
-		void setTemplates( const QList<model::Template>& tmplates );
-
-		void setMode( QListView::ViewMode mode );
-		QListView::ViewMode mode() const;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                TemplatePicker( QWidget* parent = nullptr );
 
 
-		/////////////////////////////////
-		// Methods
-		/////////////////////////////////
-	public:
-		void applyFilter( const QString& searchString,
-		                  bool isoMask, bool usMask, bool otherMask,
-		                  bool anyCategory, const QStringList& categoryIds );
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                void setTemplates( const QList<model::Template>& tmplates );
 
-		void applyFilter( const QStringList& names );
-
-		model::Template selectedTemplate() const;
+                void setMode( QListView::ViewMode mode );
+                QListView::ViewMode mode() const;
 
 
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void selectionChanged();
+                /////////////////////////////////
+                // Methods
+                /////////////////////////////////
+        public:
+                void applyFilter( const QString& searchString,
+                                  bool isoMask, bool usMask, bool otherMask,
+                                  bool anyCategory, const QStringList& categoryIds );
+
+                void applyFilter( const QStringList& names );
+
+                model::Template selectedTemplate() const;
 
 
-		/////////////////////////////////
-		// Private slots
-		/////////////////////////////////
-	private slots:
-		void onSelectionChanged();
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void selectionChanged();
 
 
-		/////////////////////////////////
-		// Private data
-		/////////////////////////////////
-	private:
-		QStandardItemModel* mModel;
+                /////////////////////////////////
+                // Private slots
+                /////////////////////////////////
+        private slots:
+                void onSelectionChanged();
 
-	};
+
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                QStandardItemModel* mModel;
+
+        };
 
 }
 

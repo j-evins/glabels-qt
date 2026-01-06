@@ -23,8 +23,8 @@
 
 class TestTextNode : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void textNode();
+        void textNode();
 };

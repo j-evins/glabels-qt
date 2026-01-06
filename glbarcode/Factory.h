@@ -30,93 +30,93 @@
 
 namespace glbarcode
 {
-	/**
-	 * @class Factory Factory.h glbarcode/Factory.h
-	 *
-	 * Singleton Barcode factory class.
-	 */
-	class Factory
-	{
+        /**
+         * @class Factory Factory.h glbarcode/Factory.h
+         *
+         * Singleton Barcode factory class.
+         */
+        class Factory
+        {
 
-	public:
-		/**
-		 * Barcode creation function signature.
-		 */
-		using BarcodeCreateFct = Barcode* (*)();
-
-
-	private:
-		/**
-		 * Barcode factory constructor
-		 */
-		Factory();
+        public:
+                /**
+                 * Barcode creation function signature.
+                 */
+                using BarcodeCreateFct = Barcode* (*)();
 
 
-	public:
-		/**
-		 * Initialize barcode factory.
-		 *
-		 * Initializes the barcode factory and registers all built-in Barcode types.  It
-		 * is optional for an application to call init(), because glbarcode++ will automatically
-		 * initialize the factory on demand.
-		 */
-		static void init();
-
-		
-		/**
-		 * Create barcode based on type ID string.
-		 *
-		 * @param[in] typeId Barcode type ID string
-		 */
-		static Barcode* createBarcode( const std::string& typeId );
+        private:
+                /**
+                 * Barcode factory constructor
+                 */
+                Factory();
 
 
-		/**
-		 * Register barcode type ID.
-		 *
-		 * @param[in] typeId Barcode type ID string
-		 * @param[in] fct Function to create barcode object of concrete Barcode class
-		 */
-		static void registerType( const std::string& typeId, BarcodeCreateFct fct );
+        public:
+                /**
+                 * Initialize barcode factory.
+                 *
+                 * Initializes the barcode factory and registers all built-in Barcode types.  It
+                 * is optional for an application to call init(), because glbarcode++ will automatically
+                 * initialize the factory on demand.
+                 */
+                static void init();
+
+                
+                /**
+                 * Create barcode based on type ID string.
+                 *
+                 * @param[in] typeId Barcode type ID string
+                 */
+                static Barcode* createBarcode( const std::string& typeId );
 
 
-		/**
-		 * Is barcode type supported?
-		 *
-		 * @param[in] typeId Barcode type ID string
-		 */
-		static bool isTypeSupported( const std::string& typeId );
+                /**
+                 * Register barcode type ID.
+                 *
+                 * @param[in] typeId Barcode type ID string
+                 * @param[in] fct Function to create barcode object of concrete Barcode class
+                 */
+                static void registerType( const std::string& typeId, BarcodeCreateFct fct );
 
 
-		/**
-		 * Get list of supported types.
-		 */
-		static TypeIdList getSupportedTypes();
+                /**
+                 * Is barcode type supported?
+                 *
+                 * @param[in] typeId Barcode type ID string
+                 */
+                static bool isTypeSupported( const std::string& typeId );
 
 
-	private:
-		/**
-		 * Internal register barcode type ID.
-		 *
-		 * @param[in] typeId Barcode type ID string
-		 * @param[in] fct Function to create barcode object of concrete Barcode class
-		 */
-		static void internalRegisterType( const std::string& typeId, BarcodeCreateFct fct );
+                /**
+                 * Get list of supported types.
+                 */
+                static TypeIdList getSupportedTypes();
 
 
-		/**
-		 * Map barcode type strings to creation functions.
-		 */
-		using BarcodeTypeMap = std::map<std::string,BarcodeCreateFct>;
-		static BarcodeTypeMap mBarcodeTypeMap;
+        private:
+                /**
+                 * Internal register barcode type ID.
+                 *
+                 * @param[in] typeId Barcode type ID string
+                 * @param[in] fct Function to create barcode object of concrete Barcode class
+                 */
+                static void internalRegisterType( const std::string& typeId, BarcodeCreateFct fct );
 
 
-		/**
-		 * Supported barcode types.
-		 */
-		static TypeIdList mSupportedTypes;
+                /**
+                 * Map barcode type strings to creation functions.
+                 */
+                using BarcodeTypeMap = std::map<std::string,BarcodeCreateFct>;
+                static BarcodeTypeMap mBarcodeTypeMap;
 
-	};
+
+                /**
+                 * Supported barcode types.
+                 */
+                static TypeIdList mSupportedTypes;
+
+        };
 
 }
 

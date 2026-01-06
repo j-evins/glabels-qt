@@ -31,51 +31,51 @@
 
 namespace glabels
 {
-	
-	///
-	/// Barcode Menu Button
-	///
-	class BarcodeMenuButton : public QPushButton
-	{
-		Q_OBJECT
+        
+        ///
+        /// Barcode Menu Button
+        ///
+        class BarcodeMenuButton : public QPushButton
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		BarcodeMenuButton( QWidget* parent = nullptr );
-
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void selectionChanged();
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                BarcodeMenuButton( QWidget* parent = nullptr );
 
 
-		/////////////////////////////////
-		// Properties
-		/////////////////////////////////
-	public:
-		barcode::Style bcStyle() const;
-		void setBcStyle( const barcode::Style& bcStyle );
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void selectionChanged();
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onMenuSelectionChanged();
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                barcode::Style bcStyle() const;
+                void setBcStyle( const barcode::Style& bcStyle );
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		BarcodeMenu* mMenu;
-		barcode::Style mBcStyle;
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onMenuSelectionChanged();
 
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                BarcodeMenu* mMenu;
+                barcode::Style mBcStyle;
+
+        };
 
 }
 

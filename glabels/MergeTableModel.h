@@ -30,49 +30,49 @@
 namespace glabels
 {
 
-	///
-	/// MergeTable proxy model
-	///
-	class MergeTableModel : public QAbstractTableModel
-	{
-		Q_OBJECT
+        ///
+        /// MergeTable proxy model
+        ///
+        class MergeTableModel : public QAbstractTableModel
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		MergeTableModel( merge::Merge* merge, QObject* parent = nullptr );
-
-
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-	public:
-		int rowCount( const QModelIndex& parent = QModelIndex() ) const override;
-		int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
-
-		QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
-		QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const override;
-		bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
-		Qt::ItemFlags flags( const QModelIndex& index ) const override;
-		
-
-		/////////////////////////////////
-		// Private slots
-		/////////////////////////////////
-	private slots:
-		void onSelectionChanged();
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                MergeTableModel( merge::Merge* merge, QObject* parent = nullptr );
 
 
-		/////////////////////////////////
-		// Private Members
-		/////////////////////////////////
-	private:
-		merge::Merge* mMerge;
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+        public:
+                int rowCount( const QModelIndex& parent = QModelIndex() ) const override;
+                int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
 
-		QStringList mDisplayKeys;
-		
-	};
+                QVariant headerData( int section, Qt::Orientation orientation, int role = Qt::DisplayRole ) const override;
+                QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const override;
+                bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole ) override;
+                Qt::ItemFlags flags( const QModelIndex& index ) const override;
+                
+
+                /////////////////////////////////
+                // Private slots
+                /////////////////////////////////
+        private slots:
+                void onSelectionChanged();
+
+
+                /////////////////////////////////
+                // Private Members
+                /////////////////////////////////
+        private:
+                merge::Merge* mMerge;
+
+                QStringList mDisplayKeys;
+                
+        };
 
 }
 

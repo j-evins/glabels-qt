@@ -23,54 +23,54 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		static const QString ID = "Text/Colon/Line1Keys";
+                static const QString ID = "Text/Colon/Line1Keys";
 
-	
-		///
-		/// Constructor
-		///
-		TextColonKeys::TextColonKeys() : Text(':',true)
-		{
-			mId = ID;
-		}
-
-
-		///
-		/// Constructor
-		///
-		TextColonKeys::TextColonKeys( const TextColonKeys* merge ) : Text( merge )
-		{
-		}
+        
+                ///
+                /// Constructor
+                ///
+                TextColonKeys::TextColonKeys() : Text(':',true)
+                {
+                        mId = ID;
+                }
 
 
-		///
-		/// Clone
-		///
-		TextColonKeys* TextColonKeys::clone() const
-		{
-			return new TextColonKeys( this );
-		}
+                ///
+                /// Constructor
+                ///
+                TextColonKeys::TextColonKeys( const TextColonKeys* merge ) : Text( merge )
+                {
+                }
 
 
-		///
-		/// Get ID
-		///
-		QString TextColonKeys::id()
-		{
-			return ID;
-		}
+                ///
+                /// Clone
+                ///
+                TextColonKeys* TextColonKeys::clone() const
+                {
+                        return new TextColonKeys( this );
+                }
 
 
-		///
-		/// Create
-		///
-		Merge* TextColonKeys::create()
-		{
-			return new TextColonKeys();
-		}
+                ///
+                /// Get ID
+                ///
+                QString TextColonKeys::id()
+                {
+                        return ID;
+                }
 
-	} // namespace merge
+
+                ///
+                /// Create
+                ///
+                Merge* TextColonKeys::create()
+                {
+                        return new TextColonKeys();
+                }
+
+        } // namespace merge
 } // namespace glabels

@@ -28,168 +28,168 @@
 namespace glbarcode
 {
 
-	/*
-	 * Barcode private data
-	 */
-	struct Barcode::PrivateData {
+        /*
+         * Barcode private data
+         */
+        struct Barcode::PrivateData {
 
-		bool                   mShowTextFlag;  /**< Display text flag */
-		bool                   mChecksumFlag;  /**< Add checksum flag */
+                bool                   mShowTextFlag;  /**< Display text flag */
+                bool                   mChecksumFlag;  /**< Add checksum flag */
 
-		double                 mW;             /**< Width of barcode (points) */
-		double                 mH;             /**< Height of barcode (points) */
+                double                 mW;             /**< Width of barcode (points) */
+                double                 mH;             /**< Height of barcode (points) */
 
-		bool                   mIsEmpty;       /**< Empty data flag */
-		bool                   mIsDataValid;   /**< Valid data flag */
+                bool                   mIsEmpty;       /**< Empty data flag */
+                bool                   mIsDataValid;   /**< Valid data flag */
 
-		std::list<DrawingPrimitive *> mPrimitives;      /**< List of drawing primitives */
+                std::list<DrawingPrimitive *> mPrimitives;      /**< List of drawing primitives */
 
-	};
-
-
-	Barcode::Barcode()
-	{
-		d = new Barcode::PrivateData;
-
-		d->mShowTextFlag  = false;
-		d->mChecksumFlag  = false;
-
-		d->mW             = 0;
-		d->mH             = 0;
-
-		d->mIsEmpty       = true;
-		d->mIsDataValid   = false;
-	}
+        };
 
 
-	Barcode::~Barcode()
-	{
-		clear(); /* Clear drawing primitives. */
-		delete d;
-	}
+        Barcode::Barcode()
+        {
+                d = new Barcode::PrivateData;
+
+                d->mShowTextFlag  = false;
+                d->mChecksumFlag  = false;
+
+                d->mW             = 0;
+                d->mH             = 0;
+
+                d->mIsEmpty       = true;
+                d->mIsDataValid   = false;
+        }
 
 
-	Barcode& Barcode::setShowText( bool value )
-	{
-		d->mShowTextFlag = value;
-		return *this;
-	}
+        Barcode::~Barcode()
+        {
+                clear(); /* Clear drawing primitives. */
+                delete d;
+        }
 
 
-	bool Barcode::showText( ) const
-	{
-		return d->mShowTextFlag;
-	}
+        Barcode& Barcode::setShowText( bool value )
+        {
+                d->mShowTextFlag = value;
+                return *this;
+        }
 
 
-	Barcode& Barcode::setChecksum( bool value )
-	{
-		d->mChecksumFlag = value;
-		return *this;
-	}
+        bool Barcode::showText( ) const
+        {
+                return d->mShowTextFlag;
+        }
 
 
-	bool Barcode::checksum( ) const
-	{
-		return d->mChecksumFlag;
-	}
+        Barcode& Barcode::setChecksum( bool value )
+        {
+                d->mChecksumFlag = value;
+                return *this;
+        }
 
 
-	void Barcode::render( Renderer& renderer )
-	{
-		renderer.render( d->mW, d->mH, d->mPrimitives );
-	}
+        bool Barcode::checksum( ) const
+        {
+                return d->mChecksumFlag;
+        }
 
 
-	bool Barcode::isEmpty( ) const
-	{
-		return d->mIsEmpty;
-	}
+        void Barcode::render( Renderer& renderer )
+        {
+                renderer.render( d->mW, d->mH, d->mPrimitives );
+        }
 
 
-	void Barcode::setIsEmpty( bool value )
-	{
-		d->mIsEmpty = value;
-	}
+        bool Barcode::isEmpty( ) const
+        {
+                return d->mIsEmpty;
+        }
 
 
-	bool Barcode::isDataValid( ) const
-	{
-		return d->mIsDataValid;
-	}
+        void Barcode::setIsEmpty( bool value )
+        {
+                d->mIsEmpty = value;
+        }
 
 
-	void Barcode::setIsDataValid( bool value )
-	{
-		d->mIsDataValid = value;
-	}
+        bool Barcode::isDataValid( ) const
+        {
+                return d->mIsDataValid;
+        }
 
 
-	double Barcode::width( ) const
-	{
-		return d->mW;
-	}
+        void Barcode::setIsDataValid( bool value )
+        {
+                d->mIsDataValid = value;
+        }
 
 
-	double Barcode::height( ) const
-	{
-		return d->mH;
-	}
+        double Barcode::width( ) const
+        {
+                return d->mW;
+        }
 
 
-	void Barcode::setWidth( double w )
-	{
-		d->mW = w;
-	}
+        double Barcode::height( ) const
+        {
+                return d->mH;
+        }
 
 
-	void Barcode::setHeight( double h )
-	{
-		d->mH = h;
-	}
+        void Barcode::setWidth( double w )
+        {
+                d->mW = w;
+        }
 
 
-	void Barcode::clear( )
-	{
-		std::list<DrawingPrimitive*>::iterator primitive;
-
-		for ( primitive = d->mPrimitives.begin(); primitive != d->mPrimitives.end(); primitive++ )
-		{
-			delete *primitive;
-		}
-
-		d->mPrimitives.clear();
-	}
+        void Barcode::setHeight( double h )
+        {
+                d->mH = h;
+        }
 
 
-	void Barcode::addLine( double x, double y, double w, double h )
-	{
-		d->mPrimitives.push_back( new DrawingPrimitiveLine( x, y, w, h ) );
-	}
+        void Barcode::clear( )
+        {
+                std::list<DrawingPrimitive*>::iterator primitive;
+
+                for ( primitive = d->mPrimitives.begin(); primitive != d->mPrimitives.end(); primitive++ )
+                {
+                        delete *primitive;
+                }
+
+                d->mPrimitives.clear();
+        }
 
 
-	void Barcode::addBox( double x, double y, double w, double h )
-	{
-		d->mPrimitives.push_back( new DrawingPrimitiveBox( x, y, w, h ) );
-	}
+        void Barcode::addLine( double x, double y, double w, double h )
+        {
+                d->mPrimitives.push_back( new DrawingPrimitiveLine( x, y, w, h ) );
+        }
 
 
-	void Barcode::addText( double x, double y, double size, const std::string& text, HAlign halign )
-	{
-		d->mPrimitives.push_back( new DrawingPrimitiveText( x, y, size, text, halign ) );
-	}
+        void Barcode::addBox( double x, double y, double w, double h )
+        {
+                d->mPrimitives.push_back( new DrawingPrimitiveBox( x, y, w, h ) );
+        }
 
 
-	void Barcode::addRing( double x, double y, double r, double w )
-	{
-		d->mPrimitives.push_back( new DrawingPrimitiveRing( x, y, r, w ) );
-	}
+        void Barcode::addText( double x, double y, double size, const std::string& text, HAlign halign )
+        {
+                d->mPrimitives.push_back( new DrawingPrimitiveText( x, y, size, text, halign ) );
+        }
 
 
-	void Barcode::addHexagon( double x, double y, double h )
-	{
-		d->mPrimitives.push_back( new DrawingPrimitiveHexagon( x, y, h ) );
-	}
+        void Barcode::addRing( double x, double y, double r, double w )
+        {
+                d->mPrimitives.push_back( new DrawingPrimitiveRing( x, y, r, w ) );
+        }
+
+
+        void Barcode::addHexagon( double x, double y, double h )
+        {
+                d->mPrimitives.push_back( new DrawingPrimitiveHexagon( x, y, h ) );
+        }
 
 
 }

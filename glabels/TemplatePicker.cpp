@@ -38,57 +38,57 @@
 namespace
 {
 
-	//
-	// Custom item delegate to render text as HTML in List View
-	//
-	// Based on solutions at
-	// https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt/1956781#1956781
-	// Note:  assumes that the text rectangle does not need to be resized, so does not reimplement sizeHint().
-	//        This delegate does not work correctly in IconMode, and may not work correctly in other applications,
-	//        for instance, when the height is not dominated by the icon.
-	//
-	class HtmlDelegate : public QStyledItemDelegate
-	{
-	protected:
-		void paint ( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
-	};
+        //
+        // Custom item delegate to render text as HTML in List View
+        //
+        // Based on solutions at
+        // https://stackoverflow.com/questions/1956542/how-to-make-item-view-render-rich-html-text-in-qt/1956781#1956781
+        // Note:  assumes that the text rectangle does not need to be resized, so does not reimplement sizeHint().
+        //        This delegate does not work correctly in IconMode, and may not work correctly in other applications,
+        //        for instance, when the height is not dominated by the icon.
+        //
+        class HtmlDelegate : public QStyledItemDelegate
+        {
+        protected:
+                void paint ( QPainter * painter, const QStyleOptionViewItem & option, const QModelIndex & index ) const override;
+        };
 
 
-	void HtmlDelegate::paint( QPainter*                   painter,
-	                          const QStyleOptionViewItem& option,
-	                          const QModelIndex&          index) const
-	{
-		auto opt = option;
-		initStyleOption( &opt, index );
+        void HtmlDelegate::paint( QPainter*                   painter,
+                                  const QStyleOptionViewItem& option,
+                                  const QModelIndex&          index) const
+        {
+                auto opt = option;
+                initStyleOption( &opt, index );
 
-		QStyle *style = opt.widget? opt.widget->style() : QApplication::style();
+                QStyle *style = opt.widget? opt.widget->style() : QApplication::style();
 
-		QTextDocument doc;
-		doc.setHtml( opt.text );
+                QTextDocument doc;
+                doc.setHtml( opt.text );
 
-		/// Painting everything other than text
-		opt.text = QString();
-		style->drawControl( QStyle::CE_ItemViewItem, &opt, painter );
+                /// Painting everything other than text
+                opt.text = QString();
+                style->drawControl( QStyle::CE_ItemViewItem, &opt, painter );
 
-		QAbstractTextDocumentLayout::PaintContext ctx;
+                QAbstractTextDocumentLayout::PaintContext ctx;
 
-		// Highlighting text if item is selected
-		if ( opt.state & QStyle::State_Selected )
-		{
-			ctx.palette.setColor( QPalette::Text, opt.palette.color( QPalette::Active, QPalette::HighlightedText ) );
-		}
-		else
-		{
-			ctx.palette.setColor( QPalette::Text, opt.palette.color( QPalette::Active, QPalette::Text ) );
-		}
+                // Highlighting text if item is selected
+                if ( opt.state & QStyle::State_Selected )
+                {
+                        ctx.palette.setColor( QPalette::Text, opt.palette.color( QPalette::Active, QPalette::HighlightedText ) );
+                }
+                else
+                {
+                        ctx.palette.setColor( QPalette::Text, opt.palette.color( QPalette::Active, QPalette::Text ) );
+                }
 
-		QRect textRect = style->subElementRect( QStyle::SE_ItemViewItemText, &opt );
-		painter->save();
-		painter->translate( textRect.topLeft() );
-		painter->setClipRect( textRect.translated( -textRect.topLeft() ) );
-		doc.documentLayout()->draw( painter, ctx );
-		painter->restore();
-	}
+                QRect textRect = style->subElementRect( QStyle::SE_ItemViewItemText, &opt );
+                painter->save();
+                painter->translate( textRect.topLeft() );
+                painter->setClipRect( textRect.translated( -textRect.topLeft() ) );
+                doc.documentLayout()->draw( painter, ctx );
+                painter->restore();
+        }
 
 }
 
@@ -96,213 +96,213 @@ namespace
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	TemplatePicker::TemplatePicker( QWidget* parent )
-		: QListView(parent)
-	{
-		mModel = new QStandardItemModel( this );
-		setModel( mModel );
+        ///
+        /// Constructor
+        ///
+        TemplatePicker::TemplatePicker( QWidget* parent )
+                : QListView(parent)
+        {
+                mModel = new QStandardItemModel( this );
+                setModel( mModel );
 
-		setResizeMode( QListView::Adjust );
-		setUniformItemSizes( true );
-		setWordWrap( true );
-		setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
-		setSpacing( 24 );
+                setResizeMode( QListView::Adjust );
+                setUniformItemSizes( true );
+                setWordWrap( true );
+                setIconSize( QSize( TemplatePickerItem::SIZE, TemplatePickerItem::SIZE ) );
+                setSpacing( 24 );
 
-		setMode( model::Settings::templatePickerMode() );
+                setMode( model::Settings::templatePickerMode() );
 
-		connect( selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)),
-		         this, SLOT(onSelectionChanged()) );
-	}
-
-
-	///
-	/// Set List of Templates to Pick From
-	///
-	void TemplatePicker::setTemplates( const QList<model::Template>& tmplates )
-	{
-		auto mode = model::Settings::templatePickerMode();
-		for ( auto& tmplate : tmplates )
-		{
-			mModel->appendRow( new TemplatePickerItem( tmplate, mode ) );
-		}
-	}
+                connect( selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)),
+                         this, SLOT(onSelectionChanged()) );
+        }
 
 
-	///
-	/// Set View Mode
-	///
-	void TemplatePicker::setMode( QListView::ViewMode mode )
-	{
-		model::Settings::setTemplatePickerMode( mode );
-		setViewMode( mode );
-
-		for ( int i = 0; i < mModel->rowCount(); i++ )
-		{
-			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
-			{
-				tItem->setMode( mode );
-			}
-		}
-
-		switch ( mode )
-		{
-			
-		case QListView::IconMode:
-			setItemDelegate( new QStyledItemDelegate() ); // Use default delegate
-			setViewMode( QListView::IconMode );
-			setSpacing( 24 );
-			break;
-
-		case QListView::ListMode:
-			setItemDelegate( new HtmlDelegate() );
-			setViewMode( QListView::ListMode );
-			setSpacing( 8 );
-			break;
-			
-		default:
-			qWarning() << "TemplatePicker: unknown mode!";
-			break;
-
-		}
-
-		auto selection = selectedIndexes();
-		if ( selection.size() )
-		{
-			scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
-		}
-	}
-
-	
-	///
-	/// Get current View Mode
-	///
-	QListView::ViewMode TemplatePicker::mode() const
-	{
-		return model::Settings::templatePickerMode();
-	}
+        ///
+        /// Set List of Templates to Pick From
+        ///
+        void TemplatePicker::setTemplates( const QList<model::Template>& tmplates )
+        {
+                auto mode = model::Settings::templatePickerMode();
+                for ( auto& tmplate : tmplates )
+                {
+                        mModel->appendRow( new TemplatePickerItem( tmplate, mode ) );
+                }
+        }
 
 
-	///
-	/// Apply Filter to Narrow Template Choices by search criteria
-	///
-	void TemplatePicker::applyFilter( const QString& searchString,
-	                                  bool isoMask, bool usMask, bool otherMask,
-	                                  bool anyCategory, const QStringList& categoryIds )
-	{
-		for ( int i = 0; i < mModel->rowCount(); i++ )
-		{
-			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
-			{
-				bool nameMask = tItem->tmplate().name().contains( searchString, Qt::CaseInsensitive );
-		
-				bool sizeMask =
-					(isoMask   && tItem->tmplate().isSizeIso())   ||
-					(usMask    && tItem->tmplate().isSizeUs())    ||
-					(otherMask && tItem->tmplate().isSizeOther());
+        ///
+        /// Set View Mode
+        ///
+        void TemplatePicker::setMode( QListView::ViewMode mode )
+        {
+                model::Settings::setTemplatePickerMode( mode );
+                setViewMode( mode );
 
-				bool categoryMask;
-				if ( anyCategory )
-				{
-					categoryMask = true;
-				}
-				else
-				{
-					categoryMask = false;
-					for ( QString id : categoryIds )
-					{
-						categoryMask = categoryMask || tItem->tmplate().hasCategory( id );
-					}
-				}
-		
+                for ( int i = 0; i < mModel->rowCount(); i++ )
+                {
+                        if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
+                        {
+                                tItem->setMode( mode );
+                        }
+                }
 
-				if (  nameMask && sizeMask && categoryMask )
-				{
-					setRowHidden( i, false );
-				}
-				else
-				{
-					setRowHidden( i, true );
-					selectionModel()->select( tItem->index(), QItemSelectionModel::Deselect );
-				}
-			}
-		}
+                switch ( mode )
+                {
+                        
+                case QListView::IconMode:
+                        setItemDelegate( new QStyledItemDelegate() ); // Use default delegate
+                        setViewMode( QListView::IconMode );
+                        setSpacing( 24 );
+                        break;
 
-		auto selection = selectedIndexes();
-		if ( selection.size() )
-		{
-			scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
-		}
-	}
+                case QListView::ListMode:
+                        setItemDelegate( new HtmlDelegate() );
+                        setViewMode( QListView::ListMode );
+                        setSpacing( 8 );
+                        break;
+                        
+                default:
+                        qWarning() << "TemplatePicker: unknown mode!";
+                        break;
 
+                }
 
-	///
-	/// Apply Filter to Narrow Template Choices by a list of names
-	///
-	void TemplatePicker::applyFilter( const QStringList& names )
-	{
-		for ( int i = 0; i < mModel->rowCount(); i++ )
-		{
-			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
-			{
-				bool match = false;
-				for ( QString name : names )
-				{
-					if ( tItem->tmplate().name() == name )
-					{
-						match = true;
-						break;
-					}
-				}
+                auto selection = selectedIndexes();
+                if ( selection.size() )
+                {
+                        scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
+                }
+        }
 
-				if (  match )
-				{
-					setRowHidden( i, false );
-				}
-				else
-				{
-					setRowHidden( i, true );
-					selectionModel()->select( tItem->index(), QItemSelectionModel::Deselect );
-				}
-			}
-		}
-
-		auto selection = selectedIndexes();
-		if ( selection.size() )
-		{
-			scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
-		}
-	}
+        
+        ///
+        /// Get current View Mode
+        ///
+        QListView::ViewMode TemplatePicker::mode() const
+        {
+                return model::Settings::templatePickerMode();
+        }
 
 
-	///
-	/// Get Currently Selected Template
-	///
-	model::Template TemplatePicker::selectedTemplate() const
-	{
-		auto selectionList = selectedIndexes();
-		if ( selectionList.size() )
-		{
-			int i = selectionList[0].row();
-			if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
-			{
-				return tItem->tmplate();
-			}
-		}
+        ///
+        /// Apply Filter to Narrow Template Choices by search criteria
+        ///
+        void TemplatePicker::applyFilter( const QString& searchString,
+                                          bool isoMask, bool usMask, bool otherMask,
+                                          bool anyCategory, const QStringList& categoryIds )
+        {
+                for ( int i = 0; i < mModel->rowCount(); i++ )
+                {
+                        if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
+                        {
+                                bool nameMask = tItem->tmplate().name().contains( searchString, Qt::CaseInsensitive );
+                
+                                bool sizeMask =
+                                        (isoMask   && tItem->tmplate().isSizeIso())   ||
+                                        (usMask    && tItem->tmplate().isSizeUs())    ||
+                                        (otherMask && tItem->tmplate().isSizeOther());
 
-		return model::Template();
-	}
+                                bool categoryMask;
+                                if ( anyCategory )
+                                {
+                                        categoryMask = true;
+                                }
+                                else
+                                {
+                                        categoryMask = false;
+                                        for ( QString id : categoryIds )
+                                        {
+                                                categoryMask = categoryMask || tItem->tmplate().hasCategory( id );
+                                        }
+                                }
+                
+
+                                if (  nameMask && sizeMask && categoryMask )
+                                {
+                                        setRowHidden( i, false );
+                                }
+                                else
+                                {
+                                        setRowHidden( i, true );
+                                        selectionModel()->select( tItem->index(), QItemSelectionModel::Deselect );
+                                }
+                        }
+                }
+
+                auto selection = selectedIndexes();
+                if ( selection.size() )
+                {
+                        scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
+                }
+        }
 
 
-	///
-	/// Handle selection changed from selection model
-	///
-	void TemplatePicker::onSelectionChanged()
-	{
-		emit selectionChanged();
-	}
+        ///
+        /// Apply Filter to Narrow Template Choices by a list of names
+        ///
+        void TemplatePicker::applyFilter( const QStringList& names )
+        {
+                for ( int i = 0; i < mModel->rowCount(); i++ )
+                {
+                        if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
+                        {
+                                bool match = false;
+                                for ( QString name : names )
+                                {
+                                        if ( tItem->tmplate().name() == name )
+                                        {
+                                                match = true;
+                                                break;
+                                        }
+                                }
+
+                                if (  match )
+                                {
+                                        setRowHidden( i, false );
+                                }
+                                else
+                                {
+                                        setRowHidden( i, true );
+                                        selectionModel()->select( tItem->index(), QItemSelectionModel::Deselect );
+                                }
+                        }
+                }
+
+                auto selection = selectedIndexes();
+                if ( selection.size() )
+                {
+                        scrollTo( selection[0], QAbstractItemView::PositionAtCenter );
+                }
+        }
+
+
+        ///
+        /// Get Currently Selected Template
+        ///
+        model::Template TemplatePicker::selectedTemplate() const
+        {
+                auto selectionList = selectedIndexes();
+                if ( selectionList.size() )
+                {
+                        int i = selectionList[0].row();
+                        if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
+                        {
+                                return tItem->tmplate();
+                        }
+                }
+
+                return model::Template();
+        }
+
+
+        ///
+        /// Handle selection changed from selection model
+        ///
+        void TemplatePicker::onSelectionChanged()
+        {
+                emit selectionChanged();
+        }
 
 
 } // namespace glabels

@@ -23,14 +23,14 @@
 
 class TestXmlLabel : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void initTestCase();
-	void serializeDeserialize();
-	void writeReadFile();
-	void parser_3ReadFile();
-	void parser_3Barcode();
+        void initTestCase();
+        void serializeDeserialize();
+        void writeReadFile();
+        void parser_3ReadFile();
+        void parser_3Barcode();
 };
 
 

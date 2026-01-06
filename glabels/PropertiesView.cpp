@@ -35,219 +35,219 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	PropertiesView::PropertiesView( QWidget *parent )
-		: QWidget(parent), mModel(nullptr), mUndoRedoModel(nullptr)
-	{
-		setupUi( this );
+        ///
+        /// Constructor
+        ///
+        PropertiesView::PropertiesView( QWidget *parent )
+                : QWidget(parent), mModel(nullptr), mUndoRedoModel(nullptr)
+        {
+                setupUi( this );
 
-		titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Properties") ) );
+                titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Properties") ) );
 
-		// Hack to get orientationCombo item height to follow icon size plus padding 
-		auto* itemDelegate = new QStyledItemDelegate();
-		orientationCombo->setItemDelegate( itemDelegate );
-		orientationCombo->setStyleSheet( "* QAbstractItemView::item { padding: 8px; }" );
+                // Hack to get orientationCombo item height to follow icon size plus padding 
+                auto* itemDelegate = new QStyledItemDelegate();
+                orientationCombo->setItemDelegate( itemDelegate );
+                orientationCombo->setStyleSheet( "* QAbstractItemView::item { padding: 8px; }" );
 
-		similarBrowser->setAttribute(Qt::WA_TranslucentBackground);
-		similarBrowser->viewport()->setAutoFillBackground(false);
+                similarBrowser->setAttribute(Qt::WA_TranslucentBackground);
+                similarBrowser->viewport()->setAutoFillBackground(false);
 
-		connect( model::Settings::instance(), SIGNAL(changed()),
-		         this, SLOT(onSettingsChanged()) );
-		
-		onSettingsChanged();
-	}
-
-
-	///
-	/// Set Model
-	///
-	void PropertiesView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
-	{
-		mModel = model;
-		mUndoRedoModel = undoRedoModel;
-
-		connect( mModel, SIGNAL(sizeChanged()), this, SLOT(onLabelSizeChanged()) );
-
-		onLabelSizeChanged();
-	}
+                connect( model::Settings::instance(), SIGNAL(changed()),
+                         this, SLOT(onSettingsChanged()) );
+                
+                onSettingsChanged();
+        }
 
 
-	///
-	/// Settings changed handler
-	///
-	void PropertiesView::onSettingsChanged()
-	{
-		mUnits = model::Settings::units();
-		if (mModel)
-		{
-			onLabelSizeChanged();
-		}
-	}
+        ///
+        /// Set Model
+        ///
+        void PropertiesView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
+        {
+                mModel = model;
+                mUndoRedoModel = undoRedoModel;
+
+                connect( mModel, SIGNAL(sizeChanged()), this, SLOT(onLabelSizeChanged()) );
+
+                onLabelSizeChanged();
+        }
 
 
-	///
-	/// Label size changed handler
-	///
-	void PropertiesView::onLabelSizeChanged()
-	{
-		auto tmplate   = mModel->tmplate();
-		auto frame     = tmplate.frame();
-		bool isRotated = mModel->rotate();
-
-		preview->setTemplate( tmplate );
-		preview->setShowArrow( true );
-		preview->setRotate( isRotated );
-
-		vendorLabel->setText( tmplate.brand() );
-		if ( model::Db::isVendorNameKnown( tmplate.brand() ) )
-		{
-			auto vendor = model::Db::lookupVendorFromName( tmplate.brand() );
-			if ( !vendor.url().isEmpty() )
-			{
-				QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor.url(), vendor.name() );
-				vendorLabel->setText( markup );
-			}
-		}
-
-		if ( !tmplate.productUrl().isEmpty() )
-		{
-			QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate.productUrl(), tmplate.part() );
-			partLabel->setText( markup );
-		}
-		else
-		{
-			partLabel->setText( tmplate.part() );
-		}
-
-		descriptionLabel->setText( tmplate.description() );
-		pageSizeLabel->setText( tmplate.paperDescription( mUnits ) );
-		labelSizeLabel->setText( frame->sizeDescription( mUnits ) );
-		layoutLabel->setText( frame->layoutDescription() );
-
-		QStringList list = model::Db::getNameListOfSimilarTemplates( tmplate.name() );
-		if ( list.isEmpty() )
-		{
-			similarProductsGroupBox->hide();
-			similarProductsNullBox->show();
-		}
-		else
-		{
-			similarProductsGroupBox->show();
-			similarProductsNullBox->hide();
-
-			QString similarListString;
-			for ( QString name : list )
-			{
-				similarListString += name + "\n";
-			}
-			similarBrowser->setText( similarListString );
-		}
-
-		orientationCombo->setEnabled( frame->w() != frame->h() );
-		if ( frame->w() == frame->h() )
-		{
-			orientationCombo->setCurrentIndex(0);
-		}
-		else if ( frame->w() > frame->h() )
-		{
-			orientationCombo->setCurrentIndex( isRotated ? 1 : 0 );
-		}
-		else
-		{
-			orientationCombo->setCurrentIndex( isRotated ? 0 : 1 );
-		}
-		mOldOrientationIndex = orientationCombo->currentIndex();
-
-		if ( auto* continuousFrame = dynamic_cast<const model::FrameContinuous*>( frame ) )
-		{
-			if (!mInLengthSpinChanged)
-			{
-				const QSignalBlocker blocker( lengthSpin );
-
-				lengthSpin->setSuffix( " " + mUnits.toTrName() );
-				lengthSpin->setDecimals( mUnits.resolutionDigits() );
-				lengthSpin->setSingleStep( mUnits.resolution() );
-				lengthSpin->setMinimum( continuousFrame->hMin().inUnits( mUnits ) );
-				lengthSpin->setMaximum( continuousFrame->hMax().inUnits( mUnits ) );
-				lengthSpin->setValue( continuousFrame->h().inUnits( mUnits ) );
-			}
-
-			parametersGroupBox->setVisible( true );
-		}
-		else
-		{
-			parametersGroupBox->setVisible( false );
-		}
-	}
+        ///
+        /// Settings changed handler
+        ///
+        void PropertiesView::onSettingsChanged()
+        {
+                mUnits = model::Settings::units();
+                if (mModel)
+                {
+                        onLabelSizeChanged();
+                }
+        }
 
 
-	///
-	/// Length spin changed handler
-	///
-	void PropertiesView::onLengthSpinChanged()
-	{
-		mInLengthSpinChanged = true;
-		mModel->setH( model::Distance( lengthSpin->value(), mUnits ) );
-		mInLengthSpinChanged = false;
-	}
+        ///
+        /// Label size changed handler
+        ///
+        void PropertiesView::onLabelSizeChanged()
+        {
+                auto tmplate   = mModel->tmplate();
+                auto frame     = tmplate.frame();
+                bool isRotated = mModel->rotate();
+
+                preview->setTemplate( tmplate );
+                preview->setShowArrow( true );
+                preview->setRotate( isRotated );
+
+                vendorLabel->setText( tmplate.brand() );
+                if ( model::Db::isVendorNameKnown( tmplate.brand() ) )
+                {
+                        auto vendor = model::Db::lookupVendorFromName( tmplate.brand() );
+                        if ( !vendor.url().isEmpty() )
+                        {
+                                QString markup = QString( "<a href='%1'>%2</a>" ).arg( vendor.url(), vendor.name() );
+                                vendorLabel->setText( markup );
+                        }
+                }
+
+                if ( !tmplate.productUrl().isEmpty() )
+                {
+                        QString markup = QString( "<a href='%1'>%2</a>" ).arg( tmplate.productUrl(), tmplate.part() );
+                        partLabel->setText( markup );
+                }
+                else
+                {
+                        partLabel->setText( tmplate.part() );
+                }
+
+                descriptionLabel->setText( tmplate.description() );
+                pageSizeLabel->setText( tmplate.paperDescription( mUnits ) );
+                labelSizeLabel->setText( frame->sizeDescription( mUnits ) );
+                layoutLabel->setText( frame->layoutDescription() );
+
+                QStringList list = model::Db::getNameListOfSimilarTemplates( tmplate.name() );
+                if ( list.isEmpty() )
+                {
+                        similarProductsGroupBox->hide();
+                        similarProductsNullBox->show();
+                }
+                else
+                {
+                        similarProductsGroupBox->show();
+                        similarProductsNullBox->hide();
+
+                        QString similarListString;
+                        for ( QString name : list )
+                        {
+                                similarListString += name + "\n";
+                        }
+                        similarBrowser->setText( similarListString );
+                }
+
+                orientationCombo->setEnabled( frame->w() != frame->h() );
+                if ( frame->w() == frame->h() )
+                {
+                        orientationCombo->setCurrentIndex(0);
+                }
+                else if ( frame->w() > frame->h() )
+                {
+                        orientationCombo->setCurrentIndex( isRotated ? 1 : 0 );
+                }
+                else
+                {
+                        orientationCombo->setCurrentIndex( isRotated ? 0 : 1 );
+                }
+                mOldOrientationIndex = orientationCombo->currentIndex();
+
+                if ( auto* continuousFrame = dynamic_cast<const model::FrameContinuous*>( frame ) )
+                {
+                        if (!mInLengthSpinChanged)
+                        {
+                                const QSignalBlocker blocker( lengthSpin );
+
+                                lengthSpin->setSuffix( " " + mUnits.toTrName() );
+                                lengthSpin->setDecimals( mUnits.resolutionDigits() );
+                                lengthSpin->setSingleStep( mUnits.resolution() );
+                                lengthSpin->setMinimum( continuousFrame->hMin().inUnits( mUnits ) );
+                                lengthSpin->setMaximum( continuousFrame->hMax().inUnits( mUnits ) );
+                                lengthSpin->setValue( continuousFrame->h().inUnits( mUnits ) );
+                        }
+
+                        parametersGroupBox->setVisible( true );
+                }
+                else
+                {
+                        parametersGroupBox->setVisible( false );
+                }
+        }
 
 
-	///
-	/// Orientation combo box changed handler
-	///
-	void PropertiesView::onOrientationActivated()
-	{
-		auto tmplate = mModel->tmplate();
-		auto frame   = tmplate.frame();
-
-		// Make sure index actually changed.
-		int index = orientationCombo->currentIndex();
-		if ( index != mOldOrientationIndex )
-		{
-			mOldOrientationIndex = index;
-
-			mUndoRedoModel->checkpoint( tr("Product Rotate") );
-
-			if ( frame->w() == frame->h() )
-			{
-				mModel->setRotate( false );
-			}
-			else if ( frame->w() > frame->h() )
-			{
-				mModel->setRotate( index == 1 );
-			}
-			else
-			{
-				mModel->setRotate( index == 0 );
-			}
-		}
-	}
+        ///
+        /// Length spin changed handler
+        ///
+        void PropertiesView::onLengthSpinChanged()
+        {
+                mInLengthSpinChanged = true;
+                mModel->setH( model::Distance( lengthSpin->value(), mUnits ) );
+                mInLengthSpinChanged = false;
+        }
 
 
-	///
-	/// Change Product Button Clicked handler
-	///
-	void PropertiesView::onChangeProductButtonClicked()
-	{
-		SelectProductDialog selectProductDialog( this );
-		selectProductDialog.exec();
+        ///
+        /// Orientation combo box changed handler
+        ///
+        void PropertiesView::onOrientationActivated()
+        {
+                auto tmplate = mModel->tmplate();
+                auto frame   = tmplate.frame();
 
-		auto tmplate = selectProductDialog.tmplate();
-		if ( !tmplate.isNull() )
-		{
-			mUndoRedoModel->checkpoint( tr("Change Product") );
+                // Make sure index actually changed.
+                int index = orientationCombo->currentIndex();
+                if ( index != mOldOrientationIndex )
+                {
+                        mOldOrientationIndex = index;
 
-			mModel->setTmplate( tmplate );
+                        mUndoRedoModel->checkpoint( tr("Product Rotate") );
 
-			// Don't rotate circular or round labels
-			auto frame = tmplate.frame();
-			if ( frame->w() == frame->h() )
-			{
-				mModel->setRotate( false );
-			}
-		}
-	}
+                        if ( frame->w() == frame->h() )
+                        {
+                                mModel->setRotate( false );
+                        }
+                        else if ( frame->w() > frame->h() )
+                        {
+                                mModel->setRotate( index == 1 );
+                        }
+                        else
+                        {
+                                mModel->setRotate( index == 0 );
+                        }
+                }
+        }
+
+
+        ///
+        /// Change Product Button Clicked handler
+        ///
+        void PropertiesView::onChangeProductButtonClicked()
+        {
+                SelectProductDialog selectProductDialog( this );
+                selectProductDialog.exec();
+
+                auto tmplate = selectProductDialog.tmplate();
+                if ( !tmplate.isNull() )
+                {
+                        mUndoRedoModel->checkpoint( tr("Change Product") );
+
+                        mModel->setTmplate( tmplate );
+
+                        // Don't rotate circular or round labels
+                        auto frame = tmplate.frame();
+                        if ( frame->w() == frame->h() )
+                        {
+                                mModel->setRotate( false );
+                        }
+                }
+        }
 
 } // namespace glabels

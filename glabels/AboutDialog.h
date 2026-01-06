@@ -27,30 +27,30 @@
 
 namespace glabels
 {
-	
-	///
-	/// About Dialog Widget
-	///
-	class AboutDialog : public QDialog, public Ui_AboutDialog
-	{
-		Q_OBJECT
+        
+        ///
+        /// About Dialog Widget
+        ///
+        class AboutDialog : public QDialog, public Ui_AboutDialog
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		AboutDialog( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                AboutDialog( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onLicenseButtonClicked();
-		void onWebsiteButtonClicked();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onLicenseButtonClicked();
+                void onWebsiteButtonClicked();
 
-	};
+        };
 
 }
 

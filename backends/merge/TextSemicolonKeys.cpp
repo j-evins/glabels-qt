@@ -23,54 +23,54 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		static const QString ID = "Text/Semicolon/Keys";
-
-
-		///
-		/// Constructor
-		///
-		TextSemicolonKeys::TextSemicolonKeys() : Text(';',true)
-		{
-			mId = ID;
-		}
+                static const QString ID = "Text/Semicolon/Keys";
 
 
-		///
-		/// Constructor
-		///
-		TextSemicolonKeys::TextSemicolonKeys( const TextSemicolonKeys* merge ) : Text( merge )
-		{
-		}
+                ///
+                /// Constructor
+                ///
+                TextSemicolonKeys::TextSemicolonKeys() : Text(';',true)
+                {
+                        mId = ID;
+                }
 
 
-		///
-		/// Clone
-		///
-		TextSemicolonKeys* TextSemicolonKeys::clone() const
-		{
-			return new TextSemicolonKeys( this );
-		}
+                ///
+                /// Constructor
+                ///
+                TextSemicolonKeys::TextSemicolonKeys( const TextSemicolonKeys* merge ) : Text( merge )
+                {
+                }
 
 
-		///
-		/// Get ID
-		///
-		QString TextSemicolonKeys::id()
-		{
-			return ID;
-		}
+                ///
+                /// Clone
+                ///
+                TextSemicolonKeys* TextSemicolonKeys::clone() const
+                {
+                        return new TextSemicolonKeys( this );
+                }
 
 
-		///
-		/// Create
-		///
-		Merge* TextSemicolonKeys::create()
-		{
-			return new TextSemicolonKeys();
-		}
+                ///
+                /// Get ID
+                ///
+                QString TextSemicolonKeys::id()
+                {
+                        return ID;
+                }
 
-	} // namespace merge
+
+                ///
+                /// Create
+                ///
+                Merge* TextSemicolonKeys::create()
+                {
+                        return new TextSemicolonKeys();
+                }
+
+        } // namespace merge
 } // namespace glabels

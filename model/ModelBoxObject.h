@@ -27,67 +27,67 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Label Model Box Object
-		///
-		class ModelBoxObject : public ModelShapeObject
-		{
-			Q_OBJECT
+                ///
+                /// Label Model Box Object
+                ///
+                class ModelBoxObject : public ModelShapeObject
+                {
+                        Q_OBJECT
 
-			///////////////////////////////////////////////////////////////
-			// Lifecycle Methods
-			///////////////////////////////////////////////////////////////
-		public:
-			ModelBoxObject();
+                        ///////////////////////////////////////////////////////////////
+                        // Lifecycle Methods
+                        ///////////////////////////////////////////////////////////////
+                public:
+                        ModelBoxObject();
 
-			ModelBoxObject( Distance          x0,
-			                Distance          y0,
-			                Distance          w,
-			                Distance          h,
-			                bool              lockAspectRatio,
-			                Distance          lineWidth,
-			                const ColorNode&  lineColorNode,
-			                const ColorNode&  fillColorNode,
-			                const QTransform& matrix = QTransform(),
-			                bool              shadowState = false,
-			                Distance          shadowX = 0,
-			                Distance          shadowY = 0,
-			                double            shadowOpacity = 1.0,
-			                const ColorNode&  shadowColorNode = ColorNode() );
+                        ModelBoxObject( Distance          x0,
+                                        Distance          y0,
+                                        Distance          w,
+                                        Distance          h,
+                                        bool              lockAspectRatio,
+                                        Distance          lineWidth,
+                                        const ColorNode&  lineColorNode,
+                                        const ColorNode&  fillColorNode,
+                                        const QTransform& matrix = QTransform(),
+                                        bool              shadowState = false,
+                                        Distance          shadowX = 0,
+                                        Distance          shadowY = 0,
+                                        double            shadowOpacity = 1.0,
+                                        const ColorNode&  shadowColorNode = ColorNode() );
 
-			ModelBoxObject( const ModelBoxObject* object );
-		
-			virtual ~ModelBoxObject() = default;
+                        ModelBoxObject( const ModelBoxObject* object );
+                
+                        virtual ~ModelBoxObject() = default;
 
-	
-			///////////////////////////////////////////////////////////////
-			// Object duplication
-			///////////////////////////////////////////////////////////////
-			ModelBoxObject* clone() const override;
+        
+                        ///////////////////////////////////////////////////////////////
+                        // Object duplication
+                        ///////////////////////////////////////////////////////////////
+                        ModelBoxObject* clone() const override;
 
 
-			///////////////////////////////////////////////////////////////
-			// Drawing operations
-			///////////////////////////////////////////////////////////////
-		protected:
-			void drawShadow( QPainter*            painter,
-			                 bool                 inEditor,
-			                 const merge::Record& record,
-			                 const Variables&     variables ) const override;
-			
-			void drawObject( QPainter*            painter,
-			                 bool                 inEditor,
-			                 const merge::Record& record,
-			                 const Variables&     variables ) const override;
-			
-			QPainterPath hoverPath( double scale ) const override;
+                        ///////////////////////////////////////////////////////////////
+                        // Drawing operations
+                        ///////////////////////////////////////////////////////////////
+                protected:
+                        void drawShadow( QPainter*            painter,
+                                         bool                 inEditor,
+                                         const merge::Record& record,
+                                         const Variables&     variables ) const override;
+                        
+                        void drawObject( QPainter*            painter,
+                                         bool                 inEditor,
+                                         const merge::Record& record,
+                                         const Variables&     variables ) const override;
+                        
+                        QPainterPath hoverPath( double scale ) const override;
 
-		};
+                };
 
-	}
+        }
 }
 
 

@@ -28,37 +28,37 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodeCepnet BarcodeCepnet.h glbarcode/BarcodeCepnet.h
-	 *
-	 * 8 digit *CEPNET* barcode (Brazilian Post, based on POSTNET), extends BarcodePostnet
-	 *
-	 * @image html sample-cepnet.svg "Sample Brazilian Post CEPNET Barcode"
-	 *
-	 * 
-	 * ### Input Data Format ###
-	 * 
-	 * Input data requirements are identical to BarcodePostnet, except the
-	 * validator only accepts 8 digits of input.
-	 *
-	 * See BarcodePostnet.
-	 *
-	 */
-	class BarcodeCepnet : public BarcodePostnet
-	{
-	public:
-		/**
-		 * Static CEPNET barcode creation method
-		 *
-		 * Used by glbarcode::BarcodeFactory
-		 */
-		static Barcode* create();
+        /**
+         * @class BarcodeCepnet BarcodeCepnet.h glbarcode/BarcodeCepnet.h
+         *
+         * 8 digit *CEPNET* barcode (Brazilian Post, based on POSTNET), extends BarcodePostnet
+         *
+         * @image html sample-cepnet.svg "Sample Brazilian Post CEPNET Barcode"
+         *
+         * 
+         * ### Input Data Format ###
+         * 
+         * Input data requirements are identical to BarcodePostnet, except the
+         * validator only accepts 8 digits of input.
+         *
+         * See BarcodePostnet.
+         *
+         */
+        class BarcodeCepnet : public BarcodePostnet
+        {
+        public:
+                /**
+                 * Static CEPNET barcode creation method
+                 *
+                 * Used by glbarcode::BarcodeFactory
+                 */
+                static Barcode* create();
 
 
-	private:
-		bool validateDigits( int nDigits ) override;
+        private:
+                bool validateDigits( int nDigits ) override;
 
-	};
+        };
 
 }
 

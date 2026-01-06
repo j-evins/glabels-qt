@@ -38,222 +38,222 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		// Forward References
-		class ColorNode;
-		class Handle;
-		class ModelObject;
-		class Region;
+                // Forward References
+                class ColorNode;
+                class Handle;
+                class ModelObject;
+                class Region;
 
-		///
-		/// Model
-		///
-		class Model : public QObject
-		{
-			Q_OBJECT
-
-
-			/////////////////////////////////
-			// Lifecycle
-			/////////////////////////////////
-		public:
-			Model();
-			Model( merge::Merge* merge );
-			~Model();
-
-	
-			/////////////////////////////////
-			// Save/restore model state
-			/////////////////////////////////
-			Model* save() const;
-			void restore( const Model *savedModel );
-	
-
-			/////////////////////////////////
-			// Signals
-			/////////////////////////////////
-		signals:
-			void changed();
-			void nameChanged();
-			void sizeChanged();
-			void selectionChanged();
-			void modifiedChanged();
-			void variablesChanged();
-			void mergeChanged();
-			void mergeSourceChanged();
-			void mergeSelectionChanged();
+                ///
+                /// Model
+                ///
+                class Model : public QObject
+                {
+                        Q_OBJECT
 
 
-			/////////////////////////////////
-			// Properties
-			/////////////////////////////////
-		public:
-			bool isModified() const;
-			void setModified();
-			void clearModified();
+                        /////////////////////////////////
+                        // Lifecycle
+                        /////////////////////////////////
+                public:
+                        Model();
+                        Model( merge::Merge* merge );
+                        ~Model();
 
-			QDir dir() const;
-			QString dirPath() const;
-			QString shortName();
-			const QString& fileName() const;
-			void setFileName( const QString &fileName );
+        
+                        /////////////////////////////////
+                        // Save/restore model state
+                        /////////////////////////////////
+                        Model* save() const;
+                        void restore( const Model *savedModel );
+        
 
-			const Template& tmplate() const;
-			const Frame* frame( const QString& id = "0" ) const;
-			void setTmplate( const Template& tmplate );
-
-			bool rotate() const;
-			void setRotate( bool rotate );
-
-			Distance w() const;
-			Distance h() const;
-
-			void setH( Distance h );
-
-			const QList<ModelObject*>& objectList() const;
-
-			Variables& variables();
-			const Variables& constVariables() const;
-
-			merge::Merge* merge() const;
-			void setMerge( merge::Merge* merge );
-	
-		
-			/////////////////////////////////
-			// Manage objects
-			/////////////////////////////////
-		public:
-			void addObject( ModelObject* object );
-			void deleteObject( ModelObject* object );
-
-			ModelObject* objectAt( double   scale,
-			                       Distance x,
-			                       Distance y ) const;
-		
-			const Handle& handleAt( double   scale,
-			                        Distance x,
-			                        Distance y ) const;
+                        /////////////////////////////////
+                        // Signals
+                        /////////////////////////////////
+                signals:
+                        void changed();
+                        void nameChanged();
+                        void sizeChanged();
+                        void selectionChanged();
+                        void modifiedChanged();
+                        void variablesChanged();
+                        void mergeChanged();
+                        void mergeSourceChanged();
+                        void mergeSelectionChanged();
 
 
-			/////////////////////////////////
-			// Manipulate selection
-			/////////////////////////////////
-		public:
-			void selectObject( ModelObject* object );
-			void unselectObject( ModelObject* object );
-			void selectAll();
-			void unselectAll();
-			void selectRegion( const Region& region );
-			bool isSelectionEmpty();
-			bool isSelectionAtomic();
+                        /////////////////////////////////
+                        // Properties
+                        /////////////////////////////////
+                public:
+                        bool isModified() const;
+                        void setModified();
+                        void clearModified();
+
+                        QDir dir() const;
+                        QString dirPath() const;
+                        QString shortName();
+                        const QString& fileName() const;
+                        void setFileName( const QString &fileName );
+
+                        const Template& tmplate() const;
+                        const Frame* frame( const QString& id = "0" ) const;
+                        void setTmplate( const Template& tmplate );
+
+                        bool rotate() const;
+                        void setRotate( bool rotate );
+
+                        Distance w() const;
+                        Distance h() const;
+
+                        void setH( Distance h );
+
+                        const QList<ModelObject*>& objectList() const;
+
+                        Variables& variables();
+                        const Variables& constVariables() const;
+
+                        merge::Merge* merge() const;
+                        void setMerge( merge::Merge* merge );
+        
+                
+                        /////////////////////////////////
+                        // Manage objects
+                        /////////////////////////////////
+                public:
+                        void addObject( ModelObject* object );
+                        void deleteObject( ModelObject* object );
+
+                        ModelObject* objectAt( double   scale,
+                                               Distance x,
+                                               Distance y ) const;
+                
+                        const Handle& handleAt( double   scale,
+                                                Distance x,
+                                                Distance y ) const;
 
 
-			/////////////////////////////////
-			// Get selected objects
-			/////////////////////////////////
-		public:
-			QList<ModelObject*> getSelection();
-			ModelObject* getFirstSelectedObject();
+                        /////////////////////////////////
+                        // Manipulate selection
+                        /////////////////////////////////
+                public:
+                        void selectObject( ModelObject* object );
+                        void unselectObject( ModelObject* object );
+                        void selectAll();
+                        void unselectAll();
+                        void selectRegion( const Region& region );
+                        bool isSelectionEmpty();
+                        bool isSelectionAtomic();
 
 
-			/////////////////////////////////
-			// Query selection capabilities
-			/////////////////////////////////
-		public:
-			bool canSelectionText();
-			bool canSelectionFill();
-			bool canSelectionLineColor();
-			bool canSelectionLineWidth();
+                        /////////////////////////////////
+                        // Get selected objects
+                        /////////////////////////////////
+                public:
+                        QList<ModelObject*> getSelection();
+                        ModelObject* getFirstSelectedObject();
 
 
-			/////////////////////////////////
-			// Operations on selections
-			/////////////////////////////////
-		public:
-			void deleteSelection();
-			void raiseSelectionToTop();
-			void lowerSelectionToBottom();
-			void rotateSelection( double thetaDegs );
-			void rotateSelectionLeft();
-			void rotateSelectionRight();
-			void flipSelectionHoriz();
-			void flipSelectionVert();
-			void alignSelectionLeft();
-			void alignSelectionRight();
-			void alignSelectionHCenter();
-			void alignSelectionTop();
-			void alignSelectionBottom();
-			void alignSelectionVCenter();
-			void centerSelection();
-			void centerSelectionHoriz();
-			void centerSelectionVert();
-			void moveSelection( Distance dx, Distance dy );
-			void setSelectionFontFamily( const QString& fontFamily );
-			void setSelectionFontSize( double fontSize );
-			void setSelectionFontWeight( QFont::Weight fontWeight );
-			void setSelectionFontItalicFlag( bool fontItalicFlag );
-			void setSelectionTextHAlign( Qt::Alignment textHAlign );
-			void setSelectionTextVAlign( Qt::Alignment textVAlign );
-			void setSelectionTextLineSpacing( double textLineSpacing );
-			void setSelectionTextColorNode( ColorNode textColorNode );
-			void setSelectionLineWidth( Distance lineWidth );
-			void setSelectionLineColorNode( ColorNode lineColorNode );
-			void setSelectionFillColorNode( ColorNode fillColorNode );
+                        /////////////////////////////////
+                        // Query selection capabilities
+                        /////////////////////////////////
+                public:
+                        bool canSelectionText();
+                        bool canSelectionFill();
+                        bool canSelectionLineColor();
+                        bool canSelectionLineWidth();
 
 
-			/////////////////////////////////
-			// Clipboard operations
-			/////////////////////////////////
-			void copySelection();
-			void cutSelection();
-			bool canPaste();
-			void paste( Point p );
-			void pasteAsNativeObjects( const QMimeData* mimeData, Point p );
-			void pasteAsUrls( const QMimeData* mimeData, Point p );
-			void pasteAsImage( const QMimeData* mimeData, Point p );
-			void pasteAsText( const QMimeData* mimeData, Point p );
+                        /////////////////////////////////
+                        // Operations on selections
+                        /////////////////////////////////
+                public:
+                        void deleteSelection();
+                        void raiseSelectionToTop();
+                        void lowerSelectionToBottom();
+                        void rotateSelection( double thetaDegs );
+                        void rotateSelectionLeft();
+                        void rotateSelectionRight();
+                        void flipSelectionHoriz();
+                        void flipSelectionVert();
+                        void alignSelectionLeft();
+                        void alignSelectionRight();
+                        void alignSelectionHCenter();
+                        void alignSelectionTop();
+                        void alignSelectionBottom();
+                        void alignSelectionVCenter();
+                        void centerSelection();
+                        void centerSelectionHoriz();
+                        void centerSelectionVert();
+                        void moveSelection( Distance dx, Distance dy );
+                        void setSelectionFontFamily( const QString& fontFamily );
+                        void setSelectionFontSize( double fontSize );
+                        void setSelectionFontWeight( QFont::Weight fontWeight );
+                        void setSelectionFontItalicFlag( bool fontItalicFlag );
+                        void setSelectionTextHAlign( Qt::Alignment textHAlign );
+                        void setSelectionTextVAlign( Qt::Alignment textVAlign );
+                        void setSelectionTextLineSpacing( double textLineSpacing );
+                        void setSelectionTextColorNode( ColorNode textColorNode );
+                        void setSelectionLineWidth( Distance lineWidth );
+                        void setSelectionLineColorNode( ColorNode lineColorNode );
+                        void setSelectionFillColorNode( ColorNode fillColorNode );
 
-			/////////////////////////////////
-			// Drawing operations
-			/////////////////////////////////
-		public:
-			void draw( QPainter*            painter,
-			           bool                 inEditor,
-			           const merge::Record& record,
-			           const Variables&     variablesInstance ) const;
 
-		
-			/////////////////////////////////
-			// Slots
-			/////////////////////////////////
-		private slots:
-			void onObjectChanged();
-			void onObjectMoved();
-			void onVariablesChanged();
-			void onMergeSourceChanged();
-			void onMergeSelectionChanged();
+                        /////////////////////////////////
+                        // Clipboard operations
+                        /////////////////////////////////
+                        void copySelection();
+                        void cutSelection();
+                        bool canPaste();
+                        void paste( Point p );
+                        void pasteAsNativeObjects( const QMimeData* mimeData, Point p );
+                        void pasteAsUrls( const QMimeData* mimeData, Point p );
+                        void pasteAsImage( const QMimeData* mimeData, Point p );
+                        void pasteAsText( const QMimeData* mimeData, Point p );
+
+                        /////////////////////////////////
+                        // Drawing operations
+                        /////////////////////////////////
+                public:
+                        void draw( QPainter*            painter,
+                                   bool                 inEditor,
+                                   const merge::Record& record,
+                                   const Variables&     variablesInstance ) const;
+
+                
+                        /////////////////////////////////
+                        // Slots
+                        /////////////////////////////////
+                private slots:
+                        void onObjectChanged();
+                        void onObjectMoved();
+                        void onVariablesChanged();
+                        void onMergeSourceChanged();
+                        void onMergeSelectionChanged();
 
 
-			/////////////////////////////////
-			// Private data
-			/////////////////////////////////
-		private:
-			int                       mUntitledInstance{0};
-			bool                      mModified{true};
-			QString                   mFileName;
-			Template                  mTmplate;
-			bool                      mRotate{false};
+                        /////////////////////////////////
+                        // Private data
+                        /////////////////////////////////
+                private:
+                        int                       mUntitledInstance{0};
+                        bool                      mModified{true};
+                        QString                   mFileName;
+                        Template                  mTmplate;
+                        bool                      mRotate{false};
 
-			QList<ModelObject*>       mObjectList;
+                        QList<ModelObject*>       mObjectList;
 
-			Variables                 mVariables;
+                        Variables                 mVariables;
 
-			QSharedPointer<merge::Merge> mMerge;
-		};
+                        QSharedPointer<merge::Merge> mMerge;
+                };
 
-	}
+        }
 }
 
 

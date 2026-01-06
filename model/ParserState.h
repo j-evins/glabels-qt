@@ -27,31 +27,31 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class ParserState
-		{
-		public:
-			ParserState() = default;
-			ParserState( const QString& string,
-			             qsizetype      pos = 0 );
-			~ParserState() = default;
+                class ParserState
+                {
+                public:
+                        ParserState() = default;
+                        ParserState( const QString& string,
+                                     qsizetype      pos = 0 );
+                        ~ParserState() = default;
 
-			QChar operator[]( qsizetype i ) const;
-			bool isNextSubString( const QString& s ) const;
-			qsizetype pos() const;
-			qsizetype charsLeft() const;
+                        QChar operator[]( qsizetype i ) const;
+                        bool isNextSubString( const QString& s ) const;
+                        qsizetype pos() const;
+                        qsizetype charsLeft() const;
 
-			void advanceChars( qsizetype i );
+                        void advanceChars( qsizetype i );
 
 
-		private:
-			const QString* mString{ nullptr };
-			qsizetype      mPos{ 0 };
-		};
+                private:
+                        const QString* mString{ nullptr };
+                        qsizetype      mPos{ 0 };
+                };
 
-	}
+        }
 }
 
 

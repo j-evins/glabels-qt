@@ -31,54 +31,54 @@
 namespace glabels
 {
 
-	// Forward references
-	class UndoRedoModel;
-	
+        // Forward references
+        class UndoRedoModel;
+        
 
-	///
-	/// Properties View Widget
-	///
-	class PropertiesView : public QWidget, public Ui_PropertiesView
-	{
-		Q_OBJECT
-
-
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		PropertiesView( QWidget *parent = nullptr );
-		virtual ~PropertiesView() = default;
+        ///
+        /// Properties View Widget
+        ///
+        class PropertiesView : public QWidget, public Ui_PropertiesView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-		void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                PropertiesView( QWidget *parent = nullptr );
+                virtual ~PropertiesView() = default;
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onSettingsChanged();
-		void onLabelSizeChanged();
-		void onLengthSpinChanged();
-		void onOrientationActivated();
-		void onChangeProductButtonClicked();
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		bool               mInLengthSpinChanged{ false };
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onSettingsChanged();
+                void onLabelSizeChanged();
+                void onLengthSpinChanged();
+                void onOrientationActivated();
+                void onChangeProductButtonClicked();
 
-		model::Model*      mModel;
-		UndoRedoModel*     mUndoRedoModel;
-		model::Units       mUnits;
-		int                mOldOrientationIndex;
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                bool               mInLengthSpinChanged{ false };
+
+                model::Model*      mModel;
+                UndoRedoModel*     mUndoRedoModel;
+                model::Units       mUnits;
+                int                mOldOrientationIndex;
+        };
 
 }
 

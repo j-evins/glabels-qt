@@ -26,33 +26,33 @@
 namespace glabels
 {
 
-	///
-	/// Constructor From Data
-	///
-	BarcodeMenuItem::BarcodeMenuItem( const barcode::Style& bcStyle, QObject* parent )
-		: QAction(parent), mBcStyle(bcStyle)
-	{
-		setText( bcStyle.name() );
+        ///
+        /// Constructor From Data
+        ///
+        BarcodeMenuItem::BarcodeMenuItem( const barcode::Style& bcStyle, QObject* parent )
+                : QAction(parent), mBcStyle(bcStyle)
+        {
+                setText( bcStyle.name() );
 
-		connect( this, SIGNAL(triggered()), this, SLOT(onTriggered()) );
-	}
-
-
-	///
-	/// bcStyle Property Getter
-	///
-	barcode::Style BarcodeMenuItem::bcStyle() const
-	{
-		return mBcStyle;
-	}
+                connect( this, SIGNAL(triggered()), this, SLOT(onTriggered()) );
+        }
 
 
-	///
-	/// onTriggered slot
-	///
-	void BarcodeMenuItem::onTriggered()
-	{
-		emit activated( mBcStyle );
-	}
+        ///
+        /// bcStyle Property Getter
+        ///
+        barcode::Style BarcodeMenuItem::bcStyle() const
+        {
+                return mBcStyle;
+        }
+
+
+        ///
+        /// onTriggered slot
+        ///
+        void BarcodeMenuItem::onTriggered()
+        {
+                emit activated( mBcStyle );
+        }
 
 } // namespace glabels

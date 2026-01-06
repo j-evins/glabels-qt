@@ -26,36 +26,36 @@
 namespace glabels
 {
 
-	///
-	/// Establish notebook size based on largest page
-	///
-	void NotebookUtil::establishSize( QTabWidget* notebook )
-	{
-		// Establish size of notebook size based on its largest page.
-		// This may not be established until runtime, due to varying
-		// lengths of translated strings or may even be influenced by
-		// the current theme and fonts.  Without doing this, the
-		// notebook may change size as tabs are selected for the first
-		// time, which can be very annoying.
+        ///
+        /// Establish notebook size based on largest page
+        ///
+        void NotebookUtil::establishSize( QTabWidget* notebook )
+        {
+                // Establish size of notebook size based on its largest page.
+                // This may not be established until runtime, due to varying
+                // lengths of translated strings or may even be influenced by
+                // the current theme and fonts.  Without doing this, the
+                // notebook may change size as tabs are selected for the first
+                // time, which can be very annoying.
 
-		// This hack shows the top-level window containing the notebook,
-		// then shows each page and invalidates the window's layout.
-		// Finally it re-hides the window without ever having
-		// relinquishing control to the Qt event loop.
+                // This hack shows the top-level window containing the notebook,
+                // then shows each page and invalidates the window's layout.
+                // Finally it re-hides the window without ever having
+                // relinquishing control to the Qt event loop.
 
-		QWidget* window = notebook->window();
-		int iTabSaved = notebook->currentIndex();
-		int nTabs = notebook->count();
+                QWidget* window = notebook->window();
+                int iTabSaved = notebook->currentIndex();
+                int nTabs = notebook->count();
 
-		window->show();
-		for ( int iTab = 0; iTab < nTabs; iTab++ )
-		{
-			notebook->setCurrentIndex( iTab );
-			window->layout()->invalidate();
-		}
-		window->hide();
+                window->show();
+                for ( int iTab = 0; iTab < nTabs; iTab++ )
+                {
+                        notebook->setCurrentIndex( iTab );
+                        window->layout()->invalidate();
+                }
+                window->hide();
 
-		notebook->setCurrentIndex( iTabSaved );
-	}
+                notebook->setCurrentIndex( iTabSaved );
+        }
 
 }

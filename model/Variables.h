@@ -31,62 +31,62 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Variables Collection
-		///
-		class Variables : public QObject, public QMap<QString,Variable>
-		{
-			Q_OBJECT
+                ///
+                /// Variables Collection
+                ///
+                class Variables : public QObject, public QMap<QString,Variable>
+                {
+                        Q_OBJECT
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		public:
-			Variables() = default;
-			Variables( const Variables& other );
-
-
-			/////////////////////////////////
-			// Copy from other object
-			/////////////////////////////////
-			void copy( const Variables& other );
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                public:
+                        Variables() = default;
+                        Variables( const Variables& other );
 
 
-			/////////////////////////////////
-			// Methods
-			/////////////////////////////////
-			bool hasVariable( const QString& name ) const;
-			void addVariable( const Variable& variable );
-			void deleteVariable( const QString& name );
-			void replaceVariable( const QString& name, const Variable& variable );
-
-			void setVariables( const QMap<QString,QString>& definitions );
-
-			void resetVariables();
-			void resetOnCopyVariables();
-			void incrementVariablesOnItem();
-			void incrementVariablesOnCopy();
-			void incrementVariablesOnPage();
+                        /////////////////////////////////
+                        // Copy from other object
+                        /////////////////////////////////
+                        void copy( const Variables& other );
 
 
-			/////////////////////////////////
-			// Signals
-			/////////////////////////////////
-		signals:
-			void changed();
-			
+                        /////////////////////////////////
+                        // Methods
+                        /////////////////////////////////
+                        bool hasVariable( const QString& name ) const;
+                        void addVariable( const Variable& variable );
+                        void deleteVariable( const QString& name );
+                        void replaceVariable( const QString& name, const Variable& variable );
 
-			/////////////////////////////////
-			// Private data
-			/////////////////////////////////
-		private:
+                        void setVariables( const QMap<QString,QString>& definitions );
 
-		};
+                        void resetVariables();
+                        void resetOnCopyVariables();
+                        void incrementVariablesOnItem();
+                        void incrementVariablesOnCopy();
+                        void incrementVariablesOnPage();
 
-	}
+
+                        /////////////////////////////////
+                        // Signals
+                        /////////////////////////////////
+                signals:
+                        void changed();
+                        
+
+                        /////////////////////////////////
+                        // Private data
+                        /////////////////////////////////
+                private:
+
+                };
+
+        }
 }
 
 

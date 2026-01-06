@@ -31,59 +31,59 @@
 namespace glabels
 {
 
-	///
-	/// Print View Widget
-	///
-	class PrintView : public QWidget, public Ui_PrintView
-	{
-		Q_OBJECT
+        ///
+        /// Print View Widget
+        ///
+        class PrintView : public QWidget, public Ui_PrintView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		PrintView( QWidget *parent = nullptr );
-		virtual ~PrintView() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                PrintView( QWidget *parent = nullptr );
+                virtual ~PrintView() = default;
 
 
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-		void setModel( model::Model* model );
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setModel( model::Model* model );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onAvailablePrintersChanged( QStringList printers );
-		void onModelChanged();
-		void updateView();
-		void onFormChanged();
-		void onPrintButtonClicked();
-		void onSystemDialogButtonClicked();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onAvailablePrintersChanged( QStringList printers );
+                void onModelChanged();
+                void updateView();
+                void onFormChanged();
+                void onPrintButtonClicked();
+                void onSystemDialogButtonClicked();
 
 
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void loadDestinations( const QStringList& printers );
-		QString defaultPdf();
-		void setDestination( const QString& printerName );
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                void loadDestinations( const QStringList& printers );
+                QString defaultPdf();
+                void setDestination( const QString& printerName );
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		model::Model*       mModel;
-		model::PageRenderer mRenderer;
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                model::Model*       mModel;
+                model::PageRenderer mRenderer;
 
-		bool                mBlocked;
+                bool                mBlocked;
 
-	};
+        };
 
 }
 

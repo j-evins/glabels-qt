@@ -30,34 +30,34 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class QtRenderer QtRenderer.h glbarcode/QtRenderer.h
-	 *
-	 * Render to QPainter context
-	 */
-	class QtRenderer : public Renderer
-	{
-	public:
+        /**
+         * @class QtRenderer QtRenderer.h glbarcode/QtRenderer.h
+         *
+         * Render to QPainter context
+         */
+        class QtRenderer : public Renderer
+        {
+        public:
                 /**
                  * Default Constructor
                  */
-		QtRenderer();
-		
+                QtRenderer();
+                
                 /**
                  * Constructor with QPainter
                  */
-		QtRenderer( QPainter* painter );
+                QtRenderer( QPainter* painter );
 
                 /**
                  * Destructor
                  */
-		~QtRenderer() override;
+                ~QtRenderer() override;
 
                 /** Get "painter" parameter
                  *
                  * @returns painter parameter
                  */
-		QPainter* painter() const;
+                QPainter* painter() const;
 
                 /** Set "painter" parameter
                  *
@@ -65,27 +65,27 @@ namespace glbarcode
                  *
                  * @returns reference to this QtRenderer object for parameter chaining
                  */
-		QtRenderer& setPainter( QPainter* painter );
-		
+                QtRenderer& setPainter( QPainter* painter );
+                
 
-	private:
-		/*
+        private:
+                /*
                  * Virtual methods implemented by QtRenderer.
                  */
-		void drawBegin( double w, double h ) override;
-		void drawEnd() override;
-		void drawLine( double x, double y, double w, double h ) override;
-		void drawBox( double x, double y, double w, double h ) override;
-		void drawText( double x, double y, double size, const std::string& text, HAlign halign = H_ALIGN_CENTER ) override;
-		void drawRing( double x, double y, double r, double w ) override;
-		void drawHexagon( double x, double y, double h ) override;
+                void drawBegin( double w, double h ) override;
+                void drawEnd() override;
+                void drawLine( double x, double y, double w, double h ) override;
+                void drawBox( double x, double y, double w, double h ) override;
+                void drawText( double x, double y, double size, const std::string& text, HAlign halign = H_ALIGN_CENTER ) override;
+                void drawRing( double x, double y, double r, double w ) override;
+                void drawHexagon( double x, double y, double h ) override;
 
-		/**
+                /**
                  * Private data
                  */
-		struct PrivateData;
-		PrivateData *d;
-	};
+                struct PrivateData;
+                PrivateData *d;
+        };
 
 }
 

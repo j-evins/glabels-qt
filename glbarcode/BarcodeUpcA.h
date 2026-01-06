@@ -28,47 +28,47 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodeUpcA BarcodeUpcA.h glbarcode/BarcodeUpcA.h
-	 *
-	 * UPC-A barcode, implements BarcodeUpcBase
-	 *
-	 * @image html sample-upc-a.svg "Sample UPC-A Barcode"
-	 *
-	 */
-	class BarcodeUpcA : public BarcodeUpcBase
-	{
-	public:
-		/**
-		 * Static UPC-A barcode creation method
-		 *
-		 * Used by glbarcode::BarcodeFactory
-		 */
-		static Barcode* create();
+        /**
+         * @class BarcodeUpcA BarcodeUpcA.h glbarcode/BarcodeUpcA.h
+         *
+         * UPC-A barcode, implements BarcodeUpcBase
+         *
+         * @image html sample-upc-a.svg "Sample UPC-A Barcode"
+         *
+         */
+        class BarcodeUpcA : public BarcodeUpcBase
+        {
+        public:
+                /**
+                 * Static UPC-A barcode creation method
+                 *
+                 * Used by glbarcode::BarcodeFactory
+                 */
+                static Barcode* create();
 
 
-		/**
-		 * Default constructor
-		 */
-		BarcodeUpcA();
+                /**
+                 * Default constructor
+                 */
+                BarcodeUpcA();
 
 
-	private:
-		bool validateDigits( int nDigits ) override;
+        private:
+                bool validateDigits( int nDigits ) override;
 
-		std::string preprocess( const std::string& rawData ) override;
+                std::string preprocess( const std::string& rawData ) override;
 
-		void vectorizeText( const std::string& displayText,
-		                    double             size1,
-		                    double             size2,
-		                    double             x1Left,
-		                    double             x1Right,
-		                    double             y1,
-		                    double             x2Left,
-		                    double             x2Right,
-		                    double             y2 ) override;
+                void vectorizeText( const std::string& displayText,
+                                    double             size1,
+                                    double             size2,
+                                    double             x1Left,
+                                    double             x1Right,
+                                    double             y1,
+                                    double             x2Left,
+                                    double             x2Right,
+                                    double             y2 ) override;
 
-	};
+        };
 
 }
 

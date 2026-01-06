@@ -28,37 +28,37 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodePostnet5 BarcodePostnet5.h glbarcode/BarcodePostnet5.h
-	 *
-	 * *POSTNET-5* barcode (ZIP only), extends BarcodePostnet
-	 *
-	 * @image html sample-postnet-5.svg "Sample 5 digit USPS POSTNET Barcode"
-	 *
-	 * 
-	 * ### Input Data Format ###
-	 * 
-	 * Input data requirements are identical to BarcodePostnet, except the
-	 * validator only accepts 5 digits (ZIP) of input.
-	 *
-	 * See BarcodePostnet.
-	 *
-	 */
-	class BarcodePostnet5 : public BarcodePostnet
-	{
-	public:
-		/**
-		 * Static POSTNET-5 barcode creation method
-		 *
-		 * Used by glbarcode::BarcodeFactory
-		 */
-		static Barcode* create();
+        /**
+         * @class BarcodePostnet5 BarcodePostnet5.h glbarcode/BarcodePostnet5.h
+         *
+         * *POSTNET-5* barcode (ZIP only), extends BarcodePostnet
+         *
+         * @image html sample-postnet-5.svg "Sample 5 digit USPS POSTNET Barcode"
+         *
+         * 
+         * ### Input Data Format ###
+         * 
+         * Input data requirements are identical to BarcodePostnet, except the
+         * validator only accepts 5 digits (ZIP) of input.
+         *
+         * See BarcodePostnet.
+         *
+         */
+        class BarcodePostnet5 : public BarcodePostnet
+        {
+        public:
+                /**
+                 * Static POSTNET-5 barcode creation method
+                 *
+                 * Used by glbarcode::BarcodeFactory
+                 */
+                static Barcode* create();
 
 
-	private:
-		bool validateDigits( int nDigits ) override;
+        private:
+                bool validateDigits( int nDigits ) override;
 
-	};
+        };
 
 }
 

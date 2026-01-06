@@ -30,34 +30,34 @@
 namespace glabels
 {
 
-	///
-	///  PreviewOverlayItem Widget
-	///
-	class PreviewOverlayItem : public QGraphicsItem
-	{
+        ///
+        ///  PreviewOverlayItem Widget
+        ///
+        class PreviewOverlayItem : public QGraphicsItem
+        {
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		PreviewOverlayItem( const model::PageRenderer* renderer, QGraphicsItem* parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                PreviewOverlayItem( const model::PageRenderer* renderer, QGraphicsItem* parent = nullptr );
 
 
-		/////////////////////////////////////
-		// Virtual method implementations
-		/////////////////////////////////////
-	public:
-		QRectF boundingRect() const override;
-		void paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget ) override;
+                /////////////////////////////////////
+                // Virtual method implementations
+                /////////////////////////////////////
+        public:
+                QRectF boundingRect() const override;
+                void paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget ) override;
 
-		
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		const model::PageRenderer* mRenderer;
+                
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                const model::PageRenderer* mRenderer;
 
-	};
+        };
 
 }
 

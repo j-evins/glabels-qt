@@ -24,21 +24,21 @@
 namespace glbarcode
 {
 
-	/*
-	 * Static CEPNET barcode creation method
-	 */
-	Barcode* BarcodeCepnet::create( )
-	{
-		return new BarcodeCepnet();
-	}
+        /*
+         * Static CEPNET barcode creation method
+         */
+        Barcode* BarcodeCepnet::create( )
+        {
+                return new BarcodeCepnet();
+        }
 
 
-	/*
-	 * CEPNET validation of number of digits, overrides BarcodePostnet::validateDigits()
-	 */
-	bool BarcodeCepnet::validateDigits( int nDigits )
-	{
-		return nDigits == 8;
-	}
+        /*
+         * CEPNET validation of number of digits, overrides BarcodePostnet::validateDigits()
+         */
+        bool BarcodeCepnet::validateDigits( int nDigits )
+        {
+                return nDigits == 8;
+        }
 
 }

@@ -28,33 +28,33 @@
 namespace glabels
 {
 
-	// Forward References
-	class MainWindow;
+        // Forward References
+        class MainWindow;
 
 
-	///
-	/// File Actions
-	///
-	/// Note: class provides a translation context for these static functions.
-	///
-	class File : public QObject
-	{
-		Q_OBJECT
+        ///
+        /// File Actions
+        ///
+        /// Note: class provides a translation context for these static functions.
+        ///
+        class File : public QObject
+        {
+                Q_OBJECT
 
-	public:
-		static bool newLabel( MainWindow *window = nullptr );
-		static void open( MainWindow *window );
-		static void open( const QString& fileName, MainWindow *window );
-		static bool save( MainWindow *window );
-		static bool saveAs( MainWindow *window );
-		static void templateDesigner( MainWindow *window );
-		static void close( MainWindow *window );
-		static void exit();
+        public:
+                static bool newLabel( MainWindow *window = nullptr );
+                static void open( MainWindow *window );
+                static void open( const QString& fileName, MainWindow *window );
+                static bool save( MainWindow *window );
+                static bool saveAs( MainWindow *window );
+                static void templateDesigner( MainWindow *window );
+                static void close( MainWindow *window );
+                static void exit();
 
-	private:
-		static QString mCwd;
-	
-	};
+        private:
+                static QString mCwd;
+        
+        };
 
 }
 

@@ -28,69 +28,69 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodePostnet BarcodePostnet.h glbarcode/BarcodePostnet.h
-	 *
-	 * *POSTNET* barcode (All USPS sizes: ZIP, ZIP+4, ZIP+4+DC).
-	 *
-	 * @image html sample-postnet.svg "Sample USPS POSTNET Barcode"
-	 *
-	 *
-	 * ### Input Data Format ###
-	 * 
-	 * The *POSTNET* specification defines 10 characters, consisting solely
-	 * of decimal digits (0-9).  The BarcodePostnet validator and encoder will
-	 * ignore spaces and dashes (-).  The validator will only accept input
-	 * data with 5 digits (ZIP), 9 digits (ZIP+4) or 11 digits (ZIP+4+DC).
-	 *
-	 *
-	 * ### Checksum Property ###
-	 *
-	 * The *checksum* property is ignored.  A mandatory check digit will
-	 * always be automatically generated and appended to the input data
-	 * prior to encoding.
-	 * 
-	 *
-	 * ### Show Text Property ###
-	 *
-	 * The *Show Text* property is ignored.
-	 *
-	 *
-	 * ### References ###
-	 *
-	 * - http://en.wikipedia.org/wiki/POSTNET
-	 *
-	 */
-	class BarcodePostnet : public Barcode1dBase
-	{
-	public:
-		/**
-		 * Static Postnet barcode creation method
-		 *
-		 * Used by glbarcode::BarcodeFactory
-		 */
-		static Barcode* create();
+        /**
+         * @class BarcodePostnet BarcodePostnet.h glbarcode/BarcodePostnet.h
+         *
+         * *POSTNET* barcode (All USPS sizes: ZIP, ZIP+4, ZIP+4+DC).
+         *
+         * @image html sample-postnet.svg "Sample USPS POSTNET Barcode"
+         *
+         *
+         * ### Input Data Format ###
+         * 
+         * The *POSTNET* specification defines 10 characters, consisting solely
+         * of decimal digits (0-9).  The BarcodePostnet validator and encoder will
+         * ignore spaces and dashes (-).  The validator will only accept input
+         * data with 5 digits (ZIP), 9 digits (ZIP+4) or 11 digits (ZIP+4+DC).
+         *
+         *
+         * ### Checksum Property ###
+         *
+         * The *checksum* property is ignored.  A mandatory check digit will
+         * always be automatically generated and appended to the input data
+         * prior to encoding.
+         * 
+         *
+         * ### Show Text Property ###
+         *
+         * The *Show Text* property is ignored.
+         *
+         *
+         * ### References ###
+         *
+         * - http://en.wikipedia.org/wiki/POSTNET
+         *
+         */
+        class BarcodePostnet : public Barcode1dBase
+        {
+        public:
+                /**
+                 * Static Postnet barcode creation method
+                 *
+                 * Used by glbarcode::BarcodeFactory
+                 */
+                static Barcode* create();
 
 
-	protected:
-		/**
-		 * Validate number of digits
-		 */
-		virtual bool validateDigits( int nDigits );
+        protected:
+                /**
+                 * Validate number of digits
+                 */
+                virtual bool validateDigits( int nDigits );
 
 
-	private:
-		bool validate( const std::string& rawData ) override;
+        private:
+                bool validate( const std::string& rawData ) override;
 
-		std::string encode( const std::string& cookedData ) override;
+                std::string encode( const std::string& cookedData ) override;
 
-		void vectorize( const std::string& codedData,
-				const std::string& displayText,
-				const std::string& cookedData,
-				double&            w,
-				double&            h ) override;
+                void vectorize( const std::string& codedData,
+                                const std::string& displayText,
+                                const std::string& cookedData,
+                                double&            w,
+                                double&            h ) override;
 
-	};
+        };
 
 }
 

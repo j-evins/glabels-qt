@@ -23,8 +23,8 @@
 
 class TestRawText : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void rawText();
+        void rawText();
 };

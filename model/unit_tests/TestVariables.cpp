@@ -32,126 +32,126 @@ using namespace glabels::model;
 
 void TestVariables::variables()
 {
-	Variables vars;
+        Variables vars;
 
-	Variable i( Variable::Type::INTEGER, "i", "3", Variable::Increment::PER_ITEM, "3" );
-	QCOMPARE( i.value(), QString( "3" ) );
+        Variable i( Variable::Type::INTEGER, "i", "3", Variable::Increment::PER_ITEM, "3" );
+        QCOMPARE( i.value(), QString( "3" ) );
 
-	Variable i2( Variable::Type::INTEGER, "i2", "100", Variable::Increment::PER_COPY, "2" );
-	QCOMPARE( i2.value(), QString( "100" ) );
+        Variable i2( Variable::Type::INTEGER, "i2", "100", Variable::Increment::PER_COPY, "2" );
+        QCOMPARE( i2.value(), QString( "100" ) );
 
-	Variable f( Variable::Type::FLOATING_POINT, "f", "0.0", Variable::Increment::PER_PAGE, "0.1" );
-	QCOMPARE( f.value(), QString( "0" ) );
+        Variable f( Variable::Type::FLOATING_POINT, "f", "0.0", Variable::Increment::PER_PAGE, "0.1" );
+        QCOMPARE( f.value(), QString( "0" ) );
 
-	Variable s( Variable::Type::STRING, "s", "initial", Variable::Increment::PER_ITEM, "1" );
-	QCOMPARE( s.value(), QString( "initial" ) );
+        Variable s( Variable::Type::STRING, "s", "initial", Variable::Increment::PER_ITEM, "1" );
+        QCOMPARE( s.value(), QString( "initial" ) );
 
-	Variable c( Variable::Type::COLOR, "c", "white", Variable::Increment::PER_ITEM, "01" );
-	QCOMPARE( c.value(), QString( "white" ) );
+        Variable c( Variable::Type::COLOR, "c", "white", Variable::Increment::PER_ITEM, "01" );
+        QCOMPARE( c.value(), QString( "white" ) );
 
-	QVERIFY( !vars.hasVariable( "i" ) );
-	QVERIFY( !vars.hasVariable( "i2" ) );
+        QVERIFY( !vars.hasVariable( "i" ) );
+        QVERIFY( !vars.hasVariable( "i2" ) );
 
-	// Add, delete
-	vars.addVariable( i );
-	QVERIFY( vars.hasVariable( "i" ) );
-	QCOMPARE( vars["i"].value(), i.value() );
-	vars.deleteVariable( "i" );
-	QVERIFY( !vars.hasVariable( "i" ) );
-	QCOMPARE( vars["i"].value(), QString() );
+        // Add, delete
+        vars.addVariable( i );
+        QVERIFY( vars.hasVariable( "i" ) );
+        QCOMPARE( vars["i"].value(), i.value() );
+        vars.deleteVariable( "i" );
+        QVERIFY( !vars.hasVariable( "i" ) );
+        QCOMPARE( vars["i"].value(), QString() );
 
-	// Add, replace
-	vars.addVariable( i );
-	QVERIFY( vars.hasVariable( "i" ) );
-	QCOMPARE( vars["i"].value(), i.value() );
-	vars.replaceVariable( "i", i2 );
-	QVERIFY( !vars.hasVariable( "i" ) );
-	QVERIFY( vars.hasVariable( "i2" ) );
-	QCOMPARE( vars["i2"].value(), i2.value() );
-	QCOMPARE( vars["i"].value(), QString() );
-	vars.deleteVariable( "i2" );
-	QVERIFY( !vars.hasVariable( "i2" ) );
+        // Add, replace
+        vars.addVariable( i );
+        QVERIFY( vars.hasVariable( "i" ) );
+        QCOMPARE( vars["i"].value(), i.value() );
+        vars.replaceVariable( "i", i2 );
+        QVERIFY( !vars.hasVariable( "i" ) );
+        QVERIFY( vars.hasVariable( "i2" ) );
+        QCOMPARE( vars["i2"].value(), i2.value() );
+        QCOMPARE( vars["i"].value(), QString() );
+        vars.deleteVariable( "i2" );
+        QVERIFY( !vars.hasVariable( "i2" ) );
 
-	// Increment
-	vars.addVariable( i );
-	vars.addVariable( i2 );
-	vars.addVariable( f );
-	vars.addVariable( s );
-	vars.addVariable( c );
+        // Increment
+        vars.addVariable( i );
+        vars.addVariable( i2 );
+        vars.addVariable( f );
+        vars.addVariable( s );
+        vars.addVariable( c );
 
-	QVERIFY( vars.hasVariable( "i" ) ); // PER_ITEM
-	QVERIFY( vars.hasVariable( "i2" ) ); // PER_COPY
-	QVERIFY( vars.hasVariable( "f" ) ); // PER_PAGE
-	QVERIFY( vars.hasVariable( "s" ) );
-	QVERIFY( vars.hasVariable( "c" ) );
+        QVERIFY( vars.hasVariable( "i" ) ); // PER_ITEM
+        QVERIFY( vars.hasVariable( "i2" ) ); // PER_COPY
+        QVERIFY( vars.hasVariable( "f" ) ); // PER_PAGE
+        QVERIFY( vars.hasVariable( "s" ) );
+        QVERIFY( vars.hasVariable( "c" ) );
 
-	QCOMPARE( vars["i"].value(), QString( "3" ) );
-	QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PRE_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "3" ) );
+        QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PRE_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.resetVariables();
+        vars.resetVariables();
 
-	QCOMPARE( vars["i"].value(), QString( "3" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PRE_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "3" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PRE_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.incrementVariablesOnItem();
+        vars.incrementVariablesOnItem();
 
-	QCOMPARE( vars["i"].value(), QString( "6" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PER_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "6" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PER_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.incrementVariablesOnItem();
+        vars.incrementVariablesOnItem();
 
-	QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PER_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PER_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.incrementVariablesOnCopy();
+        vars.incrementVariablesOnCopy();
 
-	QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "102" ) ); // PER_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "102" ) ); // PER_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.incrementVariablesOnCopy();
+        vars.incrementVariablesOnCopy();
 
-	QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "104" ) ); // PER_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "104" ) ); // PER_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.incrementVariablesOnPage();
+        vars.incrementVariablesOnPage();
 
-	QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "104" ) ); // PER_COPY
-	QCOMPARE( vars["f"].value(), QString( "0.1" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "104" ) ); // PER_COPY
+        QCOMPARE( vars["f"].value(), QString( "0.1" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.incrementVariablesOnPage();
+        vars.incrementVariablesOnPage();
 
-	QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "104" ) ); // PER_COPY
-	QCOMPARE( vars["f"].value(), QString( "0.2" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "9" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "104" ) ); // PER_COPY
+        QCOMPARE( vars["f"].value(), QString( "0.2" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 
-	vars.resetVariables();
+        vars.resetVariables();
 
-	QCOMPARE( vars["i"].value(), QString( "3" ) ); // PER_ITEM
-	QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PRE_COPY
-	QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
-	QCOMPARE( vars["s"].value(), QString( "initial" ) );
-	QCOMPARE( vars["c"].value(), QString( "white" ) );
+        QCOMPARE( vars["i"].value(), QString( "3" ) ); // PER_ITEM
+        QCOMPARE( vars["i2"].value(), QString( "100" ) ); // PRE_COPY
+        QCOMPARE( vars["f"].value(), QString( "0" ) ); // PER_PAGE
+        QCOMPARE( vars["s"].value(), QString( "initial" ) );
+        QCOMPARE( vars["c"].value(), QString( "white" ) );
 }

@@ -29,14 +29,14 @@
 
 namespace glbarcode
 {
-	/**
-	 * @class TypeIdList TypeIdList.h glbarcode/TypeIdList.h
-	 *
-	 * List of barcode type ID strings.
-	 */
-	class TypeIdList : public std::list<std::string>
-	{
-	};
+        /**
+         * @class TypeIdList TypeIdList.h glbarcode/TypeIdList.h
+         *
+         * List of barcode type ID strings.
+         */
+        class TypeIdList : public std::list<std::string>
+        {
+        };
 
 }
 

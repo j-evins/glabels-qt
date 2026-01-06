@@ -32,58 +32,58 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	TemplatePickerItem::TemplatePickerItem( const model::Template& tmplate,
-	                                        QListView::ViewMode    mode )
-		: QStandardItem()
-	{
-		mTmplate = tmplate;
+        ///
+        /// Constructor
+        ///
+        TemplatePickerItem::TemplatePickerItem( const model::Template& tmplate,
+                                                QListView::ViewMode    mode )
+                : QStandardItem()
+        {
+                mTmplate = tmplate;
 
-		setIcon( QIcon( MiniPreviewPixmap( tmplate, SIZE, SIZE ) ) );
-		setMode( mode );
-		
-		setFlags( Qt::ItemIsSelectable | Qt::ItemIsEnabled );
-	}
-
-
-	///
-	/// Configure for given View Mode
-	///
-	void TemplatePickerItem::setMode( QListView::ViewMode mode )
-	{
-		auto frame = mTmplate.frame();
-
-		switch ( mode )
-		{
-			
-		case QListView::IconMode:
-			setText( mTmplate.name() );
-			break;
-
-		case QListView::ListMode:
-			setText( "<b>" + mTmplate.name() + "</b><br/>" +
-			         mTmplate.description() + "<br/>" +
-			         frame->sizeDescription( model::Settings::units() ) + "<br/>" +
-			         frame->layoutDescription() );
-			break;
-			
-		default:
-			qWarning() << "TemplatePickerItem: unknown mode!";
-			break;
-
-		}
-	}
+                setIcon( QIcon( MiniPreviewPixmap( tmplate, SIZE, SIZE ) ) );
+                setMode( mode );
+                
+                setFlags( Qt::ItemIsSelectable | Qt::ItemIsEnabled );
+        }
 
 
-	///
-	/// Template Property Getter
-	///
-	model::Template TemplatePickerItem::tmplate() const
-	{
-		return mTmplate;
-	}
+        ///
+        /// Configure for given View Mode
+        ///
+        void TemplatePickerItem::setMode( QListView::ViewMode mode )
+        {
+                auto frame = mTmplate.frame();
+
+                switch ( mode )
+                {
+                        
+                case QListView::IconMode:
+                        setText( mTmplate.name() );
+                        break;
+
+                case QListView::ListMode:
+                        setText( "<b>" + mTmplate.name() + "</b><br/>" +
+                                 mTmplate.description() + "<br/>" +
+                                 frame->sizeDescription( model::Settings::units() ) + "<br/>" +
+                                 frame->layoutDescription() );
+                        break;
+                        
+                default:
+                        qWarning() << "TemplatePickerItem: unknown mode!";
+                        break;
+
+                }
+        }
+
+
+        ///
+        /// Template Property Getter
+        ///
+        model::Template TemplatePickerItem::tmplate() const
+        {
+                return mTmplate;
+        }
 
 
 } // namespace glabels

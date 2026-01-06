@@ -34,49 +34,49 @@
 namespace glabels
 {
 
-	///
-	/// Field Button
-	///
-	class FieldButton : public QPushButton
-	{
-		Q_OBJECT
+        ///
+        /// Field Button
+        ///
+        class FieldButton : public QPushButton
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		FieldButton( QWidget* parent = nullptr );
-
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void keySelected( QString key );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                FieldButton( QWidget* parent = nullptr );
 
 
-		/////////////////////////////////
-		// Public Methods
-		/////////////////////////////////
-	public:
-		void setKeys( const merge::Merge*     merge,
-		              const model::Variables& variables );
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void keySelected( QString key );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onMenuActionTriggered( QAction* action );
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void setKeys( const merge::Merge*     merge,
+                              const model::Variables& variables );
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		QMenu mMenu;
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onMenuActionTriggered( QAction* action );
 
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                QMenu mMenu;
+
+        };
 
 }
 

@@ -24,116 +24,116 @@
 namespace glbarcode
 {
 
-	DrawingPrimitive::DrawingPrimitive( double x, double y )
-		: mX(x), mY(y)
-	{
-	}
+        DrawingPrimitive::DrawingPrimitive( double x, double y )
+                : mX(x), mY(y)
+        {
+        }
 
 
-	double DrawingPrimitive::x() const
-	{
-		return mX;
-	}
+        double DrawingPrimitive::x() const
+        {
+                return mX;
+        }
 
 
-	double DrawingPrimitive::y() const
-	{
-		return mY;
-	}
-
-
-
-	DrawingPrimitiveLine::DrawingPrimitiveLine( double x, double y, double w, double h )
-		: DrawingPrimitive( x, y ), mW(w), mH(h)
-	{
-	}
-
-
-	double DrawingPrimitiveLine::w() const
-	{
-		return mW;
-	}
-
-
-	double DrawingPrimitiveLine::h() const
-	{
-		return mH;
-	}
+        double DrawingPrimitive::y() const
+        {
+                return mY;
+        }
 
 
 
-	DrawingPrimitiveBox::DrawingPrimitiveBox( double x, double y, double w, double h )
-		: DrawingPrimitive( x, y ), mW(w), mH(h)
-	{
-	}
+        DrawingPrimitiveLine::DrawingPrimitiveLine( double x, double y, double w, double h )
+                : DrawingPrimitive( x, y ), mW(w), mH(h)
+        {
+        }
 
 
-	double DrawingPrimitiveBox::w() const
-	{
-		return mW;
-	}
+        double DrawingPrimitiveLine::w() const
+        {
+                return mW;
+        }
 
 
-	double DrawingPrimitiveBox::h() const
-	{
-		return mH;
-	}
-
-
-
-	DrawingPrimitiveText::DrawingPrimitiveText( double x, double y, double size, const std::string& text, HAlign halign )
-		: DrawingPrimitive( x, y ), mSize(size), mText(text), mHalign(halign)
-	{
-	}
-
-
-	double DrawingPrimitiveText::size() const
-	{
-		return mSize;
-	}
-
-
-	const std::string& DrawingPrimitiveText::text() const
-	{
-		return mText;
-	}
-
-
-	HAlign DrawingPrimitiveText::halign() const
-	{
-		return mHalign;
-	}
+        double DrawingPrimitiveLine::h() const
+        {
+                return mH;
+        }
 
 
 
-	DrawingPrimitiveRing::DrawingPrimitiveRing( double x, double y, double r, double w )
-		: DrawingPrimitive( x, y ), mR(r), mW(w)
-	{
-	}
+        DrawingPrimitiveBox::DrawingPrimitiveBox( double x, double y, double w, double h )
+                : DrawingPrimitive( x, y ), mW(w), mH(h)
+        {
+        }
 
 
-	double DrawingPrimitiveRing::r() const
-	{
-		return mR;
-	}
+        double DrawingPrimitiveBox::w() const
+        {
+                return mW;
+        }
 
 
-	double DrawingPrimitiveRing::w() const
-	{
-		return mW;
-	}
+        double DrawingPrimitiveBox::h() const
+        {
+                return mH;
+        }
 
 
 
-	DrawingPrimitiveHexagon::DrawingPrimitiveHexagon( double x, double y, double h )
-		: DrawingPrimitive( x, y ), mH(h)
-	{
-	}
+        DrawingPrimitiveText::DrawingPrimitiveText( double x, double y, double size, const std::string& text, HAlign halign )
+                : DrawingPrimitive( x, y ), mSize(size), mText(text), mHalign(halign)
+        {
+        }
 
 
-	double DrawingPrimitiveHexagon::h() const
-	{
-		return mH;
-	}
+        double DrawingPrimitiveText::size() const
+        {
+                return mSize;
+        }
+
+
+        const std::string& DrawingPrimitiveText::text() const
+        {
+                return mText;
+        }
+
+
+        HAlign DrawingPrimitiveText::halign() const
+        {
+                return mHalign;
+        }
+
+
+
+        DrawingPrimitiveRing::DrawingPrimitiveRing( double x, double y, double r, double w )
+                : DrawingPrimitive( x, y ), mR(r), mW(w)
+        {
+        }
+
+
+        double DrawingPrimitiveRing::r() const
+        {
+                return mR;
+        }
+
+
+        double DrawingPrimitiveRing::w() const
+        {
+                return mW;
+        }
+
+
+
+        DrawingPrimitiveHexagon::DrawingPrimitiveHexagon( double x, double y, double h )
+                : DrawingPrimitive( x, y ), mH(h)
+        {
+        }
+
+
+        double DrawingPrimitiveHexagon::h() const
+        {
+                return mH;
+        }
 
 }

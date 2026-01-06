@@ -27,87 +27,87 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Label Model Shape Object (Box or Ellipse)
-		///
-		class ModelShapeObject : public ModelObject
-		{
-			Q_OBJECT
+                ///
+                /// Label Model Shape Object (Box or Ellipse)
+                ///
+                class ModelShapeObject : public ModelObject
+                {
+                        Q_OBJECT
 
-			///////////////////////////////////////////////////////////////
-			// Lifecycle Methods
-			///////////////////////////////////////////////////////////////
-		protected:
-			ModelShapeObject();
+                        ///////////////////////////////////////////////////////////////
+                        // Lifecycle Methods
+                        ///////////////////////////////////////////////////////////////
+                protected:
+                        ModelShapeObject();
 
-			ModelShapeObject( Distance          x0,
-			                  Distance          y0,
-			                  Distance          w,
-			                  Distance          h,
-			                  bool              lockAspectRatio,
-			                  Distance          lineWidth,
-			                  const ColorNode&  lineColorNode,
-			                  const ColorNode&  fillColorNode,
-			                  const QTransform& matrix,
-			                  bool              shadowState,
-			                  Distance          shadowX,
-			                  Distance          shadowY,
-			                  double            shadowOpacity,
-			                  const ColorNode&  shadowColorNode );
+                        ModelShapeObject( Distance          x0,
+                                          Distance          y0,
+                                          Distance          w,
+                                          Distance          h,
+                                          bool              lockAspectRatio,
+                                          Distance          lineWidth,
+                                          const ColorNode&  lineColorNode,
+                                          const ColorNode&  fillColorNode,
+                                          const QTransform& matrix,
+                                          bool              shadowState,
+                                          Distance          shadowX,
+                                          Distance          shadowY,
+                                          double            shadowOpacity,
+                                          const ColorNode&  shadowColorNode );
 
-			ModelShapeObject( const ModelShapeObject* object );
-		public:
-			virtual ~ModelShapeObject() = default;
-
-
-			///////////////////////////////////////////////////////////////
-			// Property Implementations
-			///////////////////////////////////////////////////////////////
-		public:
-			//
-			// Shape Property: lineWidth
-			//
-			Distance lineWidth() const override;
-			void setLineWidth( Distance value ) override;
+                        ModelShapeObject( const ModelShapeObject* object );
+                public:
+                        virtual ~ModelShapeObject() = default;
 
 
-			//
-			// Shape Property: lineColorNode
-			//
-			ColorNode lineColorNode() const override;
-			void setLineColorNode( const ColorNode& value ) override;
-		
-
-			//
-			// Shape Property: fillColorNode
-			//
-			ColorNode fillColorNode() const override;
-			void setFillColorNode( const ColorNode& value ) override;
-		
-
-			///////////////////////////////////////////////////////////////
-			// Capability Implementations
-			///////////////////////////////////////////////////////////////
-		public:
-			bool canFill() const override;
-			bool canLineColor() const override;
-			bool canLineWidth() const override;
+                        ///////////////////////////////////////////////////////////////
+                        // Property Implementations
+                        ///////////////////////////////////////////////////////////////
+                public:
+                        //
+                        // Shape Property: lineWidth
+                        //
+                        Distance lineWidth() const override;
+                        void setLineWidth( Distance value ) override;
 
 
-			///////////////////////////////////////////////////////////////
-			// Private Members
-			///////////////////////////////////////////////////////////////
-		protected:
-			Distance             mLineWidth;
-			ColorNode            mLineColorNode;
-			ColorNode            mFillColorNode;
+                        //
+                        // Shape Property: lineColorNode
+                        //
+                        ColorNode lineColorNode() const override;
+                        void setLineColorNode( const ColorNode& value ) override;
+                
 
-		};
+                        //
+                        // Shape Property: fillColorNode
+                        //
+                        ColorNode fillColorNode() const override;
+                        void setFillColorNode( const ColorNode& value ) override;
+                
 
-	}
+                        ///////////////////////////////////////////////////////////////
+                        // Capability Implementations
+                        ///////////////////////////////////////////////////////////////
+                public:
+                        bool canFill() const override;
+                        bool canLineColor() const override;
+                        bool canLineWidth() const override;
+
+
+                        ///////////////////////////////////////////////////////////////
+                        // Private Members
+                        ///////////////////////////////////////////////////////////////
+                protected:
+                        Distance             mLineWidth;
+                        ColorNode            mLineColorNode;
+                        ColorNode            mFillColorNode;
+
+                };
+
+        }
 }
 
 

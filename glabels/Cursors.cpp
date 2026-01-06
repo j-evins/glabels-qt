@@ -26,59 +26,59 @@
 namespace glabels
 {
 
-	Cursors::Crosshair::Crosshair()
-		: QCursor( QPixmap(":cursors/32x32/cursor_crosshair.png"), 15, 15 )
-	{
-		// empty
-	}
+        Cursors::Crosshair::Crosshair()
+                : QCursor( QPixmap(":cursors/32x32/cursor_crosshair.png"), 15, 15 )
+        {
+                // empty
+        }
 
 
-	Cursors::Move::Move()
-		: QCursor( QPixmap(":cursors/32x32/cursor_move.png"), 15, 15 )
-	{
-		// empty
-	}
+        Cursors::Move::Move()
+                : QCursor( QPixmap(":cursors/32x32/cursor_move.png"), 15, 15 )
+        {
+                // empty
+        }
 
 
-	Cursors::Barcode::Barcode()
-		: QCursor( QPixmap(":cursors/32x32/cursor_barcode.png"), 7, 7 )
-	{
-		// empty
-	}
+        Cursors::Barcode::Barcode()
+                : QCursor( QPixmap(":cursors/32x32/cursor_barcode.png"), 7, 7 )
+        {
+                // empty
+        }
 
 
-	Cursors::Box::Box()
-		: QCursor( QPixmap(":cursors/32x32/cursor_box.png"), 7, 7 )
-	{
-		// empty
-	}
+        Cursors::Box::Box()
+                : QCursor( QPixmap(":cursors/32x32/cursor_box.png"), 7, 7 )
+        {
+                // empty
+        }
 
 
-	Cursors::Ellipse::Ellipse()
-		: QCursor( QPixmap(":cursors/32x32/cursor_ellipse.png"), 7, 7 )
-	{
-		// empty
-	}
+        Cursors::Ellipse::Ellipse()
+                : QCursor( QPixmap(":cursors/32x32/cursor_ellipse.png"), 7, 7 )
+        {
+                // empty
+        }
 
 
-	Cursors::Image::Image()
-		: QCursor( QPixmap(":cursors/32x32/cursor_image.png"), 7, 7 )
-	{
-		// empty
-	}
+        Cursors::Image::Image()
+                : QCursor( QPixmap(":cursors/32x32/cursor_image.png"), 7, 7 )
+        {
+                // empty
+        }
 
 
-	Cursors::Line::Line()
-		: QCursor( QPixmap(":cursors/32x32/cursor_line.png"), 7, 7 )
-	{
-		// empty
-	}
+        Cursors::Line::Line()
+                : QCursor( QPixmap(":cursors/32x32/cursor_line.png"), 7, 7 )
+        {
+                // empty
+        }
 
 
-	Cursors::Text::Text()
-		: QCursor( QPixmap(":cursors/32x32/cursor_text.png"), 7, 7 )
-	{
-		// empty
-	}
+        Cursors::Text::Text()
+                : QCursor( QPixmap(":cursors/32x32/cursor_text.png"), 7, 7 )
+        {
+                // empty
+        }
 
 } // namespace glabels

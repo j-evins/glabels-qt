@@ -28,30 +28,30 @@
 
 namespace glabels
 {
-	namespace barcode
-	{
-		namespace QrEncode
-		{
+        namespace barcode
+        {
+                namespace QrEncode
+                {
 
-			/**
-			 * QrEncode::QrCode QR Code Barcode
-			 *
-			 * Implements glbarcode::Barcode2dBase.
-			 */
-			class QrCode : public glbarcode::Barcode2dBase
-			{
-			public:
-				static Barcode* create();
+                        /**
+                         * QrEncode::QrCode QR Code Barcode
+                         *
+                         * Implements glbarcode::Barcode2dBase.
+                         */
+                        class QrCode : public glbarcode::Barcode2dBase
+                        {
+                        public:
+                                static Barcode* create();
 
-			private:
-				bool validate( const std::string& rawData ) override;
+                        private:
+                                bool validate( const std::string& rawData ) override;
 
-				bool encode( const std::string&       cookedData,
-				             glbarcode::Matrix<bool>& encodedData ) override;
-			};
+                                bool encode( const std::string&       cookedData,
+                                             glbarcode::Matrix<bool>& encodedData ) override;
+                        };
 
-		}
-	}
+                }
+        }
 }
 
 

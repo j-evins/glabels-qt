@@ -28,17 +28,17 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodeQrcode BarcodeQrcode.h glbarcode/BarcodeQrcode.h
-	 *
-	 * QRCode barcode, implements Barcode2dBase.
-	 *
-	 * @image html sample-qrcode.svg "Sample QRCode Barcode"
-	 */
-	class BarcodeQrcode : public Barcode2dBase
-	{
-	public:
-		/**
+        /**
+         * @class BarcodeQrcode BarcodeQrcode.h glbarcode/BarcodeQrcode.h
+         *
+         * QRCode barcode, implements Barcode2dBase.
+         *
+         * @image html sample-qrcode.svg "Sample QRCode Barcode"
+         */
+        class BarcodeQrcode : public Barcode2dBase
+        {
+        public:
+                /**
                  * Static QRCode barcode creation method
                  *
                  * Used by glbarcode::BarcodeFactory
@@ -52,7 +52,7 @@ namespace glbarcode
                 bool encode( const std::string& cookedData,
                              Matrix<bool>&      encodedData ) override;
 
-	};
+        };
 
 }
 

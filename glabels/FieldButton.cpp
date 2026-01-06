@@ -27,64 +27,64 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	FieldButton::FieldButton( QWidget* parent ) : QPushButton(parent)
-	{
-		setEnabled( false );
-		setMenu( &mMenu );
-		
-		connect( &mMenu, SIGNAL(triggered(QAction*)),
-		         this, SLOT(onMenuActionTriggered(QAction*)) );
-	}
+        ///
+        /// Constructor
+        ///
+        FieldButton::FieldButton( QWidget* parent ) : QPushButton(parent)
+        {
+                setEnabled( false );
+                setMenu( &mMenu );
+                
+                connect( &mMenu, SIGNAL(triggered(QAction*)),
+                         this, SLOT(onMenuActionTriggered(QAction*)) );
+        }
 
 
-	///
-	/// Set Keys
-	///
-	void FieldButton::setKeys( const merge::Merge*     merge,
-	                           const model::Variables& variables )
-	{
-		// Clear old keys
-		mMenu.clear();
-		
-		// Add merge keys, if any
-		mMenu.addSection( tr("Merge fields") );
-		for ( auto& key : merge->keys() )
-		{
-			auto* action = mMenu.addAction( QString( "${%1}" ).arg( key ) );
-			action->setData( key );
-		}
-		if ( merge->keys().empty() )
-		{
-			auto* action = mMenu.addAction( "None" );
-			action->setEnabled( false );
-		}
+        ///
+        /// Set Keys
+        ///
+        void FieldButton::setKeys( const merge::Merge*     merge,
+                                   const model::Variables& variables )
+        {
+                // Clear old keys
+                mMenu.clear();
+                
+                // Add merge keys, if any
+                mMenu.addSection( tr("Merge fields") );
+                for ( auto& key : merge->keys() )
+                {
+                        auto* action = mMenu.addAction( QString( "${%1}" ).arg( key ) );
+                        action->setData( key );
+                }
+                if ( merge->keys().empty() )
+                {
+                        auto* action = mMenu.addAction( "None" );
+                        action->setEnabled( false );
+                }
 
-		// Add variable keys, if any
-		mMenu.addSection( tr("Variables") );
-		for ( auto& key : variables.keys() )
-		{
-			auto* action = mMenu.addAction( QString( "${%1}" ).arg( key ) );
-			action->setData( key );
-		}
-		if ( variables.keys().empty() )
-		{
-			auto* action = mMenu.addAction( "None" );
-			action->setEnabled( false );
-		}
+                // Add variable keys, if any
+                mMenu.addSection( tr("Variables") );
+                for ( auto& key : variables.keys() )
+                {
+                        auto* action = mMenu.addAction( QString( "${%1}" ).arg( key ) );
+                        action->setData( key );
+                }
+                if ( variables.keys().empty() )
+                {
+                        auto* action = mMenu.addAction( "None" );
+                        action->setEnabled( false );
+                }
 
-		setEnabled( !merge->keys().empty() || !variables.keys().empty() );
-	}
+                setEnabled( !merge->keys().empty() || !variables.keys().empty() );
+        }
 
 
-	///
-	/// onMenuActionTriggered slot
-	///
-	void FieldButton::onMenuActionTriggered( QAction* action )
-	{
-		emit keySelected( action->data().toString() );
-	}
+        ///
+        /// onMenuActionTriggered slot
+        ///
+        void FieldButton::onMenuActionTriggered( QAction* action )
+        {
+                emit keySelected( action->data().toString() );
+        }
 
 } // namespace glabels

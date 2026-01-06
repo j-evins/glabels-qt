@@ -24,77 +24,77 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Constructor
-		///
-		Size::Size() : mW(0), mH(0)
-		{
-			// empty
-		}
-
-
-		///
-		/// Constructor
-		///
-		Size::Size( Distance w, Distance h )
-			: mW(w),
-			  mH(h)
-		{
-			// empty
-		}
+                ///
+                /// Constructor
+                ///
+                Size::Size() : mW(0), mH(0)
+                {
+                        // empty
+                }
 
 
-		///
-		/// Get w
-		///
-		Distance Size::w() const
-		{
-			return mW;
-		}
+                ///
+                /// Constructor
+                ///
+                Size::Size( Distance w, Distance h )
+                        : mW(w),
+                          mH(h)
+                {
+                        // empty
+                }
 
 
-		///
-		/// Set w
-		///
-		void Size::setW( Distance value )
-		{
-			mW = value;
-		}
+                ///
+                /// Get w
+                ///
+                Distance Size::w() const
+                {
+                        return mW;
+                }
 
 
-		///
-		/// Get h
-		///
-		Distance Size::h() const
-		{
-			return mH;
-		}
+                ///
+                /// Set w
+                ///
+                void Size::setW( Distance value )
+                {
+                        mW = value;
+                }
 
 
-		///
-		/// Set h
-		///
-		void Size::setH( Distance value )
-		{
-			mH = value;
-		}
+                ///
+                /// Get h
+                ///
+                Distance Size::h() const
+                {
+                        return mH;
+                }
 
 
-		///
-		/// Convert to a QSizeF
-		///
-		QSizeF Size::qSizeF() const
-		{
-			QSizeF s;
+                ///
+                /// Set h
+                ///
+                void Size::setH( Distance value )
+                {
+                        mH = value;
+                }
 
-			s.setWidth( mW.pt() );
-			s.setHeight( mH.pt() );
 
-			return s;
-		}
+                ///
+                /// Convert to a QSizeF
+                ///
+                QSizeF Size::qSizeF() const
+                {
+                        QSizeF s;
 
-	}
+                        s.setWidth( mW.pt() );
+                        s.setHeight( mH.pt() );
+
+                        return s;
+                }
+
+        }
 }

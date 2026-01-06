@@ -23,14 +23,14 @@
 
 class TestFileUtil : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void addExtension();
-	void systemTemplatesDir();
-	void manualUserTemplatesDir();
-	void userTemplatesDir();
-	void translationsDir();
-	void makeRelativeIfInDir_data();
-	void makeRelativeIfInDir();
+        void addExtension();
+        void systemTemplatesDir();
+        void manualUserTemplatesDir();
+        void userTemplatesDir();
+        void translationsDir();
+        void makeRelativeIfInDir_data();
+        void makeRelativeIfInDir();
 };

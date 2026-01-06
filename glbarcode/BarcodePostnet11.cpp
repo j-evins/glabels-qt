@@ -24,21 +24,21 @@
 namespace glbarcode
 {
 
-	/*
-	 * Static Postnet-11 barcode creation method
-	 */
-	Barcode* BarcodePostnet11::create( )
-	{
-		return new BarcodePostnet11();
-	}
+        /*
+         * Static Postnet-11 barcode creation method
+         */
+        Barcode* BarcodePostnet11::create( )
+        {
+                return new BarcodePostnet11();
+        }
 
 
-	/*
-	 * Postnet-11 validation of number of digits, overrides BarcodePostnet::validateDigits()
-	 */
-	bool BarcodePostnet11::validateDigits( int nDigits )
-	{
-		return nDigits == 11; /* Zip + 4 + Delivery Code */
-	}
+        /*
+         * Postnet-11 validation of number of digits, overrides BarcodePostnet::validateDigits()
+         */
+        bool BarcodePostnet11::validateDigits( int nDigits )
+        {
+                return nDigits == 11; /* Zip + 4 + Delivery Code */
+        }
 
 }

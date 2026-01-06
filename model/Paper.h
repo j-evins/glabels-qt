@@ -29,44 +29,44 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class Paper
-		{
-		public:
-			Paper() = default;
-			Paper( const QString& id,
-			       const QString& name,
-			       Distance       width,
-			       Distance       height,
-			       const QString& pwgSize );
-			~Paper() = default;
+                class Paper
+                {
+                public:
+                        Paper() = default;
+                        Paper( const QString& id,
+                               const QString& name,
+                               Distance       width,
+                               Distance       height,
+                               const QString& pwgSize );
+                        ~Paper() = default;
 
-			QString id() const;
-			QString name() const;
+                        QString id() const;
+                        QString name() const;
 
-			/* Width */
-			Distance width() const;
+                        /* Width */
+                        Distance width() const;
 
-			/* Height */
-			Distance height() const;
+                        /* Height */
+                        Distance height() const;
 
-			/* PWG 5101.1-2002 size name */
-			QString pwgSize() const;
+                        /* PWG 5101.1-2002 size name */
+                        QString pwgSize() const;
 
-			bool isSizeIso() const;
-			bool isSizeUs() const;
+                        bool isSizeIso() const;
+                        bool isSizeUs() const;
 
-		private:
-			QString  mId;
-			QString  mName;
-			Distance mWidth;
-			Distance mHeight;
-			QString  mPwgSize;
-		};
+                private:
+                        QString  mId;
+                        QString  mName;
+                        Distance mWidth;
+                        Distance mHeight;
+                        QString  mPwgSize;
+                };
 
-	}
+        }
 }
 
 

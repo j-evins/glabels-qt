@@ -23,18 +23,18 @@
 
 class TestSubstitutionField : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void parseValid();
-	void parseInvalid();
-	void construction();
-	void simpleEvaluation();
-	void defaultValueEvaluation();
-	void formattedStringEvaluation();
-	void formattedFloatEvaluation();
-	void formattedIntEvaluation();
-	void newLineEvaluation();
+        void parseValid();
+        void parseInvalid();
+        void construction();
+        void simpleEvaluation();
+        void defaultValueEvaluation();
+        void formattedStringEvaluation();
+        void formattedFloatEvaluation();
+        void formattedIntEvaluation();
+        void newLineEvaluation();
 };
 
 

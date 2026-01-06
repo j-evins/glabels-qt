@@ -29,59 +29,59 @@
 namespace glabels
 {
 
-	///
-	/// Color Palette Item
-	///
-	class ColorPaletteItem : public QWidget
-	{
-		Q_OBJECT
+        ///
+        /// Color Palette Item
+        ///
+        class ColorPaletteItem : public QWidget
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		ColorPaletteItem( int            id,
-		                  const QColor&  color,
-		                  const QString& tip,
-		                  QWidget*       parent = nullptr );
-
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void activated( int id );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                ColorPaletteItem( int            id,
+                                  const QColor&  color,
+                                  const QString& tip,
+                                  QWidget*       parent = nullptr );
 
 
-		/////////////////////////////////
-		// Public Methods
-		/////////////////////////////////
-	public:
-		void setColor( int            id,
-		               const QColor&  color,
-		               const QString& tip );
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void activated( int id );
 
 
-		/////////////////////////////////
-		// Event handlers
-		/////////////////////////////////
-	protected:
-		void paintEvent( QPaintEvent* event ) override;
-		void enterEvent( QEnterEvent* event ) override;
-		void leaveEvent( QEvent* event ) override;
-		void mousePressEvent( QMouseEvent* event ) override;
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void setColor( int            id,
+                               const QColor&  color,
+                               const QString& tip );
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		int     mId;
-		QColor  mColor;
-		QString mTip;
+                /////////////////////////////////
+                // Event handlers
+                /////////////////////////////////
+        protected:
+                void paintEvent( QPaintEvent* event ) override;
+                void enterEvent( QEnterEvent* event ) override;
+                void leaveEvent( QEvent* event ) override;
+                void mousePressEvent( QMouseEvent* event ) override;
 
-		bool        mHover;
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                int     mId;
+                QColor  mColor;
+                QString mTip;
+
+                bool        mHover;
+        };
 
 }
 

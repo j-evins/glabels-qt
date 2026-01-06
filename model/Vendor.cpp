@@ -23,27 +23,27 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		Vendor::Vendor( const QString &name, const QString &url )
-			: mName(name),
-			  mUrl(url)
-		{
-			// empty
-		}
+                Vendor::Vendor( const QString &name, const QString &url )
+                        : mName(name),
+                          mUrl(url)
+                {
+                        // empty
+                }
 
 
-		QString Vendor::name() const
-		{
-			return mName;
-		}
+                QString Vendor::name() const
+                {
+                        return mName;
+                }
 
-	
-		QString Vendor::url() const
-		{
-			return mUrl;
-		}
+        
+                QString Vendor::url() const
+                {
+                        return mUrl;
+                }
 
-	}
+        }
 }

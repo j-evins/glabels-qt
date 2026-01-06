@@ -29,49 +29,49 @@
 
 namespace glabels
 {
-	
-	///
-	/// Barcode Menu
-	///
-	class BarcodeMenu : public QMenu
-	{
-		Q_OBJECT
+        
+        ///
+        /// Barcode Menu
+        ///
+        class BarcodeMenu : public QMenu
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		BarcodeMenu();
-
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void selectionChanged();
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                BarcodeMenu();
 
 
-		/////////////////////////////////
-		// Properties
-		/////////////////////////////////
-	public:
-		barcode::Style bcStyle() const;
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void selectionChanged();
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onMenuItemActivated( const barcode::Style& bcStyle );
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                barcode::Style bcStyle() const;
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		barcode::Style mBcStyle;
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onMenuItemActivated( const barcode::Style& bcStyle );
 
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                barcode::Style mBcStyle;
+
+        };
 
 }
 

@@ -29,51 +29,51 @@
 
 namespace glabels
 {
-	
-	///
-	/// Constructor
-	///
-	BarcodeMenuButton::BarcodeMenuButton( QWidget* parent )
-		: QPushButton(parent)
-	{
-		mMenu = new BarcodeMenu();
-		setMenu( mMenu );
+        
+        ///
+        /// Constructor
+        ///
+        BarcodeMenuButton::BarcodeMenuButton( QWidget* parent )
+                : QPushButton(parent)
+        {
+                mMenu = new BarcodeMenu();
+                setMenu( mMenu );
 
-		mBcStyle = barcode::Backends::defaultStyle();
-		setText( mBcStyle.fullName() );
+                mBcStyle = barcode::Backends::defaultStyle();
+                setText( mBcStyle.fullName() );
 
-		connect( mMenu, SIGNAL(selectionChanged()), this, SLOT(onMenuSelectionChanged()) );
-	}
-
-
-	///
-	/// bcStyle getter
-	///
-	barcode::Style BarcodeMenuButton::bcStyle() const
-	{
-		return mBcStyle;
-	}
+                connect( mMenu, SIGNAL(selectionChanged()), this, SLOT(onMenuSelectionChanged()) );
+        }
 
 
-	///
-	/// bcStyle setter
-	///
-	void BarcodeMenuButton::setBcStyle( const barcode::Style& bcStyle )
-	{
-		mBcStyle = bcStyle;
-		setText( mBcStyle.fullName() );
-	}
+        ///
+        /// bcStyle getter
+        ///
+        barcode::Style BarcodeMenuButton::bcStyle() const
+        {
+                return mBcStyle;
+        }
 
 
-	///
-	/// onMenuStyleChanged slot
-	///
-	void BarcodeMenuButton::onMenuSelectionChanged()
-	{
-		mBcStyle = mMenu->bcStyle();
-		setText( mBcStyle.fullName() );
+        ///
+        /// bcStyle setter
+        ///
+        void BarcodeMenuButton::setBcStyle( const barcode::Style& bcStyle )
+        {
+                mBcStyle = bcStyle;
+                setText( mBcStyle.fullName() );
+        }
 
-		emit selectionChanged();
-	}
+
+        ///
+        /// onMenuStyleChanged slot
+        ///
+        void BarcodeMenuButton::onMenuSelectionChanged()
+        {
+                mBcStyle = mMenu->bcStyle();
+                setText( mBcStyle.fullName() );
+
+                emit selectionChanged();
+        }
 
 } // namespace glabels

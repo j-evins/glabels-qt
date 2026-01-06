@@ -26,52 +26,52 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		///
-		/// None Merge Backend
-		///
-		struct None : public Merge
-		{
+                ///
+                /// None Merge Backend
+                ///
+                struct None : public Merge
+                {
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		public:
-			None();
-			None( const None* merge );
-			virtual ~None() = default;
-
-
-			/////////////////////////////////
-			// Object duplication
-			/////////////////////////////////
-			None* clone() const override;
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                public:
+                        None();
+                        None( const None* merge );
+                        virtual ~None() = default;
 
 
-			/////////////////////////////////
-			// Static methods
-			/////////////////////////////////
-		public:
-			static QString id();
-			static Merge* create();
+                        /////////////////////////////////
+                        // Object duplication
+                        /////////////////////////////////
+                        None* clone() const override;
 
 
-			/////////////////////////////////
-			// Implementation of virtual methods
-			/////////////////////////////////
-		public:
-			QStringList keys() const override;
-			QString primaryKey() const override;
-		protected:
-			void open() override;
-			void close() override;
-			Record readNextRecord() override;
-		
-		};
+                        /////////////////////////////////
+                        // Static methods
+                        /////////////////////////////////
+                public:
+                        static QString id();
+                        static Merge* create();
 
-	}
+
+                        /////////////////////////////////
+                        // Implementation of virtual methods
+                        /////////////////////////////////
+                public:
+                        QStringList keys() const override;
+                        QString primaryKey() const override;
+                protected:
+                        void open() override;
+                        void close() override;
+                        Record readNextRecord() override;
+                
+                };
+
+        }
 }
 
 

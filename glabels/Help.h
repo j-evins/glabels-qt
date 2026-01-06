@@ -28,17 +28,17 @@
 namespace glabels
 {
 
-	///
-	/// Help Actions
-	///
-	namespace Help
-	{
+        ///
+        /// Help Actions
+        ///
+        namespace Help
+        {
 
-		void displayContents( QWidget *parent );
-		void displayReportBug( QWidget *parent );
-		void displayAbout( QWidget *parent );
+                void displayContents( QWidget *parent );
+                void displayReportBug( QWidget *parent );
+                void displayAbout( QWidget *parent );
 
-	}
+        }
 
 }
 

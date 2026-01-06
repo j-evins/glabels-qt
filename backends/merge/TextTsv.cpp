@@ -23,54 +23,54 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		static const QString ID = "Text/Tab";
+                static const QString ID = "Text/Tab";
 
-	
-		///
-		/// Constructor
-		///
-		TextTsv::TextTsv() : Text('\t',false)
-		{
-			mId = ID;
-		}
-
-
-		///
-		/// Constructor
-		///
-		TextTsv::TextTsv( const TextTsv* merge ) : Text( merge )
-		{
-		}
+        
+                ///
+                /// Constructor
+                ///
+                TextTsv::TextTsv() : Text('\t',false)
+                {
+                        mId = ID;
+                }
 
 
-		///
-		/// Clone
-		///
-		TextTsv* TextTsv::clone() const
-		{
-			return new TextTsv( this );
-		}
+                ///
+                /// Constructor
+                ///
+                TextTsv::TextTsv( const TextTsv* merge ) : Text( merge )
+                {
+                }
 
 
-		///
-		/// Get ID
-		///
-		QString TextTsv::id()
-		{
-			return ID;
-		}
+                ///
+                /// Clone
+                ///
+                TextTsv* TextTsv::clone() const
+                {
+                        return new TextTsv( this );
+                }
 
 
-		///
-		/// Create
-		///
-		Merge* TextTsv::create()
-		{
-			return new TextTsv();
-		}
+                ///
+                /// Get ID
+                ///
+                QString TextTsv::id()
+                {
+                        return ID;
+                }
 
-	} // namespace merge
+
+                ///
+                /// Create
+                ///
+                Merge* TextTsv::create()
+                {
+                        return new TextTsv();
+                }
+
+        } // namespace merge
 } // namespace glabels

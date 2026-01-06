@@ -23,9 +23,9 @@
 
 class TestVariable : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void variable();
-	void statics();
+        void variable();
+        void statics();
 };

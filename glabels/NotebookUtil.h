@@ -28,12 +28,12 @@
 
 namespace glabels
 {
-	namespace NotebookUtil
-	{
+        namespace NotebookUtil
+        {
 
-		void establishSize( QTabWidget* notebook );
+                void establishSize( QTabWidget* notebook );
 
-	}
+        }
 }
 
 

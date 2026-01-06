@@ -28,25 +28,25 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		namespace FileUtil
-		{
+                namespace FileUtil
+                {
 
-			QString addExtension( const QString& rawFilename, const QString& extension );
+                        QString addExtension( const QString& rawFilename, const QString& extension );
 
-			QDir systemTemplatesDir();
-			QDir manualUserTemplatesDir();
-			QDir userTemplatesDir();
+                        QDir systemTemplatesDir();
+                        QDir manualUserTemplatesDir();
+                        QDir userTemplatesDir();
 
-			QDir translationsDir();
+                        QDir translationsDir();
 
-			QString makeRelativeIfInDir( const QDir&    dir,
-			                             const QString& filename );
-		}
+                        QString makeRelativeIfInDir( const QDir&    dir,
+                                                     const QString& filename );
+                }
 
-	}
+        }
 }
 
 

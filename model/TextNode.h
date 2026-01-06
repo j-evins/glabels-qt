@@ -30,68 +30,68 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Text Node Type
-		///
-		struct TextNode
-		{
+                ///
+                /// Text Node Type
+                ///
+                struct TextNode
+                {
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		public:
-			TextNode();
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                public:
+                        TextNode();
 
-			TextNode( bool isField, const QString &data );
-
-
-			/////////////////////////////////
-			// Operators
-			/////////////////////////////////
-		public:
-			bool operator==( const TextNode& other );
-
-			bool operator!=( const TextNode& other );
+                        TextNode( bool isField, const QString &data );
 
 
-			/////////////////////////////////
-			// Properties
-			/////////////////////////////////
-		public:
-			//
-			// is field? Property
-			//
-			bool isField() const;
-			void setField( bool isField );
+                        /////////////////////////////////
+                        // Operators
+                        /////////////////////////////////
+                public:
+                        bool operator==( const TextNode& other );
 
-			//
-			// Data Property
-			//
-			const QString& data() const;
-			void setData( const QString& data );
+                        bool operator!=( const TextNode& other );
 
 
-			/////////////////////////////////
-			// Misc. Methods
-			/////////////////////////////////
-			QString text( const merge::Record& record,
-			              const Variables&     variables ) const;
+                        /////////////////////////////////
+                        // Properties
+                        /////////////////////////////////
+                public:
+                        //
+                        // is field? Property
+                        //
+                        bool isField() const;
+                        void setField( bool isField );
+
+                        //
+                        // Data Property
+                        //
+                        const QString& data() const;
+                        void setData( const QString& data );
 
 
-			/////////////////////////////////
-			// Private Data
-			/////////////////////////////////
-		private:
+                        /////////////////////////////////
+                        // Misc. Methods
+                        /////////////////////////////////
+                        QString text( const merge::Record& record,
+                                      const Variables&     variables ) const;
 
-			bool    mIsField;
-			QString mData;
 
-		};
+                        /////////////////////////////////
+                        // Private Data
+                        /////////////////////////////////
+                private:
 
-	}
+                        bool    mIsField;
+                        QString mData;
+
+                };
+
+        }
 }
 
 

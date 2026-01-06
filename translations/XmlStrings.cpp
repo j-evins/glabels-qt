@@ -30,79 +30,79 @@
 
 namespace
 {
-	QStringList stringList;
+        QStringList stringList;
 }
 
 
 void parseElement( const QDomElement& node )
 {
-	// Examine each attribute for translatable strings
-	QDomNamedNodeMap attrNodes = node.attributes();
-	for ( int i = 0; i < attrNodes.count(); i++ )
-	{
-		QDomAttr attr = attrNodes.item(i).toAttr();
-		if ( attr.name().at(0) == '_' )
-		{
-			if ( !stringList.contains( attr.value() ) )
-			{
-				stringList.append( attr.value() );
-			}
-		}
-	}
+        // Examine each attribute for translatable strings
+        QDomNamedNodeMap attrNodes = node.attributes();
+        for ( int i = 0; i < attrNodes.count(); i++ )
+        {
+                QDomAttr attr = attrNodes.item(i).toAttr();
+                if ( attr.name().at(0) == '_' )
+                {
+                        if ( !stringList.contains( attr.value() ) )
+                        {
+                                stringList.append( attr.value() );
+                        }
+                }
+        }
 
-	// Recurse over children
-	for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
-	{
-		parseElement( child.toElement() );
-	}
+        // Recurse over children
+        for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
+        {
+                parseElement( child.toElement() );
+        }
 }
 
 
 void parseFile( const QString& filename )
 {
-	QFile file( filename );
+        QFile file( filename );
 
-	if ( file.open( QFile::ReadOnly|QFile::Text ) )
-	{
-		QDomDocument doc;
+        if ( file.open( QFile::ReadOnly|QFile::Text ) )
+        {
+                QDomDocument doc;
 
-		if ( doc.setContent( &file, false ) )
-		{
-			QDomElement root = doc.documentElement();
+                if ( doc.setContent( &file, false ) )
+                {
+                        QDomElement root = doc.documentElement();
 
-			parseElement( root );
-		}
-	}
+                        parseElement( root );
+                }
+        }
 }
 
 
 int main( int argc, char *argv[] )
 {
-	QCoreApplication app( argc, argv );
+        QCoreApplication app( argc, argv );
 
-	QStringList filenameList = app.arguments();
-	filenameList.removeFirst();  // Remove 0th argument, which is the command name
+        QStringList filenameList = app.arguments();
+        filenameList.removeFirst();  // Remove 0th argument, which is the command name
 
-	for ( QString filename : filenameList )
-	{
-		parseFile( filename );
-	}
+        for ( QString filename : filenameList )
+        {
+                parseFile( filename );
+        }
 
-	stringList.sort();
+        stringList.sort();
 
-	QTextStream out( stdout );
+        QTextStream out( stdout );
 
-	out << "// Automatically generated with " << app.arguments().at(0) << Qt::endl;
-	out << "//" << Qt::endl;
-	out << "// Sources:" << Qt::endl;
-	for ( QString filename : filenameList )
-	{
-		out << "//         " << filename << Qt::endl;
-	}
-	out << "//" << Qt::endl;
-		
-	for ( QString string : stringList )
-	{
-		out << "QT_TRANSLATE_NOOP( \"XmlStrings\", \"" << string << "\" );" << Qt::endl;
-	}
+        out << "// Automatically generated with " << app.arguments().at(0) << Qt::endl;
+        out << "//" << Qt::endl;
+        out << "// Sources:" << Qt::endl;
+        for ( QString filename : filenameList )
+        {
+                out << "//         " << filename << Qt::endl;
+        }
+        out << "//" << Qt::endl;
+                
+        for ( QString string : stringList )
+        {
+                out << "QT_TRANSLATE_NOOP( \"XmlStrings\", \"" << string << "\" );" << Qt::endl;
+        }
 }

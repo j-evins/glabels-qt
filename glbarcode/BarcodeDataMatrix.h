@@ -28,32 +28,32 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodeDataMatrix BarcodeDataMatrix.h glbarcode/BarcodeDataMatrix.h
-	 *
-	 * DataMatrix barcode, implements Barcode2dBase
-	 *
-	 * @image html sample-datamatrix.svg "Sample Data Matrix Barcode"
-	 *
-	 */
-	class BarcodeDataMatrix : public Barcode2dBase
-	{
-	public:
-		/**
-		 * Static DataMatrix barcode creation method
-		 *
-		 * Used by glbarcode::BarcodeFactory
-		 */
-		static Barcode* create();
+        /**
+         * @class BarcodeDataMatrix BarcodeDataMatrix.h glbarcode/BarcodeDataMatrix.h
+         *
+         * DataMatrix barcode, implements Barcode2dBase
+         *
+         * @image html sample-datamatrix.svg "Sample Data Matrix Barcode"
+         *
+         */
+        class BarcodeDataMatrix : public Barcode2dBase
+        {
+        public:
+                /**
+                 * Static DataMatrix barcode creation method
+                 *
+                 * Used by glbarcode::BarcodeFactory
+                 */
+                static Barcode* create();
 
 
-	private:
-		bool validate( const std::string& rawData ) override;
+        private:
+                bool validate( const std::string& rawData ) override;
 
-		bool encode( const std::string& cookedData,
-		             Matrix<bool>&      encodedData ) override;
+                bool encode( const std::string& cookedData,
+                             Matrix<bool>&      encodedData ) override;
 
-	};
+        };
 
 }
 

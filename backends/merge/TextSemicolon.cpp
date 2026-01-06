@@ -23,54 +23,54 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		static const QString ID = "Text/Semicolon";
-
-
-		///
-		/// Constructor
-		///
-		TextSemicolon::TextSemicolon() : Text(';',false)
-		{
-			mId = ID;
-		}
+                static const QString ID = "Text/Semicolon";
 
 
-		///
-		/// Constructor
-		///
-		TextSemicolon::TextSemicolon( const TextSemicolon* merge ) : Text( merge )
-		{
-		}
+                ///
+                /// Constructor
+                ///
+                TextSemicolon::TextSemicolon() : Text(';',false)
+                {
+                        mId = ID;
+                }
 
 
-		///
-		/// Clone
-		///
-		TextSemicolon* TextSemicolon::clone() const
-		{
-			return new TextSemicolon( this );
-		}
+                ///
+                /// Constructor
+                ///
+                TextSemicolon::TextSemicolon( const TextSemicolon* merge ) : Text( merge )
+                {
+                }
 
 
-		///
-		/// Get ID
-		///
-		QString TextSemicolon::id()
-		{
-			return ID;
-		}
+                ///
+                /// Clone
+                ///
+                TextSemicolon* TextSemicolon::clone() const
+                {
+                        return new TextSemicolon( this );
+                }
 
 
-		///
-		/// Create
-		///
-		Merge* TextSemicolon::create()
-		{
-			return new TextSemicolon();
-		}
+                ///
+                /// Get ID
+                ///
+                QString TextSemicolon::id()
+                {
+                        return ID;
+                }
 
-	} // namespace merge
+
+                ///
+                /// Create
+                ///
+                Merge* TextSemicolon::create()
+                {
+                        return new TextSemicolon();
+                }
+
+        } // namespace merge
 } // namespace glabels

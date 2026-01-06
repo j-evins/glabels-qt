@@ -29,58 +29,58 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Size Type
-		///
-		class Size
-		{
+                ///
+                /// Size Type
+                ///
+                class Size
+                {
 
-			/////////////////////////////////
-			// Constructors
-			/////////////////////////////////
-		public:
-			Size();
-			Size( Distance w, Distance h );
-	
+                        /////////////////////////////////
+                        // Constructors
+                        /////////////////////////////////
+                public:
+                        Size();
+                        Size( Distance w, Distance h );
+        
 
-			/////////////////////////////////
-			// Properties
-			/////////////////////////////////
-		public:
-			//
-			// w Property
-			//
-			Distance w() const;
-			void setW( Distance value );
-
-
-			//
-			// H Property
-			//
-			Distance h() const;
-			void setH( Distance value );
+                        /////////////////////////////////
+                        // Properties
+                        /////////////////////////////////
+                public:
+                        //
+                        // w Property
+                        //
+                        Distance w() const;
+                        void setW( Distance value );
 
 
-			/////////////////////////////////
-			// Methods
-			/////////////////////////////////
-		public:
-			QSizeF qSizeF() const;
+                        //
+                        // H Property
+                        //
+                        Distance h() const;
+                        void setH( Distance value );
 
 
-			/////////////////////////////////
-			// Private Data
-			/////////////////////////////////
-		private:
-			Distance mW;
-			Distance mH;
+                        /////////////////////////////////
+                        // Methods
+                        /////////////////////////////////
+                public:
+                        QSizeF qSizeF() const;
 
-		};
 
-	}
+                        /////////////////////////////////
+                        // Private Data
+                        /////////////////////////////////
+                private:
+                        Distance mW;
+                        Distance mH;
+
+                };
+
+        }
 }
 
 

@@ -28,22 +28,22 @@
 namespace glabels
 {
 
-	PreviewOverlayItem::PreviewOverlayItem( const model::PageRenderer* renderer, QGraphicsItem* parent )
-		: QGraphicsItem(parent), mRenderer(renderer)
-	{
-		// empty
-	}
+        PreviewOverlayItem::PreviewOverlayItem( const model::PageRenderer* renderer, QGraphicsItem* parent )
+                : QGraphicsItem(parent), mRenderer(renderer)
+        {
+                // empty
+        }
 
 
-	QRectF PreviewOverlayItem::boundingRect() const
-	{
-		return mRenderer->pageRect();
-	}
+        QRectF PreviewOverlayItem::boundingRect() const
+        {
+                return mRenderer->pageRect();
+        }
 
 
-	void PreviewOverlayItem::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
-	{
-		mRenderer->printPage( painter );
-	}
+        void PreviewOverlayItem::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
+        {
+                mRenderer->printPage( painter );
+        }
 
 } // namespace glabels

@@ -34,84 +34,84 @@
 namespace glabels
 {
 
-	///
-	/// Color Palette Dialog
-	///
-	class ColorPaletteDialog : public QDialog
-	{
-		Q_OBJECT
+        ///
+        /// Color Palette Dialog
+        ///
+        class ColorPaletteDialog : public QDialog
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		ColorPaletteDialog( const QString& defaultLabel,
-		                    const QColor&  defaultColor,
-		                    const QColor&  color,
-		                    bool           showUseFieldButton = true,
-		                    QWidget*       parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                ColorPaletteDialog( const QString& defaultLabel,
+                                    const QColor&  defaultColor,
+                                    const QColor&  color,
+                                    bool           showUseFieldButton = true,
+                                    QWidget*       parent = nullptr );
 
 
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void colorChanged( model::ColorNode colorNode, bool isDefault );
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void colorChanged( model::ColorNode colorNode, bool isDefault );
 
 
-		/////////////////////////////////
-		// Public Methods
-		/////////////////////////////////
-	public:
-		void setColorNode( const model::ColorNode& colorNode );
-		
-		void setKeys( const merge::Merge*     merge,
-		              const model::Variables& variables );
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void setColorNode( const model::ColorNode& colorNode );
+                
+                void setKeys( const merge::Merge*     merge,
+                              const model::Variables& variables );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onPaletteItemActivated( int id );
-		void onHistoryItemActivated( int id );
-		void onDefaultButtonClicked();
-		void onCustomColorButtonClicked();
-		void onKeySelected( QString key );
-		void onColorHistoryChanged();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onPaletteItemActivated( int id );
+                void onHistoryItemActivated( int id );
+                void onDefaultButtonClicked();
+                void onCustomColorButtonClicked();
+                void onKeySelected( QString key );
+                void onColorHistoryChanged();
 
 
-		/////////////////////////////////
-		// Private Methods
-		/////////////////////////////////
-	private:
-		void loadCustomColorHistory();
+                /////////////////////////////////
+                // Private Methods
+                /////////////////////////////////
+        private:
+                void loadCustomColorHistory();
 
 
-		/////////////////////////////////
-		// Private Members
-		/////////////////////////////////
-	private:
-		QColor           mDefaultColor;
-		model::ColorNode mColorNode;
+                /////////////////////////////////
+                // Private Members
+                /////////////////////////////////
+        private:
+                QColor           mDefaultColor;
+                model::ColorNode mColorNode;
 
-		static const int PALETTE_COLS = ColorHistory::MAX_COLORS;
-		static const int PALETTE_ROWS = 4;
+                static const int PALETTE_COLS = ColorHistory::MAX_COLORS;
+                static const int PALETTE_ROWS = 4;
 
-		struct ColorTableEntry {
-			QString colorSpec;
-			const char* trname;
-		};
+                struct ColorTableEntry {
+                        QString colorSpec;
+                        const char* trname;
+                };
 
-		static ColorTableEntry mColorTable[];
+                static ColorTableEntry mColorTable[];
 
-		ColorHistory* mColorHistory;
-		ColorPaletteItem* mHistoryItem[PALETTE_COLS];
+                ColorHistory* mColorHistory;
+                ColorPaletteItem* mHistoryItem[PALETTE_COLS];
 
-		FieldButton* mFieldButton;
+                FieldButton* mFieldButton;
 
-	};
+        };
 
 }
 

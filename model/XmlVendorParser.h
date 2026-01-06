@@ -31,22 +31,22 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class XmlVendorParser
-		{
-		public:
-			XmlVendorParser() = default;
+                class XmlVendorParser
+                {
+                public:
+                        XmlVendorParser() = default;
 
-			QList<Vendor> readFile( const QString &fileName );
+                        QList<Vendor> readFile( const QString &fileName );
 
-		private:
-			QList<Vendor> parseRootNode( const QDomElement &node );
-			Vendor parseVendorNode( const QDomElement &node );
-		};
+                private:
+                        QList<Vendor> parseRootNode( const QDomElement &node );
+                        Vendor parseVendorNode( const QDomElement &node );
+                };
 
-	}
+        }
 }
 
 

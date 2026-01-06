@@ -23,27 +23,27 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		Category::Category( const QString &id, const QString &name )
-			: mId(id),
-			  mName(name)
-		{
-			// empty
-		}
-
-
-		QString Category::id() const
-		{
-			return mId;
-		}
+                Category::Category( const QString &id, const QString &name )
+                        : mId(id),
+                          mName(name)
+                {
+                        // empty
+                }
 
 
-		QString Category::name() const
-		{
-			return mName;
-		}
+                QString Category::id() const
+                {
+                        return mId;
+                }
 
-	}
+
+                QString Category::name() const
+                {
+                        return mName;
+                }
+
+        }
 }

@@ -33,7 +33,7 @@ using namespace glbarcode::Constants;
 namespace
 {
 
-	const double MIN_CELL_SIZE  = ( 1.0/64.0 * PTS_PER_INCH );
+        const double MIN_CELL_SIZE  = ( 1.0/64.0 * PTS_PER_INCH );
 
 }
 
@@ -41,125 +41,125 @@ namespace
 namespace glbarcode
 {
 
-	/*
-	 * Barcode2dBase private data
-	 */
-	struct Barcode2dBase::PrivateData {
-		int dummy;
-	};
+        /*
+         * Barcode2dBase private data
+         */
+        struct Barcode2dBase::PrivateData {
+                int dummy;
+        };
 
 
-	Barcode2dBase::Barcode2dBase()
-	{
-		d = new Barcode2dBase::PrivateData;
-	}
+        Barcode2dBase::Barcode2dBase()
+        {
+                d = new Barcode2dBase::PrivateData;
+        }
 
 
-	Barcode2dBase::~Barcode2dBase()
-	{
-		delete d;
-	}
+        Barcode2dBase::~Barcode2dBase()
+        {
+                delete d;
+        }
 
 
-	Barcode& Barcode2dBase::build( const std::string& rawData,
-				       double             w,
-				       double             h )
-	{
-		std::string  cookedData;   /* Preprocessed data */
-		Matrix<bool> encodedData;  /* Encoded data matrix */
+        Barcode& Barcode2dBase::build( const std::string& rawData,
+                                       double             w,
+                                       double             h )
+        {
+                std::string  cookedData;   /* Preprocessed data */
+                Matrix<bool> encodedData;  /* Encoded data matrix */
 
-		clear();
+                clear();
 
-		if ( rawData.empty() )
-		{
-			setIsEmpty( true );
-			setIsDataValid( false );
+                if ( rawData.empty() )
+                {
+                        setIsEmpty( true );
+                        setIsDataValid( false );
 
-			setWidth( 0 );
-			setHeight( 0 );
-		}
-		else
-		{
-			setIsEmpty( false );
+                        setWidth( 0 );
+                        setHeight( 0 );
+                }
+                else
+                {
+                        setIsEmpty( false );
 
-			if ( !validate( rawData ) )
-			{
-				setIsDataValid( false );
+                        if ( !validate( rawData ) )
+                        {
+                                setIsDataValid( false );
 
-				setWidth( 0 );
-				setHeight( 0 );
-			}
-			else
-			{
-				setIsDataValid( true );
+                                setWidth( 0 );
+                                setHeight( 0 );
+                        }
+                        else
+                        {
+                                setIsDataValid( true );
 
-				cookedData  = preprocess( rawData );
-				encode( cookedData, encodedData );
+                                cookedData  = preprocess( rawData );
+                                encode( cookedData, encodedData );
 
-				vectorize( encodedData, w, h );
+                                vectorize( encodedData, w, h );
 
-				setWidth( w );
-				setHeight( h );
-			}
-		}
+                                setWidth( w );
+                                setHeight( h );
+                        }
+                }
 
-		return *this;
-	}
-
-
-	/*
-	 * Default preprocess method
-	 */
-	std::string Barcode2dBase::preprocess( const std::string& rawData )
-	{
-		return rawData;
-	}
+                return *this;
+        }
 
 
-	/*
-	 * Default 2D vectorization method
-	 */
-	void Barcode2dBase::vectorize( const Matrix<bool>& encodedData,
-				       double&             w,
-				       double&             h )
-	{
+        /*
+         * Default preprocess method
+         */
+        std::string Barcode2dBase::preprocess( const std::string& rawData )
+        {
+                return rawData;
+        }
 
-		/* determine size and establish scale */
-		double scale;
-		double minW = MIN_CELL_SIZE*encodedData.nx() + 2*MIN_CELL_SIZE;
-		double minH = MIN_CELL_SIZE*encodedData.ny() + 2*MIN_CELL_SIZE;
 
-		if ( (w <= minW) || (h <= minH) )
-		{
-			scale = 1;
-			w     = minW;
-			h     = minH;
-		}
-		else
-		{
-			scale = std::min( w / minW, h / minH );
-			w     = scale * minW;
-			h     = scale * minH;
-		}
-		double cellSize  = scale * MIN_CELL_SIZE;
-		double quietSize = scale * MIN_CELL_SIZE;
-		
-		
-		for ( int iy = 0; iy < encodedData.ny(); iy++ )
-		{
-			for ( int ix = 0; ix < encodedData.nx(); ix++ )
-			{
-				if ( encodedData[iy][ix] )
-				{
-					addBox( quietSize + ix*cellSize,
-						quietSize + iy*cellSize,
-						cellSize,
-						cellSize );
-				}
-			}
-		}
+        /*
+         * Default 2D vectorization method
+         */
+        void Barcode2dBase::vectorize( const Matrix<bool>& encodedData,
+                                       double&             w,
+                                       double&             h )
+        {
 
-	}
+                /* determine size and establish scale */
+                double scale;
+                double minW = MIN_CELL_SIZE*encodedData.nx() + 2*MIN_CELL_SIZE;
+                double minH = MIN_CELL_SIZE*encodedData.ny() + 2*MIN_CELL_SIZE;
+
+                if ( (w <= minW) || (h <= minH) )
+                {
+                        scale = 1;
+                        w     = minW;
+                        h     = minH;
+                }
+                else
+                {
+                        scale = std::min( w / minW, h / minH );
+                        w     = scale * minW;
+                        h     = scale * minH;
+                }
+                double cellSize  = scale * MIN_CELL_SIZE;
+                double quietSize = scale * MIN_CELL_SIZE;
+                
+                
+                for ( int iy = 0; iy < encodedData.ny(); iy++ )
+                {
+                        for ( int ix = 0; ix < encodedData.nx(); ix++ )
+                        {
+                                if ( encodedData[iy][ix] )
+                                {
+                                        addBox( quietSize + ix*cellSize,
+                                                quietSize + iy*cellSize,
+                                                cellSize,
+                                                cellSize );
+                                }
+                        }
+                }
+
+        }
 
 
 }

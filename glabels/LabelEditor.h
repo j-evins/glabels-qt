@@ -35,188 +35,188 @@
 namespace glabels
 {
 
-	// Forward References
-	class UndoRedoModel;
+        // Forward References
+        class UndoRedoModel;
 
 
-	///
-	/// LabelEditor Widget
-	///
-	class LabelEditor : public QWidget
-	{
-		Q_OBJECT
+        ///
+        /// LabelEditor Widget
+        ///
+        class LabelEditor : public QWidget
+        {
+                Q_OBJECT
 
-		/////////////////////////////////////
-		// Lifecycle
-		/////////////////////////////////////
-	public:
-		LabelEditor( QScrollArea* scrollArea, QWidget* parent = nullptr );
-
-
-		/////////////////////////////////////
-		// Signals
-		/////////////////////////////////////
-	signals:
-		void contextMenuActivate( model::Point p );
-		void zoomChanged();
-		void pointerMoved( model::Point p );
-		void pointerExited();
-		void modeChanged();
+                /////////////////////////////////////
+                // Lifecycle
+                /////////////////////////////////////
+        public:
+                LabelEditor( QScrollArea* scrollArea, QWidget* parent = nullptr );
 
 
-		/////////////////////////////////////
-		// Parameters
-		/////////////////////////////////////
-	public:
-		double zoom() const;
-		bool markupVisible() const;
-		bool qridVisible() const;
+                /////////////////////////////////////
+                // Signals
+                /////////////////////////////////////
+        signals:
+                void contextMenuActivate( model::Point p );
+                void zoomChanged();
+                void pointerMoved( model::Point p );
+                void pointerExited();
+                void modeChanged();
 
 
-		/////////////////////////////////////
-		// Model
-		/////////////////////////////////////
-	public:
-		void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+                /////////////////////////////////////
+                // Parameters
+                /////////////////////////////////////
+        public:
+                double zoom() const;
+                bool markupVisible() const;
+                bool qridVisible() const;
 
 
-		/////////////////////////////////////
-		// Visibility operations
-		/////////////////////////////////////
-	public:
-		void setGridVisible( bool visibleFlag );
-		void setMarkupVisible( bool visibleFlag );
+                /////////////////////////////////////
+                // Model
+                /////////////////////////////////////
+        public:
+                void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
 
 
-		/////////////////////////////////////
-		// Zoom operations
-		/////////////////////////////////////
-	public:
-		void zoomIn();
-		void zoomOut();
-		void zoom1To1();
-		void zoomToFit();
-		bool isZoomMax() const;
-		bool isZoomMin() const;
-	private:
-		void setZoomReal( double zoom, bool zoomToFitFlag );
+                /////////////////////////////////////
+                // Visibility operations
+                /////////////////////////////////////
+        public:
+                void setGridVisible( bool visibleFlag );
+                void setMarkupVisible( bool visibleFlag );
 
 
-		/////////////////////////////////////
-		// Mode operations
-		/////////////////////////////////////
-	public:
-		void arrowMode();
-		void createBoxMode();
-		void createEllipseMode();
-		void createLineMode();
-		void createImageMode();
-		void createTextMode();
-		void createBarcodeMode();
+                /////////////////////////////////////
+                // Zoom operations
+                /////////////////////////////////////
+        public:
+                void zoomIn();
+                void zoomOut();
+                void zoom1To1();
+                void zoomToFit();
+                bool isZoomMax() const;
+                bool isZoomMin() const;
+        private:
+                void setZoomReal( double zoom, bool zoomToFitFlag );
 
 
-		/////////////////////////////////////
-		// Event handlers
-		/////////////////////////////////////
-	protected:
-		void resizeEvent( QResizeEvent* event ) override;
-		void mousePressEvent( QMouseEvent* event ) override;
-		void mouseMoveEvent( QMouseEvent* event ) override;
-		void mouseReleaseEvent( QMouseEvent* event ) override;
-		void leaveEvent( QEvent* event ) override;
-		void keyPressEvent( QKeyEvent* event ) override;
-		void paintEvent( QPaintEvent* event ) override;
-		void dragEnterEvent( QDragEnterEvent *event ) override;
-		void dragMoveEvent( QDragMoveEvent *event ) override;
-		void dropEvent( QDropEvent *event ) override;
+                /////////////////////////////////////
+                // Mode operations
+                /////////////////////////////////////
+        public:
+                void arrowMode();
+                void createBoxMode();
+                void createEllipseMode();
+                void createLineMode();
+                void createImageMode();
+                void createTextMode();
+                void createBarcodeMode();
 
 
-		/////////////////////////////////////
-		// Private methods
-		/////////////////////////////////////
-	private:
-		void handleResizeMotion( model::Distance xWorld,
-		                         model::Distance yWorld );
-
-		void drawBgLayer( QPainter* painter );
-		void drawGridLayer( QPainter* painter );
-		void drawMarkupLayer( QPainter* painter );
-		void drawObjectsLayer( QPainter* painter );
-		void drawFgLayer( QPainter* painter );
-		void drawHighlightLayer( QPainter* painter );
-		void drawSelectRegionLayer( QPainter* painter );
-
-
-		/////////////////////////////////////
-		// Private slots
-		/////////////////////////////////////
-	private slots:
-		void onSettingsChanged();
-		void onModelSizeChanged();
+                /////////////////////////////////////
+                // Event handlers
+                /////////////////////////////////////
+        protected:
+                void resizeEvent( QResizeEvent* event ) override;
+                void mousePressEvent( QMouseEvent* event ) override;
+                void mouseMoveEvent( QMouseEvent* event ) override;
+                void mouseReleaseEvent( QMouseEvent* event ) override;
+                void leaveEvent( QEvent* event ) override;
+                void keyPressEvent( QKeyEvent* event ) override;
+                void paintEvent( QPaintEvent* event ) override;
+                void dragEnterEvent( QDragEnterEvent *event ) override;
+                void dragMoveEvent( QDragMoveEvent *event ) override;
+                void dropEvent( QDropEvent *event ) override;
 
 
-		/////////////////////////////////////
-		// Private data
-		/////////////////////////////////////
-	private:
-		enum State {
-			IdleState,
-			ArrowSelectRegion,
-			ArrowMove,
-			ArrowResize,
-			CreateIdle,
-			CreateDrag
-		};
+                /////////////////////////////////////
+                // Private methods
+                /////////////////////////////////////
+        private:
+                void handleResizeMotion( model::Distance xWorld,
+                                         model::Distance yWorld );
 
-		enum CreateType {
-			Box,
-			Ellipse,
-			Line,
-			Image,
-			Text,
-			Barcode
-		};
-
-		QScrollArea*         mScrollArea;
-
-		model::Model*        mModel;
-		UndoRedoModel*       mUndoRedoModel;
-
-		double               mZoom;
-		bool                 mZoomToFitFlag;
-		double               mScale;
-		model::Distance      mX0;
-		model::Distance      mY0;
-
-		bool                 mMarkupVisible;
-		bool                 mGridVisible;
-
-		double               mGridSpacing;
-		model::Distance      mStepSize;
-
-		State                mState;
-
-		/* ArrowSelectRegion state */
-		bool                 mSelectRegionVisible;
-		model::Region        mSelectRegion;
-
-		/* ArrowMove state */
-		model::Distance      mMoveLastX;
-		model::Distance      mMoveLastY;
-
-		/* ArrowResize state */
-		model::ModelObject*     mResizeObject;
-		model::Handle::Location mResizeHandleLocation;
-		bool                    mResizeHonorAspect;
-
-		/* CreateDrag state */
-		CreateType           mCreateObjectType;
-		model::ModelObject*  mCreateObject;
-		model::Distance      mCreateX0;
-		model::Distance      mCreateY0;
+                void drawBgLayer( QPainter* painter );
+                void drawGridLayer( QPainter* painter );
+                void drawMarkupLayer( QPainter* painter );
+                void drawObjectsLayer( QPainter* painter );
+                void drawFgLayer( QPainter* painter );
+                void drawHighlightLayer( QPainter* painter );
+                void drawSelectRegionLayer( QPainter* painter );
 
 
-	};
+                /////////////////////////////////////
+                // Private slots
+                /////////////////////////////////////
+        private slots:
+                void onSettingsChanged();
+                void onModelSizeChanged();
+
+
+                /////////////////////////////////////
+                // Private data
+                /////////////////////////////////////
+        private:
+                enum State {
+                        IdleState,
+                        ArrowSelectRegion,
+                        ArrowMove,
+                        ArrowResize,
+                        CreateIdle,
+                        CreateDrag
+                };
+
+                enum CreateType {
+                        Box,
+                        Ellipse,
+                        Line,
+                        Image,
+                        Text,
+                        Barcode
+                };
+
+                QScrollArea*         mScrollArea;
+
+                model::Model*        mModel;
+                UndoRedoModel*       mUndoRedoModel;
+
+                double               mZoom;
+                bool                 mZoomToFitFlag;
+                double               mScale;
+                model::Distance      mX0;
+                model::Distance      mY0;
+
+                bool                 mMarkupVisible;
+                bool                 mGridVisible;
+
+                double               mGridSpacing;
+                model::Distance      mStepSize;
+
+                State                mState;
+
+                /* ArrowSelectRegion state */
+                bool                 mSelectRegionVisible;
+                model::Region        mSelectRegion;
+
+                /* ArrowMove state */
+                model::Distance      mMoveLastX;
+                model::Distance      mMoveLastY;
+
+                /* ArrowResize state */
+                model::ModelObject*     mResizeObject;
+                model::Handle::Location mResizeHandleLocation;
+                bool                    mResizeHonorAspect;
+
+                /* CreateDrag state */
+                CreateType           mCreateObjectType;
+                model::ModelObject*  mCreateObject;
+                model::Distance      mCreateX0;
+                model::Distance      mCreateY0;
+
+
+        };
 
 }
 

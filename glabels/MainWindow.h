@@ -44,288 +44,288 @@
 namespace glabels
 {
 
-	// Forward References
-	class LabelEditor;
-	class MergeView;
-	class ObjectEditor;
-	class PrintView;
-	class PropertiesView;
-	class StartupView;
-	class VariablesView;
+        // Forward References
+        class LabelEditor;
+        class MergeView;
+        class ObjectEditor;
+        class PrintView;
+        class PropertiesView;
+        class StartupView;
+        class VariablesView;
 
 
-	///
-	/// MainWindow Widget
-	///
-	class MainWindow : public QMainWindow
-	{
-		Q_OBJECT
+        ///
+        /// MainWindow Widget
+        ///
+        class MainWindow : public QMainWindow
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////////
-		// Lifecycle
-		/////////////////////////////////////
-	public:
-		MainWindow();
-		virtual ~MainWindow() = default;
+                /////////////////////////////////////
+                // Lifecycle
+                /////////////////////////////////////
+        public:
+                MainWindow();
+                virtual ~MainWindow() = default;
 
 
-		/////////////////////////////////////
-		// Public Methods
-		/////////////////////////////////////
-	public:
-		model::Model* model() const;
-		void setModel( model::Model* model );
-		bool isEmpty() const;
+                /////////////////////////////////////
+                // Public Methods
+                /////////////////////////////////////
+        public:
+                model::Model* model() const;
+                void setModel( model::Model* model );
+                bool isEmpty() const;
 
 
-		/////////////////////////////////////
-		// Events
-		/////////////////////////////////////
-	protected:
-		void closeEvent( QCloseEvent *event ) override;
+                /////////////////////////////////////
+                // Events
+                /////////////////////////////////////
+        protected:
+                void closeEvent( QCloseEvent *event ) override;
 
 
-		/////////////////////////////////////
-		// Slots
-		/////////////////////////////////////
-	private slots:
-		void changePage( bool checked );
+                /////////////////////////////////////
+                // Slots
+                /////////////////////////////////////
+        private slots:
+                void changePage( bool checked );
 
-		void clipboardChanged();
+                void clipboardChanged();
 
-		void fileNew();
-		void fileOpen();
-		void fileOpenRecent();
-		void fileSave();
-		void fileSaveAs();
-		void fileShowEditorPage();
-		void fileShowPropertiesPage();
-		void fileShowMergePage();
-		void fileShowVariablesPage();
-		void fileShowPrintPage();
-		void fileTemplateDesigner();
-		void fileClose();
-		void fileExit();
+                void fileNew();
+                void fileOpen();
+                void fileOpenRecent();
+                void fileSave();
+                void fileSaveAs();
+                void fileShowEditorPage();
+                void fileShowPropertiesPage();
+                void fileShowMergePage();
+                void fileShowVariablesPage();
+                void fileShowPrintPage();
+                void fileTemplateDesigner();
+                void fileClose();
+                void fileExit();
 
-		void editUndo();
-		void editRedo();
-		void editCut();
-		void editCopy();
-		void editPaste();
-		void editContextPaste();
-		void editDelete();
-		void editSelectAll();
-		void editUnSelectAll();
-		void editPreferences();
+                void editUndo();
+                void editRedo();
+                void editCut();
+                void editCopy();
+                void editPaste();
+                void editContextPaste();
+                void editDelete();
+                void editSelectAll();
+                void editUnSelectAll();
+                void editPreferences();
 
-		void viewFileToolBar( bool );
-		void viewEditorToolBar( bool );
-		void viewGrid( bool );
-		void viewMarkup( bool );
-		void viewZoomIn();
-		void viewZoomOut();
-		void viewZoom1To1();
-		void viewZoomToFit();
+                void viewFileToolBar( bool );
+                void viewEditorToolBar( bool );
+                void viewGrid( bool );
+                void viewMarkup( bool );
+                void viewZoomIn();
+                void viewZoomOut();
+                void viewZoom1To1();
+                void viewZoomToFit();
 
-		void objectsArrowMode();
-		void objectsCreateText();
-		void objectsCreateBox();
-		void objectsCreateLine();
-		void objectsCreateEllipse();
-		void objectsCreateImage();
-		void objectsCreateBarcode();
-		void objectsOrderRaise();
-		void objectsOrderLower();
-		void objectsXformRotateLeft();
-		void objectsXformRotateRight();
-		void objectsXformFlipHoriz();
-		void objectsXformFlipVert();
-		void objectsAlignLeft();
-		void objectsAlignHCenter();
-		void objectsAlignRight();
-		void objectsAlignTop();
-		void objectsAlignVCenter();
-		void objectsAlignBottom();
-		void objectsCenter();
-		void objectsCenterHoriz();
-		void objectsCenterVert();
+                void objectsArrowMode();
+                void objectsCreateText();
+                void objectsCreateBox();
+                void objectsCreateLine();
+                void objectsCreateEllipse();
+                void objectsCreateImage();
+                void objectsCreateBarcode();
+                void objectsOrderRaise();
+                void objectsOrderLower();
+                void objectsXformRotateLeft();
+                void objectsXformRotateRight();
+                void objectsXformFlipHoriz();
+                void objectsXformFlipVert();
+                void objectsAlignLeft();
+                void objectsAlignHCenter();
+                void objectsAlignRight();
+                void objectsAlignTop();
+                void objectsAlignVCenter();
+                void objectsAlignBottom();
+                void objectsCenter();
+                void objectsCenterHoriz();
+                void objectsCenterVert();
 
-		void helpContents();
-		void helpReportBug();
-		void helpAbout();
+                void helpContents();
+                void helpReportBug();
+                void helpAbout();
 
-		void onContextMenuActivate( model::Point );
+                void onContextMenuActivate( model::Point );
 
-		void onZoomChanged();
-		void onPointerMoved( model::Point );
-		void onPointerExit();
+                void onZoomChanged();
+                void onPointerMoved( model::Point );
+                void onPointerExit();
 
-		void onNameChanged();
-		void onModifiedChanged();
-		void onSelectionChanged();
-		void onLabelChanged();
-		void onUndoRedoChanged();
+                void onNameChanged();
+                void onModifiedChanged();
+                void onSelectionChanged();
+                void onLabelChanged();
+                void onUndoRedoChanged();
 
-		void onSettingsChanged();
-
-
-		/////////////////////////////////////
-		// Internal Private Methods
-		/////////////////////////////////////
-	private:
-		void createActions();
-		void createMenus();
-		void createToolBars();
-		void createStatusBar();
-
-		QWidget* createWelcomePage();
-		QWidget* createEditorPage();
-		QWidget* createPropertiesPage();
-		QWidget* createMergePage();
-		QWidget* createVariablesPage();
-		QWidget* createPrintPage();
-
-		void manageActions();
-
-		void setTitle();
-
-		void readSettings();
-		void writeSettings();
-
-		bool isOkToClose();
+                void onSettingsChanged();
 
 
-		/////////////////////////////////////
-		// Private Data
-		// owned and managed by us
-		/////////////////////////////////////
-	private:
-		std::unique_ptr<model::Model>  mModel;
-		std::unique_ptr<UndoRedoModel> mUndoRedoModel;
+                /////////////////////////////////////
+                // Internal Private Methods
+                /////////////////////////////////////
+        private:
+                void createActions();
+                void createMenus();
+                void createToolBars();
+                void createStatusBar();
 
-		
-		/////////////////////////////////////
-		// Private Data
-		// owned by QMainWindow
-		/////////////////////////////////////
-		QMenu*    fileMenu;
-		QMenu*    fileRecentMenu;
-		QMenu*    editMenu;
-		QMenu*    viewMenu;
-		QMenu*    viewToolBarsMenu;
-		QMenu*    objectsMenu;
-		QMenu*    objectsCreateMenu;
-		QMenu*    objectsOrderMenu;
-		QMenu*    objectsXformMenu;
-		QMenu*    objectsAlignMenu;
-		QMenu*    objectsCenterMenu;
-		QMenu*    helpMenu;
+                QWidget* createWelcomePage();
+                QWidget* createEditorPage();
+                QWidget* createPropertiesPage();
+                QWidget* createMergePage();
+                QWidget* createVariablesPage();
+                QWidget* createPrintPage();
 
-		QMenu*    contextMenu;
-		QMenu*    contextOrderMenu;
-		QMenu*    contextXformMenu;
-		QMenu*    contextAlignMenu;
-		QMenu*    contextCenterMenu;
-		QMenu*    noSelectionContextMenu;
-		
-		QToolBar* fileToolBar;
-		QToolBar* editorToolBar;
+                void manageActions();
 
-		QToolBar*            mContents;
-		QToolButton*         mWelcomeButton;
-		QToolButton*         mEditorButton;
-		QToolButton*         mPropertiesButton;
-		QToolButton*         mMergeButton;
-		QToolButton*         mVariablesButton;
-		QToolButton*         mPrintButton;
+                void setTitle();
 
-		QAction*             mWelcomeAction;
-		QAction*             mEditorAction;
-		QAction*             mPropertiesAction;
-		QAction*             mMergeAction;
-		QAction*             mVariablesAction;
-		QAction*             mPrintAction;
+                void readSettings();
+                void writeSettings();
 
-		QStackedWidget*      mPages;
-		StartupView*         mWelcomeView;
-		QScrollArea*         mLabelEditorScrollArea;
-		LabelEditor*         mLabelEditor;
-		ObjectEditor*        mObjectEditor;
-		PropertiesView*      mPropertiesView;
-		MergeView*           mMergeView;
-		VariablesView*       mVariablesView;
-		PrintView*           mPrintView;
+                bool isOkToClose();
 
-		QLabel*   zoomInfoLabel;
-		QLabel*   cursorInfoLabel;
 
-		QAction*  fileNewAction;
-		QAction*  fileOpenAction;
-		QAction*  fileSaveAction;
-		QAction*  fileSaveAsAction;
-		QAction*  fileShowEditorPageAction;
-		QAction*  fileShowPropertiesPageAction;
-		QAction*  fileShowMergePageAction;
-		QAction*  fileShowVariablesPageAction;
-		QAction*  fileShowPrintPageAction;
-		QAction*  fileTemplateDesignerAction;
-		QAction*  fileCloseAction;
-		QAction*  fileExitAction;
+                /////////////////////////////////////
+                // Private Data
+                // owned and managed by us
+                /////////////////////////////////////
+        private:
+                std::unique_ptr<model::Model>  mModel;
+                std::unique_ptr<UndoRedoModel> mUndoRedoModel;
 
-		QList<QAction*>  fileRecentActionList;
+                
+                /////////////////////////////////////
+                // Private Data
+                // owned by QMainWindow
+                /////////////////////////////////////
+                QMenu*    fileMenu;
+                QMenu*    fileRecentMenu;
+                QMenu*    editMenu;
+                QMenu*    viewMenu;
+                QMenu*    viewToolBarsMenu;
+                QMenu*    objectsMenu;
+                QMenu*    objectsCreateMenu;
+                QMenu*    objectsOrderMenu;
+                QMenu*    objectsXformMenu;
+                QMenu*    objectsAlignMenu;
+                QMenu*    objectsCenterMenu;
+                QMenu*    helpMenu;
 
-		QAction*  editUndoAction;
-		QAction*  editRedoAction;
-		QAction*  editCutAction;
-		QAction*  editCopyAction;
-		QAction*  editPasteAction;
-		QAction*  editDeleteAction;
-		QAction*  editSelectAllAction;
-		QAction*  editUnSelectAllAction;
-		QAction*  editPreferencesAction;
+                QMenu*    contextMenu;
+                QMenu*    contextOrderMenu;
+                QMenu*    contextXformMenu;
+                QMenu*    contextAlignMenu;
+                QMenu*    contextCenterMenu;
+                QMenu*    noSelectionContextMenu;
+                
+                QToolBar* fileToolBar;
+                QToolBar* editorToolBar;
 
-		QAction*  viewFileToolBarAction;
-		QAction*  viewEditorToolBarAction;
-		QAction*  viewGridAction;
-		QAction*  viewMarkupAction;
-		QAction*  viewZoomInAction;
-		QAction*  viewZoomOutAction;
-		QAction*  viewZoom1To1Action;
-		QAction*  viewZoomToFitAction;
+                QToolBar*            mContents;
+                QToolButton*         mWelcomeButton;
+                QToolButton*         mEditorButton;
+                QToolButton*         mPropertiesButton;
+                QToolButton*         mMergeButton;
+                QToolButton*         mVariablesButton;
+                QToolButton*         mPrintButton;
 
-		QAction*  objectsArrowModeAction;
-		QAction*  objectsCreateTextAction;
-		QAction*  objectsCreateBoxAction;
-		QAction*  objectsCreateLineAction;
-		QAction*  objectsCreateEllipseAction;
-		QAction*  objectsCreateImageAction;
-		QAction*  objectsCreateBarcodeAction;
-		QAction*  objectsOrderRaiseAction;
-		QAction*  objectsOrderLowerAction;
-		QAction*  objectsXformRotateLeftAction;
-		QAction*  objectsXformRotateRightAction;
-		QAction*  objectsXformFlipHorizAction;
-		QAction*  objectsXformFlipVertAction;
-		QAction*  objectsAlignLeftAction;
-		QAction*  objectsAlignHCenterAction;
-		QAction*  objectsAlignRightAction;
-		QAction*  objectsAlignTopAction;
-		QAction*  objectsAlignVCenterAction;
-		QAction*  objectsAlignBottomAction;
-		QAction*  objectsCenterAction;
-		QAction*  objectsCenterHorizAction;
-		QAction*  objectsCenterVertAction;
+                QAction*             mWelcomeAction;
+                QAction*             mEditorAction;
+                QAction*             mPropertiesAction;
+                QAction*             mMergeAction;
+                QAction*             mVariablesAction;
+                QAction*             mPrintAction;
 
-		QAction*  helpContentsAction;
-		QAction*  helpReportBugAction;
-		QAction*  helpAboutAction;
+                QStackedWidget*      mPages;
+                StartupView*         mWelcomeView;
+                QScrollArea*         mLabelEditorScrollArea;
+                LabelEditor*         mLabelEditor;
+                ObjectEditor*        mObjectEditor;
+                PropertiesView*      mPropertiesView;
+                MergeView*           mMergeView;
+                VariablesView*       mVariablesView;
+                PrintView*           mPrintView;
 
-		QAction*  contextCutAction;
-		QAction*  contextCopyAction;
-		QAction*  contextPasteAction;
-		QAction*  contextDeleteAction;
-	};
+                QLabel*   zoomInfoLabel;
+                QLabel*   cursorInfoLabel;
+
+                QAction*  fileNewAction;
+                QAction*  fileOpenAction;
+                QAction*  fileSaveAction;
+                QAction*  fileSaveAsAction;
+                QAction*  fileShowEditorPageAction;
+                QAction*  fileShowPropertiesPageAction;
+                QAction*  fileShowMergePageAction;
+                QAction*  fileShowVariablesPageAction;
+                QAction*  fileShowPrintPageAction;
+                QAction*  fileTemplateDesignerAction;
+                QAction*  fileCloseAction;
+                QAction*  fileExitAction;
+
+                QList<QAction*>  fileRecentActionList;
+
+                QAction*  editUndoAction;
+                QAction*  editRedoAction;
+                QAction*  editCutAction;
+                QAction*  editCopyAction;
+                QAction*  editPasteAction;
+                QAction*  editDeleteAction;
+                QAction*  editSelectAllAction;
+                QAction*  editUnSelectAllAction;
+                QAction*  editPreferencesAction;
+
+                QAction*  viewFileToolBarAction;
+                QAction*  viewEditorToolBarAction;
+                QAction*  viewGridAction;
+                QAction*  viewMarkupAction;
+                QAction*  viewZoomInAction;
+                QAction*  viewZoomOutAction;
+                QAction*  viewZoom1To1Action;
+                QAction*  viewZoomToFitAction;
+
+                QAction*  objectsArrowModeAction;
+                QAction*  objectsCreateTextAction;
+                QAction*  objectsCreateBoxAction;
+                QAction*  objectsCreateLineAction;
+                QAction*  objectsCreateEllipseAction;
+                QAction*  objectsCreateImageAction;
+                QAction*  objectsCreateBarcodeAction;
+                QAction*  objectsOrderRaiseAction;
+                QAction*  objectsOrderLowerAction;
+                QAction*  objectsXformRotateLeftAction;
+                QAction*  objectsXformRotateRightAction;
+                QAction*  objectsXformFlipHorizAction;
+                QAction*  objectsXformFlipVertAction;
+                QAction*  objectsAlignLeftAction;
+                QAction*  objectsAlignHCenterAction;
+                QAction*  objectsAlignRightAction;
+                QAction*  objectsAlignTopAction;
+                QAction*  objectsAlignVCenterAction;
+                QAction*  objectsAlignBottomAction;
+                QAction*  objectsCenterAction;
+                QAction*  objectsCenterHorizAction;
+                QAction*  objectsCenterVertAction;
+
+                QAction*  helpContentsAction;
+                QAction*  helpReportBugAction;
+                QAction*  helpAboutAction;
+
+                QAction*  contextCutAction;
+                QAction*  contextCopyAction;
+                QAction*  contextPasteAction;
+                QAction*  contextDeleteAction;
+        };
 
 
 }

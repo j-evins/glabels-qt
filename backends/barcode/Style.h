@@ -27,93 +27,93 @@
 
 namespace glabels
 {
-	namespace barcode
-	{
-	
-		///
-		///  Style Type
-		///
-		class Style
-		{
+        namespace barcode
+        {
+        
+                ///
+                ///  Style Type
+                ///
+                class Style
+                {
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		public:
-			Style ();
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                public:
+                        Style ();
 
-			Style ( const QString& id,
-			        const QString& backendId,
-			        const QString& name,
-			        bool           canText,
-			        bool           textOptional,
-			        bool           canChecksum,
-			        bool           checksumOptional,
-			        const QString& defaultDigits,
-			        bool           canFreeform,
-			        int            preferedN );
-
-
-			/////////////////////////////////
-			// Properties
-			/////////////////////////////////
-			const QString& id() const;
-
-			QString fullId() const;
-
-			const QString& backendId() const;
-
-			const QString& name() const;
-
-			QString fullName() const;
-
-			bool canText() const;
-
-			bool textOptional() const;
-
-			bool canChecksum() const;
-
-			bool checksumOptional() const;
-
-			const QString& defaultDigits() const;
-
-			bool canFreeform() const;
-
-			int preferedN() const;
+                        Style ( const QString& id,
+                                const QString& backendId,
+                                const QString& name,
+                                bool           canText,
+                                bool           textOptional,
+                                bool           canChecksum,
+                                bool           checksumOptional,
+                                const QString& defaultDigits,
+                                bool           canFreeform,
+                                int            preferedN );
 
 
-			/////////////////////////////////
-			// Methods
-			/////////////////////////////////
-		public:
-			QString exampleDigits( int n ) const;
+                        /////////////////////////////////
+                        // Properties
+                        /////////////////////////////////
+                        const QString& id() const;
+
+                        QString fullId() const;
+
+                        const QString& backendId() const;
+
+                        const QString& name() const;
+
+                        QString fullName() const;
+
+                        bool canText() const;
+
+                        bool textOptional() const;
+
+                        bool canChecksum() const;
+
+                        bool checksumOptional() const;
+
+                        const QString& defaultDigits() const;
+
+                        bool canFreeform() const;
+
+                        int preferedN() const;
 
 
-			/////////////////////////////////
-			// Operators
-			/////////////////////////////////
-		public:
-			bool operator!=( const Style& other ) const;
+                        /////////////////////////////////
+                        // Methods
+                        /////////////////////////////////
+                public:
+                        QString exampleDigits( int n ) const;
 
 
-			/////////////////////////////////
-			// Private Data
-			/////////////////////////////////
-		private:
-			QString mId;
-			QString mBackendId;
-			QString mName;
-			bool    mCanText;
-			bool    mTextOptional;
-			bool    mCanChecksum;
-			bool    mChecksumOptional;
-			QString mDefaultDigits;
-			bool    mCanFreeform;
-			int     mPreferedN;
+                        /////////////////////////////////
+                        // Operators
+                        /////////////////////////////////
+                public:
+                        bool operator!=( const Style& other ) const;
 
-		};
 
-	}
+                        /////////////////////////////////
+                        // Private Data
+                        /////////////////////////////////
+                private:
+                        QString mId;
+                        QString mBackendId;
+                        QString mName;
+                        bool    mCanText;
+                        bool    mTextOptional;
+                        bool    mCanChecksum;
+                        bool    mChecksumOptional;
+                        QString mDefaultDigits;
+                        bool    mCanFreeform;
+                        int     mPreferedN;
+
+                };
+
+        }
 }
 
 

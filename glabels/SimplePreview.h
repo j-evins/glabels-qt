@@ -32,61 +32,61 @@
 namespace glabels
 {
 
-	///
-	/// Simple Preview Widget
-	///
-	class SimplePreview : public QGraphicsView
-	{
-		Q_OBJECT
+        ///
+        /// Simple Preview Widget
+        ///
+        class SimplePreview : public QGraphicsView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		SimplePreview( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                SimplePreview( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Properties
-		/////////////////////////////////
-	public:
-		void setTemplate( const model::Template& tmplate );
-		void setShowArrow( bool showArrow );
-		void setRotate( bool rotateFlag );
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                void setTemplate( const model::Template& tmplate );
+                void setShowArrow( bool showArrow );
+                void setRotate( bool rotateFlag );
 
 
-		/////////////////////////////////////
-		// Event handlers
-		/////////////////////////////////////
-	protected:
-		void resizeEvent( QResizeEvent* event ) override;
+                /////////////////////////////////////
+                // Event handlers
+                /////////////////////////////////////
+        protected:
+                void resizeEvent( QResizeEvent* event ) override;
 
-		
-		/////////////////////////////////
-		// Internal Methods
-		/////////////////////////////////
-	private:
-		void update();
-		void drawPaper();
-		void drawLabels();
-		void drawLabel( model::Distance     x,
-		                model::Distance     y,
-		                const QPainterPath& path );
-		void drawArrow();
+                
+                /////////////////////////////////
+                // Internal Methods
+                /////////////////////////////////
+        private:
+                void update();
+                void drawPaper();
+                void drawLabels();
+                void drawLabel( model::Distance     x,
+                                model::Distance     y,
+                                const QPainterPath& path );
+                void drawArrow();
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		model::Template mTmplate;
-		bool            mShowArrow  { false };
-		bool            mRotateFlag { false };
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                model::Template mTmplate;
+                bool            mShowArrow  { false };
+                bool            mRotateFlag { false };
 
-		QGraphicsScene* mScene { nullptr };
+                QGraphicsScene* mScene { nullptr };
 
-	};
+        };
 
 }
 

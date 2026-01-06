@@ -30,60 +30,60 @@
 namespace glabels
 {
 
-	// Forward references
-	class UndoRedoModel;
-	
+        // Forward references
+        class UndoRedoModel;
+        
 
-	///
-	/// Variables Property Editor Widget
-	///
-	class VariablesView : public QWidget, public Ui_VariablesView
-	{
-		Q_OBJECT
-
-
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		VariablesView( QWidget *parent = nullptr );
-		virtual ~VariablesView() = default;
+        ///
+        /// Variables Property Editor Widget
+        ///
+        class VariablesView : public QWidget, public Ui_VariablesView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-		void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                VariablesView( QWidget *parent = nullptr );
+                virtual ~VariablesView() = default;
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onTableSelectionChanged();
-		void onAddButtonClicked();
-		void onEditButtonClicked();
-		void onDeleteButtonClicked();
-		void onVariablesChanged();
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
 
 
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void updateControls();
-		void loadTable();
-		void selectVariable( const QString& name );
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onTableSelectionChanged();
+                void onAddButtonClicked();
+                void onEditButtonClicked();
+                void onDeleteButtonClicked();
+                void onVariablesChanged();
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		model::Model*  mModel;
-		UndoRedoModel* mUndoRedoModel;
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                void updateControls();
+                void loadTable();
+                void selectVariable( const QString& name );
 
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                model::Model*  mModel;
+                UndoRedoModel* mUndoRedoModel;
+
+        };
 
 }
 

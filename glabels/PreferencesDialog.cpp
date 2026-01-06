@@ -26,147 +26,147 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	PreferencesDialog::PreferencesDialog( QWidget *parent )
-		: QDialog(parent)
-	{
-		setupUi( this );
+        ///
+        /// Constructor
+        ///
+        PreferencesDialog::PreferencesDialog( QWidget *parent )
+                : QDialog(parent)
+        {
+                setupUi( this );
 
-		
-		auto units = model::Settings::units();
-		
-		switch ( units.toEnum() )
-		{
-		case model::Units::IN:
-			unitsInchesRadio->setChecked( true );
-			break;
-		case model::Units::MM:
-			unitsMillimetersRadio->setChecked( true );
-			break;
-		case model::Units::CM:
-			unitsCentimetersRadio->setChecked( true );
-			break;
-		case model::Units::PC:
-			unitsPicasRadio->setChecked( true );
-			break;
-		default:
-			unitsPointsRadio->setChecked( true );
-			break;
-		}
-
-
-		switch ( model::Settings::gridOrigin() )
-		{
-		case model::Settings::ORIGIN_CENTER:
-			gridOriginCenterRadio->setChecked( true );
-			break;
-		case model::Settings::ORIGIN_TL:
-			gridOriginTlRadio->setChecked( true );
-			break;
-		default:
-			gridOriginTlRadio->setChecked( true );
-			break;
-		}
+                
+                auto units = model::Settings::units();
+                
+                switch ( units.toEnum() )
+                {
+                case model::Units::IN:
+                        unitsInchesRadio->setChecked( true );
+                        break;
+                case model::Units::MM:
+                        unitsMillimetersRadio->setChecked( true );
+                        break;
+                case model::Units::CM:
+                        unitsCentimetersRadio->setChecked( true );
+                        break;
+                case model::Units::PC:
+                        unitsPicasRadio->setChecked( true );
+                        break;
+                default:
+                        unitsPointsRadio->setChecked( true );
+                        break;
+                }
 
 
-		auto gridSpacing = model::Settings::gridSpacing();
-		
-		gridSpacingSpin->setDecimals( units.resolutionDigits() );
-		gridSpacingSpin->setSingleStep( units.resolution() );
-		gridSpacingSpin->setMinimum( units.resolution() );
-		gridSpacingSpin->setSuffix( " " + units.toIdString() );
-		gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
+                switch ( model::Settings::gridOrigin() )
+                {
+                case model::Settings::ORIGIN_CENTER:
+                        gridOriginCenterRadio->setChecked( true );
+                        break;
+                case model::Settings::ORIGIN_TL:
+                        gridOriginTlRadio->setChecked( true );
+                        break;
+                default:
+                        gridOriginTlRadio->setChecked( true );
+                        break;
+                }
 
 
-		connect( model::Settings::instance(), SIGNAL(changed()),
-		         this, SLOT(onSettingsChanged()) );
-	}
+                auto gridSpacing = model::Settings::gridSpacing();
+                
+                gridSpacingSpin->setDecimals( units.resolutionDigits() );
+                gridSpacingSpin->setSingleStep( units.resolution() );
+                gridSpacingSpin->setMinimum( units.resolution() );
+                gridSpacingSpin->setSuffix( " " + units.toIdString() );
+                gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
 
 
-	///
-	/// Units Radios Changed
-	///
-	void PreferencesDialog::onUnitsRadiosChanged()
-	{
-		if ( unitsInchesRadio->isChecked() )
-		{
-			model::Settings::setUnits( model::Units::in() );
-		}
-		else if ( unitsMillimetersRadio->isChecked() )
-		{
-			model::Settings::setUnits( model::Units::mm() );
-		}
-		else if ( unitsCentimetersRadio->isChecked() )
-		{
-			model::Settings::setUnits( model::Units::cm() );
-		}
-		else if ( unitsPicasRadio->isChecked() )
-		{
-			model::Settings::setUnits( model::Units::pc() );
-		}
-		else
-		{
-			model::Settings::setUnits( model::Units::pt() );
-		}
-	}
+                connect( model::Settings::instance(), SIGNAL(changed()),
+                         this, SLOT(onSettingsChanged()) );
+        }
 
 
-	///
-	/// Grid Origin Radios Changed
-	///
-	void PreferencesDialog::onGridOriginRadiosChanged()
-	{
-		if ( gridOriginTlRadio->isChecked() )
-		{
-			model::Settings::setGridOrigin( model::Settings::ORIGIN_TL );
-		}
-		else if ( gridOriginCenterRadio->isChecked() )
-		{
-			model::Settings::setGridOrigin( model::Settings::ORIGIN_CENTER );
-		}
-	}
+        ///
+        /// Units Radios Changed
+        ///
+        void PreferencesDialog::onUnitsRadiosChanged()
+        {
+                if ( unitsInchesRadio->isChecked() )
+                {
+                        model::Settings::setUnits( model::Units::in() );
+                }
+                else if ( unitsMillimetersRadio->isChecked() )
+                {
+                        model::Settings::setUnits( model::Units::mm() );
+                }
+                else if ( unitsCentimetersRadio->isChecked() )
+                {
+                        model::Settings::setUnits( model::Units::cm() );
+                }
+                else if ( unitsPicasRadio->isChecked() )
+                {
+                        model::Settings::setUnits( model::Units::pc() );
+                }
+                else
+                {
+                        model::Settings::setUnits( model::Units::pt() );
+                }
+        }
 
 
-	///
-	/// Grid Spacing Spin Changed
-	///
-	void PreferencesDialog::onGridSpacingSpinChanged()
-	{
-		auto units = model::Settings::units();
-
-		auto spacing = model::Distance( gridSpacingSpin->value(), units );
-
-		model::Settings::setGridSpacing( spacing );
-	}
-
-
-	///
-	/// Grid Spacing Reset Button Clicked
-	///
-	void PreferencesDialog::onGridSpacingResetButtonClicked()
-	{
-		model::Settings::resetGridSpacing();
-	}
+        ///
+        /// Grid Origin Radios Changed
+        ///
+        void PreferencesDialog::onGridOriginRadiosChanged()
+        {
+                if ( gridOriginTlRadio->isChecked() )
+                {
+                        model::Settings::setGridOrigin( model::Settings::ORIGIN_TL );
+                }
+                else if ( gridOriginCenterRadio->isChecked() )
+                {
+                        model::Settings::setGridOrigin( model::Settings::ORIGIN_CENTER );
+                }
+        }
 
 
-	///
-	/// Settings Changed
-	///
-	void PreferencesDialog::onSettingsChanged()
-	{
-		auto units = model::Settings::units();
-		auto gridSpacing = model::Settings::gridSpacing();
+        ///
+        /// Grid Spacing Spin Changed
+        ///
+        void PreferencesDialog::onGridSpacingSpinChanged()
+        {
+                auto units = model::Settings::units();
 
-		gridSpacingSpin->blockSignals( true );
-		gridSpacingSpin->setDecimals( units.resolutionDigits() );
-		gridSpacingSpin->setSingleStep( units.resolution() );
-		gridSpacingSpin->setMinimum( units.resolution() );
-		gridSpacingSpin->setSuffix( " " + units.toIdString() );
-		gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
-		gridSpacingSpin->blockSignals( false );
-	}
+                auto spacing = model::Distance( gridSpacingSpin->value(), units );
+
+                model::Settings::setGridSpacing( spacing );
+        }
+
+
+        ///
+        /// Grid Spacing Reset Button Clicked
+        ///
+        void PreferencesDialog::onGridSpacingResetButtonClicked()
+        {
+                model::Settings::resetGridSpacing();
+        }
+
+
+        ///
+        /// Settings Changed
+        ///
+        void PreferencesDialog::onSettingsChanged()
+        {
+                auto units = model::Settings::units();
+                auto gridSpacing = model::Settings::gridSpacing();
+
+                gridSpacingSpin->blockSignals( true );
+                gridSpacingSpin->setDecimals( units.resolutionDigits() );
+                gridSpacingSpin->setSingleStep( units.resolution() );
+                gridSpacingSpin->setMinimum( units.resolution() );
+                gridSpacingSpin->setSuffix( " " + units.toIdString() );
+                gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
+                gridSpacingSpin->blockSignals( false );
+        }
 
 
 } // namespace glabels

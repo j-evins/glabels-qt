@@ -29,49 +29,49 @@
 
 namespace glabels
 {
-	
-	///
-	/// Barcode Menu Item
-	///
-	class BarcodeMenuItem : public QAction
-	{
-		Q_OBJECT
+        
+        ///
+        /// Barcode Menu Item
+        ///
+        class BarcodeMenuItem : public QAction
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		BarcodeMenuItem( const barcode::Style& bcStyle, QObject* parent = nullptr );
-
-
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void activated( const barcode::Style& bcStyle );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                BarcodeMenuItem( const barcode::Style& bcStyle, QObject* parent = nullptr );
 
 
-		/////////////////////////////////
-		// Properties
-		/////////////////////////////////
-	public:
-		barcode::Style bcStyle() const;
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void activated( const barcode::Style& bcStyle );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onTriggered();
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                barcode::Style bcStyle() const;
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		barcode::Style mBcStyle;
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onTriggered();
 
-	};
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                barcode::Style mBcStyle;
+
+        };
 
 }
 

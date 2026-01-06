@@ -23,15 +23,15 @@
 
 class TestMerge : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void initTestCase();
-	void factory_data();
-	void factory();
-	void factoryNotRegistered();
-	void text_data();
-	void text();
-	void none();
-	void record();
+        void initTestCase();
+        void factory_data();
+        void factory();
+        void factoryNotRegistered();
+        void text_data();
+        void text();
+        void none();
+        void record();
 };

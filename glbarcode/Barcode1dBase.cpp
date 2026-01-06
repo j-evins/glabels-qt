@@ -28,90 +28,90 @@
 namespace glbarcode
 {
 
-	/*
-	 * Barcode1dBase private data
-	 */
-	struct Barcode1dBase::PrivateData {
-		int dummy;
-	};
+        /*
+         * Barcode1dBase private data
+         */
+        struct Barcode1dBase::PrivateData {
+                int dummy;
+        };
 
 
-	Barcode1dBase::Barcode1dBase()
-	{
-		d = new Barcode1dBase::PrivateData;
-	}
+        Barcode1dBase::Barcode1dBase()
+        {
+                d = new Barcode1dBase::PrivateData;
+        }
 
 
-	Barcode1dBase::~Barcode1dBase()
-	{
-		delete d;
-	}
+        Barcode1dBase::~Barcode1dBase()
+        {
+                delete d;
+        }
 
 
-	Barcode& Barcode1dBase::build( const std::string& rawData,
-				       double             w,
-				       double             h )
-	{
-		std::string cookedData;     /* Preprocessed data */
-		std::string displayText;    /* Text data to be displayed */
-		std::string codedData;      /* Encoded data */
+        Barcode& Barcode1dBase::build( const std::string& rawData,
+                                       double             w,
+                                       double             h )
+        {
+                std::string cookedData;     /* Preprocessed data */
+                std::string displayText;    /* Text data to be displayed */
+                std::string codedData;      /* Encoded data */
 
-		clear();
+                clear();
 
-		if ( rawData.empty() )
-		{
-			setIsEmpty( true );
-			setIsDataValid( false );
+                if ( rawData.empty() )
+                {
+                        setIsEmpty( true );
+                        setIsDataValid( false );
 
-			setWidth( 0 );
-			setHeight( 0 );
-		}
-		else
-		{
-			setIsEmpty( false );
+                        setWidth( 0 );
+                        setHeight( 0 );
+                }
+                else
+                {
+                        setIsEmpty( false );
 
-			if ( !validate( rawData ) )
-			{
-				setIsDataValid( false );
+                        if ( !validate( rawData ) )
+                        {
+                                setIsDataValid( false );
 
-				setWidth( 0 );
-				setHeight( 0 );
-			}
-			else
-			{
-				setIsDataValid( true );
+                                setWidth( 0 );
+                                setHeight( 0 );
+                        }
+                        else
+                        {
+                                setIsDataValid( true );
 
-				cookedData  = preprocess( rawData );
-				codedData   = encode( cookedData );
-				displayText = prepareText( rawData );
+                                cookedData  = preprocess( rawData );
+                                codedData   = encode( cookedData );
+                                displayText = prepareText( rawData );
 
-				vectorize( codedData, displayText, cookedData, w, h );
+                                vectorize( codedData, displayText, cookedData, w, h );
 
-				setWidth( w );
-				setHeight( h );
-			}
-		}
+                                setWidth( w );
+                                setHeight( h );
+                        }
+                }
 
-		return *this;
-	}
-
-
-	/*
-	 * Default preprocess method
-	 */
-	std::string Barcode1dBase::preprocess( const std::string& rawData )
-	{
-		return rawData;
-	}
+                return *this;
+        }
 
 
-	/*
-	 * Default prepareText method
-	 */
-	std::string Barcode1dBase::prepareText( const std::string& rawData )
-	{
-		return rawData;
-	}
+        /*
+         * Default preprocess method
+         */
+        std::string Barcode1dBase::preprocess( const std::string& rawData )
+        {
+                return rawData;
+        }
+
+
+        /*
+         * Default prepareText method
+         */
+        std::string Barcode1dBase::prepareText( const std::string& rawData )
+        {
+                return rawData;
+        }
 
 
 }

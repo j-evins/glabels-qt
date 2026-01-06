@@ -26,317 +26,317 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		SubstitutionField::SubstitutionField()
-			: mFormatType(0), mNewLine(false)
-		{
-		}
-
-
-		SubstitutionField::SubstitutionField( const QString& string )
-			: mFormatType(0), mNewLine(false)
-		{
-			ParserState s(string);
-			parse( s, *this );
-		}
+                SubstitutionField::SubstitutionField()
+                        : mFormatType(0), mNewLine(false)
+                {
+                }
 
 
-		QString SubstitutionField::evaluate( const merge::Record& record,
-		                                     const Variables&     variables ) const
-		{
-			QString value = mDefaultValue;
-
-			bool haveRecordField = record.contains(mFieldName) &&
-				!record.value(mFieldName).isEmpty();
-			bool haveVariable = variables.contains(mFieldName) && !variables[mFieldName].value().isEmpty();
-
-			if ( haveRecordField )
-			{
-				value = record.value(mFieldName);
-			}
-			else if ( haveVariable )
-			{
-				value = variables[mFieldName].value();
-			}
-
-			if ( !mFormatType.isNull() )
-			{
-				value = formatValue( value );
-			}
-
-			if ( mNewLine && (haveRecordField || haveVariable) )
-			{
-				value = "\n" + value;
-			}
-
-			return value;
-		}
+                SubstitutionField::SubstitutionField( const QString& string )
+                        : mFormatType(0), mNewLine(false)
+                {
+                        ParserState s(string);
+                        parse( s, *this );
+                }
 
 
-		QString SubstitutionField::fieldName() const
-		{
-			return mFieldName;
-		}
+                QString SubstitutionField::evaluate( const merge::Record& record,
+                                                     const Variables&     variables ) const
+                {
+                        QString value = mDefaultValue;
+
+                        bool haveRecordField = record.contains(mFieldName) &&
+                                !record.value(mFieldName).isEmpty();
+                        bool haveVariable = variables.contains(mFieldName) && !variables[mFieldName].value().isEmpty();
+
+                        if ( haveRecordField )
+                        {
+                                value = record.value(mFieldName);
+                        }
+                        else if ( haveVariable )
+                        {
+                                value = variables[mFieldName].value();
+                        }
+
+                        if ( !mFormatType.isNull() )
+                        {
+                                value = formatValue( value );
+                        }
+
+                        if ( mNewLine && (haveRecordField || haveVariable) )
+                        {
+                                value = "\n" + value;
+                        }
+
+                        return value;
+                }
 
 
-		QString SubstitutionField::defaultValue() const
-		{
-			return mDefaultValue;
-		}
+                QString SubstitutionField::fieldName() const
+                {
+                        return mFieldName;
+                }
 
 
-		QString SubstitutionField::format() const
-		{
-			return mFormat;
-		}
+                QString SubstitutionField::defaultValue() const
+                {
+                        return mDefaultValue;
+                }
 
 
-		QChar SubstitutionField::formatType() const
-		{
-			return mFormatType;
-		}
+                QString SubstitutionField::format() const
+                {
+                        return mFormat;
+                }
 
 
-		bool SubstitutionField::newLine() const
-		{
-			return mNewLine;
-		}
+                QChar SubstitutionField::formatType() const
+                {
+                        return mFormatType;
+                }
 
 
-		bool SubstitutionField::parse( ParserState& s, SubstitutionField& field )
-		{
-			ParserState sTmp = s;
-		
-			if ( sTmp.isNextSubString( "${" ) )
-			{
-				sTmp.advanceChars( 2 );
-
-				if ( parseFieldName( sTmp, field ) )
-				{
-					while ( sTmp.charsLeft() && sTmp[0] == ':' )
-					{
-						sTmp.advanceChars( 1 );
-						if ( !parseModifier( sTmp, field ) )
-						{
-							return false;
-						}
-					}
-
-					if ( sTmp.charsLeft() && sTmp[0] == '}' )
-					{
-						sTmp.advanceChars( 1 );
-
-						// Success.  Update s.
-						s = sTmp;
-						return true;
-					}
-				}
-			}
-
-			return false;
-		}
+                bool SubstitutionField::newLine() const
+                {
+                        return mNewLine;
+                }
 
 
-		bool SubstitutionField::parseFieldName( ParserState& s, SubstitutionField& field )
-		{
-			bool success = false;
-		
-			while ( s.charsLeft() && (s[0].isPrint() && s[0] != ':' && s[0] != '}') )
-			{
-				field.mFieldName.append( s[0] );
-				s.advanceChars( 1 );
+                bool SubstitutionField::parse( ParserState& s, SubstitutionField& field )
+                {
+                        ParserState sTmp = s;
+                
+                        if ( sTmp.isNextSubString( "${" ) )
+                        {
+                                sTmp.advanceChars( 2 );
 
-				success = true;
-			}
+                                if ( parseFieldName( sTmp, field ) )
+                                {
+                                        while ( sTmp.charsLeft() && sTmp[0] == ':' )
+                                        {
+                                                sTmp.advanceChars( 1 );
+                                                if ( !parseModifier( sTmp, field ) )
+                                                {
+                                                        return false;
+                                                }
+                                        }
 
-			return success;
-		}
+                                        if ( sTmp.charsLeft() && sTmp[0] == '}' )
+                                        {
+                                                sTmp.advanceChars( 1 );
 
-	
-		bool SubstitutionField::parseModifier( ParserState& s, SubstitutionField& field )
-		{
-			bool success = false;
-		
-			if ( s.charsLeft() && s[0] == '%' )
-			{
-				s.advanceChars( 1 );
-				success = parseFormatModifier( s, field );
-			}
-			else if ( s.charsLeft() && s[0] == '=' )
-			{
-				s.advanceChars( 1 );
-				success = parseDefaultValueModifier( s, field );
-			}
-			else if ( s.charsLeft() && s[0] == 'n' )
-			{
-				s.advanceChars( 1 );
-				success = parseNewLineModifier( s, field );
-			}
+                                                // Success.  Update s.
+                                                s = sTmp;
+                                                return true;
+                                        }
+                                }
+                        }
 
-			return success;
-		}
-
-	
-		bool SubstitutionField::parseDefaultValueModifier( ParserState& s, SubstitutionField& field )
-		{
-			field.mDefaultValue.clear();
-
-			while ( s.charsLeft() && !QString( ":}" ).contains( s[0] ) )
-			{
-				if ( s[0] == '\\' )
-				{
-					s.advanceChars( 1 ); // Skip escape
-					if ( s.charsLeft() )
-					{
-						field.mDefaultValue.append( s[0] );
-						s.advanceChars( 1 );
-					}
-				}
-				else
-				{
-					field.mDefaultValue.append( s[0] );
-					s.advanceChars( 1 );
-				}
-			}
-
-			return true;
-		}
-
-	
-		bool SubstitutionField::parseFormatModifier( ParserState& s, SubstitutionField& field )
-		{
-			field.mFormat = "%";
-
-			parseFormatFlags( s, field );
-			parseFormatWidth( s, field );
-		
-			if ( s.charsLeft() && s[0] == '.' )
-			{
-				field.mFormat += ".";
-				s.advanceChars( 1 );
-				parseFormatPrecision( s, field );
-			}
-
-			parseFormatType( s, field );
-
-			return true; // Don't let invalid formats kill entire SubstitutionField
-		}
-
-	
-		bool SubstitutionField::parseFormatFlags( ParserState& s, SubstitutionField& field )
-		{
-			while ( s.charsLeft() && QString( "-+ 0" ).contains( s[0] ) )
-			{
-				field.mFormat += s[0];
-				s.advanceChars( 1 );
-			}
-
-			return true;
-		}
-
-	
-		bool SubstitutionField::parseFormatWidth( ParserState& s, SubstitutionField& field )
-		{
-			return parseNaturalInteger( s, field );
-		}
+                        return false;
+                }
 
 
-		bool SubstitutionField::parseFormatPrecision( ParserState& s, SubstitutionField& field )
-		{
-			return parseNaturalInteger( s, field );
-		}
+                bool SubstitutionField::parseFieldName( ParserState& s, SubstitutionField& field )
+                {
+                        bool success = false;
+                
+                        while ( s.charsLeft() && (s[0].isPrint() && s[0] != ':' && s[0] != '}') )
+                        {
+                                field.mFieldName.append( s[0] );
+                                s.advanceChars( 1 );
 
-	
-		bool SubstitutionField::parseFormatType( ParserState& s, SubstitutionField& field )
-		{
-			bool success = false;
+                                success = true;
+                        }
 
-			if ( s.charsLeft() && QString( "diufFeEgGxXos" ).contains( s[0] ) )
-			{
-				field.mFormatType = s[0];
-				field.mFormat += s[0];
-				s.advanceChars( 1 );
-				success = true;
-			}
+                        return success;
+                }
 
-			return success;
-		}
+        
+                bool SubstitutionField::parseModifier( ParserState& s, SubstitutionField& field )
+                {
+                        bool success = false;
+                
+                        if ( s.charsLeft() && s[0] == '%' )
+                        {
+                                s.advanceChars( 1 );
+                                success = parseFormatModifier( s, field );
+                        }
+                        else if ( s.charsLeft() && s[0] == '=' )
+                        {
+                                s.advanceChars( 1 );
+                                success = parseDefaultValueModifier( s, field );
+                        }
+                        else if ( s.charsLeft() && s[0] == 'n' )
+                        {
+                                s.advanceChars( 1 );
+                                success = parseNewLineModifier( s, field );
+                        }
 
-	
-		bool SubstitutionField::parseNaturalInteger( ParserState& s, SubstitutionField& field )
-		{
-			bool success = false;
+                        return success;
+                }
 
-			if ( s.charsLeft() && s[0] >= '1' && s[0] <= '9' )
-			{
-				field.mFormat += s[0];
-				s.advanceChars( 1 );
+        
+                bool SubstitutionField::parseDefaultValueModifier( ParserState& s, SubstitutionField& field )
+                {
+                        field.mDefaultValue.clear();
 
-				while ( s.charsLeft() && s[0].isDigit() )
-				{
-					field.mFormat += s[0];
-					s.advanceChars( 1 );
-				}
+                        while ( s.charsLeft() && !QString( ":}" ).contains( s[0] ) )
+                        {
+                                if ( s[0] == '\\' )
+                                {
+                                        s.advanceChars( 1 ); // Skip escape
+                                        if ( s.charsLeft() )
+                                        {
+                                                field.mDefaultValue.append( s[0] );
+                                                s.advanceChars( 1 );
+                                        }
+                                }
+                                else
+                                {
+                                        field.mDefaultValue.append( s[0] );
+                                        s.advanceChars( 1 );
+                                }
+                        }
 
-				success = true;
-			}
-		
-			return success;
-		}
-	
+                        return true;
+                }
 
-		bool SubstitutionField::parseNewLineModifier( ParserState& s, SubstitutionField& field )
-		{
-			field.mNewLine = true;
-			return true;
-		}
+        
+                bool SubstitutionField::parseFormatModifier( ParserState& s, SubstitutionField& field )
+                {
+                        field.mFormat = "%";
 
-	
-		QString SubstitutionField::formatValue( const QString& value ) const
-		{
-			switch (mFormatType.unicode())
-			{
-				
-			case 'd':
-			case 'i':
-				return QString::asprintf( mFormat.toStdString().c_str(),
-				                          value.toLongLong(nullptr,0) );
-				break;
-				
+                        parseFormatFlags( s, field );
+                        parseFormatWidth( s, field );
+                
+                        if ( s.charsLeft() && s[0] == '.' )
+                        {
+                                field.mFormat += ".";
+                                s.advanceChars( 1 );
+                                parseFormatPrecision( s, field );
+                        }
 
-			case 'u':
-			case 'x':
-			case 'X':
-			case 'o':
-				return QString::asprintf( mFormat.toStdString().c_str(),
-				                          value.toULongLong(nullptr,0) );
-				break;
+                        parseFormatType( s, field );
 
-			case 'f':
-			case 'F':
-			case 'e':
-			case 'E':
-			case 'g':
-			case 'G':
-				return QString::asprintf( mFormat.toStdString().c_str(),
-				                          value.toDouble() );
-				break;
+                        return true; // Don't let invalid formats kill entire SubstitutionField
+                }
 
-			case 's':
-				return QString::asprintf( mFormat.toStdString().c_str(),
-				                          value.toStdString().c_str() );
-				break;
+        
+                bool SubstitutionField::parseFormatFlags( ParserState& s, SubstitutionField& field )
+                {
+                        while ( s.charsLeft() && QString( "-+ 0" ).contains( s[0] ) )
+                        {
+                                field.mFormat += s[0];
+                                s.advanceChars( 1 );
+                        }
 
-			default:
-				// Invalid format
-				return "";
-				break;
+                        return true;
+                }
 
-			}
-		}
-	
+        
+                bool SubstitutionField::parseFormatWidth( ParserState& s, SubstitutionField& field )
+                {
+                        return parseNaturalInteger( s, field );
+                }
 
-	}
+
+                bool SubstitutionField::parseFormatPrecision( ParserState& s, SubstitutionField& field )
+                {
+                        return parseNaturalInteger( s, field );
+                }
+
+        
+                bool SubstitutionField::parseFormatType( ParserState& s, SubstitutionField& field )
+                {
+                        bool success = false;
+
+                        if ( s.charsLeft() && QString( "diufFeEgGxXos" ).contains( s[0] ) )
+                        {
+                                field.mFormatType = s[0];
+                                field.mFormat += s[0];
+                                s.advanceChars( 1 );
+                                success = true;
+                        }
+
+                        return success;
+                }
+
+        
+                bool SubstitutionField::parseNaturalInteger( ParserState& s, SubstitutionField& field )
+                {
+                        bool success = false;
+
+                        if ( s.charsLeft() && s[0] >= '1' && s[0] <= '9' )
+                        {
+                                field.mFormat += s[0];
+                                s.advanceChars( 1 );
+
+                                while ( s.charsLeft() && s[0].isDigit() )
+                                {
+                                        field.mFormat += s[0];
+                                        s.advanceChars( 1 );
+                                }
+
+                                success = true;
+                        }
+                
+                        return success;
+                }
+        
+
+                bool SubstitutionField::parseNewLineModifier( ParserState& s, SubstitutionField& field )
+                {
+                        field.mNewLine = true;
+                        return true;
+                }
+
+        
+                QString SubstitutionField::formatValue( const QString& value ) const
+                {
+                        switch (mFormatType.unicode())
+                        {
+                                
+                        case 'd':
+                        case 'i':
+                                return QString::asprintf( mFormat.toStdString().c_str(),
+                                                          value.toLongLong(nullptr,0) );
+                                break;
+                                
+
+                        case 'u':
+                        case 'x':
+                        case 'X':
+                        case 'o':
+                                return QString::asprintf( mFormat.toStdString().c_str(),
+                                                          value.toULongLong(nullptr,0) );
+                                break;
+
+                        case 'f':
+                        case 'F':
+                        case 'e':
+                        case 'E':
+                        case 'g':
+                        case 'G':
+                                return QString::asprintf( mFormat.toStdString().c_str(),
+                                                          value.toDouble() );
+                                break;
+
+                        case 's':
+                                return QString::asprintf( mFormat.toStdString().c_str(),
+                                                          value.toStdString().c_str() );
+                                break;
+
+                        default:
+                                // Invalid format
+                                return "";
+                                break;
+
+                        }
+                }
+        
+
+        }
 }

@@ -23,54 +23,54 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		static const QString ID = "Text/Comma/Line1Keys";
-	
-	
-		///
-		/// Constructor
-		///
-		TextCsvKeys::TextCsvKeys() : Text(',',true)
-		{
-			mId = ID;
-		}
-
-
-		///
-		/// Constructor
-		///
-		TextCsvKeys::TextCsvKeys( const TextCsvKeys* merge ) : Text( merge )
-		{
-		}
+                static const QString ID = "Text/Comma/Line1Keys";
+        
+        
+                ///
+                /// Constructor
+                ///
+                TextCsvKeys::TextCsvKeys() : Text(',',true)
+                {
+                        mId = ID;
+                }
 
 
-		///
-		/// Clone
-		///
-		TextCsvKeys* TextCsvKeys::clone() const
-		{
-			return new TextCsvKeys( this );
-		}
+                ///
+                /// Constructor
+                ///
+                TextCsvKeys::TextCsvKeys( const TextCsvKeys* merge ) : Text( merge )
+                {
+                }
 
 
-		///
-		/// Get ID
-		///
-		QString TextCsvKeys::id()
-		{
-			return ID;
-		}
+                ///
+                /// Clone
+                ///
+                TextCsvKeys* TextCsvKeys::clone() const
+                {
+                        return new TextCsvKeys( this );
+                }
 
 
-		///
-		/// Create
-		///
-		Merge* TextCsvKeys::create()
-		{
-			return new TextCsvKeys();
-		}
+                ///
+                /// Get ID
+                ///
+                QString TextCsvKeys::id()
+                {
+                        return ID;
+                }
 
-	} // namespace merge
+
+                ///
+                /// Create
+                ///
+                Merge* TextCsvKeys::create()
+                {
+                        return new TextCsvKeys();
+                }
+
+        } // namespace merge
 } // namespace glabels

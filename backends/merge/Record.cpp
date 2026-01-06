@@ -23,25 +23,25 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		///
-		/// Is record selected?
-		///
-		bool Record::isSelected() const
-		{
-			return mSelected;
-		}
+                ///
+                /// Is record selected?
+                ///
+                bool Record::isSelected() const
+                {
+                        return mSelected;
+                }
 
 
-		///
-		/// Set selected on not selected
-		///
-		void Record::setSelected( bool value )
-		{
-			mSelected = value;
-		}
+                ///
+                /// Set selected on not selected
+                ///
+                void Record::setSelected( bool value )
+                {
+                        mSelected = value;
+                }
 
-	} // namespace merge
+        } // namespace merge
 } // namespace glabels

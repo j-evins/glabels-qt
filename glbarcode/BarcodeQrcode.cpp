@@ -28,58 +28,58 @@
 namespace glbarcode
 {
 
-	/*
-	 * Static Qrcode barcode creation method
-	 */
-	Barcode* BarcodeQrcode::create( void )
-	{
-		return new BarcodeQrcode();
-	}
+        /*
+         * Static Qrcode barcode creation method
+         */
+        Barcode* BarcodeQrcode::create( void )
+        {
+                return new BarcodeQrcode();
+        }
 
 
-	/*
-	 * Qrcode data validation, implements Barcode2dBase::validate()
-	 */
-	bool BarcodeQrcode::validate( const std::string& rawData )
-	{
-		if ( rawData.size() == 0 )
-		{
-			return false;
-		}
-		return true;
-	}
+        /*
+         * Qrcode data validation, implements Barcode2dBase::validate()
+         */
+        bool BarcodeQrcode::validate( const std::string& rawData )
+        {
+                if ( rawData.size() == 0 )
+                {
+                        return false;
+                }
+                return true;
+        }
 
 
-	/*
-	 * Qrcode data encoding, implements Barcode2dBase::encode()
-	 */
-	bool BarcodeQrcode::encode( const std::string& cookedData, Matrix<bool>& encodedData )
-	{
-		QRcode *qrcode = QRcode_encodeString( cookedData.c_str(), 0, QR_ECLEVEL_M, QR_MODE_8, 1 );
-		if ( qrcode == NULL )
-		{
-			return false;
-		}
+        /*
+         * Qrcode data encoding, implements Barcode2dBase::encode()
+         */
+        bool BarcodeQrcode::encode( const std::string& cookedData, Matrix<bool>& encodedData )
+        {
+                QRcode *qrcode = QRcode_encodeString( cookedData.c_str(), 0, QR_ECLEVEL_M, QR_MODE_8, 1 );
+                if ( qrcode == NULL )
+                {
+                        return false;
+                }
 
 
-		int w = qrcode->width;
-		encodedData.resize( w, w );
-		
-		
-		for ( int iy = 0; iy < w; iy++ )
-		{
-			for ( int ix = 0; ix < w; ix++ )
-			{
-				encodedData[iy][ix] = qrcode->data[ iy*w + ix ] & 0x01;
-			}
-		}
+                int w = qrcode->width;
+                encodedData.resize( w, w );
+                
+                
+                for ( int iy = 0; iy < w; iy++ )
+                {
+                        for ( int ix = 0; ix < w; ix++ )
+                        {
+                                encodedData[iy][ix] = qrcode->data[ iy*w + ix ] & 0x01;
+                        }
+                }
 
 
-		QRcode_free( qrcode );
-		QRcode_clearCache();
+                QRcode_free( qrcode );
+                QRcode_clearCache();
 
-		return true;
-	}
+                return true;
+        }
 
 
 }

@@ -32,70 +32,70 @@
 namespace glabels
 {
 
-	// Forward references
-	class UndoRedoModel;
-	
+        // Forward references
+        class UndoRedoModel;
+        
 
-	///
-	/// merge::Merge Property Editor Widget
-	///
-	class MergeView : public QWidget, public Ui_MergeView
-	{
-		Q_OBJECT
-
-
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		MergeView( QWidget *parent = nullptr );
-		virtual ~MergeView() = default;
+        ///
+        /// merge::Merge Property Editor Widget
+        ///
+        class MergeView : public QWidget, public Ui_MergeView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-		void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                MergeView( QWidget *parent = nullptr );
+                virtual ~MergeView() = default;
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onMergeChanged();
-		void onMergeSourceChanged();
-
-		void onFormatComboActivated();
-		void onLocationBrowseButtonClicked();
-		void onSelectAllButtonClicked();
-		void onUnselectAllButtonClicked();
-		void onReloadButtonClicked();
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
 
 
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		static QString printableTextForView( QString text );
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onMergeChanged();
+                void onMergeSourceChanged();
+
+                void onFormatComboActivated();
+                void onLocationBrowseButtonClicked();
+                void onSelectAllButtonClicked();
+                void onUnselectAllButtonClicked();
+                void onReloadButtonClicked();
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		QStringList  mMergeFormatNames;
-	
-		model::Model*  mModel;
-		UndoRedoModel* mUndoRedoModel;
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                static QString printableTextForView( QString text );
 
-		QStringList mKeys;
-		QString     mPrimaryKey;
 
-		QString mCwd;
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                QStringList  mMergeFormatNames;
+        
+                model::Model*  mModel;
+                UndoRedoModel* mUndoRedoModel;
 
-		int  mOldFormatComboIndex;
+                QStringList mKeys;
+                QString     mPrimaryKey;
 
-	};
+                QString mCwd;
+
+                int  mOldFormatComboIndex;
+
+        };
 
 }
 

@@ -27,41 +27,41 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		///
-		/// TextColon Merge Backend
-		///
-		struct TextColon : public Text
-		{
+                ///
+                /// TextColon Merge Backend
+                ///
+                struct TextColon : public Text
+                {
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		private:
-			TextColon();
-			TextColon( const TextColon* merge );
-			virtual ~TextColon() = default;
-
-
-			/////////////////////////////////
-			// Object duplication
-			/////////////////////////////////
-		public:
-			TextColon* clone() const override;
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                private:
+                        TextColon();
+                        TextColon( const TextColon* merge );
+                        virtual ~TextColon() = default;
 
 
-			/////////////////////////////////
-			// Static methods
-			/////////////////////////////////
-		public:
-			static QString id();
-			static Merge* create();
+                        /////////////////////////////////
+                        // Object duplication
+                        /////////////////////////////////
+                public:
+                        TextColon* clone() const override;
 
-		};
 
-	}
+                        /////////////////////////////////
+                        // Static methods
+                        /////////////////////////////////
+                public:
+                        static QString id();
+                        static Merge* create();
+
+                };
+
+        }
 }
 
 

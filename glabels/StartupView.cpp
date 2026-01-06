@@ -34,89 +34,89 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	StartupView::StartupView( MainWindow* window )
-		: QWidget(window), mWindow(window)
-	{
-		setupUi( this );
+        ///
+        /// Constructor
+        ///
+        StartupView::StartupView( MainWindow* window )
+                : QWidget(window), mWindow(window)
+        {
+                setupUi( this );
 
-		QString titleImage = ":images/glabels-label-designer.png";
-		titleLabel->setPixmap( QPixmap( titleImage ) );
+                QString titleImage = ":images/glabels-label-designer.png";
+                titleLabel->setPixmap( QPixmap( titleImage ) );
 
-		recentProjectButton->setEnabled( model::Settings::recentFileList().size() > 0 );
+                recentProjectButton->setEnabled( model::Settings::recentFileList().size() > 0 );
 
-		loadRecentsMenu();
+                loadRecentsMenu();
 
-		connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
-	}
-
-
-	///
-	/// "New Project" Button Clicked Slot
-	///
-	void StartupView::onNewProjectButtonClicked()
-	{
-		File::newLabel( mWindow );
-	}
+                connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
+        }
 
 
-	///
-	/// "Open Project" Button Clicked Slot
-	///
-	void StartupView::onOpenProjectButtonClicked()
-	{
-		File::open( mWindow );
-	}
+        ///
+        /// "New Project" Button Clicked Slot
+        ///
+        void StartupView::onNewProjectButtonClicked()
+        {
+                File::newLabel( mWindow );
+        }
 
 
-	///
-	/// "Open Recent" Action Activated Slot
-	///
-	void StartupView::onOpenRecentAction()
-	{
-		QAction* action = qobject_cast<QAction*>( sender() );
-		if ( action )
-		{
-			File::open( action->data().toString(), mWindow );
-		}
-	}
+        ///
+        /// "Open Project" Button Clicked Slot
+        ///
+        void StartupView::onOpenProjectButtonClicked()
+        {
+                File::open( mWindow );
+        }
 
 
-	///
-	/// Settings changed Slot
-	///
-	void StartupView::onSettingsChanged()
-	{
-		// reload recents menu
-		loadRecentsMenu();
-	}
+        ///
+        /// "Open Recent" Action Activated Slot
+        ///
+        void StartupView::onOpenRecentAction()
+        {
+                QAction* action = qobject_cast<QAction*>( sender() );
+                if ( action )
+                {
+                        File::open( action->data().toString(), mWindow );
+                }
+        }
 
 
-	///
-	/// Create recents menu
-	///
-	void StartupView::loadRecentsMenu()
-	{
-		auto fileList = model::Settings::recentFileList();
-		
-		auto* recentMenu = new QMenu();
+        ///
+        /// Settings changed Slot
+        ///
+        void StartupView::onSettingsChanged()
+        {
+                // reload recents menu
+                loadRecentsMenu();
+        }
 
-		for ( auto& filename : fileList )
-		{
-			QString basename = QFileInfo( filename ).completeBaseName();
-			auto* action = new QAction( basename, this );
-			action->setIcon( QIcon::fromTheme( "glabels" ) );
-			action->setData( filename );
-			connect( action, SIGNAL(triggered()), this, SLOT(onOpenRecentAction()) );
-			recentMenu->addAction( action );
-		}
-		recentMenu->setMinimumWidth( recentProjectButton->minimumWidth() );
 
-		recentProjectButton->setMenu( recentMenu );
-		recentProjectButton->setEnabled( fileList.size() != 0 );
-	}
+        ///
+        /// Create recents menu
+        ///
+        void StartupView::loadRecentsMenu()
+        {
+                auto fileList = model::Settings::recentFileList();
+                
+                auto* recentMenu = new QMenu();
+
+                for ( auto& filename : fileList )
+                {
+                        QString basename = QFileInfo( filename ).completeBaseName();
+                        auto* action = new QAction( basename, this );
+                        action->setIcon( QIcon::fromTheme( "glabels" ) );
+                        action->setData( filename );
+                        connect( action, SIGNAL(triggered()), this, SLOT(onOpenRecentAction()) );
+                        recentMenu->addAction( action );
+                }
+                recentMenu->setMinimumWidth( recentProjectButton->minimumWidth() );
+
+                recentProjectButton->setMenu( recentMenu );
+                recentProjectButton->setEnabled( fileList.size() != 0 );
+        }
 
 
 } // namespace glabels

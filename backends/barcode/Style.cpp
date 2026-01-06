@@ -25,201 +25,201 @@
 
 namespace glabels
 {
-	namespace barcode
-	{
-	
-		///
-		/// Default Constructor
-		///
-		Style::Style ()
-			: mId( "" ),
-			  mBackendId( "" ),
-			  mName( "" ),
-			  mCanText( false ),
-			  mTextOptional( false ),
-			  mCanChecksum( false ),
-			  mChecksumOptional( false ),
-			  mDefaultDigits( "" ),
-			  mCanFreeform( false ),
-			  mPreferedN( 0 )
-		{
-			// empty
-		}
+        namespace barcode
+        {
+        
+                ///
+                /// Default Constructor
+                ///
+                Style::Style ()
+                        : mId( "" ),
+                          mBackendId( "" ),
+                          mName( "" ),
+                          mCanText( false ),
+                          mTextOptional( false ),
+                          mCanChecksum( false ),
+                          mChecksumOptional( false ),
+                          mDefaultDigits( "" ),
+                          mCanFreeform( false ),
+                          mPreferedN( 0 )
+                {
+                        // empty
+                }
 
 
-		///
-		/// Constructor From Data
-		///
-		Style::Style ( const QString& id,
-		               const QString& backendId,
-		               const QString& name,
-		               bool           canText,
-		               bool           textOptional,
-		               bool           canChecksum,
-		               bool           checksumOptional,
-		               const QString& defaultDigits,
-		               bool           canFreeform,
-		               int            preferedN )
-			: mId( id ),
-			  mBackendId( backendId ),
-			  mName( name ),
-			  mCanText( canText ),
-			mTextOptional( textOptional ),
-			mCanChecksum( canChecksum ),
-			mChecksumOptional( checksumOptional ),
-			mDefaultDigits( defaultDigits ),
-			mCanFreeform( canFreeform ),
-			mPreferedN( preferedN )
-		{
-			// empty
-		}
+                ///
+                /// Constructor From Data
+                ///
+                Style::Style ( const QString& id,
+                               const QString& backendId,
+                               const QString& name,
+                               bool           canText,
+                               bool           textOptional,
+                               bool           canChecksum,
+                               bool           checksumOptional,
+                               const QString& defaultDigits,
+                               bool           canFreeform,
+                               int            preferedN )
+                        : mId( id ),
+                          mBackendId( backendId ),
+                          mName( name ),
+                          mCanText( canText ),
+                        mTextOptional( textOptional ),
+                        mCanChecksum( canChecksum ),
+                        mChecksumOptional( checksumOptional ),
+                        mDefaultDigits( defaultDigits ),
+                        mCanFreeform( canFreeform ),
+                        mPreferedN( preferedN )
+                {
+                        // empty
+                }
 
 
-		///
-		/// ID Property Getter
-		///
-		const QString& Style::id() const
-		{
-			return mId;
-		}
+                ///
+                /// ID Property Getter
+                ///
+                const QString& Style::id() const
+                {
+                        return mId;
+                }
 
 
-		///
-		/// Full ID Property Getter
-		///
-		QString Style::fullId() const
-		{
-			if ( mBackendId == "" )
-			{
-				return mId;
-			}
-			else
-			{
-				return mBackendId + "::" + mId;
-			}
-		}
+                ///
+                /// Full ID Property Getter
+                ///
+                QString Style::fullId() const
+                {
+                        if ( mBackendId == "" )
+                        {
+                                return mId;
+                        }
+                        else
+                        {
+                                return mBackendId + "::" + mId;
+                        }
+                }
 
 
-		///
-		/// Backend ID Property Getter
-		///
-		const QString& Style::backendId() const
-		{
-			return mBackendId;
-		}
+                ///
+                /// Backend ID Property Getter
+                ///
+                const QString& Style::backendId() const
+                {
+                        return mBackendId;
+                }
 
 
-		///
-		/// Name Property Getter
-		///
-		const QString& Style::name() const
-		{
-			return mName;
-		}
+                ///
+                /// Name Property Getter
+                ///
+                const QString& Style::name() const
+                {
+                        return mName;
+                }
 
 
-		///
-		/// Full Name Property Getter
-		///
-		QString Style::fullName() const
-		{
-			if ( mBackendId == "" )
-			{
-				return mName;
-			}
-			else
-			{
-				return Backends::backendName(mBackendId) + " / " + mName;
-			}
-		}
+                ///
+                /// Full Name Property Getter
+                ///
+                QString Style::fullName() const
+                {
+                        if ( mBackendId == "" )
+                        {
+                                return mName;
+                        }
+                        else
+                        {
+                                return Backends::backendName(mBackendId) + " / " + mName;
+                        }
+                }
 
 
-		///
-		/// Can Text Property Getter
-		///
-		bool Style::canText() const
-		{
-			return mCanText;
-		}
+                ///
+                /// Can Text Property Getter
+                ///
+                bool Style::canText() const
+                {
+                        return mCanText;
+                }
 
 
-		///
-		/// Text Optional Property Getter
-		///
-		bool Style::textOptional() const
-		{
-			return mTextOptional;
-		}
+                ///
+                /// Text Optional Property Getter
+                ///
+                bool Style::textOptional() const
+                {
+                        return mTextOptional;
+                }
 
 
-		///
-		/// Can Checksum Property Getter
-		///
-		bool Style::canChecksum() const
-		{
-			return mCanChecksum;
-		}
+                ///
+                /// Can Checksum Property Getter
+                ///
+                bool Style::canChecksum() const
+                {
+                        return mCanChecksum;
+                }
 
 
-		///
-		/// Checksum Optional Property Getter
-		///
-		bool Style::checksumOptional() const
-		{
-			return mChecksumOptional;
-		}
+                ///
+                /// Checksum Optional Property Getter
+                ///
+                bool Style::checksumOptional() const
+                {
+                        return mChecksumOptional;
+                }
 
 
-		///
-		/// Default Digits Property Getter
-		///
-		const QString& Style::defaultDigits() const
-		{
-			return mDefaultDigits;
-		}
+                ///
+                /// Default Digits Property Getter
+                ///
+                const QString& Style::defaultDigits() const
+                {
+                        return mDefaultDigits;
+                }
 
 
-		///
-		/// Can Freeform Property Getter
-		///
-		bool Style::canFreeform() const
-		{
-			return mCanFreeform;
-		}
+                ///
+                /// Can Freeform Property Getter
+                ///
+                bool Style::canFreeform() const
+                {
+                        return mCanFreeform;
+                }
 
 
-		///
-		/// Preferred N Property Getter
-		///
-		int Style::preferedN() const
-		{
-			return mPreferedN;
-		}
+                ///
+                /// Preferred N Property Getter
+                ///
+                int Style::preferedN() const
+                {
+                        return mPreferedN;
+                }
 
 
-		///
-		/// Generate Example Digits
-		///
-		QString Style::exampleDigits( int n ) const
-		{
-			if ( mCanFreeform )
-			{
-				return QString( qMax( n, 1 ), QChar('0') );
-			}
-			else
-			{
-				return mDefaultDigits;
-			}
-		}
+                ///
+                /// Generate Example Digits
+                ///
+                QString Style::exampleDigits( int n ) const
+                {
+                        if ( mCanFreeform )
+                        {
+                                return QString( qMax( n, 1 ), QChar('0') );
+                        }
+                        else
+                        {
+                                return mDefaultDigits;
+                        }
+                }
 
 
-		///
-		/// "Not equals" operator
-		///
-		bool Style::operator!=( const Style& other ) const
-		{
-			return (mBackendId != other.mBackendId) || (mId != other.mId);
-		}
-	
-	} // namespace barcode
+                ///
+                /// "Not equals" operator
+                ///
+                bool Style::operator!=( const Style& other ) const
+                {
+                        return (mBackendId != other.mBackendId) || (mId != other.mId);
+                }
+        
+        } // namespace barcode
 } // namespace glabels

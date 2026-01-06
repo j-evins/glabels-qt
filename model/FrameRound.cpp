@@ -29,130 +29,130 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		FrameRound::FrameRound( Distance       r,
-		                        Distance       waste,
-		                        const QString& id )
-			: Frame(id),
-			  mR(r),
-			  mWaste(waste)
-		{
-			mPath.addEllipse( 0, 0, 2*mR.pt(), 2*mR.pt() );
-			mClipPath.addEllipse( -mWaste.pt(), -mWaste.pt(),
-			                      2*(mR+mWaste).pt(), 2*(mR+mWaste).pt() );
-		}
-	
+                FrameRound::FrameRound( Distance       r,
+                                        Distance       waste,
+                                        const QString& id )
+                        : Frame(id),
+                          mR(r),
+                          mWaste(waste)
+                {
+                        mPath.addEllipse( 0, 0, 2*mR.pt(), 2*mR.pt() );
+                        mClipPath.addEllipse( -mWaste.pt(), -mWaste.pt(),
+                                              2*(mR+mWaste).pt(), 2*(mR+mWaste).pt() );
+                }
+        
 
-		std::unique_ptr<Frame> FrameRound::clone() const
-		{
-			return std::make_unique<FrameRound>( *this );
-		}
+                std::unique_ptr<Frame> FrameRound::clone() const
+                {
+                        return std::make_unique<FrameRound>( *this );
+                }
 
-	
-		Distance FrameRound::w() const
-		{
-			return 2*mR;
-		}
+        
+                Distance FrameRound::w() const
+                {
+                        return 2*mR;
+                }
 
-	
-		Distance FrameRound::h() const
-		{
-			return 2*mR;
-		}
+        
+                Distance FrameRound::h() const
+                {
+                        return 2*mR;
+                }
 
-	
-		Distance FrameRound::r() const
-		{
-			return mR;
-		}
-
-
-		Distance FrameRound::waste() const
-		{
-			return mWaste;
-		}
+        
+                Distance FrameRound::r() const
+                {
+                        return mR;
+                }
 
 
-		QString FrameRound::sizeDescription( Units units ) const
-		{
-			if ( units.toEnum() == Units::IN )
-			{
-				QString dStr = StrUtil::formatFraction( 2 * mR.in() );
-
-				return QString("%1 %2 %3").arg(dStr).arg(units.toTrName()).arg(tr("diameter"));
-			}
-			else
-			{
-				return QString("%1 %2 %3").arg(2 * mR.inUnits(units), 0, 'g', 5)
-			                                  .arg(units.toTrName()).arg(tr("diameter"));
-			}
-		}
+                Distance FrameRound::waste() const
+                {
+                        return mWaste;
+                }
 
 
-		bool FrameRound::isSimilarTo( const Frame& other ) const
-		{
-			if ( auto *otherRound = dynamic_cast<const FrameRound*>(&other) )
-			{
-				if ( fabs( mR - otherRound->mR ) <= EPSILON )
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+                QString FrameRound::sizeDescription( Units units ) const
+                {
+                        if ( units.toEnum() == Units::IN )
+                        {
+                                QString dStr = StrUtil::formatFraction( 2 * mR.in() );
+
+                                return QString("%1 %2 %3").arg(dStr).arg(units.toTrName()).arg(tr("diameter"));
+                        }
+                        else
+                        {
+                                return QString("%1 %2 %3").arg(2 * mR.inUnits(units), 0, 'g', 5)
+                                                          .arg(units.toTrName()).arg(tr("diameter"));
+                        }
+                }
 
 
-		const QPainterPath& FrameRound::path() const
-		{
-			return mPath;
-		}
+                bool FrameRound::isSimilarTo( const Frame& other ) const
+                {
+                        if ( auto *otherRound = dynamic_cast<const FrameRound*>(&other) )
+                        {
+                                if ( fabs( mR - otherRound->mR ) <= EPSILON )
+                                {
+                                        return true;
+                                }
+                        }
+                        return false;
+                }
 
 
-		const QPainterPath& FrameRound::clipPath() const
-		{
-			return mClipPath;
-		}
+                const QPainterPath& FrameRound::path() const
+                {
+                        return mPath;
+                }
 
 
-		QPainterPath FrameRound::marginPath( Distance xSize, Distance ySize ) const
-		{
-			// Note: ignore ySize, assume xSize == ySize
-			Distance size = xSize;
-
-			Distance r = mR - size;
-
-			QPainterPath path;
-			path.addEllipse( size.pt(), size.pt(), 2*r.pt(), 2*r.pt() );
-
-			return path;
-		}
+                const QPainterPath& FrameRound::clipPath() const
+                {
+                        return mClipPath;
+                }
 
 
-		// Debugging support
-		void FrameRound::print( QDebug& dbg ) const
-		{
-			dbg.nospace() << "FrameRound{ "
-			              << id() << "," 
-			              << r() << "," 
-			              << waste() << "," 
-			              << "list{ ";
-			for ( auto& layout : layouts() )
-			{
-				dbg.nospace() << layout << ",";
-			}
-			dbg.nospace() << " }"
-			              << "list{ ";
-			for ( auto& markup : markups() )
-			{
-				dbg.nospace() << *markup << ",";
-			}
-			dbg.nospace() << " }"
-			              << " }";
-		}
+                QPainterPath FrameRound::marginPath( Distance xSize, Distance ySize ) const
+                {
+                        // Note: ignore ySize, assume xSize == ySize
+                        Distance size = xSize;
+
+                        Distance r = mR - size;
+
+                        QPainterPath path;
+                        path.addEllipse( size.pt(), size.pt(), 2*r.pt(), 2*r.pt() );
+
+                        return path;
+                }
 
 
-	}
+                // Debugging support
+                void FrameRound::print( QDebug& dbg ) const
+                {
+                        dbg.nospace() << "FrameRound{ "
+                                      << id() << "," 
+                                      << r() << "," 
+                                      << waste() << "," 
+                                      << "list{ ";
+                        for ( auto& layout : layouts() )
+                        {
+                                dbg.nospace() << layout << ",";
+                        }
+                        dbg.nospace() << " }"
+                                      << "list{ ";
+                        for ( auto& markup : markups() )
+                        {
+                                dbg.nospace() << *markup << ",";
+                        }
+                        dbg.nospace() << " }"
+                                      << " }";
+                }
+
+
+        }
 }
-		
+                

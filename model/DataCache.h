@@ -27,34 +27,34 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class DataCache
-		{
-		public:
-			DataCache();
-		
-			DataCache( const QList<ModelObject*>& objects );
+                class DataCache
+                {
+                public:
+                        DataCache();
+                
+                        DataCache( const QList<ModelObject*>& objects );
 
-			bool hasImage( const QString& name ) const;
-			QImage getImage( const QString& name ) const;
-			void addImage( const QString& name, const QImage& image );
-			QList<QString> imageNames() const;
+                        bool hasImage( const QString& name ) const;
+                        QImage getImage( const QString& name ) const;
+                        void addImage( const QString& name, const QImage& image );
+                        QList<QString> imageNames() const;
 
-			bool hasSvg( const QString& name ) const;
-			QByteArray getSvg( const QString& name ) const;
-			void addSvg( const QString& name, const QByteArray& svg );
-			QList<QString> svgNames() const;
+                        bool hasSvg( const QString& name ) const;
+                        QByteArray getSvg( const QString& name ) const;
+                        void addSvg( const QString& name, const QByteArray& svg );
+                        QList<QString> svgNames() const;
 
-		
-		private:
-			QMap<QString,QImage> mImageMap;
-			QMap<QString,QByteArray> mSvgMap;
+                
+                private:
+                        QMap<QString,QImage> mImageMap;
+                        QMap<QString,QByteArray> mSvgMap;
 
-		};
+                };
 
-	}
+        }
 }
 
 

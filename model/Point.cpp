@@ -23,45 +23,45 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		Point::Point() : mX(Distance(0)), mY(Distance(0))
-		{
-			// empty
-		}
-
-
-		Point::Point( Distance x, Distance y ) : mX(x), mY(y)
-		{
-			// empty
-		}
+                Point::Point() : mX(Distance(0)), mY(Distance(0))
+                {
+                        // empty
+                }
 
 
-		Distance Point::x() const
-		{
-			return mX;
-		}
-
-	
-		Distance Point::y() const
-		{
-			return mY;
-		}
+                Point::Point( Distance x, Distance y ) : mX(x), mY(y)
+                {
+                        // empty
+                }
 
 
-		bool Point::operator<( const Point &other ) const
-		{
-			if ( mY < other.mY )
-			{
-				return true;
-			}
-			else if ( mY == other.mY )
-			{
-				return mX < other.mX;
-			}
-			return false;
-		}
+                Distance Point::x() const
+                {
+                        return mX;
+                }
 
-	}
+        
+                Distance Point::y() const
+                {
+                        return mY;
+                }
+
+
+                bool Point::operator<( const Point &other ) const
+                {
+                        if ( mY < other.mY )
+                        {
+                                return true;
+                        }
+                        else if ( mY == other.mY )
+                        {
+                                return mX < other.mX;
+                        }
+                        return false;
+                }
+
+        }
 }

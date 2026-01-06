@@ -26,35 +26,35 @@
 namespace glabels
 {
 
-	//
-	// Private
-	//
-	namespace
-	{
-		const QColor  outlineColor( 0, 0, 0 );
-		const double  outlineWidthPixels = 1;
-	}
+        //
+        // Private
+        //
+        namespace
+        {
+                const QColor  outlineColor( 0, 0, 0 );
+                const double  outlineWidthPixels = 1;
+        }
 
 
-	///
-	/// Constructor
-	///
-	ColorSwatch::ColorSwatch( int w, int h, const QColor& color )
-		: QPixmap( w, h )
-	{
-		fill( Qt::transparent );
+        ///
+        /// Constructor
+        ///
+        ColorSwatch::ColorSwatch( int w, int h, const QColor& color )
+                : QPixmap( w, h )
+        {
+                fill( Qt::transparent );
 
-		QPainter painter(this );
+                QPainter painter(this );
 
-		painter.setBackgroundMode( Qt::TransparentMode );
+                painter.setBackgroundMode( Qt::TransparentMode );
 
-		QBrush brush( color );
-		QPen pen( outlineColor );
-		pen.setWidth( outlineWidthPixels );
+                QBrush brush( color );
+                QPen pen( outlineColor );
+                pen.setWidth( outlineWidthPixels );
 
-		painter.setBrush( brush );
-		painter.setPen( pen );
-		painter.drawRect( 1, 1, w-2, h-2 );
-	}
+                painter.setBrush( brush );
+                painter.setPen( pen );
+                painter.drawRect( 1, 1, w-2, h-2 );
+        }
 
 } // namespace glabels

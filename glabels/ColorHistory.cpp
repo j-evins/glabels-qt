@@ -27,129 +27,129 @@
 namespace glabels
 {
 
-	ColorHistory::ColorHistory()
-	{
-		// empty
-	}
+        ColorHistory::ColorHistory()
+        {
+                // empty
+        }
 
 
-	ColorHistory* ColorHistory::instance()
-	{
-		static ColorHistory* singletonInstance = nullptr;
+        ColorHistory* ColorHistory::instance()
+        {
+                static ColorHistory* singletonInstance = nullptr;
 
-		if ( singletonInstance == nullptr )
-		{
-			singletonInstance = new ColorHistory();
-		}
+                if ( singletonInstance == nullptr )
+                {
+                        singletonInstance = new ColorHistory();
+                }
 
-		return singletonInstance;
-	}
-
-
-	void ColorHistory::addColor( const QColor &color, const QString& name )
-	{
-		QString nameColor = name + ":" + color.name();
-
-		QStringList nameColorList = readNameColorList();
-
-		// Remove any occurrences of this color already in list
-		nameColorList.removeAll( nameColor );
-
-		// Now add to list
-		nameColorList.append( nameColor );
-
-		// Remove oldest colors, if size exceeds current max
-		while ( nameColorList.size() > MAX_COLORS )
-		{
-			nameColorList.removeFirst();
-		}
-
-		writeNameColorList( nameColorList );
-	
-		emit changed();
-	}
+                return singletonInstance;
+        }
 
 
-	QList<QColor> ColorHistory::getColors()
-	{
-		QList<QColor> colorList;
-		
-		for ( QString& nameColor : readNameColorList() )
-		{
-			QStringList v = nameColor.split( ':' );
-			if ( v.size() == 2 )
-			{
-				colorList << QColor( v[1] );
-			}
-			else if ( v.size() == 1 )
-			{
-				// Old-style, no name
-				colorList << QColor( v[0] );
-			}
-			else
-			{
-				// Should not happen
-				qWarning() << "Invalid color history.";
-			}
-		}
+        void ColorHistory::addColor( const QColor &color, const QString& name )
+        {
+                QString nameColor = name + ":" + color.name();
 
-		return colorList;
-	}
+                QStringList nameColorList = readNameColorList();
+
+                // Remove any occurrences of this color already in list
+                nameColorList.removeAll( nameColor );
+
+                // Now add to list
+                nameColorList.append( nameColor );
+
+                // Remove oldest colors, if size exceeds current max
+                while ( nameColorList.size() > MAX_COLORS )
+                {
+                        nameColorList.removeFirst();
+                }
+
+                writeNameColorList( nameColorList );
+        
+                emit changed();
+        }
 
 
-	QStringList ColorHistory::getNames()
-	{
-		QStringList nameList;
-		
-		for ( QString& nameColor : readNameColorList() )
-		{
-			QStringList v = nameColor.split( ':' );
-			if ( v.size() == 2 )
-			{
-				nameList << v[0];
-			}
-			else if ( v.size() == 1 )
-			{
-				 // Old-style, no name
-				nameList << QString(tr("color %1")).arg( v[0] );
-			}
-			else
-			{
-				// Should not happen
-				qWarning() << "Invalid color history.";
-			}
-		}
+        QList<QColor> ColorHistory::getColors()
+        {
+                QList<QColor> colorList;
+                
+                for ( QString& nameColor : readNameColorList() )
+                {
+                        QStringList v = nameColor.split( ':' );
+                        if ( v.size() == 2 )
+                        {
+                                colorList << QColor( v[1] );
+                        }
+                        else if ( v.size() == 1 )
+                        {
+                                // Old-style, no name
+                                colorList << QColor( v[0] );
+                        }
+                        else
+                        {
+                                // Should not happen
+                                qWarning() << "Invalid color history.";
+                        }
+                }
 
-		return nameList;
-	}
-
-
-	QStringList ColorHistory::readNameColorList()
-	{
-		QStringList defaultList;
-		QSettings settings;
-
-		settings.beginGroup( "ColorHistory" );
-		QStringList nameColorList = settings.value( "colors", defaultList ).toStringList();
-		settings.endGroup();
-
-		// Remove oldest colors, if size exceeds current max
-		while ( nameColorList.size() > MAX_COLORS )
-		{
-			nameColorList.removeFirst();
-		}
-
-		return nameColorList;
-	}
+                return colorList;
+        }
 
 
-	void ColorHistory::writeNameColorList( const QStringList& nameColorList )
-	{
-		// Save
-		QSettings settings;
-		settings.beginGroup( "ColorHistory" );
-		settings.setValue( "colors", nameColorList );
-		settings.endGroup();
-	}
+        QStringList ColorHistory::getNames()
+        {
+                QStringList nameList;
+                
+                for ( QString& nameColor : readNameColorList() )
+                {
+                        QStringList v = nameColor.split( ':' );
+                        if ( v.size() == 2 )
+                        {
+                                nameList << v[0];
+                        }
+                        else if ( v.size() == 1 )
+                        {
+                                 // Old-style, no name
+                                nameList << QString(tr("color %1")).arg( v[0] );
+                        }
+                        else
+                        {
+                                // Should not happen
+                                qWarning() << "Invalid color history.";
+                        }
+                }
+
+                return nameList;
+        }
+
+
+        QStringList ColorHistory::readNameColorList()
+        {
+                QStringList defaultList;
+                QSettings settings;
+
+                settings.beginGroup( "ColorHistory" );
+                QStringList nameColorList = settings.value( "colors", defaultList ).toStringList();
+                settings.endGroup();
+
+                // Remove oldest colors, if size exceeds current max
+                while ( nameColorList.size() > MAX_COLORS )
+                {
+                        nameColorList.removeFirst();
+                }
+
+                return nameColorList;
+        }
+
+
+        void ColorHistory::writeNameColorList( const QStringList& nameColorList )
+        {
+                // Save
+                QSettings settings;
+                settings.beginGroup( "ColorHistory" );
+                settings.setValue( "colors", nameColorList );
+                settings.endGroup();
+        }
 
 } // namespace glabels

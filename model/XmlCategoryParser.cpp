@@ -31,75 +31,75 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		QList<Category> XmlCategoryParser::readFile( const QString &fileName )
-		{
-			QFile file( fileName );
+                QList<Category> XmlCategoryParser::readFile( const QString &fileName )
+                {
+                        QFile file( fileName );
 
-			if ( !file.open( QFile::ReadOnly | QFile::Text) )
-			{
-				qWarning() << "Error: Cannot read file " << fileName
-				           << ": " << file.errorString();
-				return QList<Category>(); // Empty list
-			}
-
-
-			QDomDocument doc;
-			QString      errorString;
-			int          errorLine;
-			int          errorColumn;
-
-			if ( !doc.setContent( &file, false, &errorString, &errorLine, &errorColumn ) )
-			{
-				qWarning() << "Error: Parse error at line " << errorLine
-				           << "column " << errorColumn
-				           << ": " << errorString;
-				return QList<Category>(); // Empty list
-			}
-
-			QDomElement root = doc.documentElement();
-			if ( root.tagName() != "Glabels-categories" )
-			{
-				qWarning() << "Error: Not a Glabels-categories file.";
-				return QList<Category>(); // Empty list
-			}
-
-			return parseRootNode( root );
-		}
+                        if ( !file.open( QFile::ReadOnly | QFile::Text) )
+                        {
+                                qWarning() << "Error: Cannot read file " << fileName
+                                           << ": " << file.errorString();
+                                return QList<Category>(); // Empty list
+                        }
 
 
-		QList<Category> XmlCategoryParser::parseRootNode( const QDomElement &node )
-		{
-			QList<Category> list;
+                        QDomDocument doc;
+                        QString      errorString;
+                        int          errorLine;
+                        int          errorColumn;
 
-			for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
-			{
-				if ( child.toElement().tagName() == "Category" )
-				{
-					list.push_back( parseCategoryNode( child.toElement() ) );
-				}
-				else if ( !child.isComment() )
-				{
-					qWarning() << "Warning: bad element: "
-					           << child.toElement().tagName()
-					           << ", Ignored.";
-				}
-			}
+                        if ( !doc.setContent( &file, false, &errorString, &errorLine, &errorColumn ) )
+                        {
+                                qWarning() << "Error: Parse error at line " << errorLine
+                                           << "column " << errorColumn
+                                           << ": " << errorString;
+                                return QList<Category>(); // Empty list
+                        }
 
-			return list;
-		}
+                        QDomElement root = doc.documentElement();
+                        if ( root.tagName() != "Glabels-categories" )
+                        {
+                                qWarning() << "Error: Not a Glabels-categories file.";
+                                return QList<Category>(); // Empty list
+                        }
 
-
-		Category XmlCategoryParser::parseCategoryNode( const QDomElement &node )
-		{
-			QString id   = XmlUtil::getStringAttr( node, "id", "" );
-			QString name = XmlUtil::getI18nAttr( node, "name", "" );
-
-			return Category( id, name );
-		}
+                        return parseRootNode( root );
+                }
 
 
-	}
+                QList<Category> XmlCategoryParser::parseRootNode( const QDomElement &node )
+                {
+                        QList<Category> list;
+
+                        for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
+                        {
+                                if ( child.toElement().tagName() == "Category" )
+                                {
+                                        list.push_back( parseCategoryNode( child.toElement() ) );
+                                }
+                                else if ( !child.isComment() )
+                                {
+                                        qWarning() << "Warning: bad element: "
+                                                   << child.toElement().tagName()
+                                                   << ", Ignored.";
+                                }
+                        }
+
+                        return list;
+                }
+
+
+                Category XmlCategoryParser::parseCategoryNode( const QDomElement &node )
+                {
+                        QString id   = XmlUtil::getStringAttr( node, "id", "" );
+                        QString name = XmlUtil::getI18nAttr( node, "name", "" );
+
+                        return Category( id, name );
+                }
+
+
+        }
 }

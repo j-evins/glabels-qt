@@ -25,12 +25,12 @@
 namespace glbarcode
 {
 
-	enum HAlign
-	{
-		H_ALIGN_CENTER = 0,
-		H_ALIGN_LEFT   = 1,
-		H_ALIGN_RIGHT  = 2
-	};
+        enum HAlign
+        {
+                H_ALIGN_CENTER = 0,
+                H_ALIGN_LEFT   = 1,
+                H_ALIGN_RIGHT  = 2
+        };
 
 }
 

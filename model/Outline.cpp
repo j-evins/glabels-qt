@@ -27,98 +27,98 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		//
-		// Private
-		//
-		namespace
-		{
-			const qreal dashSize = 2;
+                //
+                // Private
+                //
+                namespace
+                {
+                        const qreal dashSize = 2;
 
-			const double slopPixels = 2;
-			const double outlineWidthPixels = 1;
-			const QColor outlineColor1(   0,   0,   0 );
-			const QColor outlineColor2( 255, 255, 255 );
-		}
-
-
-		///
-		/// Set owner and enable outline
-		///
-		void Outline::setOwner( ModelObject* owner )
-		{
-			mOwner = owner;
-
-			mDashes << dashSize << dashSize;
-
-			mPen1.setColor( outlineColor1 );
-			mPen1.setWidth( outlineWidthPixels );
-			mPen1.setCosmetic( true );
-			mPen1.setCapStyle( Qt::FlatCap );
-			mPen1.setDashPattern( mDashes );
-
-			mPen2.setColor( outlineColor2 );
-			mPen2.setWidth( outlineWidthPixels );
-			mPen2.setCosmetic( true );
-			mPen2.setCapStyle( Qt::FlatCap );
-			mPen2.setDashPattern( mDashes );
-			mPen2.setDashOffset( dashSize );
-		}
+                        const double slopPixels = 2;
+                        const double outlineWidthPixels = 1;
+                        const QColor outlineColor1(   0,   0,   0 );
+                        const QColor outlineColor2( 255, 255, 255 );
+                }
 
 
-		///
-		/// Is enabled?  (I.e. not all objects have an outline (e.g. line objects))
-		///
-		bool Outline::isEnabled() const
-		{
-			return mOwner;
-		}
+                ///
+                /// Set owner and enable outline
+                ///
+                void Outline::setOwner( ModelObject* owner )
+                {
+                        mOwner = owner;
+
+                        mDashes << dashSize << dashSize;
+
+                        mPen1.setColor( outlineColor1 );
+                        mPen1.setWidth( outlineWidthPixels );
+                        mPen1.setCosmetic( true );
+                        mPen1.setCapStyle( Qt::FlatCap );
+                        mPen1.setDashPattern( mDashes );
+
+                        mPen2.setColor( outlineColor2 );
+                        mPen2.setWidth( outlineWidthPixels );
+                        mPen2.setCosmetic( true );
+                        mPen2.setCapStyle( Qt::FlatCap );
+                        mPen2.setDashPattern( mDashes );
+                        mPen2.setDashOffset( dashSize );
+                }
 
 
-		///
-		/// Draw Outline
-		///
-		void Outline::draw( QPainter* painter ) const
-		{
-			if ( mOwner )
-			{
-				painter->save();
-
-				painter->setBrush( Qt::NoBrush );
-
-				painter->setPen( mPen1 );
-				painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
-
-				painter->setPen( mPen2 );
-				painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
-
-				painter->restore();
-			}
-		}
+                ///
+                /// Is enabled?  (I.e. not all objects have an outline (e.g. line objects))
+                ///
+                bool Outline::isEnabled() const
+                {
+                        return mOwner;
+                }
 
 
-		///
-		/// Create path for testing for hover condition
-		///
-		QPainterPath Outline::hoverPath( double scale ) const
-		{
-			QPainterPath path;
+                ///
+                /// Draw Outline
+                ///
+                void Outline::draw( QPainter* painter ) const
+                {
+                        if ( mOwner )
+                        {
+                                painter->save();
 
-			if ( mOwner )
-			{
-				double s = 1 / scale;
+                                painter->setBrush( Qt::NoBrush );
 
-				path.addRect( -s*slopPixels, -s*slopPixels,
-				              mOwner->w().pt()+s*2*slopPixels, mOwner->h().pt()+s*2*slopPixels );
-				path.closeSubpath();
-				path.addRect( s*slopPixels, s*slopPixels,
-				              mOwner->w().pt()-s*2*slopPixels, mOwner->h().pt()-s*2*slopPixels );
-			}
+                                painter->setPen( mPen1 );
+                                painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
 
-			return path;
-		}
+                                painter->setPen( mPen2 );
+                                painter->drawRect( QRectF( 0, 0, mOwner->w().pt(), mOwner->h().pt() ) );
 
-	}
+                                painter->restore();
+                        }
+                }
+
+
+                ///
+                /// Create path for testing for hover condition
+                ///
+                QPainterPath Outline::hoverPath( double scale ) const
+                {
+                        QPainterPath path;
+
+                        if ( mOwner )
+                        {
+                                double s = 1 / scale;
+
+                                path.addRect( -s*slopPixels, -s*slopPixels,
+                                              mOwner->w().pt()+s*2*slopPixels, mOwner->h().pt()+s*2*slopPixels );
+                                path.closeSubpath();
+                                path.addRect( s*slopPixels, s*slopPixels,
+                                              mOwner->w().pt()-s*2*slopPixels, mOwner->h().pt()-s*2*slopPixels );
+                        }
+
+                        return path;
+                }
+
+        }
 }

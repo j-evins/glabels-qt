@@ -30,41 +30,41 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodeOnecode BarcodeOnecode.h glbarcode/BarcodeOnecode.h
-	 *
-	 * Onecode barcode, implements Barcode1dBase
-	 *
-	 * @image html sample-onecode.svg "Sample USPS Onecode Barcode"
-	 *
-	 */
-	class BarcodeOnecode : public Barcode1dBase
-	{
-	public:
-		/**
-		 * Static Onecode barcode creation method
-		 *
-		 * Used by glbarcode::BarcodeFactory
-		 */
-		static Barcode* create();
+        /**
+         * @class BarcodeOnecode BarcodeOnecode.h glbarcode/BarcodeOnecode.h
+         *
+         * Onecode barcode, implements Barcode1dBase
+         *
+         * @image html sample-onecode.svg "Sample USPS Onecode Barcode"
+         *
+         */
+        class BarcodeOnecode : public Barcode1dBase
+        {
+        public:
+                /**
+                 * Static Onecode barcode creation method
+                 *
+                 * Used by glbarcode::BarcodeFactory
+                 */
+                static Barcode* create();
 
 
-	private:
-		bool validate( const std::string& rawData ) override;
+        private:
+                bool validate( const std::string& rawData ) override;
 
-		std::string encode( const std::string& cookedData ) override;
+                std::string encode( const std::string& cookedData ) override;
 
-		void vectorize( const std::string& codedData,
-				const std::string& displayText,
-				const std::string& cookedData,
-				double&            w,
-				double&            h ) override;
+                void vectorize( const std::string& codedData,
+                                const std::string& displayText,
+                                const std::string& cookedData,
+                                double&            w,
+                                double&            h ) override;
 
 
-	private:
-		uint32_t USPS_MSB_Math_CRC11GenerateFrameCheckSequence( const uint8_t* ByteArrayPtr );
+        private:
+                uint32_t USPS_MSB_Math_CRC11GenerateFrameCheckSequence( const uint8_t* ByteArrayPtr );
 
-	};
+        };
 
 }
 

@@ -27,25 +27,25 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class Vendor
-		{
-		public:
-			Vendor() = default;
-			Vendor( const QString &name, const QString &url );
-			~Vendor() = default;
+                class Vendor
+                {
+                public:
+                        Vendor() = default;
+                        Vendor( const QString &name, const QString &url );
+                        ~Vendor() = default;
 
-			QString name() const;
-			QString url() const;
+                        QString name() const;
+                        QString url() const;
 
-		private:
-			QString mName;
-			QString mUrl;
-		};
+                private:
+                        QString mName;
+                        QString mUrl;
+                };
 
-	}
+        }
 }
 
 

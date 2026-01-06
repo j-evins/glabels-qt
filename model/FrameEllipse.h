@@ -27,50 +27,50 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class FrameEllipse : public Frame
-		{
-			Q_DECLARE_TR_FUNCTIONS(FrameEllipse)
-		
-		public:
-			FrameEllipse( Distance       w,
-			              Distance       h,
-			              Distance       waste,
-			              const QString& id = "0" );
+                class FrameEllipse : public Frame
+                {
+                        Q_DECLARE_TR_FUNCTIONS(FrameEllipse)
+                
+                public:
+                        FrameEllipse( Distance       w,
+                                      Distance       h,
+                                      Distance       waste,
+                                      const QString& id = "0" );
 
-			FrameEllipse( const FrameEllipse& other ) = default;
+                        FrameEllipse( const FrameEllipse& other ) = default;
 
-			std::unique_ptr<Frame> clone() const override;
+                        std::unique_ptr<Frame> clone() const override;
 
-			Distance waste() const;
+                        Distance waste() const;
 
-			Distance w() const override;
-			Distance h() const override;
+                        Distance w() const override;
+                        Distance h() const override;
 
-			QString sizeDescription( Units units ) const override;
-			bool isSimilarTo( const Frame& other ) const override;
+                        QString sizeDescription( Units units ) const override;
+                        bool isSimilarTo( const Frame& other ) const override;
 
-			const QPainterPath& path() const override;
-			const QPainterPath& clipPath() const override;
-			QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
+                        const QPainterPath& path() const override;
+                        const QPainterPath& clipPath() const override;
+                        QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
 
                         // Debugging support
-			void print( QDebug& dbg ) const override;
+                        void print( QDebug& dbg ) const override;
 
 
-		private:
-			Distance mW;
-			Distance mH;
-			Distance mWaste;
+                private:
+                        Distance mW;
+                        Distance mH;
+                        Distance mWaste;
 
-			QPainterPath mPath;
-			QPainterPath mClipPath;
+                        QPainterPath mPath;
+                        QPainterPath mClipPath;
 
-		};
+                };
 
-	}
+        }
 }
 
 

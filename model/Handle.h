@@ -30,71 +30,71 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		// Forward References
-		class ModelObject;
-
-
-		///
-		/// Handle Base Class
-		///
-		class Handle
-		{
-			////////////////////////////
-			// Location enumeration
-			////////////////////////////
-		public:
-			enum Location { NULL_HANDLE, NW, N, NE, E, SE, S, SW, W, P1, P2 };
-		
-		
-			////////////////////////////
-			// Lifecycle Methods
-			////////////////////////////
-		public:
-			Handle() = default;
-			Handle( ModelObject* owner, Location location );
-			~Handle() = default;
-
-		
-			////////////////////////////
-			// Attribute Methods
-			////////////////////////////
-			bool isNull() const;
-			ModelObject* owner() const;
-			Location location() const;
-		
-
-			////////////////////////////
-			// Drawing Methods
-			////////////////////////////
-		public:
-			void draw( QPainter* painter, double scale ) const;
-			QPainterPath path( double scale ) const;
-
-		private:
-			void drawAt( QPainter* painter,
-			             double    scale,
-			             Distance  x,
-			             Distance  y,
-			             QColor    color ) const;
-		
-			QPainterPath pathAt( double   scale,
-			                     Distance x,
-			                     Distance y ) const;
+                // Forward References
+                class ModelObject;
 
 
-			////////////////////////////
-			// Private Data
-			////////////////////////////
-		protected:
-			ModelObject* mOwner{ nullptr };
-			Location     mLocation{ NULL_HANDLE };
+                ///
+                /// Handle Base Class
+                ///
+                class Handle
+                {
+                        ////////////////////////////
+                        // Location enumeration
+                        ////////////////////////////
+                public:
+                        enum Location { NULL_HANDLE, NW, N, NE, E, SE, S, SW, W, P1, P2 };
+                
+                
+                        ////////////////////////////
+                        // Lifecycle Methods
+                        ////////////////////////////
+                public:
+                        Handle() = default;
+                        Handle( ModelObject* owner, Location location );
+                        ~Handle() = default;
 
-		};
+                
+                        ////////////////////////////
+                        // Attribute Methods
+                        ////////////////////////////
+                        bool isNull() const;
+                        ModelObject* owner() const;
+                        Location location() const;
+                
 
-	}
+                        ////////////////////////////
+                        // Drawing Methods
+                        ////////////////////////////
+                public:
+                        void draw( QPainter* painter, double scale ) const;
+                        QPainterPath path( double scale ) const;
+
+                private:
+                        void drawAt( QPainter* painter,
+                                     double    scale,
+                                     Distance  x,
+                                     Distance  y,
+                                     QColor    color ) const;
+                
+                        QPainterPath pathAt( double   scale,
+                                             Distance x,
+                                             Distance y ) const;
+
+
+                        ////////////////////////////
+                        // Private Data
+                        ////////////////////////////
+                protected:
+                        ModelObject* mOwner{ nullptr };
+                        Location     mLocation{ NULL_HANDLE };
+
+                };
+
+        }
 }
 
 

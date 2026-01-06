@@ -38,38 +38,38 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class XmlTemplateCreator
-		{
-		public:
-			XmlTemplateCreator() = default;
+                class XmlTemplateCreator
+                {
+                public:
+                        XmlTemplateCreator() = default;
 
-			bool writeTemplates( const QList<Template> tmplates, const QString& fileName );
-			bool writeTemplate( const Template& tmplate, const QString& fileName );
-			void createTemplateNode( QDomElement& parent, const Template& tmplate );
+                        bool writeTemplates( const QList<Template> tmplates, const QString& fileName );
+                        bool writeTemplate( const Template& tmplate, const QString& fileName );
+                        void createTemplateNode( QDomElement& parent, const Template& tmplate );
 
-		private:
-			void createMetaNode( QDomElement& parent, const QString& attr, const QString& value );
-			void createLabelNode( QDomElement& parent, const Frame* frame );
-			void createLabelRectangleNode( QDomElement& parent, const FrameRect* frame );
-			void createLabelEllipseNode( QDomElement& parent, const FrameEllipse* frame );
-			void createLabelRoundNode( QDomElement& parent, const FrameRound* frame );
-			void createLabelCdNode( QDomElement& parent, const FrameCd* frame );
-			void createLabelPathNode( QDomElement& parent, const FramePath* frame );
-			void createLabelContinuousNode( QDomElement& parent, const FrameContinuous* frame );
-			void createLabelNodeCommon( QDomElement& node, const Frame* frame );
-			void createLayoutNode( QDomElement& parent, const Layout& layout );
-			void createMarkupMarginNode( QDomElement& parent, const MarkupMargin* markupMargin );
-			void createMarkupLineNode( QDomElement& parent, const MarkupLine* markupLine );
-			void createMarkupCircleNode( QDomElement& parent, const MarkupCircle* markupCircle );
-			void createMarkupRectNode( QDomElement& parent, const MarkupRect* markupRect );
-			void createMarkupEllipseNode( QDomElement& parent, const MarkupEllipse* markupEllipse );
+                private:
+                        void createMetaNode( QDomElement& parent, const QString& attr, const QString& value );
+                        void createLabelNode( QDomElement& parent, const Frame* frame );
+                        void createLabelRectangleNode( QDomElement& parent, const FrameRect* frame );
+                        void createLabelEllipseNode( QDomElement& parent, const FrameEllipse* frame );
+                        void createLabelRoundNode( QDomElement& parent, const FrameRound* frame );
+                        void createLabelCdNode( QDomElement& parent, const FrameCd* frame );
+                        void createLabelPathNode( QDomElement& parent, const FramePath* frame );
+                        void createLabelContinuousNode( QDomElement& parent, const FrameContinuous* frame );
+                        void createLabelNodeCommon( QDomElement& node, const Frame* frame );
+                        void createLayoutNode( QDomElement& parent, const Layout& layout );
+                        void createMarkupMarginNode( QDomElement& parent, const MarkupMargin* markupMargin );
+                        void createMarkupLineNode( QDomElement& parent, const MarkupLine* markupLine );
+                        void createMarkupCircleNode( QDomElement& parent, const MarkupCircle* markupCircle );
+                        void createMarkupRectNode( QDomElement& parent, const MarkupRect* markupRect );
+                        void createMarkupEllipseNode( QDomElement& parent, const MarkupEllipse* markupEllipse );
 
-		};
+                };
 
-	}
+        }
 }
 
 

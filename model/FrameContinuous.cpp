@@ -29,147 +29,147 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		FrameContinuous::FrameContinuous( Distance       w,
-		                                  Distance       hMin,
-		                                  Distance       hMax,
-		                                  Distance       hDefault,
-		                                  const QString& id )
-			: Frame(id),
-			  mW(w),
-			  mHMin(hMin),
-			  mHMax(hMax),
-			  mHDefault(hDefault),
-			  mH(hDefault)
-		{
-			mPath.addRect( 0, 0, mW.pt(), mH.pt() );
-		}
+                FrameContinuous::FrameContinuous( Distance       w,
+                                                  Distance       hMin,
+                                                  Distance       hMax,
+                                                  Distance       hDefault,
+                                                  const QString& id )
+                        : Frame(id),
+                          mW(w),
+                          mHMin(hMin),
+                          mHMax(hMax),
+                          mHDefault(hDefault),
+                          mH(hDefault)
+                {
+                        mPath.addRect( 0, 0, mW.pt(), mH.pt() );
+                }
 
-	
-		std::unique_ptr<Frame> FrameContinuous::clone() const
-		{
-			return std::make_unique<FrameContinuous>( *this );
-		}
-
-
-		Distance FrameContinuous::w() const
-		{
-			return mW;
-		}
-
-	
-		Distance FrameContinuous::h() const
-		{
-			return mH;
-		}
+        
+                std::unique_ptr<Frame> FrameContinuous::clone() const
+                {
+                        return std::make_unique<FrameContinuous>( *this );
+                }
 
 
-		Distance FrameContinuous::hMin() const
-		{
-			return mHMin;
-		}
+                Distance FrameContinuous::w() const
+                {
+                        return mW;
+                }
 
-		
-		Distance FrameContinuous::hMax() const
-		{
-			return mHMax;
-		}
-
-		
-		Distance FrameContinuous::hDefault() const
-		{
-			return mHDefault;
-		}
+        
+                Distance FrameContinuous::h() const
+                {
+                        return mH;
+                }
 
 
-		bool FrameContinuous::setH( Distance h )
-		{
-			mH = h;
-			mPath = QPainterPath(); // clear path
-			mPath.addRect( 0, 0, mW.pt(), mH.pt() );
-			return true;
-		}
-		
+                Distance FrameContinuous::hMin() const
+                {
+                        return mHMin;
+                }
 
-		QString FrameContinuous::sizeDescription( Units units ) const
-		{
-			if ( units.toEnum() == Units::IN )
-			{
-				QString wStr = StrUtil::formatFraction( mW.in() );
+                
+                Distance FrameContinuous::hMax() const
+                {
+                        return mHMax;
+                }
 
-				return QString("%1 %2 %3").arg(wStr).arg(units.toTrName()).arg(tr("wide"));
-			}
-			else
-			{
-				return QString("%1 %2 %3").arg(mW.inUnits(units), 0, 'f', 3).arg(units.toTrName()).arg(tr("wide"));
-			}
-		}
+                
+                Distance FrameContinuous::hDefault() const
+                {
+                        return mHDefault;
+                }
 
 
-		bool FrameContinuous::isSimilarTo( const Frame& other ) const
-		{
-			if ( auto *otherContinuous = dynamic_cast<const FrameContinuous*>(&other) )
-			{
-				if ( fabs( mW - otherContinuous->mW ) <= EPSILON )
-				{
-					return true;
-				}
-			}
-			return false;
-		}
+                bool FrameContinuous::setH( Distance h )
+                {
+                        mH = h;
+                        mPath = QPainterPath(); // clear path
+                        mPath.addRect( 0, 0, mW.pt(), mH.pt() );
+                        return true;
+                }
+                
+
+                QString FrameContinuous::sizeDescription( Units units ) const
+                {
+                        if ( units.toEnum() == Units::IN )
+                        {
+                                QString wStr = StrUtil::formatFraction( mW.in() );
+
+                                return QString("%1 %2 %3").arg(wStr).arg(units.toTrName()).arg(tr("wide"));
+                        }
+                        else
+                        {
+                                return QString("%1 %2 %3").arg(mW.inUnits(units), 0, 'f', 3).arg(units.toTrName()).arg(tr("wide"));
+                        }
+                }
 
 
-		const QPainterPath& FrameContinuous::path() const
-		{
-			return mPath;
-		}
+                bool FrameContinuous::isSimilarTo( const Frame& other ) const
+                {
+                        if ( auto *otherContinuous = dynamic_cast<const FrameContinuous*>(&other) )
+                        {
+                                if ( fabs( mW - otherContinuous->mW ) <= EPSILON )
+                                {
+                                        return true;
+                                }
+                        }
+                        return false;
+                }
 
 
-		const QPainterPath& FrameContinuous::clipPath() const
-		{
-			return mPath;
-		}
+                const QPainterPath& FrameContinuous::path() const
+                {
+                        return mPath;
+                }
 
 
-		QPainterPath FrameContinuous::marginPath( Distance xSize, Distance ySize ) const
-		{
-			Distance w = mW - 2*xSize;
-			Distance h = mH - 2*ySize;
-
-			QPainterPath path;
-			path.addRect( xSize.pt(), ySize.pt(), w.pt(), h.pt() );
-
-			return path;
-		}
+                const QPainterPath& FrameContinuous::clipPath() const
+                {
+                        return mPath;
+                }
 
 
-		// Debugging support
-		void FrameContinuous::print( QDebug& dbg ) const
-		{
-			dbg.nospace() << "FrameContinuous{ "
-			              << id() << "," 
-			              << w() << "," 
-			              << h() << "," 
-			              << hMin() << "," 
-			              << hMax() << "," 
-			              << hDefault() << ","
-			              << "list{ ";
-			for ( auto& layout : layouts() )
-			{
-				dbg.nospace() << layout << ",";
-			}
-			dbg.nospace() << " }"
-			              << "list{ ";
-			for ( auto& markup : markups() )
-			{
-				dbg.nospace() << *markup << ",";
-			}
-			dbg.nospace() << " }"
-			              << " }";
-		}
+                QPainterPath FrameContinuous::marginPath( Distance xSize, Distance ySize ) const
+                {
+                        Distance w = mW - 2*xSize;
+                        Distance h = mH - 2*ySize;
+
+                        QPainterPath path;
+                        path.addRect( xSize.pt(), ySize.pt(), w.pt(), h.pt() );
+
+                        return path;
+                }
 
 
-	}
+                // Debugging support
+                void FrameContinuous::print( QDebug& dbg ) const
+                {
+                        dbg.nospace() << "FrameContinuous{ "
+                                      << id() << "," 
+                                      << w() << "," 
+                                      << h() << "," 
+                                      << hMin() << "," 
+                                      << hMax() << "," 
+                                      << hDefault() << ","
+                                      << "list{ ";
+                        for ( auto& layout : layouts() )
+                        {
+                                dbg.nospace() << layout << ",";
+                        }
+                        dbg.nospace() << " }"
+                                      << "list{ ";
+                        for ( auto& markup : markups() )
+                        {
+                                dbg.nospace() << *markup << ",";
+                        }
+                        dbg.nospace() << " }"
+                                      << " }";
+                }
+
+
+        }
 }

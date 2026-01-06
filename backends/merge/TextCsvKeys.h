@@ -27,41 +27,41 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		///
-		/// TextCsvKeys Merge Backend
-		///
-		struct TextCsvKeys : public Text
-		{
+                ///
+                /// TextCsvKeys Merge Backend
+                ///
+                struct TextCsvKeys : public Text
+                {
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		private:
-			TextCsvKeys();
-			TextCsvKeys( const TextCsvKeys* merge );
-			virtual ~TextCsvKeys() = default;
-
-
-			/////////////////////////////////
-			// Object duplication
-			/////////////////////////////////
-		public:
-			TextCsvKeys* clone() const override;
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                private:
+                        TextCsvKeys();
+                        TextCsvKeys( const TextCsvKeys* merge );
+                        virtual ~TextCsvKeys() = default;
 
 
-			/////////////////////////////////
-			// Static methods
-			/////////////////////////////////
-		public:
-			static QString id();
-			static Merge* create();
+                        /////////////////////////////////
+                        // Object duplication
+                        /////////////////////////////////
+                public:
+                        TextCsvKeys* clone() const override;
 
-		};
 
-	}
+                        /////////////////////////////////
+                        // Static methods
+                        /////////////////////////////////
+                public:
+                        static QString id();
+                        static Merge* create();
+
+                };
+
+        }
 }
 
 

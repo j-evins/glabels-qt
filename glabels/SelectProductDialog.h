@@ -27,61 +27,61 @@
 
 namespace glabels
 {
-	
-	///
-	/// New Label Dialog Widget
-	///
-	class SelectProductDialog : public QDialog, public Ui_SelectProductDialog
-	{
-		Q_OBJECT
+        
+        ///
+        /// New Label Dialog Widget
+        ///
+        class SelectProductDialog : public QDialog, public Ui_SelectProductDialog
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		SelectProductDialog( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                SelectProductDialog( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Accessors
-		/////////////////////////////////
-		model::Template tmplate() const;
+                /////////////////////////////////
+                // Accessors
+                /////////////////////////////////
+                model::Template tmplate() const;
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onModeTabChanged();
-		void onSearchEntryTextChanged();
-		void onPageSizeCheckClicked();
-		void onCategoryRadioClicked();
-		void onCategoryCheckClicked();
-		void onViewModeButtonClicked();
-		void onTemplatePickerSelectionChanged();
-		void onSelectButtonClicked();
-		void onCancelButtonClicked();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onModeTabChanged();
+                void onSearchEntryTextChanged();
+                void onPageSizeCheckClicked();
+                void onCategoryRadioClicked();
+                void onCategoryCheckClicked();
+                void onViewModeButtonClicked();
+                void onTemplatePickerSelectionChanged();
+                void onSelectButtonClicked();
+                void onCancelButtonClicked();
 
-		
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-	private:
-		void loadCategoryList();
-	
+                
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                void loadCategoryList();
+        
 
-		/////////////////////////////////
-		// Private data
-		/////////////////////////////////
-	private:
-		QMap<QCheckBox*,QString> mCheckToCategoryMap;
-		QList<QCheckBox*>        mCheckList;
-		QStringList              mCategoryIdList;
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                QMap<QCheckBox*,QString> mCheckToCategoryMap;
+                QList<QCheckBox*>        mCheckList;
+                QStringList              mCategoryIdList;
 
-		bool                     mHasSelection { false };
-	  
-	};
+                bool                     mHasSelection { false };
+          
+        };
 
 }
 

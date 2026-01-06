@@ -31,157 +31,157 @@
 
 namespace glabels
 {
-	namespace model
-	{
-		class Frame; // Forward reference
+        namespace model
+        {
+                class Frame; // Forward reference
 
 
-		class Markup
-		{
-		public:
-			virtual ~Markup() = default;
+                class Markup
+                {
+                public:
+                        virtual ~Markup() = default;
 
-			virtual std::unique_ptr<Markup> clone() const = 0;
+                        virtual std::unique_ptr<Markup> clone() const = 0;
 
-			virtual QPainterPath path( const Frame& frame ) const;
-
-                        // Debugging support
-			virtual void print( QDebug& dbg ) const = 0;
-
-		protected:
-			QPainterPath mPath;
-		};
-
-
-		class MarkupMargin : public Markup
-		{
-		public:
-			MarkupMargin( Distance size );
-
-			MarkupMargin( Distance xSize,
-			              Distance ySize );
-
-			QPainterPath path( const Frame& frame ) const override;
-
-			Distance xSize() const;
-			Distance ySize() const;
-
-			std::unique_ptr<Markup> clone() const override;
+                        virtual QPainterPath path( const Frame& frame ) const;
 
                         // Debugging support
-			void print( QDebug& dbg ) const override;
+                        virtual void print( QDebug& dbg ) const = 0;
 
-		private:
-			Distance  mXSize;
-			Distance  mYSize;
-		};
-
-
-		class MarkupLine : public Markup
-		{
-		public:
-			MarkupLine( Distance x1,
-			            Distance y1,
-			            Distance x2,
-			            Distance y2 );
-
-			Distance x1() const;
-			Distance y1() const;
-			Distance x2() const;
-			Distance y2() const;
-
-			std::unique_ptr<Markup> clone() const override;
-
-                        // Debugging support
-			void print( QDebug& dbg ) const override;
-
-		private:
-			Distance  mX1;
-			Distance  mY1;
-			Distance  mX2;
-			Distance  mY2;
-		};
+                protected:
+                        QPainterPath mPath;
+                };
 
 
-		class MarkupRect : public Markup
-		{
-		public:
-			MarkupRect( Distance x1,
-			            Distance y1,
-			            Distance w,
-			            Distance h,
-			            Distance r );
+                class MarkupMargin : public Markup
+                {
+                public:
+                        MarkupMargin( Distance size );
 
-			Distance x1() const;
-			Distance y1() const;
-			Distance w() const;
-			Distance h() const;
-			Distance r() const;
+                        MarkupMargin( Distance xSize,
+                                      Distance ySize );
 
-			std::unique_ptr<Markup> clone() const override;
+                        QPainterPath path( const Frame& frame ) const override;
+
+                        Distance xSize() const;
+                        Distance ySize() const;
+
+                        std::unique_ptr<Markup> clone() const override;
 
                         // Debugging support
-			void print( QDebug& dbg ) const override;
+                        void print( QDebug& dbg ) const override;
 
-		private:
-			Distance  mX1;
-			Distance  mY1;
-			Distance  mW;
-			Distance  mH;
-			Distance  mR;
-		};
+                private:
+                        Distance  mXSize;
+                        Distance  mYSize;
+                };
 
 
-		class MarkupEllipse : public Markup
-		{
-		public:
-			MarkupEllipse( Distance x1,
-			               Distance y1,
-			               Distance w,
-			               Distance h );
+                class MarkupLine : public Markup
+                {
+                public:
+                        MarkupLine( Distance x1,
+                                    Distance y1,
+                                    Distance x2,
+                                    Distance y2 );
 
-			Distance x1() const;
-			Distance y1() const;
-			Distance w() const;
-			Distance h() const;
+                        Distance x1() const;
+                        Distance y1() const;
+                        Distance x2() const;
+                        Distance y2() const;
 
-			std::unique_ptr<Markup> clone() const override;
+                        std::unique_ptr<Markup> clone() const override;
 
                         // Debugging support
-			void print( QDebug& dbg ) const override;
+                        void print( QDebug& dbg ) const override;
 
-		private:
-			Distance  mX1;
-			Distance  mY1;
-			Distance  mW;
-			Distance  mH;
-		};
+                private:
+                        Distance  mX1;
+                        Distance  mY1;
+                        Distance  mX2;
+                        Distance  mY2;
+                };
 
 
-		class MarkupCircle : public Markup
-		{
-		public:
-			MarkupCircle( Distance x0,
-			              Distance y0,
-			              Distance r );
+                class MarkupRect : public Markup
+                {
+                public:
+                        MarkupRect( Distance x1,
+                                    Distance y1,
+                                    Distance w,
+                                    Distance h,
+                                    Distance r );
 
-			Distance x0() const;
-			Distance y0() const;
-			Distance r() const;
+                        Distance x1() const;
+                        Distance y1() const;
+                        Distance w() const;
+                        Distance h() const;
+                        Distance r() const;
 
-			std::unique_ptr<Markup> clone() const override;
+                        std::unique_ptr<Markup> clone() const override;
 
                         // Debugging support
-			void print( QDebug& dbg ) const override;
+                        void print( QDebug& dbg ) const override;
 
-		private:
-			Distance  mX0;
-			Distance  mY0;
-			Distance  mR;
-		};
-	
+                private:
+                        Distance  mX1;
+                        Distance  mY1;
+                        Distance  mW;
+                        Distance  mH;
+                        Distance  mR;
+                };
 
-	}
+
+                class MarkupEllipse : public Markup
+                {
+                public:
+                        MarkupEllipse( Distance x1,
+                                       Distance y1,
+                                       Distance w,
+                                       Distance h );
+
+                        Distance x1() const;
+                        Distance y1() const;
+                        Distance w() const;
+                        Distance h() const;
+
+                        std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+                        void print( QDebug& dbg ) const override;
+
+                private:
+                        Distance  mX1;
+                        Distance  mY1;
+                        Distance  mW;
+                        Distance  mH;
+                };
+
+
+                class MarkupCircle : public Markup
+                {
+                public:
+                        MarkupCircle( Distance x0,
+                                      Distance y0,
+                                      Distance r );
+
+                        Distance x0() const;
+                        Distance y0() const;
+                        Distance r() const;
+
+                        std::unique_ptr<Markup> clone() const override;
+
+                        // Debugging support
+                        void print( QDebug& dbg ) const override;
+
+                private:
+                        Distance  mX0;
+                        Distance  mY0;
+                        Distance  mR;
+                };
+        
+
+        }
 }
 
 

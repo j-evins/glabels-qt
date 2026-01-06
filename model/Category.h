@@ -27,28 +27,28 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class Category
-		{
+                class Category
+                {
 
-		public:
-			Category() = default;
-			Category( const QString& id, const QString& name );
-			~Category() = default;
+                public:
+                        Category() = default;
+                        Category( const QString& id, const QString& name );
+                        ~Category() = default;
 
-			QString id() const;
-			QString name() const;
+                        QString id() const;
+                        QString name() const;
 
 
-		private:
-			QString mId;
-			QString mName;
+                private:
+                        QString mId;
+                        QString mName;
 
-		};
+                };
 
-	}
+        }
 }
 
 

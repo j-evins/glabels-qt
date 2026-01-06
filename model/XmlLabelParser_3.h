@@ -29,56 +29,56 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		// Forward references
-		class Model;
-		class ModelObject;
-		class ModelBoxObject;
-		class ModelEllipseObject;
-		class ModelLineObject;
-		class ModelImageObject;
-		class ModelBarcodeObject;
-		class ModelTextObject;
-		class DataCache;
+                // Forward references
+                class Model;
+                class ModelObject;
+                class ModelBoxObject;
+                class ModelEllipseObject;
+                class ModelLineObject;
+                class ModelImageObject;
+                class ModelBarcodeObject;
+                class ModelTextObject;
+                class DataCache;
 
-		///
-		/// XmlLabelParser
-		///
-		class XmlLabelParser_3
-		{
+                ///
+                /// XmlLabelParser
+                ///
+                class XmlLabelParser_3
+                {
 
-		public:
-			static Model* parseRootNode( const QDomElement &node );
+                public:
+                        static Model* parseRootNode( const QDomElement &node );
 
-		private:
+                private:
 
-			static QList<ModelObject*> parseObjectsNode( const QDomElement &node, const DataCache& data );
-			static ModelBoxObject* parseObjectBoxNode( const QDomElement &node );
-			static ModelEllipseObject* parseObjectEllipseNode( const QDomElement &node );
-			static ModelLineObject* parseObjectLineNode( const QDomElement &node );
-			static ModelImageObject* parseObjectImageNode( const QDomElement &node, const DataCache& data );
-			static ModelBarcodeObject* parseObjectBarcodeNode( const QDomElement &node );
-			static ModelTextObject* parseObjectTextNode( const QDomElement &node );
-			static bool parseRotateAttr( const QDomElement &node );
-			static void parseMergeNode( const QDomElement &node, Model* label );
-			static void parseDataNode( const QDomElement &node, DataCache& data );
-			static void parsePixdataNode( const QDomElement &node, DataCache& data );
-			static void parseFileNode( const QDomElement &node, DataCache& data );
+                        static QList<ModelObject*> parseObjectsNode( const QDomElement &node, const DataCache& data );
+                        static ModelBoxObject* parseObjectBoxNode( const QDomElement &node );
+                        static ModelEllipseObject* parseObjectEllipseNode( const QDomElement &node );
+                        static ModelLineObject* parseObjectLineNode( const QDomElement &node );
+                        static ModelImageObject* parseObjectImageNode( const QDomElement &node, const DataCache& data );
+                        static ModelBarcodeObject* parseObjectBarcodeNode( const QDomElement &node );
+                        static ModelTextObject* parseObjectTextNode( const QDomElement &node );
+                        static bool parseRotateAttr( const QDomElement &node );
+                        static void parseMergeNode( const QDomElement &node, Model* label );
+                        static void parseDataNode( const QDomElement &node, DataCache& data );
+                        static void parsePixdataNode( const QDomElement &node, DataCache& data );
+                        static void parseFileNode( const QDomElement &node, DataCache& data );
 
-			static Qt::Alignment getHAlignmentAttr( const QDomElement& node,
-					 const QString& name, const Qt::Alignment default_value );
-			static Qt::Alignment getVAlignmentAttr( const QDomElement& node,
-					 const QString& name, const Qt::Alignment default_value );
-			static QFont::Weight getWeightAttr( const QDomElement& node,
-					 const QString& name, const QFont::Weight default_value );
+                        static Qt::Alignment getHAlignmentAttr( const QDomElement& node,
+                                         const QString& name, const Qt::Alignment default_value );
+                        static Qt::Alignment getVAlignmentAttr( const QDomElement& node,
+                                         const QString& name, const Qt::Alignment default_value );
+                        static QFont::Weight getWeightAttr( const QDomElement& node,
+                                         const QString& name, const QFont::Weight default_value );
 
-			static QTransform parseAffineTransformation(const QDomElement &node);
+                        static QTransform parseAffineTransformation(const QDomElement &node);
 
-		};
+                };
 
-	}  // namespace model
+        }  // namespace model
 }  // namespace glabels
 
 

@@ -32,93 +32,93 @@
 namespace glabels
 {
 
-	///
-	/// UndoRedoModel
-	///
-	class UndoRedoModel : public QObject
-	{
-		Q_OBJECT
+        ///
+        /// UndoRedoModel
+        ///
+        class UndoRedoModel : public QObject
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		UndoRedoModel( model::Model* model );
-		virtual ~UndoRedoModel() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                UndoRedoModel( model::Model* model );
+                virtual ~UndoRedoModel() = default;
 
 
-		/////////////////////////////////
-		// Public Methods
-		/////////////////////////////////
-	public:
-		void checkpoint( const QString& description );
-		void undo();
-		void redo();
-		bool canUndo() const;
-		bool canRedo() const;
-		QString undoDescription() const;
-		QString redoDescription() const;
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void checkpoint( const QString& description );
+                void undo();
+                void redo();
+                bool canUndo() const;
+                bool canRedo() const;
+                QString undoDescription() const;
+                QString redoDescription() const;
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onSelectionChanged();
-		
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onSelectionChanged();
+                
 
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void changed();
-		
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void changed();
+                
 
-		/////////////////////////////////
-		// Private types
-		/////////////////////////////////
-	private:
-		class State
-		{
-		public:
-			State( model::Model* model, const QString& description );
-			~State();
+                /////////////////////////////////
+                // Private types
+                /////////////////////////////////
+        private:
+                class State
+                {
+                public:
+                        State( model::Model* model, const QString& description );
+                        ~State();
 
-			model::Model* model;
-			QString       description;
-		};
+                        model::Model* model;
+                        QString       description;
+                };
 
-		class Stack
-		{
-		public:
-			Stack();
-			~Stack();
+                class Stack
+                {
+                public:
+                        Stack();
+                        ~Stack();
 
-			void push( State* state );
-			State* pop();
-			const State* topState() const;
-			bool isEmpty() const;
-			void clear();
+                        void push( State* state );
+                        State* pop();
+                        const State* topState() const;
+                        bool isEmpty() const;
+                        void clear();
 
-		private:
-			QList<State*> list;
-		};
-	
+                private:
+                        QList<State*> list;
+                };
+        
 
-		/////////////////////////////////
-		// Private data
-		/////////////////////////////////
-	private:
-		model::Model*  mModel;
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                model::Model*  mModel;
 
-		Stack          mUndoStack;
-		Stack          mRedoStack;
-	
-		bool           mNewSelection;
-		QString        mLastDescription;
+                Stack          mUndoStack;
+                Stack          mRedoStack;
+        
+                bool           mNewSelection;
+                QString        mLastDescription;
 
-	};
+        };
 
 }
 

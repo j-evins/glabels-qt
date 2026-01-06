@@ -28,49 +28,49 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class BarcodeUpcBase BarcodeUpcBase.h glbarcode/BarcodeUpcBase.h
-	 *
-	 * UpcBase barcode, base class for UPC-A and EAN-13 barcode types, implements Barcode1dBase
-	 */
-	class BarcodeUpcBase : public Barcode1dBase
-	{
-	protected:
-		virtual bool validateDigits( int nDigits ) = 0;
+        /**
+         * @class BarcodeUpcBase BarcodeUpcBase.h glbarcode/BarcodeUpcBase.h
+         *
+         * UpcBase barcode, base class for UPC-A and EAN-13 barcode types, implements Barcode1dBase
+         */
+        class BarcodeUpcBase : public Barcode1dBase
+        {
+        protected:
+                virtual bool validateDigits( int nDigits ) = 0;
 
-		virtual void vectorizeText( const std::string& displayText,
-		                            double             size1,
-		                            double             size2,
-		                            double             x1Left,
-		                            double             x1Right,
-		                            double             y1,
-		                            double             x2Left,
-		                            double             x2Right,
-		                            double             y2 ) = 0;
+                virtual void vectorizeText( const std::string& displayText,
+                                            double             size1,
+                                            double             size2,
+                                            double             x1Left,
+                                            double             x1Right,
+                                            double             y1,
+                                            double             x2Left,
+                                            double             x2Right,
+                                            double             y2 ) = 0;
 
-	private:
-		bool validate( const std::string& rawData ) override;
+        private:
+                bool validate( const std::string& rawData ) override;
 
-		std::string encode( const std::string& cookedData ) override;
+                std::string encode( const std::string& cookedData ) override;
 
-		std::string prepareText( const std::string& rawData ) override;
+                std::string prepareText( const std::string& rawData ) override;
 
-		void vectorize( const std::string& codedData,
-				const std::string& displayText,
-				const std::string& cookedData,
-				double&            w,
-				double&            h ) override;
-
-
-	protected:
-		int mEndBarsModules;
-		int mFirstDigitVal;
+                void vectorize( const std::string& codedData,
+                                const std::string& displayText,
+                                const std::string& cookedData,
+                                double&            w,
+                                double&            h ) override;
 
 
-	private:
-		int mCheckDigitVal;
+        protected:
+                int mEndBarsModules;
+                int mFirstDigitVal;
 
-	};
+
+        private:
+                int mCheckDigitVal;
+
+        };
 
 }
 

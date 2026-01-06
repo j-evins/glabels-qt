@@ -34,167 +34,167 @@
 
 namespace glabels
 {
-	const QChar NEWLINE_CHAR = QChar(0x23CE);
+        const QChar NEWLINE_CHAR = QChar(0x23CE);
 
-	///
-	/// Constructor
-	///
-	MergeView::MergeView( QWidget *parent )
-		: QWidget(parent), mModel(nullptr), mUndoRedoModel(nullptr), mOldFormatComboIndex(0)
-	{
-		setupUi( this );
+        ///
+        /// Constructor
+        ///
+        MergeView::MergeView( QWidget *parent )
+                : QWidget(parent), mModel(nullptr), mUndoRedoModel(nullptr), mOldFormatComboIndex(0)
+        {
+                setupUi( this );
 
-		titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Merge") ) );
+                titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Merge") ) );
 
-		mMergeFormatNames = merge::Factory::nameList();
-		formatCombo->addItems( mMergeFormatNames );
-	}
-
-
-	///
-	/// Set Model
-	///
-	void MergeView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
-	{
-		mModel = model;
-		mUndoRedoModel = undoRedoModel;
-
-		// Initialize CWD
-		mCwd = mModel->dirPath();
-
-		onMergeChanged();
-		connect( mModel, SIGNAL(mergeChanged()), this, SLOT(onMergeChanged()) );
-	}
+                mMergeFormatNames = merge::Factory::nameList();
+                formatCombo->addItems( mMergeFormatNames );
+        }
 
 
-	///
-	/// Merge changed handler
-	///
-	void MergeView::onMergeChanged()
-	{
-		QString name = merge::Factory::idToName( mModel->merge()->id() );
-		int index = mMergeFormatNames.indexOf( name );
-		mOldFormatComboIndex = index;
-		formatCombo->setCurrentIndex( index );
+        ///
+        /// Set Model
+        ///
+        void MergeView::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
+        {
+                mModel = model;
+                mUndoRedoModel = undoRedoModel;
 
-		QString fn;
-		
-		switch ( merge::Factory::idToType( mModel->merge()->id() ) )
-		{
-		case merge::Factory::NONE:
-		case merge::Factory::FIXED:
-			locationLabel->setEnabled( false );
-			locationLineEdit->setText( "" );
-			locationBrowseButton->setVisible( false );
-			break;
+                // Initialize CWD
+                mCwd = mModel->dirPath();
 
-		case merge::Factory::FILE:
-			locationLabel->setEnabled( true );
-			fn = model::FileUtil::makeRelativeIfInDir( mModel->dir(), mModel->merge()->source() );
-			locationLineEdit->setText( fn );
-			locationBrowseButton->setVisible( true );
-			break;
-
-		default:
-			qWarning( "MergeView::onMergeChanged()::Should not be reached!" );
-			break;
-		}
-
-		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
-		recordsTableView->resizeColumnsToContents();
-
-		connect( mModel->merge(), SIGNAL(sourceChanged()),
-		         this, SLOT(onMergeSourceChanged()) );
-	}
+                onMergeChanged();
+                connect( mModel, SIGNAL(mergeChanged()), this, SLOT(onMergeChanged()) );
+        }
 
 
-	///
-	/// Merge source changed handler
-	///
-	void MergeView::onMergeSourceChanged()
-	{
-		QString fn = model::FileUtil::makeRelativeIfInDir( mModel->dir(), mModel->merge()->source() );
-		locationLineEdit->setText( fn );
+        ///
+        /// Merge changed handler
+        ///
+        void MergeView::onMergeChanged()
+        {
+                QString name = merge::Factory::idToName( mModel->merge()->id() );
+                int index = mMergeFormatNames.indexOf( name );
+                mOldFormatComboIndex = index;
+                formatCombo->setCurrentIndex( index );
 
-		recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
-		recordsTableView->resizeColumnsToContents();
-	}
+                QString fn;
+                
+                switch ( merge::Factory::idToType( mModel->merge()->id() ) )
+                {
+                case merge::Factory::NONE:
+                case merge::Factory::FIXED:
+                        locationLabel->setEnabled( false );
+                        locationLineEdit->setText( "" );
+                        locationBrowseButton->setVisible( false );
+                        break;
 
+                case merge::Factory::FILE:
+                        locationLabel->setEnabled( true );
+                        fn = model::FileUtil::makeRelativeIfInDir( mModel->dir(), mModel->merge()->source() );
+                        locationLineEdit->setText( fn );
+                        locationBrowseButton->setVisible( true );
+                        break;
 
-	///
-	/// Format combo changed handler
-	///
-	void MergeView::onFormatComboActivated()
-	{
-		int index = formatCombo->currentIndex();
-		if ( index != mOldFormatComboIndex )
-		{
-			mOldFormatComboIndex = index;
+                default:
+                        qWarning( "MergeView::onMergeChanged()::Should not be reached!" );
+                        break;
+                }
 
-			QString id = merge::Factory::indexToId(index);
-			mModel->setMerge( merge::Factory::createMerge( id ) );
-		}
-	}
+                recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
+                recordsTableView->resizeColumnsToContents();
 
-
-	///
-	/// Location button clicked handler
-	///
-	void MergeView::onLocationBrowseButtonClicked()
-	{
-		QString fileName =
-			QFileDialog::getOpenFileName( this,
-			                              tr("Select merge file"),
-			                              mCwd,
-			                              tr("All files (*)") );
-		if ( !fileName.isEmpty() )
-		{
-			mModel->merge()->setSource( fileName );
-			mCwd = QFileInfo( fileName ).absolutePath(); // Update CWD
-		}
-	}
+                connect( mModel->merge(), SIGNAL(sourceChanged()),
+                         this, SLOT(onMergeSourceChanged()) );
+        }
 
 
-	///
-	/// Select all button clicked handler
-	///
-	void MergeView::onSelectAllButtonClicked()
-	{
-		mModel->merge()->selectAll();
-	}
+        ///
+        /// Merge source changed handler
+        ///
+        void MergeView::onMergeSourceChanged()
+        {
+                QString fn = model::FileUtil::makeRelativeIfInDir( mModel->dir(), mModel->merge()->source() );
+                locationLineEdit->setText( fn );
+
+                recordsTableView->setModel( new MergeTableModel( mModel->merge() ) );
+                recordsTableView->resizeColumnsToContents();
+        }
 
 
-	///
-	/// Unselect all button clicked handler
-	///
-	void MergeView::onUnselectAllButtonClicked()
-	{
-		mModel->merge()->unselectAll();
-	}
+        ///
+        /// Format combo changed handler
+        ///
+        void MergeView::onFormatComboActivated()
+        {
+                int index = formatCombo->currentIndex();
+                if ( index != mOldFormatComboIndex )
+                {
+                        mOldFormatComboIndex = index;
+
+                        QString id = merge::Factory::indexToId(index);
+                        mModel->setMerge( merge::Factory::createMerge( id ) );
+                }
+        }
 
 
-	///
-	/// Reload button clicked handler
-	///
-	void MergeView::onReloadButtonClicked()
-	{
-		mModel->merge()->reloadSource();
-	}
+        ///
+        /// Location button clicked handler
+        ///
+        void MergeView::onLocationBrowseButtonClicked()
+        {
+                QString fileName =
+                        QFileDialog::getOpenFileName( this,
+                                                      tr("Select merge file"),
+                                                      mCwd,
+                                                      tr("All files (*)") );
+                if ( !fileName.isEmpty() )
+                {
+                        mModel->merge()->setSource( fileName );
+                        mCwd = QFileInfo( fileName ).absolutePath(); // Update CWD
+                }
+        }
 
 
-	///
-	/// modify text to be printable e.g. replace newlines
-	///
-	QString MergeView::printableTextForView( QString text )
-	{
-		// Replace windows style newlines
-		text.replace("\r\n", NEWLINE_CHAR);
+        ///
+        /// Select all button clicked handler
+        ///
+        void MergeView::onSelectAllButtonClicked()
+        {
+                mModel->merge()->selectAll();
+        }
 
-		// Replace unix style newlines
-		text.replace("\n", NEWLINE_CHAR);
 
-		return text;
-	}
+        ///
+        /// Unselect all button clicked handler
+        ///
+        void MergeView::onUnselectAllButtonClicked()
+        {
+                mModel->merge()->unselectAll();
+        }
+
+
+        ///
+        /// Reload button clicked handler
+        ///
+        void MergeView::onReloadButtonClicked()
+        {
+                mModel->merge()->reloadSource();
+        }
+
+
+        ///
+        /// modify text to be printable e.g. replace newlines
+        ///
+        QString MergeView::printableTextForView( QString text )
+        {
+                // Replace windows style newlines
+                text.replace("\r\n", NEWLINE_CHAR);
+
+                // Replace unix style newlines
+                text.replace("\n", NEWLINE_CHAR);
+
+                return text;
+        }
 
 
 } // namespace glabels

@@ -24,178 +24,178 @@
 
 namespace glabels
 {
-	namespace merge
-	{
-	
-		///
-		/// Constructor
-		///
-		Merge::Merge( const Merge* merge )
-			: mId(merge->mId),
-			  mSource(merge->mSource),
-			  mRecordList(merge->mRecordList)
-		{
-		}
+        namespace merge
+        {
+        
+                ///
+                /// Constructor
+                ///
+                Merge::Merge( const Merge* merge )
+                        : mId(merge->mId),
+                          mSource(merge->mSource),
+                          mRecordList(merge->mRecordList)
+                {
+                }
 
 
-		///
-		/// Get id
-		///
-		QString Merge::id() const
-		{
-			return mId;
-		}
+                ///
+                /// Get id
+                ///
+                QString Merge::id() const
+                {
+                        return mId;
+                }
 
 
-		///
-		/// Get source
-		///
-		QString Merge::source() const
-		{
-			return mSource;
-		}
+                ///
+                /// Get source
+                ///
+                QString Merge::source() const
+                {
+                        return mSource;
+                }
 
 
-		///
-		/// Set source
-		///
-		void Merge::setSource( const QString& source )
-		{
-			mSource = source;
+                ///
+                /// Set source
+                ///
+                void Merge::setSource( const QString& source )
+                {
+                        mSource = source;
 
-			// Clear out any old records
-			mRecordList.clear();
+                        // Clear out any old records
+                        mRecordList.clear();
 
-			open();
-			for ( Record record = readNextRecord(); !record.isEmpty(); record = readNextRecord() )
-			{
-				mRecordList.push_back( record );
-			}
-			close();
-		
-			emit sourceChanged();
-		}
-
-
-		///
-		/// Reload source
-		///
-		void Merge::reloadSource()
-		{
-			//  temporary map of original selections
-			QMap<QString,bool> origSelectionMap;
-
-			for ( auto& record : mRecordList )
-			{
-				origSelectionMap[ record[ primaryKey() ] ] = record.isSelected();
-			}
-
-			// Clear the original records
-			mRecordList.clear();
-
-			// Read the new records, preserve any original selections
-			open();
-			for ( Record record = readNextRecord(); !record.isEmpty(); record = readNextRecord() )
-			{
-				auto key = record[ primaryKey() ];
-				auto it = origSelectionMap.find( key );
-				if ( it != origSelectionMap.end() )
-				{
-					record.setSelected( it.value() );
-				}
-
-				mRecordList.push_back( record );
-			}
-			close();
-
-			emit sourceChanged();
-		}
+                        open();
+                        for ( Record record = readNextRecord(); !record.isEmpty(); record = readNextRecord() )
+                        {
+                                mRecordList.push_back( record );
+                        }
+                        close();
+                
+                        emit sourceChanged();
+                }
 
 
-		///
-		/// Get record list
-		///
-		const QList<Record>& Merge::recordList( ) const
-		{
-			return mRecordList;
-		}
+                ///
+                /// Reload source
+                ///
+                void Merge::reloadSource()
+                {
+                        //  temporary map of original selections
+                        QMap<QString,bool> origSelectionMap;
+
+                        for ( auto& record : mRecordList )
+                        {
+                                origSelectionMap[ record[ primaryKey() ] ] = record.isSelected();
+                        }
+
+                        // Clear the original records
+                        mRecordList.clear();
+
+                        // Read the new records, preserve any original selections
+                        open();
+                        for ( Record record = readNextRecord(); !record.isEmpty(); record = readNextRecord() )
+                        {
+                                auto key = record[ primaryKey() ];
+                                auto it = origSelectionMap.find( key );
+                                if ( it != origSelectionMap.end() )
+                                {
+                                        record.setSelected( it.value() );
+                                }
+
+                                mRecordList.push_back( record );
+                        }
+                        close();
+
+                        emit sourceChanged();
+                }
 
 
-		///
-		/// Select/unselect i'th record
-		///
-		void Merge::setSelected( int i, bool state )
-		{
-			if ( (i >= 0) && (i < mRecordList.size()) )
-			{
-				mRecordList[i].setSelected( state );
-				emit selectionChanged();
-			}
-		}
+                ///
+                /// Get record list
+                ///
+                const QList<Record>& Merge::recordList( ) const
+                {
+                        return mRecordList;
+                }
 
 
-		///
-		/// Select all records
-		///
-		void Merge::selectAll()
-		{
-			for ( auto& record : mRecordList )
-			{
-				record.setSelected( true );
-			}
-			emit selectionChanged();
-		}
-
-	
-		///
-		/// Unselect all records
-		///
-		void Merge::unselectAll()
-		{
-			for ( auto& record : mRecordList )
-			{
-				record.setSelected( false );
-			}
-			emit selectionChanged();
-		}
-
-	
-		///
-		/// Return count of selected records
-		///
-		int Merge::nSelectedRecords() const
-		{
-			int count = 0;
-
-			for ( const auto& record : mRecordList )
-			{
-				if ( record.isSelected() )
-				{
-					count++;
-				}
-			}
-
-			return count;
-		}
+                ///
+                /// Select/unselect i'th record
+                ///
+                void Merge::setSelected( int i, bool state )
+                {
+                        if ( (i >= 0) && (i < mRecordList.size()) )
+                        {
+                                mRecordList[i].setSelected( state );
+                                emit selectionChanged();
+                        }
+                }
 
 
-		///
-		/// Return list of selected records
-		///
-		const QList<Record> Merge::selectedRecords() const
-		{
-			QList<Record> list;
+                ///
+                /// Select all records
+                ///
+                void Merge::selectAll()
+                {
+                        for ( auto& record : mRecordList )
+                        {
+                                record.setSelected( true );
+                        }
+                        emit selectionChanged();
+                }
 
-			for ( const auto& record : mRecordList )
-			{
-				if ( record.isSelected() )
-				{
-					list.append( record );
-				}
-			}
+        
+                ///
+                /// Unselect all records
+                ///
+                void Merge::unselectAll()
+                {
+                        for ( auto& record : mRecordList )
+                        {
+                                record.setSelected( false );
+                        }
+                        emit selectionChanged();
+                }
 
-			return list;
-		}
+        
+                ///
+                /// Return count of selected records
+                ///
+                int Merge::nSelectedRecords() const
+                {
+                        int count = 0;
 
-	} // namespace merge
+                        for ( const auto& record : mRecordList )
+                        {
+                                if ( record.isSelected() )
+                                {
+                                        count++;
+                                }
+                        }
+
+                        return count;
+                }
+
+
+                ///
+                /// Return list of selected records
+                ///
+                const QList<Record> Merge::selectedRecords() const
+                {
+                        QList<Record> list;
+
+                        for ( const auto& record : mRecordList )
+                        {
+                                if ( record.isSelected() )
+                                {
+                                        list.append( record );
+                                }
+                        }
+
+                        return list;
+                }
+
+        } // namespace merge
 } // namespace glabels

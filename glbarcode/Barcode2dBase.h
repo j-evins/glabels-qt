@@ -33,117 +33,117 @@
 namespace glbarcode
 {
 
-	/**
-	 * @class Barcode2dBase Barcode2dBase.h glbarcode/Barcode2dBase.h
-	 *
-	 * The Barcode2dBase class is the base class for all 2D barcode implementations.
-	 * This class provides a common framework for the implementation of 2D barcodes.
-	 * Creating 2D barcode types (or symbologies) would be typically accomplished by
-	 * implementing this class rather than directly implementing the Barcode class.
-	 *
-	 */
-	class Barcode2dBase : public Barcode
-	{
+        /**
+         * @class Barcode2dBase Barcode2dBase.h glbarcode/Barcode2dBase.h
+         *
+         * The Barcode2dBase class is the base class for all 2D barcode implementations.
+         * This class provides a common framework for the implementation of 2D barcodes.
+         * Creating 2D barcode types (or symbologies) would be typically accomplished by
+         * implementing this class rather than directly implementing the Barcode class.
+         *
+         */
+        class Barcode2dBase : public Barcode
+        {
 
-	protected:
-		/**
-		 * Default constructor.
-		 */
-		Barcode2dBase();
-
-
-	public:
-		/**
-		 * Destructor.
-		 */
-		~Barcode2dBase() override;
+        protected:
+                /**
+                 * Default constructor.
+                 */
+                Barcode2dBase();
 
 
-		/**
-		 * Build 2D barcode from data.
-		 *
-		 * Implements glbarcode::Barcode::build().  Calls the validate(), preprocess(),
-		 * encode(), and vectorize() virtual methods, as shown:
-		 *
-		 * @dotfile figure-2d-build.dot "2D build() data flow"
-		 *
-		 * @param[in] data Data to encode in barcode
-		 * @param[in] w    Requested width of barcode (0 = auto size)
-		 * @param[in] h    Requested height of barcode (0 = auto size)
-		 *
-		 * @returns A reference to this Barcode object for chaining methods
-		 */
-		Barcode& build( const std::string&    data,
-		                double                w = 0,
-		                double                h = 0 ) override;
+        public:
+                /**
+                 * Destructor.
+                 */
+                ~Barcode2dBase() override;
 
 
-	protected:
-		/**
-		 * Validate barcode data.
-		 *
-		 * Required virtual method to test if data is valid for encoding with
-		 * barcode type.
-		 *
-		 * @param[in] rawData Data to validate
-		 *
-		 * @return True if data is valid data for barcode type
-		 * @return False if data is not valid data for barcode type
-		 */
-		virtual bool validate( const std::string& rawData ) = 0;
+                /**
+                 * Build 2D barcode from data.
+                 *
+                 * Implements glbarcode::Barcode::build().  Calls the validate(), preprocess(),
+                 * encode(), and vectorize() virtual methods, as shown:
+                 *
+                 * @dotfile figure-2d-build.dot "2D build() data flow"
+                 *
+                 * @param[in] data Data to encode in barcode
+                 * @param[in] w    Requested width of barcode (0 = auto size)
+                 * @param[in] h    Requested height of barcode (0 = auto size)
+                 *
+                 * @returns A reference to this Barcode object for chaining methods
+                 */
+                Barcode& build( const std::string&    data,
+                                double                w = 0,
+                                double                h = 0 ) override;
 
 
-		/**
-		 * Preprocess barcode data.
-		 *
-		 * Optional virtual method to perform any transformation of the data needed
-		 * before encoding.  (E.g. encoding an extended alphabet into a simpler one).
-		 *
-		 * @param[in] rawData Data to preprocess
-		 *
-		 * @return Preprocessed data
-		 */
-		virtual std::string preprocess( const std::string& rawData );
+        protected:
+                /**
+                 * Validate barcode data.
+                 *
+                 * Required virtual method to test if data is valid for encoding with
+                 * barcode type.
+                 *
+                 * @param[in] rawData Data to validate
+                 *
+                 * @return True if data is valid data for barcode type
+                 * @return False if data is not valid data for barcode type
+                 */
+                virtual bool validate( const std::string& rawData ) = 0;
 
 
-		/**
-		 * Encode barcode data
-		 *
-		 * Required virtual method to encode data such that it can be later vectorized.
-		 *
-		 * @param[in]  cookedData  Data to encode
-		 * @param[out] encodedData Encoded data in the form of a matrix
-		 *
-		 * @return True if data was encoded successfully
-		 * @return False if data could not be encoded (condition not discoverable by validate())
-		 */
-		virtual bool encode( const std::string&   cookedData,
-		                     Matrix<bool>&        encodedData ) = 0;
+                /**
+                 * Preprocess barcode data.
+                 *
+                 * Optional virtual method to perform any transformation of the data needed
+                 * before encoding.  (E.g. encoding an extended alphabet into a simpler one).
+                 *
+                 * @param[in] rawData Data to preprocess
+                 *
+                 * @return Preprocessed data
+                 */
+                virtual std::string preprocess( const std::string& rawData );
 
 
-		/**
-		 * Vectorize encoded data
-		 *
-		 * Optional virtual method to convert encoded data into a list of drawing
-		 * primitives which can later be rendered.
-		 *
-		 * @param[in]     encodedData Data to vectorize
-		 * @param[in,out] w           Requested width of barcode (0 = auto size), vectorize will overwrite with actual width
-		 * @param[in,out] h           Requested height of barcode (0 = auto size), vectorize will overwrite with actual width
-		 */
-		virtual void vectorize( const Matrix<bool>& encodedData,
-		                        double&             w,
-		                        double&             h );
+                /**
+                 * Encode barcode data
+                 *
+                 * Required virtual method to encode data such that it can be later vectorized.
+                 *
+                 * @param[in]  cookedData  Data to encode
+                 * @param[out] encodedData Encoded data in the form of a matrix
+                 *
+                 * @return True if data was encoded successfully
+                 * @return False if data could not be encoded (condition not discoverable by validate())
+                 */
+                virtual bool encode( const std::string&   cookedData,
+                                     Matrix<bool>&        encodedData ) = 0;
 
 
-	private:
-		/**
-		 * Barcode2dBase Private data
-		 */
-		struct PrivateData;
-		PrivateData *d;
+                /**
+                 * Vectorize encoded data
+                 *
+                 * Optional virtual method to convert encoded data into a list of drawing
+                 * primitives which can later be rendered.
+                 *
+                 * @param[in]     encodedData Data to vectorize
+                 * @param[in,out] w           Requested width of barcode (0 = auto size), vectorize will overwrite with actual width
+                 * @param[in,out] h           Requested height of barcode (0 = auto size), vectorize will overwrite with actual width
+                 */
+                virtual void vectorize( const Matrix<bool>& encodedData,
+                                        double&             w,
+                                        double&             h );
 
-	};
+
+        private:
+                /**
+                 * Barcode2dBase Private data
+                 */
+                struct PrivateData;
+                PrivateData *d;
+
+        };
 
 }
 

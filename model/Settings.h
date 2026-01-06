@@ -34,93 +34,93 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		///
-		/// Settings Singleton Class
-		///
-		class Settings : public QSettings
-		{
-			Q_OBJECT
-	
-		public:
-			enum PageSizeFamily { ISO, US, };
-			enum GridOrigin { ORIGIN_TL, ORIGIN_CENTER };
-			
+                ///
+                /// Settings Singleton Class
+                ///
+                class Settings : public QSettings
+                {
+                        Q_OBJECT
+        
+                public:
+                        enum PageSizeFamily { ISO, US, };
+                        enum GridOrigin { ORIGIN_TL, ORIGIN_CENTER };
+                        
 
-			/////////////////////////////////
-			// Life Cycle
-			/////////////////////////////////
-		private:
-			Settings() = default;
+                        /////////////////////////////////
+                        // Life Cycle
+                        /////////////////////////////////
+                private:
+                        Settings() = default;
 
-		public:
-			static void init();
-			static Settings* instance();
+                public:
+                        static void init();
+                        static Settings* instance();
 
-	
-			/////////////////////////////////
-			// Signals
-			/////////////////////////////////
-		signals:
-			void changed();
-	
+        
+                        /////////////////////////////////
+                        // Signals
+                        /////////////////////////////////
+                signals:
+                        void changed();
+        
 
-			/////////////////////////////////
-			// Accessors
-			/////////////////////////////////
-		public:
-			static Units units();
-			static void setUnits( Units units );
+                        /////////////////////////////////
+                        // Accessors
+                        /////////////////////////////////
+                public:
+                        static Units units();
+                        static void setUnits( Units units );
 
-			static PageSizeFamily preferedPageSizeFamily();
-			static void setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily );
+                        static PageSizeFamily preferedPageSizeFamily();
+                        static void setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily );
 
-			static bool searchIsoPaperSizes();
-			static void setSearchIsoPaperSizes( bool searchIsoPaperSizes );
+                        static bool searchIsoPaperSizes();
+                        static void setSearchIsoPaperSizes( bool searchIsoPaperSizes );
 
-			static bool searchUsPaperSizes();
-			static void setSearchUsPaperSizes( bool searchUsPaperSizes );
+                        static bool searchUsPaperSizes();
+                        static void setSearchUsPaperSizes( bool searchUsPaperSizes );
 
-			static bool searchOtherPaperSizes();
-			static void setSearchOtherPaperSizes( bool searchOtherPaperSizes );
+                        static bool searchOtherPaperSizes();
+                        static void setSearchOtherPaperSizes( bool searchOtherPaperSizes );
 
-			static bool searchAllCategories();
-			static void setSearchAllCategories( bool searchAllCategories );
+                        static bool searchAllCategories();
+                        static void setSearchAllCategories( bool searchAllCategories );
 
-			static QStringList searchCategoryList();
-			static void setSearchCategoryList( const QStringList& searchCategoryList );
+                        static QStringList searchCategoryList();
+                        static void setSearchCategoryList( const QStringList& searchCategoryList );
 
-			static QListView::ViewMode templatePickerMode();
-			static void setTemplatePickerMode( QListView::ViewMode viewMode );
+                        static QListView::ViewMode templatePickerMode();
+                        static void setTemplatePickerMode( QListView::ViewMode viewMode );
 
-			static QStringList recentTemplateList();
-			static void addToRecentTemplateList( const QString& name );
+                        static QStringList recentTemplateList();
+                        static void addToRecentTemplateList( const QString& name );
 
-			static int maxRecentFiles();
-			static QStringList recentFileList();
-			static void addToRecentFileList( const QString& filePath );
-			static void removeFromRecentFileList( const QString& filePath );
+                        static int maxRecentFiles();
+                        static QStringList recentFileList();
+                        static void addToRecentFileList( const QString& filePath );
+                        static void removeFromRecentFileList( const QString& filePath );
 
-			static QString recentPrinter();
-			static void setRecentPrinter( const QString& printer );
+                        static QString recentPrinter();
+                        static void setRecentPrinter( const QString& printer );
 
-			static GridOrigin gridOrigin();
-			static void setGridOrigin( GridOrigin origin );
+                        static GridOrigin gridOrigin();
+                        static void setGridOrigin( GridOrigin origin );
 
-			static Distance gridSpacing();
-			static void setGridSpacing( Distance spacing );
-			static void resetGridSpacing();
-			
-			
-		private:
-			static std::unique_ptr<Settings> mInstance;
-			static const int mMaxRecentFiles{5};
+                        static Distance gridSpacing();
+                        static void setGridSpacing( Distance spacing );
+                        static void resetGridSpacing();
+                        
+                        
+                private:
+                        static std::unique_ptr<Settings> mInstance;
+                        static const int mMaxRecentFiles{5};
 
-		};
+                };
 
-	}
+        }
 }
 
 

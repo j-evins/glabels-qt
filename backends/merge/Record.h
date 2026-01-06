@@ -28,34 +28,34 @@
 
 namespace glabels
 {
-	namespace merge
-	{
+        namespace merge
+        {
 
-		///
-		/// Merge Record
-		///
-		class Record : public QMap<QString,QString>
-		{
+                ///
+                /// Merge Record
+                ///
+                class Record : public QMap<QString,QString>
+                {
 
-			/////////////////////////////////
-			// Properties
-			/////////////////////////////////
-		public:
-			bool isSelected() const;
-			void setSelected( bool value );
-
-
-			/////////////////////////////////
-			// Private data
-			/////////////////////////////////
-		private:
-			bool mSelected{ true };
-
-		};
+                        /////////////////////////////////
+                        // Properties
+                        /////////////////////////////////
+                public:
+                        bool isSelected() const;
+                        void setSelected( bool value );
 
 
-		using NullRecord = const Record;
-	}
+                        /////////////////////////////////
+                        // Private data
+                        /////////////////////////////////
+                private:
+                        bool mSelected{ true };
+
+                };
+
+
+                using NullRecord = const Record;
+        }
 }
 
 

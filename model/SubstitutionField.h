@@ -32,50 +32,50 @@
 
 namespace glabels
 {
-	namespace model
-	{
+        namespace model
+        {
 
-		class SubstitutionField
-		{
-		public:
-			SubstitutionField();
-			SubstitutionField( const QString& string );
+                class SubstitutionField
+                {
+                public:
+                        SubstitutionField();
+                        SubstitutionField( const QString& string );
 
-			QString evaluate( const merge::Record& record, const Variables& variables ) const;
-		
-			QString fieldName() const;
-			QString defaultValue() const;
-			QString format() const;
-			QChar   formatType() const;
-			bool    newLine() const;
+                        QString evaluate( const merge::Record& record, const Variables& variables ) const;
+                
+                        QString fieldName() const;
+                        QString defaultValue() const;
+                        QString format() const;
+                        QChar   formatType() const;
+                        bool    newLine() const;
 
-			static bool parse( ParserState& s, SubstitutionField& field );
+                        static bool parse( ParserState& s, SubstitutionField& field );
 
-		private:
-			static bool parseFieldName( ParserState& s, SubstitutionField& field );
-			static bool parseModifier( ParserState& s, SubstitutionField& field );
-			static bool parseDefaultValueModifier( ParserState& s, SubstitutionField& field );
-			static bool parseFormatModifier( ParserState& s, SubstitutionField& field );
-			static bool parseFormatFlags( ParserState& s, SubstitutionField& field );
-			static bool parseFormatWidth( ParserState& s, SubstitutionField& field );
-			static bool parseFormatPrecision( ParserState& s, SubstitutionField& field );
-			static bool parseFormatType( ParserState& s, SubstitutionField& field );
-			static bool parseNaturalInteger( ParserState& s, SubstitutionField& field );
-			static bool parseNewLineModifier( ParserState& s, SubstitutionField& field );
+                private:
+                        static bool parseFieldName( ParserState& s, SubstitutionField& field );
+                        static bool parseModifier( ParserState& s, SubstitutionField& field );
+                        static bool parseDefaultValueModifier( ParserState& s, SubstitutionField& field );
+                        static bool parseFormatModifier( ParserState& s, SubstitutionField& field );
+                        static bool parseFormatFlags( ParserState& s, SubstitutionField& field );
+                        static bool parseFormatWidth( ParserState& s, SubstitutionField& field );
+                        static bool parseFormatPrecision( ParserState& s, SubstitutionField& field );
+                        static bool parseFormatType( ParserState& s, SubstitutionField& field );
+                        static bool parseNaturalInteger( ParserState& s, SubstitutionField& field );
+                        static bool parseNewLineModifier( ParserState& s, SubstitutionField& field );
 
-			QString formatValue( const QString& value ) const;
+                        QString formatValue( const QString& value ) const;
 
-			QString mFieldName;
+                        QString mFieldName;
 
-			QString mDefaultValue;
+                        QString mDefaultValue;
 
-			QString mFormat;
-			QChar   mFormatType{};
+                        QString mFormat;
+                        QChar   mFormatType{};
 
-			bool    mNewLine{ false };
-		};
+                        bool    mNewLine{ false };
+                };
 
-	}
+        }
 }
 
 

@@ -32,66 +32,66 @@
 
 namespace glabels
 {
-	
-	///
-	///  Preview Widget
-	///
-	class Preview : public QGraphicsView
-	{
-		Q_OBJECT
+        
+        ///
+        ///  Preview Widget
+        ///
+        class Preview : public QGraphicsView
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		Preview( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                Preview( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Renderer
-		/////////////////////////////////
-	public:
-		void setRenderer( const model::PageRenderer* renderer );
-	private slots:
-		void onRendererChanged();
+                /////////////////////////////////
+                // Renderer
+                /////////////////////////////////
+        public:
+                void setRenderer( const model::PageRenderer* renderer );
+        private slots:
+                void onRendererChanged();
 
 
-		/////////////////////////////////////
-		// Event handlers
-		/////////////////////////////////////
-	protected:
-		void resizeEvent( QResizeEvent* event ) override;
+                /////////////////////////////////////
+                // Event handlers
+                /////////////////////////////////////
+        protected:
+                void resizeEvent( QResizeEvent* event ) override;
 
-		
-		/////////////////////////////////
-		// Internal Methods
-		/////////////////////////////////
-	private:
-		void drawPaper();
-		void drawLabels();
-		void drawLabel( model::Distance     x,
-		                model::Distance     y,
-		                const QPainterPath& path );
-		
-		void drawPreviewOverlay();
+                
+                /////////////////////////////////
+                // Internal Methods
+                /////////////////////////////////
+        private:
+                void drawPaper();
+                void drawLabels();
+                void drawLabel( model::Distance     x,
+                                model::Distance     y,
+                                const QPainterPath& path );
+                
+                void drawPreviewOverlay();
 
-		void drawLabelNumberOverlaySingle( model::Distance     x,
-		                                   model::Distance     y,
-		                                   const QPainterPath& path,
-		                                   uint32_t            labelInstance);
-		void drawLabelNumberOverlay();
+                void drawLabelNumberOverlaySingle( model::Distance     x,
+                                                   model::Distance     y,
+                                                   const QPainterPath& path,
+                                                   uint32_t            labelInstance);
+                void drawLabelNumberOverlay();
 
 
-		/////////////////////////////////
-		// Private Data
-		/////////////////////////////////
-	private:
-		const model::Model*        mModel;
-		const model::PageRenderer* mRenderer;    
-		QGraphicsScene*            mScene;
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                const model::Model*        mModel;
+                const model::PageRenderer* mRenderer;    
+                QGraphicsScene*            mScene;
 
-	};
+        };
 
 }
 

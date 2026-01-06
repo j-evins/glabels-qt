@@ -42,100 +42,100 @@
 
 int main( int argc, char **argv )
 {
-	QApplication app( argc, argv );
+        QApplication app( argc, argv );
 
-	QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
-	QCoreApplication::setOrganizationDomain( glabels::model::Version::ORGANIZATION_DOMAIN );
-	QCoreApplication::setApplicationName( glabels::model::Version::APPLICATION_NAME );
-	QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
-	QApplication::setDesktopFileName( glabels::model::Version::DESKTOP_FILE_NAME );
+        QCoreApplication::setOrganizationName( glabels::model::Version::ORGANIZATION_NAME );
+        QCoreApplication::setOrganizationDomain( glabels::model::Version::ORGANIZATION_DOMAIN );
+        QCoreApplication::setApplicationName( glabels::model::Version::APPLICATION_NAME );
+        QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
+        QApplication::setDesktopFileName( glabels::model::Version::DESKTOP_FILE_NAME );
 
-	QIcon::setThemeName( "glabels-flat" );
+        QIcon::setThemeName( "glabels-flat" );
 
-	//
-	// Setup translators
-	//
-	QLocale locale = QLocale::system();
-	QString qtTranslationsDir = QLibraryInfo::path( QLibraryInfo::TranslationsPath );
-	QString myTranslationsDir = glabels::model::FileUtil::translationsDir().canonicalPath();
-	
-	QTranslator qtTranslator;
-	if ( qtTranslator.load( locale, "qt", "_", qtTranslationsDir ) )
-	{
-		app.installTranslator(&qtTranslator);
-	}
+        //
+        // Setup translators
+        //
+        QLocale locale = QLocale::system();
+        QString qtTranslationsDir = QLibraryInfo::path( QLibraryInfo::TranslationsPath );
+        QString myTranslationsDir = glabels::model::FileUtil::translationsDir().canonicalPath();
+        
+        QTranslator qtTranslator;
+        if ( qtTranslator.load( locale, "qt", "_", qtTranslationsDir ) )
+        {
+                app.installTranslator(&qtTranslator);
+        }
 
-	QTranslator glabelsTranslator;
-	if ( glabelsTranslator.load( locale, "glabels", "_", myTranslationsDir ) )
-	{
-		app.installTranslator(&glabelsTranslator);
-	}
+        QTranslator glabelsTranslator;
+        if ( glabelsTranslator.load( locale, "glabels", "_", myTranslationsDir ) )
+        {
+                app.installTranslator(&glabelsTranslator);
+        }
 
-	QTranslator templatesTranslator;
-	if ( templatesTranslator.load( locale, "templates", "_", myTranslationsDir ) )
-	{
-		app.installTranslator(&templatesTranslator);
-	}
+        QTranslator templatesTranslator;
+        if ( templatesTranslator.load( locale, "templates", "_", myTranslationsDir ) )
+        {
+                app.installTranslator(&templatesTranslator);
+        }
 
 
-	//
-	// Parse command line
-	//
-	QCommandLineParser parser;
-	parser.setApplicationDescription( QCoreApplication::translate( "main", "gLabels Label Designer" ) );
-	parser.addHelpOption();
-	parser.addVersionOption();
-	parser.addOption( { { "V", "Version" }, QCoreApplication::translate( "main", "More detailed version information." ) } );
-	parser.addPositionalArgument( "files",
-	                              QCoreApplication::translate( "main", "gLabels project files to open, optionally." ),
-	                              "[files...]" );
-	parser.process( app );
+        //
+        // Parse command line
+        //
+        QCommandLineParser parser;
+        parser.setApplicationDescription( QCoreApplication::translate( "main", "gLabels Label Designer" ) );
+        parser.addHelpOption();
+        parser.addVersionOption();
+        parser.addOption( { { "V", "Version" }, QCoreApplication::translate( "main", "More detailed version information." ) } );
+        parser.addPositionalArgument( "files",
+                                      QCoreApplication::translate( "main", "gLabels project files to open, optionally." ),
+                                      "[files...]" );
+        parser.process( app );
 
-	// Handle verbose version option
-	if ( parser.isSet( "Version" ) )
-	{
-		QTextStream(stdout) << glabels::model::Version::details() << Qt::endl;
-		return 0;
-	}
+        // Handle verbose version option
+        if ( parser.isSet( "Version" ) )
+        {
+                QTextStream(stdout) << glabels::model::Version::details() << Qt::endl;
+                return 0;
+        }
 
-	
-	//
-	// Initialize subsystems
-	//
-	glabels::model::Settings::init();
-	glabels::model::Db::init();
-	glabels::merge::Factory::init();
-	glabels::barcode::Backends::init();
+        
+        //
+        // Initialize subsystems
+        //
+        glabels::model::Settings::init();
+        glabels::model::Db::init();
+        glabels::merge::Factory::init();
+        glabels::barcode::Backends::init();
 
-	
-	//
-	// Open each file in its own main window
-	//
-	bool openedFiles = false;
-	for ( QString filename : parser.positionalArguments() )
-	{
-		glabels::model::Model *model = glabels::model::XmlLabelParser::readFile( filename );
-		if ( model )
-		{
-			auto *newWindow = new glabels::MainWindow();
-			newWindow->setModel( model );
-			newWindow->show();
-			openedFiles = true;
+        
+        //
+        // Open each file in its own main window
+        //
+        bool openedFiles = false;
+        for ( QString filename : parser.positionalArguments() )
+        {
+                glabels::model::Model *model = glabels::model::XmlLabelParser::readFile( filename );
+                if ( model )
+                {
+                        auto *newWindow = new glabels::MainWindow();
+                        newWindow->setModel( model );
+                        newWindow->show();
+                        openedFiles = true;
 
-			glabels::model::Settings::addToRecentFileList( model->fileName() );
-		}
-	}
+                        glabels::model::Settings::addToRecentFileList( model->fileName() );
+                }
+        }
 
-	
-	//
-	// Launch main window
-	//
-	if ( !openedFiles )
-	{
-		auto *mainWindow = new glabels::MainWindow();
-		mainWindow->show();
-	}
+        
+        //
+        // Launch main window
+        //
+        if ( !openedFiles )
+        {
+                auto *mainWindow = new glabels::MainWindow();
+                mainWindow->show();
+        }
 
-	
-	return app.exec();
+        
+        return app.exec();
 }

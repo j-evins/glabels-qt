@@ -31,427 +31,427 @@
 
 namespace glabels
 {
-	namespace model
-	{
-
-		//
-		// Static data
-		//
-		std::unique_ptr<Settings> Settings::mInstance;
-
-
-
-		void Settings::init()
-		{
-			// Note: init() hould be called after
-			//   - QCoreApplication::setOrganizationName(), and
-			//   - QCoreApplication::setApplicationName()
-
-			if ( !mInstance )
-			{
-				mInstance.reset( new Settings() );
-			}
-		}
-
-
-		Settings* Settings::instance()
-		{
-			init();
-			return mInstance.get();
-		}
-
-
-		Units Settings::units()
-		{
-			// Guess at a suitable default
-			QString defaultIdString;
-			if ( QLocale::system().measurementSystem() == QLocale::ImperialSystem )
-			{
-				defaultIdString = Units(Units::IN).toIdString();
-			}
-			else
-			{
-				defaultIdString = Units(Units::MM).toIdString();
-			}
-	
-			mInstance->beginGroup( "Locale" );
-			QString idString = mInstance->value( "units", defaultIdString ).toString();
-			mInstance->endGroup();
-
-			return Units( idString );
-		}
-
-
-		void Settings::setUnits( Units units )
-		{
-			QString idString = units.toIdString();
-
-			mInstance->beginGroup( "Locale" );
-			mInstance->setValue( "units", idString );
-			mInstance->endGroup();
-
-			emit mInstance->changed();
-		}
-
-
-		Settings::PageSizeFamily Settings::preferedPageSizeFamily()
-		{
-			// Guess at a suitable default
-			QString defaultFamily;
-			switch (QLocale::system().territory())
-			{
-			case QLocale::UnitedStates:
-			case QLocale::Canada:
-				defaultFamily = "us";
-				break;
-
-			default:
-				defaultFamily = "iso";
-				break;
-			}
-	
-			mInstance->beginGroup( "Locale" );
-			QString value = mInstance->value( "preferedPageSizeFamily", defaultFamily ).toString();
-			mInstance->endGroup();
-
-			return (value == "iso") ? ISO : US;
-		}
-
-
-		void Settings::setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily )
-		{
-			mInstance->beginGroup( "Locale" );
-			mInstance->setValue( "preferedPageSizeFamily", preferedPageSizeFamily == ISO ? "iso" : "us" );
-			mInstance->endGroup();
-
-			emit mInstance->changed();
-		}
-
-
-		bool Settings::searchIsoPaperSizes()
-		{
-			// Guess at a suitable default
-			bool defaultValue;
-			switch (QLocale::system().country())
-			{
-			case QLocale::UnitedStates:
-			case QLocale::Canada:
-				defaultValue = false;
-				break;
-
-			default:
-				defaultValue = true;
-				break;
-			}
-	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "isoPaperSizes", defaultValue ).toBool();
-			mInstance->endGroup();
-
-			return returnValue;
-		}
-
-
-		void Settings::setSearchIsoPaperSizes( bool searchIsoPaperSizes )
-		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "isoPaperSizes", searchIsoPaperSizes );
-			mInstance->endGroup();
-
-			emit mInstance->changed();
-		}
-
-
-		bool Settings::searchUsPaperSizes()
-		{
-			// Guess at a suitable default
-			bool defaultValue;
-			switch (QLocale::system().country())
-			{
-			case QLocale::UnitedStates:
-			case QLocale::Canada:
-				defaultValue = true;
-				break;
-
-			default:
-				defaultValue = false;
-				break;
-			}
-	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "usPaperSizes", defaultValue ).toBool();
-			mInstance->endGroup();
-
-			return returnValue;
-		}
-
-
-		void Settings::setSearchUsPaperSizes( bool searchUsPaperSizes )
-		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "usPaperSizes", searchUsPaperSizes );
-			mInstance->endGroup();
-
-			emit mInstance->changed();
-		}
-
-
-		bool Settings::searchOtherPaperSizes()
-		{
-			// Guess at a suitable default
-			bool defaultValue = true;
-	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "otherPaperSizes", defaultValue ).toBool();
-			mInstance->endGroup();
-
-			return returnValue;
-		}
-
-
-		void Settings::setSearchOtherPaperSizes( bool searchOtherPaperSizes )
-		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "otherPaperSizes", searchOtherPaperSizes );
-			mInstance->endGroup();
-
-			emit mInstance->changed();
-		}
-
+        namespace model
+        {
+
+                //
+                // Static data
+                //
+                std::unique_ptr<Settings> Settings::mInstance;
+
+
+
+                void Settings::init()
+                {
+                        // Note: init() hould be called after
+                        //   - QCoreApplication::setOrganizationName(), and
+                        //   - QCoreApplication::setApplicationName()
+
+                        if ( !mInstance )
+                        {
+                                mInstance.reset( new Settings() );
+                        }
+                }
+
+
+                Settings* Settings::instance()
+                {
+                        init();
+                        return mInstance.get();
+                }
+
+
+                Units Settings::units()
+                {
+                        // Guess at a suitable default
+                        QString defaultIdString;
+                        if ( QLocale::system().measurementSystem() == QLocale::ImperialSystem )
+                        {
+                                defaultIdString = Units(Units::IN).toIdString();
+                        }
+                        else
+                        {
+                                defaultIdString = Units(Units::MM).toIdString();
+                        }
+        
+                        mInstance->beginGroup( "Locale" );
+                        QString idString = mInstance->value( "units", defaultIdString ).toString();
+                        mInstance->endGroup();
+
+                        return Units( idString );
+                }
+
+
+                void Settings::setUnits( Units units )
+                {
+                        QString idString = units.toIdString();
+
+                        mInstance->beginGroup( "Locale" );
+                        mInstance->setValue( "units", idString );
+                        mInstance->endGroup();
+
+                        emit mInstance->changed();
+                }
+
+
+                Settings::PageSizeFamily Settings::preferedPageSizeFamily()
+                {
+                        // Guess at a suitable default
+                        QString defaultFamily;
+                        switch (QLocale::system().territory())
+                        {
+                        case QLocale::UnitedStates:
+                        case QLocale::Canada:
+                                defaultFamily = "us";
+                                break;
+
+                        default:
+                                defaultFamily = "iso";
+                                break;
+                        }
+        
+                        mInstance->beginGroup( "Locale" );
+                        QString value = mInstance->value( "preferedPageSizeFamily", defaultFamily ).toString();
+                        mInstance->endGroup();
+
+                        return (value == "iso") ? ISO : US;
+                }
+
+
+                void Settings::setPreferedPageSizeFamily( PageSizeFamily preferedPageSizeFamily )
+                {
+                        mInstance->beginGroup( "Locale" );
+                        mInstance->setValue( "preferedPageSizeFamily", preferedPageSizeFamily == ISO ? "iso" : "us" );
+                        mInstance->endGroup();
+
+                        emit mInstance->changed();
+                }
+
+
+                bool Settings::searchIsoPaperSizes()
+                {
+                        // Guess at a suitable default
+                        bool defaultValue;
+                        switch (QLocale::system().country())
+                        {
+                        case QLocale::UnitedStates:
+                        case QLocale::Canada:
+                                defaultValue = false;
+                                break;
+
+                        default:
+                                defaultValue = true;
+                                break;
+                        }
+        
+                        mInstance->beginGroup( "Search" );
+                        bool returnValue = mInstance->value( "isoPaperSizes", defaultValue ).toBool();
+                        mInstance->endGroup();
+
+                        return returnValue;
+                }
+
+
+                void Settings::setSearchIsoPaperSizes( bool searchIsoPaperSizes )
+                {
+                        mInstance->beginGroup( "Search" );
+                        mInstance->setValue( "isoPaperSizes", searchIsoPaperSizes );
+                        mInstance->endGroup();
+
+                        emit mInstance->changed();
+                }
+
+
+                bool Settings::searchUsPaperSizes()
+                {
+                        // Guess at a suitable default
+                        bool defaultValue;
+                        switch (QLocale::system().country())
+                        {
+                        case QLocale::UnitedStates:
+                        case QLocale::Canada:
+                                defaultValue = true;
+                                break;
+
+                        default:
+                                defaultValue = false;
+                                break;
+                        }
+        
+                        mInstance->beginGroup( "Search" );
+                        bool returnValue = mInstance->value( "usPaperSizes", defaultValue ).toBool();
+                        mInstance->endGroup();
+
+                        return returnValue;
+                }
+
+
+                void Settings::setSearchUsPaperSizes( bool searchUsPaperSizes )
+                {
+                        mInstance->beginGroup( "Search" );
+                        mInstance->setValue( "usPaperSizes", searchUsPaperSizes );
+                        mInstance->endGroup();
+
+                        emit mInstance->changed();
+                }
+
+
+                bool Settings::searchOtherPaperSizes()
+                {
+                        // Guess at a suitable default
+                        bool defaultValue = true;
+        
+                        mInstance->beginGroup( "Search" );
+                        bool returnValue = mInstance->value( "otherPaperSizes", defaultValue ).toBool();
+                        mInstance->endGroup();
+
+                        return returnValue;
+                }
+
+
+                void Settings::setSearchOtherPaperSizes( bool searchOtherPaperSizes )
+                {
+                        mInstance->beginGroup( "Search" );
+                        mInstance->setValue( "otherPaperSizes", searchOtherPaperSizes );
+                        mInstance->endGroup();
+
+                        emit mInstance->changed();
+                }
+
 
-		bool Settings::searchAllCategories()
-		{
-			// Guess at a suitable default
-			bool defaultValue = true;
-	
-			mInstance->beginGroup( "Search" );
-			bool returnValue = mInstance->value( "allCategories", defaultValue ).toBool();
-			mInstance->endGroup();
+                bool Settings::searchAllCategories()
+                {
+                        // Guess at a suitable default
+                        bool defaultValue = true;
+        
+                        mInstance->beginGroup( "Search" );
+                        bool returnValue = mInstance->value( "allCategories", defaultValue ).toBool();
+                        mInstance->endGroup();
 
-			return returnValue;
-		}
+                        return returnValue;
+                }
 
 
-		void Settings::setSearchAllCategories( bool searchAllCategories )
-		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "allCategories", searchAllCategories );
-			mInstance->endGroup();
+                void Settings::setSearchAllCategories( bool searchAllCategories )
+                {
+                        mInstance->beginGroup( "Search" );
+                        mInstance->setValue( "allCategories", searchAllCategories );
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		QStringList Settings::searchCategoryList()
-		{
-			QStringList defaultList;
-	
-			mInstance->beginGroup( "Search" );
-			QStringList returnList = mInstance->value( "categoryList", defaultList ).toStringList();
-			mInstance->endGroup();
+                QStringList Settings::searchCategoryList()
+                {
+                        QStringList defaultList;
+        
+                        mInstance->beginGroup( "Search" );
+                        QStringList returnList = mInstance->value( "categoryList", defaultList ).toStringList();
+                        mInstance->endGroup();
 
-			return returnList;
-		}
+                        return returnList;
+                }
 
 
-		void Settings::setSearchCategoryList( const QStringList& searchCategoryList )
-		{
-			mInstance->beginGroup( "Search" );
-			mInstance->setValue( "categoryList", searchCategoryList );
-			mInstance->endGroup();
+                void Settings::setSearchCategoryList( const QStringList& searchCategoryList )
+                {
+                        mInstance->beginGroup( "Search" );
+                        mInstance->setValue( "categoryList", searchCategoryList );
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		QListView::ViewMode Settings::templatePickerMode()
-		{
-			QString defaultMode = "icon";
-	
-			mInstance->beginGroup( "TemplatePicker" );
-			QString returnMode = mInstance->value( "viewMode", defaultMode ).toString();
-			mInstance->endGroup();
+                QListView::ViewMode Settings::templatePickerMode()
+                {
+                        QString defaultMode = "icon";
+        
+                        mInstance->beginGroup( "TemplatePicker" );
+                        QString returnMode = mInstance->value( "viewMode", defaultMode ).toString();
+                        mInstance->endGroup();
 
-			return returnMode == "icon" ? QListView::IconMode : QListView::ListMode;
-		}
+                        return returnMode == "icon" ? QListView::IconMode : QListView::ListMode;
+                }
 
 
-		void Settings::setTemplatePickerMode( QListView::ViewMode viewMode )
-		{
-			mInstance->beginGroup( "TemplatePicker" );
-			mInstance->setValue( "viewMode", viewMode == QListView::IconMode ? "icon" : "list" );
-			mInstance->endGroup();
+                void Settings::setTemplatePickerMode( QListView::ViewMode viewMode )
+                {
+                        mInstance->beginGroup( "TemplatePicker" );
+                        mInstance->setValue( "viewMode", viewMode == QListView::IconMode ? "icon" : "list" );
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		QStringList Settings::recentTemplateList()
-		{
-			QStringList defaultList;
-	
-			mInstance->beginGroup( "Recent" );
-			QStringList returnList = mInstance->value( "templates", defaultList ).toStringList();
-			mInstance->endGroup();
+                QStringList Settings::recentTemplateList()
+                {
+                        QStringList defaultList;
+        
+                        mInstance->beginGroup( "Recent" );
+                        QStringList returnList = mInstance->value( "templates", defaultList ).toStringList();
+                        mInstance->endGroup();
 
-			return returnList;
-		}
+                        return returnList;
+                }
 
 
-		void Settings::addToRecentTemplateList( const QString& name )
-		{
-			mInstance->beginGroup( "Recent" );
+                void Settings::addToRecentTemplateList( const QString& name )
+                {
+                        mInstance->beginGroup( "Recent" );
 
-			QStringList list = mInstance->value( "templates" ).toStringList();
+                        QStringList list = mInstance->value( "templates" ).toStringList();
 
-			list.removeAll( name );
-			list.prepend( name );
-			while ( list.count() > 10 )
-			{
-				list.removeLast();
-			}
+                        list.removeAll( name );
+                        list.prepend( name );
+                        while ( list.count() > 10 )
+                        {
+                                list.removeLast();
+                        }
 
-			mInstance->setValue( "templates", list );
+                        mInstance->setValue( "templates", list );
 
-			mInstance->endGroup();
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		int Settings::maxRecentFiles()
-		{
-			return mMaxRecentFiles;
-		}
+                int Settings::maxRecentFiles()
+                {
+                        return mMaxRecentFiles;
+                }
 
 
-		QStringList Settings::recentFileList()
-		{
-			QStringList defaultList;
-	
-			mInstance->beginGroup( "Recent" );
-			QStringList returnList = mInstance->value( "files", defaultList ).toStringList();
-			mInstance->endGroup();
+                QStringList Settings::recentFileList()
+                {
+                        QStringList defaultList;
+        
+                        mInstance->beginGroup( "Recent" );
+                        QStringList returnList = mInstance->value( "files", defaultList ).toStringList();
+                        mInstance->endGroup();
 
-			return returnList;
-		}
+                        return returnList;
+                }
 
 
-		void Settings::addToRecentFileList( const QString& filePath )
-		{
-			mInstance->beginGroup( "Recent" );
+                void Settings::addToRecentFileList( const QString& filePath )
+                {
+                        mInstance->beginGroup( "Recent" );
 
-			QStringList list = mInstance->value( "files" ).toStringList();
+                        QStringList list = mInstance->value( "files" ).toStringList();
 
-			list.removeAll( filePath );
-			list.prepend( filePath );
-			while ( list.count() > mMaxRecentFiles )
-			{
-				list.removeLast();
-			}
+                        list.removeAll( filePath );
+                        list.prepend( filePath );
+                        while ( list.count() > mMaxRecentFiles )
+                        {
+                                list.removeLast();
+                        }
 
-			mInstance->setValue( "files", list );
+                        mInstance->setValue( "files", list );
 
-			mInstance->endGroup();
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		void Settings::removeFromRecentFileList( const QString& filePath )
-		{
-			mInstance->beginGroup( "Recent" );
+                void Settings::removeFromRecentFileList( const QString& filePath )
+                {
+                        mInstance->beginGroup( "Recent" );
 
-			QStringList list = mInstance->value( "files" ).toStringList();
-			list.removeAll( filePath );
-			mInstance->setValue( "files", list );
+                        QStringList list = mInstance->value( "files" ).toStringList();
+                        list.removeAll( filePath );
+                        mInstance->setValue( "files", list );
 
-			mInstance->endGroup();
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		QString Settings::recentPrinter()
-		{
-			mInstance->beginGroup( "Recent" );
-			QString printer = mInstance->value( "printer", QPrinterInfo::defaultPrinterName() ).toString();
-			mInstance->endGroup();
+                QString Settings::recentPrinter()
+                {
+                        mInstance->beginGroup( "Recent" );
+                        QString printer = mInstance->value( "printer", QPrinterInfo::defaultPrinterName() ).toString();
+                        mInstance->endGroup();
 
-			return printer;
-		}
+                        return printer;
+                }
 
 
-		void Settings::setRecentPrinter( const QString& printer )
-		{
-			mInstance->beginGroup( "Recent" );
-			mInstance->setValue( "printer", printer );
-			mInstance->endGroup();
-		}
+                void Settings::setRecentPrinter( const QString& printer )
+                {
+                        mInstance->beginGroup( "Recent" );
+                        mInstance->setValue( "printer", printer );
+                        mInstance->endGroup();
+                }
 
 
-		Settings::GridOrigin Settings::gridOrigin()
-		{
-			mInstance->beginGroup( "Grid" );
-			QString value = mInstance->value( "origin", "top_left" ).toString();
-			mInstance->endGroup();
+                Settings::GridOrigin Settings::gridOrigin()
+                {
+                        mInstance->beginGroup( "Grid" );
+                        QString value = mInstance->value( "origin", "top_left" ).toString();
+                        mInstance->endGroup();
 
-			return (value == "top_left") ? ORIGIN_TL : ORIGIN_CENTER;
-		}
+                        return (value == "top_left") ? ORIGIN_TL : ORIGIN_CENTER;
+                }
 
 
-		void Settings::setGridOrigin( GridOrigin origin )
-		{
-			mInstance->beginGroup( "Grid" );
-			mInstance->setValue( "origin", origin == ORIGIN_TL ? "top_left" : "center" );
-			mInstance->endGroup();
+                void Settings::setGridOrigin( GridOrigin origin )
+                {
+                        mInstance->beginGroup( "Grid" );
+                        mInstance->setValue( "origin", origin == ORIGIN_TL ? "top_left" : "center" );
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		Distance Settings::gridSpacing()
-		{
-			// Guess at a suitable default
-			QString defaultSpacingString;
-			if ( QLocale::system().measurementSystem() == QLocale::ImperialSystem )
-			{
-				defaultSpacingString = Distance::in(0.125).toString( Units::IN );
-			}
-			else
-			{
-				defaultSpacingString = Distance::mm(5).toString( Units::MM );
-			}
-	
-			mInstance->beginGroup( "Grid" );
-			QString spacingString = mInstance->value( "spacing", defaultSpacingString ).toString();
-			mInstance->endGroup();
+                Distance Settings::gridSpacing()
+                {
+                        // Guess at a suitable default
+                        QString defaultSpacingString;
+                        if ( QLocale::system().measurementSystem() == QLocale::ImperialSystem )
+                        {
+                                defaultSpacingString = Distance::in(0.125).toString( Units::IN );
+                        }
+                        else
+                        {
+                                defaultSpacingString = Distance::mm(5).toString( Units::MM );
+                        }
+        
+                        mInstance->beginGroup( "Grid" );
+                        QString spacingString = mInstance->value( "spacing", defaultSpacingString ).toString();
+                        mInstance->endGroup();
 
-			return Distance::fromString( spacingString );
-		}
+                        return Distance::fromString( spacingString );
+                }
 
 
-		void Settings::setGridSpacing( Distance spacing )
-		{
-			QString spacingString = spacing.toString( Settings::units() );
+                void Settings::setGridSpacing( Distance spacing )
+                {
+                        QString spacingString = spacing.toString( Settings::units() );
 
-			mInstance->beginGroup( "Grid" );
-			mInstance->setValue( "spacing", spacingString );
-			mInstance->endGroup();
+                        mInstance->beginGroup( "Grid" );
+                        mInstance->setValue( "spacing", spacingString );
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-		void Settings::resetGridSpacing()
-		{
-			mInstance->beginGroup( "Grid" );
-			mInstance->remove( "spacing" );
-			mInstance->endGroup();
+                void Settings::resetGridSpacing()
+                {
+                        mInstance->beginGroup( "Grid" );
+                        mInstance->remove( "spacing" );
+                        mInstance->endGroup();
 
-			emit mInstance->changed();
-		}
+                        emit mInstance->changed();
+                }
 
 
-	}
+        }
 }

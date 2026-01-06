@@ -31,73 +31,73 @@
 
 namespace glabels
 {
-	
-	///
-	/// Color Button
-	///
-	class ColorButton : public QPushButton
-	{
-		Q_OBJECT
+        
+        ///
+        /// Color Button
+        ///
+        class ColorButton : public QPushButton
+        {
+                Q_OBJECT
 
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		ColorButton( QWidget* parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                ColorButton( QWidget* parent = nullptr );
 
 
-		/////////////////////////////////
-		// Signals
-		/////////////////////////////////
-	signals:
-		void colorChanged();
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void colorChanged();
 
 
-		/////////////////////////////////
-		// Public Methods
-		/////////////////////////////////
-	public:
-		void   init( const QString& defaultLabel,
-		             const QColor&  defaultColor,
-		             const QColor&  color,
-		             bool           showUseFieldButton = true );
-		
-		void   setColorNode( model::ColorNode colorNode );
-		void   setColor( QColor color );
-		void   setToDefault();
-		model::ColorNode colorNode();
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void   init( const QString& defaultLabel,
+                             const QColor&  defaultColor,
+                             const QColor&  color,
+                             bool           showUseFieldButton = true );
+                
+                void   setColorNode( model::ColorNode colorNode );
+                void   setColor( QColor color );
+                void   setToDefault();
+                model::ColorNode colorNode();
 
-		void setKeys( const merge::Merge*     merge,
-		              const model::Variables& variables );
-
-
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onButtonToggled( bool checked );
-		void onPaletteDialogAccepted();
-		void onPaletteDialogRejected();
-		void onPaletteDialogChanged( model::ColorNode colorNode, bool isDefault );
+                void setKeys( const merge::Merge*     merge,
+                              const model::Variables& variables );
 
 
-		/////////////////////////////////
-		// Private Methods
-		/////////////////////////////////
-	private:
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onButtonToggled( bool checked );
+                void onPaletteDialogAccepted();
+                void onPaletteDialogRejected();
+                void onPaletteDialogChanged( model::ColorNode colorNode, bool isDefault );
 
 
-		/////////////////////////////////
-		// Private Members
-		/////////////////////////////////
-	private:
-		QColor              mDefaultColor;
-		bool                mIsDefault;
-		model::ColorNode    mColorNode;
+                /////////////////////////////////
+                // Private Methods
+                /////////////////////////////////
+        private:
 
-		ColorPaletteDialog* mDialog;
-	};
+
+                /////////////////////////////////
+                // Private Members
+                /////////////////////////////////
+        private:
+                QColor              mDefaultColor;
+                bool                mIsDefault;
+                model::ColorNode    mColorNode;
+
+                ColorPaletteDialog* mDialog;
+        };
 
 }
 

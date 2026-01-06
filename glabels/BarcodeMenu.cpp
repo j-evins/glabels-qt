@@ -29,60 +29,60 @@
 
 namespace glabels
 {
-	
-	///
-	/// Constructor
-	///
-	BarcodeMenu::BarcodeMenu()
-	{
-		for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
-		{
-			if ( bcStyle.backendId() == "" )
-			{
-				auto* bcMenuItem = new BarcodeMenuItem( bcStyle );
-				connect( bcMenuItem, SIGNAL(activated(const barcode::Style&)),
-				         this, SLOT(onMenuItemActivated(const barcode::Style&)) );
+        
+        ///
+        /// Constructor
+        ///
+        BarcodeMenu::BarcodeMenu()
+        {
+                for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
+                {
+                        if ( bcStyle.backendId() == "" )
+                        {
+                                auto* bcMenuItem = new BarcodeMenuItem( bcStyle );
+                                connect( bcMenuItem, SIGNAL(activated(const barcode::Style&)),
+                                         this, SLOT(onMenuItemActivated(const barcode::Style&)) );
 
-				addAction( bcMenuItem );
-			}
-		}
+                                addAction( bcMenuItem );
+                        }
+                }
 
-		for ( const QString& backendId : barcode::Backends::backendList() )
-		{
-			QMenu* subMenu = addMenu( barcode::Backends::backendName( backendId ) );
-			
-			for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
-			{
-				if ( bcStyle.backendId() == backendId )
-				{
-					auto* bcMenuItem = new BarcodeMenuItem( bcStyle );
-					connect( bcMenuItem, SIGNAL(activated(const barcode::Style&)),
-					         this, SLOT(onMenuItemActivated(const barcode::Style&)) );
+                for ( const QString& backendId : barcode::Backends::backendList() )
+                {
+                        QMenu* subMenu = addMenu( barcode::Backends::backendName( backendId ) );
+                        
+                        for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
+                        {
+                                if ( bcStyle.backendId() == backendId )
+                                {
+                                        auto* bcMenuItem = new BarcodeMenuItem( bcStyle );
+                                        connect( bcMenuItem, SIGNAL(activated(const barcode::Style&)),
+                                                 this, SLOT(onMenuItemActivated(const barcode::Style&)) );
 
-					subMenu->addAction( bcMenuItem );
-				}
-			}
-		}
-	}
-
-
-	///
-	/// bcStyle getter
-	///
-	barcode::Style BarcodeMenu::bcStyle() const
-	{
-		return mBcStyle;
-	}
+                                        subMenu->addAction( bcMenuItem );
+                                }
+                        }
+                }
+        }
 
 
-	///
-	/// onMenuItemActivated slot
-	///
-	void BarcodeMenu::onMenuItemActivated( const barcode::Style& bcStyle )
-	{
-		mBcStyle = bcStyle;
+        ///
+        /// bcStyle getter
+        ///
+        barcode::Style BarcodeMenu::bcStyle() const
+        {
+                return mBcStyle;
+        }
 
-		emit selectionChanged();
-	}
+
+        ///
+        /// onMenuItemActivated slot
+        ///
+        void BarcodeMenu::onMenuItemActivated( const barcode::Style& bcStyle )
+        {
+                mBcStyle = bcStyle;
+
+                emit selectionChanged();
+        }
 
 } // namespace glabels

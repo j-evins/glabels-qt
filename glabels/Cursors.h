@@ -28,69 +28,69 @@
 namespace glabels
 {
 
-	///
-	/// Glabels Cursors
-	///
-	namespace Cursors
-	{
+        ///
+        /// Glabels Cursors
+        ///
+        namespace Cursors
+        {
 
-		
-		class Crosshair : public QCursor
-		{
-		public:
-			Crosshair();
-		};
-
-
-		class Move : public QCursor
-		{
-		public:
-			Move();
-		};
+                
+                class Crosshair : public QCursor
+                {
+                public:
+                        Crosshair();
+                };
 
 
-		class Barcode : public QCursor
-		{
-		public:
-			Barcode();
-		};
+                class Move : public QCursor
+                {
+                public:
+                        Move();
+                };
 
 
-		class Box : public QCursor
-		{
-		public:
-			Box();
-		};
+                class Barcode : public QCursor
+                {
+                public:
+                        Barcode();
+                };
 
 
-		class Ellipse : public QCursor
-		{
-		public:
-			Ellipse();
-		};
+                class Box : public QCursor
+                {
+                public:
+                        Box();
+                };
 
 
-		class Image : public QCursor
-		{
-		public:
-			Image();
-		};
+                class Ellipse : public QCursor
+                {
+                public:
+                        Ellipse();
+                };
 
 
-		class Line : public QCursor
-		{
-		public:
-			Line();
-		};
+                class Image : public QCursor
+                {
+                public:
+                        Image();
+                };
 
 
-		class Text : public QCursor
-		{
-		public:
-			Text();
-		};
+                class Line : public QCursor
+                {
+                public:
+                        Line();
+                };
 
-	}
+
+                class Text : public QCursor
+                {
+                public:
+                        Text();
+                };
+
+        }
 
 }
 

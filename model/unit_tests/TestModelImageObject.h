@@ -23,9 +23,9 @@
 
 class TestModelImageObject : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void initTestCase();
-	void readImageFile();
+        void initTestCase();
+        void readImageFile();
 };

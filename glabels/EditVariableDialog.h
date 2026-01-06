@@ -29,46 +29,46 @@
 namespace glabels
 {
 
-	///
-	/// New Label Dialog Widget
-	///
-	class EditVariableDialog : public QDialog, public Ui_EditVariableDialog
-	{
-		Q_OBJECT
+        ///
+        /// New Label Dialog Widget
+        ///
+        class EditVariableDialog : public QDialog, public Ui_EditVariableDialog
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		EditVariableDialog( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                EditVariableDialog( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Public methods
-		/////////////////////////////////
-		void setVariable( const model::Variable& variable );
-		model::Variable variable() const;
-		
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setVariable( const model::Variable& variable );
+                model::Variable variable() const;
+                
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onNameEditChanged();
-		void onTypeComboChanged();
-		void onValueEditChanged();
-		void onColorValueButtonChanged();
-		void onIncrementComboChanged();
-		void onStepSizeEditChanged();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onNameEditChanged();
+                void onTypeComboChanged();
+                void onValueEditChanged();
+                void onColorValueButtonChanged();
+                void onIncrementComboChanged();
+                void onStepSizeEditChanged();
 
-		
-		/////////////////////////////////
-		// Private methods
-		/////////////////////////////////
-		void updateControls();
-		void validateCurrentInputs();
+                
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+                void updateControls();
+                void validateCurrentInputs();
 
-	};
+        };
 
 }
 

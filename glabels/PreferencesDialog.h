@@ -28,31 +28,31 @@
 namespace glabels
 {
 
-	///
-	/// New Label Dialog Widget
-	///
-	class PreferencesDialog : public QDialog, public Ui_PreferencesDialog
-	{
-		Q_OBJECT
+        ///
+        /// New Label Dialog Widget
+        ///
+        class PreferencesDialog : public QDialog, public Ui_PreferencesDialog
+        {
+                Q_OBJECT
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		PreferencesDialog( QWidget *parent = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                PreferencesDialog( QWidget *parent = nullptr );
 
 
-		/////////////////////////////////
-		// Slots
-		/////////////////////////////////
-	private slots:
-		void onUnitsRadiosChanged();
-		void onGridOriginRadiosChanged();
-		void onGridSpacingSpinChanged();
-		void onGridSpacingResetButtonClicked();
-		void onSettingsChanged();
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onUnitsRadiosChanged();
+                void onGridOriginRadiosChanged();
+                void onGridSpacingSpinChanged();
+                void onGridSpacingResetButtonClicked();
+                void onSettingsChanged();
 
-	};
+        };
 
 }
 

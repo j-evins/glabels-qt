@@ -29,32 +29,32 @@
 namespace glabels
 {
 
-	///
-	/// Display Help Contents
-	///
-	void Help::displayContents( QWidget *parent )
-	{
-		qDebug() << "TODO: Help::displayContents";
-	}
+        ///
+        /// Display Help Contents
+        ///
+        void Help::displayContents( QWidget *parent )
+        {
+                qDebug() << "TODO: Help::displayContents";
+        }
 
 
-	///
-	/// Display Help->"Report Bug" Dialog
-	///
-	void Help::displayReportBug( QWidget *parent )
-	{
-		ReportBugDialog dialog( parent );
-		dialog.exec();
-	}
+        ///
+        /// Display Help->"Report Bug" Dialog
+        ///
+        void Help::displayReportBug( QWidget *parent )
+        {
+                ReportBugDialog dialog( parent );
+                dialog.exec();
+        }
 
 
-	///
-	/// Display Help->About Dialog
-	///
-	void Help::displayAbout( QWidget *parent )
-	{
-		AboutDialog dialog( parent );
-		dialog.exec();
-	}
+        ///
+        /// Display Help->About Dialog
+        ///
+        void Help::displayAbout( QWidget *parent )
+        {
+                AboutDialog dialog( parent );
+                dialog.exec();
+        }
 
 } // namespace glabels

@@ -28,20 +28,20 @@
 
 namespace glabels
 {
-	
-	///
-	/// Painter path for "Roll" templates
-	///
-	class RollTemplatePath : public QPainterPath
-	{
+        
+        ///
+        /// Painter path for "Roll" templates
+        ///
+        class RollTemplatePath : public QPainterPath
+        {
 
-		/////////////////////////////////
-		// Life Cycle
-		/////////////////////////////////
-	public:
-		RollTemplatePath( const model::Template& tmplate );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                RollTemplatePath( const model::Template& tmplate );
 
-	};
+        };
 
 }
 

@@ -27,152 +27,152 @@
 namespace glabels
 {
 
-	///
-	/// Constructor
-	///
-	MergeTableModel::MergeTableModel( merge::Merge* merge, QObject* parent )
-		: QAbstractTableModel( parent ),
-		  mMerge( merge )
-	{
-		// Copy keys, make sure primary key is first
-		mDisplayKeys.push_back( mMerge->primaryKey() );
-		for ( auto& key : mMerge->keys() )
-		{
-			if ( key != mMerge->primaryKey() )
-			{
-				mDisplayKeys.push_back( key );
-			}
-		}
+        ///
+        /// Constructor
+        ///
+        MergeTableModel::MergeTableModel( merge::Merge* merge, QObject* parent )
+                : QAbstractTableModel( parent ),
+                  mMerge( merge )
+        {
+                // Copy keys, make sure primary key is first
+                mDisplayKeys.push_back( mMerge->primaryKey() );
+                for ( auto& key : mMerge->keys() )
+                {
+                        if ( key != mMerge->primaryKey() )
+                        {
+                                mDisplayKeys.push_back( key );
+                        }
+                }
 
-		connect( mMerge, SIGNAL(selectionChanged()),
-		         this, SLOT(onSelectionChanged()) );
-	}
-
-
-	///
-	/// Row count
-	///
-	int MergeTableModel::rowCount( const QModelIndex& parent ) const
-	{
-		return mMerge->recordList().size();
-	}
+                connect( mMerge, SIGNAL(selectionChanged()),
+                         this, SLOT(onSelectionChanged()) );
+        }
 
 
-	///
-	/// Column count
-	///
-	int MergeTableModel::columnCount( const QModelIndex& parent ) const
-	{
-		return mDisplayKeys.size() + 1;
-	}
+        ///
+        /// Row count
+        ///
+        int MergeTableModel::rowCount( const QModelIndex& parent ) const
+        {
+                return mMerge->recordList().size();
+        }
 
 
-	///
-	/// Header data
-	///
-	QVariant MergeTableModel::headerData( int section, Qt::Orientation orientation, int role ) const
-	{
-		if ( orientation == Qt::Vertical )
-		{
-			return QAbstractTableModel::headerData( section, orientation, role );
-		}
-
-		if ( (role != Qt::DisplayRole) || section >= mDisplayKeys.size() )
-		{
-			return QVariant();
-		}
-
-		return mDisplayKeys[ section ];
-	}
+        ///
+        /// Column count
+        ///
+        int MergeTableModel::columnCount( const QModelIndex& parent ) const
+        {
+                return mDisplayKeys.size() + 1;
+        }
 
 
-	///
-	/// Data
-	///
-	QVariant MergeTableModel::data( const QModelIndex& index, int role ) const
-	{
-		if ( !index.isValid() )
-		{
-			return QVariant();
-		}
+        ///
+        /// Header data
+        ///
+        QVariant MergeTableModel::headerData( int section, Qt::Orientation orientation, int role ) const
+        {
+                if ( orientation == Qt::Vertical )
+                {
+                        return QAbstractTableModel::headerData( section, orientation, role );
+                }
 
-		if ( (index.row() >= mMerge->recordList().size()) ||
-		     (index.column() >= mDisplayKeys.size()) )
-		{
-			return QVariant();
-		}
+                if ( (role != Qt::DisplayRole) || section >= mDisplayKeys.size() )
+                {
+                        return QVariant();
+                }
 
-
-		if ( (role == Qt::CheckStateRole) && (index.column() == 0) )
-		{
-			auto record = mMerge->recordList()[ index.row() ];
-			return record.isSelected() ? Qt::Checked : Qt::Unchecked;
-		}
-
-		if ( role == Qt::DisplayRole )
-		{
-			auto record = mMerge->recordList()[ index.row() ];
-			auto key = mDisplayKeys[ index.column() ];
-
-			if ( record.contains( key ) )
-			{
-				return record[ key ];
-			}
-		}
-
-		return QVariant();
-	}
+                return mDisplayKeys[ section ];
+        }
 
 
-	///
-	/// Set data
-	///
-	bool MergeTableModel::setData( const QModelIndex& index, const QVariant& value, int role )
-	{
-		if ( !index.isValid() || (index.column() != 0) || (role != Qt::CheckStateRole) )
-		{
-			return false;
-		}
+        ///
+        /// Data
+        ///
+        QVariant MergeTableModel::data( const QModelIndex& index, int role ) const
+        {
+                if ( !index.isValid() )
+                {
+                        return QVariant();
+                }
 
-		bool isChecked = static_cast<Qt::CheckState>(value.toInt()) != Qt::Unchecked;
-		
-		mMerge->blockSignals( true );
-		mMerge->setSelected( index.row(), isChecked );
-		mMerge->blockSignals( false );
-		return true;
-	}
+                if ( (index.row() >= mMerge->recordList().size()) ||
+                     (index.column() >= mDisplayKeys.size()) )
+                {
+                        return QVariant();
+                }
 
 
-	///
-	/// Flags
-	///
-	Qt::ItemFlags MergeTableModel::flags( const QModelIndex& index ) const
-	{
-		if ( !index.isValid() )
-		{
-			return Qt::NoItemFlags;
-		}
+                if ( (role == Qt::CheckStateRole) && (index.column() == 0) )
+                {
+                        auto record = mMerge->recordList()[ index.row() ];
+                        return record.isSelected() ? Qt::Checked : Qt::Unchecked;
+                }
 
-		if ( index.column() == 0 )
-		{
-			return Qt::ItemIsEnabled | Qt::ItemIsUserCheckable;
-		}
+                if ( role == Qt::DisplayRole )
+                {
+                        auto record = mMerge->recordList()[ index.row() ];
+                        auto key = mDisplayKeys[ index.column() ];
 
-		return Qt::ItemIsEnabled;
-	}
+                        if ( record.contains( key ) )
+                        {
+                                return record[ key ];
+                        }
+                }
+
+                return QVariant();
+        }
 
 
-	///
-	/// Selection changed handler
-	///
-	void MergeTableModel::onSelectionChanged()
-	{
-		for ( int iRow = 0; iRow < mMerge->recordList().size(); iRow++ )
-		{
-			auto index = createIndex( iRow, 0 );
-			emit dataChanged( index, index, {Qt::CheckStateRole} );
-		}
-	}
+        ///
+        /// Set data
+        ///
+        bool MergeTableModel::setData( const QModelIndex& index, const QVariant& value, int role )
+        {
+                if ( !index.isValid() || (index.column() != 0) || (role != Qt::CheckStateRole) )
+                {
+                        return false;
+                }
+
+                bool isChecked = static_cast<Qt::CheckState>(value.toInt()) != Qt::Unchecked;
+                
+                mMerge->blockSignals( true );
+                mMerge->setSelected( index.row(), isChecked );
+                mMerge->blockSignals( false );
+                return true;
+        }
+
+
+        ///
+        /// Flags
+        ///
+        Qt::ItemFlags MergeTableModel::flags( const QModelIndex& index ) const
+        {
+                if ( !index.isValid() )
+                {
+                        return Qt::NoItemFlags;
+                }
+
+                if ( index.column() == 0 )
+                {
+                        return Qt::ItemIsEnabled | Qt::ItemIsUserCheckable;
+                }
+
+                return Qt::ItemIsEnabled;
+        }
+
+
+        ///
+        /// Selection changed handler
+        ///
+        void MergeTableModel::onSelectionChanged()
+        {
+                for ( int iRow = 0; iRow < mMerge->recordList().size(); iRow++ )
+                {
+                        auto index = createIndex( iRow, 0 );
+                        emit dataChanged( index, index, {Qt::CheckStateRole} );
+                }
+        }
 
 
 } // namespace glabels

@@ -30,79 +30,79 @@
 namespace glabels
 {
 
-	///
-	/// Static data
-	///
-	std::unique_ptr<PrinterMonitor> PrinterMonitor::mInstance;
+        ///
+        /// Static data
+        ///
+        std::unique_ptr<PrinterMonitor> PrinterMonitor::mInstance;
 
 
-	///
-	/// Constructor
-	///
-	PrinterMonitor::PrinterMonitor()
-	{
-		using namespace std::chrono_literals;
+        ///
+        /// Constructor
+        ///
+        PrinterMonitor::PrinterMonitor()
+        {
+                using namespace std::chrono_literals;
 
-		mCurrentAvailablePrinters = QPrinterInfo::availablePrinterNames();
+                mCurrentAvailablePrinters = QPrinterInfo::availablePrinterNames();
 
-		mTimer.reset( new QTimer( this ) );
-		connect( mTimer.get(), SIGNAL(timeout()), this, SLOT(onTimerTimeout()) );
-		mTimer->start( 10s );
-	}
-
-
-	///
-	/// Get singleton instance
-	///
-	PrinterMonitor* PrinterMonitor::instance()
-	{
-		if ( !mInstance )
-		{
-			mInstance.reset( new PrinterMonitor() );
-		}
-
-		return mInstance.get();
-	}
+                mTimer.reset( new QTimer( this ) );
+                connect( mTimer.get(), SIGNAL(timeout()), this, SLOT(onTimerTimeout()) );
+                mTimer->start( 10s );
+        }
 
 
-	///
-	/// Get available printers
-	///
-	QStringList PrinterMonitor::availablePrinters()
-	{
-		QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
-		return mCurrentAvailablePrinters;
-	}
+        ///
+        /// Get singleton instance
+        ///
+        PrinterMonitor* PrinterMonitor::instance()
+        {
+                if ( !mInstance )
+                {
+                        mInstance.reset( new PrinterMonitor() );
+                }
+
+                return mInstance.get();
+        }
 
 
-	///
-	/// On timer timeout
-	///
-	void PrinterMonitor::onTimerTimeout()
-	{
-		// Make sure previous poll is complete before starting a new one
-		if ( mPollStatus.isFinished() )
-		{
-			mPollStatus = QtConcurrent::run( &PrinterMonitor::asyncPoll, this );
-		}
-	}
+        ///
+        /// Get available printers
+        ///
+        QStringList PrinterMonitor::availablePrinters()
+        {
+                QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
+                return mCurrentAvailablePrinters;
+        }
 
-	
-	///
-	/// Asynchronous poll
-	///
-	void PrinterMonitor::asyncPoll()
-	{
-		auto newAvailablePrinters = QPrinterInfo::availablePrinterNames();
-		if ( newAvailablePrinters != mCurrentAvailablePrinters )
-		{
-			QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
 
-			mCurrentAvailablePrinters = newAvailablePrinters;
+        ///
+        /// On timer timeout
+        ///
+        void PrinterMonitor::onTimerTimeout()
+        {
+                // Make sure previous poll is complete before starting a new one
+                if ( mPollStatus.isFinished() )
+                {
+                        mPollStatus = QtConcurrent::run( &PrinterMonitor::asyncPoll, this );
+                }
+        }
 
-			emit availablePrintersChanged( mCurrentAvailablePrinters );
-		}
-	}
+        
+        ///
+        /// Asynchronous poll
+        ///
+        void PrinterMonitor::asyncPoll()
+        {
+                auto newAvailablePrinters = QPrinterInfo::availablePrinterNames();
+                if ( newAvailablePrinters != mCurrentAvailablePrinters )
+                {
+                        QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
 
-	
+                        mCurrentAvailablePrinters = newAvailablePrinters;
+
+                        emit availablePrintersChanged( mCurrentAvailablePrinters );
+                }
+        }
+
+        
 } // namespace glabels

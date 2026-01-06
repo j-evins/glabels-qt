@@ -33,22 +33,22 @@ using namespace glabels::model;
 
 void TestStrUtil::formatFraction()
 {
-	QCOMPARE( StrUtil::formatFraction( 3.5 ),       QString( "3¹/₂" ) );
-	QCOMPARE( StrUtil::formatFraction( 11.5 ),      QString( "11¹/₂" ) );
-	QCOMPARE( StrUtil::formatFraction( 0.5 ),       QString( "¹/₂" ) );
-	QCOMPARE( StrUtil::formatFraction( 1.25 ),      QString( "1¹/₄" ) );
-	QCOMPARE( StrUtil::formatFraction( 2.125 ),     QString( "2¹/₈" ) );
-	QCOMPARE( StrUtil::formatFraction( 2.875 ),     QString( "2⁷/₈" ) );
-	QCOMPARE( StrUtil::formatFraction( 3.875 ),     QString( "3⁷/₈" ) );
-	QCOMPARE( StrUtil::formatFraction( 4.0625 ),    QString( "4¹/₁₆" ) );
-	QCOMPARE( StrUtil::formatFraction( 5.3125 ),    QString( "5⁵/₁₆" ) );
-	QCOMPARE( StrUtil::formatFraction( 6.03125 ),   QString( "6¹/₃₂" ) );
-	QCOMPARE( StrUtil::formatFraction( 7.84375 ),   QString( "7²⁷/₃₂" ) );
+        QCOMPARE( StrUtil::formatFraction( 3.5 ),       QString( "3¹/₂" ) );
+        QCOMPARE( StrUtil::formatFraction( 11.5 ),      QString( "11¹/₂" ) );
+        QCOMPARE( StrUtil::formatFraction( 0.5 ),       QString( "¹/₂" ) );
+        QCOMPARE( StrUtil::formatFraction( 1.25 ),      QString( "1¹/₄" ) );
+        QCOMPARE( StrUtil::formatFraction( 2.125 ),     QString( "2¹/₈" ) );
+        QCOMPARE( StrUtil::formatFraction( 2.875 ),     QString( "2⁷/₈" ) );
+        QCOMPARE( StrUtil::formatFraction( 3.875 ),     QString( "3⁷/₈" ) );
+        QCOMPARE( StrUtil::formatFraction( 4.0625 ),    QString( "4¹/₁₆" ) );
+        QCOMPARE( StrUtil::formatFraction( 5.3125 ),    QString( "5⁵/₁₆" ) );
+        QCOMPARE( StrUtil::formatFraction( 6.03125 ),   QString( "6¹/₃₂" ) );
+        QCOMPARE( StrUtil::formatFraction( 7.84375 ),   QString( "7²⁷/₃₂" ) );
 
-	QCOMPARE( StrUtil::formatFraction( 0 ),         QString( "0" ) );
-	QCOMPARE( StrUtil::formatFraction( 2 ),         QString( "2" ) );
-	QCOMPARE( StrUtil::formatFraction( 3 ),         QString( "3" ) );
-	QCOMPARE( StrUtil::formatFraction( 11 ),        QString( "11" ) );
+        QCOMPARE( StrUtil::formatFraction( 0 ),         QString( "0" ) );
+        QCOMPARE( StrUtil::formatFraction( 2 ),         QString( "2" ) );
+        QCOMPARE( StrUtil::formatFraction( 3 ),         QString( "3" ) );
+        QCOMPARE( StrUtil::formatFraction( 11 ),        QString( "11" ) );
 
-	QCOMPARE( StrUtil::formatFraction( 3.1415926 ), QString( "3.142" ) );
+        QCOMPARE( StrUtil::formatFraction( 3.1415926 ), QString( "3.142" ) );
 }

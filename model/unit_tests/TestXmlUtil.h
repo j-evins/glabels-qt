@@ -23,20 +23,20 @@
 
 class TestXmlUtil : public QObject
 {
-	Q_OBJECT
+        Q_OBJECT
 
 private slots:
-	void getStringAttr();
-	void getDoubleAttr();
-	void getBoolAttr();
-	void getIntAttr();
-	void getUIntAttr();
-	void getLengthAttr();
-	void getWeightAttr();
-	void getAlignmentAttr();
-	void getWrapModeAttr();
+        void getStringAttr();
+        void getDoubleAttr();
+        void getBoolAttr();
+        void getIntAttr();
+        void getUIntAttr();
+        void getLengthAttr();
+        void getWeightAttr();
+        void getAlignmentAttr();
+        void getWrapModeAttr();
 
-	// TODO: test setters
+        // TODO: test setters
 };
 
 

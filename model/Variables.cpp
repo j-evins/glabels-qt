@@ -25,155 +25,155 @@
 
 namespace glabels
 {
-	namespace model
-	{
-		///
-		/// Copy constructor
-		///
-		Variables::Variables( const Variables& other )
-			: QObject(),
-			  QMap<QString,Variable>(other)
-		{
-		}
+        namespace model
+        {
+                ///
+                /// Copy constructor
+                ///
+                Variables::Variables( const Variables& other )
+                        : QObject(),
+                          QMap<QString,Variable>(other)
+                {
+                }
 
 
-		///
-		/// Copy contents from other
-		///
-		void Variables::copy( const Variables& other )
-		{
-			clear();
-			for ( const auto& v : other )
-			{
-				insert( v.name(), v );
-			}
-		}
+                ///
+                /// Copy contents from other
+                ///
+                void Variables::copy( const Variables& other )
+                {
+                        clear();
+                        for ( const auto& v : other )
+                        {
+                                insert( v.name(), v );
+                        }
+                }
 
 
-		///
-		/// Do we have variable?
-		///
-		bool Variables::hasVariable( const QString& name ) const
-		{
-			return contains(name);
-		}
+                ///
+                /// Do we have variable?
+                ///
+                bool Variables::hasVariable( const QString& name ) const
+                {
+                        return contains(name);
+                }
 
 
-		///
-		/// Add variable ( will replace if name is the same )
-		///
-		void Variables::addVariable( const Variable& variable )
-		{
-			insert( variable.name(), variable );
-			emit changed();
-		}
+                ///
+                /// Add variable ( will replace if name is the same )
+                ///
+                void Variables::addVariable( const Variable& variable )
+                {
+                        insert( variable.name(), variable );
+                        emit changed();
+                }
 
 
-		///
-		/// Delete variable
-		///
-		void Variables::deleteVariable( const QString& name )
-		{
-			remove( name );
-			emit changed();
-		}
+                ///
+                /// Delete variable
+                ///
+                void Variables::deleteVariable( const QString& name )
+                {
+                        remove( name );
+                        emit changed();
+                }
 
 
-		///
-		/// Replace variable
-		///
-		void Variables::replaceVariable( const QString& origName, const Variable& variable )
-		{
-			remove( origName );
-			insert( variable.name(), variable );
-			emit changed();
-		}
+                ///
+                /// Replace variable
+                ///
+                void Variables::replaceVariable( const QString& origName, const Variable& variable )
+                {
+                        remove( origName );
+                        insert( variable.name(), variable );
+                        emit changed();
+                }
 
 
-		///
-		/// Set initial value of multiple variables
-		///
-		void Variables::setVariables( const QMap<QString,QString>& definitions )
-		{
-			for ( auto& name : definitions.keys() )
-			{
-				if ( hasVariable( name ) )
-				{
-					(*this)[name].setInitialValue( definitions[name] );
-				}
-				else
-				{
-					addVariable( Variable( Variable::Type::STRING,
-					                       name,
-					                       definitions[name] ) );
-				}
-			}
-		}
-		
+                ///
+                /// Set initial value of multiple variables
+                ///
+                void Variables::setVariables( const QMap<QString,QString>& definitions )
+                {
+                        for ( auto& name : definitions.keys() )
+                        {
+                                if ( hasVariable( name ) )
+                                {
+                                        (*this)[name].setInitialValue( definitions[name] );
+                                }
+                                else
+                                {
+                                        addVariable( Variable( Variable::Type::STRING,
+                                                               name,
+                                                               definitions[name] ) );
+                                }
+                        }
+                }
+                
 
-		///
-		/// Reset variables to their initial values
-		///
-		void Variables::resetVariables()
-		{
-			for ( auto& v : *this )
-			{
-				v.resetValue();
-			}
-		}
+                ///
+                /// Reset variables to their initial values
+                ///
+                void Variables::resetVariables()
+                {
+                        for ( auto& v : *this )
+                        {
+                                v.resetValue();
+                        }
+                }
 
-		
-		///
-		/// Reset "on copy" variables to their initial values
-		///
-		void Variables::resetOnCopyVariables()
-		{
-			for ( auto& v : *this )
-			{
-				if ( v.increment() == Variable::Increment::PER_COPY )
-				{
-					v.resetValue();
-				}
-			}
-		}
+                
+                ///
+                /// Reset "on copy" variables to their initial values
+                ///
+                void Variables::resetOnCopyVariables()
+                {
+                        for ( auto& v : *this )
+                        {
+                                if ( v.increment() == Variable::Increment::PER_COPY )
+                                {
+                                        v.resetValue();
+                                }
+                        }
+                }
 
-		
-		///
-		/// Increment variables on item
-		///
-		void Variables::incrementVariablesOnItem()
-		{
-			for ( auto& v : *this )
-			{
-				v.incrementValueOnItem();
-			}
-		}
+                
+                ///
+                /// Increment variables on item
+                ///
+                void Variables::incrementVariablesOnItem()
+                {
+                        for ( auto& v : *this )
+                        {
+                                v.incrementValueOnItem();
+                        }
+                }
 
-		
-		///
-		/// Increment variables on copy
-		///
-		void Variables::incrementVariablesOnCopy()
-		{
-			for ( auto& v : *this )
-			{
-				v.incrementValueOnCopy();
-			}
-		}
+                
+                ///
+                /// Increment variables on copy
+                ///
+                void Variables::incrementVariablesOnCopy()
+                {
+                        for ( auto& v : *this )
+                        {
+                                v.incrementValueOnCopy();
+                        }
+                }
 
-		
-		///
-		/// Increment variables on page
-		///
-		void Variables::incrementVariablesOnPage()
-		{
-			for ( auto& v : *this )
-			{
-				v.incrementValueOnPage();
-			}
-		}
+                
+                ///
+                /// Increment variables on page
+                ///
+                void Variables::incrementVariablesOnPage()
+                {
+                        for ( auto& v : *this )
+                        {
+                                v.incrementValueOnPage();
+                        }
+                }
 
 
-	} // namespace model
+        } // namespace model
 
 } // namespace glabels
