@@ -27,30 +27,27 @@
 #include <QMetaType>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class Point
         {
+        public:
+                Point() = default;
 
-                class Point
-                {
-                public:
-                        Point();
+                Point( Distance x, Distance y );
 
-                        Point( Distance x, Distance y );
+                Distance x() const;
+                Distance y() const;
 
-                        Distance x() const;
-                        Distance y() const;
-
-                        bool operator<( const Point &other ) const;
+                bool operator<( const Point &other ) const;
 
 
-                private:
-                        Distance  mX;
-                        Distance  mY;
-                };
+        private:
+                Distance  mX;
+                Distance  mY;
+        };
 
-        }
 }
 
 

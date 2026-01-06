@@ -30,68 +30,65 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::barcode
 {
-        namespace barcode
+
+        ///
+        ///  Backends Database
+        ///
+        class Backends : public QObject
         {
-
-                ///
-                ///  Backends Database
-                ///
-                class Backends : public QObject
-                {
-                        Q_OBJECT
+                Q_OBJECT
 
 
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                private:
-                        Backends();
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        private:
+                Backends();
 
-                public:
-                        static void init();
+        public:
+                static void init();
 
-                        /////////////////////////////////
-                        // Public Methods
-                        /////////////////////////////////
-                public:
-                        static const QStringList& backendList();
-                        static QString backendName( const QString& backendId );
-                        static const QList<Style>& styleList();
-                        static const Style& defaultStyle();
-                        static const Style& style( const QString& backendId, const QString& StyleId );
-
-
-                        /////////////////////////////////
-                        // Private Methods
-                        /////////////////////////////////
-                private:
-                        static void registerBackend( const QString &backendId, const QString &backendName );
-
-                        static void registerStyle( const QString& id,
-                                                   const QString& backendId,
-                                                   const QString& name,
-                                                   bool           canText,
-                                                   bool           textOptional,
-                                                   bool           canChecksum,
-                                                   bool           checksumOptional,
-                                                   const QString& defaultDigits,
-                                                   bool           canFreeForm,
-                                                   int            preferedN );
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                static const QStringList& backendList();
+                static QString backendName( const QString& backendId );
+                static const QList<Style>& styleList();
+                static const Style& defaultStyle();
+                static const Style& style( const QString& backendId, const QString& StyleId );
 
 
-                        /////////////////////////////////
-                        // Private Members
-                        /////////////////////////////////
-                        static QStringList mBackendIdList;
-                        static QMap<QString,QString> mBackendNameMap;
+                /////////////////////////////////
+                // Private Methods
+                /////////////////////////////////
+        private:
+                static void registerBackend( const QString &backendId, const QString &backendName );
 
-                        static QList<Style> mStyleList;
+                static void registerStyle( const QString& id,
+                                           const QString& backendId,
+                                           const QString& name,
+                                           bool           canText,
+                                           bool           textOptional,
+                                           bool           canChecksum,
+                                           bool           checksumOptional,
+                                           const QString& defaultDigits,
+                                           bool           canFreeForm,
+                                           int            preferedN );
 
-                };
 
-        }
+                /////////////////////////////////
+                // Private Members
+                /////////////////////////////////
+                static QStringList mBackendIdList;
+                static QMap<QString,QString> mBackendNameMap;
+
+                static QList<Style> mStyleList;
+
+        };
+
 }
 
 

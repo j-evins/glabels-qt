@@ -18,100 +18,98 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "None.h"
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// Constructor
+        ///
+        None::None() : Merge()
         {
-
-                ///
-                /// Constructor
-                ///
-                None::None() : Merge()
-                {
-                        mId = "None";
-                }
+                mId = "None";
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                None::None( const None* merge ) : Merge( merge )
-                {
-                }
+        ///
+        /// Constructor
+        ///
+        None::None( const None* merge ) : Merge( merge )
+        {
+        }
 
 
-                ///
-                /// Clone
-                ///
-                None* None::clone() const
-                {
-                        return new None( this );
-                }
+        ///
+        /// Clone
+        ///
+        None* None::clone() const
+        {
+                return new None( this );
+        }
 
 
-                ///
-                /// Get ID
-                ///
-                QString None::id()
-                {
-                        return "None";
-                }
+        ///
+        /// Get ID
+        ///
+        QString None::id()
+        {
+                return "None";
+        }
 
 
-                ///
-                /// Create
-                ///
-                Merge* None::create()
-                {
-                        return new None();
-                }
+        ///
+        /// Create
+        ///
+        Merge* None::create()
+        {
+                return new None();
+        }
 
 
-                ///
-                /// Get key list
-                ///
-                QStringList None::keys() const
-                {
-                        QStringList emptyList;
-                        return emptyList;
-                }
+        ///
+        /// Get key list
+        ///
+        QStringList None::keys() const
+        {
+                QStringList emptyList;
+                return emptyList;
+        }
 
 
-                ///
-                /// Get primary key
-                ///
-                QString None::primaryKey() const
-                {
-                        return "";
-                }
+        ///
+        /// Get primary key
+        ///
+        QString None::primaryKey() const
+        {
+                return "";
+        }
 
 
-                ///
-                /// Open source
-                ///
-                void None::open()
-                {
-                }
+        ///
+        /// Open source
+        ///
+        void None::open()
+        {
+        }
 
 
-                ///
-                /// Close source
-                ///
-                void None::close()
-                {
-                }
+        ///
+        /// Close source
+        ///
+        void None::close()
+        {
+        }
 
 
-                ///
-                /// Read next record
-                ///
-                Record None::readNextRecord()
-                {
-                        return NullRecord();
-                }
+        ///
+        /// Read next record
+        ///
+        Record None::readNextRecord()
+        {
+                return NullRecord();
+        }
 
-        } // namespace merge
-} // namespace glabels
+}

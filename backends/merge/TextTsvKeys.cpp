@@ -18,59 +18,61 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TextTsvKeys.h"
 
 
-namespace glabels
+namespace
 {
-        namespace merge
+        static const QString ID = "Text/Tab/Line1Keys";
+}
+
+
+namespace glabels::merge
+{
+
+        ///
+        /// Constructor
+        ///
+        TextTsvKeys::TextTsvKeys() : Text('\t',true)
         {
-
-                static const QString ID = "Text/Tab/Line1Keys";
-
-
-                ///
-                /// Constructor
-                ///
-                TextTsvKeys::TextTsvKeys() : Text('\t',true)
-                {
-                        mId = ID;
-                }
+                mId = ID;
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                TextTsvKeys::TextTsvKeys( const TextTsvKeys* merge ) : Text( merge )
-                {
-                }
+        ///
+        /// Constructor
+        ///
+        TextTsvKeys::TextTsvKeys( const TextTsvKeys* merge ) : Text( merge )
+        {
+        }
 
 
-                ///
-                /// Clone
-                ///
-                TextTsvKeys* TextTsvKeys::clone() const
-                {
-                        return new TextTsvKeys( this );
-                }
+        ///
+        /// Clone
+        ///
+        TextTsvKeys* TextTsvKeys::clone() const
+        {
+                return new TextTsvKeys( this );
+        }
 
 
-                ///
-                /// Get ID
-                ///
-                QString TextTsvKeys::id()
-                {
-                        return ID;
-                }
+        ///
+        /// Get ID
+        ///
+        QString TextTsvKeys::id()
+        {
+                return ID;
+        }
 
 
-                ///
-                /// Create
-                ///
-                Merge* TextTsvKeys::create()
-                {
-                        return new TextTsvKeys();
-                }
+        ///
+        /// Create
+        ///
+        Merge* TextTsvKeys::create()
+        {
+                return new TextTsvKeys();
+        }
 
-        } // namespace merge
-} // namespace glabels
+}
+

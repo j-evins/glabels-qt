@@ -27,140 +27,137 @@
 #include <QDebug>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        FramePath::FramePath( const QPainterPath& path,
+                              Distance            xWaste,
+                              Distance            yWaste,
+                              Units               originalUnits,
+                              const QString&      id )
+                : Frame(id),
+                  mXWaste(xWaste),
+                  mYWaste(yWaste),
+                  mPath(path),
+                  mOriginalUnits(originalUnits)
         {
+                QRectF r = path.boundingRect();
 
-                FramePath::FramePath( const QPainterPath& path,
-                                      Distance            xWaste,
-                                      Distance            yWaste,
-                                      Units               originalUnits,
-                                      const QString&      id )
-                        : Frame(id),
-                          mXWaste(xWaste),
-                          mYWaste(yWaste),
-                          mPath(path),
-                          mOriginalUnits(originalUnits)
-                {
-                        QRectF r = path.boundingRect();
+                mW = Distance::pt( r.width() );
+                mH = Distance::pt( r.height() );
 
-                        mW = Distance::pt( r.width() );
-                        mH = Distance::pt( r.height() );
-
-                        mClipPath.addRect( r.x()-mXWaste.pt(), r.y()-mYWaste.pt(),
-                                           r.width() + 2*mXWaste.pt(), r.height() + 2*mYWaste.pt() );
-                }
-
-
-                std::unique_ptr<Frame> FramePath::clone() const
-                {
-                        return std::make_unique<FramePath>( *this );
-                }
-
-
-                Distance FramePath::w() const
-                {
-                        return mW;
-                }
-
-
-                Distance FramePath::h() const
-                {
-                        return mH;
-                }
-
-
-                Distance FramePath::xWaste() const
-                {
-                        return mXWaste;
-                }
-
-
-                Distance FramePath::yWaste() const
-                {
-                        return mYWaste;
-                }
-
-
-                Units FramePath::originalUnits() const
-                {
-                        return mOriginalUnits;
-                }
-
-
-                QString FramePath::sizeDescription( Units units ) const
-                {
-                        if ( units.toEnum() == Units::IN )
-                        {
-                                QString wStr = StrUtil::formatFraction( mW.in() );
-                                QString hStr = StrUtil::formatFraction( mH.in() );
-
-                                return QString("%1 x %2 %3").arg(wStr).arg(hStr).arg(units.toTrName());
-                        }
-                        else
-                        {
-                                return QString("%1 x %2 %3").arg(mW.inUnits(units), 0, 'g', 5)
-                                                            .arg(mH.inUnits(units), 0, 'g', 5)
-                                                            .arg(units.toTrName());
-                        }
-                }
-
-
-                bool FramePath::isSimilarTo( const Frame& other ) const
-                {
-                        if ( auto *otherPath = dynamic_cast<const FramePath*>(&other) )
-                        {
-                                if ( mPath == otherPath->mPath )
-                                {
-                                        return true;
-                                }
-                        }
-                        return false;
-                }
-
-
-                const QPainterPath& FramePath::path() const
-                {
-                        return mPath;
-                }
-
-
-                const QPainterPath& FramePath::clipPath() const
-                {
-                        return mClipPath;
-                }
-
-
-                QPainterPath FramePath::marginPath( Distance xSize, Distance ySize ) const
-                {
-                        return mPath; // No margin
-                }
-
-
-                // Debugging support
-                void FramePath::print( QDebug& dbg ) const
-                {
-                        dbg.nospace() << "FramePath{ "
-                                      << id() << ","
-                                      << path() << ","
-                                      << xWaste() << ","
-                                      << yWaste() << ","
-                                      << "list{ ";
-                        for ( auto& layout : layouts() )
-                        {
-                                dbg.nospace() << layout << ",";
-                        }
-                        dbg.nospace() << " }"
-                                      << "list{ ";
-                        for ( auto& markup : markups() )
-                        {
-                                dbg.nospace() << *markup << ",";
-                        }
-                        dbg.nospace() << " }"
-                                      << " }";
-                }
-
-
+                mClipPath.addRect( r.x()-mXWaste.pt(), r.y()-mYWaste.pt(),
+                                   r.width() + 2*mXWaste.pt(), r.height() + 2*mYWaste.pt() );
         }
+
+
+        std::unique_ptr<Frame> FramePath::clone() const
+        {
+                return std::make_unique<FramePath>( *this );
+        }
+
+
+        Distance FramePath::w() const
+        {
+                return mW;
+        }
+
+
+        Distance FramePath::h() const
+        {
+                return mH;
+        }
+
+
+        Distance FramePath::xWaste() const
+        {
+                return mXWaste;
+        }
+
+
+        Distance FramePath::yWaste() const
+        {
+                return mYWaste;
+        }
+
+
+        Units FramePath::originalUnits() const
+        {
+                return mOriginalUnits;
+        }
+
+
+        QString FramePath::sizeDescription( Units units ) const
+        {
+                if ( units.toEnum() == Units::IN )
+                {
+                        QString wStr = StrUtil::formatFraction( mW.in() );
+                        QString hStr = StrUtil::formatFraction( mH.in() );
+
+                        return QString("%1 x %2 %3").arg(wStr).arg(hStr).arg(units.toTrName());
+                }
+                else
+                {
+                        return QString("%1 x %2 %3").arg(mW.inUnits(units), 0, 'g', 5)
+                                .arg(mH.inUnits(units), 0, 'g', 5)
+                                .arg(units.toTrName());
+                }
+        }
+
+
+        bool FramePath::isSimilarTo( const Frame& other ) const
+        {
+                if ( auto *otherPath = dynamic_cast<const FramePath*>(&other) )
+                {
+                        if ( mPath == otherPath->mPath )
+                        {
+                                return true;
+                        }
+                }
+                return false;
+        }
+
+
+        const QPainterPath& FramePath::path() const
+        {
+                return mPath;
+        }
+
+
+        const QPainterPath& FramePath::clipPath() const
+        {
+                return mClipPath;
+        }
+
+
+        QPainterPath FramePath::marginPath( Distance xSize, Distance ySize ) const
+        {
+                return mPath; // No margin
+        }
+
+
+        // Debugging support
+        void FramePath::print( QDebug& dbg ) const
+        {
+                dbg.nospace() << "FramePath{ "
+                              << id() << ","
+                              << path() << ","
+                              << xWaste() << ","
+                              << yWaste() << ","
+                              << "list{ ";
+                for ( auto& layout : layouts() )
+                {
+                        dbg.nospace() << layout << ",";
+                }
+                dbg.nospace() << " }"
+                              << "list{ ";
+                for ( auto& markup : markups() )
+                {
+                        dbg.nospace() << *markup << ",";
+                }
+                dbg.nospace() << " }"
+                              << " }";
+        }
+
+
 }

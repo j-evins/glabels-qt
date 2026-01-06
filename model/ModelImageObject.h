@@ -27,153 +27,150 @@
 #include <QSvgRenderer>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Label Model Image Object
+        ///
+        class ModelImageObject : public ModelObject
         {
+                Q_OBJECT
 
-                ///
-                /// Label Model Image Object
-                ///
-                class ModelImageObject : public ModelObject
-                {
-                        Q_OBJECT
+                ///////////////////////////////////////////////////////////////
+                // Lifecycle Methods
+                ///////////////////////////////////////////////////////////////
+        public:
+                ModelImageObject();
 
-                        ///////////////////////////////////////////////////////////////
-                        // Lifecycle Methods
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        ModelImageObject();
+                ModelImageObject( Distance          x0,
+                                  Distance          y0,
+                                  Distance          w,
+                                  Distance          h,
+                                  bool              lockAspectRatio,
+                                  const TextNode&   filenameNode,
+                                  const QTransform& matrix = QTransform(),
+                                  bool              shadowState = false,
+                                  Distance          shadowX = 0,
+                                  Distance          shadowY = 0,
+                                  double            shadowOpacity = 1.0,
+                                  const ColorNode&  shadowColorNode = ColorNode() );
 
-                        ModelImageObject( Distance          x0,
-                                          Distance          y0,
-                                          Distance          w,
-                                          Distance          h,
-                                          bool              lockAspectRatio,
-                                          const TextNode&   filenameNode,
-                                          const QTransform& matrix = QTransform(),
-                                          bool              shadowState = false,
-                                          Distance          shadowX = 0,
-                                          Distance          shadowY = 0,
-                                          double            shadowOpacity = 1.0,
-                                          const ColorNode&  shadowColorNode = ColorNode() );
+                ModelImageObject( Distance  x0,
+                                  Distance  y0,
+                                  Distance  w,
+                                  Distance  h,
+                                  bool              lockAspectRatio,
+                                  const QString&    filename,
+                                  const QImage&     image,
+                                  const QTransform& matrix = QTransform(),
+                                  bool              shadowState = false,
+                                  Distance          shadowX = 0,
+                                  Distance          shadowY = 0,
+                                  double            shadowOpacity = 1.0,
+                                  const ColorNode&  shadowColorNode = ColorNode() );
 
-                        ModelImageObject( Distance  x0,
-                                          Distance  y0,
-                                          Distance  w,
-                                          Distance  h,
-                                          bool              lockAspectRatio,
-                                          const QString&    filename,
-                                          const QImage&     image,
-                                          const QTransform& matrix = QTransform(),
-                                          bool              shadowState = false,
-                                          Distance          shadowX = 0,
-                                          Distance          shadowY = 0,
-                                          double            shadowOpacity = 1.0,
-                                          const ColorNode&  shadowColorNode = ColorNode() );
+                ModelImageObject( Distance          x0,
+                                  Distance          y0,
+                                  Distance          w,
+                                  Distance          h,
+                                  bool              lockAspectRatio,
+                                  const QString&    filename,
+                                  const QByteArray& svg,
+                                  const QTransform& matrix = QTransform(),
+                                  bool              shadowState = false,
+                                  Distance          shadowX = 0,
+                                  Distance          shadowY = 0,
+                                  double            shadowOpacity = 1.0,
+                                  const ColorNode&  shadowColorNode = ColorNode() );
 
-                        ModelImageObject( Distance          x0,
-                                          Distance          y0,
-                                          Distance          w,
-                                          Distance          h,
-                                          bool              lockAspectRatio,
-                                          const QString&    filename,
-                                          const QByteArray& svg,
-                                          const QTransform& matrix = QTransform(),
-                                          bool              shadowState = false,
-                                          Distance          shadowX = 0,
-                                          Distance          shadowY = 0,
-                                          double            shadowOpacity = 1.0,
-                                          const ColorNode&  shadowColorNode = ColorNode() );
+                ModelImageObject( const ModelImageObject* object );
 
-                        ModelImageObject( const ModelImageObject* object );
-
-                        virtual ~ModelImageObject() = default;
+                virtual ~ModelImageObject() = default;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Object duplication
-                        ///////////////////////////////////////////////////////////////
-                        ModelImageObject* clone() const override;
+                ///////////////////////////////////////////////////////////////
+                // Object duplication
+                ///////////////////////////////////////////////////////////////
+                ModelImageObject* clone() const override;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Property Implementations
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // Image Property: filenameNode
-                        //
-                        TextNode filenameNode() const override;
-                        void setFilenameNode( const TextNode& value ) override;
+                ///////////////////////////////////////////////////////////////
+                // Property Implementations
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // Image Property: filenameNode
+                //
+                TextNode filenameNode() const override;
+                void setFilenameNode( const TextNode& value ) override;
 
-                        //
-                        // Image Property: image
-                        //
-                        const QImage& image() const override;
-                        void setImage( const QImage& value ) override;
-                        void setImage( const QString& name, const QImage& value ) override;
+                //
+                // Image Property: image
+                //
+                const QImage& image() const override;
+                void setImage( const QImage& value ) override;
+                void setImage( const QString& name, const QImage& value ) override;
 
-                        //
-                        // Image Property: svg
-                        //
-                        const QByteArray& svg() const override;
-                        void setSvg( const QString& name, const QByteArray& value ) override;
+                //
+                // Image Property: svg
+                //
+                const QByteArray& svg() const override;
+                void setSvg( const QString& name, const QByteArray& value ) override;
 
-                        //
-                        // Property: naturalSize
-                        //
-                        Size naturalSize() const override;
-
-
-                        ///////////////////////////////////////////////////////////////
-                        // Capability Implementations
-                        ///////////////////////////////////////////////////////////////
+                //
+                // Property: naturalSize
+                //
+                Size naturalSize() const override;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Drawing operations
-                        ///////////////////////////////////////////////////////////////
-                protected:
-                        void drawShadow( QPainter*            painter,
-                                         bool                 inEditor,
-                                         const merge::Record& record,
-                                         const Variables&     variables ) const override;
-
-                        void drawObject( QPainter*            painter,
-                                         bool                 inEditor,
-                                         const merge::Record& record,
-                                         const Variables&     variables ) const override;
-
-                        QPainterPath hoverPath( double scale ) const override;
+                ///////////////////////////////////////////////////////////////
+                // Capability Implementations
+                ///////////////////////////////////////////////////////////////
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Private
-                        ///////////////////////////////////////////////////////////////
-                        void loadImage();
+                ///////////////////////////////////////////////////////////////
+                // Drawing operations
+                ///////////////////////////////////////////////////////////////
+        protected:
+                void drawShadow( QPainter*            painter,
+                                 bool                 inEditor,
+                                 const merge::Record& record,
+                                 const Variables&     variables ) const override;
 
-                        bool readImageFile( const QString& fileName,
-                                            QImage&        image,
-                                            QByteArray&    svg ) const;
+                void drawObject( QPainter*            painter,
+                                 bool                 inEditor,
+                                 const merge::Record& record,
+                                 const Variables&     variables ) const override;
 
-                        QImage createShadowImage( const QImage& image,
-                                                  const QColor& color ) const;
+                QPainterPath hoverPath( double scale ) const override;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Private Members
-                        ///////////////////////////////////////////////////////////////
-                protected:
-                        TextNode     mFilenameNode;
-                        QImage       mImage;
-                        QByteArray   mSvg;
+                ///////////////////////////////////////////////////////////////
+                // Private
+                ///////////////////////////////////////////////////////////////
+                void loadImage();
 
-                        static QImage smDefaultImage;
+                bool readImageFile( const QString& fileName,
+                                    QImage&        image,
+                                    QByteArray&    svg ) const;
 
-                };
+                QImage createShadowImage( const QImage& image,
+                                          const QColor& color ) const;
 
-        }
+
+                ///////////////////////////////////////////////////////////////
+                // Private Members
+                ///////////////////////////////////////////////////////////////
+        protected:
+                TextNode     mFilenameNode;
+                QImage       mImage;
+                QByteArray   mSvg;
+
+                static QImage smDefaultImage;
+
+        };
+
 }
 
 

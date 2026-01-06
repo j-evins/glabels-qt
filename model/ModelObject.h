@@ -41,438 +41,435 @@
 #include <memory>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        // Forward References
+        class Region;
+        class Size;
+
+
+        ///
+        /// Label Model Object Base Class
+        ///
+        class ModelObject : public QObject
         {
+                Q_OBJECT
+
+                ///////////////////////////////////////////////////////////////
+                // Lifecycle Methods
+                ///////////////////////////////////////////////////////////////
+        protected:
+                ModelObject();
 
-                // Forward References
-                class Region;
-                class Size;
+                ModelObject( Distance          x0,
+                             Distance          y0,
+                             Distance          w,
+                             Distance          h,
+                             bool              lockAspectRatio = false,
+                             const QTransform& matrix = QTransform(),
+                             bool              shadowState = false,
+                             Distance          shadowX = 0,
+                             Distance          shadowY = 0,
+                             double            shadowOpacity = 1.0,
+                             const ColorNode&  shadowColorNode = ColorNode() );
 
-
-                ///
-                /// Label Model Object Base Class
-                ///
-                class ModelObject : public QObject
-                {
-                        Q_OBJECT
+                ModelObject( const ModelObject* object );
 
-                        ///////////////////////////////////////////////////////////////
-                        // Lifecycle Methods
-                        ///////////////////////////////////////////////////////////////
-                protected:
-                        ModelObject();
+        public:
+                virtual ~ModelObject() = default;
 
-                        ModelObject( Distance          x0,
-                                     Distance          y0,
-                                     Distance          w,
-                                     Distance          h,
-                                     bool              lockAspectRatio = false,
-                                     const QTransform& matrix = QTransform(),
-                                     bool              shadowState = false,
-                                     Distance          shadowX = 0,
-                                     Distance          shadowY = 0,
-                                     double            shadowOpacity = 1.0,
-                                     const ColorNode&  shadowColorNode = ColorNode() );
+
+                ///////////////////////////////////////////////////////////////
+                // Object duplication
+                ///////////////////////////////////////////////////////////////
+                virtual ModelObject* clone() const = 0;
 
-                        ModelObject( const ModelObject* object );
 
-                public:
-                        virtual ~ModelObject() = default;
+                ///////////////////////////////////////////////////////////////
+                // Signals
+                ///////////////////////////////////////////////////////////////
+        signals:
+                void moved();
+                void changed();
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Object duplication
-                        ///////////////////////////////////////////////////////////////
-                        virtual ModelObject* clone() const = 0;
+                ///////////////////////////////////////////////////////////////
+                // Common Properties
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // ID Property.
+                //
+                int id() const;
 
+                //
+                // Selected Property.
+                //
+                bool isSelected() const;
+                void select( bool value = true );
+                void unselect();
 
-                        ///////////////////////////////////////////////////////////////
-                        // Signals
-                        ///////////////////////////////////////////////////////////////
-                signals:
-                        void moved();
-                        void changed();
 
+                //
+                // x0 Property ( x coordinate of origin )
+                //
+                Distance x0() const;
+                void setX0( Distance value );
 
-                        ///////////////////////////////////////////////////////////////
-                        // Common Properties
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // ID Property.
-                        //
-                        int id() const;
 
-                        //
-                        // Selected Property.
-                        //
-                        bool isSelected() const;
-                        void select( bool value = true );
-                        void unselect();
+                //
+                // y0 Property ( y coordinate of origin )
+                //
+                Distance y0() const;
+                void setY0( Distance value );
 
 
-                        //
-                        // x0 Property ( x coordinate of origin )
-                        //
-                        Distance x0() const;
-                        void setX0( Distance value );
+                //
+                // w Property ( width of bounding box )
+                //
+                Distance w() const;
+                void setW( Distance value );
 
 
-                        //
-                        // y0 Property ( y coordinate of origin )
-                        //
-                        Distance y0() const;
-                        void setY0( Distance value );
+                //
+                // h Property ( height of bounding box )
+                //
+                Distance h() const;
+                void setH( Distance value );
 
 
-                        //
-                        // w Property ( width of bounding box )
-                        //
-                        Distance w() const;
-                        void setW( Distance value );
+                //
+                // Lock Aspect Ratio Property
+                //
+                bool lockAspectRatio() const;
+                void setLockAspectRatio( bool value );
 
 
-                        //
-                        // h Property ( height of bounding box )
-                        //
-                        Distance h() const;
-                        void setH( Distance value );
+                //
+                // Transformation Matrix Property
+                //
+                QTransform matrix() const;
+                void setMatrix( const QTransform& value );
 
 
-                        //
-                        // Lock Aspect Ratio Property
-                        //
-                        bool lockAspectRatio() const;
-                        void setLockAspectRatio( bool value );
+                //
+                // Shadow State Property
+                //
+                bool shadow() const;
+                void setShadow( bool value );
 
 
-                        //
-                        // Transformation Matrix Property
-                        //
-                        QTransform matrix() const;
-                        void setMatrix( const QTransform& value );
+                //
+                // Shadow x Offset Property
+                //
+                Distance shadowX() const;
+                void setShadowX( Distance value );
 
 
-                        //
-                        // Shadow State Property
-                        //
-                        bool shadow() const;
-                        void setShadow( bool value );
+                //
+                // Shadow y Offset Property
+                //
+                Distance shadowY() const;
+                void setShadowY( Distance value );
 
 
-                        //
-                        // Shadow x Offset Property
-                        //
-                        Distance shadowX() const;
-                        void setShadowX( Distance value );
+                //
+                // Shadow opacity Property
+                //
+                double shadowOpacity() const;
+                void setShadowOpacity( double value );
 
 
-                        //
-                        // Shadow y Offset Property
-                        //
-                        Distance shadowY() const;
-                        void setShadowY( Distance value );
+                //
+                // Shadow Color Property
+                //
+                ColorNode shadowColorNode() const;
+                void setShadowColorNode( const ColorNode& value );
 
 
-                        //
-                        // Shadow opacity Property
-                        //
-                        double shadowOpacity() const;
-                        void setShadowOpacity( double value );
+                //
+                // Natural Size Property (read-only)
+                //
+                virtual Size naturalSize() const;
 
 
-                        //
-                        // Shadow Color Property
-                        //
-                        ColorNode shadowColorNode() const;
-                        void setShadowColorNode( const ColorNode& value );
+                ///////////////////////////////////////////////////////////////
+                // Text Properties Virtual Interface
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // Virtual Text Property: text
+                //
+                virtual QString text() const;
+                virtual void setText( const QString &value );
 
 
-                        //
-                        // Natural Size Property (read-only)
-                        //
-                        virtual Size naturalSize() const;
+                //
+                // Virtual Text Property: fontFamily
+                //
+                virtual QString fontFamily() const;
+                virtual void setFontFamily( const QString &value );
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Text Properties Virtual Interface
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // Virtual Text Property: text
-                        //
-                        virtual QString text() const;
-                        virtual void setText( const QString &value );
+                //
+                // Virtual Text Property: fontSize
+                //
+                virtual double fontSize() const;
+                virtual void setFontSize( double value );
 
 
-                        //
-                        // Virtual Text Property: fontFamily
-                        //
-                        virtual QString fontFamily() const;
-                        virtual void setFontFamily( const QString &value );
+                //
+                // Virtual Text Property: fontWeight
+                //
+                virtual QFont::Weight fontWeight() const;
+                virtual void setFontWeight( QFont::Weight value );
 
 
-                        //
-                        // Virtual Text Property: fontSize
-                        //
-                        virtual double fontSize() const;
-                        virtual void setFontSize( double value );
+                //
+                // Virtual Text Property: fontItalicFlag
+                //
+                virtual bool fontItalicFlag() const;
+                virtual void setFontItalicFlag( bool value );
 
 
-                        //
-                        // Virtual Text Property: fontWeight
-                        //
-                        virtual QFont::Weight fontWeight() const;
-                        virtual void setFontWeight( QFont::Weight value );
+                //
+                // Virtual Text Property: fontUnderlineFlag
+                //
+                virtual bool fontUnderlineFlag() const;
+                virtual void setFontUnderlineFlag( bool value );
 
 
-                        //
-                        // Virtual Text Property: fontItalicFlag
-                        //
-                        virtual bool fontItalicFlag() const;
-                        virtual void setFontItalicFlag( bool value );
+                //
+                // Virtual Text Property: textColorNode
+                //
+                virtual ColorNode textColorNode() const;
+                virtual void setTextColorNode( const ColorNode &value );
 
 
-                        //
-                        // Virtual Text Property: fontUnderlineFlag
-                        //
-                        virtual bool fontUnderlineFlag() const;
-                        virtual void setFontUnderlineFlag( bool value );
+                //
+                // Virtual Text Property: textHAlign
+                //
+                virtual Qt::Alignment textHAlign() const;
+                virtual void setTextHAlign( Qt::Alignment value );
 
 
-                        //
-                        // Virtual Text Property: textColorNode
-                        //
-                        virtual ColorNode textColorNode() const;
-                        virtual void setTextColorNode( const ColorNode &value );
+                //
+                // Virtual Text Property: textVAlign
+                //
+                virtual Qt::Alignment textVAlign() const;
+                virtual void setTextVAlign( Qt::Alignment value );
 
 
-                        //
-                        // Virtual Text Property: textHAlign
-                        //
-                        virtual Qt::Alignment textHAlign() const;
-                        virtual void setTextHAlign( Qt::Alignment value );
+                //
+                // Virtual Text Property: textWrapMode
+                //
+                virtual QTextOption::WrapMode textWrapMode() const;
+                virtual void setTextWrapMode( QTextOption::WrapMode value );
 
 
-                        //
-                        // Virtual Text Property: textVAlign
-                        //
-                        virtual Qt::Alignment textVAlign() const;
-                        virtual void setTextVAlign( Qt::Alignment value );
+                //
+                // Virtual Text Property: textLineSpacing
+                //
+                virtual double textLineSpacing() const;
+                virtual void setTextLineSpacing( double value );
 
 
-                        //
-                        // Virtual Text Property: textWrapMode
-                        //
-                        virtual QTextOption::WrapMode textWrapMode() const;
-                        virtual void setTextWrapMode( QTextOption::WrapMode value );
+                //
+                // Virtual Text Property: textAutoShrink
+                //
+                virtual bool textAutoShrink() const;
+                virtual void setTextAutoShrink( bool value );
 
 
-                        //
-                        // Virtual Text Property: textLineSpacing
-                        //
-                        virtual double textLineSpacing() const;
-                        virtual void setTextLineSpacing( double value );
+                ///////////////////////////////////////////////////////////////
+                // Image Properties Virtual Interface
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // Virtual Image Property: filenameNode
+                //
+                virtual TextNode filenameNode() const;
+                virtual void setFilenameNode( const TextNode &value );
 
 
-                        //
-                        // Virtual Text Property: textAutoShrink
-                        //
-                        virtual bool textAutoShrink() const;
-                        virtual void setTextAutoShrink( bool value );
+                //
+                // Virtual Image Property: image
+                //
+                virtual const QImage& image() const;
+                virtual void setImage( const QImage& value );
+                virtual void setImage( const QString& name, const QImage& value );
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Image Properties Virtual Interface
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // Virtual Image Property: filenameNode
-                        //
-                        virtual TextNode filenameNode() const;
-                        virtual void setFilenameNode( const TextNode &value );
+                //
+                // Virtual Image Property: svg
+                //
+                virtual const QByteArray& svg() const;
+                virtual void setSvg( const QString& name, const QByteArray& value );
+
+
+                ///////////////////////////////////////////////////////////////
+                // Shape Properties Virtual Interface
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // Virtual Shape Property: lineWidth
+                //
+                virtual Distance lineWidth() const;
+                virtual void setLineWidth( Distance value );
+
+
+                //
+                // Virtual Shape Property: lineColorNode
+                //
+                virtual ColorNode lineColorNode() const;
+                virtual void setLineColorNode( const ColorNode &value );
+
+
+                //
+                // Virtual Shape Property: fillColorNode
+                //
+                virtual ColorNode fillColorNode() const;
+                virtual void setFillColorNode( const ColorNode &value );
+
+
+                ///////////////////////////////////////////////////////////////
+                // Barcode Properties Virtual Interface
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // Virtual Barcode Property: bcData
+                //
+                virtual QString bcData() const;
+                virtual void setBcData( const QString& value );
 
+
+                //
+                // Virtual Barcode Property: bcTextFlag
+                //
+                virtual bool bcTextFlag() const;
+                virtual void setBcTextFlag( bool value );
+
+
+                //
+                // Virtual Barcode Property: bcChecksumFlag
+                //
+                virtual bool bcChecksumFlag() const;
+                virtual void setBcChecksumFlag( bool value );
+
+
+                //
+                // Virtual Barcode Property: bcColorNode
+                //
+                virtual ColorNode bcColorNode() const;
+                virtual void setBcColorNode( const ColorNode &value );
+
+
+                //
+                // Virtual Barcode Property: bcStyle
+                //
+                virtual barcode::Style bcStyle() const;
+                virtual void setBcStyle( const barcode::Style &value );
 
-                        //
-                        // Virtual Image Property: image
-                        //
-                        virtual const QImage& image() const;
-                        virtual void setImage( const QImage& value );
-                        virtual void setImage( const QString& name, const QImage& value );
 
+                //
+                // Virtual Barcode Property: bcFormatDigits
+                //
+                virtual int bcFormatDigits() const;
+                virtual void setBcFormatDigits( int value );
 
-                        //
-                        // Virtual Image Property: svg
-                        //
-                        virtual const QByteArray& svg() const;
-                        virtual void setSvg( const QString& name, const QByteArray& value );
 
+                ///////////////////////////////////////////////////////////////
+                // Capabilities (Overridden by concrete classes.)
+                ///////////////////////////////////////////////////////////////
+        public:
+                virtual bool canText() const;
+                virtual bool canFill() const;
+                virtual bool canLineColor() const;
+                virtual bool canLineWidth() const;
 
-                        ///////////////////////////////////////////////////////////////
-                        // Shape Properties Virtual Interface
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // Virtual Shape Property: lineWidth
-                        //
-                        virtual Distance lineWidth() const;
-                        virtual void setLineWidth( Distance value );
-
 
-                        //
-                        // Virtual Shape Property: lineColorNode
-                        //
-                        virtual ColorNode lineColorNode() const;
-                        virtual void setLineColorNode( const ColorNode &value );
-
-
-                        //
-                        // Virtual Shape Property: fillColorNode
-                        //
-                        virtual ColorNode fillColorNode() const;
-                        virtual void setFillColorNode( const ColorNode &value );
+                ///////////////////////////////////////////////////////////////
+                // Position and Size methods
+                ///////////////////////////////////////////////////////////////
+        public:
+                void setPosition( Distance x0, Distance y0 );
+                void setPositionRelative( Distance dx, Distance dy );
+                Size size() const;
+                void setSize( Distance w, Distance h );
+                void setSize( Size size );
+                void setSizeHonorAspect( Distance w, Distance h );
+                void setWHonorAspect( Distance w );
+                void setHHonorAspect( Distance h );
+                Region getExtent();
+                void rotate( double thetaDegs );
+                void flipHoriz();
+                void flipVert();
+                bool isLocatedAt( double scale, Distance x, Distance y ) const;
+                const Handle& handleAt( double scale, Distance x, Distance y ) const;
 
-
-                        ///////////////////////////////////////////////////////////////
-                        // Barcode Properties Virtual Interface
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // Virtual Barcode Property: bcData
-                        //
-                        virtual QString bcData() const;
-                        virtual void setBcData( const QString& value );
 
+                ///////////////////////////////////////////////////////////////
+                // Drawing operations
+                ///////////////////////////////////////////////////////////////
+        public:
+                void draw( QPainter*            painter,
+                           bool                 inEditor,
+                           const merge::Record& record,
+                           const Variables&     variables ) const;
 
-                        //
-                        // Virtual Barcode Property: bcTextFlag
-                        //
-                        virtual bool bcTextFlag() const;
-                        virtual void setBcTextFlag( bool value );
+                void drawSelectionHighlight( QPainter* painter, double scale ) const;
 
+        protected:
+                virtual void drawShadow( QPainter*            painter,
+                                         bool                 inEditor,
+                                         const merge::Record& record,
+                                         const Variables&     variables ) const = 0;
 
-                        //
-                        // Virtual Barcode Property: bcChecksumFlag
-                        //
-                        virtual bool bcChecksumFlag() const;
-                        virtual void setBcChecksumFlag( bool value );
+                virtual void drawObject( QPainter*            painter,
+                                         bool                 inEditor,
+                                         const merge::Record& record,
+                                         const Variables&     variables ) const = 0;
 
+                virtual QPainterPath hoverPath( double scale ) const = 0;
 
-                        //
-                        // Virtual Barcode Property: bcColorNode
-                        //
-                        virtual ColorNode bcColorNode() const;
-                        virtual void setBcColorNode( const ColorNode &value );
+                virtual void sizeUpdated();
 
 
-                        //
-                        // Virtual Barcode Property: bcStyle
-                        //
-                        virtual barcode::Style bcStyle() const;
-                        virtual void setBcStyle( const barcode::Style &value );
+                ///////////////////////////////////////////////////////////////
+                // Protected Members
+                ///////////////////////////////////////////////////////////////
+        protected:
+                bool              mSelectedFlag;
 
+                Distance          mX0;
+                Distance          mY0;
+                Distance          mW;
+                Distance          mH;
+                bool              mLockAspectRatio;
 
-                        //
-                        // Virtual Barcode Property: bcFormatDigits
-                        //
-                        virtual int bcFormatDigits() const;
-                        virtual void setBcFormatDigits( int value );
+                bool              mShadowState;
+                Distance          mShadowX;
+                Distance          mShadowY;
+                double            mShadowOpacity;
+                ColorNode         mShadowColorNode;
 
+                Outline           mOutline;
 
-                        ///////////////////////////////////////////////////////////////
-                        // Capabilities (Overridden by concrete classes.)
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        virtual bool canText() const;
-                        virtual bool canFill() const;
-                        virtual bool canLineColor() const;
-                        virtual bool canLineWidth() const;
+                QList<Handle>     mHandles;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Position and Size methods
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        void setPosition( Distance x0, Distance y0 );
-                        void setPositionRelative( Distance dx, Distance dy );
-                        Size size() const;
-                        void setSize( Distance w, Distance h );
-                        void setSize( Size size );
-                        void setSizeHonorAspect( Distance w, Distance h );
-                        void setWHonorAspect( Distance w );
-                        void setHHonorAspect( Distance h );
-                        Region getExtent();
-                        void rotate( double thetaDegs );
-                        void flipHoriz();
-                        void flipVert();
-                        bool isLocatedAt( double scale, Distance x, Distance y ) const;
-                        const Handle& handleAt( double scale, Distance x, Distance y ) const;
+                ///////////////////////////////////////////////////////////////
+                // Private Members
+                ///////////////////////////////////////////////////////////////
+        private:
+                static int msNextId;
+                int        mId;
 
+                QTransform mMatrix;
 
-                        ///////////////////////////////////////////////////////////////
-                        // Drawing operations
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        void draw( QPainter*            painter,
-                                   bool                 inEditor,
-                                   const merge::Record& record,
-                                   const Variables&     variables ) const;
+        };
 
-                        void drawSelectionHighlight( QPainter* painter, double scale ) const;
-
-                protected:
-                        virtual void drawShadow( QPainter*            painter,
-                                                 bool                 inEditor,
-                                                 const merge::Record& record,
-                                                 const Variables&     variables ) const = 0;
-
-                        virtual void drawObject( QPainter*            painter,
-                                                 bool                 inEditor,
-                                                 const merge::Record& record,
-                                                 const Variables&     variables ) const = 0;
-
-                        virtual QPainterPath hoverPath( double scale ) const = 0;
-
-                        virtual void sizeUpdated();
-
-
-                        ///////////////////////////////////////////////////////////////
-                        // Protected Members
-                        ///////////////////////////////////////////////////////////////
-                protected:
-                        bool              mSelectedFlag;
-
-                        Distance          mX0;
-                        Distance          mY0;
-                        Distance          mW;
-                        Distance          mH;
-                        bool              mLockAspectRatio;
-
-                        bool              mShadowState;
-                        Distance          mShadowX;
-                        Distance          mShadowY;
-                        double            mShadowOpacity;
-                        ColorNode         mShadowColorNode;
-
-                        Outline           mOutline;
-
-                        QList<Handle>     mHandles;
-
-
-                        ///////////////////////////////////////////////////////////////
-                        // Private Members
-                        ///////////////////////////////////////////////////////////////
-                private:
-                        static int msNextId;
-                        int        mId;
-
-                        QTransform mMatrix;
-
-                };
-
-        }
 }
 
 

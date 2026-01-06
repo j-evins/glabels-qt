@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Distance.h"
 
 #include <QTextStream>
@@ -25,195 +26,192 @@
 #include <QIODevice>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        Distance::Distance( double d, Units::Enum unitsEnum )
         {
-
-                Distance::Distance( double d, Units::Enum unitsEnum )
+                switch (unitsEnum)
                 {
-                        switch (unitsEnum)
-                        {
-                        case Units::PT:
-                                mDPts = d;
-                                break;
-                        case Units::IN:
-                                mDPts = d * PTS_PER_INCH;
-                                break;
-                        case Units::MM:
-                                mDPts = d * PTS_PER_MM;
-                                break;
-                        case Units::CM:
-                                mDPts = d * PTS_PER_CM;
-                                break;
-                        case Units::PC:
-                                mDPts = d * PTS_PER_PICA;
-                                break;
-                        default:
-                                mDPts = d;
-                                break;
-                        }
+                case Units::PT:
+                        mDPts = d;
+                        break;
+                case Units::IN:
+                        mDPts = d * PTS_PER_INCH;
+                        break;
+                case Units::MM:
+                        mDPts = d * PTS_PER_MM;
+                        break;
+                case Units::CM:
+                        mDPts = d * PTS_PER_CM;
+                        break;
+                case Units::PC:
+                        mDPts = d * PTS_PER_PICA;
+                        break;
+                default:
+                        mDPts = d;
+                        break;
                 }
-
-
-                Distance::Distance( double d, Units units )
-                {
-                        switch (units.toEnum())
-                        {
-                        case Units::PT:
-                                mDPts = d;
-                                break;
-                        case Units::IN:
-                                mDPts = d * PTS_PER_INCH;
-                                break;
-                        case Units::MM:
-                                mDPts = d * PTS_PER_MM;
-                                break;
-                        case Units::CM:
-                                mDPts = d * PTS_PER_CM;
-                                break;
-                        case Units::PC:
-                                mDPts = d * PTS_PER_PICA;
-                                break;
-                        default:
-                                mDPts = d;
-                                break;
-                        }
-                }
-
-
-                Distance::Distance( double d, const QString& unitsId )
-                {
-                        Units units = Units( unitsId );
-
-                        switch (units.toEnum())
-                        {
-                        case Units::PT:
-                                mDPts = d;
-                                break;
-                        case Units::IN:
-                                mDPts = d * PTS_PER_INCH;
-                                break;
-                        case Units::MM:
-                                mDPts = d * PTS_PER_MM;
-                                break;
-                        case Units::CM:
-                                mDPts = d * PTS_PER_CM;
-                                break;
-                        case Units::PC:
-                                mDPts = d * PTS_PER_PICA;
-                                break;
-                        default:
-                                mDPts = d;
-                                break;
-                        }
-                }
-
-
-                Distance Distance::fromString( const QString& string )
-                {
-                        QString stringCopy = string;
-                        QTextStream valueStream( &stringCopy, QIODevice::ReadOnly );
-
-                        double value;
-                        QString unitsString;
-                        valueStream >> value >> unitsString;
-
-                        if ( !unitsString.isEmpty() && !Units::isIdValid( unitsString ) )
-                        {
-                                qWarning() << "Invalid Units in string: \"" << string << "\"";
-                        }
-
-                        return Distance( value, unitsString );
-                }
-
-
-                double Distance::inUnits( Units units ) const
-                {
-                        double d;
-
-                        switch (units.toEnum())
-                        {
-                        case Units::PT:
-                                d = pt();
-                                break;
-                        case Units::IN:
-                                d = in();
-                                break;
-                        case Units::MM:
-                                d = mm();
-                                break;
-                        case Units::CM:
-                                d = cm();
-                                break;
-                        case Units::PC:
-                                d = pc();
-                                break;
-                        default:
-                                d = mDPts;
-                                break;
-                        }
-
-                        return d;
-                }
-
-
-                double Distance::inUnits( Units::Enum unitsEnum ) const
-                {
-                        double d;
-
-                        switch (unitsEnum)
-                        {
-                        case Units::PT:
-                                d = pt();
-                                break;
-                        case Units::IN:
-                                d = in();
-                                break;
-                        case Units::MM:
-                                d = mm();
-                                break;
-                        case Units::CM:
-                                d = cm();
-                                break;
-                        case Units::PC:
-                                d = pc();
-                                break;
-                        default:
-                                d = mDPts;
-                                break;
-                        }
-
-                        return d;
-                }
-
-
-                double Distance::inUnits( const QString& unitsId ) const
-                {
-                        return inUnits( Units( unitsId ) );
-                }
-
-
-                QString Distance::toString( Units units ) const
-                {
-                        return QString::number( inUnits(units) ) + units.toIdString();
-                }
-
-
-                QString Distance::toString( Units::Enum unitsEnum ) const
-                {
-                        Units units(unitsEnum);
-                        return QString::number( inUnits(units) ) + units.toIdString();
-                }
-
-
-                QString Distance::toString( const QString& unitsId ) const
-                {
-                        Units units(unitsId);
-                        return QString::number( inUnits(units) ) + units.toIdString();
-                }
-
         }
+
+
+        Distance::Distance( double d, Units units )
+        {
+                switch (units.toEnum())
+                {
+                case Units::PT:
+                        mDPts = d;
+                        break;
+                case Units::IN:
+                        mDPts = d * PTS_PER_INCH;
+                        break;
+                case Units::MM:
+                        mDPts = d * PTS_PER_MM;
+                        break;
+                case Units::CM:
+                        mDPts = d * PTS_PER_CM;
+                        break;
+                case Units::PC:
+                        mDPts = d * PTS_PER_PICA;
+                        break;
+                default:
+                        mDPts = d;
+                        break;
+                }
+        }
+
+
+        Distance::Distance( double d, const QString& unitsId )
+        {
+                Units units = Units( unitsId );
+
+                switch (units.toEnum())
+                {
+                case Units::PT:
+                        mDPts = d;
+                        break;
+                case Units::IN:
+                        mDPts = d * PTS_PER_INCH;
+                        break;
+                case Units::MM:
+                        mDPts = d * PTS_PER_MM;
+                        break;
+                case Units::CM:
+                        mDPts = d * PTS_PER_CM;
+                        break;
+                case Units::PC:
+                        mDPts = d * PTS_PER_PICA;
+                        break;
+                default:
+                        mDPts = d;
+                        break;
+                }
+        }
+
+
+        Distance Distance::fromString( const QString& string )
+        {
+                QString stringCopy = string;
+                QTextStream valueStream( &stringCopy, QIODevice::ReadOnly );
+
+                double value;
+                QString unitsString;
+                valueStream >> value >> unitsString;
+
+                if ( !unitsString.isEmpty() && !Units::isIdValid( unitsString ) )
+                {
+                        qWarning() << "Invalid Units in string: \"" << string << "\"";
+                }
+
+                return Distance( value, unitsString );
+        }
+
+
+        double Distance::inUnits( Units units ) const
+        {
+                double d;
+
+                switch (units.toEnum())
+                {
+                case Units::PT:
+                        d = pt();
+                        break;
+                case Units::IN:
+                        d = in();
+                        break;
+                case Units::MM:
+                        d = mm();
+                        break;
+                case Units::CM:
+                        d = cm();
+                        break;
+                case Units::PC:
+                        d = pc();
+                        break;
+                default:
+                        d = mDPts;
+                        break;
+                }
+
+                return d;
+        }
+
+
+        double Distance::inUnits( Units::Enum unitsEnum ) const
+        {
+                double d;
+
+                switch (unitsEnum)
+                {
+                case Units::PT:
+                        d = pt();
+                        break;
+                case Units::IN:
+                        d = in();
+                        break;
+                case Units::MM:
+                        d = mm();
+                        break;
+                case Units::CM:
+                        d = cm();
+                        break;
+                case Units::PC:
+                        d = pc();
+                        break;
+                default:
+                        d = mDPts;
+                        break;
+                }
+
+                return d;
+        }
+
+
+        double Distance::inUnits( const QString& unitsId ) const
+        {
+                return inUnits( Units( unitsId ) );
+        }
+
+
+        QString Distance::toString( Units units ) const
+        {
+                return QString::number( inUnits(units) ) + units.toIdString();
+        }
+
+
+        QString Distance::toString( Units::Enum unitsEnum ) const
+        {
+                Units units(unitsEnum);
+                return QString::number( inUnits(units) ) + units.toIdString();
+        }
+
+
+        QString Distance::toString( const QString& unitsId ) const
+        {
+                Units units(unitsId);
+                return QString::number( inUnits(units) ) + units.toIdString();
+        }
+
 }
 
 

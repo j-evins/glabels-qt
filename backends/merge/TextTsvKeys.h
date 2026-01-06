@@ -25,43 +25,40 @@
 #include "Text.h"
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// TextTsvKeys Merge Backend
+        ///
+        struct TextTsvKeys : public Text
         {
 
-                ///
-                /// TextTsvKeys Merge Backend
-                ///
-                struct TextTsvKeys : public Text
-                {
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                private:
-                        TextTsvKeys();
-                        TextTsvKeys( const TextTsvKeys* merge );
-                        virtual ~TextTsvKeys() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        private:
+                TextTsvKeys();
+                TextTsvKeys( const TextTsvKeys* merge );
+                virtual ~TextTsvKeys() = default;
 
 
-                        /////////////////////////////////
-                        // Object duplication
-                        /////////////////////////////////
-                public:
-                        TextTsvKeys* clone() const override;
+                /////////////////////////////////
+                // Object duplication
+                /////////////////////////////////
+        public:
+                TextTsvKeys* clone() const override;
 
 
-                        /////////////////////////////////
-                        // Static methods
-                        /////////////////////////////////
-                public:
-                        static QString id();
-                        static Merge* create();
+                /////////////////////////////////
+                // Static methods
+                /////////////////////////////////
+        public:
+                static QString id();
+                static Merge* create();
 
-                };
+        };
 
-        }
 }
 
 

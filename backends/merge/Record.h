@@ -26,36 +26,33 @@
 #include <QMap>
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// Merge Record
+        ///
+        class Record : public QMap<QString,QString>
         {
 
-                ///
-                /// Merge Record
-                ///
-                class Record : public QMap<QString,QString>
-                {
-
-                        /////////////////////////////////
-                        // Properties
-                        /////////////////////////////////
-                public:
-                        bool isSelected() const;
-                        void setSelected( bool value );
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                bool isSelected() const;
+                void setSelected( bool value );
 
 
-                        /////////////////////////////////
-                        // Private data
-                        /////////////////////////////////
-                private:
-                        bool mSelected{ true };
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                bool mSelected{ true };
 
-                };
+        };
 
 
-                using NullRecord = const Record;
-        }
+        using NullRecord = const Record;
 }
 
 

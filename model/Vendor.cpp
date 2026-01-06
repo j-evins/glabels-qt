@@ -18,32 +18,30 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Vendor.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        Vendor::Vendor( const QString &name, const QString &url )
+                : mName(name),
+                  mUrl(url)
         {
-
-                Vendor::Vendor( const QString &name, const QString &url )
-                        : mName(name),
-                          mUrl(url)
-                {
-                        // empty
-                }
-
-
-                QString Vendor::name() const
-                {
-                        return mName;
-                }
-
-
-                QString Vendor::url() const
-                {
-                        return mUrl;
-                }
-
+                // empty
         }
+
+
+        QString Vendor::name() const
+        {
+                return mName;
+        }
+
+
+        QString Vendor::url() const
+        {
+                return mUrl;
+        }
+
 }

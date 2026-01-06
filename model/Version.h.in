@@ -25,32 +25,29 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-	namespace model
-	{
 
-		namespace Version
-		{
-			const QString ORGANIZATION_NAME   = "@ORGANIZATION_NAME@";
-			const QString ORGANIZATION_DOMAIN = "@ORGANIZATION_DOMAIN@";
-			const QString APPLICATION_NAME    = "@APPLICATION_NAME@";
-			const QString DESKTOP_FILE_NAME    = "@DESKTOP_FILE_NAME@";
+        namespace Version
+        {
+                const QString ORGANIZATION_NAME   = "@ORGANIZATION_NAME@";
+                const QString ORGANIZATION_DOMAIN = "@ORGANIZATION_DOMAIN@";
+                const QString APPLICATION_NAME    = "@APPLICATION_NAME@";
+                const QString DESKTOP_FILE_NAME   = "@DESKTOP_FILE_NAME@";
 
-			const QString WEBSITE = "https://@WEBSITE@";
-			const QString BUG_WEBSITE = "@BUG_WEBSITE@";
+                const QString WEBSITE = "https://@WEBSITE@";
+                const QString BUG_WEBSITE = "@BUG_WEBSITE@";
 
-			const int     MAJOR   = @glabels-qt_VERSION_MAJOR@;
-			const int     MINOR   = @glabels-qt_VERSION_MINOR@;
-			const int     MICRO   = @glabels-qt_VERSION_PATCH@;
+                const int     MAJOR   = @glabels-qt_VERSION_MAJOR@;
+                const int     MINOR   = @glabels-qt_VERSION_MINOR@;
+                const int     MICRO   = @glabels-qt_VERSION_PATCH@;
 
-			const QString STRING  = "@VERSION_STRING@";
-			const QString LONG_STRING  = "@LONG_VERSION_STRING@";
+                const QString STRING  = "@VERSION_STRING@";
+                const QString LONG_STRING  = "@LONG_VERSION_STRING@";
 
-			QString details();
-		}
+                QString details();
+        }
 
-	}
 }
 
 

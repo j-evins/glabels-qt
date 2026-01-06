@@ -29,24 +29,21 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class XmlPaperParser
         {
+        public:
+                XmlPaperParser() = default;
 
-                class XmlPaperParser
-                {
-                public:
-                        XmlPaperParser() = default;
+                QList<Paper> readFile( const QString &fileName );
 
-                        QList<Paper> readFile( const QString &fileName );
+        private:
+                QList<Paper> parseRootNode( const QDomElement &node );
+                Paper parsePaperSizeNode( const QDomElement &node );
+        };
 
-                private:
-                        QList<Paper> parseRootNode( const QDomElement &node );
-                        Paper parsePaperSizeNode( const QDomElement &node );
-                };
-
-        }
 }
 
 

@@ -18,59 +18,60 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TextSemicolonKeys.h"
 
 
-namespace glabels
+namespace
 {
-        namespace merge
+        static const QString ID = "Text/Semicolon/Keys";
+}
+
+
+namespace glabels::merge
+{
+
+        ///
+        /// Constructor
+        ///
+        TextSemicolonKeys::TextSemicolonKeys() : Text(';',true)
         {
-
-                static const QString ID = "Text/Semicolon/Keys";
-
-
-                ///
-                /// Constructor
-                ///
-                TextSemicolonKeys::TextSemicolonKeys() : Text(';',true)
-                {
-                        mId = ID;
-                }
+                mId = ID;
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                TextSemicolonKeys::TextSemicolonKeys( const TextSemicolonKeys* merge ) : Text( merge )
-                {
-                }
+        ///
+        /// Constructor
+        ///
+        TextSemicolonKeys::TextSemicolonKeys( const TextSemicolonKeys* merge ) : Text( merge )
+        {
+        }
 
 
-                ///
-                /// Clone
-                ///
-                TextSemicolonKeys* TextSemicolonKeys::clone() const
-                {
-                        return new TextSemicolonKeys( this );
-                }
+        ///
+        /// Clone
+        ///
+        TextSemicolonKeys* TextSemicolonKeys::clone() const
+        {
+                return new TextSemicolonKeys( this );
+        }
 
 
-                ///
-                /// Get ID
-                ///
-                QString TextSemicolonKeys::id()
-                {
-                        return ID;
-                }
+        ///
+        /// Get ID
+        ///
+        QString TextSemicolonKeys::id()
+        {
+                return ID;
+        }
 
 
-                ///
-                /// Create
-                ///
-                Merge* TextSemicolonKeys::create()
-                {
-                        return new TextSemicolonKeys();
-                }
+        ///
+        /// Create
+        ///
+        Merge* TextSemicolonKeys::create()
+        {
+                return new TextSemicolonKeys();
+        }
 
-        } // namespace merge
-} // namespace glabels
+}

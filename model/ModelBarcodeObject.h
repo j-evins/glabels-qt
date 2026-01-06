@@ -31,154 +31,151 @@
 #include <memory>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Label Model Line Object
+        ///
+        class ModelBarcodeObject : public ModelObject
         {
+                Q_OBJECT
 
-                ///
-                /// Label Model Line Object
-                ///
-                class ModelBarcodeObject : public ModelObject
-                {
-                        Q_OBJECT
+                ///////////////////////////////////////////////////////////////
+                // Lifecycle Methods
+                ///////////////////////////////////////////////////////////////
+        public:
+                ModelBarcodeObject();
 
-                        ///////////////////////////////////////////////////////////////
-                        // Lifecycle Methods
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        ModelBarcodeObject();
+                ModelBarcodeObject( Distance              x0,
+                                    Distance              y0,
+                                    Distance              w,
+                                    Distance              h,
+                                    bool                  lockAspectRatio,
+                                    const barcode::Style& bcStyle,
+                                    bool                  bcTextFlag,
+                                    bool                  bcChecksumFlag,
+                                    QString               bcData,
+                                    const ColorNode&      bcColorNode,
+                                    const QTransform&     matrix = QTransform() );
 
-                        ModelBarcodeObject( Distance              x0,
-                                            Distance              y0,
-                                            Distance              w,
-                                            Distance              h,
-                                            bool                  lockAspectRatio,
-                                            const barcode::Style& bcStyle,
-                                            bool                  bcTextFlag,
-                                            bool                  bcChecksumFlag,
-                                            QString               bcData,
-                                            const ColorNode&      bcColorNode,
-                                            const QTransform&     matrix = QTransform() );
+                ModelBarcodeObject( const ModelBarcodeObject* object );
 
-                        ModelBarcodeObject( const ModelBarcodeObject* object );
-
-                        virtual ~ModelBarcodeObject() = default;
+                virtual ~ModelBarcodeObject() = default;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Object duplication
-                        ///////////////////////////////////////////////////////////////
-                        ModelBarcodeObject* clone() const override;
+                ///////////////////////////////////////////////////////////////
+                // Object duplication
+                ///////////////////////////////////////////////////////////////
+                ModelBarcodeObject* clone() const override;
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Property Implementations
-                        ///////////////////////////////////////////////////////////////
-                public:
-                        //
-                        // Barcode Property: bcData
-                        //
-                        QString bcData() const override;
-                        void setBcData( const QString &value ) override;
+                ///////////////////////////////////////////////////////////////
+                // Property Implementations
+                ///////////////////////////////////////////////////////////////
+        public:
+                //
+                // Barcode Property: bcData
+                //
+                QString bcData() const override;
+                void setBcData( const QString &value ) override;
 
 
-                        //
-                        // Barcode Property: bcTextFlag
-                        //
-                        bool bcTextFlag() const override;
-                        void setBcTextFlag( bool value ) override;
+                //
+                // Barcode Property: bcTextFlag
+                //
+                bool bcTextFlag() const override;
+                void setBcTextFlag( bool value ) override;
 
 
-                        //
-                        // Barcode Property: bcChecksumFlag
-                        //
-                        bool bcChecksumFlag() const override;
-                        void setBcChecksumFlag( bool value ) override;
+                //
+                // Barcode Property: bcChecksumFlag
+                //
+                bool bcChecksumFlag() const override;
+                void setBcChecksumFlag( bool value ) override;
 
 
-                        //
-                        // Barcode Property: bcColorNode
-                        //
-                        ColorNode bcColorNode() const override;
-                        void setBcColorNode( const ColorNode &value ) override;
+                //
+                // Barcode Property: bcColorNode
+                //
+                ColorNode bcColorNode() const override;
+                void setBcColorNode( const ColorNode &value ) override;
 
 
-                        //
-                        // Barcode Property: bcStyle
-                        //
-                        barcode::Style bcStyle() const override;
-                        void setBcStyle( const barcode::Style &value ) override;
+                //
+                // Barcode Property: bcStyle
+                //
+                barcode::Style bcStyle() const override;
+                void setBcStyle( const barcode::Style &value ) override;
 
 
-                        //
-                        // Barcode Property: bcFormatDigits
-                        //
-                        int bcFormatDigits() const override;
-                        void setBcFormatDigits( int value ) override;
+                //
+                // Barcode Property: bcFormatDigits
+                //
+                int bcFormatDigits() const override;
+                void setBcFormatDigits( int value ) override;
 
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Capability Implementations
-                        ///////////////////////////////////////////////////////////////
-                public:
+                ///////////////////////////////////////////////////////////////
+                // Capability Implementations
+                ///////////////////////////////////////////////////////////////
+        public:
 
 
-                        ///////////////////////////////////////////////////////////////
-                        // Drawing operations
-                        ///////////////////////////////////////////////////////////////
-                protected:
-                        void drawShadow( QPainter*            painter,
-                                         bool                 inEditor,
-                                         const merge::Record& record,
-                                         const Variables&     variables ) const override;
+                ///////////////////////////////////////////////////////////////
+                // Drawing operations
+                ///////////////////////////////////////////////////////////////
+        protected:
+                void drawShadow( QPainter*            painter,
+                                 bool                 inEditor,
+                                 const merge::Record& record,
+                                 const Variables&     variables ) const override;
 
-                        void drawObject( QPainter*            painter,
-                                         bool                 inEditor,
-                                         const merge::Record& record,
-                                         const Variables&     variables ) const override;
+                void drawObject( QPainter*            painter,
+                                 bool                 inEditor,
+                                 const merge::Record& record,
+                                 const Variables&     variables ) const override;
 
-                        QPainterPath hoverPath( double scale ) const override;
-
-
-                        ///////////////////////////////////////////////////////////////
-                        // Private methods
-                        ///////////////////////////////////////////////////////////////
-                private:
-                        void sizeUpdated() override;
-                        void update();
-
-                        void drawBcInEditor( QPainter* painter, const QColor& color ) const;
-
-                        void drawBc( QPainter*            painter,
-                                     const QColor&        color,
-                                     const merge::Record& record,
-                                     const Variables&     variables ) const;
-
-                        void drawPlaceHolder( QPainter* painter, const QColor& color, const QString& text ) const;
+                QPainterPath hoverPath( double scale ) const override;
 
 
+                ///////////////////////////////////////////////////////////////
+                // Private methods
+                ///////////////////////////////////////////////////////////////
+        private:
+                void sizeUpdated() override;
+                void update();
 
-                        ///////////////////////////////////////////////////////////////
-                        // Private Members
-                        ///////////////////////////////////////////////////////////////
-                private:
-                        barcode::Style      mBcStyle;
-                        bool                mBcTextFlag;
-                        bool                mBcChecksumFlag;
-                        int                 mBcFormatDigits;
-                        RawText             mBcData;
-                        ColorNode           mBcColorNode;
+                void drawBcInEditor( QPainter* painter, const QColor& color ) const;
 
-                        std::unique_ptr<glbarcode::Barcode> mEditorBarcode;
-                        std::unique_ptr<glbarcode::Barcode> mEditorDefaultBarcode;
+                void drawBc( QPainter*            painter,
+                             const QColor&        color,
+                             const merge::Record& record,
+                             const Variables&     variables ) const;
 
-                        QPainterPath mHoverPath;
+                void drawPlaceHolder( QPainter* painter, const QColor& color, const QString& text ) const;
 
-                };
 
-        }
+
+                ///////////////////////////////////////////////////////////////
+                // Private Members
+                ///////////////////////////////////////////////////////////////
+        private:
+                barcode::Style      mBcStyle;
+                bool                mBcTextFlag;
+                bool                mBcChecksumFlag;
+                int                 mBcFormatDigits;
+                RawText             mBcData;
+                ColorNode           mBcColorNode;
+
+                std::unique_ptr<glbarcode::Barcode> mEditorBarcode;
+                std::unique_ptr<glbarcode::Barcode> mEditorDefaultBarcode;
+
+                QPainterPath mHoverPath;
+
+        };
+
 }
 
 

@@ -18,30 +18,28 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Record.h"
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// Is record selected?
+        ///
+        bool Record::isSelected() const
         {
-
-                ///
-                /// Is record selected?
-                ///
-                bool Record::isSelected() const
-                {
-                        return mSelected;
-                }
+                return mSelected;
+        }
 
 
-                ///
-                /// Set selected on not selected
-                ///
-                void Record::setSelected( bool value )
-                {
-                        mSelected = value;
-                }
+        ///
+        /// Set selected on not selected
+        ///
+        void Record::setSelected( bool value )
+        {
+                mSelected = value;
+        }
 
-        } // namespace merge
-} // namespace glabels
+}

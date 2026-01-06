@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "ColorButton.h"
 
 #include "ColorSwatch.h"
@@ -27,18 +28,18 @@
 #include <QtDebug>
 
 
+//
+// Private
+//
+namespace
+{
+        const int SWATCH_W = 64;
+        const int SWATCH_H = 24;
+}
+
+
 namespace glabels
 {
-
-        //
-        // Private
-        //
-        namespace
-        {
-                const int SWATCH_W = 64;
-                const int SWATCH_H = 24;
-        }
-
 
         ColorButton::ColorButton( QWidget* parent )
                 : QPushButton( parent ), mIsDefault(0), mDialog(nullptr)

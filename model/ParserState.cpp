@@ -24,64 +24,61 @@
 #include <algorithm>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ParserState::ParserState( const QString& string,
+                                  qsizetype      pos )
+                : mString(&string),
+                  mPos( pos )
         {
-
-                ParserState::ParserState( const QString& string,
-                                          qsizetype      pos )
-                        : mString(&string),
-                          mPos( pos )
-                {
-                }
-
-
-                QChar
-                ParserState::operator[]( qsizetype i ) const
-                {
-                        auto ii = mPos + i;
-                        if ( ii < mString->size() )
-                        {
-                                return (*mString)[ii];
-                        }
-                        else
-                        {
-                                return '\0';
-                        }
-                }
-
-
-                bool
-                ParserState::isNextSubString( const QString& s ) const
-                {
-                        for ( qsizetype i = 0; i < s.size(); i++ )
-                        {
-                                if ( operator[](i) != s[i] ) return false;
-                        }
-                        return true;
-                }
-
-
-                qsizetype
-                ParserState::pos() const
-                {
-                        return mPos;
-                }
-
-
-                qsizetype
-                ParserState::charsLeft() const
-                {
-                        return std::max( mString->size() - mPos, qsizetype(0) );
-                }
-
-
-                void
-                ParserState::advanceChars( qsizetype i )
-                {
-                        mPos = std::min( mPos + i, mString->size() );
-                }
-
         }
+
+
+        QChar
+        ParserState::operator[]( qsizetype i ) const
+        {
+                auto ii = mPos + i;
+                if ( ii < mString->size() )
+                {
+                        return (*mString)[ii];
+                }
+                else
+                {
+                        return '\0';
+                }
+        }
+
+
+        bool
+        ParserState::isNextSubString( const QString& s ) const
+        {
+                for ( qsizetype i = 0; i < s.size(); i++ )
+                {
+                        if ( operator[](i) != s[i] ) return false;
+                }
+                return true;
+        }
+
+
+        qsizetype
+        ParserState::pos() const
+        {
+                return mPos;
+        }
+
+
+        qsizetype
+        ParserState::charsLeft() const
+        {
+                return std::max( mString->size() - mPos, qsizetype(0) );
+        }
+
+
+        void
+        ParserState::advanceChars( qsizetype i )
+        {
+                mPos = std::min( mPos + i, mString->size() );
+        }
+
 }

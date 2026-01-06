@@ -25,59 +25,56 @@
 #include "Frame.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class FramePath : public Frame
         {
+                Q_DECLARE_TR_FUNCTIONS(FramePath)
 
-                class FramePath : public Frame
-                {
-                        Q_DECLARE_TR_FUNCTIONS(FramePath)
+        public:
+                FramePath( const QPainterPath& path,
+                           Distance            xWaste,
+                           Distance            yWaste,
+                           Units               originalUnits,
+                           const QString&      id = "0" );
 
-                public:
-                        FramePath( const QPainterPath& path,
-                                   Distance            xWaste,
-                                   Distance            yWaste,
-                                   Units               originalUnits,
-                                   const QString&      id = "0" );
+                FramePath( const FramePath& other ) = default;
 
-                        FramePath( const FramePath& other ) = default;
+                std::unique_ptr<Frame> clone() const override;
 
-                        std::unique_ptr<Frame> clone() const override;
+                Distance xWaste() const;
+                Distance yWaste() const;
 
-                        Distance xWaste() const;
-                        Distance yWaste() const;
+                Units        originalUnits() const;
 
-                        Units        originalUnits() const;
+                Distance w() const override;
+                Distance h() const override;
 
-                        Distance w() const override;
-                        Distance h() const override;
+                QString sizeDescription( Units units ) const override;
 
-                        QString sizeDescription( Units units ) const override;
+                bool isSimilarTo( const Frame& other ) const override;
 
-                        bool isSimilarTo( const Frame& other ) const override;
+                const QPainterPath& path() const override;
+                const QPainterPath& clipPath() const override;
+                QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
 
-                        const QPainterPath& path() const override;
-                        const QPainterPath& clipPath() const override;
-                        QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
-
-                        // Debugging support
-                        void print( QDebug& dbg ) const override;
+                // Debugging support
+                void print( QDebug& dbg ) const override;
 
 
-                private:
-                        Distance mW;
-                        Distance mH;
-                        Distance mXWaste;
-                        Distance mYWaste;
+        private:
+                Distance mW;
+                Distance mH;
+                Distance mXWaste;
+                Distance mYWaste;
 
-                        QPainterPath mPath;
-                        QPainterPath mClipPath;
+                QPainterPath mPath;
+                QPainterPath mClipPath;
 
-                        Units mOriginalUnits;
-                };
+                Units mOriginalUnits;
+        };
 
-        }
 }
 
 

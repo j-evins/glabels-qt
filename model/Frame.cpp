@@ -27,128 +27,125 @@
 #include <algorithm>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        Frame::Frame( const QString& id )
+                : mId(id),
+                  mNLabels(0),
+                  mLayoutDescription("")
         {
+                // empty
+        }
 
-                Frame::Frame( const QString& id )
-                        : mId(id),
-                          mNLabels(0),
-                          mLayoutDescription("")
+
+        Frame::Frame( const Frame& other )
+        {
+                mId = other.mId;
+                mNLabels = 0;
+
+                for ( const auto& layout : other.mLayouts )
                 {
-                        // empty
+                        addLayout( layout );
                 }
 
-
-                Frame::Frame( const Frame& other )
+                for ( const auto& markup : other.mMarkups )
                 {
-                        mId = other.mId;
-                        mNLabels = 0;
+                        mMarkups.push_back( markup->clone() );
+                }
+        }
 
-                        for ( const auto& layout : other.mLayouts )
+
+        QString Frame::id() const
+        {
+                return mId;
+        }
+
+
+        int Frame::nLabels() const
+        {
+                return mNLabels;
+        }
+
+
+        QString Frame::layoutDescription() const
+        {
+                return mLayoutDescription;
+        }
+
+
+        const std::list<Layout>& Frame::layouts() const
+        {
+                return mLayouts;
+        }
+
+
+        const std::list<std::unique_ptr<Markup>>& Frame::markups() const
+        {
+                return mMarkups;
+        }
+
+
+        QVector<Point> Frame::getOrigins() const
+        {
+                QVector<Point> origins( nLabels() );
+
+                int i = 0;
+                for ( auto& layout : mLayouts )
+                {
+                        for ( int iy = 0; iy < layout.ny(); iy++ )
                         {
-                                addLayout( layout );
-                        }
-
-                        for ( const auto& markup : other.mMarkups )
-                        {
-                                mMarkups.push_back( markup->clone() );
-                        }
-                }
-
-
-                QString Frame::id() const
-                {
-                        return mId;
-                }
-
-
-                int Frame::nLabels() const
-                {
-                        return mNLabels;
-                }
-
-
-                QString Frame::layoutDescription() const
-                {
-                        return mLayoutDescription;
-                }
-
-
-                const std::list<Layout>& Frame::layouts() const
-                {
-                        return mLayouts;
-                }
-
-
-                const std::list<std::unique_ptr<Markup>>& Frame::markups() const
-                {
-                        return mMarkups;
-                }
-
-
-                QVector<Point> Frame::getOrigins() const
-                {
-                        QVector<Point> origins( nLabels() );
-
-                        int i = 0;
-                        for ( auto& layout : mLayouts )
-                        {
-                                for ( int iy = 0; iy < layout.ny(); iy++ )
+                                for ( int ix = 0; ix < layout.nx(); ix++ )
                                 {
-                                        for ( int ix = 0; ix < layout.nx(); ix++ )
-                                        {
-                                                origins[i++] = Point( ix*layout.dx() + layout.x0(), iy*layout.dy() + layout.y0() );
-                                        }
+                                        origins[i++] = Point( ix*layout.dx() + layout.x0(), iy*layout.dy() + layout.y0() );
                                 }
                         }
-
-                        std::stable_sort( origins.begin(), origins.end() );
-
-                        return origins;
                 }
 
+                std::stable_sort( origins.begin(), origins.end() );
 
-                void Frame::addLayout( const Layout& layout )
-                {
-                        mLayouts.push_back( layout );
-
-                        // Update total number of labels
-                        mNLabels += layout.nx() * layout.ny();
-
-                        // Update layout description
-                        if ( mLayouts.size() == 1 )
-                        {
-                                // TRANSLATORS
-                                //:   %1 = number of labels across a page,
-                                //:   %2 = number of labels down a page,
-                                //:   %3 = total number of labels on a page (sheet).
-                                mLayoutDescription = QString( tr("%1 x %2 (%3 per sheet)") )
-                                        .arg(layout.nx()).arg(layout.ny()).arg(mNLabels);
-                        }
-                        else
-                        {
-                                // TRANSLATORS
-                                //:   %1 is the total number of labels on a page (sheet).
-                                mLayoutDescription = QString( tr("%1 per sheet") ).arg(mNLabels);
-                        }
-                }
-
-
-                void Frame::addMarkup( const Markup& markup )
-                {
-                        mMarkups.push_back( markup.clone() );
-                }
-
-
-                bool Frame::setH( Distance h )
-                {
-                        // Default implementation does nothing
-                        return false;
-                }
-
+                return origins;
         }
+
+
+        void Frame::addLayout( const Layout& layout )
+        {
+                mLayouts.push_back( layout );
+
+                // Update total number of labels
+                mNLabels += layout.nx() * layout.ny();
+
+                // Update layout description
+                if ( mLayouts.size() == 1 )
+                {
+                        // TRANSLATORS
+                        //:   %1 = number of labels across a page,
+                        //:   %2 = number of labels down a page,
+                        //:   %3 = total number of labels on a page (sheet).
+                        mLayoutDescription = QString( tr("%1 x %2 (%3 per sheet)") )
+                                .arg(layout.nx()).arg(layout.ny()).arg(mNLabels);
+                }
+                else
+                {
+                        // TRANSLATORS
+                        //:   %1 is the total number of labels on a page (sheet).
+                        mLayoutDescription = QString( tr("%1 per sheet") ).arg(mNLabels);
+                }
+        }
+
+
+        void Frame::addMarkup( const Markup& markup )
+        {
+                mMarkups.push_back( markup.clone() );
+        }
+
+
+        bool Frame::setH( Distance h )
+        {
+                // Default implementation does nothing
+                return false;
+        }
+
 }
 
 

@@ -29,24 +29,21 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class XmlCategoryParser
         {
+        public:
+                XmlCategoryParser() = default;
 
-                class XmlCategoryParser
-                {
-                public:
-                        XmlCategoryParser() = default;
+                QList<Category> readFile( const QString &fileName );
 
-                        QList<Category> readFile( const QString &fileName );
+        private:
+                QList<Category> parseRootNode( const QDomElement &node );
+                Category parseCategoryNode( const QDomElement &node );
+        };
 
-                private:
-                        QList<Category> parseRootNode( const QDomElement &node );
-                        Category parseCategoryNode( const QDomElement &node );
-                };
-
-        }
 }
 
 

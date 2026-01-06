@@ -25,21 +25,18 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        namespace StrUtil
         {
 
-                namespace StrUtil
-                {
+                QString formatFraction( double x );
 
-                        QString formatFraction( double x );
-
-                        int comparePartNames( const QString &s1, const QString &s2 );
-
-                }
+                int comparePartNames( const QString &s1, const QString &s2 );
 
         }
+
 }
 
 

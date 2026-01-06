@@ -27,131 +27,128 @@
 #include <QRegularExpression>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Constructor from QString
+        ///
+        RawText::RawText( const QString& string ) : mString(string)
         {
+                tokenize();
+        }
 
-                ///
-                /// Constructor from QString
-                ///
-                RawText::RawText( const QString& string ) : mString(string)
+
+        ///
+        /// Constructor from C string operator
+        ///
+        RawText::RawText( const char* cString ) : mString(QString(cString))
+        {
+                tokenize();
+        }
+
+
+        ///
+        /// Access as QString
+        ///
+        QString RawText::toString() const
+        {
+                return mString;
+        }
+
+
+        ///
+        /// Access as std::string
+        ///
+        std::string RawText::toStdString() const
+        {
+                return mString.toStdString();
+        }
+
+
+        ///
+        /// Expand all place holders
+        ///
+        QString RawText::expand( const merge::Record& record, const Variables& variables ) const
+        {
+                QString text;
+
+                for ( const Token& token : mTokens )
                 {
-                        tokenize();
-                }
-
-
-                ///
-                /// Constructor from C string operator
-                ///
-                RawText::RawText( const char* cString ) : mString(QString(cString))
-                {
-                        tokenize();
-                }
-
-
-                ///
-                /// Access as QString
-                ///
-                QString RawText::toString() const
-                {
-                        return mString;
-                }
-
-
-                ///
-                /// Access as std::string
-                ///
-                std::string RawText::toStdString() const
-                {
-                        return mString.toStdString();
-                }
-
-
-                ///
-                /// Expand all place holders
-                ///
-                QString RawText::expand( const merge::Record& record, const Variables& variables ) const
-                {
-                        QString text;
-
-                        for ( const Token& token : mTokens )
+                        if ( token.isField )
                         {
-                                if ( token.isField )
-                                {
-                                        text += token.field.evaluate( record, variables );
-                                }
-                                else
-                                {
-                                        text += token.text;
-                                }
+                                text += token.field.evaluate( record, variables );
                         }
-
-                        return text;
-                }
-
-
-                ///
-                /// Does raw text contain place holders?
-                ///
-                bool RawText::hasPlaceHolders() const
-                {
-                        QRegularExpression re("\\${\\w+}");
-                        return mString.contains( re );
-                }
-
-
-                ///
-                /// Is raw text empty?
-                ///
-                bool RawText::isEmpty() const
-                {
-                        return mString.isEmpty();
-                }
-
-
-                ///
-                /// Tokenize string
-                ///
-                void RawText::tokenize()
-                {
-                        Token token;
-
-                        ParserState s( mString );
-                        while ( s.charsLeft() )
+                        else
                         {
-                                SubstitutionField field;
-                                if ( SubstitutionField::parse( s, field ) )
-                                {
-                                        // Finalize current text token, if apropos
-                                        if ( !token.text.isEmpty() )
-                                        {
-                                                token.isField = false;
-                                                mTokens.append( token );
-                                        }
+                                text += token.text;
+                        }
+                }
 
-                                        // Create and finalize field token
-                                        token.isField = true;
-                                        token.text = "";
-                                        token.field = field;
+                return text;
+        }
+
+
+        ///
+        /// Does raw text contain place holders?
+        ///
+        bool RawText::hasPlaceHolders() const
+        {
+                QRegularExpression re("\\${\\w+}");
+                return mString.contains( re );
+        }
+
+
+        ///
+        /// Is raw text empty?
+        ///
+        bool RawText::isEmpty() const
+        {
+                return mString.isEmpty();
+        }
+
+
+        ///
+        /// Tokenize string
+        ///
+        void RawText::tokenize()
+        {
+                Token token;
+
+                ParserState s( mString );
+                while ( s.charsLeft() )
+                {
+                        SubstitutionField field;
+                        if ( SubstitutionField::parse( s, field ) )
+                        {
+                                // Finalize current text token, if apropos
+                                if ( !token.text.isEmpty() )
+                                {
+                                        token.isField = false;
                                         mTokens.append( token );
                                 }
-                                else
-                                {
-                                        token.text += s[0];
-                                        s.advanceChars(1);
-                                }
-                        }
 
-                        // Finalize last text token, if apropos
-                        if ( !token.text.isEmpty() )
-                        {
-                                token.isField = false;
+                                // Create and finalize field token
+                                token.isField = true;
+                                token.text = "";
+                                token.field = field;
                                 mTokens.append( token );
                         }
-
+                        else
+                        {
+                                token.text += s[0];
+                                s.advanceChars(1);
+                        }
                 }
 
+                // Finalize last text token, if apropos
+                if ( !token.text.isEmpty() )
+                {
+                        token.isField = false;
+                        mTokens.append( token );
+                }
 
         }
+
+
 }

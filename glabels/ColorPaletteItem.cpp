@@ -18,27 +18,28 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "ColorPaletteItem.h"
 
 #include <QMouseEvent>
 #include <QPainter>
 
 
+//
+// Private
+//
+namespace
+{
+        const int     border = 4;
+        const int     wSwatch = 25;
+        const int     hSwatch = 25;
+
+        const int     outlineWidthPixels = 1;
+}
+
+
 namespace glabels
 {
-
-        //
-        // Private
-        //
-        namespace
-        {
-                const int     border = 4;
-                const int     wSwatch = 25;
-                const int     hSwatch = 25;
-
-                const int     outlineWidthPixels = 1;
-        }
-
 
         ///
         /// Constructor From Data

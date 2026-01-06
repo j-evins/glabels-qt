@@ -25,43 +25,40 @@
 #include "Text.h"
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// TextColon Merge Backend
+        ///
+        struct TextColon : public Text
         {
 
-                ///
-                /// TextColon Merge Backend
-                ///
-                struct TextColon : public Text
-                {
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                private:
-                        TextColon();
-                        TextColon( const TextColon* merge );
-                        virtual ~TextColon() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        private:
+                TextColon();
+                TextColon( const TextColon* merge );
+                virtual ~TextColon() = default;
 
 
-                        /////////////////////////////////
-                        // Object duplication
-                        /////////////////////////////////
-                public:
-                        TextColon* clone() const override;
+                /////////////////////////////////
+                // Object duplication
+                /////////////////////////////////
+        public:
+                TextColon* clone() const override;
 
 
-                        /////////////////////////////////
-                        // Static methods
-                        /////////////////////////////////
-                public:
-                        static QString id();
-                        static Merge* create();
+                /////////////////////////////////
+                // Static methods
+                /////////////////////////////////
+        public:
+                static QString id();
+                static Merge* create();
 
-                };
+        };
 
-        }
 }
 
 

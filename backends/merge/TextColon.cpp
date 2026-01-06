@@ -18,59 +18,60 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TextColon.h"
 
 
-namespace glabels
+namespace
 {
-        namespace merge
+        static const QString ID = "Text/Colon";
+}
+
+
+namespace glabels::merge
+{
+
+        ///
+        /// Constructor
+        ///
+        TextColon::TextColon() : Text(':',false)
         {
-
-                static const QString ID = "Text/Colon";
-
-
-                ///
-                /// Constructor
-                ///
-                TextColon::TextColon() : Text(':',false)
-                {
-                        mId = ID;
-                }
+                mId = ID;
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                TextColon::TextColon( const TextColon* merge ) : Text( merge )
-                {
-                }
+        ///
+        /// Constructor
+        ///
+        TextColon::TextColon( const TextColon* merge ) : Text( merge )
+        {
+        }
 
 
-                ///
-                /// Clone
-                ///
-                TextColon* TextColon::clone() const
-                {
-                        return new TextColon( this );
-                }
+        ///
+        /// Clone
+        ///
+        TextColon* TextColon::clone() const
+        {
+                return new TextColon( this );
+        }
 
 
-                ///
-                /// Get ID
-                ///
-                QString TextColon::id()
-                {
-                        return ID;
-                }
+        ///
+        /// Get ID
+        ///
+        QString TextColon::id()
+        {
+                return ID;
+        }
 
 
-                ///
-                /// Create
-                ///
-                Merge* TextColon::create()
-                {
-                        return new TextColon();
-                }
+        ///
+        /// Create
+        ///
+        Merge* TextColon::create()
+        {
+                return new TextColon();
+        }
 
-        } // namespace merge
-} // namespace glabels
+}

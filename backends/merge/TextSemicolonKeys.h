@@ -25,43 +25,40 @@
 #include "Text.h"
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// TextSemicolonKeys Merge Backend
+        ///
+        struct TextSemicolonKeys : public Text
         {
 
-                ///
-                /// TextSemicolonKeys Merge Backend
-                ///
-                struct TextSemicolonKeys : public Text
-                {
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                private:
-                        TextSemicolonKeys();
-                        TextSemicolonKeys( const TextSemicolonKeys* merge );
-                        virtual ~TextSemicolonKeys() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        private:
+                TextSemicolonKeys();
+                TextSemicolonKeys( const TextSemicolonKeys* merge );
+                virtual ~TextSemicolonKeys() = default;
 
 
-                        /////////////////////////////////
-                        // Object duplication
-                        /////////////////////////////////
-                public:
-                        TextSemicolonKeys* clone() const override;
+                /////////////////////////////////
+                // Object duplication
+                /////////////////////////////////
+        public:
+                TextSemicolonKeys* clone() const override;
 
 
-                        /////////////////////////////////
-                        // Static methods
-                        /////////////////////////////////
-                public:
-                        static QString id();
-                        static Merge* create();
+                /////////////////////////////////
+                // Static methods
+                /////////////////////////////////
+        public:
+                static QString id();
+                static Merge* create();
 
-                };
+        };
 
-        }
 }
 
 

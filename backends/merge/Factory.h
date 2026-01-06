@@ -27,83 +27,80 @@
 #include <QMap>
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        // Forward references
+        class Merge;
+
+
+        ///
+        /// Factory
+        ///
+        class Factory
         {
-
-                // Forward references
-                class Merge;
+                Q_DECLARE_TR_FUNCTIONS(Factory)
 
 
-                ///
-                /// Factory
-                ///
-                class Factory
+                /////////////////////////////////
+                // Source Type
+                /////////////////////////////////
+        public:
+                enum SourceType { NONE, FIXED, FILE };
+
+
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        protected:
+                Factory();
+
+
+                /////////////////////////////////
+                // Static methods
+                /////////////////////////////////
+        public:
+                static void init();
+
+                static Merge* createMerge( const QString& id );
+
+                static QStringList nameList();
+                static QString idToName( const QString& id );
+                static QString nameToId( const QString& name );
+                static SourceType idToType( const QString& id );
+                static QString indexToId( int index );
+
+
+                /////////////////////////////////
+                // private methods
+                /////////////////////////////////
+        private:
+                using CreateFct = Merge* (*)();
+
+                static void registerBackend( const QString& id,
+                                             const QString& name,
+                                             SourceType     type,
+                                             CreateFct      create );
+
+
+                /////////////////////////////////
+                // private data
+                /////////////////////////////////
+                class BackendEntry
                 {
-                        Q_DECLARE_TR_FUNCTIONS(Factory)
-
-
-                        /////////////////////////////////
-                        // Source Type
-                        /////////////////////////////////
                 public:
-                        enum SourceType { NONE, FIXED, FILE };
-
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                protected:
-                        Factory();
-
-
-                        /////////////////////////////////
-                        // Static methods
-                        /////////////////////////////////
-                public:
-                        static void init();
-
-                        static Merge* createMerge( const QString& id );
-
-                        static QStringList nameList();
-                        static QString idToName( const QString& id );
-                        static QString nameToId( const QString& name );
-                        static SourceType idToType( const QString& id );
-                        static QString indexToId( int index );
-
-
-                        /////////////////////////////////
-                        // private methods
-                        /////////////////////////////////
-                private:
-                        using CreateFct = Merge* (*)();
-
-                        static void registerBackend( const QString& id,
-                                                     const QString& name,
-                                                     SourceType     type,
-                                                     CreateFct      create );
-
-
-                        /////////////////////////////////
-                        // private data
-                        /////////////////////////////////
-                        class BackendEntry
-                        {
-                        public:
-                                QString    id;
-                                QString    name;
-                                SourceType type;
-                                CreateFct  create;
-                        };
-
-                        static QMap<QString,BackendEntry> mBackendIdMap;
-                        static QMap<QString,BackendEntry> mBackendNameMap;
-
-                        static QStringList mNameList;
+                        QString    id;
+                        QString    name;
+                        SourceType type;
+                        CreateFct  create;
                 };
 
-        }
+                static QMap<QString,BackendEntry> mBackendIdMap;
+                static QMap<QString,BackendEntry> mBackendNameMap;
+
+                static QStringList mNameList;
+        };
+
 }
 
 

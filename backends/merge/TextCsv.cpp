@@ -18,59 +18,60 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TextCsv.h"
 
 
-namespace glabels
+namespace
 {
-        namespace merge
+        static const QString ID = "Text/Comma";
+}
+
+
+namespace glabels::merge
+{
+
+        ///
+        /// Constructor
+        ///
+        TextCsv::TextCsv() : Text(',',false)
         {
-
-                static const QString ID = "Text/Comma";
-
-
-                ///
-                /// Constructor
-                ///
-                TextCsv::TextCsv() : Text(',',false)
-                {
-                        mId = ID;
-                }
+                mId = ID;
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                TextCsv::TextCsv( const TextCsv* merge ) : Text( merge )
-                {
-                }
+        ///
+        /// Constructor
+        ///
+        TextCsv::TextCsv( const TextCsv* merge ) : Text( merge )
+        {
+        }
 
 
-                ///
-                /// Clone
-                ///
-                TextCsv* TextCsv::clone() const
-                {
-                        return new TextCsv( this );
-                }
+        ///
+        /// Clone
+        ///
+        TextCsv* TextCsv::clone() const
+        {
+                return new TextCsv( this );
+        }
 
 
-                ///
-                /// Get ID
-                ///
-                QString TextCsv::id()
-                {
-                        return ID;
-                }
+        ///
+        /// Get ID
+        ///
+        QString TextCsv::id()
+        {
+                return ID;
+        }
 
 
-                ///
-                /// Create
-                ///
-                Merge* TextCsv::create()
-                {
-                        return new TextCsv();
-                }
+        ///
+        /// Create
+        ///
+        Merge* TextCsv::create()
+        {
+                return new TextCsv();
+        }
 
-        } // namespace merge
-} // namespace glabels
+}

@@ -28,35 +28,31 @@
 #include <QTextStream>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        QString Version::details()
         {
+                QString s;
+                QTextStream ts( &s );
 
-                QString Version::details()
-                {
-                        QString s;
-                        QTextStream ts( &s );
+                ts << "> GLABELS" << "\n"
+                   << ">     Version: " << STRING << "\n"
+                   << "> " << "\n"
 
-                        ts << "> GLABELS" << "\n"
-                           << ">     Version: " << STRING << "\n"
-                           << "> " << "\n"
+                   << "> SYSTEM INFO" << "\n"
+                   << ">     OS: " << QSysInfo::prettyProductName() << "\n"
+                   << ">     Kernel: " << QSysInfo::kernelType() << " " << QSysInfo::kernelVersion() << "\n"
+                   << ">     Build CPU Architecture: " << QSysInfo::buildCpuArchitecture() << "\n"
+                   << ">     Current CPU Architecture: " << QSysInfo::currentCpuArchitecture() << "\n"
+                   << ">     Qt Version: " << QLibraryInfo::version().toString() << "\n"
+                   << ">     QPA Platform: " << QGuiApplication::platformName() << "\n"
+                   << "> " << "\n"
 
-                           << "> SYSTEM INFO" << "\n"
-                           << ">     OS: " << QSysInfo::prettyProductName() << "\n"
-                           << ">     Kernel: " << QSysInfo::kernelType() << " " << QSysInfo::kernelVersion() << "\n"
-                           << ">     Build CPU Architecture: " << QSysInfo::buildCpuArchitecture() << "\n"
-                           << ">     Current CPU Architecture: " << QSysInfo::currentCpuArchitecture() << "\n"
-                           << ">     Qt Version: " << QLibraryInfo::version().toString() << "\n"
-                           << ">     QPA Platform: " << QGuiApplication::platformName() << "\n"
-                           << "> " << "\n"
+                   << "> LOCALE" << "\n"
+                   << ">     Name: " << QLocale::system().name();
 
-                           << "> LOCALE" << "\n"
-                           << ">     Name: " << QLocale::system().name();
-
-                        return s;
-                }
-
+                return s;
         }
 
 }

@@ -28,56 +28,53 @@
 #include <memory>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        // Forward references
+        class ModelObject;
+
+
+        ///
+        /// Outline Class
+        ///
+        class Outline
         {
-
-                // Forward references
-                class ModelObject;
-
-
-                ///
-                /// Outline Class
-                ///
-                class Outline
-                {
-                        ////////////////////////////
-                        // Lifecycle Methods
-                        ////////////////////////////
-                public:
-                        Outline() = default;
-                        ~Outline() = default;
+                ////////////////////////////
+                // Lifecycle Methods
+                ////////////////////////////
+        public:
+                Outline() = default;
+                ~Outline() = default;
 
 
-                        ////////////////////////////
-                        // Ownership
-                        ////////////////////////////
-                        void setOwner( ModelObject* owner );
-                        bool isEnabled() const;
+                ////////////////////////////
+                // Ownership
+                ////////////////////////////
+                void setOwner( ModelObject* owner );
+                bool isEnabled() const;
 
 
-                        ////////////////////////////
-                        // Drawing Methods
-                        ////////////////////////////
-                public:
-                        void draw( QPainter* painter ) const;
-                        QPainterPath hoverPath( double scale ) const;
+                ////////////////////////////
+                // Drawing Methods
+                ////////////////////////////
+        public:
+                void draw( QPainter* painter ) const;
+                QPainterPath hoverPath( double scale ) const;
 
 
-                        ////////////////////////////
-                        // Private Data
-                        ////////////////////////////
-                private:
-                        ModelObject*   mOwner{ nullptr };
+                ////////////////////////////
+                // Private Data
+                ////////////////////////////
+        private:
+                ModelObject*   mOwner{ nullptr };
 
-                        QVector<qreal> mDashes;
-                        QPen           mPen1;
-                        QPen           mPen2;
+                QVector<qreal> mDashes;
+                QPen           mPen1;
+                QPen           mPen2;
 
-                };
+        };
 
-        }
 }
 
 

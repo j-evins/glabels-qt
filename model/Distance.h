@@ -29,74 +29,71 @@
 #include <QtMath>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class Distance
         {
+                Q_DECLARE_TR_FUNCTIONS(Distance)
 
-                class Distance
-                {
-                        Q_DECLARE_TR_FUNCTIONS(Distance)
+        public:
+                Distance();
+                Distance( double d, Units::Enum unitsEnum = Units::PT );
+                Distance( double d, Units units );
+                Distance( double d, const QString& unitsId );
 
-                public:
-                        Distance();
-                        Distance( double d, Units::Enum unitsEnum = Units::PT );
-                        Distance( double d, Units units );
-                        Distance( double d, const QString& unitsId );
-
-                        static Distance pt( double dPts );
-                        static Distance in( double dInches );
-                        static Distance mm( double dMm );
-                        static Distance cm( double dCm );
-                        static Distance pc( double dPicas );
-                        static Distance fromString( const QString& string );
+                static Distance pt( double dPts );
+                static Distance in( double dInches );
+                static Distance mm( double dMm );
+                static Distance cm( double dCm );
+                static Distance pc( double dPicas );
+                static Distance fromString( const QString& string );
 
 
-                        double pt() const;
-                        double in() const;
-                        double mm() const;
-                        double cm() const;
-                        double pc() const;
-                        double inUnits( Units units ) const;
-                        double inUnits( Units::Enum unitsEnum ) const;
-                        double inUnits( const QString& unitsId ) const;
+                double pt() const;
+                double in() const;
+                double mm() const;
+                double cm() const;
+                double pc() const;
+                double inUnits( Units units ) const;
+                double inUnits( Units::Enum unitsEnum ) const;
+                double inUnits( const QString& unitsId ) const;
 
 
-                        QString toString( Units units ) const;
-                        QString toString( Units::Enum unitsEnum ) const;
-                        QString toString( const QString& unitsId ) const;
+                QString toString( Units units ) const;
+                QString toString( Units::Enum unitsEnum ) const;
+                QString toString( const QString& unitsId ) const;
 
-                        Distance& operator+=( Distance d );
-                        Distance& operator-=( Distance d );
-                        Distance& operator*=( double f );
-                        Distance operator-();
+                Distance& operator+=( Distance d );
+                Distance& operator-=( Distance d );
+                Distance& operator*=( double f );
+                Distance operator-();
 
-                        friend inline Distance operator+( Distance d1, Distance d2 );
-                        friend inline Distance operator-( Distance d1, Distance d2 );
-                        friend inline Distance operator*( double x, Distance d );
-                        friend inline Distance operator*( Distance d, double x );
-                        friend inline double   operator/( Distance d1, Distance d2 );
-                        friend inline Distance operator/( Distance d, double x );
+                friend inline Distance operator+( Distance d1, Distance d2 );
+                friend inline Distance operator-( Distance d1, Distance d2 );
+                friend inline Distance operator*( double x, Distance d );
+                friend inline Distance operator*( Distance d, double x );
+                friend inline double   operator/( Distance d1, Distance d2 );
+                friend inline Distance operator/( Distance d, double x );
 
-                        friend inline bool operator<( Distance d1, Distance d2 );
-                        friend inline bool operator<=( Distance d1, Distance d2 );
-                        friend inline bool operator>( Distance d1, Distance d2 );
-                        friend inline bool operator>=( Distance d1, Distance d2 );
-                        friend inline bool operator==( Distance d1, Distance d2 );
-                        friend inline bool operator!=( Distance d1, Distance d2 );
+                friend inline bool operator<( Distance d1, Distance d2 );
+                friend inline bool operator<=( Distance d1, Distance d2 );
+                friend inline bool operator>( Distance d1, Distance d2 );
+                friend inline bool operator>=( Distance d1, Distance d2 );
+                friend inline bool operator==( Distance d1, Distance d2 );
+                friend inline bool operator!=( Distance d1, Distance d2 );
 
-                        friend inline Distance fabs( Distance d );
-                        friend inline Distance min( Distance d1, Distance d2 );
-                        friend inline Distance max( Distance d1, Distance d2 );
-                        friend inline Distance fmod( Distance d1, Distance d2 );
+                friend inline Distance fabs( Distance d );
+                friend inline Distance min( Distance d1, Distance d2 );
+                friend inline Distance max( Distance d1, Distance d2 );
+                friend inline Distance fmod( Distance d1, Distance d2 );
 
 
-                private:
-                        double mDPts;
+        private:
+                double mDPts{ 0 };
 
-                };
+        };
 
-        }
 }
 
 
@@ -110,209 +107,206 @@ QDebug operator<<( QDebug dbg, const glabels::model::Distance distance );
 
 #include "Constants.h"
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        inline Distance::Distance() : mDPts(0)
         {
-
-                inline Distance::Distance() : mDPts(0)
-                {
-                }
-
-
-                inline Distance Distance::pt( double dPts )
-                {
-                        Distance d;
-                        d.mDPts = dPts;
-                        return d;
-                }
-
-
-                inline Distance Distance::in( double dInches )
-                {
-                        Distance d;
-                        d.mDPts = dInches * PTS_PER_INCH;
-                        return d;
-                }
-
-
-                inline Distance Distance::mm( double dMm )
-                {
-                        Distance d;
-                        d.mDPts = dMm * PTS_PER_MM;
-                        return d;
-                }
-
-
-                inline Distance Distance::cm( double dCm )
-                {
-                        Distance d;
-                        d.mDPts = dCm * PTS_PER_CM;
-                        return d;
-                }
-
-
-                inline Distance Distance::pc( double dPicas )
-                {
-                        Distance d;
-                        d.mDPts = dPicas * PTS_PER_PICA;
-                        return d;
-                }
-
-
-                inline double Distance::pt() const
-                {
-                        return mDPts;
-                }
-
-
-                inline double Distance::in() const
-                {
-                        return mDPts / PTS_PER_INCH;
-                }
-
-
-                inline double Distance::mm() const
-                {
-                        return mDPts / PTS_PER_MM;
-                }
-
-
-                inline double Distance::cm() const
-                {
-                        return mDPts / PTS_PER_CM;
-                }
-
-
-                inline double Distance::pc() const
-                {
-                        return mDPts / PTS_PER_PICA;
-                }
-
-
-                inline Distance& Distance::operator+=( Distance d )
-                {
-                        mDPts += d.mDPts;
-                        return *this;
-                }
-
-
-                inline Distance& Distance::operator-=( Distance d )
-                {
-                        mDPts -= d.mDPts;
-                        return *this;
-                }
-
-
-                inline Distance& Distance::operator*=( double f )
-                {
-                        mDPts *= f;
-                        return *this;
-                }
-
-
-                inline Distance Distance::operator-()
-                {
-                        return Distance::pt( -mDPts );
-                }
-
-
-                inline Distance operator+( Distance d1, Distance d2 )
-                {
-                        return Distance::pt( d1.mDPts + d2.mDPts );
-                }
-
-
-                inline Distance operator-( Distance d1, Distance d2 )
-                {
-                        return Distance::pt( d1.mDPts - d2.mDPts );
-                }
-
-
-                inline Distance operator*( double x, Distance d )
-                {
-                        return Distance::pt( x * d.mDPts );
-                }
-
-
-                inline Distance operator*( Distance d, double x )
-                {
-                        return Distance::pt( d.mDPts * x );
-                }
-
-
-                inline double operator/( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts / d2.mDPts;
-                }
-
-
-                inline Distance operator/( Distance d, double x )
-                {
-                        return Distance::pt( d.mDPts / x );
-                }
-
-
-                inline bool operator<( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts < d2.mDPts;
-                }
-
-
-                inline bool operator<=( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts <= d2.mDPts;
-                }
-
-
-                inline bool operator>( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts > d2.mDPts;
-                }
-
-
-                inline bool operator>=( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts >= d2.mDPts;
-                }
-
-
-                inline bool operator==( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts == d2.mDPts;
-                }
-
-
-                inline bool operator!=( Distance d1, Distance d2 )
-                {
-                        return d1.mDPts != d2.mDPts;
-                }
-
-
-                inline Distance fabs( Distance d )
-                {
-                        return Distance::pt( qFabs( d.mDPts ) );
-                }
-
-
-                inline Distance min( Distance d1, Distance d2 )
-                {
-                        return (d1.mDPts < d2.mDPts) ? d1 : d2;
-                }
-
-
-                inline Distance max( Distance d1, Distance d2 )
-                {
-                        return (d1.mDPts > d2.mDPts) ? d1 : d2;
-                }
-
-
-                inline Distance fmod( Distance d1, Distance d2 )
-                {
-                        return Distance::pt( std::fmod( d1.mDPts, d2.mDPts ) );
-                }
-
         }
+
+
+        inline Distance Distance::pt( double dPts )
+        {
+                Distance d;
+                d.mDPts = dPts;
+                return d;
+        }
+
+
+        inline Distance Distance::in( double dInches )
+        {
+                Distance d;
+                d.mDPts = dInches * PTS_PER_INCH;
+                return d;
+        }
+
+
+        inline Distance Distance::mm( double dMm )
+        {
+                Distance d;
+                d.mDPts = dMm * PTS_PER_MM;
+                return d;
+        }
+
+
+        inline Distance Distance::cm( double dCm )
+        {
+                Distance d;
+                d.mDPts = dCm * PTS_PER_CM;
+                return d;
+        }
+
+
+        inline Distance Distance::pc( double dPicas )
+        {
+                Distance d;
+                d.mDPts = dPicas * PTS_PER_PICA;
+                return d;
+        }
+
+
+        inline double Distance::pt() const
+        {
+                return mDPts;
+        }
+
+
+        inline double Distance::in() const
+        {
+                return mDPts / PTS_PER_INCH;
+        }
+
+
+        inline double Distance::mm() const
+        {
+                return mDPts / PTS_PER_MM;
+        }
+
+
+        inline double Distance::cm() const
+        {
+                return mDPts / PTS_PER_CM;
+        }
+
+
+        inline double Distance::pc() const
+        {
+                return mDPts / PTS_PER_PICA;
+        }
+
+
+        inline Distance& Distance::operator+=( Distance d )
+        {
+                mDPts += d.mDPts;
+                return *this;
+        }
+
+
+        inline Distance& Distance::operator-=( Distance d )
+        {
+                mDPts -= d.mDPts;
+                return *this;
+        }
+
+
+        inline Distance& Distance::operator*=( double f )
+        {
+                mDPts *= f;
+                return *this;
+        }
+
+
+        inline Distance Distance::operator-()
+        {
+                return Distance::pt( -mDPts );
+        }
+
+
+        inline Distance operator+( Distance d1, Distance d2 )
+        {
+                return Distance::pt( d1.mDPts + d2.mDPts );
+        }
+
+
+        inline Distance operator-( Distance d1, Distance d2 )
+        {
+                return Distance::pt( d1.mDPts - d2.mDPts );
+        }
+
+
+        inline Distance operator*( double x, Distance d )
+        {
+                return Distance::pt( x * d.mDPts );
+        }
+
+
+        inline Distance operator*( Distance d, double x )
+        {
+                return Distance::pt( d.mDPts * x );
+        }
+
+
+        inline double operator/( Distance d1, Distance d2 )
+        {
+                return d1.mDPts / d2.mDPts;
+        }
+
+
+        inline Distance operator/( Distance d, double x )
+        {
+                return Distance::pt( d.mDPts / x );
+        }
+
+
+        inline bool operator<( Distance d1, Distance d2 )
+        {
+                return d1.mDPts < d2.mDPts;
+        }
+
+
+        inline bool operator<=( Distance d1, Distance d2 )
+        {
+                return d1.mDPts <= d2.mDPts;
+        }
+
+
+        inline bool operator>( Distance d1, Distance d2 )
+        {
+                return d1.mDPts > d2.mDPts;
+        }
+
+
+        inline bool operator>=( Distance d1, Distance d2 )
+        {
+                return d1.mDPts >= d2.mDPts;
+        }
+
+
+        inline bool operator==( Distance d1, Distance d2 )
+        {
+                return d1.mDPts == d2.mDPts;
+        }
+
+
+        inline bool operator!=( Distance d1, Distance d2 )
+        {
+                return d1.mDPts != d2.mDPts;
+        }
+
+
+        inline Distance fabs( Distance d )
+        {
+                return Distance::pt( qFabs( d.mDPts ) );
+        }
+
+
+        inline Distance min( Distance d1, Distance d2 )
+        {
+                return (d1.mDPts < d2.mDPts) ? d1 : d2;
+        }
+
+
+        inline Distance max( Distance d1, Distance d2 )
+        {
+                return (d1.mDPts > d2.mDPts) ? d1 : d2;
+        }
+
+
+        inline Distance fmod( Distance d1, Distance d2 )
+        {
+                return Distance::pt( std::fmod( d1.mDPts, d2.mDPts ) );
+        }
+
 }
 
 

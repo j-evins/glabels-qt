@@ -36,61 +36,58 @@
 #include <list>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class Frame
         {
+                Q_DECLARE_TR_FUNCTIONS(Frame)
 
-                class Frame
-                {
-                        Q_DECLARE_TR_FUNCTIONS(Frame)
+        protected:
+                Frame( const QString& id = "0" );
+                Frame( const Frame& other );
 
-                protected:
-                        Frame( const QString& id = "0" );
-                        Frame( const Frame& other );
+        public:
+                virtual ~Frame() = default;
 
-                public:
-                        virtual ~Frame() = default;
+                virtual std::unique_ptr<Frame> clone() const = 0;
 
-                        virtual std::unique_ptr<Frame> clone() const = 0;
+                QString id() const;
+                int nLabels() const;
+                QString layoutDescription() const;
+                const std::list<Layout>&  layouts() const;
+                const std::list<std::unique_ptr<Markup>>& markups() const;
 
-                        QString id() const;
-                        int nLabels() const;
-                        QString layoutDescription() const;
-                        const std::list<Layout>&  layouts() const;
-                        const std::list<std::unique_ptr<Markup>>& markups() const;
+                QVector<Point> getOrigins() const;
 
-                        QVector<Point> getOrigins() const;
+                void addLayout( const Layout& layout );
+                void addMarkup( const Markup& markup );
 
-                        void addLayout( const Layout& layout );
-                        void addMarkup( const Markup& markup );
+                virtual Distance w() const = 0;
+                virtual Distance h() const = 0;
 
-                        virtual Distance w() const = 0;
-                        virtual Distance h() const = 0;
+                virtual bool setH( Distance h );
 
-                        virtual bool setH( Distance h );
+                virtual QString sizeDescription( Units units ) const = 0;
+                virtual bool isSimilarTo( const Frame& other ) const = 0;
 
-                        virtual QString sizeDescription( Units units ) const = 0;
-                        virtual bool isSimilarTo( const Frame& other ) const = 0;
+                virtual const QPainterPath& path() const = 0;
+                virtual const QPainterPath& clipPath() const = 0;
+                virtual QPainterPath marginPath( Distance xSize, Distance ySize ) const = 0;
 
-                        virtual const QPainterPath& path() const = 0;
-                        virtual const QPainterPath& clipPath() const = 0;
-                        virtual QPainterPath marginPath( Distance xSize, Distance ySize ) const = 0;
-
-                        // Debugging support
-                        virtual void print( QDebug& dbg ) const = 0;
+                // Debugging support
+                virtual void print( QDebug& dbg ) const = 0;
 
 
-                private:
-                        QString mId;
-                        int     mNLabels;
-                        QString mLayoutDescription;
+        private:
+                QString mId;
+                int     mNLabels;
+                QString mLayoutDescription;
 
-                        std::list<Layout>                  mLayouts;
-                        std::list<std::unique_ptr<Markup>> mMarkups;
-                };
+                std::list<Layout>                  mLayouts;
+                std::list<std::unique_ptr<Markup>> mMarkups;
+        };
 
-        }
 }
 
 

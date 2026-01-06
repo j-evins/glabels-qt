@@ -27,58 +27,55 @@
 #include <QFile>
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// Text Merge Backend
+        ///
+        struct Text : public Merge
         {
 
-                ///
-                /// Text Merge Backend
-                ///
-                struct Text : public Merge
-                {
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                protected:
-                        Text( QChar delimiter, bool line1HasKeys );
-                        Text( const Text* merge );
-                        virtual ~Text() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        protected:
+                Text( QChar delimiter, bool line1HasKeys );
+                Text( const Text* merge );
+                virtual ~Text() = default;
 
 
-                        /////////////////////////////////
-                        // Implementation of virtual methods
-                        /////////////////////////////////
-                public:
-                        QStringList keys() const override;
-                        QString primaryKey() const override;
-                protected:
-                        void open() override;
-                        void close() override;
-                        Record readNextRecord() override;
+                /////////////////////////////////
+                // Implementation of virtual methods
+                /////////////////////////////////
+        public:
+                QStringList keys() const override;
+                QString primaryKey() const override;
+        protected:
+                void open() override;
+                void close() override;
+                Record readNextRecord() override;
 
 
-                        /////////////////////////////////
-                        // Private methods
-                        /////////////////////////////////
-                        QString keyFromIndex( int iField ) const;
-                        QStringList parseLine();
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+                QString keyFromIndex( int iField ) const;
+                QStringList parseLine();
 
 
-                        /////////////////////////////////
-                        // Private data
-                        /////////////////////////////////
-                private:
-                        QChar mDelimeter;
-                        bool  mLine1HasKeys;
+                /////////////////////////////////
+                // Private data
+                /////////////////////////////////
+        private:
+                QChar mDelimeter;
+                bool  mLine1HasKeys;
 
-                        QFile          mFile;
-                        QStringList    mKeys;
-                        int            mNFieldsMax;
-                };
+                QFile          mFile;
+                QStringList    mKeys;
+                int            mNFieldsMax;
+        };
 
-        }
 }
 
 

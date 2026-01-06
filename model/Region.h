@@ -27,79 +27,76 @@
 #include <QRectF>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Label Region Type
+        ///
+        class Region
         {
 
-                ///
-                /// Label Region Type
-                ///
-                class Region
-                {
-
-                        /////////////////////////////////
-                        // Constructors
-                        /////////////////////////////////
-                public:
-                        Region();
-                        Region( Distance x1,
-                                Distance y1,
-                                Distance x2,
-                                Distance y2 );
+                /////////////////////////////////
+                // Constructors
+                /////////////////////////////////
+        public:
+                Region();
+                Region( Distance x1,
+                        Distance y1,
+                        Distance x2,
+                        Distance y2 );
 
 
-                        /////////////////////////////////
-                        // Properties
-                        /////////////////////////////////
-                public:
-                        //
-                        // X1 Property
-                        //
-                        Distance x1() const;
-                        void setX1( Distance value );
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                //
+                // X1 Property
+                //
+                Distance x1() const;
+                void setX1( Distance value );
 
 
-                        //
-                        // Y1 Property
-                        //
-                        Distance y1() const;
-                        void setY1( Distance value );
+                //
+                // Y1 Property
+                //
+                Distance y1() const;
+                void setY1( Distance value );
 
 
-                        //
-                        // X2 Property
-                        //
-                        Distance x2() const;
-                        void setX2( Distance value );
+                //
+                // X2 Property
+                //
+                Distance x2() const;
+                void setX2( Distance value );
 
 
 
-                        //
-                        // Y2 Property
-                        //
-                        Distance y2() const;
-                        void setY2( Distance value );
+                //
+                // Y2 Property
+                //
+                Distance y2() const;
+                void setY2( Distance value );
 
 
-                        /////////////////////////////////
-                        // Methods
-                        /////////////////////////////////
-                public:
-                        QRectF rect() const;
+                /////////////////////////////////
+                // Methods
+                /////////////////////////////////
+        public:
+                QRectF rect() const;
 
 
-                        /////////////////////////////////
-                        // Private Data
-                        /////////////////////////////////
-                private:
-                        Distance mX1;
-                        Distance mY1;
-                        Distance mX2;
-                        Distance mY2;
-                };
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                Distance mX1;
+                Distance mY1;
+                Distance mX2;
+                Distance mY2;
+        };
 
-        }
 }
 
 

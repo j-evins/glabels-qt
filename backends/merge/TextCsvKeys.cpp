@@ -18,59 +18,60 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TextCsvKeys.h"
 
 
-namespace glabels
+namespace
 {
-        namespace merge
+        static const QString ID = "Text/Comma/Line1Keys";
+}
+
+
+namespace glabels::merge
+{
+
+        ///
+        /// Constructor
+        ///
+        TextCsvKeys::TextCsvKeys() : Text(',',true)
         {
-
-                static const QString ID = "Text/Comma/Line1Keys";
-
-
-                ///
-                /// Constructor
-                ///
-                TextCsvKeys::TextCsvKeys() : Text(',',true)
-                {
-                        mId = ID;
-                }
+                mId = ID;
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                TextCsvKeys::TextCsvKeys( const TextCsvKeys* merge ) : Text( merge )
-                {
-                }
+        ///
+        /// Constructor
+        ///
+        TextCsvKeys::TextCsvKeys( const TextCsvKeys* merge ) : Text( merge )
+        {
+        }
 
 
-                ///
-                /// Clone
-                ///
-                TextCsvKeys* TextCsvKeys::clone() const
-                {
-                        return new TextCsvKeys( this );
-                }
+        ///
+        /// Clone
+        ///
+        TextCsvKeys* TextCsvKeys::clone() const
+        {
+                return new TextCsvKeys( this );
+        }
 
 
-                ///
-                /// Get ID
-                ///
-                QString TextCsvKeys::id()
-                {
-                        return ID;
-                }
+        ///
+        /// Get ID
+        ///
+        QString TextCsvKeys::id()
+        {
+                return ID;
+        }
 
 
-                ///
-                /// Create
-                ///
-                Merge* TextCsvKeys::create()
-                {
-                        return new TextCsvKeys();
-                }
+        ///
+        /// Create
+        ///
+        Merge* TextCsvKeys::create()
+        {
+                return new TextCsvKeys();
+        }
 
-        } // namespace merge
-} // namespace glabels
+}

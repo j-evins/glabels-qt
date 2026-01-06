@@ -18,97 +18,95 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "DataCache.h"
 
 #include "ModelImageObject.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        DataCache::DataCache()
         {
+                // empty
+        }
 
-                DataCache::DataCache()
+
+        DataCache::DataCache( const QList<ModelObject*>& objects )
+        {
+                for ( ModelObject* object : objects )
                 {
-                        // empty
-                }
-
-
-                DataCache::DataCache( const QList<ModelObject*>& objects )
-                {
-                        for ( ModelObject* object : objects )
+                        if ( auto* imageObject = dynamic_cast<ModelImageObject*>(object) )
                         {
-                                if ( auto* imageObject = dynamic_cast<ModelImageObject*>(object) )
+                                TextNode filenameNode = imageObject->filenameNode();
+                                if ( !filenameNode.isField()  )
                                 {
-                                        TextNode filenameNode = imageObject->filenameNode();
-                                        if ( !filenameNode.isField()  )
+                                        auto& image = imageObject->image();
+                                        if ( !image.isNull() )
                                         {
-                                                auto& image = imageObject->image();
-                                                if ( !image.isNull() )
+                                                addImage( filenameNode.data(), image );
+                                        }
+                                        else
+                                        {
+                                                auto& svg = imageObject->svg();
+                                                if ( !svg.isEmpty() )
                                                 {
-                                                        addImage( filenameNode.data(), image );
-                                                }
-                                                else
-                                                {
-                                                        auto& svg = imageObject->svg();
-                                                        if ( !svg.isEmpty() )
-                                                        {
-                                                                addSvg( filenameNode.data(), svg );
-                                                        }
+                                                        addSvg( filenameNode.data(), svg );
                                                 }
                                         }
                                 }
                         }
                 }
-
-
-                bool DataCache::hasImage( const QString& name ) const
-                {
-                        return mImageMap.contains( name );
-                }
-
-
-                QImage DataCache::getImage( const QString& name ) const
-                {
-                        return mImageMap[ name ];
-                }
-
-
-                void DataCache::addImage( const QString& name, const QImage& image )
-                {
-                        mImageMap[ name ] = image;
-                }
-
-
-                QList<QString> DataCache::imageNames() const
-                {
-                        return mImageMap.keys();
-                }
-
-
-                bool DataCache::hasSvg( const QString& name ) const
-                {
-                        return mSvgMap.contains( name );
-                }
-
-
-                QByteArray DataCache::getSvg( const QString& name ) const
-                {
-                        return mSvgMap[ name ];
-                }
-
-
-                void DataCache::addSvg( const QString& name, const QByteArray& svg )
-                {
-                        mSvgMap[ name ] = svg;
-                }
-
-
-                QList<QString> DataCache::svgNames() const
-                {
-                        return mSvgMap.keys();
-                }
-
-
         }
+
+
+        bool DataCache::hasImage( const QString& name ) const
+        {
+                return mImageMap.contains( name );
+        }
+
+
+        QImage DataCache::getImage( const QString& name ) const
+        {
+                return mImageMap[ name ];
+        }
+
+
+        void DataCache::addImage( const QString& name, const QImage& image )
+        {
+                mImageMap[ name ] = image;
+        }
+
+
+        QList<QString> DataCache::imageNames() const
+        {
+                return mImageMap.keys();
+        }
+
+
+        bool DataCache::hasSvg( const QString& name ) const
+        {
+                return mSvgMap.contains( name );
+        }
+
+
+        QByteArray DataCache::getSvg( const QString& name ) const
+        {
+                return mSvgMap[ name ];
+        }
+
+
+        void DataCache::addSvg( const QString& name, const QByteArray& svg )
+        {
+                mSvgMap[ name ] = svg;
+        }
+
+
+        QList<QString> DataCache::svgNames() const
+        {
+                return mSvgMap.keys();
+        }
+
+
 }

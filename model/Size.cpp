@@ -22,79 +22,67 @@
 #include "Size.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Constructor
+        ///
+        Size::Size( Distance w, Distance h )
+                : mW(w),
+                  mH(h)
         {
-
-                ///
-                /// Constructor
-                ///
-                Size::Size() : mW(0), mH(0)
-                {
-                        // empty
-                }
-
-
-                ///
-                /// Constructor
-                ///
-                Size::Size( Distance w, Distance h )
-                        : mW(w),
-                          mH(h)
-                {
-                        // empty
-                }
-
-
-                ///
-                /// Get w
-                ///
-                Distance Size::w() const
-                {
-                        return mW;
-                }
-
-
-                ///
-                /// Set w
-                ///
-                void Size::setW( Distance value )
-                {
-                        mW = value;
-                }
-
-
-                ///
-                /// Get h
-                ///
-                Distance Size::h() const
-                {
-                        return mH;
-                }
-
-
-                ///
-                /// Set h
-                ///
-                void Size::setH( Distance value )
-                {
-                        mH = value;
-                }
-
-
-                ///
-                /// Convert to a QSizeF
-                ///
-                QSizeF Size::qSizeF() const
-                {
-                        QSizeF s;
-
-                        s.setWidth( mW.pt() );
-                        s.setHeight( mH.pt() );
-
-                        return s;
-                }
-
+                // empty
         }
+
+
+        ///
+        /// Get w
+        ///
+        Distance Size::w() const
+        {
+                return mW;
+        }
+
+
+        ///
+        /// Set w
+        ///
+        void Size::setW( Distance value )
+        {
+                mW = value;
+        }
+
+
+        ///
+        /// Get h
+        ///
+        Distance Size::h() const
+        {
+                return mH;
+        }
+
+
+        ///
+        /// Set h
+        ///
+        void Size::setH( Distance value )
+        {
+                mH = value;
+        }
+
+
+        ///
+        /// Convert to a QSizeF
+        ///
+        QSizeF Size::qSizeF() const
+        {
+                QSizeF s;
+
+                s.setWidth( mW.pt() );
+                s.setHeight( mH.pt() );
+
+                return s;
+        }
+
 }

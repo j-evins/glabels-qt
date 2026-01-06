@@ -37,7 +37,7 @@ namespace glabels
         {
 
         public:
-                MiniPreviewPixmap();
+                MiniPreviewPixmap() = default;
 
                 MiniPreviewPixmap( const model::Template& tmplate, int width, int height );
 

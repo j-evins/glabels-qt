@@ -46,68 +46,69 @@
 #include <iterator>
 
 
+//
+// Private types and constants
+//
+namespace
+{
+        using namespace glabels;
+
+        enum PageId
+        {
+                IntroPageId,
+                NamePageId,
+                PageSizePageId,
+                ShapePageId,
+                RectPageId,
+                RoundPageId,
+                EllipsePageId,
+                CdPageId,
+                PathPageId,
+                ContinuousPageId,
+                NLayoutsPageId,
+                OneLayoutPageId,
+                TwoLayoutPageId,
+                ApplyPageId
+        };
+
+
+        const QString defaultPageSize[] =
+        {
+                /* ISO */ "A4",
+                /* US  */ "US Letter"
+        };
+
+
+        const double maxPageSize[] =
+        {
+                /* PT */ 5000,
+                /* IN */ 70,
+                /* MM */ 1800,
+                /* CM */ 180,
+                /* PC */ 420
+        };
+
+        const model::Distance defaultMargin    = model::Distance::in(0.125);
+        const model::Distance defaultWaste     = model::Distance::in(0);
+
+        const model::Distance defaultRectW     = model::Distance::in(3.5);
+        const model::Distance defaultRectH     = model::Distance::in(2.0);
+        const model::Distance defaultRectR     = model::Distance::in(0);
+
+        const model::Distance defaultRoundR    = model::Distance::in(0.75);
+
+        const model::Distance defaultEllipseW  = model::Distance::in(3.5);
+        const model::Distance defaultEllipseH  = model::Distance::in(2.0);
+
+        const model::Distance defaultCdR1      = model::Distance::in(2.3125);
+        const model::Distance defaultCdR2      = model::Distance::in(0.8125);
+        const model::Distance defaultCdClip    = model::Distance::in(0);
+
+}
+
+
 namespace glabels
 {
-
-        //
-        // Private types and constants
-        //
-        namespace
-        {
-
-                enum PageId
-                {
-                        IntroPageId,
-                        NamePageId,
-                        PageSizePageId,
-                        ShapePageId,
-                        RectPageId,
-                        RoundPageId,
-                        EllipsePageId,
-                        CdPageId,
-                        PathPageId,
-                        ContinuousPageId,
-                        NLayoutsPageId,
-                        OneLayoutPageId,
-                        TwoLayoutPageId,
-                        ApplyPageId
-                };
-
-
-                const QString defaultPageSize[] =
-                {
-                        /* ISO */ "A4",
-                        /* US  */ "US Letter"
-                };
-
-
-                const double maxPageSize[] =
-                {
-                        /* PT */ 5000,
-                        /* IN */ 70,
-                        /* MM */ 1800,
-                        /* CM */ 180,
-                        /* PC */ 420
-                };
-
-                const model::Distance defaultMargin    = model::Distance::in(0.125);
-                const model::Distance defaultWaste     = model::Distance::in(0);
-
-                const model::Distance defaultRectW     = model::Distance::in(3.5);
-                const model::Distance defaultRectH     = model::Distance::in(2.0);
-                const model::Distance defaultRectR     = model::Distance::in(0);
-
-                const model::Distance defaultRoundR    = model::Distance::in(0.75);
-
-                const model::Distance defaultEllipseW  = model::Distance::in(3.5);
-                const model::Distance defaultEllipseH  = model::Distance::in(2.0);
-
-                const model::Distance defaultCdR1      = model::Distance::in(2.3125);
-                const model::Distance defaultCdR2      = model::Distance::in(0.8125);
-                const model::Distance defaultCdClip    = model::Distance::in(0);
-
-        }
-
 
         ///
         /// Constructor

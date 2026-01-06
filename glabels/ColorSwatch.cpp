@@ -18,23 +18,24 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "ColorSwatch.h"
 
 #include <QPainter>
 
 
+//
+// Private
+//
+namespace
+{
+        const QColor  outlineColor( 0, 0, 0 );
+        const double  outlineWidthPixels = 1;
+}
+
+
 namespace glabels
 {
-
-        //
-        // Private
-        //
-        namespace
-        {
-                const QColor  outlineColor( 0, 0, 0 );
-                const double  outlineWidthPixels = 1;
-        }
-
 
         ///
         /// Constructor

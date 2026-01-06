@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Preview.h"
 
 #include "PreviewOverlayItem.h"
@@ -28,31 +29,31 @@
 #include <QtDebug>
 
 
+//
+// Private
+//
+namespace
+{
+        const QColor  paperColor( 242, 242, 242 );
+        const QColor  paperOutlineColor( 0, 0, 0 );
+        const double  paperOutlineWidthPixels = 1;
+
+        const QColor  shadowColor( 64, 64, 64 );
+        const double  shadowOffsetPixels = 3;
+        const double  shadowRadiusPixels = 12;
+
+        const QColor  labelColor( 255, 255, 255 );
+        const QColor  labelOutlineColor( 192, 192, 192 );
+        const double  labelOutlineWidthPixels = 1;
+
+        const QColor  labelNumberColor( 192, 192, 255, 128 );
+        const QString labelNumberFontFamily( "Sans" );
+        const double  labelNumberScale = 0.5;
+}
+
+
 namespace glabels
 {
-
-        //
-        // Private
-        //
-        namespace
-        {
-                const QColor  paperColor( 242, 242, 242 );
-                const QColor  paperOutlineColor( 0, 0, 0 );
-                const double  paperOutlineWidthPixels = 1;
-
-                const QColor  shadowColor( 64, 64, 64 );
-                const double  shadowOffsetPixels = 3;
-                const double  shadowRadiusPixels = 12;
-
-                const QColor  labelColor( 255, 255, 255 );
-                const QColor  labelOutlineColor( 192, 192, 192 );
-                const double  labelOutlineWidthPixels = 1;
-
-                const QColor  labelNumberColor( 192, 192, 255, 128 );
-                const QString labelNumberFontFamily( "Sans" );
-                const double  labelNumberScale = 0.5;
-        }
-
 
         ///
         /// Constructor

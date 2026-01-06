@@ -21,57 +21,55 @@
 #ifndef merge_None_h
 #define merge_None_h
 
+
 #include "Merge.h"
 
 
-namespace glabels
+namespace glabels::merge
 {
-        namespace merge
+
+        ///
+        /// None Merge Backend
+        ///
+        struct None : public Merge
         {
 
-                ///
-                /// None Merge Backend
-                ///
-                struct None : public Merge
-                {
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                public:
-                        None();
-                        None( const None* merge );
-                        virtual ~None() = default;
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                None();
+                None( const None* merge );
+                virtual ~None() = default;
 
 
-                        /////////////////////////////////
-                        // Object duplication
-                        /////////////////////////////////
-                        None* clone() const override;
+                /////////////////////////////////
+                // Object duplication
+                /////////////////////////////////
+                None* clone() const override;
 
 
-                        /////////////////////////////////
-                        // Static methods
-                        /////////////////////////////////
-                public:
-                        static QString id();
-                        static Merge* create();
+                /////////////////////////////////
+                // Static methods
+                /////////////////////////////////
+        public:
+                static QString id();
+                static Merge* create();
 
 
-                        /////////////////////////////////
-                        // Implementation of virtual methods
-                        /////////////////////////////////
-                public:
-                        QStringList keys() const override;
-                        QString primaryKey() const override;
-                protected:
-                        void open() override;
-                        void close() override;
-                        Record readNextRecord() override;
+                /////////////////////////////////
+                // Implementation of virtual methods
+                /////////////////////////////////
+        public:
+                QStringList keys() const override;
+                QString primaryKey() const override;
+        protected:
+                void open() override;
+                void close() override;
+                Record readNextRecord() override;
 
-                };
+        };
 
-        }
 }
 
 

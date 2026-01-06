@@ -27,47 +27,44 @@
 #include <QDebug>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class Layout
         {
 
-                class Layout
-                {
+        public:
+                Layout( int      nx,
+                        int      ny,
+                        Distance x0,
+                        Distance y0,
+                        Distance dx,
+                        Distance dy );
 
-                public:
-                        Layout( int      nx,
-                                int      ny,
-                                Distance x0,
-                                Distance y0,
-                                Distance dx,
-                                Distance dy );
+                Layout( const Layout& other ) = default;
 
-                        Layout( const Layout& other ) = default;
+                int nx() const;
+                int ny() const;
 
-                        int nx() const;
-                        int ny() const;
+                Distance x0() const;
+                Distance y0() const;
 
-                        Distance x0() const;
-                        Distance y0() const;
+                Distance dx() const;
+                Distance dy() const;
 
-                        Distance dx() const;
-                        Distance dy() const;
-
-                        bool isSimilarTo( const Layout& other ) const;
+                bool isSimilarTo( const Layout& other ) const;
 
 
-                private:
-                        int      mNx;
-                        int      mNy;
-                        Distance mX0;
-                        Distance mY0;
-                        Distance mDx;
-                        Distance mDy;
+        private:
+                int      mNx;
+                int      mNy;
+                Distance mX0;
+                Distance mY0;
+                Distance mDx;
+                Distance mDy;
 
-                };
+        };
 
-        }
 }
 
 

@@ -34,110 +34,107 @@
 #include <QVector>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        // Forward references
+        class Model;
+
+
+        ///
+        ///  PageRenderer Widget
+        ///
+        class PageRenderer : public QObject
         {
+                Q_OBJECT
 
-                // Forward references
-                class Model;
-
-
-                ///
-                ///  PageRenderer Widget
-                ///
-                class PageRenderer : public QObject
-                {
-                        Q_OBJECT
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                public:
-                        PageRenderer( const Model* model = nullptr );
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                PageRenderer( const Model* model = nullptr );
 
 
-                        /////////////////////////////////
-                        // Public Methods
-                        /////////////////////////////////
-                public:
-                        void setModel( const Model* model );
-                        const Model* model() const;
-                        void setNCopies( int nCopies );
-                        void setStartItem( int startItem );
-                        void setIsCollated( bool isCollated );
-                        void setAreGroupsContiguous( bool areGroupscontiguous );
-                        void setPrintOutlines( bool printOutlinesFlag );
-                        void setPrintCropMarks( bool printCropMarksFlag );
-                        void setPrintReverse( bool printReverseFlag );
-                        void setIPage( int iPage );
-                        int nItems() const;
-                        int nPages() const;
-                        QRectF pageRect() const;
-                        void print( QPrinter* printer ) const;
-                        void printPage( QPainter* painter ) const;
-                        void printPage( QPainter* painter, int iPage ) const;
+                /////////////////////////////////
+                // Public Methods
+                /////////////////////////////////
+        public:
+                void setModel( const Model* model );
+                const Model* model() const;
+                void setNCopies( int nCopies );
+                void setStartItem( int startItem );
+                void setIsCollated( bool isCollated );
+                void setAreGroupsContiguous( bool areGroupscontiguous );
+                void setPrintOutlines( bool printOutlinesFlag );
+                void setPrintCropMarks( bool printCropMarksFlag );
+                void setPrintReverse( bool printReverseFlag );
+                void setIPage( int iPage );
+                int nItems() const;
+                int nPages() const;
+                QRectF pageRect() const;
+                void print( QPrinter* printer ) const;
+                void printPage( QPainter* painter ) const;
+                void printPage( QPainter* painter, int iPage ) const;
 
 
-                        /////////////////////////////////
-                        // Signals
-                        /////////////////////////////////
-                signals:
-                        void changed();
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void changed();
 
 
-                        /////////////////////////////////
-                        // Private slots
-                        /////////////////////////////////
-                private slots:
-                        void onModelChanged();
+                /////////////////////////////////
+                // Private slots
+                /////////////////////////////////
+        private slots:
+                void onModelChanged();
 
 
-                        /////////////////////////////////
-                        // Internal Methods
-                        /////////////////////////////////
-                private:
-                        void updateNPages();
-                        void printSimplePage( QPainter* painter, int iPage ) const;
-                        void printCollatedMergePage( QPainter* painter, int iPage ) const;
-                        void printUnCollatedMergePage( QPainter* painter, int iPage ) const;
-                        void printCropMarks( QPainter* painter ) const;
-                        void printOutline( QPainter* painter ) const;
-                        void clipLabel( QPainter* painter ) const;
-                        void printLabel( QPainter* painter, const merge::Record& record, Variables& variables ) const;
+                /////////////////////////////////
+                // Internal Methods
+                /////////////////////////////////
+        private:
+                void updateNPages();
+                void printSimplePage( QPainter* painter, int iPage ) const;
+                void printCollatedMergePage( QPainter* painter, int iPage ) const;
+                void printUnCollatedMergePage( QPainter* painter, int iPage ) const;
+                void printCropMarks( QPainter* painter ) const;
+                void printOutline( QPainter* painter ) const;
+                void clipLabel( QPainter* painter ) const;
+                void printLabel( QPainter* painter, const merge::Record& record, Variables& variables ) const;
 
 
-                        /////////////////////////////////
-                        // Private Data
-                        /////////////////////////////////
-                private:
-                        const Model*        mModel{ nullptr };
-                        const merge::Merge* mMerge{ nullptr };
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                const Model*        mModel{ nullptr };
+                const merge::Merge* mMerge{ nullptr };
 
-                        int               mNCopies{ 0 };
-                        int               mStartItem{ 0 };
-                        int               mLastItem{ 0 };
-                        int               mNGroups{ 0 };
-                        int               mNItemsPerGroup{ 0 };
-                        int               mNPagesPerGroup{ 0 };
-                        int               mIPage{ 0 };
+                int               mNCopies{ 0 };
+                int               mStartItem{ 0 };
+                int               mLastItem{ 0 };
+                int               mNGroups{ 0 };
+                int               mNItemsPerGroup{ 0 };
+                int               mNPagesPerGroup{ 0 };
+                int               mIPage{ 0 };
 
-                        bool              mIsMerge{ false };
+                bool              mIsMerge{ false };
 
-                        int               mNItems{ 0 };
-                        int               mNPages{ 0 };
-                        int               mNItemsPerPage{ 0 };
+                int               mNItems{ 0 };
+                int               mNPages{ 0 };
+                int               mNItemsPerPage{ 0 };
 
-                        bool              mIsCollated{ false };
-                        bool              mAreGroupsContiguous{ false };
-                        bool              mPrintOutlines{ false };
-                        bool              mPrintCropMarks{ false };
-                        bool              mPrintReverse{ false };
+                bool              mIsCollated{ false };
+                bool              mAreGroupsContiguous{ false };
+                bool              mPrintOutlines{ false };
+                bool              mPrintCropMarks{ false };
+                bool              mPrintReverse{ false };
 
-                        QVector<Point>    mOrigins;
-                };
+                QVector<Point>    mOrigins;
+        };
 
-        }
 }
 
 

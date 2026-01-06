@@ -26,87 +26,84 @@
 #include <QDomElement>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        // Forward references
+        class Model;
+        class ModelObject;
+        class ModelBoxObject;
+        class ModelEllipseObject;
+        class ModelLineObject;
+        class ModelImageObject;
+        class ModelBarcodeObject;
+        class ModelTextObject;
+        class DataCache;
+
+
+        ///
+        /// XmlLabelParser
+        ///
+        class XmlLabelParser : public QObject
         {
+                Q_OBJECT
 
-                // Forward references
-                class Model;
-                class ModelObject;
-                class ModelBoxObject;
-                class ModelEllipseObject;
-                class ModelLineObject;
-                class ModelImageObject;
-                class ModelBarcodeObject;
-                class ModelTextObject;
-                class DataCache;
+        public:
+                static Model* readFile( const QString& fileName );
 
+                static Model* readBuffer( const QByteArray& buffer );
 
-                ///
-                /// XmlLabelParser
-                ///
-                class XmlLabelParser : public QObject
-                {
-                        Q_OBJECT
+                static QList<ModelObject*> deserializeObjects( const QByteArray& buffer,
+                                                               const Model*      model );
 
-                public:
-                        static Model* readFile( const QString& fileName );
+        private:
+                static void gunzip( const QByteArray& gzippedData,
+                                    QByteArray&       data );
 
-                        static Model* readBuffer( const QByteArray& buffer );
+                static Model* parseRootNode( const QDomElement& node,
+                                             const QString&     fileName );
 
-                        static QList<ModelObject*> deserializeObjects( const QByteArray& buffer,
-                                                                       const Model*      model );
+                static QList<ModelObject*> parseObjectsNode( const QDomElement& node,
+                                                             const Model*       model,
+                                                             const DataCache&   data );
 
-                private:
-                        static void gunzip( const QByteArray& gzippedData,
-                                            QByteArray&       data );
+                static ModelBoxObject* parseObjectBoxNode( const QDomElement& node );
 
-                        static Model* parseRootNode( const QDomElement& node,
-                                                     const QString&     fileName );
+                static ModelEllipseObject* parseObjectEllipseNode( const QDomElement& node );
 
-                        static QList<ModelObject*> parseObjectsNode( const QDomElement& node,
-                                                                     const Model*       model,
-                                                                     const DataCache&   data );
+                static ModelLineObject* parseObjectLineNode( const QDomElement& node );
 
-                        static ModelBoxObject* parseObjectBoxNode( const QDomElement& node );
+                static ModelImageObject* parseObjectImageNode( const QDomElement& node,
+                                                               const Model*       model,
+                                                               const DataCache&   data );
 
-                        static ModelEllipseObject* parseObjectEllipseNode( const QDomElement& node );
+                static ModelBarcodeObject* parseObjectBarcodeNode( const QDomElement& node );
 
-                        static ModelLineObject* parseObjectLineNode( const QDomElement& node );
+                static ModelTextObject* parseObjectTextNode( const QDomElement& node );
 
-                        static ModelImageObject* parseObjectImageNode( const QDomElement& node,
-                                                                       const Model*       model,
-                                                                       const DataCache&   data );
+                static QString parsePNode( const QDomElement& node );
 
-                        static ModelBarcodeObject* parseObjectBarcodeNode( const QDomElement& node );
+                static bool parseRotateAttr( const QDomElement& node );
 
-                        static ModelTextObject* parseObjectTextNode( const QDomElement& node );
+                static void parseMergeNode( const QDomElement& node,
+                                            Model*             model );
 
-                        static QString parsePNode( const QDomElement& node );
+                static void parseVariablesNode( const QDomElement& node,
+                                                Model*             model );
 
-                        static bool parseRotateAttr( const QDomElement& node );
+                static void parseVariableNode( const QDomElement& node,
+                                               Model*             model );
 
-                        static void parseMergeNode( const QDomElement& node,
-                                                    Model*             model );
+                static void parseDataNode( const QDomElement& node,
+                                           const Model*       model,
+                                           DataCache&         data );
 
-                        static void parseVariablesNode( const QDomElement& node,
-                                                        Model*             model );
+                static void parseFileNode( const QDomElement& node,
+                                           const Model*       model,
+                                           DataCache&         data );
 
-                        static void parseVariableNode( const QDomElement& node,
-                                                       Model*             model );
+        };
 
-                        static void parseDataNode( const QDomElement& node,
-                                                   const Model*       model,
-                                                   DataCache&         data );
-
-                        static void parseFileNode( const QDomElement& node,
-                                                   const Model*       model,
-                                                   DataCache&         data );
-
-                };
-
-        }
 }
 
 

@@ -18,69 +18,67 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Paper.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        Paper::Paper( const QString& id,
+                      const QString& name,
+                      Distance       width,
+                      Distance       height,
+                      const QString& pwgSize )
+                : mId(id),
+                  mName(name),
+                  mWidth(width),
+                  mHeight(height),
+                  mPwgSize(pwgSize)
         {
-
-                Paper::Paper( const QString& id,
-                              const QString& name,
-                              Distance       width,
-                              Distance       height,
-                              const QString& pwgSize )
-                        : mId(id),
-                          mName(name),
-                          mWidth(width),
-                          mHeight(height),
-                          mPwgSize(pwgSize)
-                {
-                        // empty
-                }
-
-
-                QString Paper::id() const
-                {
-                        return mId;
-                }
-
-
-                QString Paper::name() const
-                {
-                        return mName;
-                }
-
-
-                Distance Paper::width() const
-                {
-                        return mWidth;
-                }
-
-
-                Distance Paper::height() const
-                {
-                        return mHeight;
-                }
-
-
-                QString Paper::pwgSize() const
-                {
-                        return mPwgSize;
-                }
-
-
-                bool Paper::isSizeIso() const
-                {
-                        return mPwgSize.startsWith( "iso_" );
-                }
-
-
-                bool Paper::isSizeUs() const
-                {
-                        return mPwgSize.startsWith( "na_" );
-                }
-
+                // empty
         }
+
+
+        QString Paper::id() const
+        {
+                return mId;
+        }
+
+
+        QString Paper::name() const
+        {
+                return mName;
+        }
+
+
+        Distance Paper::width() const
+        {
+                return mWidth;
+        }
+
+
+        Distance Paper::height() const
+        {
+                return mHeight;
+        }
+
+
+        QString Paper::pwgSize() const
+        {
+                return mPwgSize;
+        }
+
+
+        bool Paper::isSizeIso() const
+        {
+                return mPwgSize.startsWith( "iso_" );
+        }
+
+
+        bool Paper::isSizeUs() const
+        {
+                return mPwgSize.startsWith( "na_" );
+        }
+
 }

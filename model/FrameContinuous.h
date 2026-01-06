@@ -25,58 +25,55 @@
 #include "Frame.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class FrameContinuous : public Frame
         {
+                Q_DECLARE_TR_FUNCTIONS(FrameContinuous)
 
-                class FrameContinuous : public Frame
-                {
-                        Q_DECLARE_TR_FUNCTIONS(FrameContinuous)
+        public:
+                FrameContinuous( Distance       w,
+                                 Distance       hMin,
+                                 Distance       hMax,
+                                 Distance       hDefault,
+                                 const QString& id = "0" );
 
-                public:
-                        FrameContinuous( Distance       w,
-                                         Distance       hMin,
-                                         Distance       hMax,
-                                         Distance       hDefault,
-                                         const QString& id = "0" );
+                FrameContinuous( const FrameContinuous& other ) = default;
 
-                        FrameContinuous( const FrameContinuous& other ) = default;
+                std::unique_ptr<Frame> clone() const override;
 
-                        std::unique_ptr<Frame> clone() const override;
+                Distance w() const override;
+                Distance h() const override;
 
-                        Distance w() const override;
-                        Distance h() const override;
+                Distance hMin() const;
+                Distance hMax() const;
+                Distance hDefault() const;
 
-                        Distance hMin() const;
-                        Distance hMax() const;
-                        Distance hDefault() const;
+                bool setH( Distance h ) override;
 
-                        bool setH( Distance h ) override;
+                QString sizeDescription( Units units ) const override;
 
-                        QString sizeDescription( Units units ) const override;
+                bool isSimilarTo( const Frame& other ) const override;
 
-                        bool isSimilarTo( const Frame& other ) const override;
+                const QPainterPath& path() const override;
+                const QPainterPath& clipPath() const override;
+                QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
 
-                        const QPainterPath& path() const override;
-                        const QPainterPath& clipPath() const override;
-                        QPainterPath marginPath( Distance xSize, Distance ySize ) const override;
-
-                        // Debugging support
-                        void print( QDebug& dbg ) const override;
+                // Debugging support
+                void print( QDebug& dbg ) const override;
 
 
-                private:
-                        Distance mW;
-                        Distance mHMin;
-                        Distance mHMax;
-                        Distance mHDefault;
-                        Distance mH;
+        private:
+                Distance mW;
+                Distance mHMin;
+                Distance mHMax;
+                Distance mHDefault;
+                Distance mH;
 
-                        QPainterPath mPath;
-                };
+                QPainterPath mPath;
+        };
 
-        }
 }
 
 

@@ -31,86 +31,83 @@
 #include <cstdint>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Color Node Type
+        ///
+        class ColorNode
         {
 
-                ///
-                /// Color Node Type
-                ///
-                class ColorNode
-                {
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                ColorNode();
 
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                public:
-                        ColorNode();
+                ColorNode( bool isField, const QColor& color, const QString& key );
 
-                        ColorNode( bool isField, const QColor& color, const QString& key );
+                ColorNode( bool isField, uint32_t rgba, const QString& key );
 
-                        ColorNode( bool isField, uint32_t rgba, const QString& key );
+                ColorNode( const QColor& color );
 
-                        ColorNode( const QColor& color );
-
-                        ColorNode( const QString& key );
+                ColorNode( const QString& key );
 
 
-                        /////////////////////////////////
-                        // Operators
-                        /////////////////////////////////
-                public:
-                        bool operator==( const ColorNode& cn );
+                /////////////////////////////////
+                // Operators
+                /////////////////////////////////
+        public:
+                bool operator==( const ColorNode& cn );
 
-                        bool operator!=( const ColorNode& cn );
-
-
-                        /////////////////////////////////
-                        // Properties
-                        /////////////////////////////////
-                public:
-                        //
-                        // Field Flag Property
-                        //
-                        bool isField() const;
-                        void setField( bool isField );
+                bool operator!=( const ColorNode& cn );
 
 
-                        //
-                        // Color Property
-                        //
-                        const QColor& color() const;
-                        void setColor( const QColor& color );
+                /////////////////////////////////
+                // Properties
+                /////////////////////////////////
+        public:
+                //
+                // Field Flag Property
+                //
+                bool isField() const;
+                void setField( bool isField );
 
 
-                        //
-                        // Key Property
-                        //
-                        const QString& key() const;
-                        void setKey( const QString& key );
+                //
+                // Color Property
+                //
+                const QColor& color() const;
+                void setColor( const QColor& color );
 
 
-                        /////////////////////////////////
-                        // Misc. Methods
-                        /////////////////////////////////
-                public:
-                        uint32_t rgba() const;
-                        QColor color( const merge::Record& record,
-                                      const Variables&     variables ) const;
+                //
+                // Key Property
+                //
+                const QString& key() const;
+                void setKey( const QString& key );
 
 
-                        /////////////////////////////////
-                        // Private Data
-                        /////////////////////////////////
-                private:
-                        bool    mIsField;
-                        QColor  mColor;
-                        QString mKey;
+                /////////////////////////////////
+                // Misc. Methods
+                /////////////////////////////////
+        public:
+                uint32_t rgba() const;
+                QColor color( const merge::Record& record,
+                              const Variables&     variables ) const;
 
-                };
 
-        }
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                bool    mIsField;
+                QColor  mColor;
+                QString mKey;
+
+        };
+
 }
 
 

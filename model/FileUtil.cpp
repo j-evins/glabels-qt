@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "FileUtil.h"
 
 #include "Config.h"
@@ -26,99 +27,96 @@
 #include <QStandardPaths>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        QString FileUtil::addExtension( const QString& rawFilename, const QString& extension )
         {
-
-                QString FileUtil::addExtension( const QString& rawFilename, const QString& extension )
+                if ( rawFilename.endsWith( extension ) )
                 {
-                        if ( rawFilename.endsWith( extension ) )
-                        {
-                                return rawFilename;
-                        }
-
-                        return rawFilename + extension;
+                        return rawFilename;
                 }
 
-
-                QDir FileUtil::systemTemplatesDir()
-                {
-                        QDir dir;
-
-                        // First, try finding templates directory relative to application path
-                        dir.cd( QApplication::applicationDirPath() );
-                        if ( (dir.dirName() == "bin") &&
-                             dir.cdUp() && dir.cd( "share" ) && dir.cd( "glabels-qt" ) && dir.cd( "templates" ) )
-                        {
-                                return dir;
-                        }
-
-                        // Next, try running out of the source directory.
-                        if ( dir.cd( Config::PROJECT_SOURCE_DIR ) && dir.cd( "templates" ) )
-                        {
-                                return dir;
-                        }
-
-                        qFatal( "Cannot locate system template directory!" );
-                        return QDir("/");
-                }
-
-
-                QDir FileUtil::manualUserTemplatesDir()
-                {
-                        // Location for manually created user-defined templates
-                        QDir dir( QStandardPaths::writableLocation(QStandardPaths::HomeLocation) );
-                        dir.mkpath( ".glabels" );
-                        dir.cd( ".glabels" );
-
-                        return dir;
-                }
-
-
-                QDir FileUtil::userTemplatesDir()
-                {
-                        // Location for user-defined templates created using TemplateDesigner
-                        QDir dir( QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation) );
-                        dir.mkpath( "." );
-
-                        return dir;
-                }
-
-
-                QDir FileUtil::translationsDir()
-                {
-                        QDir dir;
-
-                        // First, try finding translations directory relative to application path
-                        dir.cd( QApplication::applicationDirPath() );
-                        if ( (dir.dirName() == "bin") &&
-                             dir.cdUp() && dir.cd( "share" ) && dir.cd( "glabels-qt" ) && dir.cd( "translations" ) )
-                        {
-                                return dir;
-                        }
-
-                        // Next, try running out of the source directory.
-                        if ( dir.cd( Config::PROJECT_BUILD_DIR ) && dir.cd( "translations" ) )
-                        {
-                                return dir;
-                        }
-
-                        qFatal( "Cannot locate system template directory!" );
-                        return QDir("/");
-                }
-
-
-                QString FileUtil::makeRelativeIfInDir( const QDir&    dir,
-                                                       const QString& filename )
-                {
-                        QString relativeFilePath = dir.relativeFilePath( filename ); // Note: directory separators canonicalized to slash by Qt path methods
-                        if ( !relativeFilePath.startsWith( "../" ) )
-                        {
-                                return relativeFilePath;
-                        }
-                        return filename;
-                }
-
+                return rawFilename + extension;
         }
+
+
+        QDir FileUtil::systemTemplatesDir()
+        {
+                QDir dir;
+
+                // First, try finding templates directory relative to application path
+                dir.cd( QApplication::applicationDirPath() );
+                if ( (dir.dirName() == "bin") &&
+                     dir.cdUp() && dir.cd( "share" ) && dir.cd( "glabels-qt" ) && dir.cd( "templates" ) )
+                {
+                        return dir;
+                }
+
+                // Next, try running out of the source directory.
+                if ( dir.cd( Config::PROJECT_SOURCE_DIR ) && dir.cd( "templates" ) )
+                {
+                        return dir;
+                }
+
+                qFatal( "Cannot locate system template directory!" );
+                return QDir("/");
+        }
+
+
+        QDir FileUtil::manualUserTemplatesDir()
+        {
+                // Location for manually created user-defined templates
+                QDir dir( QStandardPaths::writableLocation(QStandardPaths::HomeLocation) );
+                dir.mkpath( ".glabels" );
+                dir.cd( ".glabels" );
+
+                return dir;
+        }
+
+
+        QDir FileUtil::userTemplatesDir()
+        {
+                // Location for user-defined templates created using TemplateDesigner
+                QDir dir( QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation) );
+                dir.mkpath( "." );
+
+                return dir;
+        }
+
+
+        QDir FileUtil::translationsDir()
+        {
+                QDir dir;
+
+                // First, try finding translations directory relative to application path
+                dir.cd( QApplication::applicationDirPath() );
+                if ( (dir.dirName() == "bin") &&
+                     dir.cdUp() && dir.cd( "share" ) && dir.cd( "glabels-qt" ) && dir.cd( "translations" ) )
+                {
+                        return dir;
+                }
+
+                // Next, try running out of the source directory.
+                if ( dir.cd( Config::PROJECT_BUILD_DIR ) && dir.cd( "translations" ) )
+                {
+                        return dir;
+                }
+
+                qFatal( "Cannot locate system template directory!" );
+                return QDir("/");
+        }
+
+
+        QString FileUtil::makeRelativeIfInDir( const QDir&    dir,
+                                               const QString& filename )
+        {
+                QString relativeFilePath = dir.relativeFilePath( filename ); // Note: directory separators canonicalized to slash by Qt path methods
+                if ( !relativeFilePath.startsWith( "../" ) )
+                {
+                        return relativeFilePath;
+                }
+                return filename;
+        }
+
 }

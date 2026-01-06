@@ -25,214 +25,211 @@
 #include <QPen>
 
 
-namespace glabels
+//
+// Private
+//
+namespace
 {
-        namespace model
+        const double slopPixels = 2;
+}
+
+
+namespace glabels::model
+{
+
+        ///
+        /// Constructor
+        ///
+        ModelLineObject::ModelLineObject()
         {
+                mHandles.push_back( Handle( this, Handle::P1 ) );
+                mHandles.push_back( Handle( this, Handle::P2 ) );
 
-                //
-                // Private
-                //
-                namespace
+                mLineWidth       = 1.0;
+                mLineColorNode   = ColorNode( QColor( 0, 0, 0 ) );
+        }
+
+
+        ///
+        /// Constructor
+        ///
+        ModelLineObject::ModelLineObject( Distance          x0,
+                                          Distance          y0,
+                                          Distance          dx,
+                                          Distance          dy,
+                                          Distance          lineWidth,
+                                          const ColorNode&  lineColorNode,
+                                          const QTransform& matrix,
+                                          bool              shadowState,
+                                          Distance          shadowX,
+                                          Distance          shadowY,
+                                          double            shadowOpacity,
+                                          const ColorNode&  shadowColorNode )
+        : ModelObject( x0,
+                       y0,
+                       dx,
+                       dy,
+                       false /*lockAspectRatio*/,
+                       matrix,
+                       shadowState,
+                       shadowX,
+                       shadowY,
+                       shadowOpacity,
+                       shadowColorNode )
+        {
+                mHandles.push_back( Handle( this, Handle::P1 ) );
+                mHandles.push_back( Handle( this, Handle::P2 ) );
+
+                mLineWidth       = lineWidth;
+                mLineColorNode   = lineColorNode;
+        }
+
+
+        ///
+        /// Copy constructor
+        ///
+        ModelLineObject::ModelLineObject( const ModelLineObject* object )
+                : ModelObject(object)
+        {
+                mLineWidth       = object->mLineWidth;
+                mLineColorNode   = object->mLineColorNode;
+        }
+
+
+        ///
+        /// Clone
+        ///
+        ModelLineObject* ModelLineObject::clone() const
+        {
+                return new ModelLineObject( this );
+        }
+
+
+        ///
+        /// Line Width Property Getter
+        ///
+        Distance ModelLineObject::lineWidth() const
+        {
+                return mLineWidth;
+        }
+
+
+        ///
+        /// Line Width Property Setter
+        ///
+        void ModelLineObject::setLineWidth( Distance value )
+        {
+                if ( mLineWidth != value )
                 {
-                        const double slopPixels = 2;
+                        mLineWidth = value;
+                        emit changed();
                 }
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                ModelLineObject::ModelLineObject()
+        ///
+        /// Line Color Node Property Getter
+        ///
+        ColorNode ModelLineObject::lineColorNode() const
+        {
+                return mLineColorNode;
+        }
+
+
+        ///
+        /// Line Color Node Property Setter
+        ///
+        void ModelLineObject::setLineColorNode( const ColorNode& value )
+        {
+                if ( mLineColorNode != value )
                 {
-                        mHandles.push_back( Handle( this, Handle::P1 ) );
-                        mHandles.push_back( Handle( this, Handle::P2 ) );
-
-                        mLineWidth       = 1.0;
-                        mLineColorNode   = ColorNode( QColor( 0, 0, 0 ) );
+                        mLineColorNode = value;
+                        emit changed();
                 }
+        }
 
 
-                ///
-                /// Constructor
-                ///
-                ModelLineObject::ModelLineObject( Distance          x0,
-                                                  Distance          y0,
-                                                  Distance          dx,
-                                                  Distance          dy,
-                                                  Distance          lineWidth,
-                                                  const ColorNode&  lineColorNode,
-                                                  const QTransform& matrix,
-                                                  bool              shadowState,
-                                                  Distance          shadowX,
-                                                  Distance          shadowY,
-                                                  double            shadowOpacity,
-                                                  const ColorNode&  shadowColorNode )
-                : ModelObject( x0,
-                               y0,
-                               dx,
-                               dy,
-                               false /*lockAspectRatio*/,
-                               matrix,
-                               shadowState,
-                               shadowX,
-                               shadowY,
-                               shadowOpacity,
-                               shadowColorNode )
+        ///
+        /// Can Line Color Capability Implementation
+        ///
+        bool ModelLineObject::canLineColor() const
+        {
+                return true;
+        }
+
+
+        ///
+        /// Can Line Width Capability Implementation
+        ///
+        bool ModelLineObject::canLineWidth() const
+        {
+                return true;
+        }
+
+
+        ///
+        /// Draw shadow of object
+        ///
+        void ModelLineObject::drawShadow( QPainter*            painter,
+                                          bool                 inEditor,
+                                          const merge::Record& record,
+                                          const Variables&     variables ) const
+        {
+                QColor lineColor = mLineColorNode.color( record, variables );
+                QColor shadowColor = mShadowColorNode.color( record, variables );
+
+                shadowColor.setAlphaF( mShadowOpacity );
+
+                if ( lineColor.alpha() )
                 {
-                        mHandles.push_back( Handle( this, Handle::P1 ) );
-                        mHandles.push_back( Handle( this, Handle::P2 ) );
-
-                        mLineWidth       = lineWidth;
-                        mLineColorNode   = lineColorNode;
-                }
-
-
-                ///
-                /// Copy constructor
-                ///
-                ModelLineObject::ModelLineObject( const ModelLineObject* object )
-                        : ModelObject(object)
-                {
-                        mLineWidth       = object->mLineWidth;
-                        mLineColorNode   = object->mLineColorNode;
-                }
-
-
-                ///
-                /// Clone
-                ///
-                ModelLineObject* ModelLineObject::clone() const
-                {
-                        return new ModelLineObject( this );
-                }
-
-
-                ///
-                /// Line Width Property Getter
-                ///
-                Distance ModelLineObject::lineWidth() const
-                {
-                        return mLineWidth;
-                }
-
-
-                ///
-                /// Line Width Property Setter
-                ///
-                void ModelLineObject::setLineWidth( Distance value )
-                {
-                        if ( mLineWidth != value )
-                        {
-                                mLineWidth = value;
-                                emit changed();
-                        }
-                }
-
-
-                ///
-                /// Line Color Node Property Getter
-                ///
-                ColorNode ModelLineObject::lineColorNode() const
-                {
-                        return mLineColorNode;
-                }
-
-
-                ///
-                /// Line Color Node Property Setter
-                ///
-                void ModelLineObject::setLineColorNode( const ColorNode& value )
-                {
-                        if ( mLineColorNode != value )
-                        {
-                                mLineColorNode = value;
-                                emit changed();
-                        }
-                }
-
-
-                ///
-                /// Can Line Color Capability Implementation
-                ///
-                bool ModelLineObject::canLineColor() const
-                {
-                        return true;
-                }
-
-
-                ///
-                /// Can Line Width Capability Implementation
-                ///
-                bool ModelLineObject::canLineWidth() const
-                {
-                        return true;
-                }
-
-
-                ///
-                /// Draw shadow of object
-                ///
-                void ModelLineObject::drawShadow( QPainter*            painter,
-                                                  bool                 inEditor,
-                                                  const merge::Record& record,
-                                                  const Variables&     variables ) const
-                {
-                        QColor lineColor = mLineColorNode.color( record, variables );
-                        QColor shadowColor = mShadowColorNode.color( record, variables );
-
-                        shadowColor.setAlphaF( mShadowOpacity );
-
-                        if ( lineColor.alpha() )
-                        {
-                                painter->setPen( QPen( shadowColor, mLineWidth.pt() ) );
-                                painter->drawLine( 0, 0, mW.pt(), mH.pt() );
-                        }
-                }
-
-
-                ///
-                /// Draw object itself
-                ///
-                void ModelLineObject::drawObject( QPainter*            painter,
-                                                  bool                 inEditor,
-                                                  const merge::Record& record,
-                                                  const Variables&     variables ) const
-                {
-                        QColor lineColor = mLineColorNode.color( record, variables );
-
-                        painter->setPen( QPen( lineColor, mLineWidth.pt() ) );
+                        painter->setPen( QPen( shadowColor, mLineWidth.pt() ) );
                         painter->drawLine( 0, 0, mW.pt(), mH.pt() );
                 }
+        }
 
 
-                ///
-                /// Path to test for hover condition
-                ///
-                QPainterPath ModelLineObject::hoverPath( double scale ) const
+        ///
+        /// Draw object itself
+        ///
+        void ModelLineObject::drawObject( QPainter*            painter,
+                                          bool                 inEditor,
+                                          const merge::Record& record,
+                                          const Variables&     variables ) const
+        {
+                QColor lineColor = mLineColorNode.color( record, variables );
+
+                painter->setPen( QPen( lineColor, mLineWidth.pt() ) );
+                painter->drawLine( 0, 0, mW.pt(), mH.pt() );
+        }
+
+
+        ///
+        /// Path to test for hover condition
+        ///
+        QPainterPath ModelLineObject::hoverPath( double scale ) const
+        {
+                QPainterPath path;
+
+                if ( mLineColorNode.color().alpha() )
                 {
-                        QPainterPath path;
+                        //
+                        // Build a thin rectangle representing line
+                        //
+                        double rPts = mLineWidth.pt()/2 + slopPixels / scale;
 
-                        if ( mLineColorNode.color().alpha() )
-                        {
-                                //
-                                // Build a thin rectangle representing line
-                                //
-                                double rPts = mLineWidth.pt()/2 + slopPixels / scale;
+                        double lengthPts = sqrt( mW.pt()*mW.pt() + mH.pt()*mH.pt() );
+                        double dx = mH.pt() / lengthPts; // horizontal pitch of perpendicular line
+                        double dy = mW.pt() / lengthPts; // vertical pitch of perpendicular line
 
-                                double lengthPts = sqrt( mW.pt()*mW.pt() + mH.pt()*mH.pt() );
-                                double dx = mH.pt() / lengthPts; // horizontal pitch of perpendicular line
-                                double dy = mW.pt() / lengthPts; // vertical pitch of perpendicular line
+                        path.moveTo(           rPts*dx,         - rPts*dy );
+                        path.lineTo( mW.pt() + rPts*dx, mH.pt() - rPts*dy );
+                        path.lineTo( mW.pt() - rPts*dx, mH.pt() + rPts*dy );
+                        path.lineTo(         - rPts*dx,           rPts*dy );
 
-                                path.moveTo(           rPts*dx,         - rPts*dy );
-                                path.lineTo( mW.pt() + rPts*dx, mH.pt() - rPts*dy );
-                                path.lineTo( mW.pt() - rPts*dx, mH.pt() + rPts*dy );
-                                path.lineTo(         - rPts*dx,           rPts*dy );
-
-                                path.closeSubpath();
-                        }
-
-                        return path;
+                        path.closeSubpath();
                 }
 
+                return path;
         }
+
 }

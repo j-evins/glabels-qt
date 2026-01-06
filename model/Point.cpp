@@ -18,50 +18,43 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Point.h"
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        Point::Point( Distance x, Distance y )
+                : mX(x), mY(y)
         {
-
-                Point::Point() : mX(Distance(0)), mY(Distance(0))
-                {
-                        // empty
-                }
-
-
-                Point::Point( Distance x, Distance y ) : mX(x), mY(y)
-                {
-                        // empty
-                }
-
-
-                Distance Point::x() const
-                {
-                        return mX;
-                }
-
-
-                Distance Point::y() const
-                {
-                        return mY;
-                }
-
-
-                bool Point::operator<( const Point &other ) const
-                {
-                        if ( mY < other.mY )
-                        {
-                                return true;
-                        }
-                        else if ( mY == other.mY )
-                        {
-                                return mX < other.mX;
-                        }
-                        return false;
-                }
-
+                // empty
         }
+
+
+        Distance Point::x() const
+        {
+                return mX;
+        }
+
+
+        Distance Point::y() const
+        {
+                return mY;
+        }
+
+
+        bool Point::operator<( const Point &other ) const
+        {
+                if ( mY < other.mY )
+                {
+                        return true;
+                }
+                else if ( mY == other.mY )
+                {
+                        return mX < other.mX;
+                }
+                return false;
+        }
+
 }

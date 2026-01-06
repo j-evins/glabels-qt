@@ -26,83 +26,80 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class Variable
         {
+                Q_DECLARE_TR_FUNCTIONS(Variable)
 
-                class Variable
+        public:
+                enum class Type
                 {
-                        Q_DECLARE_TR_FUNCTIONS(Variable)
-
-                public:
-                        enum class Type
-                        {
-                                STRING,
-                                INTEGER,
-                                FLOATING_POINT,
-                                COLOR
-                        };
-
-                        enum class Increment
-                        {
-                                NEVER,
-                                PER_ITEM,
-                                PER_COPY,
-                                PER_PAGE
-                        };
-
-
-                public:
-                        Variable();
-
-                        Variable( Type            type,
-                                  const QString&  name,
-                                  const QString&  initialValue,
-                                  Increment       increment = Increment::NEVER,
-                                  const QString&  stepSize = "0" );
-
-                        virtual ~Variable() = default;
-
-
-                        Type      type() const;
-                        QString   name() const;
-                        QString   initialValue() const;
-                        Increment increment() const;
-                        QString   stepSize() const;
-
-                        void setInitialValue( const QString& value );
-
-                        void    resetValue();
-                        void    incrementValueOnItem();
-                        void    incrementValueOnCopy();
-                        void    incrementValueOnPage();
-                        QString value() const;
-
-                        static QString   typeToI18nString( Type type );
-                        static QString   typeToIdString( Type type );
-                        static Type      idStringToType( const QString& string );
-
-                        static QString   incrementToI18nString( Increment increment );
-                        static QString   incrementToIdString( Increment increment );
-                        static Increment idStringToIncrement( const QString& string );
-
-
-                private:
-                        Type      mType;
-                        QString   mName;
-                        QString   mInitialValue;
-                        Increment mIncrement;
-                        QString   mStepSize;
-
-                        long long mIntegerValue;
-                        long long mIntegerStep;
-                        double    mFloatingPointValue;
-                        double    mFloatingPointStep;
-
+                        STRING,
+                        INTEGER,
+                        FLOATING_POINT,
+                        COLOR
                 };
 
-        }
+                enum class Increment
+                {
+                        NEVER,
+                        PER_ITEM,
+                        PER_COPY,
+                        PER_PAGE
+                };
+
+
+        public:
+                Variable();
+
+                Variable( Type            type,
+                          const QString&  name,
+                          const QString&  initialValue,
+                          Increment       increment = Increment::NEVER,
+                          const QString&  stepSize = "0" );
+
+                virtual ~Variable() = default;
+
+
+                Type      type() const;
+                QString   name() const;
+                QString   initialValue() const;
+                Increment increment() const;
+                QString   stepSize() const;
+
+                void setInitialValue( const QString& value );
+
+                void    resetValue();
+                void    incrementValueOnItem();
+                void    incrementValueOnCopy();
+                void    incrementValueOnPage();
+                QString value() const;
+
+                static QString   typeToI18nString( Type type );
+                static QString   typeToIdString( Type type );
+                static Type      idStringToType( const QString& string );
+
+                static QString   incrementToI18nString( Increment increment );
+                static QString   incrementToIdString( Increment increment );
+                static Increment idStringToIncrement( const QString& string );
+
+
+        private:
+                Type      mType;
+                QString   mName;
+                QString   mInitialValue;
+                Increment mIncrement;
+                QString   mStepSize;
+
+                long long mIntegerValue;
+                long long mIntegerStep;
+                double    mFloatingPointValue;
+                double    mFloatingPointStep;
+
+        };
+
 }
 
 

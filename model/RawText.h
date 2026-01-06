@@ -27,60 +27,57 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        ///
+        /// Raw Text Type
+        ///
+        struct RawText
         {
 
-                ///
-                /// Raw Text Type
-                ///
-                struct RawText
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                RawText() = default;
+                RawText( const QString& string );
+                RawText( const char* cString );
+
+
+                /////////////////////////////////
+                // Misc. Methods
+                /////////////////////////////////
+                QString toString() const;
+                std::string toStdString() const;
+                QString expand( const merge::Record& record, const Variables& variables ) const;
+                bool hasPlaceHolders() const;
+                bool isEmpty() const;
+
+
+                /////////////////////////////////
+                // Private Methods
+                /////////////////////////////////
+        private:
+                void tokenize();
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                QString mString;
+
+                struct Token
                 {
-
-                        /////////////////////////////////
-                        // Life Cycle
-                        /////////////////////////////////
-                public:
-                        RawText() = default;
-                        RawText( const QString& string );
-                        RawText( const char* cString );
-
-
-                        /////////////////////////////////
-                        // Misc. Methods
-                        /////////////////////////////////
-                        QString toString() const;
-                        std::string toStdString() const;
-                        QString expand( const merge::Record& record, const Variables& variables ) const;
-                        bool hasPlaceHolders() const;
-                        bool isEmpty() const;
-
-
-                        /////////////////////////////////
-                        // Private Methods
-                        /////////////////////////////////
-                private:
-                        void tokenize();
-
-                        /////////////////////////////////
-                        // Private Data
-                        /////////////////////////////////
-                private:
-                        QString mString;
-
-                        struct Token
-                        {
-                                bool              isField{ false };
-                                QString           text;
-                                SubstitutionField field;
-                        };
-
-                        QList<Token> mTokens;
-
+                        bool              isField{ false };
+                        QString           text;
+                        SubstitutionField field;
                 };
 
-        }
+                QList<Token> mTokens;
+
+        };
+
 }
 
 

@@ -29,46 +29,43 @@
 #include <QString>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        class XmlTemplateParser
         {
+        public:
+                XmlTemplateParser() = default;
 
-                class XmlTemplateParser
-                {
-                public:
-                        XmlTemplateParser() = default;
+                QList<Template> readFile( const QString& fileName );
+                QList<Template> readEquivsFromFile( const QString& fileName );
+                Template parseTemplateNode( const QDomElement& node,
+                                            const QString&     fileName = "" );
 
-                        QList<Template> readFile( const QString& fileName );
-                        QList<Template> readEquivsFromFile( const QString& fileName );
-                        Template parseTemplateNode( const QDomElement& node,
-                                                    const QString&     fileName = "" );
+        private:
+                enum Pass { TEMPLATE_PASS, EQUIV_PASS };
 
-                private:
-                        enum Pass { TEMPLATE_PASS, EQUIV_PASS };
+                QList<Template> parseRootNode( const QDomElement& node,
+                                               const QString&     fileName,
+                                               Pass               pass );
 
-                        QList<Template> parseRootNode( const QDomElement& node,
-                                                       const QString&     fileName,
-                                                       Pass               pass );
+                void parseMetaNode( const QDomElement& node, Template& tmplate );
+                void parseLabelRectangleNode( const QDomElement& node, Template& tmplate );
+                void parseLabelEllipseNode( const QDomElement& node, Template& tmplate );
+                void parseLabelRoundNode( const QDomElement& node, Template& tmplate );
+                void parseLabelCdNode( const QDomElement& node, Template& tmplate );
+                void parseLabelPathNode( const QDomElement& node, Template& tmplate );
+                void parseLabelContinuousNode( const QDomElement& node, Template& tmplate );
+                void parseLabelNodeCommon( const QDomElement& node, Frame& frame );
+                void parseLayoutNode( const QDomElement& node, Frame& frame );
+                void parseMarkupMarginNode( const QDomElement& node, Frame& frame );
+                void parseMarkupLineNode( const QDomElement& node, Frame& frame );
+                void parseMarkupCircleNode( const QDomElement& node, Frame& frame );
+                void parseMarkupRectNode( const QDomElement& node, Frame& frame );
+                void parseMarkupEllipseNode( const QDomElement& node, Frame& frame );
 
-                        void parseMetaNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelRectangleNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelEllipseNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelRoundNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelCdNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelPathNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelContinuousNode( const QDomElement& node, Template& tmplate );
-                        void parseLabelNodeCommon( const QDomElement& node, Frame& frame );
-                        void parseLayoutNode( const QDomElement& node, Frame& frame );
-                        void parseMarkupMarginNode( const QDomElement& node, Frame& frame );
-                        void parseMarkupLineNode( const QDomElement& node, Frame& frame );
-                        void parseMarkupCircleNode( const QDomElement& node, Frame& frame );
-                        void parseMarkupRectNode( const QDomElement& node, Frame& frame );
-                        void parseMarkupEllipseNode( const QDomElement& node, Frame& frame );
+        };
 
-                };
-
-        }
 }
 
 

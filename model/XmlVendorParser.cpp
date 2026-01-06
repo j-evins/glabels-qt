@@ -29,77 +29,74 @@
 #include <QtDebug>
 
 
-namespace glabels
+namespace glabels::model
 {
-        namespace model
+
+        QList<Vendor> XmlVendorParser::readFile( const QString &fileName )
         {
+                QFile file( fileName );
 
-                QList<Vendor> XmlVendorParser::readFile( const QString &fileName )
+                if ( !file.open( QFile::ReadOnly | QFile::Text) )
                 {
-                        QFile file( fileName );
-
-                        if ( !file.open( QFile::ReadOnly | QFile::Text) )
-                        {
-                                qWarning() << "Error: Cannot read file " << fileName
-                                           << ": " << file.errorString();
-                                return QList<Vendor>(); // Empty list
-                        }
-
-
-                        QDomDocument doc;
-                        QString      errorString;
-                        int          errorLine;
-                        int          errorColumn;
-
-                        if ( !doc.setContent( &file, false, &errorString, &errorLine, &errorColumn ) )
-                        {
-                                qWarning() << "Error: Parse error at line " << errorLine
-                                           << "column " << errorColumn
-                                           << ": " << errorString;
-                                return QList<Vendor>(); // Empty list
-                        }
-
-                        QDomElement root = doc.documentElement();
-                        if ( root.tagName() != "Glabels-vendors" )
-                        {
-                                qWarning() << "Error: Not a Glabels-vendors file.";
-                                return QList<Vendor>(); // Empty list
-                        }
-
-                        return parseRootNode( root );
+                        qWarning() << "Error: Cannot read file " << fileName
+                                   << ": " << file.errorString();
+                        return QList<Vendor>(); // Empty list
                 }
 
 
-                QList<Vendor> XmlVendorParser::parseRootNode( const QDomElement &node )
+                QDomDocument doc;
+                QString      errorString;
+                int          errorLine;
+                int          errorColumn;
+
+                if ( !doc.setContent( &file, false, &errorString, &errorLine, &errorColumn ) )
                 {
-                        QList<Vendor> list;
-
-                        for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
-                        {
-                                if ( child.toElement().tagName() == "Vendor" )
-                                {
-                                        list.push_back( parseVendorNode( child.toElement() ) );
-                                }
-                                else if ( !child.isComment() )
-                                {
-                                        qWarning() << "Warning: bad element: "
-                                                   << child.toElement().tagName()
-                                                   << ", Ignored.";
-                                }
-                        }
-
-                        return list;
+                        qWarning() << "Error: Parse error at line " << errorLine
+                                   << "column " << errorColumn
+                                   << ": " << errorString;
+                        return QList<Vendor>(); // Empty list
                 }
 
-
-                Vendor XmlVendorParser::parseVendorNode( const QDomElement &node )
+                QDomElement root = doc.documentElement();
+                if ( root.tagName() != "Glabels-vendors" )
                 {
-                        QString name = XmlUtil::getStringAttr( node, "name", "" );
-                        QString url  = XmlUtil::getStringAttr( node, "url", "" );
-
-                        return Vendor( name, url );
+                        qWarning() << "Error: Not a Glabels-vendors file.";
+                        return QList<Vendor>(); // Empty list
                 }
 
-
+                return parseRootNode( root );
         }
+
+
+        QList<Vendor> XmlVendorParser::parseRootNode( const QDomElement &node )
+        {
+                QList<Vendor> list;
+
+                for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
+                {
+                        if ( child.toElement().tagName() == "Vendor" )
+                        {
+                                list.push_back( parseVendorNode( child.toElement() ) );
+                        }
+                        else if ( !child.isComment() )
+                        {
+                                qWarning() << "Warning: bad element: "
+                                           << child.toElement().tagName()
+                                           << ", Ignored.";
+                        }
+                }
+
+                return list;
+        }
+
+
+        Vendor XmlVendorParser::parseVendorNode( const QDomElement &node )
+        {
+                QString name = XmlUtil::getStringAttr( node, "name", "" );
+                QString url  = XmlUtil::getStringAttr( node, "url", "" );
+
+                return Vendor( name, url );
+        }
+
+
 }
