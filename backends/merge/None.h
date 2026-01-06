@@ -68,7 +68,7 @@ namespace glabels
                         void open() override;
                         void close() override;
                         Record readNextRecord() override;
-                
+
                 };
 
         }

@@ -41,7 +41,7 @@
 
 namespace
 {
-        
+
 #if defined(Q_OS_WIN)
         const QString STDOUT_FILENAME = "CON:";
         const QString STDIN_FILENAME  = "CON:";
@@ -71,7 +71,7 @@ int main( int argc, char **argv )
         QLocale locale = QLocale::system();
         QString qtTranslationsDir = QLibraryInfo::path( QLibraryInfo::TranslationsPath );
         QString myTranslationsDir = glabels::model::FileUtil::translationsDir().canonicalPath();
-        
+
         QTranslator qtTranslator;
         if ( qtTranslator.load( locale, "qt", "_", qtTranslationsDir ) )
         {
@@ -99,17 +99,17 @@ int main( int argc, char **argv )
                  QString( QCoreApplication::translate( "main", "Send output to <printer>. (Default=\"%1\")") ).arg( QPrinterInfo::defaultPrinterName() ),
                  QCoreApplication::translate( "main", "printer" ),
                  QPrinterInfo::defaultPrinterName() },
-                
+
                 {{"i","input"},
                  QCoreApplication::translate( "main", "Set merge input to <source> (typically a filename). Set to \"-\" for stdin." ),
                  QCoreApplication::translate( "main", "source" ),
                  "" },
-                
+
                 {{"o","output"},
                  QCoreApplication::translate( "main", "Set output filename to <filename>. Set to \"-\" for stdout. (Default=\"output.pdf\")" ),
                  QCoreApplication::translate( "main", "filename" ),
                  "output.pdf" },
-                
+
                 {{"s","sheets"},
                  QCoreApplication::translate( "main", "Set number of sheets to <n>. (Default=1)" ),
                  "n", "1" },
@@ -117,23 +117,23 @@ int main( int argc, char **argv )
                 {{"c","copies"},
                  QCoreApplication::translate( "main", "Set number of copies to <n>. (Default=1)" ),
                  "n", "1" },
-                
+
                 {{"a","collate"},
                  QCoreApplication::translate( "main", "Collate merge copies." ) },
-                
+
                 {{"g","group"},
                  QCoreApplication::translate( "main", "Start each merge group on a new page." ) },
-                
+
                 {{"f","first"},
                  QCoreApplication::translate( "main", "Set starting position to <n>. (Default=1)" ),
                  "n", "1" },
 
                 {{"l","outlines"},
                  QCoreApplication::translate( "main", "Print label outlines." ) },
-                
+
                 {{"m","crop-marks"},
                  QCoreApplication::translate( "main", "Print crop marks." ) },
-                
+
                 {{"r","reverse"},
                  QCoreApplication::translate( "main", "Print in reverse (mirror image)." ) },
 
@@ -166,7 +166,7 @@ int main( int argc, char **argv )
         // Parse variable definitions from command line, if any
         //
         QMap<QString,QString> variableDefinitions;
-        
+
         for ( QString definition : parser.values("define") )
         {
                 QStringList parts = definition.split( '=' );
@@ -187,7 +187,7 @@ int main( int argc, char **argv )
         glabels::merge::Factory::init();
         glabels::barcode::Backends::init();
 
-        
+
         if ( parser.positionalArguments().size() == 1 )
         {
                 qDebug() << "Batch mode.";
@@ -236,7 +236,7 @@ int main( int argc, char **argv )
                                 qDebug() << "Merge source =" << inputSource;
                                 model->merge()->setSource( inputSource );
                         }
-                        
+
                         glabels::model::PageRenderer renderer( model );
                         if ( model->merge()->keys().empty() )
                         {
@@ -305,6 +305,6 @@ int main( int argc, char **argv )
                 }
                 return -1;
         }
-                
+
         return 0;
 }

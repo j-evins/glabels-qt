@@ -32,7 +32,7 @@ namespace glbarcode
          */
         template <class T> class Matrix
         {
-                
+
         public:
                 /**
                  * Default constructor.

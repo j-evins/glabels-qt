@@ -63,7 +63,7 @@ namespace glabels
                         ///////////////////////////////////////////////////////////////
                 protected:
                         ModelObject();
-                
+
                         ModelObject( Distance          x0,
                                      Distance          y0,
                                      Distance          w,
@@ -75,9 +75,9 @@ namespace glabels
                                      Distance          shadowY = 0,
                                      double            shadowOpacity = 1.0,
                                      const ColorNode&  shadowColorNode = ColorNode() );
-                
+
                         ModelObject( const ModelObject* object );
-                
+
                 public:
                         virtual ~ModelObject() = default;
 
@@ -87,7 +87,7 @@ namespace glabels
                         ///////////////////////////////////////////////////////////////
                         virtual ModelObject* clone() const = 0;
 
-        
+
                         ///////////////////////////////////////////////////////////////
                         // Signals
                         ///////////////////////////////////////////////////////////////
@@ -118,21 +118,21 @@ namespace glabels
                         //
                         Distance x0() const;
                         void setX0( Distance value );
-                
+
 
                         //
                         // y0 Property ( y coordinate of origin )
                         //
                         Distance y0() const;
                         void setY0( Distance value );
-                
+
 
                         //
                         // w Property ( width of bounding box )
                         //
                         Distance w() const;
                         void setW( Distance value );
-                
+
 
                         //
                         // h Property ( height of bounding box )
@@ -167,28 +167,28 @@ namespace glabels
                         //
                         Distance shadowX() const;
                         void setShadowX( Distance value );
-                
+
 
                         //
                         // Shadow y Offset Property
                         //
                         Distance shadowY() const;
                         void setShadowY( Distance value );
-                
+
 
                         //
                         // Shadow opacity Property
                         //
                         double shadowOpacity() const;
                         void setShadowOpacity( double value );
-                
+
 
                         //
                         // Shadow Color Property
                         //
                         ColorNode shadowColorNode() const;
                         void setShadowColorNode( const ColorNode& value );
-                
+
 
                         //
                         // Natural Size Property (read-only)
@@ -247,7 +247,7 @@ namespace glabels
                         //
                         virtual ColorNode textColorNode() const;
                         virtual void setTextColorNode( const ColorNode &value );
-                
+
 
                         //
                         // Virtual Text Property: textHAlign
@@ -326,14 +326,14 @@ namespace glabels
                         //
                         virtual ColorNode lineColorNode() const;
                         virtual void setLineColorNode( const ColorNode &value );
-                
+
 
                         //
                         // Virtual Shape Property: fillColorNode
                         //
                         virtual ColorNode fillColorNode() const;
                         virtual void setFillColorNode( const ColorNode &value );
-                
+
 
                         ///////////////////////////////////////////////////////////////
                         // Barcode Properties Virtual Interface
@@ -344,7 +344,7 @@ namespace glabels
                         //
                         virtual QString bcData() const;
                         virtual void setBcData( const QString& value );
-                
+
 
                         //
                         // Virtual Barcode Property: bcTextFlag
@@ -365,14 +365,14 @@ namespace glabels
                         //
                         virtual ColorNode bcColorNode() const;
                         virtual void setBcColorNode( const ColorNode &value );
-                
+
 
                         //
                         // Virtual Barcode Property: bcStyle
                         //
                         virtual barcode::Style bcStyle() const;
                         virtual void setBcStyle( const barcode::Style &value );
-                
+
 
                         //
                         // Virtual Barcode Property: bcFormatDigits
@@ -419,7 +419,7 @@ namespace glabels
                                    bool                 inEditor,
                                    const merge::Record& record,
                                    const Variables&     variables ) const;
-                        
+
                         void drawSelectionHighlight( QPainter* painter, double scale ) const;
 
                 protected:
@@ -427,17 +427,17 @@ namespace glabels
                                                  bool                 inEditor,
                                                  const merge::Record& record,
                                                  const Variables&     variables ) const = 0;
-                        
+
                         virtual void drawObject( QPainter*            painter,
                                                  bool                 inEditor,
                                                  const merge::Record& record,
                                                  const Variables&     variables ) const = 0;
-                        
+
                         virtual QPainterPath hoverPath( double scale ) const = 0;
 
                         virtual void sizeUpdated();
 
-                
+
                         ///////////////////////////////////////////////////////////////
                         // Protected Members
                         ///////////////////////////////////////////////////////////////

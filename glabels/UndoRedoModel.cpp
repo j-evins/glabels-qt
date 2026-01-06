@@ -81,12 +81,12 @@ namespace glabels
 
                 mModel->restore( oldState->model );
                 delete oldState;
-        
+
                 mNewSelection = true;
 
                 emit changed();
         }
-        
+
 
         ///
         /// Redo
@@ -100,12 +100,12 @@ namespace glabels
 
                 mModel->restore( oldState->model );
                 delete oldState;
-        
+
                 mNewSelection = true;
 
                 emit changed();
         }
-        
+
 
         ///
         /// Can we undo?
@@ -115,7 +115,7 @@ namespace glabels
                 return !mUndoStack.isEmpty();
         }
 
-        
+
         ///
         /// Can we redo?
         ///
@@ -124,7 +124,7 @@ namespace glabels
                 return !mRedoStack.isEmpty();
         }
 
-        
+
         ///
         /// Undo description
         ///
@@ -140,7 +140,7 @@ namespace glabels
                 }
         }
 
-        
+
         ///
         /// Redo description
         ///
@@ -156,7 +156,7 @@ namespace glabels
                 }
         }
 
-        
+
         ///
         /// Selection changed handler
         ///
@@ -210,7 +210,7 @@ namespace glabels
         {
                 list.push_front( state );
         }
-        
+
 
         ///
         /// Pop state from stack

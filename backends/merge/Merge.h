@@ -37,8 +37,8 @@ namespace glabels
 
                 // Forward references
                 class Record;
-                
-        
+
+
                 ///
                 /// Merge Object
                 ///
@@ -82,7 +82,7 @@ namespace glabels
                         void setSelected( int i, bool state = true );
                         void selectAll();
                         void unselectAll();
-        
+
                         int nSelectedRecords() const;
                         const QList<Record> selectedRecords() const;
 
@@ -97,7 +97,7 @@ namespace glabels
                         virtual void open() = 0;
                         virtual void close() = 0;
                         virtual Record readNextRecord() = 0;
-                
+
 
                         /////////////////////////////////
                         // Signals
@@ -105,7 +105,7 @@ namespace glabels
                 signals:
                         void sourceChanged();
                         void selectionChanged();
-                
+
 
                         /////////////////////////////////
                         // Private data

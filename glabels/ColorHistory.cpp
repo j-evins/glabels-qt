@@ -65,7 +65,7 @@ namespace glabels
                 }
 
                 writeNameColorList( nameColorList );
-        
+
                 emit changed();
         }
 
@@ -73,7 +73,7 @@ namespace glabels
         QList<QColor> ColorHistory::getColors()
         {
                 QList<QColor> colorList;
-                
+
                 for ( QString& nameColor : readNameColorList() )
                 {
                         QStringList v = nameColor.split( ':' );
@@ -100,7 +100,7 @@ namespace glabels
         QStringList ColorHistory::getNames()
         {
                 QStringList nameList;
-                
+
                 for ( QString& nameColor : readNameColorList() )
                 {
                         QStringList v = nameColor.split( ':' );

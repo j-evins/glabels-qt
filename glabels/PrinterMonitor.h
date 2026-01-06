@@ -63,7 +63,7 @@ namespace glabels
                 /////////////////////////////////
         private slots:
                 void onTimerTimeout();
-                        
+
 
                 /////////////////////////////////
                 // Signals
@@ -86,7 +86,7 @@ namespace glabels
                 static std::unique_ptr<PrinterMonitor> mInstance;
 
                 std::unique_ptr<QTimer> mTimer;
-                
+
                 QStringList mCurrentAvailablePrinters;
                 QMutex      mCurrentAvailablePrintersMutex;
 

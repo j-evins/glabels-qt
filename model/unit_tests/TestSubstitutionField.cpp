@@ -36,7 +36,7 @@ void TestSubstitutionField::parseValid()
         //
         QString input = "${1234}${abc:=ABC}${x:%08.2f}${y:%08.2f:=12.34}${ADDR2:n}${FüññýßútLæg@lÑªmê}${Also_a legal-name}";
         model::ParserState s( input );
-        
+
         model::SubstitutionField f1;
         QCOMPARE( model::SubstitutionField::parse( s, f1 ), true );
         QCOMPARE( f1.fieldName(),    QString( "1234" ) );
@@ -163,7 +163,7 @@ void TestSubstitutionField::simpleEvaluation()
         using namespace glabels;
 
         model::Variables variables;
-        
+
         model::SubstitutionField f1( "${1}" );
         model::SubstitutionField f2( "${2}" );
         model::SubstitutionField f3( "${3}" );
@@ -198,7 +198,7 @@ void TestSubstitutionField::defaultValueEvaluation()
         using namespace glabels;
 
         model::Variables variables;
-        
+
         model::SubstitutionField f1( "${1:=foo1}" );
         model::SubstitutionField f2( "${2:=foo2}" );
         model::SubstitutionField f3( "${3:=foo3}" );
@@ -227,7 +227,7 @@ void TestSubstitutionField::defaultValueEvaluation()
         // Field "2" empty
         // Field "3" empty
         record3[ "4" ] = "plugh";
-        
+
         QCOMPARE( f1.evaluate( record3, variables ), QString( "xyzzy" ) );
         QCOMPARE( f2.evaluate( record3, variables ), QString( "foo2" ) );
         QCOMPARE( f3.evaluate( record3, variables ), QString( "foo3" ) );
@@ -240,7 +240,7 @@ void TestSubstitutionField::formattedStringEvaluation()
         using namespace glabels;
 
         model::Variables variables;
-        
+
         model::SubstitutionField f1( "${1:%10s}" );
         model::SubstitutionField f2( "${2:%10s}" );
         model::SubstitutionField f3( "${3:%10s}" );
@@ -261,7 +261,7 @@ void TestSubstitutionField::formattedStringEvaluation()
         record1[ "6" ] = "100";
         record1[ "7" ] = "-100";
         record1[ "8" ] = "3.14";
-        
+
         QCOMPARE( f1.evaluate( record1, variables ), QString( "         0" ) );
         QCOMPARE( f2.evaluate( record1, variables ), QString( "         1" ) );
         QCOMPARE( f3.evaluate( record1, variables ), QString( "        -1" ) );
@@ -279,7 +279,7 @@ void TestSubstitutionField::formattedFloatEvaluation()
         using namespace glabels;
 
         model::Variables variables;
-        
+
         model::SubstitutionField f1( "${1:%+5.2f}" );
         model::SubstitutionField f2( "${2:%+5.2f}" );
         model::SubstitutionField f3( "${3:%+5.2f}" );
@@ -300,7 +300,7 @@ void TestSubstitutionField::formattedFloatEvaluation()
         record1[ "6" ] = "100";
         record1[ "7" ] = "-100";
         record1[ "8" ] = "3.14";
-        
+
         QCOMPARE( f1.evaluate( record1, variables ), QString( "+0.00" ) );
         QCOMPARE( f2.evaluate( record1, variables ), QString( "+1.00" ) );
         QCOMPARE( f3.evaluate( record1, variables ), QString( "-1.00" ) );
@@ -318,7 +318,7 @@ void TestSubstitutionField::formattedIntEvaluation()
         using namespace glabels;
 
         model::Variables variables;
-        
+
         model::SubstitutionField f1( "${1:%08d}" );
         model::SubstitutionField f2( "${2:%08d}" );
         model::SubstitutionField f3( "${3:%08d}" );
@@ -339,7 +339,7 @@ void TestSubstitutionField::formattedIntEvaluation()
         record1[ "6" ] = "0x100";
         record1[ "7" ] = "-1";
         record1[ "8" ] = "314";
-        
+
         QCOMPARE( f1.evaluate( record1, variables ), QString( "00000000" ) );
         QCOMPARE( f2.evaluate( record1, variables ), QString( "00000001" ) );
         QCOMPARE( f3.evaluate( record1, variables ), QString( "-0000001" ) );
@@ -357,7 +357,7 @@ void TestSubstitutionField::newLineEvaluation()
         using namespace glabels;
 
         model::Variables variables;
-        
+
         model::SubstitutionField addr2( "${ADDR2:n}" );
         QCOMPARE( addr2.fieldName(),    QString( "ADDR2" ) );
         QCOMPARE( addr2.newLine(),      true );
@@ -367,7 +367,7 @@ void TestSubstitutionField::newLineEvaluation()
 
         merge::Record record2;
         record2[ "ADDR2" ] = ""; // ADDR2 Empty
-        
+
         merge::Record record3;
         // ADDR2 not defined
 

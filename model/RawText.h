@@ -56,13 +56,13 @@ namespace glabels
                         bool hasPlaceHolders() const;
                         bool isEmpty() const;
 
-                
+
                         /////////////////////////////////
                         // Private Methods
                         /////////////////////////////////
                 private:
                         void tokenize();
-                
+
                         /////////////////////////////////
                         // Private Data
                         /////////////////////////////////
@@ -75,7 +75,7 @@ namespace glabels
                                 QString           text;
                                 SubstitutionField field;
                         };
-                
+
                         QList<Token> mTokens;
 
                 };

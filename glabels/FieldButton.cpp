@@ -34,7 +34,7 @@ namespace glabels
         {
                 setEnabled( false );
                 setMenu( &mMenu );
-                
+
                 connect( &mMenu, SIGNAL(triggered(QAction*)),
                          this, SLOT(onMenuActionTriggered(QAction*)) );
         }
@@ -48,7 +48,7 @@ namespace glabels
         {
                 // Clear old keys
                 mMenu.clear();
-                
+
                 // Add merge keys, if any
                 mMenu.addSection( tr("Merge fields") );
                 for ( auto& key : merge->keys() )

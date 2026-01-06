@@ -117,7 +117,7 @@ namespace glbarcode
                 {
                         d->painter->setPen( QPen( Qt::NoPen ) );
                         d->painter->setBrush( QBrush( d->color ) );
-                
+
                         d->painter->drawRect( QRectF(x, y, w, h) );
                 }
         }
@@ -145,7 +145,7 @@ namespace glbarcode
                                 xCorner -= fm.horizontalAdvance( QString::fromStdString(text) );
                         }
                         double yCorner = y - fm.ascent();
-                
+
                         QTextLayout layout( QString::fromStdString(text), font );
                         layout.beginLayout();
                         layout.createLine();
@@ -161,7 +161,7 @@ namespace glbarcode
                 {
                         d->painter->setPen( QPen( d->color, w ) );
                         d->painter->setBrush( w ? Qt::NoBrush : QBrush( d->color ) );
-                
+
                         d->painter->drawEllipse( QPointF(x, y), r, r );
                 }
         }
@@ -173,7 +173,7 @@ namespace glbarcode
                 {
                         d->painter->setPen( QPen( Qt::NoPen ) );
                         d->painter->setBrush( QBrush( d->color ) );
-                
+
                         QPolygonF hexagon;
                         hexagon << QPointF( x,           y          )
                                 << QPointF( x + 0.433*h, y + 0.25*h )

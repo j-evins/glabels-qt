@@ -66,7 +66,7 @@ namespace glbarcode
         void Factory::init( )
         {
                 static Factory* singletonInstance = nullptr;
-                
+
                 if ( singletonInstance == nullptr )
                 {
                         singletonInstance = new Factory();

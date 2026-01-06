@@ -50,7 +50,7 @@ namespace glabels
                         static Units pc();
 
                         Enum toEnum() const;
-                
+
                         QString toIdString() const;
                         QString toTrName() const;
 
@@ -59,7 +59,7 @@ namespace glabels
 
                         static bool isIdValid( const QString& unitsId );
 
-                
+
                 private:
                         Enum mEnumValue;
 

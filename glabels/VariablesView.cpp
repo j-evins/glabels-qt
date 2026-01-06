@@ -92,7 +92,7 @@ namespace glabels
 
                 updateControls();
                 loadTable();
-                
+
                 connect( mModel, SIGNAL(variablesChanged()), this, SLOT(onVariablesChanged()) );
         }
 
@@ -136,11 +136,11 @@ namespace glabels
         {
                 int iRow = table->selectedItems()[0]->row();
                 QString name = table->item( iRow, I_COL_NAME )->text();
-                
+
                 if ( mModel->variables().hasVariable( name ) )
                 {
                         model::Variable v = mModel->variables().value( name );
-                
+
                         EditVariableDialog dialog( this );
                         dialog.setVariable( v );
                         dialog.setWindowTitle( tr("Edit Variable") );
@@ -160,7 +160,7 @@ namespace glabels
         void VariablesView::onDeleteButtonClicked()
         {
                 int iRow = table->selectedItems()[0]->row();
-                
+
                 QString name = table->item( iRow, I_COL_NAME )->text();
                 mModel->variables().deleteVariable( name );
         }
@@ -202,19 +202,19 @@ namespace glabels
                         auto* typeItem = new QTableWidgetItem( model::Variable::typeToI18nString(v.type()) );
                         typeItem->setFlags( typeItem->flags() ^ Qt::ItemIsEditable );
                         table->setItem( iRow, I_COL_TYPE, typeItem );
-                        
+
                         auto* nameItem = new QTableWidgetItem( v.name() );
                         nameItem->setFlags( nameItem->flags() ^ Qt::ItemIsEditable );
                         table->setItem( iRow, I_COL_NAME, nameItem );
-                        
+
                         auto* valueItem = new QTableWidgetItem( v.initialValue() );
                         valueItem->setFlags( valueItem->flags() ^ Qt::ItemIsEditable );
                         table->setItem( iRow, I_COL_VALUE, valueItem );
-                        
+
                         auto* incrementItem = new QTableWidgetItem( model::Variable::incrementToI18nString(v.increment()) );
                         incrementItem->setFlags( incrementItem->flags() ^ Qt::ItemIsEditable );
                         table->setItem( iRow, I_COL_INCREMENT, incrementItem );
-                        
+
                         auto* stepSizeItem = new QTableWidgetItem( v.stepSize() );
                         stepSizeItem->setFlags( stepSizeItem->flags() ^ Qt::ItemIsEditable );
                         table->setItem( iRow, I_COL_STEP_SIZE, stepSizeItem );

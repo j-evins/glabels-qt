@@ -96,7 +96,7 @@ namespace glabels
                         mFillColorNode   = fillColorNode;
                 }
 
-        
+
                 ///
                 /// Copy constructor
                 ///
@@ -150,7 +150,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Fill Color Node Property Getter
@@ -172,7 +172,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Can Fill Capability Implementation

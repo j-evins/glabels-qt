@@ -35,9 +35,9 @@ namespace glbarcode
          *
          * @image html sample-postnet-11.svg "Sample 11 digit USPS POSTNET Barcode"
          *
-         * 
+         *
          * ### Input Data Format ###
-         * 
+         *
          * Input data requirements are identical to BarcodePostnet, except the
          * validator only accepts 11 digits (ZIP+4+DC) of input.
          *

@@ -78,7 +78,7 @@ namespace glabels
                 formatCombo->setCurrentIndex( index );
 
                 QString fn;
-                
+
                 switch ( merge::Factory::idToType( mModel->merge()->id() ) )
                 {
                 case merge::Factory::NONE:

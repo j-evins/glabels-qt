@@ -27,7 +27,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// Simple Preview Widget
         ///

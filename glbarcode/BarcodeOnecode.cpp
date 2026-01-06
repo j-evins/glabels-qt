@@ -543,7 +543,7 @@ namespace glbarcode
                                 // Not reached
                                 break;
                         }
-                        
+
                         double width = ONECODE_BAR_WIDTH;
 
                         addLine( x, y, width, length );

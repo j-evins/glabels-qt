@@ -225,7 +225,7 @@ void TestXmlUtil::getWeightAttr()
         QCOMPARE( XmlUtil::getWeightAttr( node, "a", QFont::Bold ),   QFont::Bold );
         QCOMPARE( XmlUtil::getWeightAttr( node, "b", QFont::Normal ), QFont::Normal );
         QCOMPARE( XmlUtil::getWeightAttr( node, "b", QFont::Bold ),   QFont::Normal );
-        
+
         // bad value, use default
         QCOMPARE( XmlUtil::getWeightAttr( node, "c", QFont::Normal ), QFont::Normal );
         QCOMPARE( XmlUtil::getWeightAttr( node, "c", QFont::Bold ),   QFont::Bold );
@@ -258,7 +258,7 @@ void TestXmlUtil::getAlignmentAttr()
         QCOMPARE( XmlUtil::getAlignmentAttr( node, "d", Qt::AlignTop ),    Qt::AlignBottom );
         QCOMPARE( XmlUtil::getAlignmentAttr( node, "e", Qt::AlignTop ),    Qt::AlignVCenter );
         QCOMPARE( XmlUtil::getAlignmentAttr( node, "f", Qt::AlignBottom ), Qt::AlignTop );
-        
+
         // bad value, use default
         QCOMPARE( XmlUtil::getAlignmentAttr( node, "g", Qt::AlignTop ),    Qt::AlignTop );
         QCOMPARE( XmlUtil::getAlignmentAttr( node, "g", Qt::AlignLeft ),   Qt::AlignLeft );
@@ -287,7 +287,7 @@ void TestXmlUtil::getWrapModeAttr()
         QCOMPARE( XmlUtil::getWrapModeAttr( node, "a", QTextOption::NoWrap ),       QTextOption::WordWrap );
         QCOMPARE( XmlUtil::getWrapModeAttr( node, "b", QTextOption::NoWrap ),       QTextOption::WrapAnywhere );
         QCOMPARE( XmlUtil::getWrapModeAttr( node, "c", QTextOption::WordWrap ),     QTextOption::NoWrap );
-        
+
         // bad value, use default
         QCOMPARE( XmlUtil::getWrapModeAttr( node, "d", QTextOption::NoWrap ),       QTextOption::NoWrap );
         QCOMPARE( XmlUtil::getWrapModeAttr( node, "d", QTextOption::WordWrap ),     QTextOption::WordWrap );

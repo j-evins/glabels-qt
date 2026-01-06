@@ -57,7 +57,7 @@ namespace glabels
                 {
                         auto* model = new model::Model();
                         model->setTmplate( tmplate );
-                        
+
                         // Intelligently decide to rotate label by default
                         auto frame = tmplate.frame();
                         model->setRotate( frame->h() > frame->w() );
@@ -100,7 +100,7 @@ namespace glabels
                                 cwd = fileInfo.absolutePath();
                         }
                 }
-        
+
                 QString fileName =
                         QFileDialog::getOpenFileName( window,
                                                       tr("gLabels - Open Project"),
@@ -223,7 +223,7 @@ namespace glabels
                                 cwd = fileInfo.filePath();
                         }
                 }
-        
+
                 QString rawFileName =
                         QFileDialog::getSaveFileName( window,
                                                       tr("gLabels - Save Project As"),
@@ -234,8 +234,8 @@ namespace glabels
                 if ( !rawFileName.isEmpty() )
                 {
                         QString fileName = model::FileUtil::addExtension( rawFileName, ".glabels" );
-                        
-                        
+
+
                         if ( QFileInfo::exists(fileName) )
                         {
                                 QMessageBox msgBox( window );
@@ -251,10 +251,10 @@ namespace glabels
                                         return saveAs( window );
                                 }
                         }
-                        
+
                         model::XmlLabelCreator::writeFile( window->model(), fileName );
                         model::Settings::addToRecentFileList( window->model()->fileName() );
-                
+
                         // Save CWD
                         mCwd = QFileInfo( fileName ).absolutePath();
 

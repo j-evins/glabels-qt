@@ -40,7 +40,7 @@ namespace glabels
 {
         namespace model
         {
-        
+
                 class Frame
                 {
                         Q_DECLARE_TR_FUNCTIONS(Frame)

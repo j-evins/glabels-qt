@@ -200,7 +200,7 @@ namespace glbarcode
                 {
                         minL = (dataSize + 3)*(3*N + 6)*MIN_X + (dataSize + 2)*MIN_I;
                 }
-        
+
                 double scale;
                 if ( w == 0 )
                 {
@@ -233,7 +233,7 @@ namespace glbarcode
                 for (char c : codedData)
                 {
                         double lwidth;
-                                
+
                         switch ( c )
                         {
 

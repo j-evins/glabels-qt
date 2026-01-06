@@ -28,7 +28,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// Painter path for "Roll" templates
         ///

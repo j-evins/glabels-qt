@@ -40,14 +40,14 @@ namespace glabels
 {
         namespace model
         {
-        
+
                 //
                 // Private
                 //
                 namespace
                 {
                         const QString    empty = "";
-        
+
                         bool partNameLessThan( const Template& a, const Template& b )
                         {
                                 return StrUtil::comparePartNames( a.name(), b.name() ) < 0;
@@ -79,7 +79,7 @@ namespace glabels
 
                 QMap<QString,Template> Db::mUserTemplatesNameMap;
 
-        
+
                 void Db::init()
                 {
                         readPapers();
@@ -88,7 +88,7 @@ namespace glabels
                         readTemplates();
                 }
 
-        
+
                 const QList<Paper>& Db::papers()
                 {
                         return mPapers;

@@ -45,12 +45,12 @@ namespace glabels
                 setupUi( this );
 
                 titleLabel->setText( QString( "<span style='font-size:18pt;'>%1</span>" ).arg( tr("Print") ) );
-                
+
                 auto* printerMonitor = PrinterMonitor::instance();
                 loadDestinations( printerMonitor->availablePrinters() );
                 connect( printerMonitor, SIGNAL(availablePrintersChanged(QStringList)),
                          this, SLOT(onAvailablePrintersChanged(QStringList)) );
-                
+
                 setDestination( model::Settings::recentPrinter() );
 
                 preview->setRenderer( &mRenderer );
@@ -137,7 +137,7 @@ namespace glabels
                 if ( !mBlocked )
                 {
                         mBlocked = true;
-                        
+
                         if ( mModel->merge()->keys().empty() )
                         {
                                 // Simple project (no merge)
@@ -185,7 +185,7 @@ namespace glabels
 
                                 mergeCollateCombo->setEnabled ( isMultipleCopies );
                                 mergeGroupCombo->setEnabled ( isMultipleCopies );
-                                
+
                                 mRenderer.setNCopies( mergeCopiesSpin->value() );
                                 mRenderer.setIsCollated( mergeCollateCombo->currentIndex() == 1 );
                                 mRenderer.setAreGroupsContiguous( mergeGroupCombo->currentIndex() == 0 );
@@ -197,7 +197,7 @@ namespace glabels
                         mRenderer.setPrintReverse( printReverseCheck->isChecked() );
 
                         updateView();
-                
+
                         mBlocked = false;
                 }
         }
@@ -247,7 +247,7 @@ namespace glabels
                                                 return;
                                         }
                                 }
-                        
+
                                 printer.setOutputFileName( fileName );
                                 printer.setOutputFormat( QPrinter::PdfFormat );
                                 mRenderer.print( &printer );
@@ -291,7 +291,7 @@ namespace glabels
         void PrintView::loadDestinations( const QStringList& printers )
         {
                 destinationCombo->blockSignals( true );
-                
+
                 destinationCombo->clear();
                 for ( auto& printerName : printers )
                 {
@@ -303,7 +303,7 @@ namespace glabels
                         destinationCombo->insertSeparator( destinationCombo->count() );
                 }
                 destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
-                
+
                 destinationCombo->blockSignals( false );
         }
 

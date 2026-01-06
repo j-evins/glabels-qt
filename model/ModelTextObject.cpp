@@ -161,7 +161,7 @@ namespace glabels
                         update(); // Initialize cached editor layouts
                 }
 
-        
+
                 ///
                 /// Copy constructor
                 ///
@@ -363,7 +363,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// TextHAlign Property Getter
@@ -509,7 +509,7 @@ namespace glabels
                         for ( int i = 0; i < document.blockCount(); i++ )
                         {
                                 QTextLayout layout( document.findBlockByNumber(i).text() );
-                
+
                                 layout.setFont( font );
                                 layout.setTextOption( textOption );
                                 layout.setCacheEnabled(true);
@@ -564,7 +564,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 ///
                 /// Draw object itself
                 ///
@@ -636,7 +636,7 @@ namespace glabels
                         for ( int i = 0; i < document.blockCount(); i++ )
                         {
                                 QTextLayout* layout = new QTextLayout( document.findBlockByNumber(i).text() );
-                
+
                                 layout->setFont( font );
                                 layout->setTextOption( textOption );
                                 layout->setCacheEnabled(true);
@@ -683,7 +683,7 @@ namespace glabels
                                         hoverPath.addRect( l.naturalTextRect() ); // add to new hover path
                                 }
                         }
-        
+
                         mHoverPath = hoverPath; // save new hover path
                 }
 
@@ -696,7 +696,7 @@ namespace glabels
                         painter->save();
 
                         painter->setClipRect( QRectF( 0, 0, mW.pt(), mH.pt() ) );
-                        
+
                         if ( mText.isEmpty() )
                         {
                                 QColor mutedColor = color;
@@ -729,7 +729,7 @@ namespace glabels
                         painter->save();
 
                         painter->setClipRect( QRectF( 0, 0, mW.pt(), mH.pt() ) );
-                        
+
                         QFont font;
                         font.setFamily( mFontFamily );
                         font.setPixelSize( pixelSize( mTextAutoShrink ? autoShrinkFontSize( record, variables ) : mFontSize ) );
@@ -755,7 +755,7 @@ namespace glabels
                         for ( int i = 0; i < document.blockCount(); i++ )
                         {
                                 QTextLayout* layout = new QTextLayout( document.findBlockByNumber(i).text() );
-                
+
                                 layout->setFont( font );
                                 layout->setTextOption( textOption );
                                 layout->setCacheEnabled(true);
@@ -849,7 +849,7 @@ namespace glabels
                                 for ( int i = 0; i < document.blockCount(); i++ )
                                 {
                                         QTextLayout layout( document.findBlockByNumber(i).text() );
-                
+
                                         layout.setFont( font );
                                         layout.setTextOption( textOption );
                                         layout.setCacheEnabled(true);

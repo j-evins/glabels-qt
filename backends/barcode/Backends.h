@@ -34,7 +34,7 @@ namespace glabels
 {
         namespace barcode
         {
-        
+
                 ///
                 ///  Backends Database
                 ///
@@ -42,7 +42,7 @@ namespace glabels
                 {
                         Q_OBJECT
 
-          
+
                         /////////////////////////////////
                         // Life Cycle
                         /////////////////////////////////

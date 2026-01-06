@@ -149,7 +149,7 @@ namespace glabels
 
                 switch ( mode )
                 {
-                        
+
                 case QListView::IconMode:
                         setItemDelegate( new QStyledItemDelegate() ); // Use default delegate
                         setViewMode( QListView::IconMode );
@@ -161,7 +161,7 @@ namespace glabels
                         setViewMode( QListView::ListMode );
                         setSpacing( 8 );
                         break;
-                        
+
                 default:
                         qWarning() << "TemplatePicker: unknown mode!";
                         break;
@@ -175,7 +175,7 @@ namespace glabels
                 }
         }
 
-        
+
         ///
         /// Get current View Mode
         ///
@@ -197,7 +197,7 @@ namespace glabels
                         if ( auto* tItem = dynamic_cast<TemplatePickerItem *>( mModel->item( i, 0 ) ) )
                         {
                                 bool nameMask = tItem->tmplate().name().contains( searchString, Qt::CaseInsensitive );
-                
+
                                 bool sizeMask =
                                         (isoMask   && tItem->tmplate().isSizeIso())   ||
                                         (usMask    && tItem->tmplate().isSizeUs())    ||
@@ -216,7 +216,7 @@ namespace glabels
                                                 categoryMask = categoryMask || tItem->tmplate().hasCategory( id );
                                         }
                                 }
-                
+
 
                                 if (  nameMask && sizeMask && categoryMask )
                                 {

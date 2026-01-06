@@ -77,20 +77,20 @@ namespace glabels
                         friend inline Distance operator*( Distance d, double x );
                         friend inline double   operator/( Distance d1, Distance d2 );
                         friend inline Distance operator/( Distance d, double x );
-                
+
                         friend inline bool operator<( Distance d1, Distance d2 );
                         friend inline bool operator<=( Distance d1, Distance d2 );
                         friend inline bool operator>( Distance d1, Distance d2 );
                         friend inline bool operator>=( Distance d1, Distance d2 );
                         friend inline bool operator==( Distance d1, Distance d2 );
                         friend inline bool operator!=( Distance d1, Distance d2 );
-                
+
                         friend inline Distance fabs( Distance d );
                         friend inline Distance min( Distance d1, Distance d2 );
                         friend inline Distance max( Distance d1, Distance d2 );
                         friend inline Distance fmod( Distance d1, Distance d2 );
 
-                
+
                 private:
                         double mDPts;
 
@@ -107,7 +107,7 @@ QDebug operator<<( QDebug dbg, const glabels::model::Distance distance );
 //
 // Inline methods
 //
-        
+
 #include "Constants.h"
 
 namespace glabels
@@ -119,7 +119,7 @@ namespace glabels
                 {
                 }
 
-        
+
                 inline Distance Distance::pt( double dPts )
                 {
                         Distance d;
@@ -164,25 +164,25 @@ namespace glabels
                 {
                         return mDPts;
                 }
-        
+
 
                 inline double Distance::in() const
                 {
                         return mDPts / PTS_PER_INCH;
                 }
-        
+
 
                 inline double Distance::mm() const
                 {
                         return mDPts / PTS_PER_MM;
                 }
-        
+
 
                 inline double Distance::cm() const
                 {
                         return mDPts / PTS_PER_CM;
                 }
-        
+
 
                 inline double Distance::pc() const
                 {
@@ -196,38 +196,38 @@ namespace glabels
                         return *this;
                 }
 
-        
+
                 inline Distance& Distance::operator-=( Distance d )
                 {
                         mDPts -= d.mDPts;
                         return *this;
                 }
 
-        
+
                 inline Distance& Distance::operator*=( double f )
                 {
                         mDPts *= f;
                         return *this;
                 }
 
-        
+
                 inline Distance Distance::operator-()
                 {
                         return Distance::pt( -mDPts );
                 }
 
-        
+
                 inline Distance operator+( Distance d1, Distance d2 )
                 {
                         return Distance::pt( d1.mDPts + d2.mDPts );
                 }
-        
+
 
                 inline Distance operator-( Distance d1, Distance d2 )
                 {
                         return Distance::pt( d1.mDPts - d2.mDPts );
                 }
-        
+
 
                 inline Distance operator*( double x, Distance d )
                 {
@@ -240,7 +240,7 @@ namespace glabels
                         return Distance::pt( d.mDPts * x );
                 }
 
-        
+
                 inline double operator/( Distance d1, Distance d2 )
                 {
                         return d1.mDPts / d2.mDPts;
@@ -257,25 +257,25 @@ namespace glabels
                 {
                         return d1.mDPts < d2.mDPts;
                 }
-        
+
 
                 inline bool operator<=( Distance d1, Distance d2 )
                 {
                         return d1.mDPts <= d2.mDPts;
                 }
-        
+
 
                 inline bool operator>( Distance d1, Distance d2 )
                 {
                         return d1.mDPts > d2.mDPts;
                 }
-        
+
 
                 inline bool operator>=( Distance d1, Distance d2 )
                 {
                         return d1.mDPts >= d2.mDPts;
                 }
-        
+
 
                 inline bool operator==( Distance d1, Distance d2 )
                 {
@@ -294,13 +294,13 @@ namespace glabels
                         return Distance::pt( qFabs( d.mDPts ) );
                 }
 
-        
+
                 inline Distance min( Distance d1, Distance d2 )
                 {
                         return (d1.mDPts < d2.mDPts) ? d1 : d2;
                 }
 
-        
+
                 inline Distance max( Distance d1, Distance d2 )
                 {
                         return (d1.mDPts > d2.mDPts) ? d1 : d2;

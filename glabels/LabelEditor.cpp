@@ -256,7 +256,7 @@ namespace glabels
         {
                 double wPixels = mScrollArea->maximumViewportSize().width();
                 double hPixels = mScrollArea->maximumViewportSize().height();
-        
+
                 double x_scale = ( wPixels - ZOOM_TO_FIT_PAD ) / mModel->w().pt();
                 double y_scale = ( hPixels - ZOOM_TO_FIT_PAD ) / mModel->h().pt();
                 double newZoom = qMin( x_scale, y_scale ) * model::PTS_PER_INCH / physicalDpiX();
@@ -448,7 +448,7 @@ namespace glabels
                         model::Distance xWorld = model::Distance::pt( pWorld.x() );
                         model::Distance yWorld = model::Distance::pt( pWorld.y() );
 
-                
+
                         if ( event->button() & Qt::LeftButton )
                         {
                                 //
@@ -543,7 +543,7 @@ namespace glabels
                                         case Ellipse:
                                                 mCreateObject = new model::ModelEllipseObject();
                                                 break;
-                                        case Line: 
+                                        case Line:
                                                 mCreateObject = new model::ModelLineObject();
                                                 break;
                                         case Image:
@@ -574,7 +574,7 @@ namespace glabels
                                 }
                                 break;
 
-                                
+
                                 default:
                                 {
                                         qDebug() << "LabelEditor::mousePressEvent: Invalid state. Should not happen!";
@@ -618,7 +618,7 @@ namespace glabels
                         model::Distance xWorld = model::Distance::pt( pWorld.x() );
                         model::Distance yWorld = model::Distance::pt( pWorld.y() );
 
-                
+
                         /*
                          * Emit signal regardless of mode
                          */
@@ -681,7 +681,7 @@ namespace glabels
                                                                     min( yWorld, mCreateY0 ) );
                                         mCreateObject->setSize( max(xWorld,mCreateX0) - min(xWorld,mCreateX0),
                                                                 max(yWorld,mCreateY0) - min(yWorld,mCreateY0) );
-                                                                
+
                                         break;
                                 case Line:
                                         mCreateObject->setSize( xWorld - mCreateX0, yWorld - mCreateY0 );
@@ -721,7 +721,7 @@ namespace glabels
                         model::Distance xWorld = model::Distance::pt( pWorld.x() );
                         model::Distance yWorld = model::Distance::pt( pWorld.y() );
 
-                
+
                         if ( event->button() & Qt::LeftButton )
                         {
                                 //
@@ -801,7 +801,7 @@ namespace glabels
                                          model::Distance yWorld )
         {
                 QPointF p( xWorld.pt(), yWorld.pt() );
-        
+
                 /*
                  * Change point to object relative coordinates
                  */
@@ -983,7 +983,7 @@ namespace glabels
                         default:
                                 QWidget::keyPressEvent( event );
                                 break;
-                        
+
                         }
                 }
                 else
@@ -1006,7 +1006,7 @@ namespace glabels
                         painter.setRenderHint( QPainter::Antialiasing, true );
                         painter.setRenderHint( QPainter::TextAntialiasing, true );
                         painter.setRenderHint( QPainter::SmoothPixmapTransform, true );
-                
+
                         /* Fill background before any transformations */
                         painter.setBrush( QBrush( backgroundColor ) );
                         painter.setPen( Qt::NoPen );
@@ -1164,7 +1164,7 @@ namespace glabels
                         auto gridOrigin  = model::Settings::gridOrigin();
 
                         bool isRectangular = dynamic_cast<const model::FrameRect*>( mModel->frame() );
-                        
+
                         model::Distance w = mModel->frame()->w();
                         model::Distance h = mModel->frame()->h();
 
@@ -1218,7 +1218,7 @@ namespace glabels
 
                         QPen pen( markupLineColor, markupLineWidthPixels );
                         pen.setCosmetic( true );
-                
+
                         painter->setBrush( Qt::NoBrush );
                         painter->setPen( pen );
 
@@ -1311,7 +1311,7 @@ namespace glabels
                         painter->setPen( pen );
 
                         painter->drawRect( mSelectRegion.rect() );
-                
+
                         painter->restore();
                 }
 
@@ -1324,7 +1324,7 @@ namespace glabels
         void LabelEditor::onSettingsChanged()
         {
                 model::Units units = model::Settings::units();
-        
+
                 mStepSize = model::Distance( units.resolution(), units );
 
                 update();
@@ -1340,7 +1340,7 @@ namespace glabels
                 {
                         double wPixels = mScrollArea->maximumViewportSize().width();
                         double hPixels = mScrollArea->maximumViewportSize().height();
-        
+
                         double x_scale = ( wPixels - ZOOM_TO_FIT_PAD ) / mModel->w().pt();
                         double y_scale = ( hPixels - ZOOM_TO_FIT_PAD ) / mModel->h().pt();
                         double newZoom = qMin( x_scale, y_scale ) * model::PTS_PER_INCH / physicalDpiX();

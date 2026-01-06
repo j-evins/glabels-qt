@@ -50,7 +50,7 @@ namespace glabels
                         {
                                 addLayout( layout );
                         }
-                
+
                         for ( const auto& markup : other.mMarkups )
                         {
                                 mMarkups.push_back( markup->clone() );
@@ -63,30 +63,30 @@ namespace glabels
                         return mId;
                 }
 
-        
+
                 int Frame::nLabels() const
                 {
                         return mNLabels;
                 }
 
-        
+
                 QString Frame::layoutDescription() const
                 {
                         return mLayoutDescription;
                 }
 
-        
+
                 const std::list<Layout>& Frame::layouts() const
                 {
                         return mLayouts;
                 }
 
-        
+
                 const std::list<std::unique_ptr<Markup>>& Frame::markups() const
                 {
                         return mMarkups;
                 }
-        
+
 
                 QVector<Point> Frame::getOrigins() const
                 {

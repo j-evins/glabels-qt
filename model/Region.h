@@ -47,7 +47,7 @@ namespace glabels
                                 Distance y1,
                                 Distance x2,
                                 Distance y2 );
-        
+
 
                         /////////////////////////////////
                         // Properties

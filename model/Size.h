@@ -44,7 +44,7 @@ namespace glabels
                 public:
                         Size();
                         Size( Distance w, Distance h );
-        
+
 
                         /////////////////////////////////
                         // Properties

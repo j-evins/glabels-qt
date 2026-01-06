@@ -160,33 +160,33 @@ namespace glabels
 
 
                 ///
-                /// Parse line.                                                     
-                ///                                                                           
-                /// Attempt to be a robust parser of various CSV (and similar) formats.       
-                ///                                                                           
-                /// Based on CSV format described in RFC 4180 section 2.                      
-                ///                                                                           
-                /// Additions to RFC 4180 rules:                                              
-                ///   - delimeters and other special characters may be "escaped" by a leading 
-                ///     backslash (\)                                                         
-                ///   - C escape sequences for newline (\n) and tab (\t) are also translated. 
-                ///   - if quoted text is not followed by a delimeter, any additional text is 
-                ///     concatenated with quoted portion.                                     
-                ///                                                                           
-                /// Returns a list of fields.  A blank line is considered a line with one     
-                /// empty field.  Returns an empty list when done.                             
+                /// Parse line.
+                ///
+                /// Attempt to be a robust parser of various CSV (and similar) formats.
+                ///
+                /// Based on CSV format described in RFC 4180 section 2.
+                ///
+                /// Additions to RFC 4180 rules:
+                ///   - delimeters and other special characters may be "escaped" by a leading
+                ///     backslash (\)
+                ///   - C escape sequences for newline (\n) and tab (\t) are also translated.
+                ///   - if quoted text is not followed by a delimeter, any additional text is
+                ///     concatenated with quoted portion.
+                ///
+                /// Returns a list of fields.  A blank line is considered a line with one
+                /// empty field.  Returns an empty list when done.
                 ///
                 QStringList Text::parseLine()
                 {
                         QStringList fields;
-        
+
                         enum State
                         {
                                 DELIM, QUOTED, QUOTED_QUOTE1, QUOTED_ESCAPED, SIMPLE, SIMPLE_ESCAPED, DONE
                         } state = DELIM;
 
                         QByteArray field;
-        
+
                         while ( state != DONE )
                         {
                                 char c;
@@ -406,11 +406,11 @@ namespace glabels
                                                 qWarning( "merge::Text::parseLine()::Should not be reached! #2" );
                                                 break;
                                         }
-                        
+
                                         state = DONE;
                                 }
                         }
-        
+
 
                         return fields;
                 }

@@ -49,7 +49,7 @@ namespace glabels
                         tokenize();
                 }
 
-        
+
                 ///
                 /// Access as QString
                 ///
@@ -57,7 +57,7 @@ namespace glabels
                 {
                         return mString;
                 }
-        
+
 
                 ///
                 /// Access as std::string
@@ -66,7 +66,7 @@ namespace glabels
                 {
                         return mString.toStdString();
                 }
-        
+
 
                 ///
                 /// Expand all place holders
@@ -74,7 +74,7 @@ namespace glabels
                 QString RawText::expand( const merge::Record& record, const Variables& variables ) const
                 {
                         QString text;
-                
+
                         for ( const Token& token : mTokens )
                         {
                                 if ( token.isField )
@@ -129,7 +129,7 @@ namespace glabels
                                                 token.isField = false;
                                                 mTokens.append( token );
                                         }
-                                
+
                                         // Create and finalize field token
                                         token.isField = true;
                                         token.text = "";
@@ -149,9 +149,9 @@ namespace glabels
                                 token.isField = false;
                                 mTokens.append( token );
                         }
-                                
+
                 }
 
-        
+
         }
 }

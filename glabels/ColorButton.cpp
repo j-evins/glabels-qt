@@ -29,7 +29,7 @@
 
 namespace glabels
 {
-        
+
         //
         // Private
         //
@@ -177,7 +177,7 @@ namespace glabels
                         setIcon( QIcon( ColorSwatch( SWATCH_W, SWATCH_H, colorNode.color() ) ) );
                         setText( "" );
                 }
-                
+
                 emit colorChanged();
         }
 

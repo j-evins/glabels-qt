@@ -87,7 +87,7 @@ namespace glabels
                                           const ColorNode&  shadowColorNode = ColorNode() );
 
                         ModelImageObject( const ModelImageObject* object );
-                
+
                         virtual ~ModelImageObject() = default;
 
 
@@ -124,7 +124,7 @@ namespace glabels
                         // Property: naturalSize
                         //
                         Size naturalSize() const override;
-        
+
 
                         ///////////////////////////////////////////////////////////////
                         // Capability Implementations
@@ -139,12 +139,12 @@ namespace glabels
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         void drawObject( QPainter*            painter,
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         QPainterPath hoverPath( double scale ) const override;
 
 
@@ -159,7 +159,7 @@ namespace glabels
 
                         QImage createShadowImage( const QImage& image,
                                                   const QColor& color ) const;
-        
+
 
                         ///////////////////////////////////////////////////////////////
                         // Private Members

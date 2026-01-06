@@ -34,7 +34,7 @@ namespace glabels
 
         // Forward references
         class UndoRedoModel;
-        
+
 
         ///
         /// merge::Merge Property Editor Widget
@@ -84,7 +84,7 @@ namespace glabels
                 /////////////////////////////////
         private:
                 QStringList  mMergeFormatNames;
-        
+
                 model::Model*  mModel;
                 UndoRedoModel* mUndoRedoModel;
 

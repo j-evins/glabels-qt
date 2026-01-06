@@ -117,7 +117,7 @@ namespace glabels
                         loadImage();
                 }
 
-        
+
                 ///
                 /// Constructor
                 ///
@@ -248,7 +248,7 @@ namespace glabels
                         {
                                 mFilenameNode = value;
                                 loadImage();
-                
+
                                 emit changed();
                         }
                 }
@@ -279,7 +279,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Image Property Setter
@@ -296,7 +296,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Image svg Property Getter
@@ -326,7 +326,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// naturalSize Property Getter (assumes 72 DPI, i.e. 1pixel == 1pt)
@@ -361,7 +361,7 @@ namespace glabels
                                                    const Variables&     variables ) const
                 {
                         QRectF destRect( 0, 0, mW.pt(), mH.pt() );
-        
+
                         QColor shadowColor = mShadowColorNode.color( record, variables );
                         shadowColor.setAlphaF( mShadowOpacity );
 
@@ -400,7 +400,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 ///
                 /// Draw object itself
                 ///
@@ -410,7 +410,7 @@ namespace glabels
                                                    const Variables&     variables ) const
                 {
                         QRectF destRect( 0, 0, mW.pt(), mH.pt() );
-        
+
                         if ( inEditor && (mFilenameNode.isField() || (mImage.isNull() && mSvg.isEmpty()) ) )
                         {
                                 //
@@ -451,7 +451,7 @@ namespace glabels
                                         // Render hole for text (font size may have changed above)
                                         fm = QFontMetricsF( font );
                                         textRect = fm.boundingRect( labelText );
-                
+
                                         QRectF holeRect( (mW.pt() - textRect.width())/2 - pad.pt(),
                                                          (mH.pt() - textRect.height())/2 - pad.pt(),
                                                          textRect.width() + 2*pad.pt(),
@@ -611,12 +611,12 @@ namespace glabels
                         int g = color.green();
                         int b = color.blue();
                         int a = color.alpha();
-                
+
                         QImage shadow = image;
                         for ( int iy = 0; iy < shadow.height(); iy++ )
                         {
                                 auto* scanLine = (QRgb*)shadow.scanLine( iy );
-                
+
                                 for ( int ix = 0; ix < shadow.width(); ix++ )
                                 {
                                         scanLine[ix] = qRgba( r, g, b, (a*qAlpha(scanLine[ix]))/255 );

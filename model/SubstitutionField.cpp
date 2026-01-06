@@ -108,7 +108,7 @@ namespace glabels
                 bool SubstitutionField::parse( ParserState& s, SubstitutionField& field )
                 {
                         ParserState sTmp = s;
-                
+
                         if ( sTmp.isNextSubString( "${" ) )
                         {
                                 sTmp.advanceChars( 2 );
@@ -142,7 +142,7 @@ namespace glabels
                 bool SubstitutionField::parseFieldName( ParserState& s, SubstitutionField& field )
                 {
                         bool success = false;
-                
+
                         while ( s.charsLeft() && (s[0].isPrint() && s[0] != ':' && s[0] != '}') )
                         {
                                 field.mFieldName.append( s[0] );
@@ -154,11 +154,11 @@ namespace glabels
                         return success;
                 }
 
-        
+
                 bool SubstitutionField::parseModifier( ParserState& s, SubstitutionField& field )
                 {
                         bool success = false;
-                
+
                         if ( s.charsLeft() && s[0] == '%' )
                         {
                                 s.advanceChars( 1 );
@@ -178,7 +178,7 @@ namespace glabels
                         return success;
                 }
 
-        
+
                 bool SubstitutionField::parseDefaultValueModifier( ParserState& s, SubstitutionField& field )
                 {
                         field.mDefaultValue.clear();
@@ -204,14 +204,14 @@ namespace glabels
                         return true;
                 }
 
-        
+
                 bool SubstitutionField::parseFormatModifier( ParserState& s, SubstitutionField& field )
                 {
                         field.mFormat = "%";
 
                         parseFormatFlags( s, field );
                         parseFormatWidth( s, field );
-                
+
                         if ( s.charsLeft() && s[0] == '.' )
                         {
                                 field.mFormat += ".";
@@ -224,7 +224,7 @@ namespace glabels
                         return true; // Don't let invalid formats kill entire SubstitutionField
                 }
 
-        
+
                 bool SubstitutionField::parseFormatFlags( ParserState& s, SubstitutionField& field )
                 {
                         while ( s.charsLeft() && QString( "-+ 0" ).contains( s[0] ) )
@@ -236,7 +236,7 @@ namespace glabels
                         return true;
                 }
 
-        
+
                 bool SubstitutionField::parseFormatWidth( ParserState& s, SubstitutionField& field )
                 {
                         return parseNaturalInteger( s, field );
@@ -248,7 +248,7 @@ namespace glabels
                         return parseNaturalInteger( s, field );
                 }
 
-        
+
                 bool SubstitutionField::parseFormatType( ParserState& s, SubstitutionField& field )
                 {
                         bool success = false;
@@ -264,7 +264,7 @@ namespace glabels
                         return success;
                 }
 
-        
+
                 bool SubstitutionField::parseNaturalInteger( ParserState& s, SubstitutionField& field )
                 {
                         bool success = false;
@@ -282,10 +282,10 @@ namespace glabels
 
                                 success = true;
                         }
-                
+
                         return success;
                 }
-        
+
 
                 bool SubstitutionField::parseNewLineModifier( ParserState& s, SubstitutionField& field )
                 {
@@ -293,18 +293,18 @@ namespace glabels
                         return true;
                 }
 
-        
+
                 QString SubstitutionField::formatValue( const QString& value ) const
                 {
                         switch (mFormatType.unicode())
                         {
-                                
+
                         case 'd':
                         case 'i':
                                 return QString::asprintf( mFormat.toStdString().c_str(),
                                                           value.toLongLong(nullptr,0) );
                                 break;
-                                
+
 
                         case 'u':
                         case 'x':
@@ -336,7 +336,7 @@ namespace glabels
 
                         }
                 }
-        
+
 
         }
 }

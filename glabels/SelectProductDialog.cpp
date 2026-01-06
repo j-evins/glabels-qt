@@ -32,7 +32,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// Constructor
         ///
@@ -51,7 +51,7 @@ namespace glabels
 
                 categoriesCheckContainer->setEnabled( !model::Settings::searchAllCategories() );
                 mCategoryIdList = model::Settings::searchCategoryList();
-        
+
                 auto categories = model::Db::categories();
                 for ( auto& category : categories )
                 {
@@ -77,7 +77,7 @@ namespace glabels
                         viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-grid" ) );
                         viewModeButton->setToolTip( tr( "Grid View" ) );
                 }
-                
+
                 auto tmplates = model::Db::templates();
                 templatePicker->setTemplates( tmplates );
 
@@ -89,7 +89,7 @@ namespace glabels
                 onModeTabChanged();
         }
 
-        
+
         ///
         /// Get selected template
         ///
@@ -236,7 +236,7 @@ namespace glabels
                         selectButton->setEnabled( false );
                         return;
                 }
-                
+
                 auto frame = tmplate.frame();
 
                 preview->setTemplate( tmplate );

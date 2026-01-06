@@ -68,8 +68,8 @@ namespace glabels
 
                                 int w = qrcode->width;
                                 encodedData.resize( w, w );
-                
-                
+
+
                                 for ( int iy = 0; iy < w; iy++ )
                                 {
                                         for ( int ix = 0; ix < w; ix++ )

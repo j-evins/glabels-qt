@@ -86,7 +86,7 @@ namespace glabels
                         mLineColorNode   = lineColorNode;
                 }
 
-        
+
                 ///
                 /// Copy constructor
                 ///
@@ -149,7 +149,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Can Line Color Capability Implementation
@@ -189,7 +189,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 ///
                 /// Draw object itself
                 ///
@@ -222,12 +222,12 @@ namespace glabels
                                 double lengthPts = sqrt( mW.pt()*mW.pt() + mH.pt()*mH.pt() );
                                 double dx = mH.pt() / lengthPts; // horizontal pitch of perpendicular line
                                 double dy = mW.pt() / lengthPts; // vertical pitch of perpendicular line
-        
+
                                 path.moveTo(           rPts*dx,         - rPts*dy );
                                 path.lineTo( mW.pt() + rPts*dx, mH.pt() - rPts*dy );
                                 path.lineTo( mW.pt() - rPts*dx, mH.pt() + rPts*dy );
                                 path.lineTo(         - rPts*dx,           rPts*dy );
-                
+
                                 path.closeSubpath();
                         }
 

@@ -74,7 +74,7 @@ namespace glabels
                 QList<Paper> XmlPaperParser::parseRootNode( const QDomElement &node )
                 {
                         QList<Paper> list;
-                        
+
                         for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
                         {
                                 if ( child.toElement().tagName() == "Paper-size" )

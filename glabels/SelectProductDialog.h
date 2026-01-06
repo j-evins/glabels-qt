@@ -27,7 +27,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// New Label Dialog Widget
         ///
@@ -63,13 +63,13 @@ namespace glabels
                 void onSelectButtonClicked();
                 void onCancelButtonClicked();
 
-                
+
                 /////////////////////////////////
                 // Private methods
                 /////////////////////////////////
         private:
                 void loadCategoryList();
-        
+
 
                 /////////////////////////////////
                 // Private data
@@ -80,7 +80,7 @@ namespace glabels
                 QStringList              mCategoryIdList;
 
                 bool                     mHasSelection { false };
-          
+
         };
 
 }

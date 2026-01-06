@@ -404,7 +404,7 @@ namespace glabels
                         XmlUtil::setLengthAttr( node, "y", object->y0() );
                 }
 
-        
+
                 void
                 XmlLabelCreator::createSizeAttrs( QDomElement &node, const ModelObject* object )
                 {
@@ -413,7 +413,7 @@ namespace glabels
                         XmlUtil::setBoolAttr( node, "lock_aspect_ratio", object->lockAspectRatio() );
                 }
 
-        
+
                 void
                 XmlLabelCreator::createLineAttrs( QDomElement &node, const ModelObject* object )
                 {
@@ -428,7 +428,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 void
                 XmlLabelCreator::createFillAttrs( QDomElement &node, const ModelObject* object )
                 {
@@ -447,7 +447,7 @@ namespace glabels
                 XmlLabelCreator::createAffineAttrs( QDomElement &node, const ModelObject* object )
                 {
                         QTransform a = object->matrix();
-        
+
                         XmlUtil::setDoubleAttr( node, "a0", a.m11() );
                         XmlUtil::setDoubleAttr( node, "a1", a.m12() );
                         XmlUtil::setDoubleAttr( node, "a2", a.m21() );
@@ -487,7 +487,7 @@ namespace glabels
 
                         QString id = model->merge()->id();
                         QString src = model->merge()->source();
-                        
+
                         XmlUtil::setStringAttr( node, "type", id );
 
                         switch ( merge::Factory::idToType( id ) )
@@ -534,13 +534,13 @@ namespace glabels
                         XmlUtil::setStringAttr( node, "type", Variable::typeToIdString( v.type() ) );
                         XmlUtil::setStringAttr( node, "name", v.name() );
                         XmlUtil::setStringAttr( node, "initialValue", v.initialValue() );
-                        
+
                         if ( (v.type() == Variable::Type::INTEGER) ||
                              (v.type() == Variable::Type::FLOATING_POINT) )
                         {
                                 XmlUtil::setStringAttr( node, "increment",
                                                         Variable::incrementToIdString( v.increment() ) );
-                                
+
                                 if ( v.increment() != Variable::Increment::NEVER )
                                 {
                                         XmlUtil::setStringAttr( node, "stepSize", v.stepSize() );

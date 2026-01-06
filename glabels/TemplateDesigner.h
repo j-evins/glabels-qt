@@ -51,7 +51,7 @@ namespace glabels
         class TemplateDesigner : public QWizard
         {
                 Q_OBJECT
-                
+
                 // My subpages are my friends :-)
                 friend class TemplateDesignerIntroPage;
                 friend class TemplateDesignerNamePage;
@@ -67,7 +67,7 @@ namespace glabels
                 friend class TemplateDesignerOneLayoutPage;
                 friend class TemplateDesignerTwoLayoutPage;
                 friend class TemplateDesignerApplyPage;
-        
+
 
                 /////////////////////////////////
                 // Life Cycle

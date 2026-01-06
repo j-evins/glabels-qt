@@ -37,7 +37,7 @@ namespace glbarcode
          *
          *
          * ### Input Data Format ###
-         * 
+         *
          * The *Code 39* specification defines 43 characters, consisting of upper
          * case letters (A-Z), decimal digits (0-9), space, and several special
          * characters (-.$/+%). The BarcodeCode39 validator will also accept
@@ -54,7 +54,7 @@ namespace glbarcode
          * By default, the check digit will not be generated.
          *
          * See setChecksum().
-         * 
+         *
          *
          * ### Show Text Property ###
          *

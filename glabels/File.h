@@ -53,7 +53,7 @@ namespace glabels
 
         private:
                 static QString mCwd;
-        
+
         };
 
 }

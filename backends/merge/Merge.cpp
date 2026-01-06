@@ -26,7 +26,7 @@ namespace glabels
 {
         namespace merge
         {
-        
+
                 ///
                 /// Constructor
                 ///
@@ -72,7 +72,7 @@ namespace glabels
                                 mRecordList.push_back( record );
                         }
                         close();
-                
+
                         emit sourceChanged();
                 }
 
@@ -146,7 +146,7 @@ namespace glabels
                         emit selectionChanged();
                 }
 
-        
+
                 ///
                 /// Unselect all records
                 ///
@@ -159,7 +159,7 @@ namespace glabels
                         emit selectionChanged();
                 }
 
-        
+
                 ///
                 /// Return count of selected records
                 ///

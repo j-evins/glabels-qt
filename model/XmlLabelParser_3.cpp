@@ -101,7 +101,7 @@ namespace glabels
                                         continue;
                                 }
                                 const QString tagName = childElement.tagName();
-                
+
                                 if ( tagName == "Template" )
                                 {
                                         auto tmplate = XmlTemplateParser().parseTemplateNode( childElement );
@@ -155,7 +155,7 @@ namespace glabels
                                         continue;
                                 }
                                 const QString tagName = childElement.tagName();
-                
+
                                 if ( tagName == "Object-box" )
                                 {
                                         list.append( parseObjectBoxNode( childElement ) );

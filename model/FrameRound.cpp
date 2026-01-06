@@ -43,26 +43,26 @@ namespace glabels
                         mClipPath.addEllipse( -mWaste.pt(), -mWaste.pt(),
                                               2*(mR+mWaste).pt(), 2*(mR+mWaste).pt() );
                 }
-        
+
 
                 std::unique_ptr<Frame> FrameRound::clone() const
                 {
                         return std::make_unique<FrameRound>( *this );
                 }
 
-        
+
                 Distance FrameRound::w() const
                 {
                         return 2*mR;
                 }
 
-        
+
                 Distance FrameRound::h() const
                 {
                         return 2*mR;
                 }
 
-        
+
                 Distance FrameRound::r() const
                 {
                         return mR;
@@ -134,9 +134,9 @@ namespace glabels
                 void FrameRound::print( QDebug& dbg ) const
                 {
                         dbg.nospace() << "FrameRound{ "
-                                      << id() << "," 
-                                      << r() << "," 
-                                      << waste() << "," 
+                                      << id() << ","
+                                      << r() << ","
+                                      << waste() << ","
                                       << "list{ ";
                         for ( auto& layout : layouts() )
                         {
@@ -155,4 +155,4 @@ namespace glabels
 
         }
 }
-                
+

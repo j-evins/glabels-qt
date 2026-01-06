@@ -36,7 +36,7 @@ namespace glabels
                 {
                 public:
                         Point();
-                
+
                         Point( Distance x, Distance y );
 
                         Distance x() const;

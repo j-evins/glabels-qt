@@ -497,7 +497,7 @@ void TestXmlLabel::parser_3ReadFile()
 
         Model* model = XmlLabelParser::readFile( glabelsFileInfo.absoluteFilePath() );
         QVERIFY( model );
-                
+
         QCOMPARE( model->fileName(), glabelsFileInfo.canonicalFilePath() );
 
         QCOMPARE( model->tmplate().brand(), QString( "Avery" ) );

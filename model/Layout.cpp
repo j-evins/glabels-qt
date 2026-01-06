@@ -46,37 +46,37 @@ namespace glabels
                         // empty
                 }
 
-        
+
                 int Layout::nx() const
                 {
                         return mNx;
                 }
 
-                
+
                 int Layout::ny() const
                 {
                         return mNy;
                 }
-                
+
 
                 Distance Layout::x0() const
                 {
                         return mX0;
                 }
 
-                
+
                 Distance Layout::y0() const
                 {
                         return mY0;
                 }
-                
+
 
                 Distance Layout::dx() const
                 {
                         return mDx;
                 }
 
-                
+
                 Distance Layout::dy() const
                 {
                         return mDy;
@@ -102,11 +102,11 @@ QDebug operator<<( QDebug dbg, const glabels::model::Layout& layout )
         QDebugStateSaver saver(dbg);
 
         dbg.nospace() << "Layout{ "
-                      << layout.nx() << "," 
-                      << layout.ny() << "," 
-                      << layout.x0() << "," 
-                      << layout.y0() << "," 
-                      << layout.dx() << "," 
+                      << layout.nx() << ","
+                      << layout.ny() << ","
+                      << layout.x0() << ","
+                      << layout.y0() << ","
+                      << layout.dx() << ","
                       << layout.dy()
                       << " }";
 

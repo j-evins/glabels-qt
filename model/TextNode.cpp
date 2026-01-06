@@ -110,8 +110,8 @@ namespace glabels
                                         const Variables&     variables ) const
                 {
                         QString value("");
-                        
-                        bool haveRecordField = mIsField && 
+
+                        bool haveRecordField = mIsField &&
                                 record.contains(mData) &&
                                 !record.value(mData).isEmpty();
                         bool haveVariable = mIsField &&

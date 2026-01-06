@@ -295,7 +295,7 @@ namespace glbarcode
                                        textX1Left, textX1Right, textY1,
                                        textX2Left, textX2Right, textY2 );
                 }
-                
+
 
                 /* Overwrite requested size with actual size. */
                 w = width;

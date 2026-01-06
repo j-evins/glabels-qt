@@ -44,7 +44,7 @@ namespace glabels
                           mOriginalUnits(originalUnits)
                 {
                         QRectF r = path.boundingRect();
-                        
+
                         mW = Distance::pt( r.width() );
                         mH = Distance::pt( r.height() );
 
@@ -52,7 +52,7 @@ namespace glabels
                                            r.width() + 2*mXWaste.pt(), r.height() + 2*mYWaste.pt() );
                 }
 
-        
+
                 std::unique_ptr<Frame> FramePath::clone() const
                 {
                         return std::make_unique<FramePath>( *this );
@@ -64,7 +64,7 @@ namespace glabels
                         return mW;
                 }
 
-        
+
                 Distance FramePath::h() const
                 {
                         return mH;
@@ -76,7 +76,7 @@ namespace glabels
                         return mXWaste;
                 }
 
-                
+
                 Distance FramePath::yWaste() const
                 {
                         return mYWaste;
@@ -142,10 +142,10 @@ namespace glabels
                 void FramePath::print( QDebug& dbg ) const
                 {
                         dbg.nospace() << "FramePath{ "
-                                      << id() << "," 
-                                      << path() << "," 
-                                      << xWaste() << "," 
-                                      << yWaste() << "," 
+                                      << id() << ","
+                                      << path() << ","
+                                      << xWaste() << ","
+                                      << yWaste() << ","
                                       << "list{ ";
                         for ( auto& layout : layouts() )
                         {

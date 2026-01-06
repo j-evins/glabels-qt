@@ -74,7 +74,7 @@ namespace glabels
 
                         return dir;
                 }
-                
+
 
                 QDir FileUtil::userTemplatesDir()
                 {
@@ -84,7 +84,7 @@ namespace glabels
 
                         return dir;
                 }
-                
+
 
                 QDir FileUtil::translationsDir()
                 {

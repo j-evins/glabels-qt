@@ -29,7 +29,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// Constructor
         ///
@@ -50,7 +50,7 @@ namespace glabels
                 for ( const QString& backendId : barcode::Backends::backendList() )
                 {
                         QMenu* subMenu = addMenu( barcode::Backends::backendName( backendId ) );
-                        
+
                         for ( const barcode::Style& bcStyle : barcode::Backends::styleList() )
                         {
                                 if ( bcStyle.backendId() == backendId )

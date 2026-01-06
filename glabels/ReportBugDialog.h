@@ -27,7 +27,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// "Report Bug" Dialog Widget
         ///

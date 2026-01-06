@@ -53,7 +53,7 @@ namespace glabels
                                          tr("None"),
                                          NONE,
                                          &None::create );
-        
+
                         registerBackend( TextCsv::id(),
                                          tr("Text: Comma Separated Values (CSV)"),
                                          FILE,
@@ -119,7 +119,7 @@ namespace glabels
                         {
                                 return iBackend->create();
                         }
-        
+
                         return None::create();
                 }
 
@@ -189,7 +189,7 @@ namespace glabels
                         if ( (index > 0) && (index < mNameList.size()) )
                         {
                                 QString name = mNameList[index];
-                        
+
                                 return mBackendNameMap[ name ].id;
                         }
 
@@ -211,7 +211,7 @@ namespace glabels
                         backend.name   = name;
                         backend.type   = type;
                         backend.create = create;
-        
+
                         mBackendIdMap[ id ]     = backend;
                         mBackendNameMap[ name ] = backend;
 

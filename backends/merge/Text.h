@@ -64,7 +64,7 @@ namespace glabels
                         /////////////////////////////////
                         QString keyFromIndex( int iField ) const;
                         QStringList parseLine();
-        
+
 
                         /////////////////////////////////
                         // Private data

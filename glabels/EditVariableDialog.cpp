@@ -63,7 +63,7 @@ namespace glabels
                                         QColor(0,0,0,255),
                                         QColor(0,0,0,255),
                                         false );
-                
+
                 for ( auto type : allTypes )
                 {
                         typeCombo->addItem( model::Variable::typeToI18nString( type ) );
@@ -115,7 +115,7 @@ namespace glabels
                 validateCurrentInputs();
         }
 
-        
+
         ///
         /// typeCombo Changed
         ///
@@ -124,7 +124,7 @@ namespace glabels
                 updateControls();
         }
 
-        
+
         ///
         /// valueEdit Changed
         ///
@@ -133,7 +133,7 @@ namespace glabels
                 validateCurrentInputs();
         }
 
-        
+
         ///
         /// colorValueButton Changed
         ///
@@ -143,7 +143,7 @@ namespace glabels
                 validateCurrentInputs();
         }
 
-        
+
         ///
         /// incrementCombo Changed
         ///
@@ -152,7 +152,7 @@ namespace glabels
                 updateControls();
         }
 
-        
+
         ///
         /// stepSizeEdit Changed
         ///
@@ -172,7 +172,7 @@ namespace glabels
 
                 switch (type)
                 {
-                        
+
                 case model::Variable::Type::INTEGER:
                         valueEdit->setValidator( new QIntValidator() );
                         stepSizeEdit->setValidator( new QIntValidator() );
@@ -187,14 +187,14 @@ namespace glabels
                         valueEdit->setValidator( nullptr );
                         stepSizeEdit->setValidator( nullptr );
                         break;
-                        
+
                 }
 
                 colorValueButton->setVisible( type == model::Variable::Type::COLOR );
 
                 bool isNumeric = ( type == model::Variable::Type::INTEGER ) ||
                                  ( type == model::Variable::Type::FLOATING_POINT );
-                
+
                 incrementGroup->setVisible( isNumeric );
                 stepSizeLabel->setEnabled( isNumeric && (increment != model::Variable::Increment::NEVER) );
                 stepSizeEdit->setEnabled( isNumeric && (increment != model::Variable::Increment::NEVER) );
@@ -215,6 +215,6 @@ namespace glabels
                 bool isValid = hasValidIdentifier && hasValidValue && hasValidStepSize;
                 buttonBox->button(QDialogButtonBox::Ok)->setEnabled( isValid );
         }
-        
+
 
 } // namespace glabels

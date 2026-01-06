@@ -27,7 +27,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// About Dialog Widget
         ///

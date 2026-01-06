@@ -85,7 +85,7 @@ namespace glabels
                         return mImageMap.keys();
                 }
 
-        
+
                 bool DataCache::hasSvg( const QString& name ) const
                 {
                         return mSvgMap.contains( name );
@@ -109,6 +109,6 @@ namespace glabels
                         return mSvgMap.keys();
                 }
 
-        
+
         }
 }

@@ -59,10 +59,10 @@ namespace glabels
                                         const ColorNode&  shadowColorNode = ColorNode() );
 
                         ModelBoxObject( const ModelBoxObject* object );
-                
+
                         virtual ~ModelBoxObject() = default;
 
-        
+
                         ///////////////////////////////////////////////////////////////
                         // Object duplication
                         ///////////////////////////////////////////////////////////////
@@ -77,12 +77,12 @@ namespace glabels
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         void drawObject( QPainter*            painter,
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         QPainterPath hoverPath( double scale ) const override;
 
                 };

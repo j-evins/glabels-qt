@@ -45,7 +45,7 @@ namespace glabels
                         ///////////////////////////////////////////////////////////////
                 public:
                         ModelTextObject();
-                
+
                         ModelTextObject( Distance              x0,
                                          Distance              y0,
                                          Distance              w,
@@ -71,7 +71,7 @@ namespace glabels
                                          const ColorNode&      shadowColorNode = ColorNode() );
 
                         ModelTextObject( const ModelTextObject* object );
-                
+
                         virtual ~ModelTextObject();
 
 
@@ -132,7 +132,7 @@ namespace glabels
                         //
                         ColorNode textColorNode() const override;
                         void setTextColorNode( const ColorNode &value ) override;
-                
+
 
                         //
                         // Text Property: textHAlign
@@ -190,7 +190,7 @@ namespace glabels
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         void drawObject( QPainter*            painter,
                                          bool                 inEditor,
                                          const merge::Record& record,
@@ -205,15 +205,15 @@ namespace glabels
                 private:
                         void sizeUpdated() override;
                         void update();
-                        
+
                         void drawTextInEditor( QPainter*     painter,
                                                const QColor& color ) const;
-                        
+
                         void drawText( QPainter*            painter,
                                        const QColor&        color,
                                        const merge::Record& record,
                                        const Variables&     variables ) const;
-                        
+
                         double autoShrinkFontSize( const merge::Record& record,
                                                    const Variables&     variables ) const;
 

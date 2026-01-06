@@ -39,11 +39,11 @@ namespace glabels
                 setupUi( this );
 
                 QString version = tr("Version") + " " + model::Version::LONG_STRING;
-        
+
                 QString description = tr("A program to create labels and business cards.");
-        
+
                 QString copyright = "Copyright &copy; 2018 Jaye Evins <evins@snaught.com>";
-        
+
                 QString licenseParagraph1 =
                         tr( "gLabels is free software: you can redistribute it and/or modify "
                             "it under the terms of the GNU General Public License as published by "
@@ -55,7 +55,7 @@ namespace glabels
                             "but WITHOUT ANY WARRANTY; without even the implied warranty of "
                             "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
                             "GNU General Public License for more details." );
-        
+
                 QString markup =
                         "<p align='center'>" + version + "</p>" +
                         "<p align='center'>" + description + "</p>" +

@@ -105,7 +105,7 @@ namespace glabels
                                                QSizePolicy::Preferred );
                 mWelcomeAction = mContents->addWidget( mWelcomeButton );
                 group->addButton( mWelcomeButton );
-                
+
                 // Add "Editor" page
                 mPages->addWidget( editorPage );
                 mEditorButton = new QToolButton( this );
@@ -219,7 +219,7 @@ namespace glabels
         {
                 mModel.reset( model );
                 mUndoRedoModel = std::make_unique<UndoRedoModel>( mModel.get() );
-        
+
                 mPropertiesView->setModel( mModel.get(), mUndoRedoModel.get() );
                 mLabelEditor->setModel( mModel.get(), mUndoRedoModel.get() );
                 mObjectEditor->setModel( mModel.get(), mUndoRedoModel.get() );
@@ -229,7 +229,7 @@ namespace glabels
 
                 mEditorButton->setChecked( true );
                 mPages->setCurrentIndex( EDITOR_PAGE_INDEX );
-        
+
                 manageActions();
                 setTitle();
 
@@ -877,7 +877,7 @@ namespace glabels
                 bool hasSelection = hasModel && !mModel->isSelectionEmpty();
                 bool hasMultiSelection = hasSelection && !mModel->isSelectionAtomic();
                 bool canPaste = hasModel && mModel->canPaste();
-                
+
                 // Toggle visibility of TOC buttons based on welcome mode
                 mWelcomeAction->setVisible( isWelcomePage );
                 mEditorAction->setVisible( !isWelcomePage );

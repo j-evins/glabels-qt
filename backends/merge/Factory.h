@@ -34,7 +34,7 @@ namespace glabels
 
                 // Forward references
                 class Merge;
-        
+
 
                 ///
                 /// Factory
@@ -42,15 +42,15 @@ namespace glabels
                 class Factory
                 {
                         Q_DECLARE_TR_FUNCTIONS(Factory)
-        
+
 
                         /////////////////////////////////
                         // Source Type
                         /////////////////////////////////
                 public:
                         enum SourceType { NONE, FIXED, FILE };
-                
-                
+
+
                         /////////////////////////////////
                         // Life Cycle
                         /////////////////////////////////
@@ -63,7 +63,7 @@ namespace glabels
                         /////////////////////////////////
                 public:
                         static void init();
-        
+
                         static Merge* createMerge( const QString& id );
 
                         static QStringList nameList();
@@ -78,7 +78,7 @@ namespace glabels
                         /////////////////////////////////
                 private:
                         using CreateFct = Merge* (*)();
-        
+
                         static void registerBackend( const QString& id,
                                                      const QString& name,
                                                      SourceType     type,
@@ -96,10 +96,10 @@ namespace glabels
                                 SourceType type;
                                 CreateFct  create;
                         };
-        
+
                         static QMap<QString,BackendEntry> mBackendIdMap;
                         static QMap<QString,BackendEntry> mBackendNameMap;
-                
+
                         static QStringList mNameList;
                 };
 

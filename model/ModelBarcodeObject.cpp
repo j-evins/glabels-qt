@@ -117,7 +117,7 @@ namespace glabels
 
                         update(); // Initialize cached editor layouts
                 }
-        
+
 
                 ///
                 /// Copy constructor
@@ -235,7 +235,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Barcode Style Property Getter
@@ -294,7 +294,7 @@ namespace glabels
                         // Barcodes don't support shadows.
                 }
 
-        
+
                 ///
                 /// Draw object itself
                 ///
@@ -446,7 +446,7 @@ namespace glabels
                                                      const QString& text ) const
                 {
                         QString shortText = text.left( 32 ); // Don't let the text get out of hand
-                
+
                         //
                         // Render box
                         //
@@ -484,7 +484,7 @@ namespace glabels
                         //
                         fm = QFontMetricsF( font );
                         textRect = fm.boundingRect( shortText );
-                
+
                         QRectF holeRect( (mW.pt() - textRect.width())/2 - pad.pt(),
                                          (mH.pt() - textRect.height())/2 - pad.pt(),
                                          textRect.width() + 2*pad.pt(),
@@ -502,6 +502,6 @@ namespace glabels
                         painter->drawText( QRectF( 0, 0, mW.pt(), mH.pt() ), Qt::AlignCenter, shortText );
                 }
 
-        
+
         }
 }

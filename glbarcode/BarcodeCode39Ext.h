@@ -37,7 +37,7 @@ namespace glbarcode
          *
          *
          * ### Input Data Format ###
-         * 
+         *
          * The extended *Code 39* barcode type supports the full 7-bit ASCII
          * character set (0-127).  This support is accomplished by encoding
          * lower case letters, constrol characters, and special characters
@@ -90,7 +90,7 @@ namespace glbarcode
          * will not be generated.
          *
          * See setChecksum().
-         * 
+         *
          *
          * ### Show Text Property ###
          *

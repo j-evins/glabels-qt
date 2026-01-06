@@ -35,7 +35,7 @@ namespace glabels
                         // empty
                 }
 
-        
+
                 Units::Units( Units::Enum enumValue ) : mEnumValue(enumValue)
                 {
                         switch (enumValue)
@@ -90,25 +90,25 @@ namespace glabels
                         return Units(PT);
                 }
 
-        
+
                 Units Units::in()
                 {
                         return Units(IN);
                 }
 
-        
+
                 Units Units::mm()
                 {
                         return Units(MM);
                 }
 
-        
+
                 Units Units::cm()
                 {
                         return Units(CM);
                 }
 
-        
+
                 Units Units::pc()
                 {
                         return Units(PC);
@@ -119,12 +119,12 @@ namespace glabels
                 {
                         return mEnumValue;
                 }
-        
-        
+
+
                 QString Units::toIdString() const
                 {
                         QString idString;
-                
+
                         switch (mEnumValue)
                         {
                         case Units::PT:
@@ -149,11 +149,11 @@ namespace glabels
                         return idString;
                 }
 
-        
+
                 QString Units::toTrName() const
                 {
                         QString nameString;
-                
+
                         switch (mEnumValue)
                         {
                         case Units::PT:
@@ -182,7 +182,7 @@ namespace glabels
                 double Units::resolution() const
                 {
                         double value;
-                
+
                         switch (mEnumValue)
                         {
                         case Units::PT:
@@ -208,11 +208,11 @@ namespace glabels
                         return value;
                 }
 
-        
+
                 int Units::resolutionDigits() const
                 {
                         int digits;
-                
+
                         switch (mEnumValue)
                         {
                         case Units::PT:
@@ -242,7 +242,7 @@ namespace glabels
                 bool Units::isIdValid( const QString& idString )
                 {
                         bool retValue = false;
-                
+
                         if ( idString == "pt" )
                         {
                                 retValue = true;

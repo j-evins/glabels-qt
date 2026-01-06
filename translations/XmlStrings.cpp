@@ -100,7 +100,7 @@ int main( int argc, char *argv[] )
                 out << "//         " << filename << Qt::endl;
         }
         out << "//" << Qt::endl;
-                
+
         for ( QString string : stringList )
         {
                 out << "QT_TRANSLATE_NOOP( \"XmlStrings\", \"" << string << "\" );" << Qt::endl;

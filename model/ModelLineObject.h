@@ -57,7 +57,7 @@ namespace glabels
                                          const ColorNode&  shadowColorNode = ColorNode() );
 
                         ModelLineObject( const ModelLineObject* object );
-                
+
                         virtual ~ModelLineObject() = default;
 
 
@@ -83,7 +83,7 @@ namespace glabels
                         //
                         ColorNode lineColorNode() const override;
                         void setLineColorNode( const ColorNode& value ) override;
-                
+
 
                         ///////////////////////////////////////////////////////////////
                         // Capability Implementations
@@ -101,7 +101,7 @@ namespace glabels
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         void drawObject( QPainter*            painter,
                                          bool                 inEditor,
                                          const merge::Record& record,

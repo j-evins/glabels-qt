@@ -501,7 +501,7 @@ namespace
                 int iy = 4;
                 int nx = matrix.nx();
                 int ny = matrix.ny();
-                
+
                 do {
                         if ( (iy == ny)   && (ix == 0)                ) corner1( matrix, used, codewords[i++] );
                         if ( (iy == ny-2) && (ix == 0) && (nx%4 != 0) ) corner2( matrix, used, codewords[i++] );
@@ -605,7 +605,7 @@ namespace glbarcode
                         return false;
                 }
                 encodedData.resize( p->nXtotal, p->nYtotal );
-                        
+
 
                 /*
                  * Fill any extra data codewords

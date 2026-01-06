@@ -35,13 +35,13 @@ namespace glabels
                         return mPath;
                 }
 
-        
+
                 MarkupMargin::MarkupMargin( Distance size )
                         : mXSize(size),
                           mYSize(size)
                 {
                 }
-        
+
 
                 MarkupMargin::MarkupMargin( Distance xSize,
                                             Distance ySize )
@@ -49,7 +49,7 @@ namespace glabels
                           mYSize(ySize)
                 {
                 }
-        
+
 
                 QPainterPath MarkupMargin::path( const Frame& frame ) const
                 {
@@ -57,7 +57,7 @@ namespace glabels
                         return frame.marginPath( mXSize, mYSize );
                 }
 
-        
+
                 std::unique_ptr<Markup> MarkupMargin::clone() const
                 {
                         return std::make_unique<MarkupMargin>( mXSize, mYSize );
@@ -103,25 +103,25 @@ namespace glabels
                         return std::make_unique<MarkupLine>( mX1, mY1, mX2, mY2 );
                 }
 
-        
+
                 Distance MarkupLine::x1() const
                 {
                         return mX1;
                 }
 
-        
+
                 Distance MarkupLine::y1() const
                 {
                         return mY1;
                 }
 
-        
+
                 Distance MarkupLine::x2() const
                 {
                         return mX2;
                 }
 
-        
+
                 Distance MarkupLine::y2() const
                 {
                         return mY2;
@@ -156,38 +156,38 @@ namespace glabels
                 {
                         return std::make_unique<MarkupRect>( mX1, mY1, mW, mH, mR );
                 }
-        
+
 
                 Distance MarkupRect::x1() const
                 {
                         return mX1;
                 }
 
-        
+
                 Distance MarkupRect::y1() const
                 {
                         return mY1;
                 }
 
-        
+
                 Distance MarkupRect::w() const
                 {
                         return mW;
                 }
 
-        
+
                 Distance MarkupRect::h() const
                 {
                         return mH;
                 }
 
-        
+
                 Distance MarkupRect::r() const
                 {
                         return mR;
                 }
 
-        
+
                 void MarkupRect::print( QDebug& dbg ) const
                 {
                         dbg.nospace() << "MarkupRect{ "
@@ -216,25 +216,25 @@ namespace glabels
                         return std::make_unique<MarkupEllipse>( mX1, mY1, mW, mH );
                 }
 
-        
+
                 Distance MarkupEllipse::x1() const
                 {
                         return mX1;
                 }
 
-        
+
                 Distance MarkupEllipse::y1() const
                 {
                         return mY1;
                 }
 
-        
+
                 Distance MarkupEllipse::w() const
                 {
                         return mW;
                 }
 
-        
+
                 Distance MarkupEllipse::h() const
                 {
                         return mH;
@@ -271,13 +271,13 @@ namespace glabels
                         return mX0;
                 }
 
-        
+
                 Distance MarkupCircle::y0() const
                 {
                         return mY0;
                 }
 
-        
+
                 Distance MarkupCircle::r() const
                 {
                         return mR;
@@ -304,4 +304,4 @@ QDebug operator<<( QDebug dbg, const glabels::model::Markup& markup )
 
         return dbg;
 }
-        
+

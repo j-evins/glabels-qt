@@ -35,9 +35,9 @@ namespace glbarcode
          *
          * @image html sample-cepnet.svg "Sample Brazilian Post CEPNET Barcode"
          *
-         * 
+         *
          * ### Input Data Format ###
-         * 
+         *
          * Input data requirements are identical to BarcodePostnet, except the
          * validator only accepts 8 digits of input.
          *

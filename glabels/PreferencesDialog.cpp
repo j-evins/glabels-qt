@@ -34,9 +34,9 @@ namespace glabels
         {
                 setupUi( this );
 
-                
+
                 auto units = model::Settings::units();
-                
+
                 switch ( units.toEnum() )
                 {
                 case model::Units::IN:
@@ -72,7 +72,7 @@ namespace glabels
 
 
                 auto gridSpacing = model::Settings::gridSpacing();
-                
+
                 gridSpacingSpin->setDecimals( units.resolutionDigits() );
                 gridSpacingSpin->setSingleStep( units.resolution() );
                 gridSpacingSpin->setMinimum( units.resolution() );

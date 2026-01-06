@@ -87,7 +87,7 @@ namespace glabels
                 }
         }
 
-        
+
         ///
         /// Asynchronous poll
         ///
@@ -104,5 +104,5 @@ namespace glabels
                 }
         }
 
-        
+
 } // namespace glabels

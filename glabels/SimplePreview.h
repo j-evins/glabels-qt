@@ -62,7 +62,7 @@ namespace glabels
         protected:
                 void resizeEvent( QResizeEvent* event ) override;
 
-                
+
                 /////////////////////////////////
                 // Internal Methods
                 /////////////////////////////////

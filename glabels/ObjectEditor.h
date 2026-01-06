@@ -35,7 +35,7 @@ namespace glabels
 
         // Forward references
         class UndoRedoModel;
-        
+
 
         ///
         /// Object Editor Widget
@@ -44,7 +44,7 @@ namespace glabels
         {
                 Q_OBJECT
 
-                
+
                 /////////////////////////////////
                 // Life Cycle
                 /////////////////////////////////
@@ -98,7 +98,7 @@ namespace glabels
                 void onResetImageSize();
                 void onShadowControlsChanged();
                 void onChanged();
-                
+
 
                 /////////////////////////////////
                 // Private data
@@ -107,11 +107,11 @@ namespace glabels
                 model::Model*            mModel;
                 model::ModelObject*      mObject;
                 UndoRedoModel*           mUndoRedoModel;
-        
+
                 model::Units             mUnits;
                 int                      mSpinDigits;
                 double                   mSpinStep;
-        
+
                 QButtonGroup*            textHAlignGroup;
                 QButtonGroup*            textVAlignGroup;
 

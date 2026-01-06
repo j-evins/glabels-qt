@@ -179,7 +179,7 @@ namespace glabels
                         Distance  mY0;
                         Distance  mR;
                 };
-        
+
 
         }
 }

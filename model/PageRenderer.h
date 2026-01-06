@@ -49,7 +49,7 @@ namespace glabels
                 class PageRenderer : public QObject
                 {
                         Q_OBJECT
-        
+
                         /////////////////////////////////
                         // Life Cycle
                         /////////////////////////////////
@@ -84,7 +84,7 @@ namespace glabels
                         /////////////////////////////////
                 signals:
                         void changed();
-        
+
 
                         /////////////////////////////////
                         // Private slots

@@ -166,7 +166,7 @@ namespace glabels
                                                 chunk1 = spanNonDigits( folded_s1, &i1 );
                                                 isnum1 = false;
                                         }
-                
+
                                         if ( (i2 < folded_s2.size()) && folded_s2.at( i2 ).isNumber() )
                                         {
                                                 chunk2 = spanDigits( folded_s2, &i2 );

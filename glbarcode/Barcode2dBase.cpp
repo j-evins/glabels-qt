@@ -143,8 +143,8 @@ namespace glbarcode
                 }
                 double cellSize  = scale * MIN_CELL_SIZE;
                 double quietSize = scale * MIN_CELL_SIZE;
-                
-                
+
+
                 for ( int iy = 0; iy < encodedData.ny(); iy++ )
                 {
                         for ( int ix = 0; ix < encodedData.nx(); ix++ )

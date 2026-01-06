@@ -43,7 +43,7 @@ namespace glabels
                         return mX;
                 }
 
-        
+
                 Distance Point::y() const
                 {
                         return mY;

@@ -104,7 +104,7 @@ namespace glabels
                                 drawHeight = 1.2 * tmplate.pageHeight();
                                 drawOffset = 0.1 * tmplate.pageHeight();
                         }
-                        
+
                         // Set scene up with a 5% margin around paper
                         model::Distance x = -0.05 * tmplate.pageWidth();
                         model::Distance y = -0.05 * drawHeight - drawOffset;
@@ -160,7 +160,7 @@ namespace glabels
                 }
         }
 
-        
+
         ///
         /// Resize Event Handler
         ///
@@ -198,7 +198,7 @@ namespace glabels
                 pageItem->setBrush( brush );
                 pageItem->setPen( pen );
                 pageItem->setGraphicsEffect( shadowEffect );
-                                
+
                 mScene->addItem( pageItem );
         }
 

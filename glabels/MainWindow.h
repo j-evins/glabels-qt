@@ -204,7 +204,7 @@ namespace glabels
                 std::unique_ptr<model::Model>  mModel;
                 std::unique_ptr<UndoRedoModel> mUndoRedoModel;
 
-                
+
                 /////////////////////////////////////
                 // Private Data
                 // owned by QMainWindow
@@ -228,7 +228,7 @@ namespace glabels
                 QMenu*    contextAlignMenu;
                 QMenu*    contextCenterMenu;
                 QMenu*    noSelectionContextMenu;
-                
+
                 QToolBar* fileToolBar;
                 QToolBar* editorToolBar;
 

@@ -81,7 +81,7 @@ namespace glabels
                         //
                         QString bcData() const override;
                         void setBcData( const QString &value ) override;
-                
+
 
                         //
                         // Barcode Property: bcTextFlag
@@ -102,14 +102,14 @@ namespace glabels
                         //
                         ColorNode bcColorNode() const override;
                         void setBcColorNode( const ColorNode &value ) override;
-                
+
 
                         //
                         // Barcode Property: bcStyle
                         //
                         barcode::Style bcStyle() const override;
                         void setBcStyle( const barcode::Style &value ) override;
-                
+
 
                         //
                         // Barcode Property: bcFormatDigits
@@ -133,12 +133,12 @@ namespace glabels
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         void drawObject( QPainter*            painter,
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         QPainterPath hoverPath( double scale ) const override;
 
 
@@ -158,7 +158,7 @@ namespace glabels
 
                         void drawPlaceHolder( QPainter* painter, const QColor& color, const QString& text ) const;
 
-        
+
 
                         ///////////////////////////////////////////////////////////////
                         // Private Members
@@ -173,7 +173,7 @@ namespace glabels
 
                         std::unique_ptr<glbarcode::Barcode> mEditorBarcode;
                         std::unique_ptr<glbarcode::Barcode> mEditorDefaultBarcode;
-                
+
                         QPainterPath mHoverPath;
 
                 };

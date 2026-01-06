@@ -169,24 +169,24 @@ namespace glabels
                         return mBrand.isEmpty() || mPart.isEmpty();
                 }
 
-        
+
                 QString Template::brand() const
                 {
                         return mBrand;
                 }
 
-        
+
                 QString Template::part() const
                 {
                         return mPart;
                 }
 
-        
+
                 QString Template::description() const
                 {
                         return mDescription;
                 }
-        
+
 
                 QString Template::paperDescription( Units units ) const
                 {
@@ -217,13 +217,13 @@ namespace glabels
                         return mPaperId;
                 }
 
-        
+
                 Distance Template::pageWidth() const
                 {
                         return mPageWidth;
                 }
 
-        
+
                 Distance Template::pageHeight() const
                 {
                         // Adjust height if continuous tape
@@ -237,90 +237,90 @@ namespace glabels
                         }
                 }
 
-        
+
                 Distance Template::rollWidth() const
                 {
                         return mRollWidth;
                 }
 
-        
+
                 bool Template::isSizeIso() const
                 {
                         return mIsSizeIso;
                 }
 
-        
+
                 bool Template::isSizeUs() const
                 {
                         return mIsSizeUs;
                 }
 
-        
+
                 bool Template::isSizeOther() const
                 {
                         return !mIsSizeIso && !mIsSizeUs;
                 }
-        
+
 
                 bool Template::isRoll() const
                 {
                         return mIsRoll;
                 }
-        
+
 
                 QString Template::fileName() const
                 {
                         return mFileName;
                 }
 
-        
+
                 void Template::setFileName( const QString& value )
                 {
                         mFileName = value;
                 }
-        
+
 
                 bool Template::isUserDefined() const
                 {
                         return mIsUserDefined;
                 }
-        
+
 
                 void Template::setIsUserDefined( bool isUserDefined )
                 {
                         mIsUserDefined = isUserDefined;
                 }
-        
+
 
                 QString Template::equivPart() const
                 {
                         return mEquivPart;
                 }
 
-        
+
                 void Template::setEquivPart( const QString& value )
                 {
                         mEquivPart = value;
                 }
-        
+
 
                 QString Template::productUrl() const
                 {
                         return mProductUrl;
                 }
 
-        
+
                 void Template::setProductUrl( const QString& value )
                 {
                         mProductUrl = value;
                 }
-        
+
 
                 QString Template::name() const
                 {
                         return mName;
                 }
-        
+
 
                 const Frame* Template::frame( const QString& id ) const
                 {

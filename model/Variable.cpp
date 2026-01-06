@@ -63,7 +63,7 @@ namespace glabels
                         return mType;
                 }
 
-        
+
                 QString Variable::name() const
                 {
                         return mName;
@@ -87,7 +87,7 @@ namespace glabels
                         return mStepSize;
                 }
 
-                
+
                 void Variable::setInitialValue( const QString& value )
                 {
                         mInitialValue = value;
@@ -115,7 +115,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 void    Variable::incrementValueOnItem()
                 {
                         if ( mIncrement == Increment::PER_ITEM )
@@ -138,7 +138,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 void    Variable::incrementValueOnCopy()
                 {
                         if ( mIncrement == Increment::PER_COPY )
@@ -161,7 +161,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 void    Variable::incrementValueOnPage()
                 {
                         if ( mIncrement == Increment::PER_PAGE )
@@ -184,7 +184,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 QString Variable::value() const
                 {
                         switch (mType)
@@ -202,7 +202,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 QString Variable::typeToI18nString( Type type )
                 {
                         switch (type)
@@ -237,7 +237,7 @@ namespace glabels
                                 return "string";
                         }
                 }
-                
+
 
                 Variable::Type Variable::idStringToType( const QString& id )
                 {
@@ -262,7 +262,7 @@ namespace glabels
                                 return Type::STRING; // Default
                         }
                 }
-                
+
 
                 QString Variable::incrementToI18nString( Increment increment )
                 {
@@ -281,7 +281,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 QString Variable::incrementToIdString( Increment increment )
                 {
                         switch (increment)
@@ -298,7 +298,7 @@ namespace glabels
                                 return "never";
                         }
                 }
-                
+
 
                 Variable::Increment Variable::idStringToIncrement( const QString& id )
                 {
@@ -323,7 +323,7 @@ namespace glabels
                                 return Increment::NEVER; // Default
                         }
                 }
-                
+
 
         }
 }

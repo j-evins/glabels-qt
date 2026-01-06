@@ -108,7 +108,7 @@ namespace glabels
                         for ( ModelObject* savedObject : savedModel->mObjectList )
                         {
                                 ModelObject* object = savedObject->clone();
-                
+
                                 object->setParent( this );
                                 mObjectList << object;
 
@@ -186,7 +186,7 @@ namespace glabels
                         mTmplate = tmplate;
 
                         setModified();
-                
+
                         emit changed();
                         emit sizeChanged();
 
@@ -316,7 +316,7 @@ namespace glabels
                 QString Model::shortName()
                 {
                         static int untitledCount = 0;
-                
+
                         if ( mFileName.isEmpty() )
                         {
                                 if ( mUntitledInstance == 0 )
@@ -376,7 +376,7 @@ namespace glabels
                                 connect( mMerge.get(), SIGNAL(selectionChanged()), this, SLOT(onMergeSelectionChanged()) );
 
                                 setModified();
-                
+
                                 emit changed();
                                 emit mergeChanged();
                                 emit mergeSourceChanged();
@@ -470,7 +470,7 @@ namespace glabels
                                                Distance y ) const
                 {
                         static Handle nullHandle;
-                        
+
                         for( ModelObject* object : mObjectList )
                         {
                                 auto& handle = object->handleAt( scale, x, y );
@@ -926,7 +926,7 @@ namespace glabels
                                 Distance dx = x1_min - r.x1();
                                 object->setPositionRelative( dx, 0 );
                         }
-                
+
                         setModified();
 
                         emit changed();
@@ -960,7 +960,7 @@ namespace glabels
                                 Distance dx = x1_max - r.x1();
                                 object->setPositionRelative( dx, 0 );
                         }
-                
+
                         setModified();
 
                         emit changed();
@@ -1011,7 +1011,7 @@ namespace glabels
                                 Distance dx = xcenter - (r.x1() + r.x2())/2.0;
                                 object->setPositionRelative( dx, 0 );
                         }
-                
+
                         setModified();
 
                         emit changed();
@@ -1045,7 +1045,7 @@ namespace glabels
                                 Distance dy = y1_min - r.y1();
                                 object->setPositionRelative( 0, dy );
                         }
-                
+
                         setModified();
 
                         emit changed();
@@ -1079,7 +1079,7 @@ namespace glabels
                                 Distance dy = y1_max - r.y1();
                                 object->setPositionRelative( 0, dy );
                         }
-                
+
                         setModified();
 
                         emit changed();
@@ -1130,7 +1130,7 @@ namespace glabels
                                 Distance dy = ycenter - (r.y1() + r.y2())/2.0;
                                 object->setPositionRelative( 0, dy );
                         }
-                
+
                         setModified();
 
                         emit changed();
@@ -1448,7 +1448,7 @@ namespace glabels
                         if ( !isSelectionEmpty() )
                         {
                                 QClipboard *clipboard = QApplication::clipboard();
-                
+
                                 auto buffer = XmlLabelCreator::serializeObjects( getSelection(), this );
 
                                 auto *mimeData = new QMimeData;
@@ -1528,7 +1528,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 ///
                 /// Paste as URLs ( currently only supports local image files )
                 ///
@@ -1538,7 +1538,7 @@ namespace glabels
                         auto y = p.y();
                         auto xOffset = Distance::pt( 10 );
                         auto yOffset = Distance::pt( 10 );
-                        
+
                         unselectAll();
                         for ( auto url : mimeData->urls() )
                         {
@@ -1572,7 +1572,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 ///
                 /// Paste as image
                 ///
@@ -1587,7 +1587,7 @@ namespace glabels
                         selectObject( object );
                 }
 
-                
+
                 ///
                 /// Paste as text
                 void Model::pasteAsText( const QMimeData* mimeData, Point p )

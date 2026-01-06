@@ -56,7 +56,7 @@ namespace glabels
                                 return rawData.size() != 0;
                         }
 
-                
+
                         //
                         // Zint barcode data vectorization method
                         //
@@ -177,13 +177,13 @@ namespace glabels
                                 return new AusP();
                         }
 
-                
+
                         std::string AusP::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_AUSPOST;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // AusRP Barcode
@@ -193,13 +193,13 @@ namespace glabels
                                 return new AusRP();
                         }
 
-                
+
                         std::string AusRP::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_AUSREPLY;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // AusRT Barcode
@@ -209,13 +209,13 @@ namespace glabels
                                 return new AusRT();
                         }
 
-                
+
                         std::string AusRT::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_AUSROUTE;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // AusRD Barcode
@@ -225,13 +225,13 @@ namespace glabels
                                 return new AusRD();
                         }
 
-                
+
                         std::string AusRD::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_AUSREDIRECT;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Aztec Barcode
@@ -241,13 +241,13 @@ namespace glabels
                                 return new Aztec();
                         }
 
-                
+
                         std::string Aztec::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_AZTEC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Azrun Barcode
@@ -257,7 +257,7 @@ namespace glabels
                                 return new Azrun();
                         }
 
-                
+
                         std::string Azrun::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_AZRUNE;
@@ -279,7 +279,7 @@ namespace glabels
                                 symbology = BARCODE_CHANNEL;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Cbr Barcode
@@ -289,7 +289,7 @@ namespace glabels
                                 return new Cbr();
                         }
 
-                
+
                         std::string Cbr::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODABAR;
@@ -315,7 +315,7 @@ namespace glabels
                                 symbology = BARCODE_CODABLOCKF;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code1 Barcode
@@ -325,13 +325,13 @@ namespace glabels
                                 return new Code1();
                         }
 
-                
+
                         std::string Code1::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODEONE;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code11 Barcode
@@ -341,7 +341,7 @@ namespace glabels
                                 return new Code11();
                         }
 
-                
+
                         std::string Code11::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE11;
@@ -351,7 +351,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // C16k Barcode
@@ -361,13 +361,13 @@ namespace glabels
                                 return new C16k();
                         }
 
-                
+
                         std::string C16k::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE16K;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // C25m Barcode
@@ -377,7 +377,7 @@ namespace glabels
                                 return new C25m();
                         }
 
-                
+
                         std::string C25m::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_C25MATRIX; // BARCODE_C25STANDARD
@@ -387,7 +387,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // C25i Barcode
@@ -397,7 +397,7 @@ namespace glabels
                                 return new C25i();
                         }
 
-                
+
                         std::string C25i::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_C25IATA;
@@ -427,7 +427,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // C25dl Barcode
@@ -437,7 +437,7 @@ namespace glabels
                                 return new C25dl();
                         }
 
-                
+
                         std::string C25dl::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_C25LOGIC;
@@ -447,7 +447,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code32 Barcode
@@ -457,13 +457,13 @@ namespace glabels
                                 return new Code32();
                         }
 
-                
+
                         std::string Code32::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE32;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code39 Barcode
@@ -473,7 +473,7 @@ namespace glabels
                                 return new Code39();
                         }
 
-                
+
                         std::string Code39::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE39;
@@ -483,7 +483,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code39e Barcode
@@ -493,7 +493,7 @@ namespace glabels
                                 return new Code39e();
                         }
 
-                
+
                         std::string Code39e::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_EXCODE39;
@@ -503,7 +503,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code49 Barcode
@@ -513,13 +513,13 @@ namespace glabels
                                 return new Code49();
                         }
 
-                
+
                         std::string Code49::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE49;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code93 Barcode
@@ -529,13 +529,13 @@ namespace glabels
                                 return new Code93();
                         }
 
-                
+
                         std::string Code93::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE93;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code128 Barcode
@@ -545,13 +545,13 @@ namespace glabels
                                 return new Code128();
                         }
 
-                
+
                         std::string Code128::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE128;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code128b Barcode
@@ -561,13 +561,13 @@ namespace glabels
                                 return new Code128b();
                         }
 
-                
+
                         std::string Code128b::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_CODE128B;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Daft Barcode
@@ -577,13 +577,13 @@ namespace glabels
                                 return new Daft();
                         }
 
-                
+
                         std::string Daft::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_DAFT;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Dmtx Barcode
@@ -593,13 +593,13 @@ namespace glabels
                                 return new Dmtx();
                         }
 
-                
+
                         std::string Dmtx::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_DATAMATRIX;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Dpl Barcode
@@ -609,13 +609,13 @@ namespace glabels
                                 return new Dpl();
                         }
 
-                
+
                         std::string Dpl::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_DPLEIT;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Dpi Barcode
@@ -625,7 +625,7 @@ namespace glabels
                                 return new Dpi();
                         }
 
-                
+
                         std::string Dpi::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_DPIDENT;
@@ -663,7 +663,7 @@ namespace glabels
                                 symbology = BARCODE_DPD;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Kix Barcode
@@ -673,13 +673,13 @@ namespace glabels
                                 return new Kix();
                         }
 
-                
+
                         std::string Kix::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_KIX;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Ean Barcode
@@ -689,7 +689,7 @@ namespace glabels
                                 return new Ean();
                         }
 
-                
+
                         std::string Ean::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_EANX;
@@ -759,7 +759,7 @@ namespace glabels
                                 symbology = BARCODE_HANXIN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibc128 Barcode
@@ -769,13 +769,13 @@ namespace glabels
                                 return new Hibc128();
                         }
 
-                
+
                         std::string Hibc128::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_128;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibc39 Barcode
@@ -785,13 +785,13 @@ namespace glabels
                                 return new Hibc39();
                         }
 
-                
+
                         std::string Hibc39::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_39;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibcdm Barcode
@@ -801,13 +801,13 @@ namespace glabels
                                 return new Hibcdm();
                         }
 
-                
+
                         std::string Hibcdm::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_DM;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibcqr Barcode
@@ -817,13 +817,13 @@ namespace glabels
                                 return new Hibcqr();
                         }
 
-                
+
                         std::string Hibcqr::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_QR;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibcpdf Barcode
@@ -833,13 +833,13 @@ namespace glabels
                                 return new Hibcpdf();
                         }
 
-                
+
                         std::string Hibcpdf::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_PDF;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibcmpdf Barcode
@@ -849,7 +849,7 @@ namespace glabels
                                 return new Hibcmpdf();
                         }
 
-                
+
                         std::string Hibcmpdf::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_MICPDF;
@@ -871,7 +871,7 @@ namespace glabels
                                 symbology = BARCODE_HIBC_BLOCKF;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Hibcaz Barcode
@@ -881,13 +881,13 @@ namespace glabels
                                 return new Hibcaz();
                         }
 
-                
+
                         std::string Hibcaz::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_HIBC_AZTEC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // I25 Barcode
@@ -897,7 +897,7 @@ namespace glabels
                                 return new I25();
                         }
 
-                
+
                         std::string I25::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_C25INTER;
@@ -907,7 +907,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Isbn Barcode
@@ -917,13 +917,13 @@ namespace glabels
                                 return new Isbn();
                         }
 
-                
+
                         std::string Isbn::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_ISBNX;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Itf14 Barcode
@@ -933,13 +933,13 @@ namespace glabels
                                 return new Itf14();
                         }
 
-                
+
                         std::string Itf14::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_ITF14;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Gmtx Barcode
@@ -949,13 +949,13 @@ namespace glabels
                                 return new Gmtx();
                         }
 
-                
+
                         std::string Gmtx::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_GRIDMATRIX;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Gs1128 Barcode
@@ -965,13 +965,13 @@ namespace glabels
                                 return new Gs1128();
                         }
 
-                
+
                         std::string Gs1128::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_EAN128;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Logm Barcode
@@ -981,7 +981,7 @@ namespace glabels
                                 return new Logm();
                         }
 
-                
+
                         std::string Logm::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_LOGMARS;
@@ -991,7 +991,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rss14 Barcode
@@ -1001,13 +1001,13 @@ namespace glabels
                                 return new Rss14();
                         }
 
-                
+
                         std::string Rss14::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RSS14;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rssltd Barcode
@@ -1017,13 +1017,13 @@ namespace glabels
                                 return new Rssltd();
                         }
 
-                
+
                         std::string Rssltd::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RSS_LTD;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rssexp Barcode
@@ -1033,13 +1033,13 @@ namespace glabels
                                 return new Rssexp();
                         }
 
-                
+
                         std::string Rssexp::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RSS_EXP;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rsss Barcode
@@ -1049,13 +1049,13 @@ namespace glabels
                                 return new Rsss();
                         }
 
-                
+
                         std::string Rsss::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RSS14STACK;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rssso Barcode
@@ -1065,13 +1065,13 @@ namespace glabels
                                 return new Rssso();
                         }
 
-                
+
                         std::string Rssso::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RSS14STACK_OMNI;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rssse Barcode
@@ -1081,13 +1081,13 @@ namespace glabels
                                 return new Rssse();
                         }
 
-                
+
                         std::string Rssse::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RSS_EXPSTACK;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Pharma Barcode
@@ -1097,13 +1097,13 @@ namespace glabels
                                 return new Pharma();
                         }
 
-                
+
                         std::string Pharma::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PHARMA;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Pharma2 Barcode
@@ -1113,13 +1113,13 @@ namespace glabels
                                 return new Pharma2();
                         }
 
-                
+
                         std::string Pharma2::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PHARMA_TWO;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Pzn Barcode
@@ -1129,13 +1129,13 @@ namespace glabels
                                 return new Pzn();
                         }
 
-                
+
                         std::string Pzn::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PZN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Tele Barcode
@@ -1145,13 +1145,13 @@ namespace glabels
                                 return new Tele();
                         }
 
-                
+
                         std::string Tele::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_TELEPEN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Telex Barcode
@@ -1161,13 +1161,13 @@ namespace glabels
                                 return new Telex();
                         }
 
-                
+
                         std::string Telex::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_TELEPEN_NUM;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Japan Barcode
@@ -1177,13 +1177,13 @@ namespace glabels
                                 return new Japan();
                         }
 
-                
+
                         std::string Japan::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_JAPANPOST;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Korea Barcode
@@ -1193,13 +1193,13 @@ namespace glabels
                                 return new Korea();
                         }
 
-                
+
                         std::string Korea::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_KOREAPOST;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Maxi Barcode
@@ -1209,13 +1209,13 @@ namespace glabels
                                 return new Maxi();
                         }
 
-                
+
                         std::string Maxi::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_MAXICODE;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Mpdf Barcode
@@ -1225,13 +1225,13 @@ namespace glabels
                                 return new Mpdf();
                         }
 
-                
+
                         std::string Mpdf::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_MICROPDF417;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Msi Barcode
@@ -1241,7 +1241,7 @@ namespace glabels
                                 return new Msi();
                         }
 
-                
+
                         std::string Msi::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_MSI_PLESSEY;
@@ -1251,7 +1251,7 @@ namespace glabels
                                 }
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Mqr Barcode
@@ -1261,13 +1261,13 @@ namespace glabels
                                 return new Mqr();
                         }
 
-                
+
                         std::string Mqr::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_MICROQR;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Nve Barcode
@@ -1277,13 +1277,13 @@ namespace glabels
                                 return new Nve();
                         }
 
-                
+
                         std::string Nve::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_NVE18;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Plan Barcode
@@ -1293,13 +1293,13 @@ namespace glabels
                                 return new Plan();
                         }
 
-                
+
                         std::string Plan::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PLANET;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Postnet Barcode
@@ -1309,7 +1309,7 @@ namespace glabels
                                 return new Postnet();
                         }
 
-                
+
                         std::string Postnet::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_POSTNET;
@@ -1347,7 +1347,7 @@ namespace glabels
                                 symbology = BARCODE_CEPNET;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Pdf Barcode
@@ -1357,13 +1357,13 @@ namespace glabels
                                 return new Pdf();
                         }
 
-                
+
                         std::string Pdf::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PDF417;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Pdft Barcode
@@ -1373,13 +1373,13 @@ namespace glabels
                                 return new Pdft();
                         }
 
-                
+
                         std::string Pdft::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PDF417TRUNC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Qr Barcode
@@ -1389,7 +1389,7 @@ namespace glabels
                                 return new Qr();
                         }
 
-                
+
                         std::string Qr::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_QRCODE;
@@ -1411,7 +1411,7 @@ namespace glabels
                                 symbology = BARCODE_RMQR;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Rm4 Barcode
@@ -1421,7 +1421,7 @@ namespace glabels
                                 return new Rm4();
                         }
 
-                
+
                         std::string Rm4::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_RM4SCC;
@@ -1459,7 +1459,7 @@ namespace glabels
                                 symbology = BARCODE_MAILMARK_2D;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UpcA Barcode
@@ -1469,13 +1469,13 @@ namespace glabels
                                 return new UpcA();
                         }
 
-                
+
                         std::string UpcA::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_UPCA;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UpcE Barcode
@@ -1485,7 +1485,7 @@ namespace glabels
                                 return new UpcE();
                         }
 
-                
+
                         std::string UpcE::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_UPCE;
@@ -1507,7 +1507,7 @@ namespace glabels
                                 symbology = BARCODE_UPU_S10;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Usps Barcode
@@ -1517,13 +1517,13 @@ namespace glabels
                                 return new Usps();
                         }
 
-                
+
                         std::string Usps::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_ONECODE;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Pls Barcode
@@ -1533,7 +1533,7 @@ namespace glabels
                                 return new Pls();
                         }
 
-                
+
                         std::string Pls::encode( const std::string& cookedData )
                         {
                                 symbology = BARCODE_PLESSEY;
@@ -1555,7 +1555,7 @@ namespace glabels
                                 symbology = BARCODE_VIN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                 }
         }

@@ -28,7 +28,7 @@ namespace glabels
 
                 static const QString ID = "Text/Tab";
 
-        
+
                 ///
                 /// Constructor
                 ///

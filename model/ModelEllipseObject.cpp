@@ -147,10 +147,10 @@ namespace glabels
                                         painter->drawEllipse( QRectF( 0, 0, mW.pt(), mH.pt() ) );
                                 }
                         }
-                
+
                 }
 
-        
+
                 ///
                 /// Draw object itself
                 ///

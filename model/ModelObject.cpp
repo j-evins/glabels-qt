@@ -99,8 +99,8 @@ namespace glabels
 
                         mSelectedFlag = false;
                 }
-        
-                
+
+
                 ///
                 /// Copy constructor
                 ///
@@ -132,7 +132,7 @@ namespace glabels
                         {
                                 mHandles.push_back( Handle( this, handle.location() ) );
                         }
-        
+
                         mMatrix          = object->mMatrix;
                 }
 
@@ -193,7 +193,7 @@ namespace glabels
                                 emit moved();
                         }
                 }
-                
+
 
                 ///
                 /// Y0 Property Getter
@@ -215,7 +215,7 @@ namespace glabels
                                 emit moved();
                         }
                 }
-                
+
 
                 ///
                 /// W (Width) Property Getter
@@ -238,7 +238,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// H (Height) Property Getter
@@ -349,7 +349,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Shadow Y Property Getter
@@ -371,7 +371,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Shadow Opacity Property Getter
@@ -393,7 +393,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Shadow Color Node Property Getter
@@ -415,7 +415,7 @@ namespace glabels
                                 emit changed();
                         }
                 }
-                
+
 
                 ///
                 /// Virtual Natural Size Property Default Getter
@@ -565,7 +565,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Text Horizontal Alignment Property Default Getter
@@ -685,7 +685,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Image Property Default Getter
@@ -706,7 +706,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Image Property Default Setter
@@ -716,7 +716,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual SVG Property Default Getter
@@ -737,7 +737,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Line Width Property Default Getter
@@ -777,7 +777,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Fill Color Node Property Default Getter
@@ -797,7 +797,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Barcode Data Property Default Getter
@@ -817,7 +817,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Barcode Text Flag Property Default Getter
@@ -877,7 +877,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Barcode Style Property Default Getter
@@ -897,7 +897,7 @@ namespace glabels
                 {
                         // empty
                 }
-                
+
 
                 ///
                 /// Virtual Barcode Format Digits Property Default Getter
@@ -944,7 +944,7 @@ namespace glabels
                 /// (Overridden by concrete class)
                 ///
                 bool ModelObject::canLineColor() const
-                { 
+                {
                         return false;
                 }
 
@@ -1036,7 +1036,7 @@ namespace glabels
                         double aspectRatio = mH / mW;
                         Distance wNew = w;
                         Distance hNew = h;
-                
+
                         if ( h > (w*aspectRatio) )
                         {
                                 hNew = w*aspectRatio;
@@ -1257,7 +1257,7 @@ namespace glabels
                         {
                                 handle.draw( painter, scale );
                         }
-                
+
                         painter->restore();
                 }
 

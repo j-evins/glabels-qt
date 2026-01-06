@@ -32,7 +32,7 @@
 
 namespace glabels
 {
-        
+
         ///
         ///  Preview Widget
         ///
@@ -63,7 +63,7 @@ namespace glabels
         protected:
                 void resizeEvent( QResizeEvent* event ) override;
 
-                
+
                 /////////////////////////////////
                 // Internal Methods
                 /////////////////////////////////
@@ -73,7 +73,7 @@ namespace glabels
                 void drawLabel( model::Distance     x,
                                 model::Distance     y,
                                 const QPainterPath& path );
-                
+
                 void drawPreviewOverlay();
 
                 void drawLabelNumberOverlaySingle( model::Distance     x,
@@ -88,7 +88,7 @@ namespace glabels
                 /////////////////////////////////
         private:
                 const model::Model*        mModel;
-                const model::PageRenderer* mRenderer;    
+                const model::PageRenderer* mRenderer;
                 QGraphicsScene*            mScene;
 
         };

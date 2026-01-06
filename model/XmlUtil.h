@@ -140,7 +140,7 @@ namespace glabels
                                                          const QString&      name,
                                                          const QPainterPath& value,
                                                          Units               units );
-                
+
                 private:
                         static Units mUnits;
 

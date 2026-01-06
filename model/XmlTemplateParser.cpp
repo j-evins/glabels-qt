@@ -276,7 +276,7 @@ namespace glabels
                         {
                                 tmplate.setProductUrl( productUrl );
                         }
-                
+
                         QString categoryId = XmlUtil::getStringAttr( node, "category", "" );
                         if ( categoryId != "" )
                         {

@@ -75,7 +75,7 @@ namespace glabels
                         //
                         bool isField() const;
                         void setField( bool isField );
-                
+
 
                         //
                         // Color Property

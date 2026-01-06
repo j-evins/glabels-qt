@@ -51,10 +51,10 @@ namespace glabels
                                         }
                                 }
 
-                                return true;                        
+                                return true;
                         }
-                
-                        
+
+
                         bool Base::isNumericLengthValid( const std::string& data,
                                                          unsigned int       nMin,
                                                          unsigned int       nMax ) const
@@ -71,7 +71,7 @@ namespace glabels
 
                                 return (n >= nMin) && (n <= nMax);
                         }
-                
+
 
                         bool Base::isNumericLength1Valid( const std::string& data,
                                                           unsigned int       nMin,
@@ -93,7 +93,7 @@ namespace glabels
 
                                 return (n >= nMin) && (n <= nMax);
                         }
-                
+
 
                         bool Base::isNumericLength2Valid( const std::string& data,
                                                           unsigned int       nMin,
@@ -121,8 +121,8 @@ namespace glabels
 
                                 return (n >= nMin) && (n <= nMax);
                         }
-                
-                        
+
+
                         void Base::vectorize( const std::string& encodedData,
                                               const std::string& displayText,
                                               const std::string& cookedData,
@@ -350,7 +350,7 @@ namespace glabels
                                 return new Ean();
                         }
 
-                
+
                         bool Ean::validate( const std::string& rawData )
                         {
                                 return (      isNumericLengthValid(  rawData,  7,  8 )
@@ -361,13 +361,13 @@ namespace glabels
                                               || ( isNumericLength1Valid( rawData, 12, 13 ) && isNumericLength2Valid( rawData, 5, 5 ) ) );
                         }
 
-                
+
                         std::string Ean::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // EAN-8 Barcode
@@ -377,19 +377,19 @@ namespace glabels
                                 return new Ean8();
                         }
 
-                
+
                         bool Ean8::validate( const std::string& rawData )
                         {
                                 return isNumericLengthValid(  rawData,  7,  8 );
                         }
 
-                
+
                         std::string Ean8::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // EAN-8+2 Barcode
@@ -399,19 +399,19 @@ namespace glabels
                                 return new Ean8_2();
                         }
 
-                
+
                         bool Ean8_2::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData,  7,  8 ) && isNumericLength2Valid( rawData, 2, 2 );
                         }
 
-                
+
                         std::string Ean8_2::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // EAN-8+5 Barcode
@@ -421,19 +421,19 @@ namespace glabels
                                 return new Ean8_5();
                         }
 
-                
+
                         bool Ean8_5::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData,  7,  8 ) && isNumericLength2Valid( rawData, 5, 5 );
                         }
 
-                
+
                         std::string Ean8_5::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // EAN-13 Barcode
@@ -443,19 +443,19 @@ namespace glabels
                                 return new Ean13();
                         }
 
-                
+
                         bool Ean13::validate( const std::string& rawData )
                         {
                                 return isNumericLengthValid(  rawData, 12, 13 );
                         }
 
-                
+
                         std::string Ean13::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // EAN-13+2 Barcode
@@ -465,19 +465,19 @@ namespace glabels
                                 return new Ean13_2();
                         }
 
-                
+
                         bool Ean13_2::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 12, 13 ) && isNumericLength2Valid( rawData, 2, 2 );
                         }
 
-                
+
                         std::string Ean13_2::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // EAN-13+5 Barcode
@@ -487,19 +487,19 @@ namespace glabels
                                 return new Ean13_5();
                         }
 
-                
+
                         bool Ean13_5::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 12, 13 ) && isNumericLength2Valid( rawData, 5, 5 );
                         }
 
-                
+
                         std::string Ean13_5::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_EAN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC Barcode (Any)
@@ -509,7 +509,7 @@ namespace glabels
                                 return new Upc();
                         }
 
-                
+
                         bool Upc::validate( const std::string& rawData )
                         {
                                 return      isNumericLengthValid( rawData, 6, 8 )
@@ -520,13 +520,13 @@ namespace glabels
                                         || (isNumericLength1Valid( rawData, 11, 12 ) && isNumericLength2Valid( rawData, 5, 5 ));
                         }
 
-                
+
                         std::string Upc::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC-A Barcode
@@ -536,19 +536,19 @@ namespace glabels
                                 return new UpcA();
                         }
 
-                
+
                         bool UpcA::validate( const std::string& rawData )
                         {
                                 return isNumericLengthValid( rawData, 11, 12 );
                         }
 
-                
+
                         std::string UpcA::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC-A+2 Barcode
@@ -558,19 +558,19 @@ namespace glabels
                                 return new UpcA_2();
                         }
 
-                
+
                         bool UpcA_2::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 11, 12 ) && isNumericLength2Valid( rawData, 2, 2 );
                         }
 
-                
+
                         std::string UpcA_2::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC-A+5 Barcode
@@ -580,19 +580,19 @@ namespace glabels
                                 return new UpcA_5();
                         }
 
-                
+
                         bool UpcA_5::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 11, 12 ) && isNumericLength2Valid( rawData, 5, 5 );
                         }
 
-                
+
                         std::string UpcA_5::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC-E Barcode
@@ -602,19 +602,19 @@ namespace glabels
                                 return new UpcE();
                         }
 
-                
+
                         bool UpcE::validate( const std::string& rawData )
                         {
                                 return isNumericLengthValid( rawData, 6, 8 );
                         }
 
-                
+
                         std::string UpcE::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC-E+2 Barcode
@@ -624,19 +624,19 @@ namespace glabels
                                 return new UpcE_2();
                         }
 
-                
+
                         bool UpcE_2::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 6, 8 ) && isNumericLength2Valid( rawData, 2, 2 );
                         }
 
-                
+
                         std::string UpcE_2::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // UPC-E+5 Barcode
@@ -646,19 +646,19 @@ namespace glabels
                                 return new UpcE_5();
                         }
 
-                
+
                         bool UpcE_5::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 6, 8 ) && isNumericLength2Valid( rawData, 5, 5 );
                         }
 
-                
+
                         std::string UpcE_5::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_UPC;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // ISBN Barcode
@@ -668,19 +668,19 @@ namespace glabels
                                 return new Isbn();
                         }
 
-                
+
                         bool Isbn::validate( const std::string& rawData )
                         {
                                 return isNumericLengthValid( rawData, 9, 10 );
                         }
 
-                
+
                         std::string Isbn::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_ISBN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // ISBN+5 Barcode
@@ -690,19 +690,19 @@ namespace glabels
                                 return new Isbn_5();
                         }
 
-                
+
                         bool Isbn_5::validate( const std::string& rawData )
                         {
                                 return isNumericLength1Valid( rawData, 9, 10 ) && isNumericLength2Valid( rawData, 5, 5 );
                         }
 
-                
+
                         std::string Isbn_5::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_ISBN;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code39 Barcode
@@ -712,19 +712,19 @@ namespace glabels
                                 return new Code39();
                         }
 
-                
+
                         bool Code39::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Code39::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_39;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code128 Barcode
@@ -734,19 +734,19 @@ namespace glabels
                                 return new Code128();
                         }
 
-                
+
                         bool Code128::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Code128::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_128;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code128C Barcode
@@ -756,19 +756,19 @@ namespace glabels
                                 return new Code128C();
                         }
 
-                
+
                         bool Code128C::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Code128C::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_128C;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code128B Barcode
@@ -778,19 +778,19 @@ namespace glabels
                                 return new Code128B();
                         }
 
-                
+
                         bool Code128B::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Code128B::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_128B;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // I25 Barcode
@@ -800,19 +800,19 @@ namespace glabels
                                 return new I25();
                         }
 
-                
+
                         bool I25::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string I25::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_I25;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // CBR Barcode
@@ -822,19 +822,19 @@ namespace glabels
                                 return new Cbr();
                         }
 
-                
+
                         bool Cbr::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Cbr::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_CBR;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // MSI Barcode
@@ -844,19 +844,19 @@ namespace glabels
                                 return new Msi();
                         }
 
-                
+
                         bool Msi::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Msi::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_MSI;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // PLS Barcode
@@ -866,19 +866,19 @@ namespace glabels
                                 return new Pls();
                         }
 
-                
+
                         bool Pls::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Pls::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_PLS;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                         //////////////////////////////////////////////////////
                         // Code93 Barcode
@@ -888,19 +888,19 @@ namespace glabels
                                 return new Code93();
                         }
 
-                
+
                         bool Code93::validate( const std::string& rawData )
                         {
                                 return isAscii( rawData );
                         }
 
-                
+
                         std::string Code93::encode( const std::string& cookedData )
                         {
                                 flags = BARCODE_93;
                                 return ""; // Actual encoding is done in vectorize
                         }
-                
+
 
                 }
         }

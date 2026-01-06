@@ -43,11 +43,11 @@ namespace glabels
                 class Settings : public QSettings
                 {
                         Q_OBJECT
-        
+
                 public:
                         enum PageSizeFamily { ISO, US, };
                         enum GridOrigin { ORIGIN_TL, ORIGIN_CENTER };
-                        
+
 
                         /////////////////////////////////
                         // Life Cycle
@@ -59,13 +59,13 @@ namespace glabels
                         static void init();
                         static Settings* instance();
 
-        
+
                         /////////////////////////////////
                         // Signals
                         /////////////////////////////////
                 signals:
                         void changed();
-        
+
 
                         /////////////////////////////////
                         // Accessors
@@ -112,8 +112,8 @@ namespace glabels
                         static Distance gridSpacing();
                         static void setGridSpacing( Distance spacing );
                         static void resetGridSpacing();
-                        
-                        
+
+
                 private:
                         static std::unique_ptr<Settings> mInstance;
                         static const int mMaxRecentFiles{5};

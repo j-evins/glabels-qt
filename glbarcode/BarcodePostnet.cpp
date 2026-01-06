@@ -169,7 +169,7 @@ namespace glbarcode
                                 // Not reached
                                 break;
                         }
-                        
+
                         double width = POSTNET_BAR_WIDTH;
 
                         addLine( x, y, width, length );

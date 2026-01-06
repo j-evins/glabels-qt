@@ -33,7 +33,7 @@ namespace glabels
 {
         namespace model
         {
-        
+
                 //
                 // Private
                 //
@@ -60,11 +60,11 @@ namespace glabels
                         mModel = model;
 
                         connect( mModel, SIGNAL(changed()), this, SLOT(onModelChanged()) );
-        
+
                         onModelChanged();
                 }
 
-        
+
                 const Model* PageRenderer::model() const
                 {
                         return mModel;
@@ -100,7 +100,7 @@ namespace glabels
                         emit changed();
                 }
 
-        
+
                 void PageRenderer::setIsCollated( bool isCollated )
                 {
                         mIsCollated = isCollated;
@@ -108,7 +108,7 @@ namespace glabels
 
                         emit changed();
                 }
-                
+
 
                 void PageRenderer::setAreGroupsContiguous( bool areGroupsContiguous )
                 {
@@ -117,7 +117,7 @@ namespace glabels
 
                         emit changed();
                 }
-                
+
 
                 void PageRenderer::setPrintOutlines( bool printOutlinesFlag )
                 {
@@ -126,7 +126,7 @@ namespace glabels
                         emit changed();
                 }
 
-        
+
                 void PageRenderer::setPrintCropMarks( bool printCropMarksFlag )
                 {
                         mPrintCropMarks = printCropMarksFlag;
@@ -134,7 +134,7 @@ namespace glabels
                         emit changed();
                 }
 
-        
+
                 void PageRenderer::setPrintReverse( bool printReverseFlag )
                 {
                         mPrintReverse = printReverseFlag;
@@ -142,7 +142,7 @@ namespace glabels
                         emit changed();
                 }
 
-        
+
                 void PageRenderer::setIPage( int iPage )
                 {
                         mIPage = iPage;
@@ -150,19 +150,19 @@ namespace glabels
                         emit changed();
                 }
 
-        
+
                 int PageRenderer::nItems() const
                 {
                         return mNItems;
                 }
-                        
-        
+
+
                 int PageRenderer::nPages() const
                 {
                         return mNPages;
                 }
-                        
-        
+
+
                 QRectF PageRenderer::pageRect() const
                 {
                         if ( mModel )
@@ -174,8 +174,8 @@ namespace glabels
                                 return QRectF( 0, 0, 0, 0 );
                         }
                 }
-                        
-        
+
+
                 void PageRenderer::updateNPages()
                 {
                         if ( mModel )
@@ -225,7 +225,7 @@ namespace glabels
                         mNPages = mLastItem/mNItemsPerPage + 1;
                 }
 
-        
+
                 ///
                 /// Print
                 ///
@@ -237,7 +237,7 @@ namespace glabels
                         printer->setPageMargins( QMarginsF(0, 0, 0, 0), QPageLayout::Point );
 
                         QPainter painter( printer );
-                        
+
                         QRectF rectPx  = printer->paperRect( QPrinter::DevicePixel );
                         QRectF rectPts = printer->paperRect( QPrinter::Point );
                         painter.scale( rectPx.width()/rectPts.width(), rectPx.height()/rectPts.height() );
@@ -305,11 +305,11 @@ namespace glabels
                                 if ( iCurrentPage == iPage )
                                 {
                                         int i = iItem % mNItemsPerPage;
-                                        
+
                                         painter->save();
 
                                         painter->translate( mOrigins[i].x().pt(), mOrigins[i].y().pt() );
-                        
+
                                         painter->save();
 
                                         clipLabel( painter );
@@ -318,7 +318,7 @@ namespace glabels
                                         painter->restore();  // From before clip
 
                                         printOutline( painter );
-                        
+
                                         painter->restore();  // From before translation
                                 }
 
@@ -337,7 +337,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 void PageRenderer::printCollatedMergePage( QPainter* painter, int iPage ) const
                 {
                         printCropMarks( painter );
@@ -354,7 +354,7 @@ namespace glabels
                         {
                                 return;
                         }
-                        
+
                         Variables variables( mModel->constVariables() );
 
                         while ( (iCopy < mNCopies) && (iCurrentPage <= iPage) )
@@ -362,11 +362,11 @@ namespace glabels
                                 if ( iCurrentPage == iPage )
                                 {
                                         int i = iItem % mNItemsPerPage;
-                                        
+
                                         painter->save();
 
                                         painter->translate( mOrigins[i].x().pt(), mOrigins[i].y().pt() );
-                        
+
                                         painter->save();
 
                                         clipLabel( painter );
@@ -375,7 +375,7 @@ namespace glabels
                                         painter->restore();  // From before clip
 
                                         printOutline( painter );
-                        
+
                                         painter->restore();  // From before translation
                                 }
 
@@ -411,8 +411,8 @@ namespace glabels
                                 }
                         }
                 }
-        
-        
+
+
                 void PageRenderer::printUnCollatedMergePage( QPainter* painter, int iPage ) const
                 {
                         printCropMarks( painter );
@@ -429,7 +429,7 @@ namespace glabels
                         {
                                 return;
                         }
-                        
+
                         Variables variables( mModel->constVariables() );
 
                         while ( (iRecord < nRecords) && (iCurrentPage <= iPage) )
@@ -437,11 +437,11 @@ namespace glabels
                                 if ( iCurrentPage == iPage )
                                 {
                                         int i = iItem % mNItemsPerPage;
-                                        
+
                                         painter->save();
 
                                         painter->translate( mOrigins[i].x().pt(), mOrigins[i].y().pt() );
-                        
+
                                         painter->save();
 
                                         clipLabel( painter );
@@ -450,7 +450,7 @@ namespace glabels
                                         painter->restore();  // From before clip
 
                                         printOutline( painter );
-                        
+
                                         painter->restore();  // From before translation
                                 }
 
@@ -487,8 +487,8 @@ namespace glabels
                                 }
                         }
                 }
-        
-        
+
+
                 void PageRenderer::printCropMarks( QPainter* painter ) const
                 {
                         if ( mPrintCropMarks )
@@ -547,7 +547,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 void PageRenderer::printOutline( QPainter* painter ) const
                 {
                         if ( mPrintOutlines )
@@ -558,18 +558,18 @@ namespace glabels
                                 painter->setPen( QPen( labelOutlineColor, labelOutlineWidth ) );
 
                                 painter->drawPath( mModel->frame()->path() );
-                        
+
                                 painter->restore();
                         }
                 }
 
-        
+
                 void PageRenderer::clipLabel( QPainter* painter ) const
                 {
                         painter->setClipPath( mModel->frame()->clipPath() );
                 }
 
-        
+
                 void PageRenderer::printLabel( QPainter*            painter,
                                                const merge::Record& record,
                                                Variables&           variables ) const

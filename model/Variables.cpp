@@ -109,7 +109,7 @@ namespace glabels
                                 }
                         }
                 }
-                
+
 
                 ///
                 /// Reset variables to their initial values
@@ -122,7 +122,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 ///
                 /// Reset "on copy" variables to their initial values
                 ///
@@ -137,7 +137,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 ///
                 /// Increment variables on item
                 ///
@@ -149,7 +149,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 ///
                 /// Increment variables on copy
                 ///
@@ -161,7 +161,7 @@ namespace glabels
                         }
                 }
 
-                
+
                 ///
                 /// Increment variables on page
                 ///

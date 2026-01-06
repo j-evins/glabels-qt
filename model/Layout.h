@@ -34,7 +34,7 @@ namespace glabels
 
                 class Layout
                 {
-                
+
                 public:
                         Layout( int      nx,
                                 int      ny,
@@ -64,7 +64,7 @@ namespace glabels
                         Distance mY0;
                         Distance mDx;
                         Distance mDy;
-                
+
                 };
 
         }

@@ -79,14 +79,14 @@ namespace glabels
                         //
                         ColorNode lineColorNode() const override;
                         void setLineColorNode( const ColorNode& value ) override;
-                
+
 
                         //
                         // Shape Property: fillColorNode
                         //
                         ColorNode fillColorNode() const override;
                         void setFillColorNode( const ColorNode& value ) override;
-                
+
 
                         ///////////////////////////////////////////////////////////////
                         // Capability Implementations

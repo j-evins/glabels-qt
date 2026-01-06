@@ -85,7 +85,7 @@ namespace glabels
                 Distance::Distance( double d, const QString& unitsId )
                 {
                         Units units = Units( unitsId );
-                
+
                         switch (units.toEnum())
                         {
                         case Units::PT:
@@ -156,7 +156,7 @@ namespace glabels
 
                         return d;
                 }
-        
+
 
                 double Distance::inUnits( Units::Enum unitsEnum ) const
                 {
@@ -186,7 +186,7 @@ namespace glabels
 
                         return d;
                 }
-        
+
 
                 double Distance::inUnits( const QString& unitsId ) const
                 {

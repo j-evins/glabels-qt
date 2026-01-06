@@ -31,7 +31,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// Color Button
         ///
@@ -62,7 +62,7 @@ namespace glabels
                              const QColor&  defaultColor,
                              const QColor&  color,
                              bool           showUseFieldButton = true );
-                
+
                 void   setColorNode( model::ColorNode colorNode );
                 void   setColor( QColor color );
                 void   setToDefault();

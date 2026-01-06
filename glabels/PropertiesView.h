@@ -33,7 +33,7 @@ namespace glabels
 
         // Forward references
         class UndoRedoModel;
-        
+
 
         ///
         /// Properties View Widget

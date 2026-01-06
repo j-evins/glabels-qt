@@ -34,7 +34,7 @@ namespace glabels
         namespace Cursors
         {
 
-                
+
                 class Crosshair : public QCursor
                 {
                 public:

@@ -43,7 +43,7 @@ namespace glabels
 
                 setIcon( QIcon( MiniPreviewPixmap( tmplate, SIZE, SIZE ) ) );
                 setMode( mode );
-                
+
                 setFlags( Qt::ItemIsSelectable | Qt::ItemIsEnabled );
         }
 
@@ -57,7 +57,7 @@ namespace glabels
 
                 switch ( mode )
                 {
-                        
+
                 case QListView::IconMode:
                         setText( mTmplate.name() );
                         break;
@@ -68,7 +68,7 @@ namespace glabels
                                  frame->sizeDescription( model::Settings::units() ) + "<br/>" +
                                  frame->layoutDescription() );
                         break;
-                        
+
                 default:
                         qWarning() << "TemplatePickerItem: unknown mode!";
                         break;

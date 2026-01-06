@@ -42,7 +42,7 @@ namespace glbarcode
                  * Default Constructor
                  */
                 QtRenderer();
-                
+
                 /**
                  * Constructor with QPainter
                  */
@@ -61,12 +61,12 @@ namespace glbarcode
 
                 /** Set "painter" parameter
                  *
-                 * @param[in] painter pointer to QPainter 
+                 * @param[in] painter pointer to QPainter
                  *
                  * @returns reference to this QtRenderer object for parameter chaining
                  */
                 QtRenderer& setPainter( QPainter* painter );
-                
+
 
         private:
                 /*

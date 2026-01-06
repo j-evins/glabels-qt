@@ -73,7 +73,7 @@ namespace glabels
                         {
                                 defaultIdString = Units(Units::MM).toIdString();
                         }
-        
+
                         mInstance->beginGroup( "Locale" );
                         QString idString = mInstance->value( "units", defaultIdString ).toString();
                         mInstance->endGroup();
@@ -109,7 +109,7 @@ namespace glabels
                                 defaultFamily = "iso";
                                 break;
                         }
-        
+
                         mInstance->beginGroup( "Locale" );
                         QString value = mInstance->value( "preferedPageSizeFamily", defaultFamily ).toString();
                         mInstance->endGroup();
@@ -143,7 +143,7 @@ namespace glabels
                                 defaultValue = true;
                                 break;
                         }
-        
+
                         mInstance->beginGroup( "Search" );
                         bool returnValue = mInstance->value( "isoPaperSizes", defaultValue ).toBool();
                         mInstance->endGroup();
@@ -177,7 +177,7 @@ namespace glabels
                                 defaultValue = false;
                                 break;
                         }
-        
+
                         mInstance->beginGroup( "Search" );
                         bool returnValue = mInstance->value( "usPaperSizes", defaultValue ).toBool();
                         mInstance->endGroup();
@@ -200,7 +200,7 @@ namespace glabels
                 {
                         // Guess at a suitable default
                         bool defaultValue = true;
-        
+
                         mInstance->beginGroup( "Search" );
                         bool returnValue = mInstance->value( "otherPaperSizes", defaultValue ).toBool();
                         mInstance->endGroup();
@@ -223,7 +223,7 @@ namespace glabels
                 {
                         // Guess at a suitable default
                         bool defaultValue = true;
-        
+
                         mInstance->beginGroup( "Search" );
                         bool returnValue = mInstance->value( "allCategories", defaultValue ).toBool();
                         mInstance->endGroup();
@@ -245,7 +245,7 @@ namespace glabels
                 QStringList Settings::searchCategoryList()
                 {
                         QStringList defaultList;
-        
+
                         mInstance->beginGroup( "Search" );
                         QStringList returnList = mInstance->value( "categoryList", defaultList ).toStringList();
                         mInstance->endGroup();
@@ -267,7 +267,7 @@ namespace glabels
                 QListView::ViewMode Settings::templatePickerMode()
                 {
                         QString defaultMode = "icon";
-        
+
                         mInstance->beginGroup( "TemplatePicker" );
                         QString returnMode = mInstance->value( "viewMode", defaultMode ).toString();
                         mInstance->endGroup();
@@ -289,7 +289,7 @@ namespace glabels
                 QStringList Settings::recentTemplateList()
                 {
                         QStringList defaultList;
-        
+
                         mInstance->beginGroup( "Recent" );
                         QStringList returnList = mInstance->value( "templates", defaultList ).toStringList();
                         mInstance->endGroup();
@@ -328,7 +328,7 @@ namespace glabels
                 QStringList Settings::recentFileList()
                 {
                         QStringList defaultList;
-        
+
                         mInstance->beginGroup( "Recent" );
                         QStringList returnList = mInstance->value( "files", defaultList ).toStringList();
                         mInstance->endGroup();
@@ -422,7 +422,7 @@ namespace glabels
                         {
                                 defaultSpacingString = Distance::mm(5).toString( Units::MM );
                         }
-        
+
                         mInstance->beginGroup( "Grid" );
                         QString spacingString = mInstance->value( "spacing", defaultSpacingString ).toString();
                         mInstance->endGroup();

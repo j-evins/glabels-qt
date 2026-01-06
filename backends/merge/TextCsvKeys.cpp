@@ -27,8 +27,8 @@ namespace glabels
         {
 
                 static const QString ID = "Text/Comma/Line1Keys";
-        
-        
+
+
                 ///
                 /// Constructor
                 ///

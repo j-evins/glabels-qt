@@ -100,7 +100,7 @@ namespace glabels
         void StartupView::loadRecentsMenu()
         {
                 auto fileList = model::Settings::recentFileList();
-                
+
                 auto* recentMenu = new QMenu();
 
                 for ( auto& filename : fileList )

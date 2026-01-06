@@ -63,13 +63,13 @@ namespace glabels
                         Model( merge::Merge* merge );
                         ~Model();
 
-        
+
                         /////////////////////////////////
                         // Save/restore model state
                         /////////////////////////////////
                         Model* save() const;
                         void restore( const Model *savedModel );
-        
+
 
                         /////////////////////////////////
                         // Signals
@@ -119,8 +119,8 @@ namespace glabels
 
                         merge::Merge* merge() const;
                         void setMerge( merge::Merge* merge );
-        
-                
+
+
                         /////////////////////////////////
                         // Manage objects
                         /////////////////////////////////
@@ -131,7 +131,7 @@ namespace glabels
                         ModelObject* objectAt( double   scale,
                                                Distance x,
                                                Distance y ) const;
-                
+
                         const Handle& handleAt( double   scale,
                                                 Distance x,
                                                 Distance y ) const;
@@ -224,7 +224,7 @@ namespace glabels
                                    const merge::Record& record,
                                    const Variables&     variablesInstance ) const;
 
-                
+
                         /////////////////////////////////
                         // Slots
                         /////////////////////////////////

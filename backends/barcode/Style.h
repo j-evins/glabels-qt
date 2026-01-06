@@ -29,7 +29,7 @@ namespace glabels
 {
         namespace barcode
         {
-        
+
                 ///
                 ///  Style Type
                 ///

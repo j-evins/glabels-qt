@@ -58,7 +58,7 @@ int main( int argc, char **argv )
         QLocale locale = QLocale::system();
         QString qtTranslationsDir = QLibraryInfo::path( QLibraryInfo::TranslationsPath );
         QString myTranslationsDir = glabels::model::FileUtil::translationsDir().canonicalPath();
-        
+
         QTranslator qtTranslator;
         if ( qtTranslator.load( locale, "qt", "_", qtTranslationsDir ) )
         {
@@ -98,7 +98,7 @@ int main( int argc, char **argv )
                 return 0;
         }
 
-        
+
         //
         // Initialize subsystems
         //
@@ -107,7 +107,7 @@ int main( int argc, char **argv )
         glabels::merge::Factory::init();
         glabels::barcode::Backends::init();
 
-        
+
         //
         // Open each file in its own main window
         //
@@ -126,7 +126,7 @@ int main( int argc, char **argv )
                 }
         }
 
-        
+
         //
         // Launch main window
         //
@@ -136,6 +136,6 @@ int main( int argc, char **argv )
                 mainWindow->show();
         }
 
-        
+
         return app.exec();
 }

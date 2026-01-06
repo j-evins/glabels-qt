@@ -34,7 +34,7 @@ namespace glabels
                 {
                 public:
                         DataCache();
-                
+
                         DataCache( const QList<ModelObject*>& objects );
 
                         bool hasImage( const QString& name ) const;
@@ -47,7 +47,7 @@ namespace glabels
                         void addSvg( const QString& name, const QByteArray& svg );
                         QList<QString> svgNames() const;
 
-                
+
                 private:
                         QMap<QString,QImage> mImageMap;
                         QMap<QString,QByteArray> mSvgMap;

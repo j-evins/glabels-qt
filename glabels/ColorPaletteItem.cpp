@@ -101,7 +101,7 @@ namespace glabels
                                 painter.drawRect( border, border, wSwatch, hSwatch );
                         }
 
-                        
+
                 }
                 else
                 {
@@ -134,7 +134,7 @@ namespace glabels
                 update();
         }
 
-        
+
         ///
         /// Mouse Press Event
         ///

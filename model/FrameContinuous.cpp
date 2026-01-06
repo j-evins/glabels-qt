@@ -47,7 +47,7 @@ namespace glabels
                         mPath.addRect( 0, 0, mW.pt(), mH.pt() );
                 }
 
-        
+
                 std::unique_ptr<Frame> FrameContinuous::clone() const
                 {
                         return std::make_unique<FrameContinuous>( *this );
@@ -59,7 +59,7 @@ namespace glabels
                         return mW;
                 }
 
-        
+
                 Distance FrameContinuous::h() const
                 {
                         return mH;
@@ -71,13 +71,13 @@ namespace glabels
                         return mHMin;
                 }
 
-                
+
                 Distance FrameContinuous::hMax() const
                 {
                         return mHMax;
                 }
 
-                
+
                 Distance FrameContinuous::hDefault() const
                 {
                         return mHDefault;
@@ -91,7 +91,7 @@ namespace glabels
                         mPath.addRect( 0, 0, mW.pt(), mH.pt() );
                         return true;
                 }
-                
+
 
                 QString FrameContinuous::sizeDescription( Units units ) const
                 {
@@ -149,11 +149,11 @@ namespace glabels
                 void FrameContinuous::print( QDebug& dbg ) const
                 {
                         dbg.nospace() << "FrameContinuous{ "
-                                      << id() << "," 
-                                      << w() << "," 
-                                      << h() << "," 
-                                      << hMin() << "," 
-                                      << hMax() << "," 
+                                      << id() << ","
+                                      << w() << ","
+                                      << h() << ","
+                                      << hMin() << ","
+                                      << hMax() << ","
                                       << hDefault() << ","
                                       << "list{ ";
                         for ( auto& layout : layouts() )

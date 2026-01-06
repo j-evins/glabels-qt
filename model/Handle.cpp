@@ -215,7 +215,7 @@ namespace glabels
 
                         path.addRect( -s*handlePixels/2, -s*handlePixels/2, s*handlePixels, s*handlePixels );
                         path.translate( x.pt(), y.pt() );
-        
+
                         return path;
                 }
 

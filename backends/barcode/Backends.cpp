@@ -31,7 +31,7 @@ namespace glabels
 {
         namespace barcode
         {
-        
+
                 //
                 // Static data
                 //
@@ -39,7 +39,7 @@ namespace glabels
                 QMap<QString,QString> Backends::mBackendNameMap;
 
                 QList<Style> Backends::mStyleList;
-        
+
 
                 Backends::Backends()
                 {
@@ -81,7 +81,7 @@ namespace glabels
                         // GNU Barcode backend
                         //
                         registerBackend( "gnu-barcode", "GNU Barcode" );
-                
+
                         glbarcode::Factory::registerType( "gnu-barcode::ean",      GnuBarcode::Ean::create );
                         glbarcode::Factory::registerType( "gnu-barcode::ean-8",    GnuBarcode::Ean8::create );
                         glbarcode::Factory::registerType( "gnu-barcode::ean-8+2",  GnuBarcode::Ean8_2::create );
@@ -165,7 +165,7 @@ namespace glabels
                         // Libqrencode backend
                         //
                         registerBackend( "qrencode", "QREncode" );
-                
+
                         glbarcode::Factory::registerType( "qrencode::qrcode", QrEncode::QrCode::create );
 
                         registerStyle( "qrcode", "qrencode", tr("IEC18004 (QRCode)"),
@@ -177,7 +177,7 @@ namespace glabels
                         // Zint barcode backend
                         //
                         registerBackend( "zint", "Zint" );
-                
+
                         glbarcode::Factory::registerType( "zint::ausp",      Zint::AusP::create );
                         glbarcode::Factory::registerType( "zint::ausrp",     Zint::AusRP::create );
                         glbarcode::Factory::registerType( "zint::ausrt",     Zint::AusRT::create );
@@ -277,7 +277,7 @@ namespace glabels
 
                         registerStyle( "aztec", "zint", tr("Aztec Code"),
                                        false, false, true, false, "1234567890", true, 10 );
-          
+
                         registerStyle( "azrun", "zint", tr("Aztec Runes"),
                                        false, false, true, false, "255", true, 3 );
 
@@ -296,34 +296,34 @@ namespace glabels
                         registerStyle( "cblockf", "zint", tr("Codablock-F"),
                                        false, false, true, false, "0000000000", true, 10 );
 
-                        registerStyle( "code1", "zint", tr("Code One"), 
+                        registerStyle( "code1", "zint", tr("Code One"),
                                        false, false, true, false, "0000000000", true, 10 );
 
                         registerStyle( "code11", "zint", tr("Code 11"),
                                        true, true, true, true, "0000000000", true, 10 );
-          
+
                         registerStyle( "c16k", "zint", tr("Code 16K"),
                                        false, false, true, false, "0000000000", true, 10 );
-          
+
                         registerStyle( "c25m", "zint", tr("Code 2 of 5 Standard"),
                                        true, true, true, true, "0000000000", true, 10 );
-          
-                        registerStyle( "c25i", "zint", tr("Code 2 of 5 IATA"), 
+
+                        registerStyle( "c25i", "zint", tr("Code 2 of 5 IATA"),
                                        true, true, true, true, "0000000000", true, 10 );
 
                         registerStyle( "c25ind", "zint", tr("Code 2 of 5 Industrial"),
                                        true, true, true, true, "0000000000", true, 10 );
-          
-                        registerStyle( "c25dl", "zint", tr("Code 2 of 5 Data Logic"), 
+
+                        registerStyle( "c25dl", "zint", tr("Code 2 of 5 Data Logic"),
                                        true, true, true, true, "0000000000", true, 10 );
 
-                        registerStyle( "code32", "zint", tr("Code 32 (Italian Pharmacode)"), 
+                        registerStyle( "code32", "zint", tr("Code 32 (Italian Pharmacode)"),
                                        true, true, true, false, "12345678", true, 8 );
 
                         registerStyle( "code39", "zint", tr("Code 39"),
                                        true, true, true, true, "0000000000", true, 10 );
-          
-                        registerStyle( "code39e", "zint", tr("Code 39 Extended"), 
+
+                        registerStyle( "code39e", "zint", tr("Code 39 Extended"),
                                        true, true, true, true, "0000000000", true, 10 );
 
                         registerStyle( "code49", "zint", tr("Code 49"),
@@ -334,10 +334,10 @@ namespace glabels
 
                         registerStyle( "code128", "zint", tr("Code 128"),
                                        true, true, true, false, "0000000000", true, 10 );
-          
+
                         registerStyle( "code128b", "zint", tr("Code 128 (Mode C suppression)"),
                                        true, true, true, false, "0000000000", true, 10 );
-          
+
                         registerStyle( "daft", "zint", tr("DAFT Code"),
                                        false, false, false, false, "DAFTDAFTDAFTDAFT", true, 16 );
 
@@ -346,7 +346,7 @@ namespace glabels
 
                         registerStyle( "dpl", "zint", tr("Deutsche Post Leitcode"),
                                        true, true, true, false, "1234567890123", true, 13 );
-          
+
                         registerStyle( "dpi", "zint", tr("Deutsche Post Identcode"),
                                        true, true, true, false, "12345678901", true, 11 );
 
@@ -371,7 +371,7 @@ namespace glabels
                         registerStyle( "flat", "zint", tr("Flattermarken"),
                                        false, false, false, false, "11111111", false, 8 );
 
-                        registerStyle( "gmtx", "zint", tr("Grid Matrix"), 
+                        registerStyle( "gmtx", "zint", tr("Grid Matrix"),
                                        false, false, true, false, "0000000000", true, 10 );
 
                         registerStyle( "gs1-128", "zint", tr("GS1-128"),
@@ -379,13 +379,13 @@ namespace glabels
 
                         registerStyle( "rss14", "zint", tr("GS1 DataBar Omnidirectional"),
                                        true, true, true, false, "1234567890123", true, 13 );
-          
+
                         registerStyle( "rssltd", "zint", "GS1 DataBar Limited",
                                        true, true, true, false, "1234567890123", true, 13 );
-          
+
                         registerStyle( "rssexp", "zint", "GS1 DataBar Expanded",
                                        true, true, true, false, "[01]12345678901231", false, 18 );
-          
+
                         registerStyle( "rsss", "zint", tr("GS1 DataBar Stacked"),
                                        false, false, true, false, "0000000000", true, 10 );
 
@@ -500,10 +500,10 @@ namespace glabels
                         registerStyle( "pls", "zint", tr("UK Plessey"),
                                        true, true, true, false, "0000000000", true, 10 );
 
-                        registerStyle( "upc-a", "zint", tr("UPC-A"), 
+                        registerStyle( "upc-a", "zint", tr("UPC-A"),
                                        true, true, true, false, "12345678901", false, 11 );
-          
-                        registerStyle( "upc-e", "zint", tr("UPC-E"), 
+
+                        registerStyle( "upc-e", "zint", tr("UPC-E"),
                                        true, true, true, false, "1234567", false, 7 );
 
                         registerStyle( "upus10", "zint", tr("UPU S10"),
@@ -522,7 +522,7 @@ namespace glabels
                 void Backends::init()
                 {
                         static Backends* singletonInstance = nullptr;
-                
+
                         if ( singletonInstance == nullptr )
                         {
                                 singletonInstance = new Backends();
@@ -535,13 +535,13 @@ namespace glabels
                         return mBackendIdList;
                 }
 
-        
+
                 QString Backends::backendName( const QString& backendId )
                 {
                         return mBackendNameMap[ backendId ];
                 }
 
-        
+
                 const QList<Style>& Backends::styleList()
                 {
                         return mStyleList;

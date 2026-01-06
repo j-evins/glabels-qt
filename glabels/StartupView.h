@@ -56,7 +56,7 @@ namespace glabels
                 void onOpenRecentAction();
                 void onSettingsChanged();
 
-        
+
                 /////////////////////////////////
                 // Private methods
                 /////////////////////////////////

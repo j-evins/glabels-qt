@@ -66,14 +66,14 @@ namespace glabels
                 /////////////////////////////////
         private slots:
                 void onSelectionChanged();
-                
+
 
                 /////////////////////////////////
                 // Signals
                 /////////////////////////////////
         signals:
                 void changed();
-                
+
 
                 /////////////////////////////////
                 // Private types
@@ -104,7 +104,7 @@ namespace glabels
                 private:
                         QList<State*> list;
                 };
-        
+
 
                 /////////////////////////////////
                 // Private data
@@ -114,7 +114,7 @@ namespace glabels
 
                 Stack          mUndoStack;
                 Stack          mRedoStack;
-        
+
                 bool           mNewSelection;
                 QString        mLastDescription;
 

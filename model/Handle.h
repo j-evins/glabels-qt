@@ -47,8 +47,8 @@ namespace glabels
                         ////////////////////////////
                 public:
                         enum Location { NULL_HANDLE, NW, N, NE, E, SE, S, SW, W, P1, P2 };
-                
-                
+
+
                         ////////////////////////////
                         // Lifecycle Methods
                         ////////////////////////////
@@ -57,14 +57,14 @@ namespace glabels
                         Handle( ModelObject* owner, Location location );
                         ~Handle() = default;
 
-                
+
                         ////////////////////////////
                         // Attribute Methods
                         ////////////////////////////
                         bool isNull() const;
                         ModelObject* owner() const;
                         Location location() const;
-                
+
 
                         ////////////////////////////
                         // Drawing Methods
@@ -79,7 +79,7 @@ namespace glabels
                                      Distance  x,
                                      Distance  y,
                                      QColor    color ) const;
-                
+
                         QPainterPath pathAt( double   scale,
                                              Distance x,
                                              Distance y ) const;

@@ -37,7 +37,7 @@ namespace glbarcode
          *
          *
          * ### Input Data Format ###
-         * 
+         *
          * The *POSTNET* specification defines 10 characters, consisting solely
          * of decimal digits (0-9).  The BarcodePostnet validator and encoder will
          * ignore spaces and dashes (-).  The validator will only accept input
@@ -49,7 +49,7 @@ namespace glbarcode
          * The *checksum* property is ignored.  A mandatory check digit will
          * always be automatically generated and appended to the input data
          * prior to encoding.
-         * 
+         *
          *
          * ### Show Text Property ###
          *

@@ -34,7 +34,7 @@ namespace glabels
                 class Variable
                 {
                         Q_DECLARE_TR_FUNCTIONS(Variable)
-                        
+
                 public:
                         enum class Type
                         {
@@ -51,8 +51,8 @@ namespace glabels
                                 PER_COPY,
                                 PER_PAGE
                         };
-                        
-                                
+
+
                 public:
                         Variable();
 

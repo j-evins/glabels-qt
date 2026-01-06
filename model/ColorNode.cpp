@@ -109,7 +109,7 @@ namespace glabels
                 {
                         return mIsField;
                 }
-                
+
 
                 ///
                 /// Field Flag Property Setter
@@ -136,7 +136,7 @@ namespace glabels
                 {
                         mColor = color;
                 }
-                
+
 
                 ///
                 /// Key Property Getter
@@ -154,7 +154,7 @@ namespace glabels
                 {
                         mKey = key;
                 }
-                
+
 
                 ///
                 /// Get color encoded as an RGBA 32-bit number
@@ -178,7 +178,7 @@ namespace glabels
                                          const Variables&     variables ) const
                 {
                         QColor value = QColor( 192, 192, 192, 128 );
-                        
+
                         bool haveRecordField = mIsField &&
                                 record.contains(mKey) &&
                                 !record.value(mKey).isEmpty();

@@ -62,7 +62,7 @@ namespace glabels
 
                         virtual ~ModelEllipseObject() = default;
 
-        
+
                         ///////////////////////////////////////////////////////////////
                         // Object duplication
                         ///////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ namespace glabels
                                          bool                 inEditor,
                                          const merge::Record& record,
                                          const Variables&     variables ) const override;
-                        
+
                         void drawObject( QPainter*            painter,
                                          bool                 inEditor,
                                          const merge::Record& record,

@@ -42,9 +42,9 @@ namespace glabels
                         {
                         protected:
                                 int flags;
-                        
+
                                 bool isAscii( const std::string& data ) const;
-                        
+
                                 bool isNumericLengthValid( const std::string& data,
                                                            unsigned int       nMin,
                                                            unsigned int       nMax ) const;
@@ -56,7 +56,7 @@ namespace glabels
                                 bool isNumericLength2Valid( const std::string& data,
                                                             unsigned int       nMin,
                                                             unsigned int       nMax ) const;
-                        
+
                                 void vectorize( const std::string& encodedData,
                                                 const std::string& displayText,
                                                 const std::string& cookedData,
@@ -72,7 +72,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -86,7 +86,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -100,7 +100,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -114,7 +114,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -128,7 +128,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -142,7 +142,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -156,7 +156,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -170,7 +170,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -184,7 +184,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -198,7 +198,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -212,7 +212,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -226,7 +226,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -240,7 +240,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -254,7 +254,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -268,7 +268,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -282,7 +282,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -296,7 +296,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -310,7 +310,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -324,7 +324,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -338,7 +338,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -352,7 +352,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -366,7 +366,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -380,7 +380,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -394,7 +394,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;
@@ -408,7 +408,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 bool validate( const std::string& rawData ) override;
                                 std::string encode( const std::string& cookedData ) override;

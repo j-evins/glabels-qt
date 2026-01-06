@@ -157,7 +157,7 @@ namespace glabels
                 defaultColorButton->setDefault( false );
                 connect( defaultColorButton, SIGNAL(clicked()), this, SLOT(onDefaultButtonClicked()) );
                 vLayout->addWidget( defaultColorButton );
-                
+
                 //
                 // Construct Custom Color Button
                 //
@@ -216,7 +216,7 @@ namespace glabels
                 if ( newColorNode != mColorNode )
                 {
                         mColorNode = newColorNode;
-                        
+
                         mColorHistory->addColor( mColorNode.color(), mColorTable[id].trname );
 
                         emit colorChanged( mColorNode, false );
@@ -263,7 +263,7 @@ namespace glabels
                         if ( newColorNode != mColorNode )
                         {
                                 mColorNode = newColorNode;
-                        
+
                                 // TRANSLATORS
                                 //:   %1 = color specification in hex. String must not contain a colon (:).
                                 mColorHistory->addColor( mColorNode.color(),
@@ -286,7 +286,7 @@ namespace glabels
         {
                 QStringList nameList = mColorHistory->getNames();
                 QList<QColor> colorList = mColorHistory->getColors();
-        
+
                 int id = 0;
                 for ( QColor color : colorList )
                 {

@@ -77,7 +77,7 @@ namespace glabels
                         /////////////////////////////////
                 signals:
                         void changed();
-                        
+
 
                         /////////////////////////////////
                         // Private data

@@ -27,7 +27,7 @@ namespace glabels
 {
         namespace barcode
         {
-        
+
                 ///
                 /// Default Constructor
                 ///
@@ -220,6 +220,6 @@ namespace glabels
                 {
                         return (mBackendId != other.mBackendId) || (mId != other.mId);
                 }
-        
+
         } // namespace barcode
 } // namespace glabels

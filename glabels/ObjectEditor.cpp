@@ -78,11 +78,11 @@ namespace glabels
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
-                
+
                 onSettingsChanged();
         }
 
-        
+
         void ObjectEditor::setModel( model::Model* model, UndoRedoModel* undoRedoModel )
         {
                 mModel = model;
@@ -90,10 +90,10 @@ namespace glabels
 
                 connect( mModel, SIGNAL(sizeChanged()),
                          this, SLOT(onLabelSizeChanged()) );
-                
+
                 connect( mModel, SIGNAL(selectionChanged()),
                          this, SLOT(onSelectionChanged()) );
-                
+
                 connect( mModel, SIGNAL(mergeSourceChanged()),
                          this, SLOT(onFieldsAvailableChanged()) );
 
@@ -105,7 +105,7 @@ namespace glabels
                 onFieldsAvailableChanged();
         }
 
-        
+
         void ObjectEditor::hidePages()
         {
                 notebook->removeTab( notebook->indexOf(textPage) );
@@ -135,7 +135,7 @@ namespace glabels
                                 imageFilenameLineEdit->setText( fn );
                         }
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -145,12 +145,12 @@ namespace glabels
                 if ( mObject )
                 {
                         mBlocked = true;
-                        
+
                         lineWidthSpin->setValue( mObject->lineWidth().pt() );
                         lineColorButton->setColorNode( mObject->lineColorNode() );
                         fillColorButton->setColorNode( mObject->fillColorNode() );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -160,7 +160,7 @@ namespace glabels
                 if ( mObject )
                 {
                         mBlocked = true;
-                        
+
                         posXSpin->setDecimals( mSpinDigits );
                         posXSpin->setSingleStep( mSpinStep );
                         posXSpin->setSuffix( " " + mUnits.toIdString() );
@@ -172,7 +172,7 @@ namespace glabels
                         posXSpin->setValue( mObject->x0().inUnits(mUnits) );
                         posYSpin->setValue( mObject->y0().inUnits(mUnits) );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -182,7 +182,7 @@ namespace glabels
                 if ( mObject )
                 {
                         mBlocked = true;
-                        
+
                         sizeWSpin->setDecimals( mSpinDigits );
                         sizeWSpin->setSingleStep( mSpinStep );
                         sizeWSpin->setSuffix( " " + mUnits.toIdString() );
@@ -203,7 +203,7 @@ namespace glabels
                                 .arg( mUnits.toIdString() );
                         sizeOriginalSizeLabel->setText( originalSizeString );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -213,7 +213,7 @@ namespace glabels
                 if ( mObject )
                 {
                         mBlocked = true;
-                        
+
                         sizeLineLengthSpin->setDecimals( mSpinDigits );
                         sizeLineLengthSpin->setSingleStep( mSpinStep );
                         sizeLineLengthSpin->setSuffix( " " + mUnits.toIdString() );
@@ -223,7 +223,7 @@ namespace glabels
                         sizeLineLengthSpin->setValue( sqrt( w*w + h*h ) );
                         sizeLineAngleSpin->setValue( qRadiansToDegrees( qAtan2( h, w ) ) );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -255,7 +255,7 @@ namespace glabels
                         textAutoShrinkCheck->setChecked( mObject->textAutoShrink() );
                         textEdit->setText( mObject->text() );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -287,7 +287,7 @@ namespace glabels
                         barcodeColorButton->setColorNode( mObject->bcColorNode() );
                         barcodeDataEdit->setText( mObject->bcData() );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -297,7 +297,7 @@ namespace glabels
                 if ( mObject )
                 {
                         mBlocked = true;
-                        
+
                         shadowXSpin->setDecimals( mSpinDigits );
                         shadowXSpin->setSingleStep( mSpinStep );
                         shadowXSpin->setSuffix( " " + mUnits.toIdString() );
@@ -312,7 +312,7 @@ namespace glabels
                         shadowColorButton->setColorNode( mObject->shadowColorNode() );
                         shadowOpacitySpin->setValue( 100*mObject->shadowOpacity() );
 
-                        mBlocked = false;                        
+                        mBlocked = false;
                 }
         }
 
@@ -336,16 +336,16 @@ namespace glabels
                         mBlocked = true;
 
                         model::Distance whMax = std::max( mModel->w(), mModel->h() );
-                        
+
                         posXSpin->setRange( -whMax.inUnits(mUnits), 2*whMax.inUnits(mUnits) );
                         posYSpin->setRange( -whMax.inUnits(mUnits), 2*whMax.inUnits(mUnits) );
                         sizeWSpin->setRange( 0, 2*whMax.inUnits(mUnits) );
                         sizeHSpin->setRange( 0, 2*whMax.inUnits(mUnits) );
-                        
-                        mBlocked = false;                        
+
+                        mBlocked = false;
                 }
         }
-        
+
 
         void ObjectEditor::onSelectionChanged()
         {
@@ -380,7 +380,7 @@ namespace glabels
                                         loadPositionPage();
                                         loadRectSizePage();
                                         loadShadowPage();
-                                
+
                                         setEnabled( true );
                                 }
                                 else if ( dynamic_cast<model::ModelEllipseObject*>(mObject) )
@@ -401,7 +401,7 @@ namespace glabels
                                         loadPositionPage();
                                         loadRectSizePage();
                                         loadShadowPage();
-                                
+
                                         setEnabled( true );
                                 }
                                 else if ( dynamic_cast<model::ModelImageObject*>(mObject) )
@@ -421,7 +421,7 @@ namespace glabels
                                         loadPositionPage();
                                         loadRectSizePage();
                                         loadShadowPage();
-                                
+
                                         setEnabled( true );
                                 }
                                 else if ( dynamic_cast<model::ModelLineObject*>(mObject) )
@@ -442,7 +442,7 @@ namespace glabels
                                         loadPositionPage();
                                         loadLineSizePage();
                                         loadShadowPage();
-                                
+
                                         setEnabled( true );
                                 }
                                 else if ( dynamic_cast<model::ModelTextObject*>(mObject) )
@@ -462,7 +462,7 @@ namespace glabels
                                         loadPositionPage();
                                         loadRectSizePage();
                                         loadShadowPage();
-                                
+
                                         setEnabled( true );
                                 }
                                 else if ( dynamic_cast<model::ModelBarcodeObject*>(mObject) )
@@ -480,7 +480,7 @@ namespace glabels
                                         loadBarcodePage();
                                         loadPositionPage();
                                         loadRectSizePage();
-                                
+
                                         setEnabled( true );
                                 }
                                 else
@@ -503,7 +503,7 @@ namespace glabels
                 }
         }
 
-        
+
         void ObjectEditor::onFieldsAvailableChanged()
         {
                 if ( !mBlocked )
@@ -533,7 +533,7 @@ namespace glabels
                 }
         }
 
-        
+
         void ObjectEditor::onObjectMoved()
         {
                 if ( !mBlocked )
@@ -548,8 +548,8 @@ namespace glabels
                 disconnect( mObject, nullptr, this, nullptr );
                 mObject = nullptr;
         }
-        
-        
+
+
         void ObjectEditor::onLineControlsChanged()
         {
                 if ( !mBlocked )
@@ -557,7 +557,7 @@ namespace glabels
                         mBlocked = true;
 
                         mUndoRedoModel->checkpoint( tr("Line") );
-                
+
                         mObject->setLineWidth( model::Distance::pt(lineWidthSpin->value()) );
                         mObject->setLineColorNode( lineColorButton->colorNode() );
 
@@ -565,7 +565,7 @@ namespace glabels
                 }
         }
 
-        
+
         void ObjectEditor::onFillControlsChanged()
         {
                 if ( !mBlocked )
@@ -573,7 +573,7 @@ namespace glabels
                         mBlocked = true;
 
                         mUndoRedoModel->checkpoint( tr("Fill") );
-                
+
                         mObject->setFillColorNode( fillColorButton->colorNode() );
 
                         mBlocked = false;
@@ -607,7 +607,7 @@ namespace glabels
                         tr("SVG - Scalable Vector Graphics (*.svg)") + ";;" +
                         tr("XBM - X11 Bitmap (*.xbm)") + ";;" +
                         tr("XPM - X11 Pixmap (*.xpm)");
-                
+
                 QString filename =
                         QFileDialog::getOpenFileName( this->window(),
                                                       tr("gLabels - Select image file"),
@@ -642,7 +642,7 @@ namespace glabels
                         mBlocked = true;
 
                         mUndoRedoModel->checkpoint( tr("Position") );
-                
+
                         model::Distance x = model::Distance(posXSpin->value(), mUnits);
                         model::Distance y = model::Distance(posYSpin->value(), mUnits);
 
@@ -658,12 +658,12 @@ namespace glabels
                 if ( !mBlocked )
                 {
                         mBlocked = true;
-                        
+
                         mUndoRedoModel->checkpoint( tr("Size") );
-                
+
                         model::Distance spinW = model::Distance(sizeWSpin->value(), mUnits);
                         model::Distance spinH = model::Distance(sizeHSpin->value(), mUnits);
-                                
+
                         if ( sizeAspectCheck->isChecked() )
                         {
                                 mObject->setLockAspectRatio( true );
@@ -683,7 +683,7 @@ namespace glabels
                                 mObject->setLockAspectRatio( false );
                                 mObject->setSize( spinW, spinH );
                         }
-                        
+
                         mBlocked = false;
                 }
         }
@@ -694,15 +694,15 @@ namespace glabels
                 if ( !mBlocked )
                 {
                         mBlocked = true;
-                        
+
                         mUndoRedoModel->checkpoint( tr("Size") );
-                
+
                         model::Distance spinLength = model::Distance(sizeLineLengthSpin->value(), mUnits);
                         double spinAngleRads = qDegreesToRadians( sizeLineAngleSpin->value() );
-                                
+
                         mObject->setSize( spinLength*qCos(spinAngleRads),
                                           spinLength*qSin(spinAngleRads) );
-                        
+
                         mBlocked = false;
                 }
         }
@@ -723,7 +723,7 @@ namespace glabels
                         case 1:  wrapMode = QTextOption::WrapAnywhere; break;
                         default: wrapMode = QTextOption::NoWrap;       break;
                         }
-                
+
                         mObject->setFontFamily( textFontFamilyCombo->currentText() );
                         mObject->setFontSize( textFontSizeSpin->value() );
                         mObject->setFontWeight( textFontBoldToggle->isChecked() ? QFont::Bold : QFont::Normal );
@@ -803,7 +803,7 @@ namespace glabels
                         mBlocked = true;
 
                         mUndoRedoModel->checkpoint( tr("Shadow") );
-                
+
                         mObject->setShadow( shadowEnableCheck->isChecked() );
                         mObject->setShadowX( model::Distance(shadowXSpin->value(), mUnits) );
                         mObject->setShadowY( model::Distance(shadowYSpin->value(), mUnits) );

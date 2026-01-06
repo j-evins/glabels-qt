@@ -71,7 +71,7 @@ namespace glbarcode
         protected:
                 /**
                  * Draw begin.
-                 * 
+                 *
                  * Required virtual method to perform rendering setup, such as opening devices and/or
                  * initializing drawing contexts.
                  *
@@ -83,7 +83,7 @@ namespace glbarcode
 
                 /**
                  * Draw end.
-                 * 
+                 *
                  * Required virtual method to perform rendering cleanup, such as closing devices
                  * and/or drawing contexts.
                  */
@@ -92,7 +92,7 @@ namespace glbarcode
 
                 /**
                  * Draw line primitive.
-                 * 
+                 *
                  * Required virtual method to draw or render line drawing primitive.
                  *
                  * @image html figure-primitive-line.svg "Line primitive properties"
@@ -107,7 +107,7 @@ namespace glbarcode
 
                 /**
                  * Draw box primitive.
-                 * 
+                 *
                  * Required virtual method to draw or render box drawing primitive.
                  *
                  * @image html figure-primitive-box.svg "Box primitive properties"
@@ -122,7 +122,7 @@ namespace glbarcode
 
                 /**
                  * Draw text primitive.
-                 * 
+                 *
                  * Required virtual method to draw or render text drawing primitive.
                  *
                  * @image html figure-primitive-text.svg "Text primitive properties"
@@ -137,7 +137,7 @@ namespace glbarcode
 
                 /**
                  * Draw ring primitive.
-                 * 
+                 *
                  * Required virtual method to draw or render ring drawing primitive.
                  *
                  * @image html figure-primitive-ring.svg "Ring primitive properties"
@@ -152,7 +152,7 @@ namespace glbarcode
 
                 /**
                  * Draw hexagon primitive.
-                 * 
+                 *
                  * Required virtual method to draw or render hexagon drawing primitive.
                  *
                  * @image html figure-primitive-hexagon.svg "Hexagon primitive properties"

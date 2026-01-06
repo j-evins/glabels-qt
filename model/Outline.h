@@ -74,7 +74,7 @@ namespace glabels
                         QVector<qreal> mDashes;
                         QPen           mPen1;
                         QPen           mPen2;
-        
+
                 };
 
         }

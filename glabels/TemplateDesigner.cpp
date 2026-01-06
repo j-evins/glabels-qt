@@ -73,14 +73,14 @@ namespace glabels
                         ApplyPageId
                 };
 
-        
+
                 const QString defaultPageSize[] =
                 {
                         /* ISO */ "A4",
                         /* US  */ "US Letter"
                 };
 
-        
+
                 const double maxPageSize[] =
                 {
                         /* PT */ 5000,
@@ -105,7 +105,7 @@ namespace glabels
                 const model::Distance defaultCdR1      = model::Distance::in(2.3125);
                 const model::Distance defaultCdR2      = model::Distance::in(0.8125);
                 const model::Distance defaultCdClip    = model::Distance::in(0);
-                
+
         }
 
 
@@ -381,7 +381,7 @@ namespace glabels
                 model::Distance pageW( field( "pageSize.w" ).toDouble(), units );
                 model::Distance pageH( field( "pageSize.h" ).toDouble(), units );
                 model::Distance pageRollW( field( "pageSize.rollW" ).toDouble(), units );
-                
+
                 auto t = model::Template( brand, part, description, paperId, pageW, pageH, pageRollW, "", true );
 
                 if ( field( "shape.rect" ).toBool() )
@@ -480,7 +480,7 @@ namespace glabels
                 }
         }
 
-        
+
         ///
         /// Print test sheet
         ///
@@ -511,7 +511,7 @@ namespace glabels
 
                 delete sheet;
         }
-        
+
 
         ///
         /// Load wizard from template
@@ -609,7 +609,7 @@ namespace glabels
                         setField( "twoLayout.dy2", it->dy().inUnits( units ) );
                 }
         }
-        
+
 
         ///
         /// Is the wizard based on a copy?
@@ -708,7 +708,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         bool TemplateDesignerNamePage::isComplete() const
         {
@@ -728,7 +728,7 @@ namespace glabels
                 {
                         warningLabel->setText( "" );
                 }
-                
+
                 mCanContinue = !brandEntry->text().isEmpty() && !partEntry->text().isEmpty() && !isDuplicate;
                 emit completeChanged();
         }
@@ -749,7 +749,7 @@ namespace glabels
                 pageSizeCombo->insertItem( 1, tr("Roll") );
                 pageSizeCombo->insertItems( 2, model::Db::paperNames() );
                 pageSizeCombo->setCurrentText( defaultPageSize[ model::Settings::preferedPageSizeFamily() ] );
-                
+
                 bool isOther = pageSizeCombo->currentText() == tr("Other");
                 bool isRoll  = pageSizeCombo->currentText() == tr("Roll");
 
@@ -758,7 +758,7 @@ namespace glabels
                 wSpin->setSingleStep( model::Settings::units().resolution() );
                 wSpin->setMaximum( maxPageSize[ model::Settings::units().toEnum() ] );
                 wSpin->setEnabled( isOther || isRoll );
-                
+
                 hSpin->setSuffix( " " + model::Settings::units().toTrName() );
                 hSpin->setDecimals( model::Settings::units().resolutionDigits() );
                 hSpin->setSingleStep( model::Settings::units().resolution() );
@@ -821,7 +821,7 @@ namespace glabels
 
                 wLabel->setEnabled( isOther || isRoll );
                 wSpin->setEnabled( isOther || isRoll );
-                
+
                 hLabel->setEnabled( isOther || isRoll );
                 hSpin->setEnabled( isOther || isRoll );
 
@@ -850,7 +850,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerShapePage::initializePage()
         {
@@ -914,7 +914,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerRectPage::initializePage()
         {
@@ -987,7 +987,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerRoundPage::initializePage()
         {
@@ -1057,7 +1057,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerEllipsePage::initializePage()
         {
@@ -1139,7 +1139,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerCdPage::initializePage()
         {
@@ -1194,7 +1194,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         bool TemplateDesignerPathPage::isComplete() const
         {
@@ -1218,7 +1218,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         bool TemplateDesignerContinuousPage::isComplete() const
         {
@@ -1245,7 +1245,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerNLayoutsPage::initializePage()
         {
@@ -1300,12 +1300,12 @@ namespace glabels
                 connect( dySpin, SIGNAL(valueChanged(double)), this, SLOT(onChanged()) );
 
                 connect( printButton, SIGNAL(clicked()), this, SLOT(onPrintButtonClicked()) );
-                
+
                 QVBoxLayout* layout = new QVBoxLayout;
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerOneLayoutPage::initializePage()
         {
@@ -1370,7 +1370,7 @@ namespace glabels
                 }
         }
 
-        
+
         void TemplateDesignerOneLayoutPage::onPrintButtonClicked()
         {
                 if ( auto td = dynamic_cast<TemplateDesigner*>( wizard() ) )
@@ -1457,7 +1457,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         void TemplateDesignerTwoLayoutPage::initializePage()
         {
@@ -1536,7 +1536,7 @@ namespace glabels
                 }
         }
 
-        
+
         void TemplateDesignerTwoLayoutPage::onPrintButtonClicked()
         {
                 if ( auto td = dynamic_cast<TemplateDesigner*>( wizard() ) )
@@ -1564,7 +1564,7 @@ namespace glabels
                 layout->addWidget( widget );
                 setLayout( layout );
         }
-        
+
 
         bool TemplateDesignerApplyPage::validatePage()
         {

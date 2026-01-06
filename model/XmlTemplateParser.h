@@ -50,7 +50,7 @@ namespace glabels
                         QList<Template> parseRootNode( const QDomElement& node,
                                                        const QString&     fileName,
                                                        Pass               pass );
-                        
+
                         void parseMetaNode( const QDomElement& node, Template& tmplate );
                         void parseLabelRectangleNode( const QDomElement& node, Template& tmplate );
                         void parseLabelEllipseNode( const QDomElement& node, Template& tmplate );

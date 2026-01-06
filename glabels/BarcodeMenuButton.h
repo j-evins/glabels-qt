@@ -31,7 +31,7 @@
 
 namespace glabels
 {
-        
+
         ///
         /// Barcode Menu Button
         ///

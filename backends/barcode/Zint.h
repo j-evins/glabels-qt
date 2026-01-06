@@ -64,7 +64,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -77,7 +77,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -90,7 +90,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -103,7 +103,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -116,7 +116,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -129,7 +129,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -155,7 +155,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -181,7 +181,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -194,7 +194,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -207,7 +207,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -220,7 +220,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -233,7 +233,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -259,7 +259,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -272,7 +272,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -285,7 +285,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -298,7 +298,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -311,7 +311,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -324,7 +324,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -337,7 +337,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -350,7 +350,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -363,7 +363,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -376,7 +376,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -389,7 +389,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -402,7 +402,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -441,7 +441,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -454,7 +454,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -519,7 +519,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -532,7 +532,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -545,7 +545,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -558,7 +558,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -571,7 +571,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -584,7 +584,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -610,7 +610,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -623,7 +623,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -636,7 +636,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -649,7 +649,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -662,7 +662,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -675,7 +675,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -688,7 +688,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -701,7 +701,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -714,7 +714,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -727,7 +727,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -740,7 +740,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -753,7 +753,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -766,7 +766,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -779,7 +779,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -792,7 +792,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -805,7 +805,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -818,7 +818,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -831,7 +831,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -844,7 +844,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -857,7 +857,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -870,7 +870,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -883,7 +883,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -896,7 +896,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -909,7 +909,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -922,7 +922,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -935,7 +935,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -948,7 +948,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -987,7 +987,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1000,7 +1000,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1013,7 +1013,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1039,7 +1039,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1078,7 +1078,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1091,7 +1091,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1117,7 +1117,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };
@@ -1130,7 +1130,7 @@ namespace glabels
                         {
                         public:
                                 static Barcode* create();
-                        
+
                         protected:
                                 std::string encode( const std::string& cookedData ) override;
                         };

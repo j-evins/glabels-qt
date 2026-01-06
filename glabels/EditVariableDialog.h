@@ -48,7 +48,7 @@ namespace glabels
                 /////////////////////////////////
                 void setVariable( const model::Variable& variable );
                 model::Variable variable() const;
-                
+
 
                 /////////////////////////////////
                 // Slots
@@ -61,7 +61,7 @@ namespace glabels
                 void onIncrementComboChanged();
                 void onStepSizeEditChanged();
 
-                
+
                 /////////////////////////////////
                 // Private methods
                 /////////////////////////////////

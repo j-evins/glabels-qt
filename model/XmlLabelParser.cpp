@@ -62,7 +62,7 @@ namespace glabels
                                 return nullptr;
                         }
                         auto canonName = fileInfo.canonicalFilePath();
-                        
+
                         QFile file( canonName );
 
                         if ( !file.open( QFile::ReadOnly ) )
@@ -105,7 +105,7 @@ namespace glabels
                                            << ": " << errorString;
                                 return nullptr;
                         }
-        
+
 
                         QDomElement root = doc.documentElement();
                         if ( root.tagName() != "Glabels-document" )
@@ -149,7 +149,7 @@ namespace glabels
                 XmlLabelParser::deserializeObjects( const QByteArray& buffer, const Model* model )
                 {
                         QList<ModelObject*> list;
-        
+
                         QDomDocument doc;
                         QString      errorString;
                         int          errorLine;
@@ -243,7 +243,7 @@ namespace glabels
                         inflateEnd(&strm);
                 }
 #endif
-                
+
 
                 Model*
                 XmlLabelParser::parseRootNode( const QDomElement &node, const QString& fileName )
@@ -277,7 +277,7 @@ namespace glabels
                         for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
                         {
                                 QString tagName = child.toElement().tagName();
-                
+
                                 if ( tagName == "Template" )
                                 {
                                         auto tmplate = XmlTemplateParser().parseTemplateNode( child.toElement() );
@@ -331,7 +331,7 @@ namespace glabels
                         for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
                         {
                                 QString tagName = child.toElement().tagName();
-                
+
                                 if ( tagName == "Object-box" )
                                 {
                                         list.append( parseObjectBoxNode( child.toElement() ) );
@@ -391,7 +391,7 @@ namespace glabels
                         field_flag = !key.isEmpty();
                         color      = XmlUtil::getUIntAttr( node, "fill_color", 0xFF );
                         ColorNode fillColorNode( field_flag, color, key );
-        
+
                         /* affine attrs */
                         double a[6];
                         a[0] = XmlUtil::getDoubleAttr( node, "a0", 1.0 );
@@ -445,7 +445,7 @@ namespace glabels
                         field_flag = !key.isEmpty();
                         color      = XmlUtil::getUIntAttr( node, "fill_color", 0xFF );
                         ColorNode fillColorNode( field_flag, color, key );
-        
+
                         /* affine attrs */
                         double a[6];
                         a[0] = XmlUtil::getDoubleAttr( node, "a0", 1.0 );
@@ -700,7 +700,7 @@ namespace glabels
                         for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
                         {
                                 QString tagName = child.toElement().tagName();
-                
+
                                 if ( tagName == "p" )
                                 {
                                         if ( !firstBlock )
@@ -740,7 +740,7 @@ namespace glabels
                         return XmlUtil::getBoolAttr( node, "rotate", false );
                 }
 
-        
+
                 void
                 XmlLabelParser::parseMergeNode( const QDomElement &node, Model* model )
                 {
@@ -777,7 +777,7 @@ namespace glabels
                         for ( QDomNode child = node.firstChild(); !child.isNull(); child = child.nextSibling() )
                         {
                                 QString tagName = child.toElement().tagName();
-                
+
                                 if ( tagName == "Variable" )
                                 {
                                         parseVariableNode( child.toElement(), model );
@@ -853,7 +853,7 @@ namespace glabels
                                 }
                                 else
                                 {
-                                        qWarning() << "Unexpected encoding:" << encoding << "node:" << node.tagName(); 
+                                        qWarning() << "Unexpected encoding:" << encoding << "node:" << node.tagName();
                                 }
                         }
                         else if ( mimetype == "image/svg+xml" )

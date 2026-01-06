@@ -37,11 +37,11 @@ namespace glabels
                 {
                         QString s;
                         QTextStream ts( &s );
-                        
+
                         ts << "> GLABELS" << "\n"
                            << ">     Version: " << STRING << "\n"
                            << "> " << "\n"
-        
+
                            << "> SYSTEM INFO" << "\n"
                            << ">     OS: " << QSysInfo::prettyProductName() << "\n"
                            << ">     Kernel: " << QSysInfo::kernelType() << " " << QSysInfo::kernelVersion() << "\n"

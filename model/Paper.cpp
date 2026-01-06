@@ -25,7 +25,7 @@ namespace glabels
 {
         namespace model
         {
-        
+
                 Paper::Paper( const QString& id,
                               const QString& name,
                               Distance       width,
@@ -46,37 +46,37 @@ namespace glabels
                         return mId;
                 }
 
-        
+
                 QString Paper::name() const
                 {
                         return mName;
                 }
 
-        
+
                 Distance Paper::width() const
                 {
                         return mWidth;
                 }
 
-        
+
                 Distance Paper::height() const
                 {
                         return mHeight;
                 }
 
-        
+
                 QString Paper::pwgSize() const
                 {
                         return mPwgSize;
                 }
-        
+
 
                 bool Paper::isSizeIso() const
                 {
                         return mPwgSize.startsWith( "iso_" );
                 }
 
-        
+
                 bool Paper::isSizeUs() const
                 {
                         return mPwgSize.startsWith( "na_" );

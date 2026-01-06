@@ -61,45 +61,45 @@ namespace glabels
                 private:
                         static void gunzip( const QByteArray& gzippedData,
                                             QByteArray&       data );
-                        
+
                         static Model* parseRootNode( const QDomElement& node,
                                                      const QString&     fileName );
-                        
+
                         static QList<ModelObject*> parseObjectsNode( const QDomElement& node,
                                                                      const Model*       model,
                                                                      const DataCache&   data );
-                        
+
                         static ModelBoxObject* parseObjectBoxNode( const QDomElement& node );
-                        
+
                         static ModelEllipseObject* parseObjectEllipseNode( const QDomElement& node );
-                        
+
                         static ModelLineObject* parseObjectLineNode( const QDomElement& node );
-                        
+
                         static ModelImageObject* parseObjectImageNode( const QDomElement& node,
                                                                        const Model*       model,
                                                                        const DataCache&   data );
-                        
+
                         static ModelBarcodeObject* parseObjectBarcodeNode( const QDomElement& node );
-                        
+
                         static ModelTextObject* parseObjectTextNode( const QDomElement& node );
-                        
+
                         static QString parsePNode( const QDomElement& node );
-                        
+
                         static bool parseRotateAttr( const QDomElement& node );
-                        
+
                         static void parseMergeNode( const QDomElement& node,
                                                     Model*             model );
-                        
+
                         static void parseVariablesNode( const QDomElement& node,
                                                         Model*             model );
-                        
+
                         static void parseVariableNode( const QDomElement& node,
                                                        Model*             model );
-                        
+
                         static void parseDataNode( const QDomElement& node,
                                                    const Model*       model,
                                                    DataCache&         data );
-                        
+
                         static void parseFileNode( const QDomElement& node,
                                                    const Model*       model,
                                                    DataCache&         data );

@@ -62,7 +62,7 @@ namespace glbarcode
                  */
                 static void init();
 
-                
+
                 /**
                  * Create barcode based on type ID string.
                  *

@@ -508,7 +508,7 @@ namespace glabels
                                 break;
                         }
                 }
-        
+
 
                 void XmlUtil::setAlignmentAttr( QDomElement&    node,
                                                 const QString&  name,
@@ -540,7 +540,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 void XmlUtil::setWrapModeAttr( QDomElement&          node,
                                                const QString&        name,
                                                QTextOption::WrapMode value )
@@ -563,7 +563,7 @@ namespace glabels
                         }
                 }
 
-        
+
                 void XmlUtil::setUnitsAttr( QDomElement&   node,
                                             const QString& name,
                                             Units          value )
@@ -571,7 +571,7 @@ namespace glabels
                         node.setAttribute( name, value.toIdString() );
                 }
 
-        
+
                 void XmlUtil::setPathDataAttr( QDomElement&        node,
                                                const QString&      name,
                                                const QPainterPath& path,
@@ -608,6 +608,6 @@ namespace glabels
                         node.setAttribute( name, pathString );
                 }
 
-        
+
         }
 }

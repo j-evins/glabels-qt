@@ -103,14 +103,14 @@ namespace glabels
                 {
                         return std::make_unique<FrameCd>( *this );
                 }
-        
+
 
                 Distance FrameCd::w() const
                 {
                         return (mW == 0) ? 2*mR1 : mW;
                 }
 
-        
+
                 Distance FrameCd::h() const
                 {
                         return (mH == 0) ? 2*mR1 : mH;
@@ -122,18 +122,18 @@ namespace glabels
                         return mR1;
                 }
 
-        
+
                 Distance FrameCd::r2() const
                 {
                         return mR2;
                 }
 
-        
+
                 Distance FrameCd::waste() const
                 {
                         return mWaste;
                 }
-        
+
 
                 QString FrameCd::sizeDescription( Units units ) const
                 {
@@ -171,19 +171,19 @@ namespace glabels
                 {
                         return mPath;
                 }
-        
+
 
                 const QPainterPath& FrameCd::clipPath() const
                 {
                         return mClipPath;
                 }
-        
+
 
                 QPainterPath FrameCd::marginPath( Distance xSize, Distance ySize ) const
                 {
                         // Note: ignore ySize, assume xSize == ySize
                         Distance size = xSize;
-                        
+
                         Distance wReal = (mW == 0) ? 2*mR1 : mW;
                         Distance hReal = (mH == 0) ? 2*mR1 : mH;
 
@@ -212,16 +212,16 @@ namespace glabels
                         return path;
                 }
 
-                
+
                 // Debugging support
                 void FrameCd::print( QDebug& dbg ) const
                 {
                         dbg.nospace() << "FrameCd{ "
-                                      << id() << "," 
-                                      << r1() << "," 
-                                      << r2() << "," 
-                                      << waste() << "," 
-                                      << w() << "," 
+                                      << id() << ","
+                                      << r1() << ","
+                                      << r2() << ","
+                                      << waste() << ","
+                                      << w() << ","
                                       << h() << ","
                                       << "list{ ";
                         for ( auto& layout : layouts() )

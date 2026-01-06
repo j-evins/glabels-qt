@@ -46,7 +46,7 @@ namespace glabels
                           mYWaste(yWaste)
                 {
                         mPath.addRoundedRect( 0, 0, mW.pt(), mH.pt(), mR.pt(), mR.pt() );
-                
+
                         mClipPath.addRoundedRect( -mXWaste.pt(), -mYWaste.pt(),
                                                   mW.pt() + 2*mXWaste.pt(), mH.pt() + 2*mYWaste.pt(),
                                                   mR.pt(), mR.pt() );
@@ -64,7 +64,7 @@ namespace glabels
                         return mW;
                 }
 
-        
+
                 Distance FrameRect::h() const
                 {
                         return mH;
@@ -76,13 +76,13 @@ namespace glabels
                         return mR;
                 }
 
-                
+
                 Distance FrameRect::xWaste() const
                 {
                         return mXWaste;
                 }
 
-                
+
                 Distance FrameRect::yWaste() const
                 {
                         return mYWaste;
@@ -150,11 +150,11 @@ namespace glabels
                 void FrameRect::print( QDebug& dbg ) const
                 {
                         dbg.nospace() << "FrameRect{ "
-                                      << id() << "," 
-                                      << w() << "," 
-                                      << h() << "," 
-                                      << r() << "," 
-                                      << xWaste() << "," 
+                                      << id() << ","
+                                      << w() << ","
+                                      << h() << ","
+                                      << r() << ","
+                                      << xWaste() << ","
                                       << yWaste() << ","
                                       << "list{ ";
                         for ( auto& layout : layouts() )

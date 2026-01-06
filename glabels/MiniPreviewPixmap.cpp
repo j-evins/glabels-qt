@@ -147,7 +147,7 @@ namespace glabels
 
                 painter.translate( p0.x().pt(), p0.y().pt() );
                 painter.drawPath( frame->path() );
-                
+
                 painter.restore();
         }
 
