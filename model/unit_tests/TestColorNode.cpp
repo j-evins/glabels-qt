@@ -19,9 +19,9 @@
 //
 
 
-#include "TestColorNode.h"
+#include "TestColorNode.hpp"
 
-#include "model/ColorNode.h"
+#include "model/ColorNode.hpp"
 
 #include <QDebug>
 

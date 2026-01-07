@@ -19,13 +19,13 @@
 //
 
 
-#include "SelectProductDialog.h"
+#include "SelectProductDialog.hpp"
 
-#include "NotebookUtil.h"
-#include "TemplatePickerItem.h"
+#include "NotebookUtil.hpp"
+#include "TemplatePickerItem.hpp"
 
-#include "model/Db.h"
-#include "model/Settings.h"
+#include "model/Db.hpp"
+#include "model/Settings.hpp"
 
 #include <QDebug>
 

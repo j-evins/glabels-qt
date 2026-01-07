@@ -19,15 +19,15 @@
 //
 
 
-#include "model/FileUtil.h"
-#include "model/Db.h"
-#include "model/Model.h"
-#include "model/PageRenderer.h"
-#include "model/Version.h"
-#include "model/XmlLabelParser.h"
+#include "model/FileUtil.hpp"
+#include "model/Db.hpp"
+#include "model/Model.hpp"
+#include "model/PageRenderer.hpp"
+#include "model/Version.hpp"
+#include "model/XmlLabelParser.hpp"
 
-#include "barcode/Backends.h"
-#include "merge/Factory.h"
+#include "barcode/Backends.hpp"
+#include "merge/Factory.hpp"
 
 #include <QApplication>
 #include <QCommandLineParser>

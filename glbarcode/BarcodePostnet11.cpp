@@ -19,7 +19,7 @@
 //
 
 
-#include "BarcodePostnet11.h"
+#include "BarcodePostnet11.hpp"
 
 
 namespace glbarcode

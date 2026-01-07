@@ -19,7 +19,7 @@
 //
 
 
-#include "ModelLineObject.h"
+#include "ModelLineObject.hpp"
 
 #include <QBrush>
 #include <QPen>

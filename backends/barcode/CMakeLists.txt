@@ -37,7 +37,7 @@ set (barcode_sources
 )
 
 set (barcode_qobject_headers
-  Backends.h
+  Backends.hpp
 )
 
 qt6_wrap_cpp (barcode_moc_sources ${barcode_qobject_headers})

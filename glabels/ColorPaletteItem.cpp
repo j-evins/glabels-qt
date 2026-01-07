@@ -19,7 +19,7 @@
 //
 
 
-#include "ColorPaletteItem.h"
+#include "ColorPaletteItem.hpp"
 
 #include <QMouseEvent>
 #include <QPainter>

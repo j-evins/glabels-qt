@@ -19,7 +19,7 @@
 //
 
 
-#include "Cursors.h"
+#include "Cursors.hpp"
 
 #include <QPixmap>
 

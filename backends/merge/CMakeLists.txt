@@ -20,7 +20,7 @@ set (merge_sources
 )
 
 set (merge_qobject_headers
-  Merge.h
+  Merge.hpp
 )
 
 qt6_wrap_cpp (merge_moc_sources ${merge_qobject_headers})

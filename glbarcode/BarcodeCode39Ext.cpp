@@ -19,7 +19,7 @@
 //
 
 
-#include "BarcodeCode39Ext.h"
+#include "BarcodeCode39Ext.hpp"
 
 
 namespace

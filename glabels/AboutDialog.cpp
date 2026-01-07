@@ -19,9 +19,9 @@
 //
 
 
-#include "AboutDialog.h"
+#include "AboutDialog.hpp"
 
-#include "model/Version.h"
+#include "model/Version.hpp"
 
 #include <QDebug>
 #include <QDesktopServices>

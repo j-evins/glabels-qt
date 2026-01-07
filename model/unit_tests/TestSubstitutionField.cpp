@@ -19,9 +19,9 @@
 //
 
 
-#include "TestSubstitutionField.h"
+#include "TestSubstitutionField.hpp"
 
-#include "model/SubstitutionField.h"
+#include "model/SubstitutionField.hpp"
 
 
 QTEST_MAIN(TestSubstitutionField)

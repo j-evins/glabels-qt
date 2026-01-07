@@ -19,10 +19,10 @@
 //
 
 
-#include "Barcode2dBase.h"
+#include "Barcode2dBase.hpp"
 
-#include "Constants.h"
-#include "DrawingPrimitives.h"
+#include "Constants.hpp"
+#include "DrawingPrimitives.hpp"
 
 #include <list>
 #include <algorithm>

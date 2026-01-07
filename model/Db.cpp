@@ -19,17 +19,17 @@
 //
 
 
-#include "Db.h"
+#include "Db.hpp"
 
-#include "Config.h"
-#include "StrUtil.h"
-#include "FileUtil.h"
-#include "Settings.h"
-#include "XmlCategoryParser.h"
-#include "XmlPaperParser.h"
-#include "XmlTemplateParser.h"
-#include "XmlTemplateCreator.h"
-#include "XmlVendorParser.h"
+#include "Config.hpp"
+#include "StrUtil.hpp"
+#include "FileUtil.hpp"
+#include "Settings.hpp"
+#include "XmlCategoryParser.hpp"
+#include "XmlPaperParser.hpp"
+#include "XmlTemplateParser.hpp"
+#include "XmlTemplateCreator.hpp"
+#include "XmlVendorParser.hpp"
 
 #include <QDebug>
 #include <QtGlobal>

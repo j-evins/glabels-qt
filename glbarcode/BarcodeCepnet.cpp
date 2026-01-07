@@ -19,7 +19,7 @@
 //
 
 
-#include "BarcodeCepnet.h"
+#include "BarcodeCepnet.hpp"
 
 
 namespace glbarcode

@@ -19,11 +19,11 @@
 //
 
 
-#include "TemplatePickerItem.h"
+#include "TemplatePickerItem.hpp"
 
-#include "MiniPreviewPixmap.h"
+#include "MiniPreviewPixmap.hpp"
 
-#include "model/Settings.h"
+#include "model/Settings.hpp"
 
 #include <QDebug>
 #include <QIcon>

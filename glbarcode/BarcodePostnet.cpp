@@ -19,9 +19,9 @@
 //
 
 
-#include "BarcodePostnet.h"
+#include "BarcodePostnet.hpp"
 
-#include "Constants.h"
+#include "Constants.hpp"
 
 #include <cctype>
 #include <algorithm>

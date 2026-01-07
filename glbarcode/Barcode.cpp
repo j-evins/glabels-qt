@@ -19,11 +19,11 @@
 //
 
 
-#include "Barcode.h"
+#include "Barcode.hpp"
 
 #include <list>
 
-#include "DrawingPrimitives.h"
+#include "DrawingPrimitives.hpp"
 
 
 namespace glbarcode

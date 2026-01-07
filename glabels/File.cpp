@@ -19,17 +19,17 @@
 //
 
 
-#include "File.h"
+#include "File.hpp"
 
-#include "MainWindow.h"
-#include "SelectProductDialog.h"
-#include "TemplateDesigner.h"
+#include "MainWindow.hpp"
+#include "SelectProductDialog.hpp"
+#include "TemplateDesigner.hpp"
 
-#include "model/FileUtil.h"
-#include "model/Model.h"
-#include "model/Settings.h"
-#include "model/XmlLabelParser.h"
-#include "model/XmlLabelCreator.h"
+#include "model/FileUtil.hpp"
+#include "model/Model.hpp"
+#include "model/Settings.hpp"
+#include "model/XmlLabelParser.hpp"
+#include "model/XmlLabelCreator.hpp"
 
 #include <QDebug>
 #include <QFileDialog>

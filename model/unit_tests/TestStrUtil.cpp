@@ -19,9 +19,9 @@
 //
 
 
-#include "TestStrUtil.h"
+#include "TestStrUtil.hpp"
 
-#include "model/StrUtil.h"
+#include "model/StrUtil.hpp"
 
 #include <QDebug>
 

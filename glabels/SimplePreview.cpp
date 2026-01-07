@@ -19,9 +19,9 @@
 //
 
 
-#include "SimplePreview.h"
+#include "SimplePreview.hpp"
 
-#include "RollTemplatePath.h"
+#include "RollTemplatePath.hpp"
 
 #include <QDebug>
 #include <QGraphicsPathItem>

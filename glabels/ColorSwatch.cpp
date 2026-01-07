@@ -19,7 +19,7 @@
 //
 
 
-#include "ColorSwatch.h"
+#include "ColorSwatch.hpp"
 
 #include <QPainter>
 

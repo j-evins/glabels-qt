@@ -19,9 +19,9 @@
 //
 
 
-#include "RawText.h"
+#include "RawText.hpp"
 
-#include "ParserState.h"
+#include "ParserState.hpp"
 
 #include <QDebug>
 #include <QRegularExpression>

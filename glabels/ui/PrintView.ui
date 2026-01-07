@@ -665,7 +665,7 @@
   <customwidget>
    <class>glabels::Preview</class>
    <extends>QWidget</extends>
-   <header>Preview.h</header>
+   <header>Preview.hpp</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

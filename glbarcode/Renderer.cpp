@@ -19,9 +19,9 @@
 //
 
 
-#include "Renderer.h"
+#include "Renderer.hpp"
 
-#include "DrawingPrimitives.h"
+#include "DrawingPrimitives.hpp"
 
 
 void glbarcode::Renderer::render( double w, double h, const std::list<DrawingPrimitive*>& primitives )

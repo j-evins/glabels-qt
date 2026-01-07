@@ -19,9 +19,9 @@
 //
 
 
-#include "PreferencesDialog.h"
+#include "PreferencesDialog.hpp"
 
-#include "model/Settings.h"
+#include "model/Settings.hpp"
 
 
 namespace glabels

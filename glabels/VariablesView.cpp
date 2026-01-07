@@ -19,9 +19,9 @@
 //
 
 
-#include "VariablesView.h"
+#include "VariablesView.hpp"
 
-#include "EditVariableDialog.h"
+#include "EditVariableDialog.hpp"
 
 #include <QDebug>
 #include <QTableWidgetItem>

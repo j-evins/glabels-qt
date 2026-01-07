@@ -19,7 +19,7 @@
 //
 
 
-#include "Version.h"
+#include "Version.hpp"
 
 #include <QGuiApplication>
 #include <QLibraryInfo>

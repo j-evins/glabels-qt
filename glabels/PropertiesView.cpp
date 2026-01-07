@@ -19,14 +19,14 @@
 //
 
 
-#include "PropertiesView.h"
+#include "PropertiesView.hpp"
 
-#include "SelectProductDialog.h"
-#include "UndoRedoModel.h"
+#include "SelectProductDialog.hpp"
+#include "UndoRedoModel.hpp"
 
-#include "model/Db.h"
-#include "model/FrameContinuous.h"
-#include "model/Settings.h"
+#include "model/Db.hpp"
+#include "model/FrameContinuous.hpp"
+#include "model/Settings.hpp"
 
 #include <QDebug>
 #include <QStyledItemDelegate>

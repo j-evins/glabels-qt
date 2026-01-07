@@ -19,13 +19,13 @@
 //
 
 
-#include "PageRenderer.h"
+#include "PageRenderer.hpp"
 
-#include "Model.h"
+#include "Model.hpp"
 
-#include "merge/Merge.h"
-#include "merge/None.h"
-#include "merge/Record.h"
+#include "merge/Merge.hpp"
+#include "merge/None.hpp"
+#include "merge/Record.hpp"
 
 #include <QDebug>
 

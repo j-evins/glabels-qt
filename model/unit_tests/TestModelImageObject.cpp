@@ -19,16 +19,16 @@
 //
 
 
-#include "TestModelImageObject.h"
-#include "Test_Constants.h"
+#include "TestModelImageObject.hpp"
+#include "Test_Constants.hpp"
 
-#include "model/Model.h"
-#include "model/ModelImageObject.h"
-#include "model/Size.h"
+#include "model/Model.hpp"
+#include "model/ModelImageObject.hpp"
+#include "model/Size.hpp"
 
-#include "merge/Factory.h"
-#include "merge/TextCsvKeys.h"
-#include "merge/Record.h"
+#include "merge/Factory.hpp"
+#include "merge/TextCsvKeys.hpp"
+#include "merge/Record.hpp"
 
 #include <QDebug>
 

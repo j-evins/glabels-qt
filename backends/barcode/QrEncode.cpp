@@ -21,7 +21,7 @@
 #if HAVE_QRENCODE
 
 
-#include "QrEncode.h"
+#include "QrEncode.hpp"
 
 #include <qrencode.h>
 

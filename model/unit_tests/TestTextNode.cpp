@@ -19,9 +19,9 @@
 //
 
 
-#include "TestTextNode.h"
+#include "TestTextNode.hpp"
 
-#include "model/TextNode.h"
+#include "model/TextNode.hpp"
 
 #include <QDebug>
 

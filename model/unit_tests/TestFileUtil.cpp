@@ -19,9 +19,9 @@
 //
 
 
-#include "TestFileUtil.h"
+#include "TestFileUtil.hpp"
 
-#include "model/FileUtil.h"
+#include "model/FileUtil.hpp"
 
 #include <QDebug>
 

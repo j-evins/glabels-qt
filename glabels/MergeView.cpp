@@ -19,13 +19,13 @@
 //
 
 
-#include "MergeView.h"
+#include "MergeView.hpp"
 
-#include "MergeTableModel.h"
+#include "MergeTableModel.hpp"
 
-#include "merge/Factory.h"
+#include "merge/Factory.hpp"
 
-#include "model/FileUtil.h"
+#include "model/FileUtil.hpp"
 
 #include <QDebug>
 #include <QFileDialog>

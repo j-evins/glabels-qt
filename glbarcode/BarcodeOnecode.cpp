@@ -19,9 +19,9 @@
 //
 
 
-#include "BarcodeOnecode.h"
+#include "BarcodeOnecode.hpp"
 
-#include "Constants.h"
+#include "Constants.hpp"
 
 #include <cctype>
 #include <algorithm>

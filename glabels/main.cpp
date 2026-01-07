@@ -19,17 +19,17 @@
 //
 
 
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 
-#include "model/Db.h"
-#include "model/FileUtil.h"
-#include "model/Model.h"
-#include "model/Settings.h"
-#include "model/Version.h"
-#include "model/XmlLabelParser.h"
+#include "model/Db.hpp"
+#include "model/FileUtil.hpp"
+#include "model/Model.hpp"
+#include "model/Settings.hpp"
+#include "model/Version.hpp"
+#include "model/XmlLabelParser.hpp"
 
-#include "barcode/Backends.h"
-#include "merge/Factory.h"
+#include "barcode/Backends.hpp"
+#include "merge/Factory.hpp"
 
 #include <QApplication>
 #include <QCommandLineParser>

@@ -19,10 +19,10 @@
 //
 
 
-#include "Preview.h"
+#include "Preview.hpp"
 
-#include "PreviewOverlayItem.h"
-#include "RollTemplatePath.h"
+#include "PreviewOverlayItem.hpp"
+#include "RollTemplatePath.hpp"
 
 #include <QDebug>
 #include <QGraphicsDropShadowEffect>

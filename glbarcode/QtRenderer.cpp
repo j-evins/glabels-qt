@@ -19,7 +19,7 @@
 //
 
 
-#include "QtRenderer.h"
+#include "QtRenderer.hpp"
 
 #include <QDebug>
 #include <QFont>

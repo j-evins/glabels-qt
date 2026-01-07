@@ -19,9 +19,9 @@
 //
 
 
-#include "UndoRedoModel.h"
+#include "UndoRedoModel.hpp"
 
-#include "model/Model.h"
+#include "model/Model.hpp"
 
 
 namespace glabels

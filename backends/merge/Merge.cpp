@@ -19,7 +19,7 @@
 //
 
 
-#include "Merge.h"
+#include "Merge.hpp"
 
 
 namespace glabels::merge

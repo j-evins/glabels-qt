@@ -19,9 +19,9 @@
 //
 
 
-#include "TestXmlUtil.h"
+#include "TestXmlUtil.hpp"
 
-#include "model/XmlUtil.h"
+#include "model/XmlUtil.hpp"
 
 
 QTEST_MAIN(TestXmlUtil)

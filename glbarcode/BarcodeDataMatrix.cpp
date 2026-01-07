@@ -19,9 +19,9 @@
 //
 
 
-#include "BarcodeDataMatrix.h"
+#include "BarcodeDataMatrix.hpp"
 
-#include "Constants.h"
+#include "Constants.hpp"
 
 #include <cstdint>
 #include <vector>

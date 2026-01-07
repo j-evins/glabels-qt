@@ -19,24 +19,24 @@
 //
 
 
-#include "TestModel.h"
+#include "TestModel.hpp"
 
-#include "model/Model.h"
-#include "model/ModelBoxObject.h"
-#include "model/ModelEllipseObject.h"
-#include "model/ModelLineObject.h"
-#include "model/ModelTextObject.h"
-#include "model/FrameRect.h"
-#include "model/FrameContinuous.h"
-#include "model/Region.h"
-#include "model/Settings.h"
-#include "model/Version.h"
+#include "model/Model.hpp"
+#include "model/ModelBoxObject.hpp"
+#include "model/ModelEllipseObject.hpp"
+#include "model/ModelLineObject.hpp"
+#include "model/ModelTextObject.hpp"
+#include "model/FrameRect.hpp"
+#include "model/FrameContinuous.hpp"
+#include "model/Region.hpp"
+#include "model/Settings.hpp"
+#include "model/Version.hpp"
 
-#include "merge/Factory.h"
-#include "merge/Merge.h"
-#include "merge/None.h"
-#include "merge/TextCsv.h"
-#include "merge/TextCsvKeys.h"
+#include "merge/Factory.hpp"
+#include "merge/Merge.hpp"
+#include "merge/None.hpp"
+#include "merge/TextCsv.hpp"
+#include "merge/TextCsvKeys.hpp"
 
 #include <QCoreApplication>
 #include <QDebug>

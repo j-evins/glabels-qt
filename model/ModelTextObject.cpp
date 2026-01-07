@@ -19,9 +19,9 @@
 //
 
 
-#include "ModelTextObject.h"
+#include "ModelTextObject.hpp"
 
-#include "Size.h"
+#include "Size.hpp"
 
 #include <QBrush>
 #include <QDebug>

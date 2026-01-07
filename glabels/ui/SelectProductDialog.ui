@@ -530,12 +530,12 @@
   <customwidget>
    <class>glabels::TemplatePicker</class>
    <extends>QListWidget</extends>
-   <header>TemplatePicker.h</header>
+   <header>TemplatePicker.hpp</header>
   </customwidget>
   <customwidget>
    <class>glabels::SimplePreview</class>
    <extends>QGraphicsView</extends>
-   <header>SimplePreview.h</header>
+   <header>SimplePreview.hpp</header>
   </customwidget>
  </customwidgets>
  <resources>

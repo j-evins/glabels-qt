@@ -19,11 +19,11 @@
 //
 
 
-#include "XmlTemplateCreator.h"
+#include "XmlTemplateCreator.hpp"
 
-#include "Db.h"
-#include "Template.h"
-#include "XmlUtil.h"
+#include "Db.hpp"
+#include "Template.hpp"
+#include "XmlUtil.hpp"
 
 #include <QDebug>
 #include <QDomNode>

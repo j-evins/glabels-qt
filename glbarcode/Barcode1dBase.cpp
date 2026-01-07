@@ -19,9 +19,9 @@
 //
 
 
-#include "Barcode1dBase.h"
+#include "Barcode1dBase.hpp"
 
-#include "DrawingPrimitives.h"
+#include "DrawingPrimitives.hpp"
 
 #include <list>
 

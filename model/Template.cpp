@@ -19,11 +19,11 @@
 //
 
 
-#include "Template.h"
+#include "Template.hpp"
 
-#include "Db.h"
-#include "FrameContinuous.h"
-#include "StrUtil.h"
+#include "Db.hpp"
+#include "FrameContinuous.hpp"
+#include "StrUtil.hpp"
 
 #include <QDebug>
 

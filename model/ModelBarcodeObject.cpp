@@ -19,14 +19,14 @@
 //
 
 
-#include "ModelBarcodeObject.h"
+#include "ModelBarcodeObject.hpp"
 
-#include "Size.h"
+#include "Size.hpp"
 
-#include "barcode/Backends.h"
+#include "barcode/Backends.hpp"
 
-#include "glbarcode/Factory.h"
-#include "glbarcode/QtRenderer.h"
+#include "glbarcode/Factory.hpp"
+#include "glbarcode/QtRenderer.hpp"
 
 #include <QBrush>
 #include <QDebug>

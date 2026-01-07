@@ -14,8 +14,8 @@ endif ()
 # Sources
 #=======================================
 # Auto-generated files
-configure_file (Version.h.in ${CMAKE_CURRENT_BINARY_DIR}/Version.h @ONLY)
-configure_file (Config.h.in ${CMAKE_CURRENT_BINARY_DIR}/Config.h @ONLY)
+configure_file (Version.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/Version.hpp @ONLY)
+configure_file (Config.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/Config.hpp @ONLY)
 
 set (Model_sources
   Category.cpp
@@ -73,18 +73,18 @@ set (Model_sources
 )
 
 set (Model_qobject_headers
-  Model.h
-  ModelObject.h
-  ModelBarcodeObject.h
-  ModelBoxObject.h
-  ModelEllipseObject.h
-  ModelImageObject.h
-  ModelLineObject.h
-  ModelShapeObject.h
-  ModelTextObject.h
-  PageRenderer.h
-  Settings.h
-  Variables.h
+  Model.hpp
+  ModelObject.hpp
+  ModelBarcodeObject.hpp
+  ModelBoxObject.hpp
+  ModelEllipseObject.hpp
+  ModelImageObject.hpp
+  ModelLineObject.hpp
+  ModelShapeObject.hpp
+  ModelTextObject.hpp
+  PageRenderer.hpp
+  Settings.hpp
+  Variables.hpp
 )
 
 qt6_wrap_cpp (Model_moc_sources ${Model_qobject_headers})

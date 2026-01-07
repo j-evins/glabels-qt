@@ -19,7 +19,7 @@
 //
 
 
-#include "DrawingPrimitives.h"
+#include "DrawingPrimitives.hpp"
 
 
 namespace glbarcode

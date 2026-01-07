@@ -19,17 +19,17 @@
 //
 
 
-#include "Model.h"
+#include "Model.hpp"
 
-#include "ModelObject.h"
-#include "ModelTextObject.h"
-#include "ModelImageObject.h"
-#include "Region.h"
-#include "Size.h"
-#include "XmlLabelCreator.h"
-#include "XmlLabelParser.h"
+#include "ModelObject.hpp"
+#include "ModelTextObject.hpp"
+#include "ModelImageObject.hpp"
+#include "Region.hpp"
+#include "Size.hpp"
+#include "XmlLabelCreator.hpp"
+#include "XmlLabelParser.hpp"
 
-#include "merge/None.h"
+#include "merge/None.hpp"
 
 #include <QApplication>
 #include <QClipboard>

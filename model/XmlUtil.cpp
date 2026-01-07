@@ -19,7 +19,7 @@
 //
 
 
-#include "XmlUtil.h"
+#include "XmlUtil.hpp"
 
 #include <QTextStream>
 #include <QCoreApplication>

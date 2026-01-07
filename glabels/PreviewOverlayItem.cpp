@@ -19,9 +19,9 @@
 //
 
 
-#include "PreviewOverlayItem.h"
+#include "PreviewOverlayItem.hpp"
 
-#include "model/PageRenderer.h"
+#include "model/PageRenderer.hpp"
 
 #include <QDebug>
 

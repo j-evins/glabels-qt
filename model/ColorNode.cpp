@@ -19,7 +19,7 @@
 //
 
 
-#include "ColorNode.h"
+#include "ColorNode.hpp"
 
 
 namespace glabels::model

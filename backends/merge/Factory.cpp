@@ -19,17 +19,17 @@
 //
 
 
-#include "Factory.h"
+#include "Factory.hpp"
 
-#include "None.h"
-#include "TextCsv.h"
-#include "TextCsvKeys.h"
-#include "TextTsv.h"
-#include "TextTsvKeys.h"
-#include "TextColon.h"
-#include "TextColonKeys.h"
-#include "TextSemicolon.h"
-#include "TextSemicolonKeys.h"
+#include "None.hpp"
+#include "TextCsv.hpp"
+#include "TextCsvKeys.hpp"
+#include "TextTsv.hpp"
+#include "TextTsvKeys.hpp"
+#include "TextColon.hpp"
+#include "TextColonKeys.hpp"
+#include "TextSemicolon.hpp"
+#include "TextSemicolonKeys.hpp"
 
 
 namespace glabels::merge

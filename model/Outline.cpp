@@ -19,9 +19,9 @@
 //
 
 
-#include "Outline.h"
+#include "Outline.hpp"
 
-#include "ModelObject.h"
+#include "ModelObject.hpp"
 
 #include <QColor>
 

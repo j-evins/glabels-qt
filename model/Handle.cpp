@@ -19,9 +19,9 @@
 //
 
 
-#include "Handle.h"
+#include "Handle.hpp"
 
-#include "ModelObject.h"
+#include "ModelObject.hpp"
 
 #include <QColor>
 #include <QDebug>

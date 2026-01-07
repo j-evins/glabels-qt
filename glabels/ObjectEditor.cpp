@@ -19,23 +19,23 @@
 //
 
 
-#include "ObjectEditor.h"
+#include "ObjectEditor.hpp"
 
-#include "UndoRedoModel.h"
+#include "UndoRedoModel.hpp"
 
-#include "model/Model.h"
-#include "model/ModelObject.h"
-#include "model/ModelBarcodeObject.h"
-#include "model/ModelBoxObject.h"
-#include "model/ModelEllipseObject.h"
-#include "model/ModelImageObject.h"
-#include "model/ModelLineObject.h"
-#include "model/ModelTextObject.h"
-#include "model/FileUtil.h"
-#include "model/Settings.h"
-#include "model/Size.h"
+#include "model/Model.hpp"
+#include "model/ModelObject.hpp"
+#include "model/ModelBarcodeObject.hpp"
+#include "model/ModelBoxObject.hpp"
+#include "model/ModelEllipseObject.hpp"
+#include "model/ModelImageObject.hpp"
+#include "model/ModelLineObject.hpp"
+#include "model/ModelTextObject.hpp"
+#include "model/FileUtil.hpp"
+#include "model/Settings.hpp"
+#include "model/Size.hpp"
 
-#include "merge/Merge.h"
+#include "merge/Merge.hpp"
 
 #include <QDebug>
 #include <QDir>

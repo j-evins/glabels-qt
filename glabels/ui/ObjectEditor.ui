@@ -1515,7 +1515,7 @@
   <customwidget>
    <class>glabels::ColorButton</class>
    <extends>QPushButton</extends>
-   <header>ColorButton.h</header>
+   <header>ColorButton.hpp</header>
    <slots>
     <signal>colorChanged()</signal>
    </slots>
@@ -1523,7 +1523,7 @@
   <customwidget>
    <class>glabels::BarcodeMenuButton</class>
    <extends>QPushButton</extends>
-   <header>BarcodeMenuButton.h</header>
+   <header>BarcodeMenuButton.hpp</header>
    <slots>
     <signal>selectionChanged()</signal>
    </slots>
@@ -1531,7 +1531,7 @@
   <customwidget>
    <class>glabels::FieldButton</class>
    <extends>QPushButton</extends>
-   <header>FieldButton.h</header>
+   <header>FieldButton.hpp</header>
    <slots>
     <signal>keySelected(QString)</signal>
    </slots>

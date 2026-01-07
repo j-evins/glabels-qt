@@ -19,9 +19,9 @@
 //
 
 
-#include "Text.h"
+#include "Text.hpp"
 
-#include "Record.h"
+#include "Record.hpp"
 
 #include <QDebug>
 

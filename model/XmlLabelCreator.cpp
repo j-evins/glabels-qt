@@ -19,24 +19,24 @@
 //
 
 
-#include "XmlLabelCreator.h"
+#include "XmlLabelCreator.hpp"
 
-#include "Model.h"
-#include "ModelObject.h"
-#include "ModelBarcodeObject.h"
-#include "ModelBoxObject.h"
-#include "ModelEllipseObject.h"
-#include "ModelLineObject.h"
-#include "ModelImageObject.h"
-#include "ModelTextObject.h"
-#include "DataCache.h"
-#include "FileUtil.h"
-#include "Variables.h"
-#include "XmlTemplateCreator.h"
-#include "XmlUtil.h"
+#include "Model.hpp"
+#include "ModelObject.hpp"
+#include "ModelBarcodeObject.hpp"
+#include "ModelBoxObject.hpp"
+#include "ModelEllipseObject.hpp"
+#include "ModelLineObject.hpp"
+#include "ModelImageObject.hpp"
+#include "ModelTextObject.hpp"
+#include "DataCache.hpp"
+#include "FileUtil.hpp"
+#include "Variables.hpp"
+#include "XmlTemplateCreator.hpp"
+#include "XmlUtil.hpp"
 
-#include "merge/Factory.h"
-#include "merge/None.h"
+#include "merge/Factory.hpp"
+#include "merge/None.hpp"
 
 #include <QBuffer>
 #include <QByteArray>

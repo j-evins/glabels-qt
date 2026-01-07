@@ -19,25 +19,25 @@
 //
 
 
-#include "LabelEditor.h"
+#include "LabelEditor.hpp"
 
-#include "Cursors.h"
-#include "UndoRedoModel.h"
+#include "Cursors.hpp"
+#include "UndoRedoModel.hpp"
 
-#include "model/FrameCd.h"
-#include "model/FrameEllipse.h"
-#include "model/FrameRect.h"
-#include "model/FrameRound.h"
-#include "model/Model.h"
-#include "model/ModelObject.h"
-#include "model/ModelBarcodeObject.h"
-#include "model/ModelBoxObject.h"
-#include "model/ModelEllipseObject.h"
-#include "model/ModelImageObject.h"
-#include "model/ModelLineObject.h"
-#include "model/ModelTextObject.h"
-#include "model/Markup.h"
-#include "model/Settings.h"
+#include "model/FrameCd.hpp"
+#include "model/FrameEllipse.hpp"
+#include "model/FrameRect.hpp"
+#include "model/FrameRound.hpp"
+#include "model/Model.hpp"
+#include "model/ModelObject.hpp"
+#include "model/ModelBarcodeObject.hpp"
+#include "model/ModelBoxObject.hpp"
+#include "model/ModelEllipseObject.hpp"
+#include "model/ModelImageObject.hpp"
+#include "model/ModelLineObject.hpp"
+#include "model/ModelTextObject.hpp"
+#include "model/Markup.hpp"
+#include "model/Settings.hpp"
 
 #include <QDebug>
 #include <QMimeData>

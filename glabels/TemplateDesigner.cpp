@@ -19,21 +19,21 @@
 //
 
 
-#include "TemplateDesigner.h"
+#include "TemplateDesigner.hpp"
 
-#include "SelectProductDialog.h"
-#include "model/Db.h"
-#include "model/Distance.h"
-#include "model/FrameCd.h"
-#include "model/FrameContinuous.h"
-#include "model/FrameEllipse.h"
-#include "model/FramePath.h"
-#include "model/FrameRect.h"
-#include "model/FrameRound.h"
-#include "model/Markup.h"
-#include "model/Model.h"
-#include "model/PageRenderer.h"
-#include "model/Settings.h"
+#include "SelectProductDialog.hpp"
+#include "model/Db.hpp"
+#include "model/Distance.hpp"
+#include "model/FrameCd.hpp"
+#include "model/FrameContinuous.hpp"
+#include "model/FrameEllipse.hpp"
+#include "model/FramePath.hpp"
+#include "model/FrameRect.hpp"
+#include "model/FrameRound.hpp"
+#include "model/Markup.hpp"
+#include "model/Model.hpp"
+#include "model/PageRenderer.hpp"
+#include "model/Settings.hpp"
 
 #include <QDebug>
 #include <QMessageBox>

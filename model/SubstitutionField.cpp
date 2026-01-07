@@ -19,7 +19,7 @@
 //
 
 
-#include "SubstitutionField.h"
+#include "SubstitutionField.hpp"
 
 #include <QTextStream>
 

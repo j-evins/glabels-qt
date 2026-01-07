@@ -19,9 +19,9 @@
 //
 
 
-#include "EditVariableDialog.h"
+#include "EditVariableDialog.hpp"
 
-#include "model/Settings.h"
+#include "model/Settings.hpp"
 
 #include <QPushButton>
 

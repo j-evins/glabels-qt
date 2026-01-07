@@ -19,7 +19,7 @@
 //
 
 
-#include "TextNode.h"
+#include "TextNode.hpp"
 
 
 namespace glabels::model

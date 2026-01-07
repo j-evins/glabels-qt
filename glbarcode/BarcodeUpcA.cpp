@@ -19,7 +19,7 @@
 //
 
 
-#include "BarcodeUpcA.h"
+#include "BarcodeUpcA.hpp"
 
 #include <cctype>
 #include <string>

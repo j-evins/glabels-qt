@@ -19,7 +19,7 @@
 //
 
 
-#include "ModelEllipseObject.h"
+#include "ModelEllipseObject.hpp"
 
 #include <QBrush>
 #include <QPen>

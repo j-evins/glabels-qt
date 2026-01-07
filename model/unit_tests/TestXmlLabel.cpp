@@ -19,34 +19,34 @@
 //
 
 
-#include "TestXmlLabel.h"
-#include "Test_Constants.h"
+#include "TestXmlLabel.hpp"
+#include "Test_Constants.hpp"
 
-#include "model/XmlLabelCreator.h"
-#include "model/XmlLabelParser.h"
+#include "model/XmlLabelCreator.hpp"
+#include "model/XmlLabelParser.hpp"
 
-#include "barcode/Backends.h"
+#include "barcode/Backends.hpp"
 
-#include "model/Db.h"
-#include "model/ColorNode.h"
-#include "model/FrameRect.h"
-#include "model/Markup.h"
-#include "model/Model.h"
-#include "model/PageRenderer.h"
-#include "model/Settings.h"
-#include "model/Size.h"
-#include "model/Version.h"
+#include "model/Db.hpp"
+#include "model/ColorNode.hpp"
+#include "model/FrameRect.hpp"
+#include "model/Markup.hpp"
+#include "model/Model.hpp"
+#include "model/PageRenderer.hpp"
+#include "model/Settings.hpp"
+#include "model/Size.hpp"
+#include "model/Version.hpp"
 
-#include "model/ModelBarcodeObject.h"
-#include "model/ModelBoxObject.h"
-#include "model/ModelEllipseObject.h"
-#include "model/ModelLineObject.h"
-#include "model/ModelImageObject.h"
-#include "model/ModelTextObject.h"
+#include "model/ModelBarcodeObject.hpp"
+#include "model/ModelBoxObject.hpp"
+#include "model/ModelEllipseObject.hpp"
+#include "model/ModelLineObject.hpp"
+#include "model/ModelImageObject.hpp"
+#include "model/ModelTextObject.hpp"
 
-#include "merge/Factory.h"
-#include "merge/Merge.h"
-#include "merge/TextCsvKeys.h"
+#include "merge/Factory.hpp"
+#include "merge/Merge.hpp"
+#include "merge/TextCsvKeys.hpp"
 
 #include <QCoreApplication>
 #include <QDebug>

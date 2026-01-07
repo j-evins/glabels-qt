@@ -19,11 +19,11 @@
 //
 
 
-#include "BarcodeMenuButton.h"
+#include "BarcodeMenuButton.hpp"
 
-#include "BarcodeMenuItem.h"
+#include "BarcodeMenuItem.hpp"
 
-#include "barcode/Backends.h"
+#include "barcode/Backends.hpp"
 
 #include <QDebug>
 

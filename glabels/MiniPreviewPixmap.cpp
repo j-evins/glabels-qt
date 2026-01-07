@@ -19,11 +19,11 @@
 //
 
 
-#include "MiniPreviewPixmap.h"
+#include "MiniPreviewPixmap.hpp"
 
 
-#include "RollTemplatePath.h"
-#include "model/Template.h"
+#include "RollTemplatePath.hpp"
+#include "model/Template.hpp"
 
 
 //

@@ -19,7 +19,7 @@
 //
 
 
-#include "Distance.h"
+#include "Distance.hpp"
 
 #include <QTextStream>
 #include <QDebug>

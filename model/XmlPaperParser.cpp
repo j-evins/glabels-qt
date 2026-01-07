@@ -19,9 +19,9 @@
 //
 
 
-#include "XmlPaperParser.h"
+#include "XmlPaperParser.hpp"
 
-#include "XmlUtil.h"
+#include "XmlUtil.hpp"
 
 #include <QDebug>
 #include <QDomDocument>

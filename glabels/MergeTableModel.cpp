@@ -19,7 +19,7 @@
 //
 
 
-#include "MergeTableModel.h"
+#include "MergeTableModel.hpp"
 
 #include <QDebug>
 

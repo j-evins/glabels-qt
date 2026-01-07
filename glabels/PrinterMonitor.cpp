@@ -19,7 +19,7 @@
 //
 
 
-#include "PrinterMonitor.h"
+#include "PrinterMonitor.hpp"
 
 #include <QDebug>
 #include <QMutexLocker>

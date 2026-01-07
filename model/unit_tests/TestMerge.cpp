@@ -19,20 +19,20 @@
 //
 
 
-#include "TestMerge.h"
+#include "TestMerge.hpp"
 
-#include "merge/Factory.h"
-#include "merge/None.h"
-#include "merge/TextCsv.h"
-#include "merge/TextCsvKeys.h"
-#include "merge/TextTsv.h"
-#include "merge/TextTsvKeys.h"
-#include "merge/TextColon.h"
-#include "merge/TextColonKeys.h"
-#include "merge/TextSemicolon.h"
-#include "merge/TextSemicolonKeys.h"
+#include "merge/Factory.hpp"
+#include "merge/None.hpp"
+#include "merge/TextCsv.hpp"
+#include "merge/TextCsvKeys.hpp"
+#include "merge/TextTsv.hpp"
+#include "merge/TextTsvKeys.hpp"
+#include "merge/TextColon.hpp"
+#include "merge/TextColonKeys.hpp"
+#include "merge/TextSemicolon.hpp"
+#include "merge/TextSemicolonKeys.hpp"
 
-#include "merge/Record.h"
+#include "merge/Record.hpp"
 
 #include <QDebug>
 

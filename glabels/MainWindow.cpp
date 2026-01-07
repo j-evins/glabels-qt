@@ -19,21 +19,21 @@
 //
 
 
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 
-#include "File.h"
-#include "Help.h"
-#include "LabelEditor.h"
-#include "MergeView.h"
-#include "ObjectEditor.h"
-#include "PreferencesDialog.h"
-#include "PrintView.h"
-#include "PropertiesView.h"
-#include "StartupView.h"
-#include "VariablesView.h"
+#include "File.hpp"
+#include "Help.hpp"
+#include "LabelEditor.hpp"
+#include "MergeView.hpp"
+#include "ObjectEditor.hpp"
+#include "PreferencesDialog.hpp"
+#include "PrintView.hpp"
+#include "PropertiesView.hpp"
+#include "StartupView.hpp"
+#include "VariablesView.hpp"
 
-#include "model/Db.h"
-#include "model/Model.h"
+#include "model/Db.hpp"
+#include "model/Model.hpp"
 
 #include <QClipboard>
 #include <QDebug>

@@ -19,11 +19,11 @@
 //
 
 
-#include "PrintView.h"
+#include "PrintView.hpp"
 
-#include "PrinterMonitor.h"
+#include "PrinterMonitor.hpp"
 
-#include "model/Settings.h"
+#include "model/Settings.hpp"
 
 #include <QDebug>
 #include <QFileDialog>

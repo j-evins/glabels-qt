@@ -19,9 +19,9 @@
 //
 
 
-#include "DataCache.h"
+#include "DataCache.hpp"
 
-#include "ModelImageObject.h"
+#include "ModelImageObject.hpp"
 
 
 namespace glabels::model

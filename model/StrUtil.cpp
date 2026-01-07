@@ -19,7 +19,7 @@
 //
 
 
-#include "StrUtil.h"
+#include "StrUtil.hpp"
 
 #include <QtMath>
 

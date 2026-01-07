@@ -19,7 +19,7 @@
 //
 
 
-#include "Point.h"
+#include "Point.hpp"
 
 
 namespace glabels::model

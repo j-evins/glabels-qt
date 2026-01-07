@@ -19,12 +19,12 @@
 //
 
 
-#include "ModelObject.h"
+#include "ModelObject.hpp"
 
-#include "ColorNode.h"
-#include "Region.h"
-#include "Size.h"
-#include "TextNode.h"
+#include "ColorNode.hpp"
+#include "Region.hpp"
+#include "Size.hpp"
+#include "TextNode.hpp"
 
 #include <QDebug>
 #include <QFont>

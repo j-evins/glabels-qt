@@ -19,9 +19,9 @@
 //
 
 
-#include "ColorButton.h"
+#include "ColorButton.hpp"
 
-#include "ColorSwatch.h"
+#include "ColorSwatch.hpp"
 
 #include <QDebug>
 #include <QHBoxLayout>

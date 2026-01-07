@@ -19,7 +19,7 @@
 //
 
 
-#include "Paper.h"
+#include "Paper.hpp"
 
 
 namespace glabels::model

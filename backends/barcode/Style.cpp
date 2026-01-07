@@ -19,9 +19,9 @@
 //
 
 
-#include "Style.h"
+#include "Style.hpp"
 
-#include "Backends.h"
+#include "Backends.hpp"
 
 
 namespace glabels::barcode

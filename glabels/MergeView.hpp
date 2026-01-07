@@ -1,0 +1,103 @@
+//  MergeView.hpp
+//
+//  Copyright (C) 2016  Jaye Evins <evins@snaught.com>
+//
+//  This file is part of gLabels-qt.
+//
+//  gLabels-qt is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  gLabels-qt is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
+//
+
+#ifndef MergeView_hpp
+#define MergeView_hpp
+
+
+#include "ui_MergeView.h"
+
+#include "model/Model.hpp"
+
+#include "merge/Merge.hpp"
+
+
+namespace glabels
+{
+
+        // Forward references
+        class UndoRedoModel;
+
+
+        ///
+        /// merge::Merge Property Editor Widget
+        ///
+        class MergeView : public QWidget, public Ui_MergeView
+        {
+                Q_OBJECT
+
+
+                /////////////////////////////////
+                // Life Cycle
+                /////////////////////////////////
+        public:
+                MergeView( QWidget *parent = nullptr );
+                virtual ~MergeView() = default;
+
+
+                /////////////////////////////////
+                // Public methods
+                /////////////////////////////////
+                void setModel( model::Model* model, UndoRedoModel* undoRedoModel );
+
+
+                /////////////////////////////////
+                // Slots
+                /////////////////////////////////
+        private slots:
+                void onMergeChanged();
+                void onMergeSourceChanged();
+
+                void onFormatComboActivated();
+                void onLocationBrowseButtonClicked();
+                void onSelectAllButtonClicked();
+                void onUnselectAllButtonClicked();
+                void onReloadButtonClicked();
+
+
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                static QString printableTextForView( QString text );
+
+
+                /////////////////////////////////
+                // Private Data
+                /////////////////////////////////
+        private:
+                QStringList  mMergeFormatNames;
+
+                model::Model*  mModel;
+                UndoRedoModel* mUndoRedoModel;
+
+                QStringList mKeys;
+                QString     mPrimaryKey;
+
+                QString mCwd;
+
+                int  mOldFormatComboIndex;
+
+        };
+
+}
+
+
+#endif // MergeView_hpp

@@ -19,9 +19,9 @@
 //
 
 
-#include "FileUtil.h"
+#include "FileUtil.hpp"
 
-#include "Config.h"
+#include "Config.hpp"
 
 #include <QApplication>
 #include <QStandardPaths>

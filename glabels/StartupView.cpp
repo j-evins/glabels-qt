@@ -19,12 +19,12 @@
 //
 
 
-#include "StartupView.h"
+#include "StartupView.hpp"
 
-#include "File.h"
-#include "MainWindow.h"
+#include "File.hpp"
+#include "MainWindow.hpp"
 
-#include "model/Settings.h"
+#include "model/Settings.hpp"
 
 #include <QAction>
 #include <QDebug>

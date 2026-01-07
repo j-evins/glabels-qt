@@ -245,7 +245,7 @@
   <customwidget>
    <class>glabels::SimplePreview</class>
    <extends>QGraphicsView</extends>
-   <header>SimplePreview.h</header>
+   <header>SimplePreview.hpp</header>
   </customwidget>
  </customwidgets>
  <resources>

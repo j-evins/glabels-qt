@@ -19,9 +19,9 @@
 //
 
 
-#include "XmlVendorParser.h"
+#include "XmlVendorParser.hpp"
 
-#include "XmlUtil.h"
+#include "XmlUtil.hpp"
 
 #include <QDebug>
 #include <QDomDocument>

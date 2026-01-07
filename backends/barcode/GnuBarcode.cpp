@@ -21,7 +21,7 @@
 #if HAVE_GNU_BARCODE
 
 
-#include "GnuBarcode.h"
+#include "GnuBarcode.hpp"
 
 #include <QDebug>
 

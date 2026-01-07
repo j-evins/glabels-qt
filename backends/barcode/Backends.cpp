@@ -19,13 +19,13 @@
 //
 
 
-#include "Backends.h"
+#include "Backends.hpp"
 
-#include "GnuBarcode.h"
-#include "QrEncode.h"
-#include "Zint.h"
+#include "GnuBarcode.hpp"
+#include "QrEncode.hpp"
+#include "Zint.hpp"
 
-#include "glbarcode/Factory.h"
+#include "glbarcode/Factory.hpp"
 
 
 namespace glabels::barcode

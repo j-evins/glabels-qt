@@ -19,7 +19,7 @@
 //
 
 
-#include "BarcodeMenuItem.h"
+#include "BarcodeMenuItem.hpp"
 
 #include <QDebug>
 

@@ -19,7 +19,7 @@
 //
 
 
-#include "ColorHistory.h"
+#include "ColorHistory.hpp"
 
 #include <QDebug>
 #include <QSettings>

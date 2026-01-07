@@ -19,9 +19,9 @@
 //
 
 
-#include "XmlCategoryParser.h"
+#include "XmlCategoryParser.hpp"
 
-#include "XmlUtil.h"
+#include "XmlUtil.hpp"
 
 #include <QDebug>
 #include <QDomDocument>

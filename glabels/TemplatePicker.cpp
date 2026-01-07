@@ -19,12 +19,12 @@
 //
 
 
-#include "TemplatePicker.h"
+#include "TemplatePicker.hpp"
 
-#include "MiniPreviewPixmap.h"
-#include "TemplatePickerItem.h"
+#include "MiniPreviewPixmap.hpp"
+#include "TemplatePickerItem.hpp"
 
-#include "model/Settings.h"
+#include "model/Settings.hpp"
 
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>

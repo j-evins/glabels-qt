@@ -19,20 +19,20 @@
 //
 
 
-#include "Factory.h"
+#include "Factory.hpp"
 
-#include "BarcodeCepnet.h"
-#include "BarcodeCode39.h"
-#include "BarcodeCode39Ext.h"
-#include "BarcodeDataMatrix.h"
-#include "BarcodeEan13.h"
-#include "BarcodeOnecode.h"
-#include "BarcodePostnet.h"
-#include "BarcodePostnet5.h"
-#include "BarcodePostnet9.h"
-#include "BarcodePostnet11.h"
-#include "BarcodeQrcode.h"
-#include "BarcodeUpcA.h"
+#include "BarcodeCepnet.hpp"
+#include "BarcodeCode39.hpp"
+#include "BarcodeCode39Ext.hpp"
+#include "BarcodeDataMatrix.hpp"
+#include "BarcodeEan13.hpp"
+#include "BarcodeOnecode.hpp"
+#include "BarcodePostnet.hpp"
+#include "BarcodePostnet5.hpp"
+#include "BarcodePostnet9.hpp"
+#include "BarcodePostnet11.hpp"
+#include "BarcodeQrcode.hpp"
+#include "BarcodeUpcA.hpp"
 
 
 namespace glbarcode

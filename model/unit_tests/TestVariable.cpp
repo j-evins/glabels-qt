@@ -19,9 +19,9 @@
 //
 
 
-#include "TestVariable.h"
+#include "TestVariable.hpp"
 
-#include "model/Variable.h"
+#include "model/Variable.hpp"
 
 #include <QDebug>
 

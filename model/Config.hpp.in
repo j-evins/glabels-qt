@@ -1,0 +1,37 @@
+/*  Config.hpp
+ *
+ *  Copyright (C) 2013-2016  Jaye Evins <evins@snaught.com>
+ *
+ *  This file is part of gLabels-qt.
+ *
+ *  gLabels-qt is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  gLabels-qt is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef model_Config_hpp
+#define model_Config_hpp
+
+
+namespace glabels::model
+{
+
+        namespace Config
+        {
+                const QString PROJECT_SOURCE_DIR    = "@glabels-qt_SOURCE_DIR@";
+                const QString PROJECT_BUILD_DIR     = "@glabels-qt_BINARY_DIR@";
+        }
+
+}
+
+
+#endif // model_Config_hpp

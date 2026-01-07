@@ -19,23 +19,23 @@
 //
 
 
-#include "XmlLabelParser_3.h"
+#include "XmlLabelParser_3.hpp"
 
-#include "DataCache.h"
-#include "Model.h"
-#include "ModelBarcodeObject.h"
-#include "ModelBoxObject.h"
-#include "ModelEllipseObject.h"
-#include "ModelImageObject.h"
-#include "ModelLineObject.h"
-#include "ModelObject.h"
-#include "ModelTextObject.h"
-#include "XmlTemplateParser.h"
-#include "XmlUtil.h"
-#include "Size.h"
+#include "DataCache.hpp"
+#include "Model.hpp"
+#include "ModelBarcodeObject.hpp"
+#include "ModelBoxObject.hpp"
+#include "ModelEllipseObject.hpp"
+#include "ModelImageObject.hpp"
+#include "ModelLineObject.hpp"
+#include "ModelObject.hpp"
+#include "ModelTextObject.hpp"
+#include "XmlTemplateParser.hpp"
+#include "XmlUtil.hpp"
+#include "Size.hpp"
 
-#include "barcode/Backends.h"
-#include "merge/Factory.h"
+#include "barcode/Backends.hpp"
+#include "merge/Factory.hpp"
 
 #include <QByteArray>
 #include <QDebug>

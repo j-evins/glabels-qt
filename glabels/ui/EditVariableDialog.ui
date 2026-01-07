@@ -126,7 +126,7 @@
   <customwidget>
    <class>glabels::ColorButton</class>
    <extends>QPushButton</extends>
-   <header>ColorButton.h</header>
+   <header>ColorButton.hpp</header>
    <slots>
     <signal>colorChanged()</signal>
    </slots>

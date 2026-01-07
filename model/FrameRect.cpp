@@ -19,10 +19,10 @@
 //
 
 
-#include "FrameRect.h"
+#include "FrameRect.hpp"
 
-#include "Constants.h"
-#include "StrUtil.h"
+#include "Constants.hpp"
+#include "StrUtil.hpp"
 
 #include <QDebug>
 

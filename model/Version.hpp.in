@@ -1,0 +1,54 @@
+/*  Version.hpp
+ *
+ *  Copyright (C) 2016  Jaye Evins <evins@snaught.com>
+ *
+ *  This file is part of gLabels-qt.
+ *
+ *  gLabels-qt is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  gLabels-qt is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef model_Version_hpp
+#define model_Version_hpp
+
+
+#include <QString>
+
+
+namespace glabels::model
+{
+
+        namespace Version
+        {
+                const QString ORGANIZATION_NAME   = "@ORGANIZATION_NAME@";
+                const QString ORGANIZATION_DOMAIN = "@ORGANIZATION_DOMAIN@";
+                const QString APPLICATION_NAME    = "@APPLICATION_NAME@";
+                const QString DESKTOP_FILE_NAME   = "@DESKTOP_FILE_NAME@";
+
+                const QString WEBSITE = "https://@WEBSITE@";
+                const QString BUG_WEBSITE = "@BUG_WEBSITE@";
+
+                const int     MAJOR   = @glabels-qt_VERSION_MAJOR@;
+                const int     MINOR   = @glabels-qt_VERSION_MINOR@;
+                const int     MICRO   = @glabels-qt_VERSION_PATCH@;
+
+                const QString STRING  = "@VERSION_STRING@";
+                const QString LONG_STRING  = "@LONG_VERSION_STRING@";
+
+                QString details();
+        }
+
+}
+
+
+#endif // model_Version_hpp

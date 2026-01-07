@@ -19,9 +19,9 @@
 //
 
 
-#include "Settings.h"
+#include "Settings.hpp"
 
-#include "Version.h"
+#include "Version.hpp"
 
 #include <QDebug>
 #include <QLocale>

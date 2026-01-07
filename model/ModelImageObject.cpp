@@ -19,10 +19,10 @@
 //
 
 
-#include "ModelImageObject.h"
+#include "ModelImageObject.hpp"
 
-#include "Model.h"
-#include "Size.h"
+#include "Model.hpp"
+#include "Size.hpp"
 
 #include <QBrush>
 #include <QDebug>

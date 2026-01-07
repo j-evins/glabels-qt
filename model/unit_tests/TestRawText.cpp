@@ -19,11 +19,11 @@
 //
 
 
-#include "TestRawText.h"
+#include "TestRawText.hpp"
 
-#include "model/RawText.h"
+#include "model/RawText.hpp"
 
-#include "merge/Record.h"
+#include "merge/Record.hpp"
 
 #include <QDebug>
 

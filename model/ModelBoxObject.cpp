@@ -19,7 +19,7 @@
 //
 
 
-#include "ModelBoxObject.h"
+#include "ModelBoxObject.hpp"
 
 #include <QBrush>
 #include <QPen>

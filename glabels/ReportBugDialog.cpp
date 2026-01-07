@@ -19,9 +19,9 @@
 //
 
 
-#include "ReportBugDialog.h"
+#include "ReportBugDialog.hpp"
 
-#include "model/Version.h"
+#include "model/Version.hpp"
 
 #include <QDebug>
 #include <QDesktopServices>

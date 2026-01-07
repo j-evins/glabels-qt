@@ -19,19 +19,19 @@
 //
 
 
-#include "XmlTemplateParser.h"
+#include "XmlTemplateParser.hpp"
 
-#include "Db.h"
-#include "FrameRect.h"
-#include "FrameCd.h"
-#include "FrameRound.h"
-#include "FrameEllipse.h"
-#include "FramePath.h"
-#include "FrameContinuous.h"
-#include "Layout.h"
-#include "Markup.h"
-#include "Template.h"
-#include "XmlUtil.h"
+#include "Db.hpp"
+#include "FrameRect.hpp"
+#include "FrameCd.hpp"
+#include "FrameRound.hpp"
+#include "FrameEllipse.hpp"
+#include "FramePath.hpp"
+#include "FrameContinuous.hpp"
+#include "Layout.hpp"
+#include "Markup.hpp"
+#include "Template.hpp"
+#include "XmlUtil.hpp"
 
 #include <QDebug>
 #include <QDomDocument>

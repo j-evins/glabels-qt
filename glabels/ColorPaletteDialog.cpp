@@ -19,7 +19,7 @@
 //
 
 
-#include "ColorPaletteDialog.h"
+#include "ColorPaletteDialog.hpp"
 
 #include <QColorDialog>
 #include <QDebug>

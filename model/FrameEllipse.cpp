@@ -19,10 +19,10 @@
 //
 
 
-#include "FrameEllipse.h"
+#include "FrameEllipse.hpp"
 
-#include "Constants.h"
-#include "StrUtil.h"
+#include "Constants.hpp"
+#include "StrUtil.hpp"
 
 #include <QDebug>
 

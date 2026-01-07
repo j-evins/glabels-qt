@@ -19,10 +19,10 @@
 //
 
 
-#include "Help.h"
+#include "Help.hpp"
 
-#include "AboutDialog.h"
-#include "ReportBugDialog.h"
+#include "AboutDialog.hpp"
+#include "ReportBugDialog.hpp"
 
 #include <QDebug>
 

@@ -21,7 +21,7 @@
 #if HAVE_ZINT
 
 
-#include "Zint.h"
+#include "Zint.hpp"
 
 #include <QDebug>
 

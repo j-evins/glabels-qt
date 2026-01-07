@@ -19,7 +19,7 @@
 //
 
 
-#include "ModelShapeObject.h"
+#include "ModelShapeObject.hpp"
 
 #include <QBrush>
 #include <QPen>

@@ -19,7 +19,7 @@
 //
 
 
-#include "NotebookUtil.h"
+#include "NotebookUtil.hpp"
 
 #include <QLayout>
 

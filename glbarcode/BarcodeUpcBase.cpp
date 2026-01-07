@@ -19,9 +19,9 @@
 //
 
 
-#include "BarcodeUpcBase.h"
+#include "BarcodeUpcBase.hpp"
 
-#include "Constants.h"
+#include "Constants.hpp"
 
 #include <algorithm>
 #include <cctype>
