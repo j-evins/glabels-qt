@@ -18,11 +18,12 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TestVariables.h"
 
 #include "model/Variables.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 QTEST_MAIN(TestVariables)

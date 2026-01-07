@@ -18,9 +18,10 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "BarcodeMenuItem.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels

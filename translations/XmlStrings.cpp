@@ -18,14 +18,15 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include <QCoreApplication>
-#include <QStringList>
-#include <QFile>
+#include <QDebug>
+#include <QDomAttr>
 #include <QDomDocument>
 #include <QDomNode>
-#include <QDomAttr>
+#include <QFile>
+#include <QStringList>
 #include <QTextStream>
-#include <QDebug>
 
 
 namespace

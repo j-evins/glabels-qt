@@ -23,10 +23,10 @@
 
 #include "Version.h"
 
+#include <QDebug>
 #include <QLocale>
 #include <QPrinterInfo>
 #include <QString>
-#include <QtDebug>
 
 
 namespace glabels::model

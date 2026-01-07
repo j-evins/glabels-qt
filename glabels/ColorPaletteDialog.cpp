@@ -22,13 +22,13 @@
 #include "ColorPaletteDialog.h"
 
 #include <QColorDialog>
+#include <QDebug>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
-#include <QtDebug>
 
 
 namespace glabels

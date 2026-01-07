@@ -23,7 +23,8 @@
 
 #include "Zint.h"
 
-#include <QtDebug>
+#include <QDebug>
+
 #include <zint.h>
 
 

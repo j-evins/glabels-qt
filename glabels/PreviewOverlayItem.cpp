@@ -18,11 +18,12 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "PreviewOverlayItem.h"
 
 #include "model/PageRenderer.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels

@@ -25,7 +25,7 @@
 #include "FrameContinuous.h"
 #include "StrUtil.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels::model

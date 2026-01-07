@@ -18,20 +18,15 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "ColorHistory.h"
 
+#include <QDebug>
 #include <QSettings>
-#include <QtDebug>
 
 
 namespace glabels
 {
-
-        ColorHistory::ColorHistory()
-        {
-                // empty
-        }
-
 
         ColorHistory* ColorHistory::instance()
         {

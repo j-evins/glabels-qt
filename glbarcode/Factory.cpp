@@ -18,20 +18,21 @@
 //  along with glbarcode++.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Factory.h"
 
+#include "BarcodeCepnet.h"
 #include "BarcodeCode39.h"
 #include "BarcodeCode39Ext.h"
-#include "BarcodeUpcA.h"
+#include "BarcodeDataMatrix.h"
 #include "BarcodeEan13.h"
+#include "BarcodeOnecode.h"
 #include "BarcodePostnet.h"
 #include "BarcodePostnet5.h"
 #include "BarcodePostnet9.h"
 #include "BarcodePostnet11.h"
-#include "BarcodeCepnet.h"
-#include "BarcodeOnecode.h"
-#include "BarcodeDataMatrix.h"
 #include "BarcodeQrcode.h"
+#include "BarcodeUpcA.h"
 
 
 namespace glbarcode

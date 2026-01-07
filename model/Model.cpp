@@ -33,8 +33,8 @@
 
 #include <QApplication>
 #include <QClipboard>
+#include <QDebug>
 #include <QFileInfo>
-#include <QtDebug>
 
 
 //

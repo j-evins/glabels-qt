@@ -18,11 +18,12 @@
 //  along with glbarcode++.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Barcode1dBase.h"
 
-#include <list>
-
 #include "DrawingPrimitives.h"
+
+#include <list>
 
 
 namespace glbarcode

@@ -24,9 +24,9 @@
 #include "PreviewOverlayItem.h"
 #include "RollTemplatePath.h"
 
+#include <QDebug>
 #include <QGraphicsDropShadowEffect>
 #include <QGraphicsRectItem>
-#include <QtDebug>
 
 
 //

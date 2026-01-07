@@ -23,10 +23,10 @@
 
 #include "XmlUtil.h"
 
+#include <QDebug>
 #include <QDomDocument>
 #include <QDomNode>
 #include <QFile>
-#include <QtDebug>
 
 
 namespace glabels::model

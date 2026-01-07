@@ -18,12 +18,13 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "VariablesView.h"
 
 #include "EditVariableDialog.h"
 
+#include <QDebug>
 #include <QTableWidgetItem>
-#include <QtDebug>
 
 
 namespace

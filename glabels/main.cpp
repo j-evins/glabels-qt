@@ -18,10 +18,11 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "MainWindow.h"
 
-#include "model/FileUtil.h"
 #include "model/Db.h"
+#include "model/FileUtil.h"
 #include "model/Model.h"
 #include "model/Settings.h"
 #include "model/Version.h"

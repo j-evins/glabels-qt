@@ -23,9 +23,11 @@
 
 #include "GnuBarcode.h"
 
-#include <QtDebug>
-#include <barcode.h>
+#include <QDebug>
+
 #include <cctype>
+
+#include <barcode.h>
 
 
 namespace

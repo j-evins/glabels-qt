@@ -38,12 +38,12 @@
 #include "merge/Factory.h"
 #include "merge/None.h"
 
+#include <QBuffer>
 #include <QByteArray>
+#include <QDebug>
 #include <QFile>
 #include <QTextBlock>
 #include <QTextDocument>
-#include <QBuffer>
-#include <QtDebug>
 
 
 namespace glabels::model

@@ -23,9 +23,9 @@
 
 #include "ColorSwatch.h"
 
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QIcon>
-#include <QtDebug>
 
 
 //

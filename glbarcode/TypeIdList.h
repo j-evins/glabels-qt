@@ -21,10 +21,11 @@
 #ifndef glbarcode_TypeIdList_h
 #define glbarcode_TypeIdList_h
 
+
 #include "Barcode.h"
 
-#include <string>
 #include <list>
+#include <string>
 
 
 namespace glbarcode

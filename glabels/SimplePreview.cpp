@@ -23,10 +23,10 @@
 
 #include "RollTemplatePath.h"
 
+#include <QDebug>
 #include <QGraphicsPathItem>
 #include <QGraphicsRectItem>
 #include <QGraphicsDropShadowEffect>
-#include <QtDebug>
 
 
 //

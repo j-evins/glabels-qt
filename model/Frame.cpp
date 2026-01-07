@@ -19,7 +19,6 @@
 //
 
 
-
 #include "Frame.h"
 
 #include <QDebug>

@@ -21,8 +21,8 @@
 
 #include "Units.h"
 
+#include <QDebug>
 #include <QTextStream>
-#include <QtDebug>
 
 
 namespace glabels::model

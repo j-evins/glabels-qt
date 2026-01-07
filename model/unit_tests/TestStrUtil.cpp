@@ -18,11 +18,12 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TestStrUtil.h"
 
 #include "model/StrUtil.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 QTEST_MAIN(TestStrUtil)

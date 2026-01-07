@@ -21,7 +21,7 @@
 
 #include "Variables.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels::model

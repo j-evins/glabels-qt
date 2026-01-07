@@ -29,11 +29,11 @@
 #include "glbarcode/QtRenderer.h"
 
 #include <QBrush>
+#include <QDebug>
 #include <QPen>
-#include <QTextDocument>
-#include <QTextBlock>
 #include <QRegularExpression>
-#include <QtDebug>
+#include <QTextBlock>
+#include <QTextDocument>
 
 
 //

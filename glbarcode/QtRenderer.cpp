@@ -18,13 +18,14 @@
 //  along with glbarcode++.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "QtRenderer.h"
 
+#include <QDebug>
 #include <QFont>
 #include <QFontMetrics>
 #include <QString>
 #include <QTextLayout>
-#include <QtDebug>
 
 
 namespace

@@ -23,7 +23,7 @@
 
 #include "Record.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels::merge

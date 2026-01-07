@@ -25,9 +25,9 @@
 #include "Template.h"
 #include "XmlUtil.h"
 
+#include <QDebug>
 #include <QDomNode>
 #include <QFile>
-#include <QtDebug>
 
 
 namespace glabels::model

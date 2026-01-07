@@ -18,6 +18,7 @@
 //  along with glbarcode++.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "Barcode2dBase.h"
 
 #include "Constants.h"

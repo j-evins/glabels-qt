@@ -20,6 +20,7 @@
 
 #if HAVE_QRENCODE
 
+
 #include "BarcodeQrcode.h"
 
 #include "qrencode.h"

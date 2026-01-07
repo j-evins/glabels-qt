@@ -43,7 +43,7 @@ namespace glabels
                 // Life Cycle
                 /////////////////////////////////
         private:
-                ColorHistory();
+                ColorHistory() = default;
 
         public:
                 static ColorHistory* instance();

@@ -39,10 +39,10 @@
 #include "merge/Factory.h"
 
 #include <QByteArray>
+#include <QDebug>
 #include <QFile>
 #include <QTextCursor>
 #include <QTextDocument>
-#include <QtDebug>
 
 #if HAVE_ZLIB
 #include <zlib.h>

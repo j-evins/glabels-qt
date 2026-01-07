@@ -18,13 +18,14 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "AboutDialog.h"
 
 #include "model/Version.h"
 
+#include <QDebug>
 #include <QDesktopServices>
 #include <QUrl>
-#include <QtDebug>
 
 
 namespace glabels

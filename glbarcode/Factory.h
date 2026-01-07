@@ -21,11 +21,13 @@
 #ifndef glbarcode_Factory_h
 #define glbarcode_Factory_h
 
+
 #include "Barcode.h"
+
+#include "TypeIdList.h"
 
 #include <string>
 #include <map>
-#include "TypeIdList.h"
 
 
 namespace glbarcode

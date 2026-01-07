@@ -18,14 +18,15 @@
 //  along with glbarcode++.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "BarcodeUpcBase.h"
 
 #include "Constants.h"
 
-#include <cctype>
-#include <string>
 #include <algorithm>
+#include <cctype>
 #include <iostream>
+#include <string>
 
 
 using namespace glbarcode::Constants;

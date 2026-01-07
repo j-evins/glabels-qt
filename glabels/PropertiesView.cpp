@@ -28,8 +28,8 @@
 #include "model/FrameContinuous.h"
 #include "model/Settings.h"
 
+#include <QDebug>
 #include <QStyledItemDelegate>
-#include <QtDebug>
 
 
 namespace glabels

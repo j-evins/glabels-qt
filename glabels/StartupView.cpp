@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "StartupView.h"
 
 #include "File.h"
@@ -26,9 +27,9 @@
 #include "model/Settings.h"
 
 #include <QAction>
+#include <QDebug>
 #include <QFileInfo>
 #include <QMenu>
-#include <QtDebug>
 
 
 namespace glabels

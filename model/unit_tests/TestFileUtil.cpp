@@ -18,11 +18,12 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "TestFileUtil.h"
 
 #include "model/FileUtil.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 QTEST_MAIN(TestFileUtil)

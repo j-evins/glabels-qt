@@ -26,8 +26,8 @@
 #include "Size.h"
 #include "TextNode.h"
 
+#include <QDebug>
 #include <QFont>
-#include <QtDebug>
 
 
 namespace glabels::model

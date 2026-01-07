@@ -23,7 +23,7 @@
 
 #include "model/TextNode.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 QTEST_MAIN(TestTextNode)

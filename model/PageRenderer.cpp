@@ -27,7 +27,7 @@
 #include "merge/None.h"
 #include "merge/Record.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 //

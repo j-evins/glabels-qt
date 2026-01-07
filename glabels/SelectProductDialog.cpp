@@ -27,7 +27,7 @@
 #include "model/Db.h"
 #include "model/Settings.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 namespace glabels

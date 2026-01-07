@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "MainWindow.h"
 
 #include "File.h"
@@ -35,11 +36,11 @@
 #include "model/Model.h"
 
 #include <QClipboard>
+#include <QDebug>
 #include <QFrame>
 #include <QMessageBox>
 #include <QSettings>
 #include <QStatusBar>
-#include <QtDebug>
 
 
 namespace

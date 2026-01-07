@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "File.h"
 
 #include "MainWindow.h"
@@ -30,9 +31,9 @@
 #include "model/XmlLabelParser.h"
 #include "model/XmlLabelCreator.h"
 
+#include <QDebug>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QtDebug>
 
 
 namespace glabels

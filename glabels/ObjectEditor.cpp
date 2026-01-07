@@ -18,6 +18,7 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+
 #include "ObjectEditor.h"
 
 #include "UndoRedoModel.h"
@@ -36,10 +37,10 @@
 
 #include "merge/Merge.h"
 
-#include <QFileDialog>
+#include <QDebug>
 #include <QDir>
+#include <QFileDialog>
 #include <QtMath>
-#include <QtDebug>
 
 
 namespace glabels

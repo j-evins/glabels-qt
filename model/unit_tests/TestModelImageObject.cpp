@@ -30,7 +30,7 @@
 #include "merge/TextCsvKeys.h"
 #include "merge/Record.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 
 QTEST_MAIN(TestModelImageObject)
