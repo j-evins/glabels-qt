@@ -15,7 +15,7 @@ add_executable (glabels-batch-qt
 )
 
 target_compile_features (glabels-batch-qt
-  PUBLIC cxx_std_11
+  PUBLIC cxx_std_20
 )
 
 target_link_libraries (glabels-batch-qt

@@ -33,10 +33,9 @@ add_library (Merge STATIC
   ${merge_moc_sources}
 )
 
-#target_compile_features (Merge
-#  PUBLIC cxx_std_11
-#)
-set_property (TARGET Merge PROPERTY CXX_STANDARD 11)
+target_compile_features (Merge
+  PUBLIC cxx_std_20
+)
 
 target_include_directories (Merge
   PUBLIC ..

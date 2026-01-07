@@ -131,7 +131,7 @@ add_executable (glabels-qt WIN32
 )
 
 target_compile_features (glabels-qt
-  PUBLIC cxx_std_11
+  PUBLIC cxx_std_20
 )
 
 target_include_directories (glabels-qt

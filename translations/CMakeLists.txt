@@ -41,12 +41,12 @@ add_dependencies (glabels-qt update_translations)
 #=======================================
 # XmlStrings utility
 #=======================================
-add_executable (XmlStrings WIN32
+add_executable (XmlStrings
   XmlStrings.cpp
 )
 
-target_compile_features (Model
-  PUBLIC cxx_std_11
+target_compile_features (XmlStrings
+  PUBLIC cxx_std_20
 )
 
 target_link_libraries (XmlStrings

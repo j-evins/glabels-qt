@@ -34,7 +34,7 @@ add_library (glbarcode STATIC
 )
 
 target_compile_features (glbarcode
-  PUBLIC cxx_std_11
+  PUBLIC cxx_std_20
 )
 
 target_include_directories (glbarcode

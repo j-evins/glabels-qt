@@ -98,7 +98,7 @@ add_library (Model STATIC
 )
 
 target_compile_features (Model
-  PUBLIC cxx_std_11
+  PUBLIC cxx_std_20
 )
 
 target_include_directories (Model
