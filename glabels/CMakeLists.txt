@@ -120,14 +120,41 @@ if (WIN32)
 endif ()
 
 #=====================================
+# macOS Resources
+#=====================================
+if (APPLE)
+  # Generate .icns from SVG at build time
+  set (ICNS_OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/macos/glabels.icns")
+  set (ICNS_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/macos/generate-icns.sh")
+  set (ICNS_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/icons/glabels-flat/128x128/apps/glabels.svg")
+
+  add_custom_command (
+    OUTPUT "${ICNS_OUTPUT}"
+    COMMAND "${ICNS_SCRIPT}"
+    DEPENDS "${ICNS_SOURCE}" "${ICNS_SCRIPT}"
+    COMMENT "Generating macOS app icon..."
+    VERBATIM
+  )
+
+  set (glabels_macos_resources
+    "${ICNS_OUTPUT}"
+  )
+  set_source_files_properties (${glabels_macos_resources} PROPERTIES
+    MACOSX_PACKAGE_LOCATION "Resources"
+    GENERATED TRUE
+  )
+endif ()
+
+#=====================================
 # Target
 #=====================================
-add_executable (glabels-qt WIN32
+add_executable (glabels-qt WIN32 MACOSX_BUNDLE
   ${glabels_sources}
   ${glabels_moc_sources}
   ${glabels_qrc_sources}
   ${glabels_forms_headers}
   ${glabels_win_rc}
+  ${glabels_macos_resources}
 )
 
 target_compile_features (glabels-qt
@@ -145,9 +172,29 @@ target_link_libraries (glabels-qt
 )
 
 #=======================================
+# macOS Bundle Configuration
+#=======================================
+if (APPLE)
+    set_target_properties (glabels-qt PROPERTIES
+        MACOSX_BUNDLE TRUE
+        MACOSX_BUNDLE_BUNDLE_NAME "gLabels"
+        MACOSX_BUNDLE_EXECUTABLE_NAME "glabels-qt"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.glabels.glabels-qt"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${CMAKE_PROJECT_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}"
+        MACOSX_BUNDLE_ICON_FILE "glabels.icns"
+        MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/macos/Info.plist.in"
+    )
+endif ()
+
+#=======================================
 # Install
 #=======================================
-install (TARGETS glabels-qt RUNTIME DESTINATION bin)
+if (APPLE)
+    install (TARGETS glabels-qt BUNDLE DESTINATION .)
+else ()
+    install (TARGETS glabels-qt RUNTIME DESTINATION bin)
+endif ()
 
 install (FILES icons/glabels-flat/scalable/apps/glabels.svg DESTINATION share/icons/hicolor/scalable/apps)
 install (FILES icons/glabels-flat/16x16/apps/glabels.svg    DESTINATION share/icons/hicolor/16x16/apps)
@@ -222,3 +269,50 @@ if (WIN32)
     endif (MINGW)
 
 endif (WIN32)
+
+#
+# macOS Runtime
+#
+if (APPLE)
+
+    # Find macdeployqt
+    get_target_property (QT_QMAKE_EXECUTABLE Qt6::qmake IMPORTED_LOCATION)
+    get_filename_component (QT_BIN_DIR "${QT_QMAKE_EXECUTABLE}" DIRECTORY)
+    find_program (MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${QT_BIN_DIR}")
+
+    # Copy templates into the app bundle Resources folder
+    add_custom_command (TARGET glabels-qt POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_SOURCE_DIR}/templates"
+            "$<TARGET_BUNDLE_DIR:glabels-qt>/Contents/Resources/templates"
+        COMMENT "Copying templates to app bundle..."
+    )
+
+    # Copy translations into the app bundle Resources folder
+    add_custom_command (TARGET glabels-qt POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_BINARY_DIR}/translations"
+            "$<TARGET_BUNDLE_DIR:glabels-qt>/Contents/Resources/translations"
+        COMMENT "Copying translations to app bundle..."
+    )
+
+    if (MACDEPLOYQT_EXECUTABLE)
+        # Run macdeployqt after build to bundle Qt frameworks
+        # Note: This creates a self-contained .app bundle
+        add_custom_command (TARGET glabels-qt POST_BUILD
+            COMMAND "${MACDEPLOYQT_EXECUTABLE}"
+                "$<TARGET_BUNDLE_DIR:glabels-qt>"
+                -always-overwrite
+            COMMENT "Running macdeployqt to bundle Qt frameworks..."
+        )
+
+        # Re-sign the app after macdeployqt (required on macOS to fix invalidated signature)
+        add_custom_command (TARGET glabels-qt POST_BUILD
+            COMMAND codesign --force --deep --sign - "$<TARGET_BUNDLE_DIR:glabels-qt>"
+            COMMENT "Re-signing app bundle..."
+        )
+    else ()
+        message (WARNING "macdeployqt not found - Qt frameworks will not be bundled automatically")
+    endif ()
+
+endif (APPLE)
