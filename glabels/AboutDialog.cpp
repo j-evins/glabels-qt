@@ -1,6 +1,6 @@
 //  AboutDialog.cpp
 //
-//  Copyright (C) 2016  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2016-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //
@@ -43,7 +43,7 @@ namespace glabels
 
                 QString description = tr("A program to create labels and business cards.");
 
-                QString copyright = "Copyright &copy; 2018 Jaye Evins <evins@snaught.com>";
+                QString copyright = "Copyright &copy; 2016-2026 Jaye Evins <evins@snaught.com>";
 
                 QString licenseParagraph1 =
                         tr( "gLabels is free software: you can redistribute it and/or modify "

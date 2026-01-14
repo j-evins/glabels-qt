@@ -1,6 +1,6 @@
 //  Db.cpp
 //
-//  Copyright (C) 2013-2016  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2013-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //

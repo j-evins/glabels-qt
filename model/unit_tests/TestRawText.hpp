@@ -1,6 +1,6 @@
 //  TestRawText.hpp
 //
-//  Copyright (C) 2019  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2019-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //

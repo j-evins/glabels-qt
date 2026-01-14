@@ -1,6 +1,6 @@
 //  BarcodePostnet5.cpp
 //
-//  Copyright (C) 2013  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2013-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of glbarcode++.
 //

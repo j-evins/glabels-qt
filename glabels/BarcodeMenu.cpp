@@ -1,6 +1,6 @@
 //  BarcodeMenu.cpp
 //
-//  Copyright (C) 2014  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2014-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //

@@ -1,6 +1,6 @@
 //  FileUtil.hpp
 //
-//  Copyright (C) 2015  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2015-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //

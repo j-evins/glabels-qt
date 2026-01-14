@@ -1,6 +1,6 @@
 //  TemplateDesigner.cpp
 //
-//  Copyright (C) 2018  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2018-2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //
