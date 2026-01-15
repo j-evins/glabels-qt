@@ -604,11 +604,11 @@
     </message>
     <message>
         <source>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Non trié (par exemple  1,1,1   2,2,2   3,3,3)</translation>
     </message>
     <message>
         <source>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Trié   (par exemple  1,2,3   1,2,3   1,2,3)</translation>
     </message>
     <message>
         <source>Merge groups are contiguous</source>
@@ -1357,7 +1357,7 @@
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
 </context>
 <context>
@@ -2198,7 +2198,7 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Rouleau</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -2322,7 +2322,7 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Rouleau</translation>
     </message>
 </context>
 <context>
