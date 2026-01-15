@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -2166,7 +2168,7 @@ Foundation тексту цієї ліцензії версії 3 або (якщ�
     </message>
     <message>
         <source>To submit a bug report, click on the button below.  This will open a web browser to the gLabels github issue tracking page.</source>
-        <translation>Щоб повідомити про ваду, натисніть розташовану нижче кнопку. У відповідь буде відкрито програму для перегляду інтернету на сторінці системи стеження за вадами у gLabels на github. </translation>
+        <translation type="unfinished">Щоб повідомити про ваду, натисніть розташовану нижче кнопку. У відповідь буде відкрито програму для перегляду інтернету на сторінці системи стеження за вадами у gLabels на github.</translation>
     </message>
     <message>
         <source>Be sure to include a detailed description of the problem and how to recreate it.  Attach any screenshots and/or example glabels project files that may illustrate the problem.</source>
