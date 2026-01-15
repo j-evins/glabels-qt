@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -169,31 +171,31 @@
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nom :</translation>
     </message>
     <message>
         <source>Step size:</source>
-        <translation type="unfinished"/>
+        <translation>Taille du pas :</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"/>
+        <translation>Incrément</translation>
     </message>
     <message>
         <source>Variable</source>
-        <translation type="unfinished"/>
+        <translation>Variable</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Type :</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"/>
+        <translation>Valeur :</translation>
     </message>
 </context>
 <context>
@@ -259,7 +261,7 @@
     <name>FrameContinuous</name>
     <message>
         <source>wide</source>
-        <translation type="unfinished"/>
+        <translation>large</translation>
     </message>
 </context>
 <context>
@@ -297,7 +299,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Parcourir...</translation>
     </message>
 </context>
 <context>
@@ -348,19 +350,19 @@
     </message>
     <message>
         <source>Family:</source>
-        <translation>Famille :</translation>
+        <translation>Famille&#xa0;:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>Taille :</translation>
+        <translation>Taille&#xa0;:</translation>
     </message>
     <message>
         <source>Style:</source>
-        <translation>Style :</translation>
+        <translation>Style&#xa0;:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation>Couleur :</translation>
+        <translation>Couleur&#xa0;:</translation>
     </message>
     <message>
         <source>Editor</source>
@@ -400,7 +402,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Parcourir...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
@@ -412,7 +414,7 @@
     </message>
     <message>
         <source>Width:</source>
-        <translation>Largeur :</translation>
+        <translation>Largeur&#xa0;:</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -428,11 +430,11 @@
     </message>
     <message>
         <source>X:</source>
-        <translation>X :</translation>
+        <translation>X&#xa0;:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation>Y :</translation>
+        <translation>Y&#xa0;:</translation>
     </message>
     <message>
         <source>Size</source>
@@ -440,11 +442,11 @@
     </message>
     <message>
         <source>Length:</source>
-        <translation>Longueur :</translation>
+        <translation>Longueur&#xa0;:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation>Angle :</translation>
+        <translation>Angle&#xa0;:</translation>
     </message>
     <message>
         <source>Original size:</source>
@@ -460,7 +462,7 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation>Hauteur :</translation>
+        <translation>Hauteur&#xa0;:</translation>
     </message>
     <message>
         <source>Shadow</source>
@@ -476,14 +478,14 @@
     </message>
     <message>
         <source>Opacity:</source>
-        <translation>Opacité :</translation>
+        <translation>Opacité&#xa0;:</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>gLabels - Preferences</source>
-        <translation>gLabels - Preferences</translation>
+        <translation>gLabels - Préférences</translation>
     </message>
     <message>
         <source>Locale</source>
@@ -519,38 +521,38 @@
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished"/>
+        <translation>Grille</translation>
     </message>
     <message>
         <source>Configure grid behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Configurer le comportement de la grille.</translation>
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"/>
+        <translation>Origine</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centrer</translation>
     </message>
     <message>
         <source>Spacing</source>
-        <translation type="unfinished"/>
+        <translation>Espacement</translation>
     </message>
     <message>
         <source>Top left corner</source>
-        <translation type="unfinished"/>
+        <translation>Coin supérieur gauche</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Réinitialiser</translation>
     </message>
 </context>
 <context>
     <name>PrintView</name>
     <message>
         <source>Copies:</source>
-        <translation>Copies :</translation>
+        <translation>Copies&#xa0;:</translation>
     </message>
     <message>
         <source>print outlines</source>
@@ -578,51 +580,51 @@
     </message>
     <message>
         <source>Pages</source>
-        <translation type="unfinished"/>
+        <translation>Pages</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>Options</translation>
     </message>
     <message>
         <source>Print range</source>
-        <translation type="unfinished"/>
+        <translation>Zone d&apos;impression</translation>
     </message>
     <message>
         <source>Positions</source>
-        <translation type="unfinished"/>
+        <translation>Positions</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>vers</translation>
     </message>
     <message>
         <source>Merge control</source>
-        <translation type="unfinished"/>
+        <translation>Contrôle de fusion</translation>
     </message>
     <message>
         <source>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Merge groups are contiguous</source>
-        <translation type="unfinished"/>
+        <translation>Les groupes fusionnés sont contigus</translation>
     </message>
     <message>
         <source>Merge groups start on a new page</source>
-        <translation type="unfinished"/>
+        <translation>Les groupes de fusion commencent sur une nouvelle page</translation>
     </message>
     <message>
         <source>Start groups at position:</source>
-        <translation type="unfinished"/>
+        <translation>Démarrer les groupes à la position :</translation>
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"/>
+        <translation>Destination</translation>
     </message>
     <message>
         <source>Print</source>
@@ -630,7 +632,7 @@
     </message>
     <message>
         <source>Use system print dialog...</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser la boîte de dialogue d&apos;impression du système...</translation>
     </message>
 </context>
 <context>
@@ -641,7 +643,7 @@
     </message>
     <message>
         <source>Vendor:</source>
-        <translation>Fabricant :</translation>
+        <translation>Fabricant&#xa0;:</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -649,23 +651,23 @@
     </message>
     <message>
         <source>Part #:</source>
-        <translation>N° Ref :</translation>
+        <translation>N° Ref&#xa0;:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation>Description :</translation>
+        <translation>Description&#xa0;:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation>Taille de page :</translation>
+        <translation>Taille de page&#xa0;:</translation>
     </message>
     <message>
         <source>Label size:</source>
-        <translation>Taille d&apos;étiquette :</translation>
+        <translation>Taille d&apos;étiquette&#xa0;:</translation>
     </message>
     <message>
         <source>Layout:</source>
-        <translation>Disposition :</translation>
+        <translation>Disposition&#xa0;:</translation>
     </message>
     <message>
         <source>Change product</source>
@@ -673,11 +675,11 @@
     </message>
     <message>
         <source>Adjustable Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres réglables</translation>
     </message>
     <message>
         <source>Label length:</source>
-        <translation type="unfinished"/>
+        <translation>Longueur de l&apos;étiquette :</translation>
     </message>
     <message>
         <source>Orientation</source>
@@ -701,26 +703,26 @@
     </message>
     <message>
         <source>Select another product for this gLabels project.</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionnez un autre produit pour ce projet gLabels.</translation>
     </message>
 </context>
 <context>
     <name>ReportBugDialog</name>
     <message>
         <source>gLabels - Report a Bug</source>
-        <translation type="unfinished"/>
+        <translation>gLabels - Signaler un bug</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>Ctrl+C</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <source>&amp;Launch Issue Tracker</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Lancer le suivi des problèmes</translation>
     </message>
 </context>
 <context>
@@ -783,39 +785,39 @@
     </message>
     <message>
         <source>Product information</source>
-        <translation type="unfinished"/>
+        <translation>Informations sur le produit</translation>
     </message>
     <message>
         <source>Vendor:</source>
-        <translation type="unfinished"/>
+        <translation>Fournisseur :</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"/>
+        <translation>Étiquette de texte</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"/>
+        <translation>Part # :</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"/>
+        <translation>Description :</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"/>
+        <translation>Taille de la page :</translation>
     </message>
     <message>
         <source>Label size:</source>
-        <translation type="unfinished"/>
+        <translation>Taille de l&apos;étiquette :</translation>
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"/>
+        <translation>Disposition :</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner</translation>
     </message>
 </context>
 <context>
@@ -830,19 +832,19 @@
     </message>
     <message>
         <source>Open a recent gLabels project</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir un projet gLabels récent</translation>
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished"/>
+        <translation>Récent</translation>
     </message>
     <message>
         <source>New...</source>
-        <translation type="unfinished"/>
+        <translation>Nouveau...</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"/>
+        <translation>Parcourir...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -868,19 +870,19 @@
     </message>
     <message>
         <source>1. Outer radius:</source>
-        <translation>1. Rayon extérieur :</translation>
+        <translation>1. Rayon extérieur&#xa0;:</translation>
     </message>
     <message>
         <source>4. Clipping height:</source>
-        <translation>4. Hauteur de découpe :</translation>
+        <translation>4. Hauteur de découpe&#xa0;:</translation>
     </message>
     <message>
         <source>2. Inner radius:</source>
-        <translation>2. Rayon intérieur :</translation>
+        <translation>2. Rayon intérieur&#xa0;:</translation>
     </message>
     <message>
         <source>3. Clipping width:</source>
-        <translation>3. Largeur de découpe :</translation>
+        <translation>3. Largeur de découpe&#xa0;:</translation>
     </message>
     <message>
         <source>5. Waste:</source>
@@ -891,18 +893,18 @@
     <name>TemplateDesignerContinuousPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur « Annuler » pour quitter, ou cliquez sur « Retour » pour recommencer avec un autre produit.</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerEllipsePage</name>
     <message>
         <source>2. Height:</source>
-        <translation>2. Hauteur :</translation>
+        <translation>2. Hauteur&#xa0;:</translation>
     </message>
     <message>
         <source>1. Width:</source>
-        <translation>1. Largeur :</translation>
+        <translation>1. Largeur&#xa0;:</translation>
     </message>
     <message>
         <source>3. Waste:</source>
@@ -933,7 +935,7 @@
     </message>
     <message>
         <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
-        <translation type="unfinished"/>
+        <translation>Cette boîte de dialogue vous aidera à créer un modèle de produit personnalisé. Commençons :</translation>
     </message>
 </context>
 <context>
@@ -971,15 +973,15 @@
     </message>
     <message>
         <source>Brand:</source>
-        <translation>Marque :</translation>
+        <translation>Marque&#xa0;:</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation>N° Ref :</translation>
+        <translation>N° Ref&#xa0;:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation>Description :</translation>
+        <translation>Description&#xa0;:</translation>
     </message>
     <message>
         <source>(e.g. 8163A)</source>
@@ -994,15 +996,15 @@
     <name>TemplateDesignerOneLayoutPage</name>
     <message>
         <source>Number across (nx):</source>
-        <translation>Nombre sur la largeur (nx) :</translation>
+        <translation>Nombre sur la largeur (nx)&#xa0;:</translation>
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation>Nombre sur la hauteur (ny) :</translation>
+        <translation>Nombre sur la hauteur (ny)&#xa0;:</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation>Distance par rapport au bord gauche (x0) :</translation>
+        <translation>Distance par rapport au bord gauche (x0)&#xa0;:</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
@@ -1010,11 +1012,11 @@
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation>Espacement horizontal (dx) :</translation>
+        <translation>Espacement horizontal (dx)&#xa0;:</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation>Espacement vertical (dy) :</translation>
+        <translation>Espacement vertical (dy)&#xa0;:</translation>
     </message>
     <message>
         <source>Print test sheet</source>
@@ -1025,26 +1027,26 @@
     <name>TemplateDesignerPageSizePage</name>
     <message>
         <source>Roll width:</source>
-        <translation type="unfinished"/>
+        <translation>Largeur du rouleau :</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Hauteur :</translation>
+        <translation>Hauteur&#xa0;:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Largeur :</translation>
+        <translation>Largeur&#xa0;:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation>Taille de page :</translation>
+        <translation>Taille de page&#xa0;:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerPathPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur « Annuler » pour quitter, ou cliquez sur « Retour » pour recommencer avec un autre produit.</translation>
     </message>
 </context>
 <context>
@@ -1059,7 +1061,7 @@
     </message>
     <message>
         <source>1. Width:</source>
-        <translation>1. Largeur :</translation>
+        <translation>1. Largeur&#xa0;:</translation>
     </message>
     <message>
         <source>5. Vertical waste:</source>
@@ -1067,19 +1069,19 @@
     </message>
     <message>
         <source>2. Height:</source>
-        <translation>2. Hauteur :</translation>
+        <translation>2. Hauteur&#xa0;:</translation>
     </message>
     <message>
         <source>6. Margin (X):</source>
-        <translation type="unfinished"/>
+        <translation>6. Marge (X) :</translation>
     </message>
     <message>
         <source>7. Margin (Y):</source>
-        <translation type="unfinished"/>
+        <translation>7. Marge (Y) :</translation>
     </message>
     <message>
         <source>in</source>
-        <translation type="unfinished"/>
+        <translation>dans</translation>
     </message>
 </context>
 <context>
@@ -1090,7 +1092,7 @@
     </message>
     <message>
         <source>1. Radius:</source>
-        <translation>1. Rayon :</translation>
+        <translation>1. Rayon&#xa0;:</translation>
     </message>
     <message>
         <source>2. Waste:</source>
@@ -1120,11 +1122,11 @@
     <name>TemplateDesignerTwoLayoutPage</name>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation>Distance par rapport au bord gauche (x0) :</translation>
+        <translation>Distance par rapport au bord gauche (x0)&#xa0;:</translation>
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation>Nombre sur la hauteur (ny) :</translation>
+        <translation>Nombre sur la hauteur (ny)&#xa0;:</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
@@ -1132,15 +1134,15 @@
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation>Nombre sur la largeur (nx) :</translation>
+        <translation>Nombre sur la largeur (nx)&#xa0;:</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation>Espacement horizontal (dx) :</translation>
+        <translation>Espacement horizontal (dx)&#xa0;:</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation>Espacement vertical (dy) :</translation>
+        <translation>Espacement vertical (dy)&#xa0;:</translation>
     </message>
     <message>
         <source>Print test sheet</source>
@@ -1174,62 +1176,62 @@
     <name>Variable</name>
     <message>
         <source>String</source>
-        <translation type="unfinished"/>
+        <translation>Chaîne</translation>
     </message>
     <message>
         <source>Integer</source>
-        <translation type="unfinished"/>
+        <translation>Entier</translation>
     </message>
     <message>
         <source>Floating Point</source>
-        <translation type="unfinished"/>
+        <translation>Virgule flottante</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Jamais</translation>
     </message>
     <message>
         <source>Per item</source>
-        <translation type="unfinished"/>
+        <translation>Par article</translation>
     </message>
     <message>
         <source>Per copy</source>
-        <translation type="unfinished"/>
+        <translation>Par exemplaire</translation>
     </message>
     <message>
         <source>Per page</source>
-        <translation type="unfinished"/>
+        <translation>Par page</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Couleur</translation>
     </message>
 </context>
 <context>
     <name>VariablesView</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Effacer</translation>
     </message>
     <message>
         <source>Add variable</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter une variable</translation>
     </message>
     <message>
         <source>Edit selected variable</source>
-        <translation type="unfinished"/>
+        <translation>Modifier la variable sélectionnée</translation>
     </message>
     <message>
         <source>Delete selected variable</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer la variable sélectionnée</translation>
     </message>
 </context>
 <context>
@@ -1255,18 +1257,18 @@
     <name>glabels::ColorHistory</name>
     <message>
         <source>color %1</source>
-        <translation type="unfinished"/>
+        <translation>couleur %1</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Standard Colors</source>
-        <translation type="unfinished"/>
+        <translation>Couleurs standard</translation>
     </message>
     <message>
         <source>Recent Colors</source>
-        <translation type="unfinished"/>
+        <translation>Couleurs récentes</translation>
     </message>
     <message>
         <source>Custom color...</source>
@@ -1279,29 +1281,29 @@
     <message>
         <source>Custom Color %1</source>
         <extracomment>%1 = color specification in hex. String must not contain a colon (:).</extracomment>
-        <translation type="unfinished"/>
+        <translation>Couleur personnalisée %1</translation>
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser le champ de substitution</translation>
     </message>
 </context>
 <context>
     <name>glabels::EditVariableDialog</name>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Par défaut</translation>
     </message>
 </context>
 <context>
     <name>glabels::FieldButton</name>
     <message>
         <source>Merge fields</source>
-        <translation type="unfinished"/>
+        <translation>Champs de fusion</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables</translation>
     </message>
 </context>
 <context>
@@ -1351,11 +1353,11 @@
     </message>
     <message>
         <source>Resize</source>
-        <translation type="unfinished"/>
+        <translation>Redimensionner</translation>
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1378,7 +1380,7 @@
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables</translation>
     </message>
     <message>
         <source>Print</source>
@@ -1442,11 +1444,11 @@
     </message>
     <message>
         <source>&amp;Variables</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Variables</translation>
     </message>
     <message>
         <source>Select project Variables mode</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner le mode Variables du projet</translation>
     </message>
     <message>
         <source>&amp;Print</source>
@@ -1870,53 +1872,53 @@
     </message>
     <message>
         <source>Quick Access</source>
-        <translation type="unfinished"/>
+        <translation>Accès rapide</translation>
     </message>
     <message>
         <source>&amp;Report Bug...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Signaler un bug...</translation>
     </message>
     <message>
         <source>Report a bug to the developers</source>
-        <translation type="unfinished"/>
+        <translation>Signaler un bug aux développeurs</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Quick Access&quot; toolbar in current window</source>
-        <translation type="unfinished"/>
+        <translation>Modifier la visibilité de la barre d&apos;outils « Accès rapide » dans la fenêtre actuelle</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Editor&quot; toolbar in current window</source>
-        <translation type="unfinished"/>
+        <translation>Modifier la visibilité de la barre d&apos;outils « Éditeur » dans la fenêtre actuelle</translation>
     </message>
     <message>
         <source>&amp;User Manual...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Manuel d&apos;utilisation...</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir récent</translation>
     </message>
     <message>
         <source>Quick Access Toolbar</source>
-        <translation type="unfinished"/>
+        <translation>Barre d&apos;outils d&apos;accès rapide</translation>
     </message>
     <message>
         <source>Undo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
-        <translation type="unfinished"/>
+        <translation>Annuler %1</translation>
     </message>
     <message>
         <source>Redo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
-        <translation type="unfinished"/>
+        <translation>Rétablir %1</translation>
     </message>
     <message>
         <source>Center Both</source>
-        <translation type="unfinished"/>
+        <translation>Centrer les deux</translation>
     </message>
     <message>
         <source>Center objects in label</source>
-        <translation type="unfinished"/>
+        <translation>Centrer les objets dans l&apos;étiquette</translation>
     </message>
 </context>
 <context>
@@ -2082,23 +2084,23 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"/>
+        <translation>Position</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"/>
+        <translation>Code barre</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"/>
+        <translation>Réinitialiser</translation>
     </message>
     <message>
         <source>Insert substitution field</source>
-        <translation type="unfinished"/>
+        <translation>Insérer un champ de substitution</translation>
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"/>
+        <translation>Utiliser un champ de substitution</translation>
     </message>
 </context>
 <context>
@@ -2113,27 +2115,27 @@
     </message>
     <message>
         <source>(Will print a total of 1 item on 1 page.)</source>
-        <translation type="unfinished"/>
+        <translation>(Imprimera un total de 1 élément sur 1 page.)</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on 1 page.)</source>
-        <translation type="unfinished"/>
+        <translation>(Imprimera un total de %1 éléments sur 1 page.)</translation>
     </message>
     <message>
         <source>Print to file (PDF)</source>
-        <translation type="unfinished"/>
+        <translation>Imprimer dans un fichier (PDF)</translation>
     </message>
     <message>
         <source>PDF files (*.pdf);;All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Fichiers PDF (*.pdf) ; Tous les fichiers (*)</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"/>
+        <translation>%1 existe déjà.</translation>
     </message>
     <message>
         <source>Do you want to overwrite it?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous l&apos;écraser ?</translation>
     </message>
 </context>
 <context>
@@ -2155,30 +2157,30 @@
     <name>glabels::ReportBugDialog</name>
     <message>
         <source>How to Report a Bug</source>
-        <translation type="unfinished"/>
+        <translation>Comment signaler un bug</translation>
     </message>
     <message>
         <source>To submit a bug report, click on the button below.  This will open a web browser to the gLabels github issue tracking page.</source>
-        <translation type="unfinished"/>
+        <translation>Pour envoyer un rapport de bogue, cliquez sur le bouton ci-dessous.  Cela ouvrira un navigateur Web sur la page de suivi des problèmes gLabels github.</translation>
     </message>
     <message>
         <source>Be sure to include a detailed description of the problem and how to recreate it.  Attach any screenshots and/or example glabels project files that may illustrate the problem.</source>
-        <translation type="unfinished"/>
+        <translation>Veillez à inclure une description détaillée du problème et la manière de le reproduire.  Joignez toute capture d&apos;écran et/ou tout exemple de fichier de projet glabels pouvant illustrer le problème.</translation>
     </message>
     <message>
         <source>Before submitting a report, look through the existing issues for similar or related bugs.  If the issue has already been reported, please consider contributing to its report instead.  Otherwise, create a new issue report. Please paste the following information into the issue description.</source>
-        <translation type="unfinished"/>
+        <translation>Avant de soumettre un rapport, consultez les problèmes existants pour trouver des bogues similaires ou connexes.  Si le problème a déjà été signalé, envisagez plutôt de contribuer à son rapport.  Sinon, créez un nouveau rapport de problème. Veuillez coller les informations suivantes dans la description du problème.</translation>
     </message>
 </context>
 <context>
     <name>glabels::SelectProductDialog</name>
     <message>
         <source>List View</source>
-        <translation type="unfinished"/>
+        <translation>Affichage en liste</translation>
     </message>
     <message>
         <source>Grid View</source>
-        <translation type="unfinished"/>
+        <translation>Affichage en grille</translation>
     </message>
 </context>
 <context>
@@ -2196,7 +2198,7 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
@@ -2238,11 +2240,11 @@
     <name>glabels::TemplateDesignerContinuousPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"/>
+        <translation>Modèle de produit non pris en charge</translation>
     </message>
     <message>
         <source>Continuous tape product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"/>
+        <translation>Les modèles de produits à bande continue ne sont actuellement pas pris en charge par le concepteur de modèles de produits.</translation>
     </message>
 </context>
 <context>
@@ -2264,7 +2266,7 @@
     </message>
     <message>
         <source>Welcome to the gLabels Product Template Designer.</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenue dans le concepteur de modèles de produits gLabels.</translation>
     </message>
 </context>
 <context>
@@ -2320,18 +2322,18 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerPathPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"/>
+        <translation>Modèle de produit non pris en charge</translation>
     </message>
     <message>
         <source>Path based product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"/>
+        <translation>Les modèles de produit basés sur des chemins d&apos;accès ne sont actuellement pas pris en charge par le concepteur de modèles de produit.</translation>
     </message>
 </context>
 <context>
@@ -2360,7 +2362,7 @@
     <name>glabels::TemplateDesignerShapePage</name>
     <message>
         <source>Product Shape</source>
-        <translation type="unfinished"/>
+        <translation>Forme du produit</translation>
     </message>
     <message>
         <source>Please select the basic product shape.</source>
@@ -2382,35 +2384,35 @@
     <name>glabels::VariablesView</name>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"/>
+        <translation>Variables</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"/>
+        <translation>Incrément</translation>
     </message>
     <message>
         <source>Step Size</source>
-        <translation type="unfinished"/>
+        <translation>Taille du pas</translation>
     </message>
     <message>
         <source>Add Variable</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter une variable</translation>
     </message>
     <message>
         <source>Edit Variable</source>
-        <translation type="unfinished"/>
+        <translation>Modifier la variable</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"/>
+        <translation>Valeur</translation>
     </message>
 </context>
 <context>
@@ -2721,123 +2723,123 @@
     </message>
     <message>
         <source>Aztec Runes</source>
-        <translation type="unfinished"/>
+        <translation>Aztec Runes</translation>
     </message>
     <message>
         <source>CEPNet (Brazilian Post)</source>
-        <translation type="unfinished"/>
+        <translation>CEPNet (Brazilian Post)</translation>
     </message>
     <message>
         <source>Codablock-F</source>
-        <translation type="unfinished"/>
+        <translation>Codablock-F</translation>
     </message>
     <message>
         <source>Code 2 of 5 Standard</source>
-        <translation type="unfinished"/>
+        <translation>Code 2 of 5 Standard</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked</source>
-        <translation type="unfinished"/>
+        <translation>GS1 DataBar Stacked</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked Omni.</source>
-        <translation type="unfinished"/>
+        <translation>GS1 DataBar Stacked Omni.</translation>
     </message>
     <message>
         <source>GS1 DataBar Expanded Stacked</source>
-        <translation type="unfinished"/>
+        <translation>GS1 DataBar Expanded Stacked</translation>
     </message>
     <message>
         <source>HIBC MicroPDF417</source>
-        <translation type="unfinished"/>
+        <translation>HIBC MicroPDF417</translation>
     </message>
     <message>
         <source>MicroPDF417</source>
-        <translation type="unfinished"/>
+        <translation>MicroPDF417</translation>
     </message>
     <message>
         <source>NVE-18 (SSCC-18)</source>
-        <translation type="unfinished"/>
+        <translation>NVE-18 (SSCC-18)</translation>
     </message>
     <message>
         <source>PDF417 Compact</source>
-        <translation type="unfinished"/>
+        <translation>PDF417 Compact</translation>
     </message>
     <message>
         <source>Pharmazentralnummer (PZN)</source>
-        <translation type="unfinished"/>
+        <translation>Pharmazentralnummer (PZN)</translation>
     </message>
     <message>
         <source>Channel Code</source>
-        <translation type="unfinished"/>
+        <translation>Channel Code</translation>
     </message>
     <message>
         <source>Code 2 of 5 Industrial</source>
-        <translation type="unfinished"/>
+        <translation>Code 2 of 5 Industrial</translation>
     </message>
     <message>
         <source>DotCode</source>
-        <translation type="unfinished"/>
+        <translation>DotCode</translation>
     </message>
     <message>
         <source>EAN-14</source>
-        <translation type="unfinished"/>
+        <translation>EAN-14</translation>
     </message>
     <message>
         <source>GS1 DataBar Omnidirectional</source>
-        <translation type="unfinished"/>
+        <translation>GS1 DataBar Omnidirectional</translation>
     </message>
     <message>
         <source>Han Xin</source>
-        <translation type="unfinished"/>
+        <translation>Han Xin</translation>
     </message>
     <message>
         <source>Flattermarken</source>
-        <translation type="unfinished"/>
+        <translation>Flattermarken</translation>
     </message>
     <message>
         <source>DPD Code</source>
-        <translation type="unfinished"/>
+        <translation>DPD Code</translation>
     </message>
     <message>
         <source>POSTNET</source>
-        <translation type="unfinished"/>
+        <translation>POSTNET</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Mailmark</source>
-        <translation type="unfinished"/>
+        <translation>Royal Mail 4-State Mailmark</translation>
     </message>
     <message>
         <source>UPU S10</source>
-        <translation type="unfinished"/>
+        <translation>UPU S10</translation>
     </message>
     <message>
         <source>FIM (Facing ID Mark)</source>
-        <translation type="unfinished"/>
+        <translation>FIM (Facing ID Mark)</translation>
     </message>
     <message>
         <source>rMQR (Rectangular Micro QR)</source>
-        <translation type="unfinished"/>
+        <translation>rMQR (Rectangular Micro QR)</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Customer</source>
-        <translation type="unfinished"/>
+        <translation>Royal Mail 4-State Customer</translation>
     </message>
     <message>
         <source>VIN (Vehicle ID Number)</source>
-        <translation type="unfinished"/>
+        <translation>VIN (Vehicle ID Number)</translation>
     </message>
     <message>
         <source>HIBC Codablock-F</source>
-        <translation type="unfinished"/>
+        <translation>HIBC Codablock-F</translation>
     </message>
     <message>
         <source>Royal Mail 2-D Mailmark</source>
-        <translation type="unfinished"/>
+        <translation>Royal Mail 2-D Mailmark</translation>
     </message>
     <message>
         <source>BC412 (SEMI TI-95)</source>
-        <translation type="unfinished"/>
+        <translation>BC412 (SEMI TI-95)</translation>
     </message>
 </context>
 <context>
@@ -2862,7 +2864,7 @@
     <name>glabels::model::ModelImageObject</name>
     <message>
         <source>No image</source>
-        <translation type="unfinished"/>
+        <translation>Pas d&apos;image</translation>
     </message>
 </context>
 <context>
