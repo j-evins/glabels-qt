@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>XmlStrings</name>
     <message>
@@ -15,7 +17,7 @@
     </message>
     <message>
         <source>Arch file inserts</source>
-        <translation type="unfinished"/>
+        <translation>Inserts pour archives</translation>
     </message>
     <message>
         <source>Arch file labels</source>
@@ -219,7 +221,7 @@
     </message>
     <message>
         <source>Mini address labels</source>
-        <translation type="unfinished"/>
+        <translation>Mini étiquettes d&apos;adresse</translation>
     </message>
     <message>
         <source>Mini labels</source>
@@ -419,15 +421,15 @@
     </message>
     <message>
         <source>Continuous label tape</source>
-        <translation type="unfinished"/>
+        <translation>Ruban d&apos;étiquettes continu</translation>
     </message>
     <message>
         <source>Postage stamp labels</source>
-        <translation type="unfinished"/>
+        <translation>Étiquettes pour timbres postaux</translation>
     </message>
     <message>
         <source>CD/DVD spine labels</source>
-        <translation type="unfinished"/>
+        <translation>Étiquettes pour dos de CD/DVD</translation>
     </message>
 </context>
 </TS>
