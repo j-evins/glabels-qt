@@ -521,31 +521,31 @@
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>Grade</translation>
     </message>
     <message>
         <source>Configure grid behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Configura o comportamento de grade.</translation>
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>Origem</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centro</translation>
     </message>
     <message>
         <source>Spacing</source>
-        <translation type="unfinished"></translation>
+        <translation>Espaçamento</translation>
     </message>
     <message>
         <source>Top left corner</source>
-        <translation type="unfinished"></translation>
+        <translation>Canto esquerdo-superior</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Redefinir</translation>
     </message>
 </context>
 <context>
@@ -624,15 +624,15 @@
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Destino</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa o diálogo de impressão do sistema...</translation>
     </message>
 </context>
 <context>
@@ -703,7 +703,7 @@
     </message>
     <message>
         <source>Select another product for this gLabels project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione outro produto para este projeto gLabels.</translation>
     </message>
 </context>
 <context>
@@ -785,39 +785,39 @@
     </message>
     <message>
         <source>Product information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informações do produto</translation>
     </message>
     <message>
         <source>Vendor:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fornecedor:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Rótulo de texto</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descrição:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho da página:</translation>
     </message>
     <message>
         <source>Label size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho do rótulo:</translation>
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Layout:</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecionar</translation>
     </message>
 </context>
 <context>
@@ -893,7 +893,7 @@
     <name>TemplateDesignerContinuousPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Clique em &quot;Cancelar&quot; para sair ou clique em &quot;Voltar&quot; para começar com um produto diferente.</translation>
     </message>
 </context>
 <context>
@@ -935,7 +935,7 @@
     </message>
     <message>
         <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Estw diálogo vai te ajudar a criar um modelo de produto personalizado. Vamos começar:</translation>
     </message>
 </context>
 <context>
