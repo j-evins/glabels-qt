@@ -533,7 +533,7 @@
     </message>
     <message>
         <source>Center</source>
-        <translation>Centrer</translation>
+        <translation>Centrée</translation>
     </message>
     <message>
         <source>Spacing</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>5. Waste:</source>
-        <translation>5. Les déchets :</translation>
+        <translation>5. Chutes :</translation>
     </message>
 </context>
 <context>
@@ -908,7 +908,7 @@
     </message>
     <message>
         <source>3. Waste:</source>
-        <translation>3. Les déchets :</translation>
+        <translation>3. Chutes :</translation>
     </message>
     <message>
         <source>4. Margin:</source>
@@ -1053,7 +1053,7 @@
     <name>TemplateDesignerRectPage</name>
     <message>
         <source>4. Horizontal waste:</source>
-        <translation>4. Déchets horizontaux :</translation>
+        <translation>4. Chute horizontale :</translation>
     </message>
     <message>
         <source>3. Corner radius</source>
@@ -1065,7 +1065,7 @@
     </message>
     <message>
         <source>5. Vertical waste:</source>
-        <translation>4. Déchets verticaux :</translation>
+        <translation>5. Chute verticale :</translation>
     </message>
     <message>
         <source>2. Height:</source>
@@ -1096,7 +1096,7 @@
     </message>
     <message>
         <source>2. Waste:</source>
-        <translation>2. Les déchets :</translation>
+        <translation>2. Chute :</translation>
     </message>
 </context>
 <context>
@@ -1404,15 +1404,15 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp;Sauvegarder</translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
-        <translation>Sauvegarder le projet gLabels en cours</translation>
+        <translation>Enregistrer le projet gLabels en cours</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation>Sauvegarder &amp;Comme...</translation>
+        <translation>Enregistrer &amp;Sous...</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
@@ -1784,7 +1784,7 @@
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Voir</translation>
+        <translation>&amp;Affichage</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -1836,7 +1836,7 @@
     </message>
     <message>
         <source>Save project?</source>
-        <translation>Sauvegarder le projets ?</translation>
+        <translation>Enregistrer le projets ?</translation>
     </message>
     <message>
         <source>Paste</source>
