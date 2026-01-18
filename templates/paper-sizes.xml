@@ -38,9 +38,9 @@
   <!-- Envelopes -->
   <Paper-size id="number10"     name="#10 Envelope"     pwg_size="na_number-10" width="4.125in" height="9.5in"/>
   <Paper-size id="monarch"      name="Monarch Envelope" pwg_size="na_monarch"   width="3.875in" height="7.5in"/>
-  <Paper-size id="c5"           name="C5"               pwg_size="iso_c5"       width="162mm"   height="229mm"/>
-  <Paper-size id="c6"           name="C6"               pwg_size="iso_c6"       width="114mm"   height="162mm"/>
-  <Paper-size id="dl"           name="DL"               pwg_size="iso_dl"       width="110mm"   height="220mm"/>
+  <Paper-size id="c5"           name="C5"               pwg_size="iso_c5"       width="229mm"   height="162mm"/>
+  <Paper-size id="c6"           name="C6"               pwg_size="iso_c6"       width="162mm"   height="114mm"/>
+  <Paper-size id="dl"           name="DL"               pwg_size="iso_dl"       width="220mm"   height="110mm"/>
 
   <!-- ISO 217 -->
   <Paper-size id="RA0"          name="RA0"          pwg_size="iso_ra0"		width="860mm" height="1220mm"/>
