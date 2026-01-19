@@ -5,7 +5,7 @@
     <name>XmlStrings</name>
     <message>
         <source>Address labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Aadressisildid</translation>
     </message>
     <message>
         <source>Any card</source>
