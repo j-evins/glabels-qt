@@ -1046,7 +1046,7 @@
     <name>TemplateDesignerPathPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Clique em &quot;Cancelar&quot; para sair ou clique em &quot;Voltar&quot; para começar com um produto diferente.</translation>
     </message>
 </context>
 <context>
@@ -1223,15 +1223,15 @@
     </message>
     <message>
         <source>Add variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar variável</translation>
     </message>
     <message>
         <source>Edit selected variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar variável selecionada</translation>
     </message>
     <message>
         <source>Delete selected variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir variável selecionada</translation>
     </message>
 </context>
 <context>
@@ -1357,7 +1357,7 @@
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>Soltar</translation>
     </message>
 </context>
 <context>
@@ -1914,11 +1914,11 @@
     </message>
     <message>
         <source>Center Both</source>
-        <translation type="unfinished"></translation>
+        <translation>Centralizar ambos</translation>
     </message>
     <message>
         <source>Center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Centralizar objetos em uma etiqueta</translation>
     </message>
 </context>
 <context>
@@ -2123,19 +2123,19 @@
     </message>
     <message>
         <source>Print to file (PDF)</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir para arquivo (PDF)</translation>
     </message>
     <message>
         <source>PDF files (*.pdf);;All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos PDF (*.pdf);;Todos arquivos (*)</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 já existe.</translation>
     </message>
     <message>
         <source>Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Você deseja sobrescrevê-lo?</translation>
     </message>
 </context>
 <context>
@@ -2176,11 +2176,11 @@
     <name>glabels::SelectProductDialog</name>
     <message>
         <source>List View</source>
-        <translation type="unfinished"></translation>
+        <translation>Visão de lista</translation>
     </message>
     <message>
         <source>Grid View</source>
-        <translation type="unfinished"></translation>
+        <translation>Visão de grade</translation>
     </message>
 </context>
 <context>
@@ -2723,87 +2723,87 @@
     </message>
     <message>
         <source>Aztec Runes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruínas astecas</translation>
     </message>
     <message>
         <source>CEPNet (Brazilian Post)</source>
-        <translation type="unfinished"></translation>
+        <translation>CEPNet (Correios do Brasil)</translation>
     </message>
     <message>
         <source>Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>Codablock-F</translation>
     </message>
     <message>
         <source>Code 2 of 5 Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Código 2 de 5 padrão</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar empilhado</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked Omni.</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar omnidirecional empilhado</translation>
     </message>
     <message>
         <source>GS1 DataBar Expanded Stacked</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar expandido empilhado</translation>
     </message>
     <message>
         <source>HIBC MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC MicroPDF417</translation>
     </message>
     <message>
         <source>MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>MicroPDF417</translation>
     </message>
     <message>
         <source>NVE-18 (SSCC-18)</source>
-        <translation type="unfinished"></translation>
+        <translation>NVE-18 (SSCC-18)</translation>
     </message>
     <message>
         <source>PDF417 Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF417 compacto</translation>
     </message>
     <message>
         <source>Pharmazentralnummer (PZN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmazentralnummer (PZN)</translation>
     </message>
     <message>
         <source>Channel Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código Channel</translation>
     </message>
     <message>
         <source>Code 2 of 5 Industrial</source>
-        <translation type="unfinished"></translation>
+        <translation>Código 2 de 5 industrial</translation>
     </message>
     <message>
         <source>DotCode</source>
-        <translation type="unfinished"></translation>
+        <translation>DotCode</translation>
     </message>
     <message>
         <source>EAN-14</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-14</translation>
     </message>
     <message>
         <source>GS1 DataBar Omnidirectional</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar omnidirectional</translation>
     </message>
     <message>
         <source>Han Xin</source>
-        <translation type="unfinished"></translation>
+        <translation>Han Xin</translation>
     </message>
     <message>
         <source>Flattermarken</source>
-        <translation type="unfinished"></translation>
+        <translation>Flattermarken</translation>
     </message>
     <message>
         <source>DPD Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código DPD</translation>
     </message>
     <message>
         <source>POSTNET</source>
-        <translation type="unfinished"></translation>
+        <translation>POSTNET</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Mailmark</source>
