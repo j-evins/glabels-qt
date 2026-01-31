@@ -118,6 +118,23 @@ endif ()
 
 find_package (Qt6 6.2 REQUIRED COMPONENTS Concurrent Core Gui Widgets PrintSupport Xml Svg LinguistTools Test)
 
+# Optional Bluetooth support for ESC/POS printers (Phomemo, etc.)
+option (ENABLE_BLUETOOTH_PRINTERS "Enable Bluetooth printer support (requires Qt6Bluetooth and Qt6SerialPort)" ON)
+if (ENABLE_BLUETOOTH_PRINTERS)
+	find_package (Qt6 6.2 COMPONENTS Bluetooth SerialPort)
+	if (Qt6Bluetooth_FOUND AND Qt6SerialPort_FOUND)
+		message (STATUS "Bluetooth printer support: ENABLED")
+		set (HAVE_BLUETOOTH_SUPPORT TRUE)
+		add_compile_definitions (HAVE_BLUETOOTH_SUPPORT)
+	else ()
+		message (WARNING "Bluetooth printer support: DISABLED (Qt6Bluetooth or Qt6SerialPort not found)")
+		set (HAVE_BLUETOOTH_SUPPORT FALSE)
+	endif ()
+else ()
+	message (STATUS "Bluetooth printer support: DISABLED (by option)")
+	set (HAVE_BLUETOOTH_SUPPORT FALSE)
+endif ()
+
 if (WIN32)
    # Locate Qt directories
    execute_process (COMMAND qtpaths --install-prefix OUTPUT_VARIABLE QT_BASE_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)

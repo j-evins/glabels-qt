@@ -37,6 +37,7 @@ set (template_files
   misc-us-templates.xml
   online-templates.xml
   pearl-iso-templates.xml
+  phomemo-templates.xml
   rayfilm-templates.xml
   sheetlabels-us-templates.xml
   uline-us-templates.xml

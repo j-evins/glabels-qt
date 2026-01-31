@@ -58,6 +58,7 @@ namespace glabels
                 /////////////////////////////////
         private slots:
                 void onAvailablePrintersChanged( QStringList printers );
+                void onBluetoothScanningChanged( bool isScanning, bool hasDevices );
                 void onModelChanged();
                 void updateView();
                 void onFormChanged();

@@ -28,6 +28,11 @@
 #include <QStringList>
 #include <QTimer>
 
+#ifdef HAVE_BLUETOOTH_SUPPORT
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothDeviceInfo>
+#endif
+
 #include <memory>
 
 
@@ -64,12 +69,19 @@ namespace glabels
         private slots:
                 void onTimerTimeout();
 
+#ifdef HAVE_BLUETOOTH_SUPPORT
+                void onBluetoothDeviceDiscovered( const QBluetoothDeviceInfo& device );
+                void onBluetoothDiscoveryFinished();
+                void onBluetoothDiscoveryError( QBluetoothDeviceDiscoveryAgent::Error error );
+#endif
+
 
                 /////////////////////////////////
                 // Signals
                 /////////////////////////////////
         signals:
                 void availablePrintersChanged( QStringList availablePrinters );
+                void bluetoothScanningChanged( bool isScanning, bool hasDevices );
 
 
                 /////////////////////////////////
@@ -77,6 +89,11 @@ namespace glabels
                 /////////////////////////////////
         private:
                 void asyncPoll();
+
+#ifdef HAVE_BLUETOOTH_SUPPORT
+                void scanBluetoothDevices();
+                bool isPhomemoDevice( const QString& name );
+#endif
 
 
                 /////////////////////////////////
@@ -91,6 +108,13 @@ namespace glabels
                 QMutex      mCurrentAvailablePrintersMutex;
 
                 QFuture<void> mPollStatus;
+
+#ifdef HAVE_BLUETOOTH_SUPPORT
+                std::unique_ptr<QBluetoothDeviceDiscoveryAgent> mBtAgent;
+                QList<QBluetoothDeviceInfo>                     mBtDevices;
+                QMutex                                          mBtDevicesMutex;
+                bool                                            mBtScanning = false;
+#endif
         };
 
 }

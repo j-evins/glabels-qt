@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+
+<Glabels-templates>
+
+
+  <!-- ******************************************************************** -->
+  <!-- ******************************************************************** -->
+  <!--                                                                      -->
+  <!-- Phomemo Bluetooth Thermal Printer Labels                            -->
+  <!--                                                                      -->
+  <!-- Print width: 96 pixels @ 203 DPI = ~12mm (D30) or ~15mm (D35)      -->
+  <!-- These templates are optimized for Phomemo D30 and D35 printers     -->
+  <!--                                                                      -->
+  <!-- ******************************************************************** -->
+  <!-- ******************************************************************** -->
+
+
+  <!-- ===================================================================== -->
+  <!-- Phomemo D30 Labels (12mm width)                                      -->
+  <!-- ===================================================================== -->
+
+  <Template brand="Phomemo" part="D30-12x20" size="Other" _description="D30 Label 12mm x 20mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="20mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-12x30" size="Other" _description="D30 Label 12mm x 30mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="30mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-12x40" size="Other" _description="D30 Label 12mm x 40mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="40mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-12x50" size="Other" _description="D30 Label 12mm x 50mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="50mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-12x60" size="Other" _description="D30 Label 12mm x 60mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="60mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-12x80" size="Other" _description="D30 Label 12mm x 80mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="80mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-12x100" size="Other" _description="D30 Label 12mm x 100mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="100mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+
+  <!-- ===================================================================== -->
+  <!-- Phomemo D35 Labels (15mm width)                                      -->
+  <!-- ===================================================================== -->
+
+  <Template brand="Phomemo" part="D35-15x30" size="Other" _description="D35 Label 15mm x 30mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="15mm" height="30mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D35-15x40" size="Other" _description="D35 Label 15mm x 40mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="15mm" height="40mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D35-15x50" size="Other" _description="D35 Label 15mm x 50mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="15mm" height="50mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D35-15x60" size="Other" _description="D35 Label 15mm x 60mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="15mm" height="60mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D35-15x80" size="Other" _description="D35 Label 15mm x 80mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="15mm" height="80mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D35-15x100" size="Other" _description="D35 Label 15mm x 100mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="15mm" height="100mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+
+  <!-- ===================================================================== -->
+  <!-- Special Purpose Labels                                               -->
+  <!-- ===================================================================== -->
+
+  <Template brand="Phomemo" part="D30-Price-Tag" size="Other" _description="D30 Price Tag 12mm x 25mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Meta category="price-tag"/>
+    <Label-rectangle id="0" width="12mm" height="25mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-Name-Tag" size="Other" _description="D30 Name Tag 12mm x 35mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Meta category="name-badge"/>
+    <Label-rectangle id="0" width="12mm" height="35mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Phomemo" part="D30-Cable-Label" size="Other" _description="D30 Cable Label 12mm x 45mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="45mm" round="0.5mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0.5mm"/>
+      <Layout nx="1" ny="1" x0="0mm" y0="0mm" dx="0mm" dy="0mm"/>
+    </Label-rectangle>
+  </Template>
+
+
+</Glabels-templates>

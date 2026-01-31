@@ -24,6 +24,8 @@
 #include "PrinterMonitor.hpp"
 
 #include "model/Settings.hpp"
+#include "backends/printer/Factory.hpp"
+#include "backends/printer/Backend.hpp"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -50,6 +52,8 @@ namespace glabels
                 loadDestinations( printerMonitor->availablePrinters() );
                 connect( printerMonitor, SIGNAL(availablePrintersChanged(QStringList)),
                          this, SLOT(onAvailablePrintersChanged(QStringList)) );
+                connect( printerMonitor, SIGNAL(bluetoothScanningChanged(bool,bool)),
+                         this, SLOT(onBluetoothScanningChanged(bool,bool)) );
 
                 setDestination( model::Settings::recentPrinter() );
 
@@ -79,6 +83,48 @@ namespace glabels
                 auto savedSelection = destinationCombo->currentText();
                 loadDestinations( printers );
                 setDestination( savedSelection );
+        }
+
+
+        ///
+        /// Bluetooth scanning changed handler
+        ///
+        void PrintView::onBluetoothScanningChanged( bool isScanning, bool hasDevices )
+        {
+                // Find and remove any existing scanning indicator
+                for ( int i = 0; i < destinationCombo->count(); i++ )
+                {
+                        QVariant itemData = destinationCombo->itemData( i );
+                        if ( itemData.isValid() && itemData.toString() == "BT_SCANNING" )
+                        {
+                                destinationCombo->removeItem( i );
+                                break;
+                        }
+                }
+
+                // If scanning and no devices found yet, add a scanning indicator
+                if ( isScanning && !hasDevices )
+                {
+                        // Position to insert: before PDF option (which is always last)
+                        int insertPos = destinationCombo->count() - 1;
+
+                        // If there's a separator (CUPS printers exist), insert after it
+                        for ( int i = 0; i < destinationCombo->count(); i++ )
+                        {
+                                if ( destinationCombo->itemText( i ).isEmpty() ) // Separator
+                                {
+                                        insertPos = i + 1; // After separator
+                                        break;
+                                }
+                        }
+
+                        // Create a disabled item to indicate scanning
+                        QIcon icon = QIcon::fromTheme( "network-bluetooth" );
+                        destinationCombo->insertItem( insertPos, icon, tr("Searching for Bluetooth printers..."), QVariant("BT_SCANNING") );
+
+                        // Make the item look disabled but still selectable (so we can show the message)
+                        // The actual check happens in onPrintButtonClicked
+                }
         }
 
 
@@ -208,6 +254,49 @@ namespace glabels
         ///
         void PrintView::onPrintButtonClicked()
         {
+                // Get printer ID from combo box item data
+                QVariant printerData = destinationCombo->currentData();
+
+                // Check if this is the scanning indicator - ignore it
+                if ( printerData.isValid() && printerData.toString() == "BT_SCANNING" )
+                {
+                        QMessageBox::information( this, tr("Bluetooth Scanning"),
+                                tr("Bluetooth device discovery is in progress. Please wait for devices to appear.") );
+                        return;
+                }
+
+                // Check if this is a Bluetooth printer
+                if ( printerData.isValid() && printerData.toString().startsWith( "BT:" ) )
+                {
+                        // Bluetooth printer - use backend factory
+                        QString printerId = printerData.toString();
+                        auto* backend = printer::Factory::createBackend( printerId );
+
+                        if ( backend && backend->isAvailable() )
+                        {
+                                if ( backend->print( &mRenderer ) )
+                                {
+                                        // Success
+                                        model::Settings::setRecentPrinter( printerId );
+                                }
+                                else
+                                {
+                                        QMessageBox::critical( this, tr("Print Error"),
+                                                tr("Failed to print to Bluetooth device: %1")
+                                                .arg( backend->lastError() ) );
+                                }
+                        }
+                        else
+                        {
+                                QMessageBox::critical( this, tr("Print Error"),
+                                        tr("Bluetooth device not available. Ensure device is paired and powered on.") );
+                        }
+
+                        delete backend;
+                        return;
+                }
+
+                // CUPS printer or PDF
                 auto printerName = destinationCombo->currentText();
                 auto printerInfo = QPrinterInfo::printerInfo( printerName );
                 bool isPrinter = !printerInfo.isNull();
@@ -293,15 +382,47 @@ namespace glabels
                 destinationCombo->blockSignals( true );
 
                 destinationCombo->clear();
-                for ( auto& printerName : printers )
+
+                // Separate CUPS and Bluetooth printers for organized display
+                QStringList cupsPrinters;
+                QStringList bluetoothPrinters;
+
+                for ( auto& printerId : printers )
                 {
-                        destinationCombo->addItem( QIcon::fromTheme( "glabels-print" ), printerName  );
+                        if ( printerId.startsWith( "BT:" ) )
+                        {
+                                bluetoothPrinters.append( printerId );
+                        }
+                        else
+                        {
+                                cupsPrinters.append( printerId );
+                        }
                 }
 
-                if ( destinationCombo->count() )
+                // Add CUPS printers first
+                for ( auto& printerId : cupsPrinters )
+                {
+                        QIcon icon = QIcon::fromTheme( "glabels-print" );
+                        destinationCombo->addItem( icon, printerId, QVariant( printerId ) );
+                }
+
+                // Add separator if we have both types
+                if ( !cupsPrinters.isEmpty() && !bluetoothPrinters.isEmpty() )
                 {
                         destinationCombo->insertSeparator( destinationCombo->count() );
                 }
+
+                // Add Bluetooth printers
+                for ( auto& printerId : bluetoothPrinters )
+                {
+                        QIcon icon = QIcon::fromTheme( "network-bluetooth" );
+                        // Extract device name from "BT:DeviceName:MAC"
+                        QStringList parts = printerId.split( ':' );
+                        QString displayName = parts.size() > 1 ? parts[1] : printerId;
+                        destinationCombo->addItem( icon, displayName, QVariant( printerId ) );
+                }
+
+                // PDF option (no item data - we'll check for null QVariant)
                 destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
 
                 destinationCombo->blockSignals( false );

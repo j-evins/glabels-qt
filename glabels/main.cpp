@@ -30,6 +30,7 @@
 
 #include "barcode/Backends.hpp"
 #include "merge/Factory.hpp"
+#include "backends/printer/Factory.hpp"
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -107,6 +108,7 @@ int main( int argc, char **argv )
         glabels::model::Db::init();
         glabels::merge::Factory::init();
         glabels::barcode::Backends::init();
+        glabels::printer::Factory::init();
 
 
         //
