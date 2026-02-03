@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels에 대해</translation>
     </message>
     <message>
         <source>&amp;License</source>
@@ -247,7 +247,7 @@
     <message>
         <source>%1 per sheet</source>
         <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>용지의 %1</translation>
     </message>
 </context>
 <context>
@@ -291,7 +291,7 @@
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
+        <translation>모두 선택</translation>
     </message>
     <message>
         <source>Unselect all</source>
@@ -310,7 +310,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>글자</translation>
     </message>
     <message>
         <source>Layout</source>
@@ -346,7 +346,7 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>글꼴</translation>
     </message>
     <message>
         <source>Family:</source>
@@ -398,7 +398,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>파일</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -406,15 +406,15 @@
     </message>
     <message>
         <source>Line/Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>선/채우기</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>선</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>넓이:</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>위치/크기</translation>
     </message>
     <message>
         <source>Position</source>
@@ -438,7 +438,7 @@
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>크기</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -493,7 +493,7 @@
     </message>
     <message>
         <source>Select locale specific behavior.</source>
-        <translation>구체적인 로케일을 선택</translation>
+        <translation>구체적인 로케일을 선택.</translation>
     </message>
     <message>
         <source>Units</source>
@@ -556,7 +556,7 @@
     </message>
     <message>
         <source>print outlines</source>
-        <translation type="unfinished"></translation>
+        <translation>외곽선 인쇄</translation>
     </message>
     <message>
         <source>print crop marks</source>
@@ -628,7 +628,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>인쇄</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
@@ -647,27 +647,27 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>라벨분류:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>설명:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>용지 크기:</translation>
     </message>
     <message>
         <source>Label size:</source>
-        <translation type="unfinished"></translation>
+        <translation>라벨 크기:</translation>
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>배치:</translation>
     </message>
     <message>
         <source>Change product</source>
@@ -714,7 +714,7 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>복사</translation>
     </message>
     <message>
         <source>Ctrl+C</source>
@@ -793,7 +793,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -801,7 +801,7 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>설명:</translation>
     </message>
     <message>
         <source>Page size:</source>
@@ -840,7 +840,7 @@
     </message>
     <message>
         <source>New...</source>
-        <translation type="unfinished"></translation>
+        <translation>새로 만들기 …</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -866,7 +866,7 @@
     <name>TemplateDesignerCdPage</name>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>6. 여백:</translation>
     </message>
     <message>
         <source>1. Outer radius:</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>5. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. 여백:</translation>
     </message>
 </context>
 <context>
@@ -904,15 +904,15 @@
     </message>
     <message>
         <source>1. Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>1. 넓이:</translation>
     </message>
     <message>
         <source>3. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>3. 여백:</translation>
     </message>
     <message>
         <source>4. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. 여백:</translation>
     </message>
 </context>
 <context>
@@ -973,11 +973,11 @@
     </message>
     <message>
         <source>Brand:</source>
-        <translation type="unfinished"></translation>
+        <translation>상표:</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>라벨분류:</translation>
     </message>
     <message>
         <source>Description:</source>
@@ -985,11 +985,11 @@
     </message>
     <message>
         <source>(e.g. 8163A)</source>
-        <translation type="unfinished"></translation>
+        <translation>(예: 8163A)</translation>
     </message>
     <message>
         <source>(e.g. Avery, Acme, ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(예: Avery, Acme, …)</translation>
     </message>
 </context>
 <context>
@@ -1000,15 +1000,15 @@
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation type="unfinished"></translation>
+        <translation>세로 개수 (ny):</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽 가장자리 부터 (x0):</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
-        <translation type="unfinished"></translation>
+        <translation>위쪽 가장자리 부터 (y0):</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
@@ -1020,7 +1020,7 @@
     </message>
     <message>
         <source>Print test sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>용지 테스트 인쇄</translation>
     </message>
 </context>
 <context>
@@ -1031,7 +1031,7 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>높이:</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -1039,7 +1039,7 @@
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>용지 크기:</translation>
     </message>
 </context>
 <context>
@@ -1053,11 +1053,11 @@
     <name>TemplateDesignerRectPage</name>
     <message>
         <source>4. Horizontal waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. 좌우 여백:</translation>
     </message>
     <message>
         <source>3. Corner radius</source>
-        <translation type="unfinished"></translation>
+        <translation>3. 귀퉁이 각도</translation>
     </message>
     <message>
         <source>1. Width:</source>
@@ -1065,19 +1065,19 @@
     </message>
     <message>
         <source>5. Vertical waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. 아래위 여백:</translation>
     </message>
     <message>
         <source>2. Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>2. 높이:</translation>
     </message>
     <message>
         <source>6. Margin (X):</source>
-        <translation type="unfinished"></translation>
+        <translation>6. 여백 (X):</translation>
     </message>
     <message>
         <source>7. Margin (Y):</source>
-        <translation type="unfinished"></translation>
+        <translation>7. 여백 (Y):</translation>
     </message>
     <message>
         <source>in</source>
@@ -1096,7 +1096,7 @@
     </message>
     <message>
         <source>2. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>2. 여백:</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1122,7 @@
     <name>TemplateDesignerTwoLayoutPage</name>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation>왼쪽 가장자리 부터  (x0):</translation>
+        <translation>왼쪽 가장자리 부터 (x0):</translation>
     </message>
     <message>
         <source>Number down (ny):</source>
@@ -1134,15 +1134,15 @@
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation type="unfinished"></translation>
+        <translation>가로 개수 (nx):</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation type="unfinished"></translation>
+        <translation>수평 pitch (dx):</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation type="unfinished"></translation>
+        <translation>수직 pitch (dy):</translation>
     </message>
     <message>
         <source>Print test sheet</source>
@@ -1349,7 +1349,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <source>Resize</source>
@@ -1368,7 +1368,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>편집</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -1384,11 +1384,11 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>인쇄</translation>
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>새로 만들기(&amp;N) …</translation>
     </message>
     <message>
         <source>Create a new gLabels project</source>
@@ -1396,7 +1396,7 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>열기(&amp;O) …</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -1404,7 +1404,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>저장(&amp;S)</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
@@ -1412,7 +1412,7 @@
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>다른 이름으로 저장(&amp;A) …</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
@@ -1420,7 +1420,7 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>편집(&amp;E)</translation>
     </message>
     <message>
         <source>Select project Edit mode</source>
@@ -1452,7 +1452,7 @@
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>인쇄(&amp;P)</translation>
     </message>
     <message>
         <source>Select project Print mode</source>
@@ -1500,7 +1500,7 @@
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>복사(&amp;C)</translation>
     </message>
     <message>
         <source>Copy the selection</source>
@@ -1508,7 +1508,7 @@
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>붙이기(&amp;P)</translation>
     </message>
     <message>
         <source>Paste the clipboard</source>
@@ -1516,7 +1516,7 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제(&amp;D)</translation>
     </message>
     <message>
         <source>Delete the selected objects</source>
@@ -1524,7 +1524,7 @@
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>모두 선택(&amp;A)</translation>
     </message>
     <message>
         <source>Select all objects</source>
@@ -1608,7 +1608,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>글자</translation>
     </message>
     <message>
         <source>Create text object</source>
@@ -1616,7 +1616,7 @@
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished"></translation>
+        <translation>사각형</translation>
     </message>
     <message>
         <source>Create box object</source>
@@ -1632,7 +1632,7 @@
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>타원</translation>
     </message>
     <message>
         <source>Create ellipse/circle object</source>
@@ -1640,7 +1640,7 @@
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>그림</translation>
     </message>
     <message>
         <source>Create image object</source>
@@ -1656,11 +1656,11 @@
     </message>
     <message>
         <source>Bring To Front</source>
-        <translation type="unfinished"></translation>
+        <translation>앞으로 내기</translation>
     </message>
     <message>
         <source>Raise selection to top</source>
-        <translation type="unfinished"></translation>
+        <translation>개체를 상위로 올리기</translation>
     </message>
     <message>
         <source>Send To Back</source>
@@ -1668,11 +1668,11 @@
     </message>
     <message>
         <source>Lower selection to bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>개체를 하단으로 내리기</translation>
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 회전</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees counter-clockwise</source>
@@ -1680,7 +1680,7 @@
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 회전</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees clockwise</source>
@@ -1688,7 +1688,7 @@
     </message>
     <message>
         <source>Flip Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>수직 뒤집기</translation>
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
@@ -1696,7 +1696,7 @@
     </message>
     <message>
         <source>Flip Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>수평 뒤집기</translation>
     </message>
     <message>
         <source>Flip object(s) vertically</source>
@@ -1772,19 +1772,19 @@
     </message>
     <message>
         <source>&amp;About...</source>
-        <translation type="unfinished"></translation>
+        <translation>정보(&amp;A)…</translation>
     </message>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels에 대해</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>파일(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>보기(&amp;V)</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -1792,7 +1792,7 @@
     </message>
     <message>
         <source>&amp;Objects</source>
-        <translation type="unfinished"></translation>
+        <translation>항목(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Create</source>
@@ -1800,15 +1800,15 @@
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished"></translation>
+        <translation>순서(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Rotate/Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>회전/뒤집기(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>위치(&amp;A)</translation>
     </message>
     <message>
         <source>Center</source>
@@ -1816,7 +1816,7 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>도움말(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Editor</source>
@@ -1844,7 +1844,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <source>Create Text</source>
@@ -1980,7 +1980,7 @@
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>그림</translation>
     </message>
     <message>
         <source>Line object properties</source>
@@ -1992,7 +1992,7 @@
     </message>
     <message>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation>글자</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
@@ -2004,15 +2004,15 @@
     </message>
     <message>
         <source>Object properties</source>
-        <translation type="unfinished"></translation>
+        <translation>항목 속성</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>선</translation>
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>채우기</translation>
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
@@ -2084,7 +2084,7 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>위치</translation>
     </message>
     <message>
         <source>Barcode</source>
@@ -2107,7 +2107,7 @@
     <name>glabels::PrintView</name>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>인쇄</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
@@ -2266,7 +2266,7 @@
     </message>
     <message>
         <source>Welcome to the gLabels Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels 서식 제작기에 어서오세요.</translation>
     </message>
 </context>
 <context>
@@ -2299,7 +2299,7 @@
     <name>glabels::TemplateDesignerOneLayoutPage</name>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>배치</translation>
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
@@ -2451,7 +2451,7 @@
     </message>
     <message>
         <source>CEPNET</source>
-        <translation type="unfinished"></translation>
+        <translation>CEPNET</translation>
     </message>
     <message>
         <source>USPS Intelligent Mail</source>
@@ -2459,7 +2459,7 @@
     </message>
     <message>
         <source>IEC16022 (DataMatrix)</source>
-        <translation type="unfinished"></translation>
+        <translation>IEC16022 (DataMatrix)</translation>
     </message>
     <message>
         <source>EAN (any)</source>
@@ -2471,19 +2471,19 @@
     </message>
     <message>
         <source>EAN-8+2</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8+2</translation>
     </message>
     <message>
         <source>EAN-8+5</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8+5</translation>
     </message>
     <message>
         <source>EAN-13+2</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13+2</translation>
     </message>
     <message>
         <source>EAN-13+5</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13+5</translation>
     </message>
     <message>
         <source>UPC (UPC-A or UPC-E)</source>
@@ -2531,7 +2531,7 @@
     </message>
     <message>
         <source>Interleaved 2 of 5</source>
-        <translation>Interleaved 2 of 5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Codabar</source>
@@ -2547,11 +2547,11 @@
     </message>
     <message>
         <source>Code 93</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 93</translation>
     </message>
     <message>
         <source>IEC18004 (QRCode)</source>
-        <translation type="unfinished"></translation>
+        <translation>IEC18004 (QRCode)</translation>
     </message>
     <message>
         <source>Australia Post Standard</source>
@@ -2575,15 +2575,15 @@
     </message>
     <message>
         <source>Code One</source>
-        <translation type="unfinished"></translation>
+        <translation>Code One</translation>
     </message>
     <message>
         <source>Code 11</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 11</translation>
     </message>
     <message>
         <source>Code 16K</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 16K</translation>
     </message>
     <message>
         <source>Code 2 of 5 IATA</source>
@@ -2599,7 +2599,7 @@
     </message>
     <message>
         <source>Code 49</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 49</translation>
     </message>
     <message>
         <source>Code 128 (Mode C suppression)</source>
@@ -2607,19 +2607,19 @@
     </message>
     <message>
         <source>DAFT Code</source>
-        <translation type="unfinished"></translation>
+        <translation>DAFT Code</translation>
     </message>
     <message>
         <source>Data Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>Data Matrix</translation>
     </message>
     <message>
         <source>Deutsche Post Leitcode</source>
-        <translation type="unfinished"></translation>
+        <translation>Deutsche Post Leitcode</translation>
     </message>
     <message>
         <source>Deutsche Post Identcode</source>
-        <translation type="unfinished"></translation>
+        <translation>Deutsche Post Identcode</translation>
     </message>
     <message>
         <source>Dutch Post KIX Code</source>
@@ -2627,35 +2627,35 @@
     </message>
     <message>
         <source>EAN</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN</translation>
     </message>
     <message>
         <source>Grid Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>Grid Matrix</translation>
     </message>
     <message>
         <source>GS1-128</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1-128</translation>
     </message>
     <message>
         <source>HIBC Code 128</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Code 128</translation>
     </message>
     <message>
         <source>HIBC Code 39</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Code 39</translation>
     </message>
     <message>
         <source>HIBC Data Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Data Matrix</translation>
     </message>
     <message>
         <source>HIBC QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC QR Code</translation>
     </message>
     <message>
         <source>HIBC PDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC PDF417</translation>
     </message>
     <message>
         <source>HIBC Aztec Code</source>
@@ -2663,7 +2663,7 @@
     </message>
     <message>
         <source>ITF-14</source>
-        <translation type="unfinished"></translation>
+        <translation>ITF-14</translation>
     </message>
     <message>
         <source>Japanese Postal</source>
@@ -2675,31 +2675,31 @@
     </message>
     <message>
         <source>LOGMARS</source>
-        <translation type="unfinished"></translation>
+        <translation>LOGMARS</translation>
     </message>
     <message>
         <source>Maxicode</source>
-        <translation type="unfinished"></translation>
+        <translation>Maxicode</translation>
     </message>
     <message>
         <source>Micro QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Micro QR Code</translation>
     </message>
     <message>
         <source>MSI Plessey</source>
-        <translation type="unfinished"></translation>
+        <translation>MSI Plessey</translation>
     </message>
     <message>
         <source>PDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF417</translation>
     </message>
     <message>
         <source>PLANET</source>
-        <translation type="unfinished"></translation>
+        <translation>PLANET</translation>
     </message>
     <message>
         <source>Pharmacode</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmacode</translation>
     </message>
     <message>
         <source>Pharmacode 2-track</source>
@@ -2707,19 +2707,19 @@
     </message>
     <message>
         <source>QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>QR Code</translation>
     </message>
     <message>
         <source>Telepen</source>
-        <translation type="unfinished"></translation>
+        <translation>Telepen</translation>
     </message>
     <message>
         <source>Telepen Numeric</source>
-        <translation type="unfinished"></translation>
+        <translation>Telepen Numeric</translation>
     </message>
     <message>
         <source>UK Plessey</source>
-        <translation type="unfinished"></translation>
+        <translation>UK Plessey</translation>
     </message>
     <message>
         <source>Aztec Runes</source>
@@ -2731,7 +2731,7 @@
     </message>
     <message>
         <source>Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>Codablock-F</translation>
     </message>
     <message>
         <source>Code 2 of 5 Standard</source>
@@ -2751,27 +2751,27 @@
     </message>
     <message>
         <source>HIBC MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC MicroPDF417</translation>
     </message>
     <message>
         <source>MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>MicroPDF417</translation>
     </message>
     <message>
         <source>NVE-18 (SSCC-18)</source>
-        <translation type="unfinished"></translation>
+        <translation>NVE-18 (SSCC-18)</translation>
     </message>
     <message>
         <source>PDF417 Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF417 Compact</translation>
     </message>
     <message>
         <source>Pharmazentralnummer (PZN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmazentralnummer (PZN)</translation>
     </message>
     <message>
         <source>Channel Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Channel Code</translation>
     </message>
     <message>
         <source>Code 2 of 5 Industrial</source>
@@ -2779,11 +2779,11 @@
     </message>
     <message>
         <source>DotCode</source>
-        <translation type="unfinished"></translation>
+        <translation>DotCode</translation>
     </message>
     <message>
         <source>EAN-14</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-14</translation>
     </message>
     <message>
         <source>GS1 DataBar Omnidirectional</source>
@@ -2791,19 +2791,19 @@
     </message>
     <message>
         <source>Han Xin</source>
-        <translation type="unfinished"></translation>
+        <translation>Han Xin</translation>
     </message>
     <message>
         <source>Flattermarken</source>
-        <translation type="unfinished"></translation>
+        <translation>Flattermarken</translation>
     </message>
     <message>
         <source>DPD Code</source>
-        <translation type="unfinished"></translation>
+        <translation>DPD Code</translation>
     </message>
     <message>
         <source>POSTNET</source>
-        <translation type="unfinished"></translation>
+        <translation>POSTNET</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Mailmark</source>
@@ -2811,7 +2811,7 @@
     </message>
     <message>
         <source>UPU S10</source>
-        <translation type="unfinished"></translation>
+        <translation>UPU S10</translation>
     </message>
     <message>
         <source>FIM (Facing ID Mark)</source>
@@ -2831,7 +2831,7 @@
     </message>
     <message>
         <source>HIBC Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Codablock-F</translation>
     </message>
     <message>
         <source>Royal Mail 2-D Mailmark</source>
@@ -2839,7 +2839,7 @@
     </message>
     <message>
         <source>BC412 (SEMI TI-95)</source>
-        <translation type="unfinished"></translation>
+        <translation>BC412 (SEMI TI-95)</translation>
     </message>
 </context>
 <context>
@@ -2871,7 +2871,7 @@
     <name>glabels::model::ModelTextObject</name>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>글자</translation>
     </message>
 </context>
 <context>
