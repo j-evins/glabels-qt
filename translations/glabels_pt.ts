@@ -523,7 +523,7 @@
     </message>
     <message>
         <source>Copies</source>
-        <translation>Cópias:</translation>
+        <translation>Cópias</translation>
     </message>
     <message>
         <source>Copies:</source>
