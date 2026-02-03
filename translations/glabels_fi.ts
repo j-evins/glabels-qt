@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Tietoja gLabelsista</translation>
     </message>
     <message>
         <source>&amp;License</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sulje</translation>
     </message>
 </context>
 <context>
@@ -175,7 +175,7 @@
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimi:</translation>
     </message>
     <message>
         <source>Step size:</source>
@@ -187,15 +187,15 @@
     </message>
     <message>
         <source>Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuttuja</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyyppi:</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arvo:</translation>
     </message>
 </context>
 <context>
@@ -242,19 +242,19 @@
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
         <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 x %2 (%3 sivua kohden)</translation>
     </message>
     <message>
         <source>%1 per sheet</source>
         <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 sivua kohden</translation>
     </message>
 </context>
 <context>
     <name>FrameCd</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished"></translation>
+        <translation>halkaisija</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@
     <name>FrameRound</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished"></translation>
+        <translation>halkaisija</translation>
     </message>
 </context>
 <context>
@@ -310,11 +310,11 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksti</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Asettelu</translation>
     </message>
     <message>
         <source>Alignment:</source>
@@ -346,7 +346,7 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fontti</translation>
     </message>
     <message>
         <source>Family:</source>
@@ -370,7 +370,7 @@
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>Viivakoodi</translation>
     </message>
     <message>
         <source>Style</source>
@@ -378,7 +378,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyyppi:</translation>
     </message>
     <message>
         <source>Show text</source>
@@ -398,7 +398,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedosto</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -406,15 +406,15 @@
     </message>
     <message>
         <source>Line/Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Viiva/Täyttö</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Viiva</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Leveys:</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Sijainti/Koko</translation>
     </message>
     <message>
         <source>Position</source>
@@ -438,7 +438,7 @@
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Koko</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -466,15 +466,15 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>Varjo</translation>
     </message>
     <message>
         <source>X offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>X-siirtymä:</translation>
     </message>
     <message>
         <source>Y offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y-siirtymä:</translation>
     </message>
     <message>
         <source>Opacity:</source>
@@ -505,7 +505,7 @@
     </message>
     <message>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>Senttimetrit</translation>
     </message>
     <message>
         <source>Millimeters</source>
@@ -592,7 +592,7 @@
     </message>
     <message>
         <source>Positions</source>
-        <translation type="unfinished"></translation>
+        <translation>Positiot</translation>
     </message>
     <message>
         <source>to</source>
@@ -628,7 +628,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulosta</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
@@ -639,27 +639,27 @@
     <name>PropertiesView</name>
     <message>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuote</translation>
     </message>
     <message>
         <source>Vendor:</source>
-        <translation type="unfinished"></translation>
+        <translation>Toimittaja:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>Osa #:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvaus:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sivun koko:</translation>
     </message>
     <message>
         <source>Label size:</source>
@@ -667,7 +667,7 @@
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>Asettelu:</translation>
     </message>
     <message>
         <source>Change product</source>
@@ -683,7 +683,7 @@
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Suuntaus</translation>
     </message>
     <message>
         <source>Select horizontal or vertical orientation.</source>
@@ -714,7 +714,7 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopioi</translation>
     </message>
     <message>
         <source>Ctrl+C</source>
@@ -793,7 +793,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -801,7 +801,7 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvaus:</translation>
     </message>
     <message>
         <source>Page size:</source>
@@ -840,7 +840,7 @@
     </message>
     <message>
         <source>New...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uusi …</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -866,7 +866,7 @@
     <name>TemplateDesignerCdPage</name>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>6. Reunus:</translation>
     </message>
     <message>
         <source>1. Outer radius:</source>
@@ -886,7 +886,7 @@
     </message>
     <message>
         <source>5. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. Ylijäämä:</translation>
     </message>
 </context>
 <context>
@@ -904,15 +904,15 @@
     </message>
     <message>
         <source>1. Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Leveys:</translation>
     </message>
     <message>
         <source>3. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Ylijäämä:</translation>
     </message>
     <message>
         <source>4. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Reunus:</translation>
     </message>
 </context>
 <context>
@@ -958,18 +958,18 @@
     </message>
     <message>
         <source>One layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Yksi asettelu</translation>
     </message>
     <message>
         <source>Two layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaksi asettelua</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerNamePage</name>
     <message>
         <source>(e.g. &quot;Mailing Labels,&quot; &quot;Business Cards,&quot; ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(esim. &quot;Postitustarrat&quot;, &quot;Käyntikortit&quot; …)</translation>
     </message>
     <message>
         <source>Brand:</source>
@@ -977,7 +977,7 @@
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>Osa #:</translation>
     </message>
     <message>
         <source>Description:</source>
@@ -985,11 +985,11 @@
     </message>
     <message>
         <source>(e.g. 8163A)</source>
-        <translation type="unfinished"></translation>
+        <translation>(esim. 8163A)</translation>
     </message>
     <message>
         <source>(e.g. Avery, Acme, ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(esim. Avery, Acme …)</translation>
     </message>
 </context>
 <context>
@@ -1000,15 +1000,15 @@
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukumäärä alleikkain (ny):</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Etäisyys vasemmasta reunasta (x0):</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Etäisyys yläreunasta (y0):</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
@@ -1020,7 +1020,7 @@
     </message>
     <message>
         <source>Print test sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulosta testisivu</translation>
     </message>
 </context>
 <context>
@@ -1031,7 +1031,7 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkeus:</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -1039,7 +1039,7 @@
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sivun koko:</translation>
     </message>
 </context>
 <context>
@@ -1053,11 +1053,11 @@
     <name>TemplateDesignerRectPage</name>
     <message>
         <source>4. Horizontal waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Vaak. ylijäämä:</translation>
     </message>
     <message>
         <source>3. Corner radius</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Reunan säde</translation>
     </message>
     <message>
         <source>1. Width:</source>
@@ -1065,19 +1065,19 @@
     </message>
     <message>
         <source>5. Vertical waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. Pyst. ylijäämä:</translation>
     </message>
     <message>
         <source>2. Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Korkeus:</translation>
     </message>
     <message>
         <source>6. Margin (X):</source>
-        <translation type="unfinished"></translation>
+        <translation>6. Reunus (X):</translation>
     </message>
     <message>
         <source>7. Margin (Y):</source>
-        <translation type="unfinished"></translation>
+        <translation>7. Reunus (Y):</translation>
     </message>
     <message>
         <source>in</source>
@@ -1096,7 +1096,7 @@
     </message>
     <message>
         <source>2. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Ylijäämä:</translation>
     </message>
 </context>
 <context>
@@ -1134,15 +1134,15 @@
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukumäärä poikittain (nx):</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaakajako (dx):</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation type="unfinished"></translation>
+        <translation>Pystyjako (dy):</translation>
     </message>
     <message>
         <source>Print test sheet</source>
@@ -1204,7 +1204,7 @@
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Väri</translation>
     </message>
 </context>
 <context>
@@ -1223,7 +1223,7 @@
     </message>
     <message>
         <source>Add variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää muuttuja</translation>
     </message>
     <message>
         <source>Edit selected variable</source>
@@ -1238,7 +1238,7 @@
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versio</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
@@ -1257,14 +1257,14 @@
     <name>glabels::ColorHistory</name>
     <message>
         <source>color %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Väri %1</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Standard Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Vakiovärit</translation>
     </message>
     <message>
         <source>Recent Colors</source>
@@ -1281,7 +1281,7 @@
     <message>
         <source>Custom Color %1</source>
         <extracomment>%1 = color specification in hex. String must not contain a colon (:).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Mukautettu väri %1</translation>
     </message>
     <message>
         <source>Use substitution field</source>
@@ -1303,7 +1303,7 @@
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuttujat</translation>
     </message>
 </context>
 <context>
@@ -1334,11 +1334,11 @@
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 on jo olemassa.</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Haluatko korvata sen?</translation>
     </message>
 </context>
 <context>
@@ -1349,7 +1349,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Resize</source>
@@ -1364,15 +1364,15 @@
     <name>glabels::MainWindow</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Tervetuloa</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Muokkaa</translation>
     </message>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Ominaisuudet</translation>
     </message>
     <message>
         <source>Merge</source>
@@ -1380,15 +1380,15 @@
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuttujat</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulosta</translation>
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Uusi …</translation>
     </message>
     <message>
         <source>Create a new gLabels project</source>
@@ -1396,7 +1396,7 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Avaa …</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -1404,7 +1404,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tallenna</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
@@ -1412,7 +1412,7 @@
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallenna &amp;nimellä …</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
@@ -1428,7 +1428,7 @@
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>O&amp;minaisuudet</translation>
     </message>
     <message>
         <source>Select project Properties mode</source>
@@ -1444,7 +1444,7 @@
     </message>
     <message>
         <source>&amp;Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Muuttujat</translation>
     </message>
     <message>
         <source>Select project Variables mode</source>
@@ -1452,7 +1452,7 @@
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tulosta</translation>
     </message>
     <message>
         <source>Select project Print mode</source>
@@ -1468,7 +1468,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sulje</translation>
     </message>
     <message>
         <source>Close the current window</source>
@@ -1500,7 +1500,7 @@
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kopioi</translation>
     </message>
     <message>
         <source>Copy the selection</source>
@@ -1508,7 +1508,7 @@
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Liitä</translation>
     </message>
     <message>
         <source>Paste the clipboard</source>
@@ -1516,7 +1516,7 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Poista</translation>
     </message>
     <message>
         <source>Delete the selected objects</source>
@@ -1524,7 +1524,7 @@
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse &amp;kaikki</translation>
     </message>
     <message>
         <source>Select all objects</source>
@@ -1552,7 +1552,7 @@
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruudukko</translation>
     </message>
     <message>
         <source>Change visibility of the grid in current window</source>
@@ -1568,7 +1568,7 @@
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lähennä</translation>
     </message>
     <message>
         <source>Increase magnification</source>
@@ -1576,7 +1576,7 @@
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>L&amp;oitonna</translation>
     </message>
     <message>
         <source>Decrease magnification</source>
@@ -1584,7 +1584,7 @@
     </message>
     <message>
         <source>Zoom &amp;1 to 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aseta &amp;normaalikokoon</translation>
     </message>
     <message>
         <source>Restore scale to 100%</source>
@@ -1592,7 +1592,7 @@
     </message>
     <message>
         <source>Zoom to &amp;Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sovita näytölle</translation>
     </message>
     <message>
         <source>Set scale to fit window</source>
@@ -1608,7 +1608,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksti</translation>
     </message>
     <message>
         <source>Create text object</source>
@@ -1640,7 +1640,7 @@
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuva</translation>
     </message>
     <message>
         <source>Create image object</source>
@@ -1656,39 +1656,39 @@
     </message>
     <message>
         <source>Bring To Front</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuo muiden eteen</translation>
     </message>
     <message>
         <source>Raise selection to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Nosta objekti päällimäiseksi</translation>
     </message>
     <message>
         <source>Send To Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Vie muiden taakse</translation>
     </message>
     <message>
         <source>Lower selection to bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Laske objekti alimmaiseksi</translation>
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännä vasemmalle</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees counter-clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännä objektia 90 astetta vastapäivään</translation>
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännä oikealle</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Kierrä objektia 90 astetta myötäpäivään</translation>
     </message>
     <message>
         <source>Flip Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännä vaakasuunnassa</translation>
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
@@ -1696,7 +1696,7 @@
     </message>
     <message>
         <source>Flip Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Käännä pystysuunnassa</translation>
     </message>
     <message>
         <source>Flip object(s) vertically</source>
@@ -1704,7 +1704,7 @@
     </message>
     <message>
         <source>Align Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Tasaa vasemmalle</translation>
     </message>
     <message>
         <source>Align objects to left edges</source>
@@ -1712,7 +1712,7 @@
     </message>
     <message>
         <source>Align Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Tasaa keskelle</translation>
     </message>
     <message>
         <source>Align objects to horizontal centers</source>
@@ -1720,7 +1720,7 @@
     </message>
     <message>
         <source>Align Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Tasaa oikealle</translation>
     </message>
     <message>
         <source>Align objects to right edges</source>
@@ -1776,15 +1776,15 @@
     </message>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Tietoja gLabelsista</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tiedosto</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Näytä</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -1792,15 +1792,15 @@
     </message>
     <message>
         <source>&amp;Objects</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Objektit</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Luo</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Järjestä</translation>
     </message>
     <message>
         <source>&amp;Rotate/Flip</source>
@@ -1808,7 +1808,7 @@
     </message>
     <message>
         <source>&amp;Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tasaus</translation>
     </message>
     <message>
         <source>Center</source>
@@ -1816,7 +1816,7 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ohje</translation>
     </message>
     <message>
         <source>&amp;Editor</source>
@@ -1844,31 +1844,31 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Create Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo tekstiobjekti</translation>
     </message>
     <message>
         <source>Create Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo laatikko-objekti</translation>
     </message>
     <message>
         <source>Create Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo viivaobjekti</translation>
     </message>
     <message>
         <source>Create Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo ellipsiobjekti</translation>
     </message>
     <message>
         <source>Create Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo kuvaobjekti</translation>
     </message>
     <message>
         <source>Create Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>Luo viivakoodiobjekti</translation>
     </message>
     <message>
         <source>Quick Access</source>
@@ -1933,7 +1933,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaikki tiedostot (*)</translation>
     </message>
 </context>
 <context>
@@ -1944,7 +1944,7 @@
     </message>
     <message>
         <source>No fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei täyttöä</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1960,15 +1960,15 @@
     </message>
     <message>
         <source>line/fill</source>
-        <translation type="unfinished"></translation>
+        <translation>viiva/täyttö</translation>
     </message>
     <message>
         <source>position/size</source>
-        <translation type="unfinished"></translation>
+        <translation>sijainti/koko</translation>
     </message>
     <message>
         <source>shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>varjo</translation>
     </message>
     <message>
         <source>Ellipse object properties</source>
@@ -1980,7 +1980,7 @@
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>kuva</translation>
     </message>
     <message>
         <source>Line object properties</source>
@@ -1992,7 +1992,7 @@
     </message>
     <message>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation>teksti</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
@@ -2000,15 +2000,15 @@
     </message>
     <message>
         <source>barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>viivakoodi</translation>
     </message>
     <message>
         <source>Object properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Objektin ominaisuudet</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Viiva</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -2016,51 +2016,51 @@
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvatiedostot (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaikki tiedostot (*)</translation>
     </message>
     <message>
         <source>PNG - Portable Network Graphics (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG - Portable Network Graphics (*.png)</translation>
     </message>
     <message>
         <source>BMP - Windows Bitmap (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>BMP - Windows Bitmap (*.bmp)</translation>
     </message>
     <message>
         <source>GIF - Graphics Interchange Format (*.gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>GIF - Graphics Interchange Format (*.gif)</translation>
     </message>
     <message>
         <source>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>PBM - Portable Bitmap (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBM - Portable Bitmap (*.pbm)</translation>
     </message>
     <message>
         <source>PGM - Portable Graymap (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PGM - Portable Graymap (*.pgm)</translation>
     </message>
     <message>
         <source>PPM - Portable Pixmap (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PPM - Portable Pixmap (*.ppm)</translation>
     </message>
     <message>
         <source>SVG - Scalable Vector Graphics (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>SVG - Scalable Vector Graphics (*.svg)</translation>
     </message>
     <message>
         <source>XBM - X11 Bitmap (*.xbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XBM - X11 Bitmap (*.xbm)</translation>
     </message>
     <message>
         <source>XPM - X11 Pixmap (*.xpm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XPM - X11 Pixmap (*.xpm)</translation>
     </message>
     <message>
         <source>gLabels - Select image file</source>
@@ -2084,11 +2084,11 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Sijainti</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>Viivakoodi</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -2107,7 +2107,7 @@
     <name>glabels::PrintView</name>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulosta</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
@@ -2131,7 +2131,7 @@
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 on jo olemassa.</translation>
     </message>
     <message>
         <source>Do you want to overwrite it?</source>
@@ -2142,7 +2142,7 @@
     <name>glabels::PropertiesView</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Ominaisuudet</translation>
     </message>
     <message>
         <source>Product Rotate</source>
@@ -2384,15 +2384,15 @@
     <name>glabels::VariablesView</name>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuttujat</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <source>Increment</source>
@@ -2404,7 +2404,7 @@
     </message>
     <message>
         <source>Add Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisää muuttuja</translation>
     </message>
     <message>
         <source>Edit Variable</source>
@@ -2412,7 +2412,7 @@
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Arvo</translation>
     </message>
 </context>
 <context>
@@ -2423,7 +2423,7 @@
     </message>
     <message>
         <source>Code 39 Extended</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 39 Extended</translation>
     </message>
     <message>
         <source>UPC-A</source>
@@ -2471,19 +2471,19 @@
     </message>
     <message>
         <source>EAN-8+2</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8+2</translation>
     </message>
     <message>
         <source>EAN-8+5</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8+5</translation>
     </message>
     <message>
         <source>EAN-13+2</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13+2</translation>
     </message>
     <message>
         <source>EAN-13+5</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13+5</translation>
     </message>
     <message>
         <source>UPC (UPC-A or UPC-E)</source>
@@ -2535,7 +2535,7 @@
     </message>
     <message>
         <source>Codabar</source>
-        <translation type="unfinished"></translation>
+        <translation>Codabar</translation>
     </message>
     <message>
         <source>MSI</source>
@@ -2547,11 +2547,11 @@
     </message>
     <message>
         <source>Code 93</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 93</translation>
     </message>
     <message>
         <source>IEC18004 (QRCode)</source>
-        <translation type="unfinished"></translation>
+        <translation>IEC18004 (QRCode)</translation>
     </message>
     <message>
         <source>Australia Post Standard</source>
@@ -2575,15 +2575,15 @@
     </message>
     <message>
         <source>Code One</source>
-        <translation type="unfinished"></translation>
+        <translation>Code One</translation>
     </message>
     <message>
         <source>Code 11</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 11</translation>
     </message>
     <message>
         <source>Code 16K</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 16K</translation>
     </message>
     <message>
         <source>Code 2 of 5 IATA</source>
@@ -2599,7 +2599,7 @@
     </message>
     <message>
         <source>Code 49</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 49</translation>
     </message>
     <message>
         <source>Code 128 (Mode C suppression)</source>
@@ -2607,11 +2607,11 @@
     </message>
     <message>
         <source>DAFT Code</source>
-        <translation type="unfinished"></translation>
+        <translation>DAFT Code</translation>
     </message>
     <message>
         <source>Data Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>Data Matrix</translation>
     </message>
     <message>
         <source>Deutsche Post Leitcode</source>
@@ -2631,7 +2631,7 @@
     </message>
     <message>
         <source>Grid Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>Grid Matrix</translation>
     </message>
     <message>
         <source>GS1-128</source>
@@ -2639,19 +2639,19 @@
     </message>
     <message>
         <source>HIBC Code 128</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Code 128</translation>
     </message>
     <message>
         <source>HIBC Code 39</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Code 39</translation>
     </message>
     <message>
         <source>HIBC Data Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Data Matrix</translation>
     </message>
     <message>
         <source>HIBC QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC QR Code</translation>
     </message>
     <message>
         <source>HIBC PDF417</source>
@@ -2683,11 +2683,11 @@
     </message>
     <message>
         <source>Micro QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Micro QR Code</translation>
     </message>
     <message>
         <source>MSI Plessey</source>
-        <translation type="unfinished"></translation>
+        <translation>MSI Plessey</translation>
     </message>
     <message>
         <source>PDF417</source>
@@ -2699,7 +2699,7 @@
     </message>
     <message>
         <source>Pharmacode</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmacode</translation>
     </message>
     <message>
         <source>Pharmacode 2-track</source>
@@ -2731,7 +2731,7 @@
     </message>
     <message>
         <source>Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>Codablock-F</translation>
     </message>
     <message>
         <source>Code 2 of 5 Standard</source>
@@ -2751,27 +2751,27 @@
     </message>
     <message>
         <source>HIBC MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC MicroPDF417</translation>
     </message>
     <message>
         <source>MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>MicroPDF417</translation>
     </message>
     <message>
         <source>NVE-18 (SSCC-18)</source>
-        <translation type="unfinished"></translation>
+        <translation>NVE-18 (SSCC-18)</translation>
     </message>
     <message>
         <source>PDF417 Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF417 Compact</translation>
     </message>
     <message>
         <source>Pharmazentralnummer (PZN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmazentralnummer (PZN)</translation>
     </message>
     <message>
         <source>Channel Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Channel Code</translation>
     </message>
     <message>
         <source>Code 2 of 5 Industrial</source>
@@ -2779,11 +2779,11 @@
     </message>
     <message>
         <source>DotCode</source>
-        <translation type="unfinished"></translation>
+        <translation>DotCode</translation>
     </message>
     <message>
         <source>EAN-14</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-14</translation>
     </message>
     <message>
         <source>GS1 DataBar Omnidirectional</source>
@@ -2791,19 +2791,19 @@
     </message>
     <message>
         <source>Han Xin</source>
-        <translation type="unfinished"></translation>
+        <translation>Han Xin</translation>
     </message>
     <message>
         <source>Flattermarken</source>
-        <translation type="unfinished"></translation>
+        <translation>Flattermarken</translation>
     </message>
     <message>
         <source>DPD Code</source>
-        <translation type="unfinished"></translation>
+        <translation>DPD Code</translation>
     </message>
     <message>
         <source>POSTNET</source>
-        <translation type="unfinished"></translation>
+        <translation>POSTNET</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Mailmark</source>
@@ -2811,7 +2811,7 @@
     </message>
     <message>
         <source>UPU S10</source>
-        <translation type="unfinished"></translation>
+        <translation>UPU S10</translation>
     </message>
     <message>
         <source>FIM (Facing ID Mark)</source>
@@ -2831,7 +2831,7 @@
     </message>
     <message>
         <source>HIBC Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Codablock-F</translation>
     </message>
     <message>
         <source>Royal Mail 2-D Mailmark</source>
@@ -2839,7 +2839,7 @@
     </message>
     <message>
         <source>BC412 (SEMI TI-95)</source>
-        <translation type="unfinished"></translation>
+        <translation>BC412 (SEMI TI-95)</translation>
     </message>
 </context>
 <context>
@@ -2871,7 +2871,7 @@
     <name>glabels::model::ModelTextObject</name>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksti</translation>
     </message>
 </context>
 <context>
