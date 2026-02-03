@@ -5,15 +5,15 @@
     <name>XmlStrings</name>
     <message>
         <source>Address labels</source>
-        <translation type="unfinished">Adresetiketten</translation>
+        <translation>Adresetiketten</translation>
     </message>
     <message>
         <source>Any card</source>
-        <translation type="unfinished">Alle kaarten</translation>
+        <translation>Alle kaarten</translation>
     </message>
     <message>
         <source>Any label</source>
-        <translation type="unfinished">Alle labels</translation>
+        <translation>Alle labels</translation>
     </message>
     <message>
         <source>Arch file inserts</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Business cards</source>
-        <translation type="unfinished">Adreskaarten</translation>
+        <translation>Adreskaarten</translation>
     </message>
     <message>
         <source>CD/DVD booklet</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>CD/DVD labels</source>
-        <translation type="unfinished">cd/dvd-Labels</translation>
+        <translation>cd/dvd-Labels</translation>
     </message>
     <message>
         <source>CD/DVD labels (disc labels)</source>
@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>CD/DVD or other media</source>
-        <translation type="unfinished">CD/DVD en andere media</translation>
+        <translation>CD/DVD en andere media</translation>
     </message>
     <message>
         <source>CD/DVD tray</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>Diskette labels</source>
-        <translation type="unfinished">Diskettelabels</translation>
+        <translation>Diskettelabels</translation>
     </message>
     <message>
         <source>Divider labels</source>
@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>Elliptical labels</source>
-        <translation type="unfinished">Elliptische etiketten</translation>
+        <translation>Elliptische etiketten</translation>
     </message>
     <message>
         <source>File folder labels</source>
@@ -181,19 +181,19 @@
     </message>
     <message>
         <source>Floppy disk labels</source>
-        <translation type="unfinished">Floppy disk-labels</translation>
+        <translation>Floppy disk-labels</translation>
     </message>
     <message>
         <source>Flyer paper</source>
-        <translation type="unfinished">Flyer-papier</translation>
+        <translation>Flyer-papier</translation>
     </message>
     <message>
         <source>Foldable business cards</source>
-        <translation type="unfinished">Invouwbare visitekaartjes</translation>
+        <translation>Invouwbare visitekaartjes</translation>
     </message>
     <message>
         <source>Foldable cards</source>
-        <translation type="unfinished">Invouwbare kaarten</translation>
+        <translation>Invouwbare kaarten</translation>
     </message>
     <message>
         <source>Full face CD/DVD labels</source>
@@ -209,7 +209,7 @@
     </message>
     <message>
         <source>Greeting cards</source>
-        <translation type="unfinished">Wenskaarten</translation>
+        <translation>Wenskaarten</translation>
     </message>
     <message>
         <source>Hanging folder labels</source>
@@ -225,7 +225,7 @@
     </message>
     <message>
         <source>Labels</source>
-        <translation type="unfinished">Labels</translation>
+        <translation>Labels</translation>
     </message>
     <message>
         <source>Large address labels</source>
@@ -249,11 +249,11 @@
     </message>
     <message>
         <source>Mailing labels</source>
-        <translation type="unfinished">Postetiketten</translation>
+        <translation>Postetiketten</translation>
     </message>
     <message>
         <source>Mailing/shipping products</source>
-        <translation type="unfinished">Verzend/post/adresetiketten</translation>
+        <translation>Verzend/post/adresetiketten</translation>
     </message>
     <message>
         <source>Medical chart labels</source>
@@ -261,7 +261,7 @@
     </message>
     <message>
         <source>Membership cards</source>
-        <translation type="unfinished">Lidmaatschapskaarten</translation>
+        <translation>Lidmaatschapskaarten</translation>
     </message>
     <message>
         <source>Metal tin container labels</source>
@@ -273,7 +273,7 @@
     </message>
     <message>
         <source>Mini Disc labels</source>
-        <translation type="unfinished">MiniDisc labels</translation>
+        <translation>MiniDisc labels</translation>
     </message>
     <message>
         <source>Mini address labels</source>
@@ -297,7 +297,7 @@
     </message>
     <message>
         <source>Name plates</source>
-        <translation type="unfinished">Naamplaatjes</translation>
+        <translation>Naamplaatjes</translation>
     </message>
     <message>
         <source>Nutritional labels</source>
@@ -309,27 +309,27 @@
     </message>
     <message>
         <source>Passport photo labels</source>
-        <translation type="unfinished">Paspoortfoto-etiketten</translation>
+        <translation>Paspoortfoto-etiketten</translation>
     </message>
     <message>
         <source>Photo labels</source>
-        <translation type="unfinished">Foto-etiketten</translation>
+        <translation>Foto-etiketten</translation>
     </message>
     <message>
         <source>Photo products</source>
-        <translation type="unfinished">Fotoproducten</translation>
+        <translation>Fotoproducten</translation>
     </message>
     <message>
         <source>Post cards</source>
-        <translation type="unfinished">Briefkaarten</translation>
+        <translation>Briefkaarten</translation>
     </message>
     <message>
         <source>Printable mousepad</source>
-        <translation type="unfinished">Printbare muismat</translation>
+        <translation>Printbare muismat</translation>
     </message>
     <message>
         <source>Rectangular labels</source>
-        <translation type="unfinished">Rechthoekige etiketten</translation>
+        <translation>Rechthoekige etiketten</translation>
     </message>
     <message>
         <source>Return address labels</source>
@@ -337,11 +337,11 @@
     </message>
     <message>
         <source>Round labels</source>
-        <translation type="unfinished">Ronde etiketten</translation>
+        <translation>Ronde etiketten</translation>
     </message>
     <message>
         <source>SD card labels</source>
-        <translation type="unfinished">SD-kaartetiketten</translation>
+        <translation>SD-kaartetiketten</translation>
     </message>
     <message>
         <source>Seal labels</source>
@@ -349,11 +349,11 @@
     </message>
     <message>
         <source>Shipping labels</source>
-        <translation type="unfinished">Verzendetiketten</translation>
+        <translation>Verzendetiketten</translation>
     </message>
     <message>
         <source>Square labels</source>
-        <translation type="unfinished">Vierkante etiketten</translation>
+        <translation>Vierkante etiketten</translation>
     </message>
     <message>
         <source>Target stickers</source>
@@ -417,7 +417,7 @@
     </message>
     <message>
         <source>Zip disc labels</source>
-        <translation type="unfinished">Zipschijfetiketten</translation>
+        <translation>Zipschijfetiketten</translation>
     </message>
 </context>
 </TS>
