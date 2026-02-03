@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>A prepaus de gLabels</translation>
     </message>
     <message>
         <source>&amp;License</source>
@@ -217,18 +217,18 @@
     <name>Frame</name>
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 x %2 (%3 per pagina)</translation>
     </message>
     <message>
         <source>%1 per sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 per pagina</translation>
     </message>
 </context>
 <context>
     <name>FrameCd</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished">diamètre</translation>
+        <translation>diamètre</translation>
     </message>
 </context>
 <context>
@@ -250,7 +250,7 @@
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Emplaçament</translation>
     </message>
     <message>
         <source>Format:</source>
@@ -285,7 +285,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Tèxte</translation>
+        <translation>Tèxte</translation>
     </message>
     <message>
         <source>Layout</source>
@@ -321,7 +321,7 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Poliça</translation>
     </message>
     <message>
         <source>Family:</source>
@@ -345,7 +345,7 @@
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished">Còdi barras</translation>
+        <translation>Còdi barras</translation>
     </message>
     <message>
         <source>Style</source>
@@ -353,7 +353,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipe :</translation>
     </message>
     <message>
         <source>Show text</source>
@@ -373,7 +373,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichièr</translation>
     </message>
     <message>
         <source>Select File...</source>
@@ -381,7 +381,7 @@
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"></translation>
+        <translation>o</translation>
     </message>
     <message>
         <source>Select Merge Field...</source>
@@ -393,11 +393,11 @@
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Linha</translation>
+        <translation>Linha</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished">Largor :</translation>
+        <translation>Largor :</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -405,7 +405,7 @@
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Posicion/Talha</translation>
     </message>
     <message>
         <source>Position</source>
@@ -421,7 +421,7 @@
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Talha</translation>
+        <translation>Talha</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -433,7 +433,7 @@
     </message>
     <message>
         <source>Original size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Talha originala :</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -449,15 +449,15 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Ombra</translation>
+        <translation>Ombra</translation>
     </message>
     <message>
         <source>X offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descalatge X :</translation>
     </message>
     <message>
         <source>Y offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Descalatge Y :</translation>
     </message>
     <message>
         <source>Opacity:</source>
@@ -488,7 +488,7 @@
     </message>
     <message>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>Centimètres</translation>
     </message>
     <message>
         <source>Millimeters</source>
@@ -543,7 +543,7 @@
     </message>
     <message>
         <source>print outlines</source>
-        <translation type="unfinished"></translation>
+        <translation>imprimir las bordaduras</translation>
     </message>
     <message>
         <source>print crop marks</source>
@@ -555,7 +555,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir</translation>
     </message>
 </context>
 <context>
@@ -574,7 +574,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -622,7 +622,7 @@
     </message>
     <message>
         <source>Similar Products</source>
-        <translation type="unfinished"></translation>
+        <translation>Produits semblables</translation>
     </message>
 </context>
 <context>
@@ -734,7 +734,7 @@
     </message>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>6. Marge :</translation>
     </message>
     <message>
         <source>1. Outer radius:</source>
@@ -754,7 +754,7 @@
     </message>
     <message>
         <source>5. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. Degalh :</translation>
     </message>
 </context>
 <context>
@@ -769,15 +769,15 @@
     </message>
     <message>
         <source>1. Width:</source>
-        <translation type="unfinished">1. Largor :</translation>
+        <translation>1. Largor :</translation>
     </message>
     <message>
         <source>3. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Degalh :</translation>
     </message>
     <message>
         <source>4. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Marge :</translation>
     </message>
 </context>
 <context>
@@ -846,7 +846,7 @@
     </message>
     <message>
         <source>(e.g. &quot;Mailing Labels,&quot; &quot;Business Cards,&quot; ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(ex : « Etiquetas de publipostatge », « Cartas de visita », …)</translation>
     </message>
     <message>
         <source>Brand:</source>
@@ -854,7 +854,7 @@
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished">N° Ref :</translation>
+        <translation>N° Ref :</translation>
     </message>
     <message>
         <source>Description:</source>
@@ -862,11 +862,11 @@
     </message>
     <message>
         <source>(e.g. 8163A)</source>
-        <translation type="unfinished"></translation>
+        <translation>(ex : 8163A)</translation>
     </message>
     <message>
         <source>(e.g. Avery, Acme, ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(ex : Avery, Acme, …)</translation>
     </message>
 </context>
 <context>
@@ -881,11 +881,11 @@
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation type="unfinished">Nombre sus la nautor (ny) :</translation>
+        <translation>Nombre sus la nautor (ny) :</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation type="unfinished">Distància per rapòrt al bòrd esquèrra (x0) :</translation>
+        <translation>Distància per rapòrt al bòrd esquèrra (x0) :</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
@@ -897,11 +897,11 @@
     </message>
     <message>
         <source>Print test sheet</source>
-        <translation type="unfinished">Imprimir una pagina tèst</translation>
+        <translation>Imprimir una pagina tèst</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Distància per rapòrt al bòrd naut (y0) :</translation>
     </message>
 </context>
 <context>
@@ -912,7 +912,7 @@
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished">Talha de pagina :</translation>
+        <translation>Talha de pagina :</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -920,7 +920,7 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished">Nautor :</translation>
+        <translation>Nautor :</translation>
     </message>
 </context>
 <context>
@@ -931,7 +931,7 @@
     </message>
     <message>
         <source>2. Height:</source>
-        <translation type="unfinished">2. Nautor :</translation>
+        <translation>2. Nautor :</translation>
     </message>
     <message>
         <source>1. Width:</source>
@@ -939,19 +939,19 @@
     </message>
     <message>
         <source>4. Horizontal waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Degalh oriz. :</translation>
     </message>
     <message>
         <source>3. Corner radius</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Rai d&apos;angle</translation>
     </message>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>6. Marge :</translation>
     </message>
     <message>
         <source>5. Vertical waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>5. Degalh vert. :</translation>
     </message>
 </context>
 <context>
@@ -970,7 +970,7 @@
     </message>
     <message>
         <source>2. Waste:</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Degalh :</translation>
     </message>
 </context>
 <context>
@@ -1012,15 +1012,15 @@
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation type="unfinished">Nombre sus la largor (nx) :</translation>
+        <translation>Nombre sus la largor (nx) :</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation type="unfinished">Espaçament orizontal (dx) :</translation>
+        <translation>Espaçament orizontal (dx) :</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation type="unfinished">Espaçament vertical (dy) :</translation>
+        <translation>Espaçament vertical (dy) :</translation>
     </message>
     <message>
         <source>Print test sheet</source>
@@ -1058,7 +1058,7 @@
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
@@ -1066,18 +1066,18 @@
     </message>
     <message>
         <source>gLabels is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels es un logicial liure : lo podètz redistribuir e/o lo modificar conformadament a las disposicions de la Licéncia Publica Generala GNU, tala coma publicada per la Free Software Foundation, siá la version 3 de la licéncia, siá encara (coma voldretz) tota version ulteriora.</translation>
     </message>
     <message>
         <source>gLabels is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aqueste programa es distribuit dins l&apos;esper que serà utile, mas SENS CAP DE GARANTIDA ; sens la quita garantida implicita d&apos;una QUALITAT LEIALA E MERCANDA o de CONFORMITAT A UNA UTILIZACION PARTICULARA. Per mai de detalhs, veire la Licéncia Publica Generala GNU.</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Custom color...</source>
-        <translation type="unfinished"></translation>
+        <translation>Color personalizada …</translation>
     </message>
     <message>
         <source>Merge key...</source>
@@ -1089,7 +1089,7 @@
     </message>
     <message>
         <source>Custom color #%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Color personalizada #%1</translation>
     </message>
 </context>
 <context>
@@ -1142,15 +1142,15 @@
     <name>glabels::MainWindow</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished">Benvenguda</translation>
+        <translation>Benvenguda</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edicion</translation>
     </message>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Proprietats</translation>
     </message>
     <message>
         <source>Merge</source>
@@ -1158,11 +1158,11 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Novèl …</translation>
     </message>
     <message>
         <source>Create a new gLabels project</source>
@@ -1170,7 +1170,7 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dobrir …</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -1178,7 +1178,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrar</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
@@ -1186,7 +1186,7 @@
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrar &amp;jos …</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
@@ -1194,7 +1194,7 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;dicion</translation>
     </message>
     <message>
         <source>Select project Edit mode</source>
@@ -1202,7 +1202,7 @@
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>P&amp;roprietats</translation>
     </message>
     <message>
         <source>Select project Properties mode</source>
@@ -1218,7 +1218,7 @@
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Im&amp;primir</translation>
     </message>
     <message>
         <source>Select project Print mode</source>
@@ -1234,7 +1234,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tampar</translation>
     </message>
     <message>
         <source>Close the current window</source>
@@ -1266,7 +1266,7 @@
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Copiar</translation>
     </message>
     <message>
         <source>Copy the selection</source>
@@ -1274,7 +1274,7 @@
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pegar</translation>
     </message>
     <message>
         <source>Paste the clipboard</source>
@@ -1282,7 +1282,7 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Suprimir</translation>
     </message>
     <message>
         <source>Delete the selected objects</source>
@@ -1290,7 +1290,7 @@
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar &amp;tot</translation>
     </message>
     <message>
         <source>Select all objects</source>
@@ -1314,7 +1314,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichièr</translation>
     </message>
     <message>
         <source>Change visibility of file toolbar in current window</source>
@@ -1346,7 +1346,7 @@
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom &amp;avant</translation>
     </message>
     <message>
         <source>Increase magnification</source>
@@ -1354,7 +1354,7 @@
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom a&amp;rrièr</translation>
     </message>
     <message>
         <source>Decrease magnification</source>
@@ -1362,7 +1362,7 @@
     </message>
     <message>
         <source>Zoom &amp;1 to 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom &amp;1:1</translation>
     </message>
     <message>
         <source>Restore scale to 100%</source>
@@ -1370,7 +1370,7 @@
     </message>
     <message>
         <source>Zoom to &amp;Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ajustar a la fenèstra</translation>
     </message>
     <message>
         <source>Set scale to fit window</source>
@@ -1386,7 +1386,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Tèxte</translation>
+        <translation>Tèxte</translation>
     </message>
     <message>
         <source>Create text object</source>
@@ -1434,39 +1434,39 @@
     </message>
     <message>
         <source>Bring To Front</source>
-        <translation type="unfinished"></translation>
+        <translation>Metre en primièr plan</translation>
     </message>
     <message>
         <source>Raise selection to top</source>
-        <translation type="unfinished"></translation>
+        <translation>Plaça l&apos;objècte en avantplan</translation>
     </message>
     <message>
         <source>Send To Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Plaçar en rèireplan</translation>
     </message>
     <message>
         <source>Lower selection to bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Plaça l&apos;objècte en rèireplan</translation>
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotacion esquèrra</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees counter-clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Vira l&apos;objècte de 90 grases dins lo sens invèrse de las agulhas d&apos;una mòstra</translation>
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotacion dreita</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>Vira l&apos;objècte de 90 grases dins lo sens de las agulhas d&apos;una mòstra</translation>
     </message>
     <message>
         <source>Flip Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Revirar orizontalament</translation>
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
@@ -1474,7 +1474,7 @@
     </message>
     <message>
         <source>Flip Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Revirar verticalament</translation>
     </message>
     <message>
         <source>Flip object(s) vertically</source>
@@ -1482,7 +1482,7 @@
     </message>
     <message>
         <source>Align Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhar a esquèrra</translation>
     </message>
     <message>
         <source>Align objects to left edges</source>
@@ -1490,7 +1490,7 @@
     </message>
     <message>
         <source>Align Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhar al centre</translation>
     </message>
     <message>
         <source>Align objects to horizontal centers</source>
@@ -1498,7 +1498,7 @@
     </message>
     <message>
         <source>Align Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhar a dreita</translation>
     </message>
     <message>
         <source>Align objects to right edges</source>
@@ -1506,7 +1506,7 @@
     </message>
     <message>
         <source>Align Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhar al som</translation>
     </message>
     <message>
         <source>Align objects to top edges</source>
@@ -1514,7 +1514,7 @@
     </message>
     <message>
         <source>Align Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhar al mitan</translation>
     </message>
     <message>
         <source>Align objects to vertical centers</source>
@@ -1522,7 +1522,7 @@
     </message>
     <message>
         <source>Align Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alinhar a la basa</translation>
     </message>
     <message>
         <source>Align objects to bottom edges</source>
@@ -1530,23 +1530,23 @@
     </message>
     <message>
         <source>Center Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer orizontalament</translation>
     </message>
     <message>
         <source>Horizontally center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Centra los objèctes sus la mediatritz orizontala de l&apos;etiqueta</translation>
     </message>
     <message>
         <source>Center Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer verticalament</translation>
     </message>
     <message>
         <source>Vertically center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Centra los objèctes sus la mediatritz verticala de l&apos;etiqueta</translation>
     </message>
     <message>
         <source>&amp;Contents...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ensenhador …</translation>
     </message>
     <message>
         <source>Open gLabels manual</source>
@@ -1554,19 +1554,19 @@
     </message>
     <message>
         <source>&amp;About...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;A prepaus …</translation>
     </message>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>A prepaus de gLabels</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fichièr</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Afichatge</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -1574,23 +1574,23 @@
     </message>
     <message>
         <source>&amp;Objects</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Objèctes</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Crear</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Òrdre</translation>
     </message>
     <message>
         <source>&amp;Rotate/Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Rotacion/Revirament</translation>
     </message>
     <message>
         <source>&amp;Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Alinhament</translation>
     </message>
     <message>
         <source>Center</source>
@@ -1598,7 +1598,7 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;juda</translation>
     </message>
     <message>
         <source>&amp;Editor</source>
@@ -1626,31 +1626,31 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Suprimir</translation>
+        <translation>Suprimir</translation>
     </message>
     <message>
         <source>Create Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Crèa un objècte tèxte</translation>
     </message>
     <message>
         <source>Create Box</source>
-        <translation type="unfinished"></translation>
+        <translation>Crear un objècte bóstia</translation>
     </message>
     <message>
         <source>Create Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Crèa un objècte linha</translation>
     </message>
     <message>
         <source>Create Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Crèa un objècte ellipsa</translation>
     </message>
     <message>
         <source>Create Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Crèa un objècte imatge</translation>
     </message>
     <message>
         <source>Create Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>Crèa un objècte còdi barras</translation>
     </message>
 </context>
 <context>
@@ -1672,11 +1672,11 @@
     <name>glabels::ObjectEditor</name>
     <message>
         <source>No line</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas de linha</translation>
     </message>
     <message>
         <source>No fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas d&apos;emplenatge</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1692,7 +1692,7 @@
     </message>
     <message>
         <source>Original size</source>
-        <translation type="unfinished"></translation>
+        <translation>Talha originala</translation>
     </message>
     <message>
         <source>Box object properties</source>
@@ -1708,7 +1708,7 @@
     </message>
     <message>
         <source>shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>ombra</translation>
     </message>
     <message>
         <source>Ellipse object properties</source>
@@ -1732,7 +1732,7 @@
     </message>
     <message>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation>tèxte</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
@@ -1740,19 +1740,19 @@
     </message>
     <message>
         <source>barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>cxòdi barras</translation>
     </message>
     <message>
         <source>Object properties</source>
-        <translation type="unfinished">Proprietats de l&apos;objècte</translation>
+        <translation>Proprietats de l&apos;objècte</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Linha</translation>
+        <translation>Linha</translation>
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished">Emplenatge</translation>
+        <translation>Emplenatge</translation>
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
@@ -1764,43 +1764,43 @@
     </message>
     <message>
         <source>PNG - Portable Network Graphics (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG - Portable Network Graphics (*.png)</translation>
     </message>
     <message>
         <source>BMP - Windows Bitmap (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>BMP - Windows Bitmap (*.bmp)</translation>
     </message>
     <message>
         <source>GIF - Graphics Interchange Format (*.gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>GIF - Graphics Interchange Format (*.gif)</translation>
     </message>
     <message>
         <source>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>PBM - Portable Bitmap (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBM - Portable Bitmap (*.pbm)</translation>
     </message>
     <message>
         <source>PGM - Portable Graymap (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PGM - Portable Graymap (*.pgm)</translation>
     </message>
     <message>
         <source>PPM - Portable Pixmap (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PPM - Portable Pixmap (*.ppm)</translation>
     </message>
     <message>
         <source>SVG - Scalable Vector Graphics (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>SVG - Scalable Vector Graphics (*.svg)</translation>
     </message>
     <message>
         <source>XBM - X11 Bitmap (*.xbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XBM - X11 Bitmap (*.xbm)</translation>
     </message>
     <message>
         <source>XPM - X11 Pixmap (*.xpm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XPM - X11 Pixmap (*.xpm)</translation>
     </message>
     <message>
         <source>gLabels - Select image file</source>
@@ -1812,7 +1812,7 @@
     </message>
     <message>
         <source>Move</source>
-        <translation type="unfinished">Desplaçar</translation>
+        <translation>Desplaçar</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1831,7 +1831,7 @@
     <name>glabels::PrintView</name>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
@@ -1842,7 +1842,7 @@
     <name>glabels::PropertiesView</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Proprietats</translation>
     </message>
     <message>
         <source>Product Rotate</source>
@@ -1953,7 +1953,7 @@
     <name>glabels::TemplateDesignerOneLayoutPage</name>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposicion</translation>
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
@@ -1972,7 +1972,7 @@
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">Autre</translation>
+        <translation>Autre</translation>
     </message>
 </context>
 <context>
@@ -2012,7 +2012,7 @@
     <name>glabels::TemplateDesignerTwoLayoutPage</name>
     <message>
         <source>Layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Disposicions</translation>
     </message>
     <message>
         <source>Please enter parameters for your two layouts.</source>
@@ -2075,19 +2075,19 @@
     </message>
     <message>
         <source>EAN-8+2</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8+2</translation>
     </message>
     <message>
         <source>EAN-8+5</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8+5</translation>
     </message>
     <message>
         <source>EAN-13+2</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13+2</translation>
     </message>
     <message>
         <source>EAN-13+5</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13+5</translation>
     </message>
     <message>
         <source>UPC (UPC-A or UPC-E)</source>
@@ -2404,7 +2404,7 @@
     <name>glabels::model::ModelTextObject</name>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Tèxte</translation>
+        <translation>Tèxte</translation>
     </message>
 </context>
 <context>
