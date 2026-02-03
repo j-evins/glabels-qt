@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;غلاق</translation>
     </message>
 </context>
 <context>
@@ -242,12 +242,12 @@
     <message>
         <source>%1 x %2 (%3 per sheet)</source>
         <extracomment>%1 = number of labels across a page, %2 = number of labels down a page, %3 = total number of labels on a page (sheet).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 x %2 (%3 في الورقة)</translation>
     </message>
     <message>
         <source>%1 per sheet</source>
         <extracomment>%1 is the total number of labels on a page (sheet).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1 في الورقة</translation>
     </message>
 </context>
 <context>
@@ -310,7 +310,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>نص</translation>
     </message>
     <message>
         <source>Layout</source>
@@ -370,7 +370,7 @@
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>باركود</translation>
     </message>
     <message>
         <source>Style</source>
@@ -398,7 +398,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>الملف</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -406,15 +406,15 @@
     </message>
     <message>
         <source>Line/Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>خط/التعبئة</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>خط</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>العرض:</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>الموقع/الحجم</translation>
     </message>
     <message>
         <source>Position</source>
@@ -430,15 +430,15 @@
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>الحجم</translation>
     </message>
     <message>
         <source>Length:</source>
@@ -466,7 +466,7 @@
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>ظل</translation>
     </message>
     <message>
         <source>X offset:</source>
@@ -647,19 +647,19 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>التقسيم #:</translation>
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>الوصف:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>حجم الصفحة:</translation>
     </message>
     <message>
         <source>Label size:</source>
@@ -667,7 +667,7 @@
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>التصميم:</translation>
     </message>
     <message>
         <source>Change product</source>
@@ -793,7 +793,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -801,7 +801,7 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>الوصف:</translation>
     </message>
     <message>
         <source>Page size:</source>
@@ -840,7 +840,7 @@
     </message>
     <message>
         <source>New...</source>
-        <translation type="unfinished"></translation>
+        <translation>جديد …</translation>
     </message>
     <message>
         <source>Browse...</source>
@@ -866,7 +866,7 @@
     <name>TemplateDesignerCdPage</name>
     <message>
         <source>6. Margin:</source>
-        <translation type="unfinished"></translation>
+        <translation>الهامش الداخلي:</translation>
     </message>
     <message>
         <source>1. Outer radius:</source>
@@ -977,7 +977,7 @@
     </message>
     <message>
         <source>Part #:</source>
-        <translation type="unfinished"></translation>
+        <translation>التقسيم #:</translation>
     </message>
     <message>
         <source>Description:</source>
@@ -1000,15 +1000,15 @@
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation type="unfinished"></translation>
+        <translation>عدد الملصقات في العمود:</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
-        <translation type="unfinished"></translation>
+        <translation>هامش الورقة الأيسر:</translation>
     </message>
     <message>
         <source>Distance from top edge (y0):</source>
-        <translation type="unfinished"></translation>
+        <translation>هامش الورقة العلوي:</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
@@ -1031,7 +1031,7 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>الارتفاع:</translation>
     </message>
     <message>
         <source>Width:</source>
@@ -1039,7 +1039,7 @@
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>حجم الصفحة:</translation>
     </message>
 </context>
 <context>
@@ -1134,15 +1134,15 @@
     </message>
     <message>
         <source>Number across (nx):</source>
-        <translation type="unfinished"></translation>
+        <translation>عدد الملصقات في الصف:</translation>
     </message>
     <message>
         <source>Horizontal pitch (dx):</source>
-        <translation type="unfinished"></translation>
+        <translation>المسافة بين الأعمدة:</translation>
     </message>
     <message>
         <source>Vertical pitch (dy):</source>
-        <translation type="unfinished"></translation>
+        <translation>المسافة بين الصفوف:</translation>
     </message>
     <message>
         <source>Print test sheet</source>
@@ -1204,7 +1204,7 @@
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون</translation>
     </message>
 </context>
 <context>
@@ -1272,7 +1272,7 @@
     </message>
     <message>
         <source>Custom color...</source>
-        <translation type="unfinished"></translation>
+        <translation>لون مخصص …</translation>
     </message>
     <message>
         <source>Custom Color</source>
@@ -1364,7 +1364,7 @@
     <name>glabels::MainWindow</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>مرحبا</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -1372,7 +1372,7 @@
     </message>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>خصائص</translation>
     </message>
     <message>
         <source>Merge</source>
@@ -1388,7 +1388,7 @@
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;جديد …</translation>
     </message>
     <message>
         <source>Create a new gLabels project</source>
@@ -1396,7 +1396,7 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;فتح …</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -1404,7 +1404,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;حفظ</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
@@ -1412,7 +1412,7 @@
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>حفظ &amp;بإسم …</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
@@ -1468,7 +1468,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;غلاق</translation>
     </message>
     <message>
         <source>Close the current window</source>
@@ -1524,7 +1524,7 @@
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;تحديد الكل</translation>
     </message>
     <message>
         <source>Select all objects</source>
@@ -1608,7 +1608,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>نص</translation>
     </message>
     <message>
         <source>Create text object</source>
@@ -1640,7 +1640,7 @@
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <source>Create image object</source>
@@ -1656,7 +1656,7 @@
     </message>
     <message>
         <source>Bring To Front</source>
-        <translation type="unfinished"></translation>
+        <translation>إرسال للأمام</translation>
     </message>
     <message>
         <source>Raise selection to top</source>
@@ -1664,7 +1664,7 @@
     </message>
     <message>
         <source>Send To Back</source>
-        <translation type="unfinished"></translation>
+        <translation>إرسال للخلف</translation>
     </message>
     <message>
         <source>Lower selection to bottom</source>
@@ -1672,7 +1672,7 @@
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>تدوير لليسار</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees counter-clockwise</source>
@@ -1680,7 +1680,7 @@
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotate right</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees clockwise</source>
@@ -1688,7 +1688,7 @@
     </message>
     <message>
         <source>Flip Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>قلب أفقي</translation>
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
@@ -1696,7 +1696,7 @@
     </message>
     <message>
         <source>Flip Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>قلب رأسي</translation>
     </message>
     <message>
         <source>Flip object(s) vertically</source>
@@ -1704,7 +1704,7 @@
     </message>
     <message>
         <source>Align Left</source>
-        <translation type="unfinished"></translation>
+        <translation>محاذاة لليسار</translation>
     </message>
     <message>
         <source>Align objects to left edges</source>
@@ -1712,7 +1712,7 @@
     </message>
     <message>
         <source>Align Center</source>
-        <translation type="unfinished"></translation>
+        <translation>توسيط أفقي</translation>
     </message>
     <message>
         <source>Align objects to horizontal centers</source>
@@ -1720,7 +1720,7 @@
     </message>
     <message>
         <source>Align Right</source>
-        <translation type="unfinished"></translation>
+        <translation>محاذاة لليمين</translation>
     </message>
     <message>
         <source>Align objects to right edges</source>
@@ -1728,7 +1728,7 @@
     </message>
     <message>
         <source>Align Top</source>
-        <translation type="unfinished"></translation>
+        <translation>محاذاة للأعلى</translation>
     </message>
     <message>
         <source>Align objects to top edges</source>
@@ -1736,7 +1736,7 @@
     </message>
     <message>
         <source>Align Middle</source>
-        <translation type="unfinished"></translation>
+        <translation>توسيط رأسي</translation>
     </message>
     <message>
         <source>Align objects to vertical centers</source>
@@ -1744,7 +1744,7 @@
     </message>
     <message>
         <source>Align Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>محاذاة للأسفل</translation>
     </message>
     <message>
         <source>Align objects to bottom edges</source>
@@ -1752,7 +1752,7 @@
     </message>
     <message>
         <source>Center Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>توسيط أفقي</translation>
     </message>
     <message>
         <source>Horizontally center objects in label</source>
@@ -1760,7 +1760,7 @@
     </message>
     <message>
         <source>Center Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Center vertically</translation>
     </message>
     <message>
         <source>Vertically center objects in label</source>
@@ -1772,19 +1772,19 @@
     </message>
     <message>
         <source>&amp;About...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;حول …</translation>
     </message>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>حول جيليبلز</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ملف</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;عرض</translation>
     </message>
     <message>
         <source>Toolbars</source>
@@ -1792,23 +1792,23 @@
     </message>
     <message>
         <source>&amp;Objects</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;الكائنات</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;انشاء</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ترتيب</translation>
     </message>
     <message>
         <source>&amp;Rotate/Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;نعكاس/انقلاب</translation>
     </message>
     <message>
         <source>&amp;Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;محاذاة</translation>
     </message>
     <message>
         <source>Center</source>
@@ -1816,7 +1816,7 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;مساعدة</translation>
     </message>
     <message>
         <source>&amp;Editor</source>
@@ -1844,19 +1844,19 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <source>Create Text</source>
-        <translation type="unfinished"></translation>
+        <translation>إنشاء نص</translation>
     </message>
     <message>
         <source>Create Box</source>
-        <translation type="unfinished"></translation>
+        <translation>إنشاء مربع</translation>
     </message>
     <message>
         <source>Create Line</source>
-        <translation type="unfinished"></translation>
+        <translation>إدراج خط</translation>
     </message>
     <message>
         <source>Create Ellipse</source>
@@ -1864,11 +1864,11 @@
     </message>
     <message>
         <source>Create Image</source>
-        <translation type="unfinished"></translation>
+        <translation>إدراج صورة</translation>
     </message>
     <message>
         <source>Create Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>إنشاء باركود</translation>
     </message>
     <message>
         <source>Quick Access</source>
@@ -1933,18 +1933,18 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>كل الملفات (*)</translation>
     </message>
 </context>
 <context>
     <name>glabels::ObjectEditor</name>
     <message>
         <source>No line</source>
-        <translation type="unfinished"></translation>
+        <translation>لا يوجد خط</translation>
     </message>
     <message>
         <source>No fill</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تعبئة</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1968,7 +1968,7 @@
     </message>
     <message>
         <source>shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>لا تعبئة</translation>
     </message>
     <message>
         <source>Ellipse object properties</source>
@@ -1980,7 +1980,7 @@
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <source>Line object properties</source>
@@ -1992,7 +1992,7 @@
     </message>
     <message>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation>نص</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
@@ -2000,19 +2000,19 @@
     </message>
     <message>
         <source>barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>باركود</translation>
     </message>
     <message>
         <source>Object properties</source>
-        <translation type="unfinished"></translation>
+        <translation>الخصائص</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>خط</translation>
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>التعبئة</translation>
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
@@ -2020,7 +2020,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>كل الملفات (*)</translation>
     </message>
     <message>
         <source>PNG - Portable Network Graphics (*.png)</source>
@@ -2084,11 +2084,11 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>الموقع</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>باركود</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -2142,7 +2142,7 @@
     <name>glabels::PropertiesView</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>خصائص</translation>
     </message>
     <message>
         <source>Product Rotate</source>
@@ -2299,7 +2299,7 @@
     <name>glabels::TemplateDesignerOneLayoutPage</name>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>التصميم</translation>
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
@@ -2871,7 +2871,7 @@
     <name>glabels::model::ModelTextObject</name>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>نص</translation>
     </message>
 </context>
 <context>
