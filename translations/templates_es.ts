@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Business card size labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiquetas tamaño tarjeta de visita</translation>
     </message>
     <message>
         <source>Business cards</source>
