@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Records</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Registros</translation>
     </message>
     <message>
         <source>Select all</source>
@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Examinar…</translation>
     </message>
 </context>
 <context>
@@ -366,7 +366,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Editor</translation>
     </message>
     <message>
         <source>Barcode</source>
