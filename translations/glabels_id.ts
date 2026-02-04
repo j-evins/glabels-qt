@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Tentang gLabels</translation>
     </message>
     <message>
         <source>&amp;License</source>
