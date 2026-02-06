@@ -24,43 +24,43 @@
     <name>Color name</name>
     <message>
         <source>Light Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys skarlagenrød</translation>
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys orange</translation>
     </message>
     <message>
         <source>Light Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys smør</translation>
     </message>
     <message>
         <source>Light Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys kamæleon</translation>
     </message>
     <message>
         <source>Light Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys himmelblå</translation>
     </message>
     <message>
         <source>Light Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys blomme</translation>
     </message>
     <message>
         <source>Light Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys chokolade</translation>
     </message>
     <message>
         <source>Light Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys aluminium 1</translation>
     </message>
     <message>
         <source>Light Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Lys aluminium 2</translation>
     </message>
     <message>
         <source>Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Skarlagenrød</translation>
     </message>
     <message>
         <source>Orange</source>
@@ -68,23 +68,23 @@
     </message>
     <message>
         <source>Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Smør</translation>
     </message>
     <message>
         <source>Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamelæon</translation>
     </message>
     <message>
         <source>Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Himmelblå</translation>
     </message>
     <message>
         <source>Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Blomme</translation>
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Chokolade</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
@@ -96,39 +96,39 @@
     </message>
     <message>
         <source>Dark Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk skarlagenrød</translation>
     </message>
     <message>
         <source>Dark Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk orange</translation>
     </message>
     <message>
         <source>Dark Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk smør</translation>
     </message>
     <message>
         <source>Dark Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk kamæleon</translation>
     </message>
     <message>
         <source>Dark Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk himmelblå</translation>
     </message>
     <message>
         <source>Dark Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk blomme</translation>
     </message>
     <message>
         <source>Dark Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk chokolade</translation>
     </message>
     <message>
         <source>Dark Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk aluminium 1</translation>
     </message>
     <message>
         <source>Dark Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørk aluminium 2</translation>
     </message>
     <message>
         <source>Black</source>
@@ -136,31 +136,31 @@
     </message>
     <message>
         <source>Very Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Stærk mørkegrå</translation>
     </message>
     <message>
         <source>Darker Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørkere grå</translation>
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Mørkegrå</translation>
     </message>
     <message>
         <source>Medium Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Mellemgrå</translation>
     </message>
     <message>
         <source>Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Lysegrå</translation>
     </message>
     <message>
         <source>Lighter Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Lysere grå</translation>
     </message>
     <message>
         <source>Very Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Stærk lysegrå</translation>
     </message>
     <message>
         <source>White</source>
@@ -202,7 +202,7 @@
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
@@ -222,19 +222,19 @@
     </message>
     <message>
         <source>Text: Colon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst: kolonadskilte værdier</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst: Kolonadskilte værdier, nøgler på linje 1</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst: Semikolonadskilte værdier</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst: Semikolonadskilte værdier, nøgler på linje 1</translation>
     </message>
 </context>
 <context>
@@ -261,7 +261,7 @@
     <name>FrameContinuous</name>
     <message>
         <source>wide</source>
-        <translation type="unfinished"></translation>
+        <translation>bred</translation>
     </message>
 </context>
 <context>
@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Poster</translation>
     </message>
     <message>
         <source>Select all</source>
@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse ...</translation>
     </message>
 </context>
 <context>
@@ -326,15 +326,15 @@
     </message>
     <message>
         <source>Wrap mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Omslut-tilstand:</translation>
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>Ord</translation>
     </message>
     <message>
         <source>Anywhere</source>
-        <translation type="unfinished"></translation>
+        <translation>Overalt</translation>
     </message>
     <message>
         <source>None</source>
@@ -342,7 +342,7 @@
     </message>
     <message>
         <source>Allow printing to shrink text to fit object</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillad udskrivning at formindske tekst til objektet</translation>
     </message>
     <message>
         <source>Font</source>
@@ -366,7 +366,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigeringsprogram</translation>
     </message>
     <message>
         <source>Barcode</source>
@@ -402,7 +402,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse ...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
@@ -525,15 +525,15 @@
     </message>
     <message>
         <source>Configure grid behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurer gitteropførsel.</translation>
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>Oprindelse</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrum</translation>
     </message>
     <message>
         <source>Spacing</source>
@@ -541,7 +541,7 @@
     </message>
     <message>
         <source>Top left corner</source>
-        <translation type="unfinished"></translation>
+        <translation>Øverste venstre hjørne</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -588,7 +588,7 @@
     </message>
     <message>
         <source>Print range</source>
-        <translation type="unfinished"></translation>
+        <translation>Udskriftsområde</translation>
     </message>
     <message>
         <source>Positions</source>
@@ -596,7 +596,7 @@
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>til</translation>
     </message>
     <message>
         <source>Merge control</source>
@@ -604,27 +604,27 @@
     </message>
     <message>
         <source>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Usamlet (f.eks.  1,1,1   2,2,2   3,3,3)</translation>
     </message>
     <message>
         <source>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Samlet   (f.eks.  1,2,3   1,2,3   1,2,3)</translation>
     </message>
     <message>
         <source>Merge groups are contiguous</source>
-        <translation type="unfinished"></translation>
+        <translation>Sammenflettede grupper er sammenhængende</translation>
     </message>
     <message>
         <source>Merge groups start on a new page</source>
-        <translation type="unfinished"></translation>
+        <translation>Sammenflettede grupper starter på en ny side</translation>
     </message>
     <message>
         <source>Start groups at position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Start grupper på positionen:</translation>
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Destination</translation>
     </message>
     <message>
         <source>Print</source>
@@ -632,7 +632,7 @@
     </message>
     <message>
         <source>Use system print dialog...</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug systemudskrivningsdialog ...</translation>
     </message>
 </context>
 <context>
@@ -671,11 +671,11 @@
     </message>
     <message>
         <source>Change product</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændr produkt</translation>
     </message>
     <message>
         <source>Adjustable Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Justerbare parametre</translation>
     </message>
     <message>
         <source>Label length:</source>
@@ -687,15 +687,15 @@
     </message>
     <message>
         <source>Select horizontal or vertical orientation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg vandret eller lodret retning.</translation>
     </message>
     <message>
         <source>Horizontal orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Vandret retning</translation>
     </message>
     <message>
         <source>Vertical orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Lodret retning</translation>
     </message>
     <message>
         <source>Similar Products</source>
@@ -703,14 +703,14 @@
     </message>
     <message>
         <source>Select another product for this gLabels project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg et andet produkt for dette gLabels-projekt.</translation>
     </message>
 </context>
 <context>
     <name>ReportBugDialog</name>
     <message>
         <source>gLabels - Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Lav en fejlrapport</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -718,18 +718,18 @@
     </message>
     <message>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <source>&amp;Launch Issue Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Start fejlrapportering</translation>
     </message>
 </context>
 <context>
     <name>SelectProductDialog</name>
     <message>
         <source>gLabels - Select Product</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Vælg produkt</translation>
     </message>
     <message>
         <source>Search all</source>
@@ -737,11 +737,11 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Søg</translation>
     </message>
     <message>
         <source>Filter by paper size</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrer efter papirstørrelse</translation>
     </message>
     <message>
         <source>ISO sizes</source>
@@ -757,7 +757,7 @@
     </message>
     <message>
         <source>Filter by category</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrer efter kategori</translation>
     </message>
     <message>
         <source>All</source>
@@ -765,11 +765,11 @@
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Valgt</translation>
     </message>
     <message>
         <source>Search entire product database.</source>
-        <translation type="unfinished"></translation>
+        <translation>Søg i hele produktdatabasen.</translation>
     </message>
     <message>
         <source>Recent</source>
@@ -777,15 +777,15 @@
     </message>
     <message>
         <source>Select from recently used products.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg fra seneste produkter.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Afbryd</translation>
     </message>
     <message>
         <source>Product information</source>
-        <translation type="unfinished"></translation>
+        <translation>Produktinformation</translation>
     </message>
     <message>
         <source>Vendor:</source>
@@ -824,15 +824,15 @@
     <name>StartupView</name>
     <message>
         <source>Welcome to gLabels.  Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Velkommen til gLabels.  Lad os komme i gang:</translation>
     </message>
     <message>
         <source>Create a new blank gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Opret et nyt tomt gLabels-projekt</translation>
     </message>
     <message>
         <source>Open a recent gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Åbn et nyligt gLabels-projekt</translation>
     </message>
     <message>
         <source>Recent</source>
@@ -844,22 +844,22 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gennemse ...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Åbn et eksisterende gLabels-projekt</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerApplyPage</name>
     <message>
         <source>You have completed the gLabels Product Template Designer.  If you wish to accept and save your product template, click &quot;Save.&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Du har fuldført gLabels-produktskabelondesigneren.  Hvis du ønsker at acceptere og gemme din produktskabelon, klik »Gem.«</translation>
     </message>
     <message>
         <source>Otherwise, you may click &quot;Cancel&quot; to abandon your design or &quot;Back&quot; to review or continue editing this product template.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellers kan du klikke på »Afbryd« for at fortryde dit design eller »Tilbage« for at gennemse eller fortsætte med at redigere denne produktskabelon.</translation>
     </message>
 </context>
 <context>
@@ -893,7 +893,7 @@
     <name>TemplateDesignerContinuousPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik »Afbryd« eller afslut, eller klik »Tilbage« for at begynde med et andet produkt.</translation>
     </message>
 </context>
 <context>
@@ -919,11 +919,11 @@
     <name>TemplateDesignerIntroPage</name>
     <message>
         <source>Copy/Edit Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier/rediger produkt</translation>
     </message>
     <message>
         <source>Copy and edit an existing product template</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier og rediger en eksisterende produktskabelon</translation>
     </message>
     <message>
         <source>New Product</source>
@@ -931,30 +931,30 @@
     </message>
     <message>
         <source>Create a new product template from scratch</source>
-        <translation type="unfinished"></translation>
+        <translation>Opret en ny produktskabelon fra bunden af</translation>
     </message>
     <message>
         <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Denne dialog vil hjælpe dig med at oprette en tilpasset produktskabelon. Lad os komme i gang:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerNLayoutsPage</name>
     <message>
         <source>A layout is a set of labels or cards that can be arranged in a simple grid.  Most products only need one layout, as in the first example below.  The second example illustrates when two layouts are needed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Et layout er et sæt af etiketter eller kort, der kan justeres i et simpelt gitter.  De fleste produkter skal kun bruge et layout, som i det første eksempel nedenfor.  Det andet eksempel illustrer, når to layout er krævet.</translation>
     </message>
     <message>
         <source>Products needing only one layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Produkter der kun kræver et layout.</translation>
     </message>
     <message>
         <source>Products needing two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Produkter der kræver to layout.</translation>
     </message>
     <message>
         <source>Note: if more than two layouts are required, the product template must be edited manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bemærk: hvis mere end to layout er krævet, skal produktskabelonen redigeres manuelt.</translation>
     </message>
     <message>
         <source>One layout</source>
@@ -1046,7 +1046,7 @@
     <name>TemplateDesignerPathPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik »Afbryd« eller afslut, eller klik »Tilbage« for at begynde med et andet produkt.</translation>
     </message>
 </context>
 <context>
@@ -1081,7 +1081,7 @@
     </message>
     <message>
         <source>in</source>
-        <translation type="unfinished"></translation>
+        <translation>i</translation>
     </message>
 </context>
 <context>
@@ -1176,31 +1176,31 @@
     <name>Variable</name>
     <message>
         <source>String</source>
-        <translation type="unfinished"></translation>
+        <translation>Streng</translation>
     </message>
     <message>
         <source>Integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Heltal</translation>
     </message>
     <message>
         <source>Floating Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommatal</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldrig</translation>
     </message>
     <message>
         <source>Per item</source>
-        <translation type="unfinished"></translation>
+        <translation>Per element</translation>
     </message>
     <message>
         <source>Per copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Per kopi</translation>
     </message>
     <message>
         <source>Per page</source>
-        <translation type="unfinished"></translation>
+        <translation>Per side</translation>
     </message>
     <message>
         <source>Color</source>
@@ -1264,11 +1264,11 @@
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Standard Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardfarver</translation>
     </message>
     <message>
         <source>Recent Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Seneste farver</translation>
     </message>
     <message>
         <source>Custom color...</source>
@@ -1285,7 +1285,7 @@
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug erstatningsfelt</translation>
     </message>
 </context>
 <context>
@@ -1310,7 +1310,7 @@
     <name>glabels::File</name>
     <message>
         <source>gLabels - Open Project</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - åbn projekt</translation>
     </message>
     <message>
         <source>glabels files (*.glabels);;All files (*)</source>
@@ -1318,7 +1318,7 @@
     </message>
     <message>
         <source>Unable to open &quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan ikke åbne »</translation>
     </message>
     <message>
         <source>&quot;.</source>
@@ -1326,11 +1326,11 @@
     </message>
     <message>
         <source>gLabels - Save Project As</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Gem projekt som</translation>
     </message>
     <message>
         <source>Save Label As</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem etiket som</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
@@ -1357,7 +1357,7 @@
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>Smid</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@
     </message>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Sammenføj</translation>
     </message>
     <message>
         <source>Variables</source>
@@ -1392,7 +1392,7 @@
     </message>
     <message>
         <source>Create a new gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Opret et nyt gLabels-projekt</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
@@ -1400,7 +1400,7 @@
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Åbn et eksisterende gLabels-projekt</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -1408,7 +1408,7 @@
     </message>
     <message>
         <source>Save current gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem nuværende gLabels-projekt</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
@@ -1416,7 +1416,7 @@
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem nuværende gLabels-projekt til et andet navn</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -1424,7 +1424,7 @@
     </message>
     <message>
         <source>Select project Edit mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg projektredigeringstilstand</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
@@ -1432,15 +1432,15 @@
     </message>
     <message>
         <source>Select project Properties mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg projektegenskabstilstand</translation>
     </message>
     <message>
         <source>&amp;Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sammenføj</translation>
     </message>
     <message>
         <source>Select project Merge mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg projektsammenføjtilstand</translation>
     </message>
     <message>
         <source>&amp;Variables</source>
@@ -1448,7 +1448,7 @@
     </message>
     <message>
         <source>Select project Variables mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg projektvariabeltilstand</translation>
     </message>
     <message>
         <source>&amp;Print</source>
@@ -1456,7 +1456,7 @@
     </message>
     <message>
         <source>Select project Print mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg projektudskrivningstilstand</translation>
     </message>
     <message>
         <source>Product Template &amp;Designer...</source>
@@ -1464,7 +1464,7 @@
     </message>
     <message>
         <source>Create custom templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Opret tilpassede skabeloner</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -1472,15 +1472,15 @@
     </message>
     <message>
         <source>Close the current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Luk det nuværende vindue</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;fslut</translation>
     </message>
     <message>
         <source>Exit glabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Afslut glabels</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -1548,7 +1548,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigeringsprogram</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -1556,7 +1556,7 @@
     </message>
     <message>
         <source>Change visibility of the grid in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændr synlighed for gitteret i nuværende vindue</translation>
     </message>
     <message>
         <source>Markup</source>
@@ -1564,7 +1564,7 @@
     </message>
     <message>
         <source>Change visibility of markup lines in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændr synlighed for opmærkningslinjer i nuværende vindue</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -1812,7 +1812,7 @@
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrum</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1820,7 +1820,7 @@
     </message>
     <message>
         <source>&amp;Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Redigeringsprogram</translation>
     </message>
     <message>
         <source>(modified)</source>
@@ -1828,7 +1828,7 @@
     </message>
     <message>
         <source>Save changes to project &quot;%1&quot; before closing?</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem ændringer til projekt »%1« før det lukkes?</translation>
     </message>
     <message>
         <source>Your changes will be lost if you don&apos;t save them.</source>
@@ -1836,7 +1836,7 @@
     </message>
     <message>
         <source>Save project?</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem projekt?</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -1872,23 +1872,23 @@
     </message>
     <message>
         <source>Quick Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Hurtig adgang</translation>
     </message>
     <message>
         <source>&amp;Report Bug...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lav en fejlrapport ...</translation>
     </message>
     <message>
         <source>Report a bug to the developers</source>
-        <translation type="unfinished"></translation>
+        <translation>Lav en fejlrapport til udviklerne</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Quick Access&quot; toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændr synlighed for værktøjslinjen »Hurtig adgang« i det nuværende vindue</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Editor&quot; toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændr synlighed for værktøjslinjen »Redigeringsprogram« i det nuværende vindue</translation>
     </message>
     <message>
         <source>&amp;User Manual...</source>
@@ -1896,36 +1896,36 @@
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Åbn seneste</translation>
     </message>
     <message>
         <source>Quick Access Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Hurtig adgangsværktøjslinje</translation>
     </message>
     <message>
         <source>Undo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Fortryd %1</translation>
     </message>
     <message>
         <source>Redo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Prøv igen %1</translation>
     </message>
     <message>
         <source>Center Both</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer begge</translation>
     </message>
     <message>
         <source>Center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer objekter i etiket</translation>
     </message>
 </context>
 <context>
     <name>glabels::MergeView</name>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Sammenføj</translation>
     </message>
     <message>
         <source>Select merge file</source>
@@ -1948,7 +1948,7 @@
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Original size</source>
@@ -2096,11 +2096,11 @@
     </message>
     <message>
         <source>Insert substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Indsæt erstatningsfelt</translation>
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug erstatningsfelt</translation>
     </message>
 </context>
 <context>
@@ -2111,15 +2111,15 @@
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Vil samlet udskrive %1 elementer på %2 sider.)</translation>
     </message>
     <message>
         <source>(Will print a total of 1 item on 1 page.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Vil samlet udskrive 1 element på 1 side.)</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on 1 page.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Vil samlet udskrive %1 elementer på 1 side.)</translation>
     </message>
     <message>
         <source>Print to file (PDF)</source>
@@ -2150,26 +2150,26 @@
     </message>
     <message>
         <source>Change Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændr produkt</translation>
     </message>
 </context>
 <context>
     <name>glabels::ReportBugDialog</name>
     <message>
         <source>How to Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Sådan laver du en fejlrapport</translation>
     </message>
     <message>
         <source>To submit a bug report, click on the button below.  This will open a web browser to the gLabels github issue tracking page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik på knappen nedenfor, or at indsende en fejlrapport.  Dette vil åbne en internetbrowser til gLabels github-fejlrapporteringsside.</translation>
     </message>
     <message>
         <source>Be sure to include a detailed description of the problem and how to recreate it.  Attach any screenshots and/or example glabels project files that may illustrate the problem.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikr dig at du inkluderer en detaljeret beskrivelse af problemet og hvordan det kan genskabes.  Vedhæft eventuelt skærmbilleder og/eller eksempler på glabels-projektfiler, der kan illustrere problemet.</translation>
     </message>
     <message>
         <source>Before submitting a report, look through the existing issues for similar or related bugs.  If the issue has already been reported, please consider contributing to its report instead.  Otherwise, create a new issue report. Please paste the following information into the issue description.</source>
-        <translation type="unfinished"></translation>
+        <translation>Før du laver en fejlrapport, så kig efter lignende problemstillinger eller relaterede fejlrapporter.  Hvis problemstillingen allerede er blevet rapporter, så overvej at bidrage til den rapport i stedet for.  Ellers opret en ny fejlrapport. Indsæt den følgende information i problembeskrivelsen.</translation>
     </message>
 </context>
 <context>
@@ -2198,7 +2198,7 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Rul</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -2209,16 +2209,16 @@
     <name>glabels::TemplateDesignerApplyPage</name>
     <message>
         <source>Save Product Template</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem produktskabelon</translation>
     </message>
     <message>
         <source>Click &quot;Save&quot; to save your custom product template!</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik »Gem« for at gemme din tilpasset produktskabelon!</translation>
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
         <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Brugerproduktskabelon (%1 %1) findes allerede.</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
@@ -2233,18 +2233,18 @@
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Juster venligst størrelsesparametrene for et enkelt produktelement.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerContinuousPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Produktstil er ikke understøttet</translation>
     </message>
     <message>
         <source>Continuous tape product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Produktskabeloner til kontinuerlige bånd understøttes i øjeblikket ikke af produktskabelondesigneren.</translation>
     </message>
 </context>
 <context>
@@ -2255,7 +2255,7 @@
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Juster venligst størrelsesparametrene for et enkelt produktelement.</translation>
     </message>
 </context>
 <context>
@@ -2266,7 +2266,7 @@
     </message>
     <message>
         <source>Welcome to the gLabels Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Velkommen til gLabels-produktskabelondesigner.</translation>
     </message>
 </context>
 <context>
@@ -2277,7 +2277,7 @@
     </message>
     <message>
         <source>Please select the number of layouts required.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg venligst antallet af krævede layout.</translation>
     </message>
 </context>
 <context>
@@ -2288,11 +2288,11 @@
     </message>
     <message>
         <source>Please enter the following identifying information about the product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Indtast venligst den følgende identificerende information om produktet.</translation>
     </message>
     <message>
         <source>Brand and part number match an existing built-in product template!</source>
-        <translation type="unfinished"></translation>
+        <translation>Mærke og delnummer matcher en eksisterende indbygget produktskabelon!</translation>
     </message>
 </context>
 <context>
@@ -2303,7 +2303,7 @@
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Indtast venligt parametre for dit enlige layout.</translation>
     </message>
 </context>
 <context>
@@ -2314,7 +2314,7 @@
     </message>
     <message>
         <source>Please select the product page size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg venligst produktsidestørrelsen.</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2322,18 +2322,18 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Rul</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerPathPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Produktstil er ikke understøttet</translation>
     </message>
     <message>
         <source>Path based product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stibaserede produktskabeloner er i øjeblikket ikke understøttet af produktskabelondesigneren.</translation>
     </message>
 </context>
 <context>
@@ -2344,7 +2344,7 @@
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Juster venligst størrelsesparametrene for et enkelt produktelement.</translation>
     </message>
 </context>
 <context>
@@ -2355,7 +2355,7 @@
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Juster venligst størrelsesparametrene for et enkelt produktelement.</translation>
     </message>
 </context>
 <context>
@@ -2366,7 +2366,7 @@
     </message>
     <message>
         <source>Please select the basic product shape.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vælg venligst den grundlæggende produktform.</translation>
     </message>
 </context>
 <context>
@@ -2377,7 +2377,7 @@
     </message>
     <message>
         <source>Please enter parameters for your two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Indtast venligst parametrene for dine to layout.</translation>
     </message>
 </context>
 <context>
@@ -2815,19 +2815,19 @@
     </message>
     <message>
         <source>FIM (Facing ID Mark)</source>
-        <translation type="unfinished"></translation>
+        <translation>FIM (Facing ID Mark)</translation>
     </message>
     <message>
         <source>rMQR (Rectangular Micro QR)</source>
-        <translation type="unfinished"></translation>
+        <translation>rMQR (Rectangular Micro QR)</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>Royal Mail 4-State Customer</translation>
     </message>
     <message>
         <source>VIN (Vehicle ID Number)</source>
-        <translation type="unfinished"></translation>
+        <translation>VIN (Vehicle ID Number)</translation>
     </message>
     <message>
         <source>HIBC Codablock-F</source>
@@ -2882,7 +2882,7 @@
     </message>
     <message>
         <source>gLabels project files to open, optionally.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels-projektfiler at åbne, valgfrit.</translation>
     </message>
 </context>
 </TS>
