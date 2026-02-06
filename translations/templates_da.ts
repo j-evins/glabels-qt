@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="da">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="da">
 <context>
     <name>XmlStrings</name>
     <message>
@@ -15,11 +17,11 @@
     </message>
     <message>
         <source>Arch file inserts</source>
-        <translation type="unfinished"/>
+        <translation>Arch-filindlæg</translation>
     </message>
     <message>
         <source>Arch file labels</source>
-        <translation type="unfinished"/>
+        <translation>Arch-filetiketter</translation>
     </message>
     <message>
         <source>Barcode labels</source>
@@ -39,23 +41,23 @@
     </message>
     <message>
         <source>CD/DVD booklet</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-brochure</translation>
     </message>
     <message>
         <source>CD/DVD case (rightside up)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etui (op i højre side)</translation>
     </message>
     <message>
         <source>CD/DVD case (upside down)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etui (på hovedet)</translation>
     </message>
     <message>
         <source>CD/DVD case booklet</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etuibrochure</translation>
     </message>
     <message>
         <source>CD/DVD case labels</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etuietiketter</translation>
     </message>
     <message>
         <source>CD/DVD center hub labels</source>
@@ -67,19 +69,19 @@
     </message>
     <message>
         <source>CD/DVD labels (disc labels)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etiketter (disketiketter)</translation>
     </message>
     <message>
         <source>CD/DVD labels (disc only)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etiketter (kun disk)</translation>
     </message>
     <message>
         <source>CD/DVD labels (rectangles)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etiketter (rektangler)</translation>
     </message>
     <message>
         <source>CD/DVD labels (spine only)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etiketter (kun ryg)</translation>
     </message>
     <message>
         <source>CD/DVD or other media</source>
@@ -87,7 +89,7 @@
     </message>
     <message>
         <source>CD/DVD tray</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-bakke</translation>
     </message>
     <message>
         <source>Candy labels</source>
@@ -95,7 +97,7 @@
     </message>
     <message>
         <source>Cassette labels</source>
-        <translation type="unfinished"/>
+        <translation>Kassetteetiketter</translation>
     </message>
     <message>
         <source>Coffee and tea labels</source>
@@ -103,11 +105,11 @@
     </message>
     <message>
         <source>Correction labels</source>
-        <translation type="unfinished"/>
+        <translation>Korrektionsetiketter</translation>
     </message>
     <message>
         <source>DLT labels</source>
-        <translation type="unfinished"/>
+        <translation>DLT-etiketter</translation>
     </message>
     <message>
         <source>Digital media labels</source>
@@ -155,11 +157,11 @@
     </message>
     <message>
         <source>Full-page labels</source>
-        <translation type="unfinished"/>
+        <translation>Helsides etiketter</translation>
     </message>
     <message>
         <source>Full-page labels with back slit</source>
-        <translation type="unfinished"/>
+        <translation>Helsides etiketter med slids bagpå</translation>
     </message>
     <message>
         <source>Greeting cards</source>
@@ -167,11 +169,11 @@
     </message>
     <message>
         <source>Hanging folder labels</source>
-        <translation type="unfinished"/>
+        <translation>Hængende mappeetiketter</translation>
     </message>
     <message>
         <source>ID labels</source>
-        <translation type="unfinished"/>
+        <translation>Id-etiketter</translation>
     </message>
     <message>
         <source>Labels</source>
@@ -179,15 +181,15 @@
     </message>
     <message>
         <source>Large address labels</source>
-        <translation type="unfinished"/>
+        <translation>Store adresseetiketter</translation>
     </message>
     <message>
         <source>Lever arch file labels</source>
-        <translation type="unfinished"/>
+        <translation>Arch-filetiketter med løftestang</translation>
     </message>
     <message>
         <source>Magnet stickers</source>
-        <translation type="unfinished"/>
+        <translation>Magnetklistermærker</translation>
     </message>
     <message>
         <source>Mailing labels</source>
@@ -211,7 +213,7 @@
     </message>
     <message>
         <source>Mini CD/DVD labels</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-minietiketter</translation>
     </message>
     <message>
         <source>Mini Disc labels</source>
@@ -219,27 +221,27 @@
     </message>
     <message>
         <source>Mini address labels</source>
-        <translation type="unfinished"/>
+        <translation>Miniadresseetiketter</translation>
     </message>
     <message>
         <source>Mini labels</source>
-        <translation type="unfinished"/>
+        <translation>Minietiketter</translation>
     </message>
     <message>
         <source>Multipurpose labels</source>
-        <translation type="unfinished"/>
+        <translation>Etiketter med flere formål</translation>
     </message>
     <message>
         <source>Name badge labels</source>
-        <translation type="unfinished"/>
+        <translation>Navneskiltsetiketter</translation>
     </message>
     <message>
         <source>Name badges</source>
-        <translation type="unfinished"/>
+        <translation>Navneskilte</translation>
     </message>
     <message>
         <source>Name plates</source>
-        <translation>Navneskilte</translation>
+        <translation>Navnepladder</translation>
     </message>
     <message>
         <source>Nutritional labels</source>
@@ -307,15 +309,15 @@
     </message>
     <message>
         <source>Video labels (face only)</source>
-        <translation type="unfinished"/>
+        <translation>Videoetiketter (kun ansigt)</translation>
     </message>
     <message>
         <source>Video tape face labels</source>
-        <translation type="unfinished"/>
+        <translation>Ansigtsetiketter for videobånd</translation>
     </message>
     <message>
         <source>Video tape spine labels</source>
-        <translation type="unfinished"/>
+        <translation>Rygetiketter for videobånd</translation>
     </message>
     <message>
         <source>Zip disc labels</source>
@@ -323,71 +325,71 @@
     </message>
     <message>
         <source>Bookplate labels</source>
-        <translation type="unfinished"/>
+        <translation>Bogpladeetiketter</translation>
     </message>
     <message>
         <source>Bottle/jar labels</source>
-        <translation type="unfinished"/>
+        <translation>Flaske/krukke-etiketter</translation>
     </message>
     <message>
         <source>Candle labels</source>
-        <translation type="unfinished"/>
+        <translation>Stearinlysetiketter</translation>
     </message>
     <message>
         <source>Classification labels</source>
-        <translation type="unfinished"/>
+        <translation>Klassifikationsetiketter</translation>
     </message>
     <message>
         <source>File labels</source>
-        <translation type="unfinished"/>
+        <translation>Filetiketter</translation>
     </message>
     <message>
         <source>VHS face labels</source>
-        <translation type="unfinished"/>
+        <translation>VHS-frontetiketter</translation>
     </message>
     <message>
         <source>VHS labels</source>
-        <translation type="unfinished"/>
+        <translation>VHS-etiketter</translation>
     </message>
     <message>
         <source>Large arch file labels</source>
-        <translation type="unfinished"/>
+        <translation>Store arch-filetiketter</translation>
     </message>
     <message>
         <source>Tube labels</source>
-        <translation type="unfinished"/>
+        <translation>Røretiketter</translation>
     </message>
     <message>
         <source>CD/DVD insert</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-indlæg</translation>
     </message>
     <message>
         <source>CD/DVD insert (back)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-indlæg (ryg)</translation>
     </message>
     <message>
         <source>CD/DVD insert (front)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-indlæg (front)</translation>
     </message>
     <message>
         <source>CD/DVD labels (spine labels)</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-etiketter (rygetiketter)</translation>
     </message>
     <message>
         <source>DVD insert</source>
-        <translation type="unfinished"/>
+        <translation>Dvd-indlæg</translation>
     </message>
     <message>
         <source>Divider labels</source>
-        <translation type="unfinished"/>
+        <translation>Skillemærker</translation>
     </message>
     <message>
         <source>Index cards</source>
-        <translation type="unfinished"/>
+        <translation>Indekskort</translation>
     </message>
     <message>
         <source>Large round labels</source>
-        <translation type="unfinished"/>
+        <translation>Store runde etiketter</translation>
     </message>
     <message>
         <source>Post cards</source>
@@ -395,39 +397,39 @@
     </message>
     <message>
         <source>Tent cards</source>
-        <translation type="unfinished"/>
+        <translation>Teltkort</translation>
     </message>
     <message>
         <source>VHS insert</source>
-        <translation type="unfinished"/>
+        <translation>VHS-indlæg</translation>
     </message>
     <message>
         <source>VHS-C insert</source>
-        <translation type="unfinished"/>
+        <translation>VHS-C-indlæg</translation>
     </message>
     <message>
         <source>Video-8 insert</source>
-        <translation type="unfinished"/>
+        <translation>Video-8-indlæg</translation>
     </message>
     <message>
         <source>Window stickers</source>
-        <translation type="unfinished"/>
+        <translation>Vinduesklistermærker</translation>
     </message>
     <message>
         <source>Zip disc insert</source>
-        <translation type="unfinished"/>
+        <translation>Zip-diskindlæg</translation>
     </message>
     <message>
         <source>Continuous label tape</source>
-        <translation type="unfinished"/>
+        <translation>Kontinuerligt etiketbånd</translation>
     </message>
     <message>
         <source>Postage stamp labels</source>
-        <translation type="unfinished"/>
+        <translation>Frimærkeetiketter</translation>
     </message>
     <message>
         <source>CD/DVD spine labels</source>
-        <translation type="unfinished"/>
+        <translation>Cd/dvd-rygetiketter</translation>
     </message>
 </context>
 </TS>
