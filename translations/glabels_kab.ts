@@ -175,7 +175,7 @@
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Isem:</translation>
     </message>
     <message>
         <source>Step size:</source>
@@ -191,18 +191,18 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tawsit:</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>Azal:</translation>
     </message>
 </context>
 <context>
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ula yiwet</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
@@ -275,15 +275,15 @@
     <name>MergeView</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Aɣbalu</translation>
     </message>
     <message>
         <source>Format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Amasal:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adig:</translation>
     </message>
     <message>
         <source>Records</source>
@@ -291,7 +291,7 @@
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
+        <translation>Fren-iten akk</translation>
     </message>
     <message>
         <source>Unselect all</source>
@@ -314,7 +314,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Aḍris</translation>
     </message>
     <message>
         <source>Layout</source>
@@ -334,7 +334,7 @@
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>Awal</translation>
     </message>
     <message>
         <source>Anywhere</source>
@@ -350,27 +350,27 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Tasefsit</translation>
     </message>
     <message>
         <source>Family:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tawacult:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiddi:</translation>
     </message>
     <message>
         <source>Style:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aɣanib:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ini:</translation>
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Amaẓrag</translation>
     </message>
     <message>
         <source>Barcode</source>
@@ -378,15 +378,15 @@
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Aɣanib</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tawsit:</translation>
     </message>
     <message>
         <source>Show text</source>
-        <translation type="unfinished"></translation>
+        <translation>Sken-d aḍris</translation>
     </message>
     <message>
         <source>Checksum</source>
@@ -572,11 +572,11 @@
     </message>
     <message>
         <source>Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Asebter</translation>
     </message>
     <message>
         <source>of</source>
-        <translation type="unfinished"></translation>
+        <translation>ɣef</translation>
     </message>
     <message>
         <source>nn</source>
@@ -584,11 +584,11 @@
     </message>
     <message>
         <source>Pages</source>
-        <translation type="unfinished"></translation>
+        <translation>Isebtaren</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Tixtiṛiyin</translation>
     </message>
     <message>
         <source>Print range</source>
@@ -632,7 +632,7 @@
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Siggez</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
@@ -718,11 +718,11 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Nɣel</translation>
     </message>
     <message>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <source>&amp;Launch Issue Tracker</source>
@@ -741,7 +741,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Nadi</translation>
     </message>
     <message>
         <source>Filter by paper size</source>
@@ -765,7 +765,7 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Akk</translation>
     </message>
     <message>
         <source>Selected</source>
@@ -805,7 +805,7 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aglam:</translation>
     </message>
     <message>
         <source>Page size:</source>
@@ -821,18 +821,18 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Fren</translation>
     </message>
 </context>
 <context>
     <name>StartupView</name>
     <message>
         <source>Welcome to gLabels.  Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansuf ar gLabels.  Yyaɣ ihi ad nebdu:</translation>
     </message>
     <message>
         <source>Create a new blank gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Snulfu-d asenfar gLabels amaynut ilem</translation>
     </message>
     <message>
         <source>Open a recent gLabels project</source>
@@ -844,15 +844,15 @@
     </message>
     <message>
         <source>New...</source>
-        <translation type="unfinished"></translation>
+        <translation>Amaynut…</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Snirem…</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Ldi-d asenfar n gLabels i yellan</translation>
     </message>
 </context>
 <context>
@@ -985,15 +985,15 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aglam:</translation>
     </message>
     <message>
         <source>(e.g. 8163A)</source>
-        <translation type="unfinished"></translation>
+        <translation>(amedya 8163A)</translation>
     </message>
     <message>
         <source>(e.g. Avery, Acme, ...)</source>
-        <translation type="unfinished"></translation>
+        <translation>(amedya Avery, Acme, ...)</translation>
     </message>
 </context>
 <context>
@@ -1208,22 +1208,22 @@
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Ini</translation>
     </message>
 </context>
 <context>
     <name>VariablesView</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Rnu</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ẓreg</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Kkes</translation>
     </message>
     <message>
         <source>Add variable</source>
@@ -1242,7 +1242,7 @@
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Lqem</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
@@ -1261,7 +1261,7 @@
     <name>glabels::ColorHistory</name>
     <message>
         <source>color %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ini %1</translation>
     </message>
 </context>
 <context>
@@ -1280,12 +1280,12 @@
     </message>
     <message>
         <source>Custom Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Ini udmawan</translation>
     </message>
     <message>
         <source>Custom Color %1</source>
         <extracomment>%1 = color specification in hex. String must not contain a colon (:).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ini udmawan %1</translation>
     </message>
     <message>
         <source>Use substitution field</source>
@@ -1353,7 +1353,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Kkes</translation>
     </message>
     <message>
         <source>Resize</source>
@@ -1368,11 +1368,11 @@
     <name>glabels::MainWindow</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansuf</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ẓreg</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -1496,7 +1496,7 @@
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Gzem</translation>
     </message>
     <message>
         <source>Cut the selection</source>
@@ -1552,7 +1552,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Amaẓrag</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -1612,7 +1612,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Aḍris</translation>
     </message>
     <message>
         <source>Create text object</source>
@@ -1644,7 +1644,7 @@
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tugna</translation>
     </message>
     <message>
         <source>Create image object</source>
@@ -1776,15 +1776,15 @@
     </message>
     <message>
         <source>&amp;About...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ɣef...</translation>
     </message>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Ɣef gLabels</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>A&amp;faylu</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -1848,11 +1848,11 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Kkes</translation>
     </message>
     <message>
         <source>Create Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Snulfu-d aḍris</translation>
     </message>
     <message>
         <source>Create Box</source>
@@ -1937,7 +1937,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Akk ifuyla (*)</translation>
     </message>
 </context>
 <context>
