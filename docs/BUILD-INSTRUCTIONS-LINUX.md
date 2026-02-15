@@ -111,3 +111,40 @@ $ make
 $ sudo make install
 
 ```
+
+
+## Example: openSUSE Tumbleweed
+
+The following worked for me running version 20260108.
+
+### Installing Prerequisites
+We assume the build system already has things like cmake and the GNU C++ suite installed.
+
+```
+$ sudo zypper install qt6-base-devel qt6-svg-devel qt6-tools-devel qt6-linguist-devel
+```
+These installs will pull in additional packages to fill out their prerequisites.
+openSUSE has a different package naming scheme than Ubuntu and slightly different
+than Fedora as well. This is to distinguish the QT6 packages from the QT3 and
+QT4 packages that they still support for compatibility.
+If the Cmake pass or build has missing package errors or warnings, you can 
+search for the needed package with:
+```
+$ sudo zypper search qt6 |grep <package name substring>
+```
+
+All optional dependendcies but the zint library may be installed as well.
+```
+$ sudo zypper install barcode-devel qrencode-devel
+```
+
+### Compile and Install gLabels into /usr/local
+```
+$ cd glabels-qt
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ sudo make install
+
+```
