@@ -1000,7 +1000,7 @@
     </message>
     <message>
         <source>Number down (ny):</source>
-        <translation>Anzahl vertikal (nx):</translation>
+        <translation>Anzahl vertikal (ny):</translation>
     </message>
     <message>
         <source>Distance from left edge (x0):</source>
@@ -1065,7 +1065,7 @@
     </message>
     <message>
         <source>5. Vertical waste:</source>
-        <translation>4. Vertikaler Überstand:</translation>
+        <translation>5. Vertikaler Überstand:</translation>
     </message>
     <message>
         <source>2. Height:</source>
