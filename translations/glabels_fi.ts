@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>&amp;License</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lisenssi</translation>
     </message>
     <message>
         <source>&amp;Website</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Verkkosivusto</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Taivaansininen</translation>
     </message>
     <message>
         <source>Plum</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Suklaa</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
@@ -179,7 +179,7 @@
     </message>
     <message>
         <source>Step size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Askelkoko:</translation>
     </message>
     <message>
         <source>Increment</source>
@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Selaa...</translation>
     </message>
 </context>
 <context>
