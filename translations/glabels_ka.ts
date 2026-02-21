@@ -9,15 +9,15 @@
     </message>
     <message>
         <source>&amp;License</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ლიცენზია</translation>
     </message>
     <message>
         <source>&amp;Website</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ვებგვერდი</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;დახურვა</translation>
     </message>
 </context>
 <context>
@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>ღია ნარინჯისფერი</translation>
     </message>
     <message>
         <source>Light Butter</source>
@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>ნარინჯისფერი</translation>
     </message>
     <message>
         <source>Butter</source>
@@ -72,7 +72,7 @@
     </message>
     <message>
         <source>Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>ქამელეობი</translation>
     </message>
     <message>
         <source>Sky Blue</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>შოკოლადი</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Dark Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>მუქი ნარინჯისფერი</translation>
     </message>
     <message>
         <source>Dark Butter</source>
@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Black</source>
-        <translation type="unfinished"></translation>
+        <translation>შავი</translation>
     </message>
     <message>
         <source>Very Dark Gray</source>
@@ -144,7 +144,7 @@
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>მუქი ნაცრისფერი</translation>
     </message>
     <message>
         <source>Medium Gray</source>
@@ -152,7 +152,7 @@
     </message>
     <message>
         <source>Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>ღია ნაცრისფერი</translation>
     </message>
     <message>
         <source>Lighter Gray</source>
@@ -164,45 +164,45 @@
     </message>
     <message>
         <source>White</source>
-        <translation type="unfinished"></translation>
+        <translation>თეთრი</translation>
     </message>
 </context>
 <context>
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>დიალოგი</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>სახელი:</translation>
     </message>
     <message>
         <source>Step size:</source>
-        <translation type="unfinished"></translation>
+        <translation>ბიჯის ზომა:</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>გაზრდა</translation>
     </message>
     <message>
         <source>Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადი</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>ტიპი:</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>მნიშვნელობა:</translation>
     </message>
 </context>
 <context>
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>არცერთი</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
@@ -261,7 +261,7 @@
     <name>FrameContinuous</name>
     <message>
         <source>wide</source>
-        <translation type="unfinished"></translation>
+        <translation>ფართო</translation>
     </message>
 </context>
 <context>
@@ -275,7 +275,7 @@
     <name>GenericTemplate</name>
     <message>
         <source>Generic</source>
-        <translation type="unfinished"></translation>
+        <translation>ზოგადი</translation>
     </message>
     <message>
         <source>%1 full-page labels</source>
@@ -302,35 +302,35 @@
     <name>MergeView</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>წყარო</translation>
     </message>
     <message>
         <source>Format:</source>
-        <translation type="unfinished"></translation>
+        <translation>ფორმატი:</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation type="unfinished"></translation>
+        <translation>მდებარეობა:</translation>
     </message>
     <message>
         <source>Records</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩანაწერები</translation>
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველას მონიშვნა</translation>
     </message>
     <message>
         <source>Unselect all</source>
-        <translation type="unfinished"></translation>
+        <translation>მონიშვნის ყველაფერზე მოხსნა</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>პოვნა...</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>თავიდან ჩატვირთვა</translation>
     </message>
 </context>
 <context>
@@ -341,19 +341,19 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტი</translation>
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგება</translation>
     </message>
     <message>
         <source>Alignment:</source>
-        <translation type="unfinished"></translation>
+        <translation>სწორება:</translation>
     </message>
     <message>
         <source>Line spacing:</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზებს შუა მანძილი:</translation>
     </message>
     <message>
         <source>Wrap mode:</source>
@@ -361,15 +361,15 @@
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>სიტყვა</translation>
     </message>
     <message>
         <source>Anywhere</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველგან</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>არცერთი</translation>
     </message>
     <message>
         <source>Allow printing to shrink text to fit object</source>
@@ -377,47 +377,47 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>ფონტი</translation>
     </message>
     <message>
         <source>Family:</source>
-        <translation type="unfinished"></translation>
+        <translation>ოჯახი:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished"></translation>
+        <translation>ზომა:</translation>
     </message>
     <message>
         <source>Style:</source>
-        <translation type="unfinished"></translation>
+        <translation>სტილი:</translation>
     </message>
     <message>
         <source>Color:</source>
-        <translation type="unfinished"></translation>
+        <translation>ფერი:</translation>
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>რედაქტორი</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>ბარკოდი</translation>
     </message>
     <message>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>სტილი</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>ტიპი:</translation>
     </message>
     <message>
         <source>Show text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტის ჩვენება</translation>
     </message>
     <message>
         <source>Checksum</source>
-        <translation type="unfinished"></translation>
+        <translation>საკონტროლო ჯამი</translation>
     </message>
     <message>
         <source>Barcode data</source>
@@ -425,15 +425,15 @@
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულება</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>ფაილი</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>პოვნა...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
@@ -441,43 +441,43 @@
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზი</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>სიგანე:</translation>
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>შევსება</translation>
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>მდებარეობა/ზომა</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>პოზიცია</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y:</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>ზომა</translation>
     </message>
     <message>
         <source>Length:</source>
-        <translation type="unfinished"></translation>
+        <translation>ხანგრძლივობა:</translation>
     </message>
     <message>
         <source>Angle:</source>
-        <translation type="unfinished"></translation>
+        <translation>კუთხე:</translation>
     </message>
     <message>
         <source>Original size:</source>
@@ -485,31 +485,31 @@
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩამოყრა</translation>
     </message>
     <message>
         <source>Lock aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>გადიდების კოეფიციენტის დაბლოკვა</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>სიმაღლე:</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩრდილი</translation>
     </message>
     <message>
         <source>X offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>X წანაცვლება:</translation>
     </message>
     <message>
         <source>Y offset:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y წანაცვლება:</translation>
     </message>
     <message>
         <source>Opacity:</source>
-        <translation type="unfinished"></translation>
+        <translation>გაუმჭირვალობა:</translation>
     </message>
 </context>
 <context>
@@ -520,7 +520,7 @@
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished"></translation>
+        <translation>ენა</translation>
     </message>
     <message>
         <source>Select locale specific behavior.</source>
@@ -528,23 +528,23 @@
     </message>
     <message>
         <source>Units</source>
-        <translation type="unfinished"></translation>
+        <translation>საზომი ერთეულები</translation>
     </message>
     <message>
         <source>Points</source>
-        <translation type="unfinished"></translation>
+        <translation>ქულები</translation>
     </message>
     <message>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>სანტიმეტრი</translation>
     </message>
     <message>
         <source>Millimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>მილიმეტრი</translation>
     </message>
     <message>
         <source>Inches</source>
-        <translation type="unfinished"></translation>
+        <translation>დუიმი</translation>
     </message>
     <message>
         <source>Picas</source>
@@ -552,7 +552,7 @@
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>ბადე</translation>
     </message>
     <message>
         <source>Configure grid behavior.</source>
@@ -560,30 +560,30 @@
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>საწყისი</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>ცენტრი</translation>
     </message>
     <message>
         <source>Spacing</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოტოვება</translation>
     </message>
     <message>
         <source>Top left corner</source>
-        <translation type="unfinished"></translation>
+        <translation>ქვედა მარცხენა კუთხე</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩამოყრა</translation>
     </message>
 </context>
 <context>
     <name>PrintView</name>
     <message>
         <source>Copies:</source>
-        <translation type="unfinished"></translation>
+        <translation>ასლები:</translation>
     </message>
     <message>
         <source>print outlines</source>
@@ -599,7 +599,7 @@
     </message>
     <message>
         <source>Page</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდი</translation>
     </message>
     <message>
         <source>of</source>
@@ -611,19 +611,19 @@
     </message>
     <message>
         <source>Pages</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდები</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>მორგება</translation>
     </message>
     <message>
         <source>Print range</source>
-        <translation type="unfinished"></translation>
+        <translation>ბეჭდვის შუალედი</translation>
     </message>
     <message>
         <source>Positions</source>
-        <translation type="unfinished"></translation>
+        <translation>მდებარეობები</translation>
     </message>
     <message>
         <source>to</source>
@@ -655,11 +655,11 @@
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"></translation>
+        <translation>სამიზნე</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>ბეჭდვა</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
@@ -670,15 +670,15 @@
     <name>PropertiesView</name>
     <message>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>პროდუქტი</translation>
     </message>
     <message>
         <source>Vendor:</source>
-        <translation type="unfinished"></translation>
+        <translation>მომწოდებელი:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტური ჭდე</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -686,11 +686,11 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>აღწერა:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდის ზომა:</translation>
     </message>
     <message>
         <source>Label size:</source>
@@ -698,7 +698,7 @@
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგება:</translation>
     </message>
     <message>
         <source>Change product</source>
@@ -714,7 +714,7 @@
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>ორიენტაცია</translation>
     </message>
     <message>
         <source>Select horizontal or vertical orientation.</source>
@@ -745,11 +745,11 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>კოპირება</translation>
     </message>
     <message>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <source>&amp;Launch Issue Tracker</source>
@@ -764,11 +764,11 @@
     </message>
     <message>
         <source>Search all</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველას ძებნა</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>ძებნა</translation>
     </message>
     <message>
         <source>Filter by paper size</source>
@@ -784,7 +784,7 @@
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>სხვა</translation>
     </message>
     <message>
         <source>Filter by category</source>
@@ -792,11 +792,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველა</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>მონიშნული</translation>
     </message>
     <message>
         <source>Search entire product database.</source>
@@ -804,7 +804,7 @@
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>უახლესი</translation>
     </message>
     <message>
         <source>Select from recently used products.</source>
@@ -812,7 +812,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;გაუქმება</translation>
     </message>
     <message>
         <source>Product information</source>
@@ -820,11 +820,11 @@
     </message>
     <message>
         <source>Vendor:</source>
-        <translation type="unfinished"></translation>
+        <translation>მომწოდებელი:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტური ჭდე</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -832,11 +832,11 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>აღწერა:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდის ზომა:</translation>
     </message>
     <message>
         <source>Label size:</source>
@@ -844,11 +844,11 @@
     </message>
     <message>
         <source>Layout:</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგება:</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>არჩევა</translation>
     </message>
 </context>
 <context>
@@ -867,15 +867,15 @@
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>უახლესი</translation>
     </message>
     <message>
         <source>New...</source>
-        <translation type="unfinished"></translation>
+        <translation>ახალი...</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>პოვნა...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -958,7 +958,7 @@
     </message>
     <message>
         <source>New Product</source>
-        <translation type="unfinished"></translation>
+        <translation>ახალი პროდუქტი</translation>
     </message>
     <message>
         <source>Create a new product template from scratch</source>
@@ -1004,7 +1004,7 @@
     </message>
     <message>
         <source>Brand:</source>
-        <translation type="unfinished"></translation>
+        <translation>ბრენდი:</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -1012,7 +1012,7 @@
     </message>
     <message>
         <source>Description:</source>
-        <translation type="unfinished"></translation>
+        <translation>აღწერა:</translation>
     </message>
     <message>
         <source>(e.g. 8163A)</source>
@@ -1062,15 +1062,15 @@
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>სიმაღლე:</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>სიგანე:</translation>
     </message>
     <message>
         <source>Page size:</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდის ზომა:</translation>
     </message>
 </context>
 <context>
@@ -1138,7 +1138,7 @@
     </message>
     <message>
         <source>Round</source>
-        <translation type="unfinished"></translation>
+        <translation>მრგვალი</translation>
     </message>
     <message>
         <source>Elliptical</source>
@@ -1184,42 +1184,42 @@
     <name>Units</name>
     <message>
         <source>points</source>
-        <translation type="unfinished"></translation>
+        <translation>წერტილი</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"></translation>
+        <translation>დუიმი</translation>
     </message>
     <message>
         <source>mm</source>
-        <translation type="unfinished"></translation>
+        <translation>მმ</translation>
     </message>
     <message>
         <source>cm</source>
-        <translation type="unfinished"></translation>
+        <translation>სმ</translation>
     </message>
     <message>
         <source>picas</source>
-        <translation type="unfinished"></translation>
+        <translation>პიკა</translation>
     </message>
 </context>
 <context>
     <name>Variable</name>
     <message>
         <source>String</source>
-        <translation type="unfinished"></translation>
+        <translation>სტრიქონი</translation>
     </message>
     <message>
         <source>Integer</source>
-        <translation type="unfinished"></translation>
+        <translation>მთელი რიცხვი</translation>
     </message>
     <message>
         <source>Floating Point</source>
-        <translation type="unfinished"></translation>
+        <translation>მცურავმძიმიანი</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>არასდროს</translation>
     </message>
     <message>
         <source>Per item</source>
@@ -1231,30 +1231,30 @@
     </message>
     <message>
         <source>Per page</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდზე</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>ფერი</translation>
     </message>
 </context>
 <context>
     <name>VariablesView</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>დამატება</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩასწორება</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>წაშლა</translation>
     </message>
     <message>
         <source>Add variable</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადის დამატება</translation>
     </message>
     <message>
         <source>Edit selected variable</source>
@@ -1269,7 +1269,7 @@
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>ვერსია</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
@@ -1299,7 +1299,7 @@
     </message>
     <message>
         <source>Recent Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>უახლესი ფერები</translation>
     </message>
     <message>
         <source>Custom color...</source>
@@ -1307,7 +1307,7 @@
     </message>
     <message>
         <source>Custom Color</source>
-        <translation type="unfinished"></translation>
+        <translation>ფერის არჩევა</translation>
     </message>
     <message>
         <source>Custom Color %1</source>
@@ -1323,7 +1323,7 @@
     <name>glabels::EditVariableDialog</name>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>ნაგულისხმევი</translation>
     </message>
 </context>
 <context>
@@ -1334,7 +1334,7 @@
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადები</translation>
     </message>
 </context>
 <context>
@@ -1376,50 +1376,50 @@
     <name>glabels::LabelEditor</name>
     <message>
         <source>Move</source>
-        <translation type="unfinished"></translation>
+        <translation>გადატანა</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>წაშლა</translation>
     </message>
     <message>
         <source>Resize</source>
-        <translation type="unfinished"></translation>
+        <translation>ზომის შეცვლა</translation>
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>გადაგდება</translation>
     </message>
 </context>
 <context>
     <name>glabels::MainWindow</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>მოგესალმებით</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩასწორება</translation>
     </message>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>თვისებები</translation>
     </message>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>შერწყმა</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადები</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>ბეჭდვა</translation>
     </message>
     <message>
         <source>&amp;New...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ახალი...</translation>
     </message>
     <message>
         <source>Create a new gLabels project</source>
@@ -1427,7 +1427,7 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;გახსნა...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
@@ -1435,7 +1435,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;შენახვა</translation>
     </message>
     <message>
         <source>Save current gLabels project</source>
@@ -1443,7 +1443,7 @@
     </message>
     <message>
         <source>Save &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>შენახვ&amp;ა, როგორც...</translation>
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
@@ -1451,7 +1451,7 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩასწორ&amp;ება</translation>
     </message>
     <message>
         <source>Select project Edit mode</source>
@@ -1459,7 +1459,7 @@
     </message>
     <message>
         <source>P&amp;roperties</source>
-        <translation type="unfinished"></translation>
+        <translation>თ&amp;ვისებები</translation>
     </message>
     <message>
         <source>Select project Properties mode</source>
@@ -1467,7 +1467,7 @@
     </message>
     <message>
         <source>&amp;Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;შერწყმა</translation>
     </message>
     <message>
         <source>Select project Merge mode</source>
@@ -1475,7 +1475,7 @@
     </message>
     <message>
         <source>&amp;Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ცვლადები</translation>
     </message>
     <message>
         <source>Select project Variables mode</source>
@@ -1483,7 +1483,7 @@
     </message>
     <message>
         <source>&amp;Print</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ბეჭდვა</translation>
     </message>
     <message>
         <source>Select project Print mode</source>
@@ -1499,15 +1499,15 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;დახურვა</translation>
     </message>
     <message>
         <source>Close the current window</source>
-        <translation type="unfinished"></translation>
+        <translation>მიმდინარე ფანჯრის დახურვა</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;გასვლა</translation>
     </message>
     <message>
         <source>Exit glabels</source>
@@ -1515,31 +1515,31 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>გაუქმება</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>გამეორება</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>ამოჭრა</translation>
     </message>
     <message>
         <source>Cut the selection</source>
-        <translation type="unfinished"></translation>
+        <translation>მონიშნულის ამოჭრა</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;კოპირება</translation>
     </message>
     <message>
         <source>Copy the selection</source>
-        <translation type="unfinished"></translation>
+        <translation>მონიშნულის კოპირება</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ჩასმა</translation>
     </message>
     <message>
         <source>Paste the clipboard</source>
@@ -1547,15 +1547,15 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;წაშლა</translation>
     </message>
     <message>
         <source>Delete the selected objects</source>
-        <translation type="unfinished"></translation>
+        <translation>მონიშნული ობიექტების წაშლა</translation>
     </message>
     <message>
         <source>Select &amp;All</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველაფრის &amp;მონიშვნა</translation>
     </message>
     <message>
         <source>Select all objects</source>
@@ -1571,7 +1571,7 @@
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>მორგება</translation>
     </message>
     <message>
         <source>Configure the application</source>
@@ -1579,11 +1579,11 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>რედაქტორი</translation>
     </message>
     <message>
         <source>Grid</source>
-        <translation type="unfinished"></translation>
+        <translation>ბადე</translation>
     </message>
     <message>
         <source>Change visibility of the grid in current window</source>
@@ -1591,7 +1591,7 @@
     </message>
     <message>
         <source>Markup</source>
-        <translation type="unfinished"></translation>
+        <translation>მარქაფი</translation>
     </message>
     <message>
         <source>Change visibility of markup lines in current window</source>
@@ -1599,7 +1599,7 @@
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;გადიდება</translation>
     </message>
     <message>
         <source>Increase magnification</source>
@@ -1607,7 +1607,7 @@
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"></translation>
+        <translation>და&amp;პატარავება</translation>
     </message>
     <message>
         <source>Decrease magnification</source>
@@ -1623,7 +1623,7 @@
     </message>
     <message>
         <source>Zoom to &amp;Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;გადიდება მოსარგებად</translation>
     </message>
     <message>
         <source>Set scale to fit window</source>
@@ -1631,7 +1631,7 @@
     </message>
     <message>
         <source>Select Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>აირჩიეთ რეჟიმი</translation>
     </message>
     <message>
         <source>Select, move and modify objects</source>
@@ -1639,7 +1639,7 @@
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტი</translation>
     </message>
     <message>
         <source>Create text object</source>
@@ -1647,7 +1647,7 @@
     </message>
     <message>
         <source>Box</source>
-        <translation type="unfinished"></translation>
+        <translation>მართკუთხედი</translation>
     </message>
     <message>
         <source>Create box object</source>
@@ -1655,7 +1655,7 @@
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზი</translation>
     </message>
     <message>
         <source>Create line object</source>
@@ -1663,7 +1663,7 @@
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>ოვალი</translation>
     </message>
     <message>
         <source>Create ellipse/circle object</source>
@@ -1671,7 +1671,7 @@
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულება</translation>
     </message>
     <message>
         <source>Create image object</source>
@@ -1679,7 +1679,7 @@
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>ბარკოდი</translation>
     </message>
     <message>
         <source>Create barcode object</source>
@@ -1687,7 +1687,7 @@
     </message>
     <message>
         <source>Bring To Front</source>
-        <translation type="unfinished"></translation>
+        <translation>წინა პლანზე გამოტანა</translation>
     </message>
     <message>
         <source>Raise selection to top</source>
@@ -1695,7 +1695,7 @@
     </message>
     <message>
         <source>Send To Back</source>
-        <translation type="unfinished"></translation>
+        <translation>უკან გადაგზავნა</translation>
     </message>
     <message>
         <source>Lower selection to bottom</source>
@@ -1703,7 +1703,7 @@
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>მარცხნივ შებრუნება</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees counter-clockwise</source>
@@ -1711,7 +1711,7 @@
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>მარჯვნივ შებრუნება</translation>
     </message>
     <message>
         <source>Rotate object(s) 90 degrees clockwise</source>
@@ -1719,7 +1719,7 @@
     </message>
     <message>
         <source>Flip Horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>ჰორიზონტალურად გადაბრუნება</translation>
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
@@ -1727,7 +1727,7 @@
     </message>
     <message>
         <source>Flip Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>ვერტიკალურად გადაბრუნება</translation>
     </message>
     <message>
         <source>Flip object(s) vertically</source>
@@ -1735,7 +1735,7 @@
     </message>
     <message>
         <source>Align Left</source>
-        <translation type="unfinished"></translation>
+        <translation>სწორება მარცხნივ</translation>
     </message>
     <message>
         <source>Align objects to left edges</source>
@@ -1743,7 +1743,7 @@
     </message>
     <message>
         <source>Align Center</source>
-        <translation type="unfinished"></translation>
+        <translation>სწორება ცენტრზე</translation>
     </message>
     <message>
         <source>Align objects to horizontal centers</source>
@@ -1751,7 +1751,7 @@
     </message>
     <message>
         <source>Align Right</source>
-        <translation type="unfinished"></translation>
+        <translation>სწორება მარჯვნივ</translation>
     </message>
     <message>
         <source>Align objects to right edges</source>
@@ -1759,7 +1759,7 @@
     </message>
     <message>
         <source>Align Top</source>
-        <translation type="unfinished"></translation>
+        <translation>სწორება ზემოთ</translation>
     </message>
     <message>
         <source>Align objects to top edges</source>
@@ -1775,7 +1775,7 @@
     </message>
     <message>
         <source>Align Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>სწორება ქვემოთ</translation>
     </message>
     <message>
         <source>Align objects to bottom edges</source>
@@ -1791,7 +1791,7 @@
     </message>
     <message>
         <source>Center Vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>ვერტიკალურად დაცენტრება</translation>
     </message>
     <message>
         <source>Vertically center objects in label</source>
@@ -1803,7 +1803,7 @@
     </message>
     <message>
         <source>&amp;About...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;შესახებ...</translation>
     </message>
     <message>
         <source>About gLabels</source>
@@ -1811,27 +1811,27 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ფაილი</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ხედი</translation>
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished"></translation>
+        <translation>ხელსაწყოთა ზოლები</translation>
     </message>
     <message>
         <source>&amp;Objects</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;ობიექტები</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;შექმნა</translation>
     </message>
     <message>
         <source>&amp;Order</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;მიმდევრობა</translation>
     </message>
     <message>
         <source>&amp;Rotate/Flip</source>
@@ -1839,23 +1839,23 @@
     </message>
     <message>
         <source>&amp;Alignment</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;სწორება</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>ცენტრი</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;დახმარება</translation>
     </message>
     <message>
         <source>&amp;Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;რედაქტორი</translation>
     </message>
     <message>
         <source>(modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>(შეცვლილი)</translation>
     </message>
     <message>
         <source>Save changes to project &quot;%1&quot; before closing?</source>
@@ -1863,7 +1863,7 @@
     </message>
     <message>
         <source>Your changes will be lost if you don&apos;t save them.</source>
-        <translation type="unfinished"></translation>
+        <translation>თქვენი ცვლილებები დაიკარგება, თუ არ შეინახავთ.</translation>
     </message>
     <message>
         <source>Save project?</source>
@@ -1871,31 +1871,31 @@
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩასმა</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>წაშლა</translation>
     </message>
     <message>
         <source>Create Text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტის შექმნა</translation>
     </message>
     <message>
         <source>Create Box</source>
-        <translation type="unfinished"></translation>
+        <translation>ყუთის შექმნა</translation>
     </message>
     <message>
         <source>Create Line</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზის შექმნა</translation>
     </message>
     <message>
         <source>Create Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>ოვალის შექმნა</translation>
     </message>
     <message>
         <source>Create Image</source>
-        <translation type="unfinished"></translation>
+        <translation>ასლის შექმნა</translation>
     </message>
     <message>
         <source>Create Barcode</source>
@@ -1907,7 +1907,7 @@
     </message>
     <message>
         <source>&amp;Report Bug...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;შეცდომის ანგარიში...</translation>
     </message>
     <message>
         <source>Report a bug to the developers</source>
@@ -1927,7 +1927,7 @@
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>ბოლოს გახსნილი ფაილების გახსნა</translation>
     </message>
     <message>
         <source>Quick Access Toolbar</source>
@@ -1936,12 +1936,12 @@
     <message>
         <source>Undo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1-ის დაბრუნება</translation>
     </message>
     <message>
         <source>Redo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>%1-ის გამეორება</translation>
     </message>
     <message>
         <source>Center Both</source>
@@ -1956,7 +1956,7 @@
     <name>glabels::MergeView</name>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>შერწყმა</translation>
     </message>
     <message>
         <source>Select merge file</source>
@@ -1964,26 +1964,26 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველა ფაილი (*)</translation>
     </message>
 </context>
 <context>
     <name>glabels::ObjectEditor</name>
     <message>
         <source>No line</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზების გარეშე</translation>
     </message>
     <message>
         <source>No fill</source>
-        <translation type="unfinished"></translation>
+        <translation>შევსების გარეშე</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>ნაგულისხმევი</translation>
     </message>
     <message>
         <source>Original size</source>
-        <translation type="unfinished"></translation>
+        <translation>საწყისი ზომა</translation>
     </message>
     <message>
         <source>Box object properties</source>
@@ -1999,7 +1999,7 @@
     </message>
     <message>
         <source>shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩრდილი</translation>
     </message>
     <message>
         <source>Ellipse object properties</source>
@@ -2011,7 +2011,7 @@
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულება</translation>
     </message>
     <message>
         <source>Line object properties</source>
@@ -2023,7 +2023,7 @@
     </message>
     <message>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტი</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
@@ -2039,11 +2039,11 @@
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზი</translation>
     </message>
     <message>
         <source>Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>შევსება</translation>
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
@@ -2051,7 +2051,7 @@
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>ყველა ფაილი (*)</translation>
     </message>
     <message>
         <source>PNG - Portable Network Graphics (*.png)</source>
@@ -2103,27 +2103,27 @@
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>ზომა</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტი</translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩრდილი</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>პოზიცია</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>ბარკოდი</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>ჩამოყრა</translation>
     </message>
     <message>
         <source>Insert substitution field</source>
@@ -2138,7 +2138,7 @@
     <name>glabels::PrintView</name>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>ბეჭდვა</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
@@ -2166,14 +2166,14 @@
     </message>
     <message>
         <source>Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>გნებავთ, თავზე გადააწეროთ?</translation>
     </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>თვისებები</translation>
     </message>
     <message>
         <source>Product Rotate</source>
@@ -2188,7 +2188,7 @@
     <name>glabels::ReportBugDialog</name>
     <message>
         <source>How to Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>როგორ მოგვწეროთ შეცდომის შესახებ</translation>
     </message>
     <message>
         <source>To submit a bug report, click on the button below.  This will open a web browser to the gLabels github issue tracking page.</source>
@@ -2207,18 +2207,18 @@
     <name>glabels::SelectProductDialog</name>
     <message>
         <source>List View</source>
-        <translation type="unfinished"></translation>
+        <translation>სიის ხედი</translation>
     </message>
     <message>
         <source>Grid View</source>
-        <translation type="unfinished"></translation>
+        <translation>ბადის ხედი</translation>
     </message>
 </context>
 <context>
     <name>glabels::SimplePreview</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>მაღლა</translation>
     </message>
 </context>
 <context>
@@ -2229,11 +2229,11 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>გაგორება</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>კოპირება</translation>
     </message>
 </context>
 <context>
@@ -2293,7 +2293,7 @@
     <name>glabels::TemplateDesignerIntroPage</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>მოგესალმებით</translation>
     </message>
     <message>
         <source>Welcome to the gLabels Product Template Designer.</source>
@@ -2330,7 +2330,7 @@
     <name>glabels::TemplateDesignerOneLayoutPage</name>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგება</translation>
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
@@ -2341,7 +2341,7 @@
     <name>glabels::TemplateDesignerPageSizePage</name>
     <message>
         <source>Page Size</source>
-        <translation type="unfinished"></translation>
+        <translation>გვერდის ზომა</translation>
     </message>
     <message>
         <source>Please select the product page size.</source>
@@ -2349,11 +2349,11 @@
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>სხვა</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>გაგორება</translation>
     </message>
 </context>
 <context>
@@ -2404,7 +2404,7 @@
     <name>glabels::TemplateDesignerTwoLayoutPage</name>
     <message>
         <source>Layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>განლაგებები</translation>
     </message>
     <message>
         <source>Please enter parameters for your two layouts.</source>
@@ -2415,42 +2415,42 @@
     <name>glabels::VariablesView</name>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადები</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>სახელი</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>ტიპი</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>გაზრდა</translation>
     </message>
     <message>
         <source>Step Size</source>
-        <translation type="unfinished"></translation>
+        <translation>ბიჯის ზომა</translation>
     </message>
     <message>
         <source>Add Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადის დამატება</translation>
     </message>
     <message>
         <source>Edit Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>ცვლადის ჩასწორება</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>მნიშვნელობა</translation>
     </message>
 </context>
 <context>
     <name>glabels::barcode::Backends</name>
     <message>
         <source>Code 39</source>
-        <translation type="unfinished"></translation>
+        <translation>კოდი 39</translation>
     </message>
     <message>
         <source>Code 39 Extended</source>
@@ -2458,11 +2458,11 @@
     </message>
     <message>
         <source>UPC-A</source>
-        <translation type="unfinished"></translation>
+        <translation>UPC-A</translation>
     </message>
     <message>
         <source>EAN-13</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-13</translation>
     </message>
     <message>
         <source>POSTNET (any)</source>
@@ -2498,7 +2498,7 @@
     </message>
     <message>
         <source>EAN-8</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-8</translation>
     </message>
     <message>
         <source>EAN-8+2</source>
@@ -2530,7 +2530,7 @@
     </message>
     <message>
         <source>UPC-E</source>
-        <translation type="unfinished"></translation>
+        <translation>UPC-E</translation>
     </message>
     <message>
         <source>UPC-E +2</source>
@@ -2542,7 +2542,7 @@
     </message>
     <message>
         <source>ISBN</source>
-        <translation type="unfinished"></translation>
+        <translation>ISBN</translation>
     </message>
     <message>
         <source>ISBN +5</source>
@@ -2550,7 +2550,7 @@
     </message>
     <message>
         <source>Code 128</source>
-        <translation type="unfinished"></translation>
+        <translation>კოდი 128</translation>
     </message>
     <message>
         <source>Code 128C</source>
@@ -2562,7 +2562,7 @@
     </message>
     <message>
         <source>Interleaved 2 of 5</source>
-        <translation type="unfinished"></translation>
+        <translation>2 მონაცვლეობა 5-დან</translation>
     </message>
     <message>
         <source>Codabar</source>
@@ -2578,7 +2578,7 @@
     </message>
     <message>
         <source>Code 93</source>
-        <translation type="unfinished"></translation>
+        <translation>კოდი 93</translation>
     </message>
     <message>
         <source>IEC18004 (QRCode)</source>
@@ -2642,7 +2642,7 @@
     </message>
     <message>
         <source>Data Matrix</source>
-        <translation type="unfinished"></translation>
+        <translation>მონაცემების მატრიცა</translation>
     </message>
     <message>
         <source>Deutsche Post Leitcode</source>
@@ -2738,7 +2738,7 @@
     </message>
     <message>
         <source>QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>QR კოდი</translation>
     </message>
     <message>
         <source>Telepen</source>
@@ -2877,7 +2877,7 @@
     <name>glabels::model::Model</name>
     <message>
         <source>Untitled</source>
-        <translation type="unfinished"></translation>
+        <translation>უსათაურო</translation>
     </message>
 </context>
 <context>
@@ -2895,14 +2895,14 @@
     <name>glabels::model::ModelImageObject</name>
     <message>
         <source>No image</source>
-        <translation type="unfinished"></translation>
+        <translation>გამოსახულების გარეშე</translation>
     </message>
 </context>
 <context>
     <name>glabels::model::ModelTextObject</name>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>ტექსტი</translation>
     </message>
 </context>
 <context>
