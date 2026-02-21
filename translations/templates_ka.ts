@@ -5,15 +5,15 @@
     <name>XmlStrings</name>
     <message>
         <source>Address labels</source>
-        <translation type="unfinished"></translation>
+        <translation>მისამართის ჭდეები</translation>
     </message>
     <message>
         <source>Any card</source>
-        <translation type="unfinished"></translation>
+        <translation>ნებისმიერი ბარათი</translation>
     </message>
     <message>
         <source>Any label</source>
-        <translation type="unfinished"></translation>
+        <translation>ნებისმიერი ჭდე</translation>
     </message>
     <message>
         <source>Arch file inserts</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>CD/DVD booklet</source>
-        <translation type="unfinished"></translation>
+        <translation>CD/DVD ბუკლეტი</translation>
     </message>
     <message>
         <source>CD/DVD case (rightside up)</source>
@@ -93,19 +93,19 @@
     </message>
     <message>
         <source>Candy labels</source>
-        <translation type="unfinished"></translation>
+        <translation>ტკბილეულის ეტიკეტები</translation>
     </message>
     <message>
         <source>Cassette labels</source>
-        <translation type="unfinished"></translation>
+        <translation>კასეტების ეტიკეტები</translation>
     </message>
     <message>
         <source>Coffee and tea labels</source>
-        <translation type="unfinished"></translation>
+        <translation>ყავისა და ჩაის ეტიკეტები</translation>
     </message>
     <message>
         <source>Correction labels</source>
-        <translation type="unfinished"></translation>
+        <translation>კორექტირების ეტიკეტები</translation>
     </message>
     <message>
         <source>DLT labels</source>
