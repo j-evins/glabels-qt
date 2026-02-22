@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>Scarlet Red</source>
-        <translation>Scarlet Red</translation>
+        <translation>Кардинално црвена</translation>
     </message>
     <message>
         <source>Orange</source>
