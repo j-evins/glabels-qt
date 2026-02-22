@@ -5,62 +5,62 @@
     <name>AboutDialog</name>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>О gLabels-у</translation>
     </message>
     <message>
         <source>&amp;License</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Лиценца</translation>
     </message>
     <message>
         <source>&amp;Website</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Веб сајт</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Затвори</translation>
     </message>
 </context>
 <context>
     <name>Color name</name>
     <message>
         <source>Light Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло кардинално црвена</translation>
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло наранџаста</translation>
     </message>
     <message>
         <source>Light Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло путераста</translation>
     </message>
     <message>
         <source>Light Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло камелеонска</translation>
     </message>
     <message>
         <source>Light Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло небеско плава</translation>
     </message>
     <message>
         <source>Light Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло модро плава</translation>
     </message>
     <message>
         <source>Light Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло чоколадна</translation>
     </message>
     <message>
         <source>Light Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло алуминијумска 1</translation>
     </message>
     <message>
         <source>Light Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло алуминијумска 2</translation>
     </message>
     <message>
         <source>Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Scarlet Red</translation>
     </message>
     <message>
         <source>Orange</source>
@@ -68,67 +68,67 @@
     </message>
     <message>
         <source>Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Путераста</translation>
     </message>
     <message>
         <source>Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Камелеонска</translation>
     </message>
     <message>
         <source>Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло плава</translation>
     </message>
     <message>
         <source>Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Модро плава</translation>
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Чоколадна</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Алуминијумска 1</translation>
     </message>
     <message>
         <source>Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Алуминијумска 2</translation>
     </message>
     <message>
         <source>Dark Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Dark Scarlet Red</translation>
     </message>
     <message>
         <source>Dark Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно наранџаста</translation>
     </message>
     <message>
         <source>Dark Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно путераста</translation>
     </message>
     <message>
         <source>Dark Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно камелеонска</translation>
     </message>
     <message>
         <source>Dark Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно небеско плава</translation>
     </message>
     <message>
         <source>Dark Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамна модро плава</translation>
     </message>
     <message>
         <source>Dark Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно чоколадна</translation>
     </message>
     <message>
         <source>Dark Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно алуминијумска 1</translation>
     </message>
     <message>
         <source>Dark Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно алуминијумска 2</translation>
     </message>
     <message>
         <source>Black</source>
@@ -136,31 +136,31 @@
     </message>
     <message>
         <source>Very Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Врло тамно сива</translation>
     </message>
     <message>
         <source>Darker Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамнија сива</translation>
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Тамно сива</translation>
     </message>
     <message>
         <source>Medium Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Средње сива</translation>
     </message>
     <message>
         <source>Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло сива</translation>
     </message>
     <message>
         <source>Lighter Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлије сива</translation>
     </message>
     <message>
         <source>Very Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Врло светло сива</translation>
     </message>
     <message>
         <source>White</source>
@@ -171,38 +171,38 @@
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Прозорче</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Назив:</translation>
     </message>
     <message>
         <source>Step size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина корака:</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Повећање</translation>
     </message>
     <message>
         <source>Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Променљива</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Врста:</translation>
     </message>
     <message>
         <source>Value:</source>
-        <translation type="unfinished"></translation>
+        <translation>Вредност:</translation>
     </message>
 </context>
 <context>
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Ништа</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
@@ -210,31 +210,31 @@
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: Вредности раздвојене зарезом (CSV), тастери на реду 1</translation>
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV)</source>
-        <translation>Текст: Вредности раздвојене табулатором (CSV)</translation>
+        <translation>Текст: Вредности раздвојене табулатором (TSV)</translation>
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: Вредности раздвојене табулатором (TSV), тастери на реду 1</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: Вредности раздвојене двотачком</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: Вредности раздвојене двотачком, тастери на реду 1</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: Вредности раздвојене запетачком</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: Вредности раздвојене запетачком, тастери на реду 1</translation>
     </message>
 </context>
 <context>
@@ -261,7 +261,7 @@
     <name>FrameContinuous</name>
     <message>
         <source>wide</source>
-        <translation type="unfinished"></translation>
+        <translation>широко</translation>
     </message>
 </context>
 <context>
@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Записи</translation>
     </message>
     <message>
         <source>Select all</source>
@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Разгледај...</translation>
     </message>
 </context>
 <context>
@@ -314,7 +314,7 @@
     </message>
     <message>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Распоред</translation>
     </message>
     <message>
         <source>Alignment:</source>
@@ -322,19 +322,19 @@
     </message>
     <message>
         <source>Line spacing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Размак редова:</translation>
     </message>
     <message>
         <source>Wrap mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим прелома:</translation>
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>Реч</translation>
     </message>
     <message>
         <source>Anywhere</source>
-        <translation type="unfinished"></translation>
+        <translation>Било где</translation>
     </message>
     <message>
         <source>None</source>
@@ -342,11 +342,11 @@
     </message>
     <message>
         <source>Allow printing to shrink text to fit object</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволи штампању да скупи текст да би стао објекат</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Слова</translation>
     </message>
     <message>
         <source>Family:</source>
@@ -366,11 +366,11 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Уређивач</translation>
     </message>
     <message>
         <source>Barcode</source>
-        <translation>Тракаста шифра</translation>
+        <translation>Баркôд</translation>
     </message>
     <message>
         <source>Style</source>
@@ -378,11 +378,11 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Врста:</translation>
     </message>
     <message>
         <source>Show text</source>
-        <translation type="unfinished"></translation>
+        <translation>Покажи текст</translation>
     </message>
     <message>
         <source>Checksum</source>
@@ -402,7 +402,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Разгледај...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
@@ -450,15 +450,15 @@
     </message>
     <message>
         <source>Original size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Изворна величина:</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Поново постави</translation>
     </message>
     <message>
         <source>Lock aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Закључај однос изгледа</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -485,15 +485,15 @@
     <name>PreferencesDialog</name>
     <message>
         <source>gLabels - Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels – Поставке</translation>
     </message>
     <message>
         <source>Locale</source>
-        <translation>Локалитет</translation>
+        <translation>Језик</translation>
     </message>
     <message>
         <source>Select locale specific behavior.</source>
-        <translation>Изаберите нарочито понашање локалитета.</translation>
+        <translation>Изаберите нарочито понашање језика.</translation>
     </message>
     <message>
         <source>Units</source>
@@ -505,7 +505,7 @@
     </message>
     <message>
         <source>Centimeters</source>
-        <translation type="unfinished"></translation>
+        <translation>Центиметри</translation>
     </message>
     <message>
         <source>Millimeters</source>
@@ -517,7 +517,7 @@
     </message>
     <message>
         <source>Picas</source>
-        <translation type="unfinished"></translation>
+        <translation>Пика</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -525,27 +525,27 @@
     </message>
     <message>
         <source>Configure grid behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подесите понашање мреже.</translation>
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>Порекло</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Средиште</translation>
     </message>
     <message>
         <source>Spacing</source>
-        <translation type="unfinished"></translation>
+        <translation>Размак</translation>
     </message>
     <message>
         <source>Top left corner</source>
-        <translation type="unfinished"></translation>
+        <translation>Горњи леви угао</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Поврати</translation>
     </message>
 </context>
 <context>
@@ -564,23 +564,23 @@
     </message>
     <message>
         <source>print in reverse (i.e. a mirror image)</source>
-        <translation>штампа обрнуто (нпр. одраз у огледалу)</translation>
+        <translation>штампа обрнуто (тј. одраз у огледалу)</translation>
     </message>
     <message>
         <source>Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Страна</translation>
     </message>
     <message>
         <source>of</source>
-        <translation type="unfinished"></translation>
+        <translation>од</translation>
     </message>
     <message>
         <source>nn</source>
-        <translation type="unfinished"></translation>
+        <translation>nn</translation>
     </message>
     <message>
         <source>Pages</source>
-        <translation type="unfinished"></translation>
+        <translation>Стране</translation>
     </message>
     <message>
         <source>Options</source>
@@ -588,58 +588,58 @@
     </message>
     <message>
         <source>Print range</source>
-        <translation type="unfinished"></translation>
+        <translation>Опсег штампе</translation>
     </message>
     <message>
         <source>Positions</source>
-        <translation type="unfinished"></translation>
+        <translation>Положаји</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>на</translation>
     </message>
     <message>
         <source>Merge control</source>
-        <translation type="unfinished"></translation>
+        <translation>Управљање стапањем</translation>
     </message>
     <message>
         <source>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Неналепљено (тј.  1,1,1   2,2,2   3,3,3)</translation>
     </message>
     <message>
         <source>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Налепљено   (тј.  1,2,3   1,2,3   1,2,3)</translation>
     </message>
     <message>
         <source>Merge groups are contiguous</source>
-        <translation type="unfinished"></translation>
+        <translation>Групе стапања су непрекидне</translation>
     </message>
     <message>
         <source>Merge groups start on a new page</source>
-        <translation type="unfinished"></translation>
+        <translation>Групе стапања почињу на новој страни</translation>
     </message>
     <message>
         <source>Start groups at position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Започни групе на положају:</translation>
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Одредиште</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Штампа</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи прозорче штампе система...</translation>
     </message>
 </context>
 <context>
     <name>PropertiesView</name>
     <message>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Производ</translation>
     </message>
     <message>
         <source>Vendor:</source>
@@ -647,7 +647,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <translation>Натпис текста</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -659,7 +659,7 @@
     </message>
     <message>
         <source>Page size:</source>
-        <translation>Величина странице:</translation>
+        <translation>Величина стране:</translation>
     </message>
     <message>
         <source>Label size:</source>
@@ -671,31 +671,31 @@
     </message>
     <message>
         <source>Change product</source>
-        <translation type="unfinished"></translation>
+        <translation>Измени производ</translation>
     </message>
     <message>
         <source>Adjustable Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Подесиви параметри</translation>
     </message>
     <message>
         <source>Label length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина налепнице:</translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Усмерење</translation>
     </message>
     <message>
         <source>Select horizontal or vertical orientation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите водоравно или усправно усмерење.</translation>
     </message>
     <message>
         <source>Horizontal orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Водоравно усмерење</translation>
     </message>
     <message>
         <source>Vertical orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Усправно усмерење</translation>
     </message>
     <message>
         <source>Similar Products</source>
@@ -703,14 +703,14 @@
     </message>
     <message>
         <source>Select another product for this gLabels project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите други производ за овај пројекат.</translation>
     </message>
 </context>
 <context>
     <name>ReportBugDialog</name>
     <message>
         <source>gLabels - Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Пријави грешку</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -718,18 +718,18 @@
     </message>
     <message>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <source>&amp;Launch Issue Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Покрени пратиоца грешака</translation>
     </message>
 </context>
 <context>
     <name>SelectProductDialog</name>
     <message>
         <source>gLabels - Select Product</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels - Изаберите производ</translation>
     </message>
     <message>
         <source>Search all</source>
@@ -737,39 +737,39 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Тражи</translation>
     </message>
     <message>
         <source>Filter by paper size</source>
-        <translation type="unfinished"></translation>
+        <translation>Филтрирај према величини папира</translation>
     </message>
     <message>
         <source>ISO sizes</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO величине</translation>
     </message>
     <message>
         <source>US sizes</source>
-        <translation type="unfinished"></translation>
+        <translation>US величине</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Друго</translation>
     </message>
     <message>
         <source>Filter by category</source>
-        <translation type="unfinished"></translation>
+        <translation>Филтрирај према категорији</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Све</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Изабрано</translation>
     </message>
     <message>
         <source>Search entire product database.</source>
-        <translation type="unfinished"></translation>
+        <translation>Претражите читаву базу података продукта.</translation>
     </message>
     <message>
         <source>Recent</source>
@@ -777,15 +777,15 @@
     </message>
     <message>
         <source>Select from recently used products.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите из недавно коришћених производа.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Откажи</translation>
     </message>
     <message>
         <source>Product information</source>
-        <translation type="unfinished"></translation>
+        <translation>Инфо о производу</translation>
     </message>
     <message>
         <source>Vendor:</source>
@@ -793,7 +793,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <translation>Натпис текста</translation>
     </message>
     <message>
         <source>Part #:</source>
@@ -824,42 +824,42 @@
     <name>StartupView</name>
     <message>
         <source>Welcome to gLabels.  Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Добро дошли у gLabels.  Хајде да почнемо:</translation>
     </message>
     <message>
         <source>Create a new blank gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Направите нови празан пројекат gLabels-а</translation>
     </message>
     <message>
         <source>Open a recent gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Отворите скорашњи пројекат gLabels-а</translation>
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорашње</translation>
     </message>
     <message>
         <source>New...</source>
-        <translation>Ново …</translation>
+        <translation>Ново...</translation>
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Разгледај...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Отворите постојећи пројекат gLabels-а</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerApplyPage</name>
     <message>
         <source>You have completed the gLabels Product Template Designer.  If you wish to accept and save your product template, click &quot;Save.&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Звршили сте са дизајнером шаблона производа gLabels-а.  Ако желите да прихватите и сачувате ваш шаблон производа, кликните „Сачувај“.</translation>
     </message>
     <message>
         <source>Otherwise, you may click &quot;Cancel&quot; to abandon your design or &quot;Back&quot; to review or continue editing this product template.</source>
-        <translation type="unfinished"></translation>
+        <translation>У супротном, можете кликнути на „Откажи“ да одбаците ваш нацрт или на „Назад“ да прегледате или да наставите да уређујете овај шаблон производа.</translation>
     </message>
 </context>
 <context>
@@ -893,7 +893,7 @@
     <name>TemplateDesignerContinuousPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Кликните „Откажи“ да изађете или кликните „Назад“ да започнете са другим производом.</translation>
     </message>
 </context>
 <context>
@@ -919,50 +919,50 @@
     <name>TemplateDesignerIntroPage</name>
     <message>
         <source>Copy/Edit Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Умножи/уреди производ</translation>
     </message>
     <message>
         <source>Copy and edit an existing product template</source>
-        <translation type="unfinished"></translation>
+        <translation>Умножите и уредите постојећи шаблон производа</translation>
     </message>
     <message>
         <source>New Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Нови производ</translation>
     </message>
     <message>
         <source>Create a new product template from scratch</source>
-        <translation type="unfinished"></translation>
+        <translation>Направите нови шаблон производа од нуле</translation>
     </message>
     <message>
         <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ово прозорче ће вам помоћи да направите произвољан шаблон производа. Хајде да почнемо:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerNLayoutsPage</name>
     <message>
         <source>A layout is a set of labels or cards that can be arranged in a simple grid.  Most products only need one layout, as in the first example below.  The second example illustrates when two layouts are needed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Распоред је скуп налепница или картица који се може распоредити на једној мрежи.  Већини производа је довољан један распоред, као у првом примеру испод.  Други пример показује када су потребна два распореда.</translation>
     </message>
     <message>
         <source>Products needing only one layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Производи којима је потребан само један распоред.</translation>
     </message>
     <message>
         <source>Products needing two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Производи којима су потребна два распореда.</translation>
     </message>
     <message>
         <source>Note: if more than two layouts are required, the product template must be edited manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Напомена: Ако је потребно више од два распореда, шаблон производа се мора уредити ручно.</translation>
     </message>
     <message>
         <source>One layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Један распоред</translation>
     </message>
     <message>
         <source>Two layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Два распореда</translation>
     </message>
 </context>
 <context>
@@ -989,7 +989,7 @@
     </message>
     <message>
         <source>(e.g. Avery, Acme, ...)</source>
-        <translation>(нпр., Ејвери, Акме, …)</translation>
+        <translation>(нпр., Avery, Acme, …)</translation>
     </message>
 </context>
 <context>
@@ -1027,7 +1027,7 @@
     <name>TemplateDesignerPageSizePage</name>
     <message>
         <source>Roll width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ширина замотаја:</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -1039,14 +1039,14 @@
     </message>
     <message>
         <source>Page size:</source>
-        <translation>Величина странице:</translation>
+        <translation>Величина стране:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerPathPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Кликните „Откажи“ да изађете, или кликните „Назад“ да почнете са другим производом.</translation>
     </message>
 </context>
 <context>
@@ -1081,7 +1081,7 @@
     </message>
     <message>
         <source>in</source>
-        <translation type="unfinished"></translation>
+        <translation>ин</translation>
     </message>
 </context>
 <context>
@@ -1176,31 +1176,31 @@
     <name>Variable</name>
     <message>
         <source>String</source>
-        <translation type="unfinished"></translation>
+        <translation>Ниска</translation>
     </message>
     <message>
         <source>Integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Цео број</translation>
     </message>
     <message>
         <source>Floating Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Покретни зарез</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Никад</translation>
     </message>
     <message>
         <source>Per item</source>
-        <translation type="unfinished"></translation>
+        <translation>По ставци</translation>
     </message>
     <message>
         <source>Per copy</source>
-        <translation type="unfinished"></translation>
+        <translation>По умношку</translation>
     </message>
     <message>
         <source>Per page</source>
-        <translation type="unfinished"></translation>
+        <translation>По страни</translation>
     </message>
     <message>
         <source>Color</source>
@@ -1211,7 +1211,7 @@
     <name>VariablesView</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -1223,52 +1223,52 @@
     </message>
     <message>
         <source>Add variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај променљиву</translation>
     </message>
     <message>
         <source>Edit selected variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Уреди изабрану променљиву</translation>
     </message>
     <message>
         <source>Delete selected variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Избриши изабрану променљиву</translation>
     </message>
 </context>
 <context>
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Издање</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
-        <translation type="unfinished"></translation>
+        <translation>Програм за прављење налепница и пословних картица.</translation>
     </message>
     <message>
         <source>gLabels is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels је слободан софтвер: можете га прослеђивати и/или мењати под условима Гнуове Опште јавне лиценце коју објављује Фондација слободног софтвера; било 3. издања те лиценце, или (по вашем избору) било којег новијег издања.</translation>
     </message>
     <message>
         <source>gLabels is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels се расподељује у нади да ће бити користан, али БЕЗ ИКАКВЕ ГАРАНЦИЈЕ; чак и без примењене гаранције ТРЖИШНЕ ВРЕДНОСТИ или ПРИЛАГОЂЕНОСТИ ОДРЕЂЕНОЈ НАМЕНИ. Погледајте Гнуову Општу јавну лиценцу за више детаља.</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorHistory</name>
     <message>
         <source>color %1</source>
-        <translation type="unfinished"></translation>
+        <translation>боја %1</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Standard Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Стандардне боје</translation>
     </message>
     <message>
         <source>Recent Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Недавне боје</translation>
     </message>
     <message>
         <source>Custom color...</source>
@@ -1285,7 +1285,7 @@
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи поље замене</translation>
     </message>
 </context>
 <context>
@@ -1299,46 +1299,46 @@
     <name>glabels::FieldButton</name>
     <message>
         <source>Merge fields</source>
-        <translation type="unfinished"></translation>
+        <translation>Стопи поља</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Променљиве</translation>
     </message>
 </context>
 <context>
     <name>glabels::File</name>
     <message>
         <source>gLabels - Open Project</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels – Отворите пројекат</translation>
     </message>
     <message>
         <source>glabels files (*.glabels);;All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>glabels датотеке (*.glabels);;Све датотеке (*)</translation>
     </message>
     <message>
         <source>Unable to open &quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Не могу да отворим „</translation>
     </message>
     <message>
         <source>&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>“.</translation>
     </message>
     <message>
         <source>gLabels - Save Project As</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels – Сачувај пројекат као</translation>
     </message>
     <message>
         <source>Save Label As</source>
-        <translation type="unfinished"></translation>
+        <translation>Сачувај налепницу као</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 већ постоји.</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Да ли желите да је замените?</translation>
     </message>
 </context>
 <context>
@@ -1357,7 +1357,7 @@
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>Одбаци</translation>
     </message>
 </context>
 <context>
@@ -1376,11 +1376,11 @@
     </message>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Стопи</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Променљиве</translation>
     </message>
     <message>
         <source>Print</source>
@@ -1392,7 +1392,7 @@
     </message>
     <message>
         <source>Create a new gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Направие нови пројекат gLabels-а</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
@@ -1400,7 +1400,7 @@
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Отворите већ постојећи пројекат gLabels-а</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -1408,7 +1408,7 @@
     </message>
     <message>
         <source>Save current gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Сачувајте текући пројекат gLabels-а</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
@@ -1416,7 +1416,7 @@
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
-        <translation type="unfinished"></translation>
+        <translation>Сачувајте текући пројекат gLabels-а под другим називом</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -1424,7 +1424,7 @@
     </message>
     <message>
         <source>Select project Edit mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите режим уређивања пројекта</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
@@ -1432,23 +1432,23 @@
     </message>
     <message>
         <source>Select project Properties mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите режим својстава пројекта</translation>
     </message>
     <message>
         <source>&amp;Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Стопи</translation>
     </message>
     <message>
         <source>Select project Merge mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите режим стапања пројекта</translation>
     </message>
     <message>
         <source>&amp;Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Променљиве</translation>
     </message>
     <message>
         <source>Select project Variables mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите режим променљивих пројекта</translation>
     </message>
     <message>
         <source>&amp;Print</source>
@@ -1456,31 +1456,31 @@
     </message>
     <message>
         <source>Select project Print mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите режм штампања пројекта</translation>
     </message>
     <message>
         <source>Product Template &amp;Designer...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Дизајнер шаблона производа...</translation>
     </message>
     <message>
         <source>Create custom templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Направите произвољне шаблоне</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Затвори</translation>
     </message>
     <message>
         <source>Close the current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Затворите текући прозор</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Изађи</translation>
     </message>
     <message>
         <source>Exit glabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Изађите из програма</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -1548,7 +1548,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Уређивач</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -1556,7 +1556,7 @@
     </message>
     <message>
         <source>Change visibility of the grid in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Измените видљивост мреже у текућем прозору</translation>
     </message>
     <message>
         <source>Markup</source>
@@ -1564,7 +1564,7 @@
     </message>
     <message>
         <source>Change visibility of markup lines in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Измените видљивост линија означавања у текућем прозору</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -1592,7 +1592,7 @@
     </message>
     <message>
         <source>Zoom to &amp;Fit</source>
-        <translation>&amp;Испуни увећање</translation>
+        <translation>Увећај да &amp;Испуни</translation>
     </message>
     <message>
         <source>Set scale to fit window</source>
@@ -1648,11 +1648,11 @@
     </message>
     <message>
         <source>Barcode</source>
-        <translation>Тракаста шифра</translation>
+        <translation>Баркôд</translation>
     </message>
     <message>
         <source>Create barcode object</source>
-        <translation>Направите баркодни објекат</translation>
+        <translation>Направите баркôд објекат</translation>
     </message>
     <message>
         <source>Bring To Front</source>
@@ -1692,7 +1692,7 @@
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Изврните објекат водоравно</translation>
     </message>
     <message>
         <source>Flip Vertically</source>
@@ -1700,7 +1700,7 @@
     </message>
     <message>
         <source>Flip object(s) vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Изврните објекат усправно</translation>
     </message>
     <message>
         <source>Align Left</source>
@@ -1768,7 +1768,7 @@
     </message>
     <message>
         <source>Open gLabels manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Отворите приручник gLabelsa</translation>
     </message>
     <message>
         <source>&amp;About...</source>
@@ -1776,7 +1776,7 @@
     </message>
     <message>
         <source>About gLabels</source>
-        <translation type="unfinished"></translation>
+        <translation>О програму gLabels</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -1788,7 +1788,7 @@
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished"></translation>
+        <translation>Трака алата</translation>
     </message>
     <message>
         <source>&amp;Objects</source>
@@ -1812,7 +1812,7 @@
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Средиште</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1820,7 +1820,7 @@
     </message>
     <message>
         <source>&amp;Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Уређивач</translation>
     </message>
     <message>
         <source>(modified)</source>
@@ -1828,7 +1828,7 @@
     </message>
     <message>
         <source>Save changes to project &quot;%1&quot; before closing?</source>
-        <translation type="unfinished"></translation>
+        <translation>Да сачувам измене у пројекат „%1“ пре затварања?</translation>
     </message>
     <message>
         <source>Your changes will be lost if you don&apos;t save them.</source>
@@ -1836,7 +1836,7 @@
     </message>
     <message>
         <source>Save project?</source>
-        <translation type="unfinished"></translation>
+        <translation>Да сачувам пројекат?</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -1868,72 +1868,72 @@
     </message>
     <message>
         <source>Create Barcode</source>
-        <translation>Направите баркодни објекат</translation>
+        <translation>Направите баркôд објекат</translation>
     </message>
     <message>
         <source>Quick Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Брзи приступ</translation>
     </message>
     <message>
         <source>&amp;Report Bug...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Извести о грешци...</translation>
     </message>
     <message>
         <source>Report a bug to the developers</source>
-        <translation type="unfinished"></translation>
+        <translation>Пријавите грешку програмерима</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Quick Access&quot; toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Измените видљивост траке алата „Брзи приступ“ у текућем прозору</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Editor&quot; toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Измените видљивост траке алата „Уређивач“ у текућем прозору</translation>
     </message>
     <message>
         <source>&amp;User Manual...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Корисничко упутство...</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Отвори скорашње</translation>
     </message>
     <message>
         <source>Quick Access Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Трака алата Брзи приступ</translation>
     </message>
     <message>
         <source>Undo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Поништи радњу „%1“</translation>
     </message>
     <message>
         <source>Redo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Понови радњу „%1“</translation>
     </message>
     <message>
         <source>Center Both</source>
-        <translation type="unfinished"></translation>
+        <translation>У средиште оба</translation>
     </message>
     <message>
         <source>Center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Усредиштите објекте у налепницама</translation>
     </message>
 </context>
 <context>
     <name>glabels::MergeView</name>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Стопи</translation>
     </message>
     <message>
         <source>Select merge file</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите датотеку стапања</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Све датотеке (*)</translation>
     </message>
 </context>
 <context>
@@ -1952,7 +1952,7 @@
     </message>
     <message>
         <source>Original size</source>
-        <translation type="unfinished"></translation>
+        <translation>Изворна величина</translation>
     </message>
     <message>
         <source>Box object properties</source>
@@ -1960,15 +1960,15 @@
     </message>
     <message>
         <source>line/fill</source>
-        <translation type="unfinished"></translation>
+        <translation>линија/испуна</translation>
     </message>
     <message>
         <source>position/size</source>
-        <translation type="unfinished"></translation>
+        <translation>положај/величина</translation>
     </message>
     <message>
         <source>shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>сенка</translation>
     </message>
     <message>
         <source>Ellipse object properties</source>
@@ -1980,7 +1980,7 @@
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>слика</translation>
     </message>
     <message>
         <source>Line object properties</source>
@@ -1992,15 +1992,15 @@
     </message>
     <message>
         <source>text</source>
-        <translation>Текст</translation>
+        <translation>текст</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
-        <translation>Својства објекта квадрата</translation>
+        <translation>Својства објекта баркôда</translation>
     </message>
     <message>
         <source>barcode</source>
-        <translation type="unfinished"></translation>
+        <translation>баркôд</translation>
     </message>
     <message>
         <source>Object properties</source>
@@ -2016,55 +2016,55 @@
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Датотеке слике (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Све датотеке(*)</translation>
     </message>
     <message>
         <source>PNG - Portable Network Graphics (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG - Portable Network Graphics (*.png)</translation>
     </message>
     <message>
         <source>BMP - Windows Bitmap (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>BMP - Windows Bitmap (*.bmp)</translation>
     </message>
     <message>
         <source>GIF - Graphics Interchange Format (*.gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>GIF - Graphics Interchange Format (*.gif)</translation>
     </message>
     <message>
         <source>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>PBM - Portable Bitmap (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBM - Portable Bitmap (*.pbm)</translation>
     </message>
     <message>
         <source>PGM - Portable Graymap (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PGM - Portable Graymap (*.pgm)</translation>
     </message>
     <message>
         <source>PPM - Portable Pixmap (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PPM - Portable Pixmap (*.ppm)</translation>
     </message>
     <message>
         <source>SVG - Scalable Vector Graphics (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>SVG - Scalable Vector Graphics (*.svg)</translation>
     </message>
     <message>
         <source>XBM - X11 Bitmap (*.xbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XBM - X11 Bitmap (*.xbm)</translation>
     </message>
     <message>
         <source>XPM - X11 Pixmap (*.xpm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XPM - X11 Pixmap (*.xpm)</translation>
     </message>
     <message>
         <source>gLabels - Select image file</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels – Изаберите датотеку слике</translation>
     </message>
     <message>
         <source>Set image</source>
@@ -2088,19 +2088,19 @@
     </message>
     <message>
         <source>Barcode</source>
-        <translation>Тракаста шифра</translation>
+        <translation>Баркôд</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Поништи</translation>
     </message>
     <message>
         <source>Insert substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Уметни поље замене</translation>
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи поље замене</translation>
     </message>
 </context>
 <context>
@@ -2111,31 +2111,31 @@
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Штампаћу укупно %1 ставке на %2 стране.)</translation>
     </message>
     <message>
         <source>(Will print a total of 1 item on 1 page.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Штампаћу укупно 1 ставку на 1 страни.)</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on 1 page.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Штампаћу укупно %1 ставке на 1 страни.)</translation>
     </message>
     <message>
         <source>Print to file (PDF)</source>
-        <translation type="unfinished"></translation>
+        <translation>Штампај у датотеку (PDF)</translation>
     </message>
     <message>
         <source>PDF files (*.pdf);;All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>ПДФ датотеке (*.pdf);;Све датотеке(*)</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 већ постоји.</translation>
     </message>
     <message>
         <source>Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Да ли желите да је замените?</translation>
     </message>
 </context>
 <context>
@@ -2146,41 +2146,41 @@
     </message>
     <message>
         <source>Product Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Окретање производа</translation>
     </message>
     <message>
         <source>Change Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Измените производ</translation>
     </message>
 </context>
 <context>
     <name>glabels::ReportBugDialog</name>
     <message>
         <source>How to Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Како да пријавите грешку</translation>
     </message>
     <message>
         <source>To submit a bug report, click on the button below.  This will open a web browser to the gLabels github issue tracking page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Да пошаљете извештај о грешци, кликните на дугме испод.  Ово ће отворити веб прегледника на страници за праћење проблема на „gLabels github“-у.</translation>
     </message>
     <message>
         <source>Be sure to include a detailed description of the problem and how to recreate it.  Attach any screenshots and/or example glabels project files that may illustrate the problem.</source>
-        <translation type="unfinished"></translation>
+        <translation>Обавезно пошаљите детаљан опис проблема и како је до њега дошло.  Приложите све снимке екрана и/или пример датотеке пројекта која може да илустрира проблем.</translation>
     </message>
     <message>
         <source>Before submitting a report, look through the existing issues for similar or related bugs.  If the issue has already been reported, please consider contributing to its report instead.  Otherwise, create a new issue report. Please paste the following information into the issue description.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пре него што пошаљете извештај, погледајте у постојећим извештајима да ли постоји неки сличан вашем. Ако је већ извештено о таквом проблему, допринесите том извештају. У супротном, направите нови извештај о проблему. Убаците следеће информације у опис проблема.</translation>
     </message>
 </context>
 <context>
     <name>glabels::SelectProductDialog</name>
     <message>
         <source>List View</source>
-        <translation type="unfinished"></translation>
+        <translation>Преглед списком</translation>
     </message>
     <message>
         <source>Grid View</source>
-        <translation type="unfinished"></translation>
+        <translation>Преглед мрежом</translation>
     </message>
 </context>
 <context>
@@ -2194,11 +2194,11 @@
     <name>glabels::TemplateDesigner</name>
     <message>
         <source>Product Template Designer</source>
-        <translation type="unfinished"></translation>
+        <translation>дизајнер шаблона производа</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Замотај</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -2209,64 +2209,64 @@
     <name>glabels::TemplateDesignerApplyPage</name>
     <message>
         <source>Save Product Template</source>
-        <translation type="unfinished"></translation>
+        <translation>Сачувај шаблон производа</translation>
     </message>
     <message>
         <source>Click &quot;Save&quot; to save your custom product template!</source>
-        <translation type="unfinished"></translation>
+        <translation>Кликните „Сачувај“ да сачувате ваш произвољни шаблон производа!</translation>
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
         <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Већ постоји корисников шаблон производа (%1 %2).</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Да ли желите да га замените?</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerCdPage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина производа</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подесите параметре величине јединствене ставке производа.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerContinuousPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Неподржан стил производа</translation>
     </message>
     <message>
         <source>Continuous tape product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Дизајнер шаблона производа тренутно не подржава непрекидну траку шаблона производа.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerEllipsePage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина производа</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подесите параметре величине јединствене ставке производа.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerIntroPage</name>
     <message>
         <source>Welcome</source>
-        <translation>Добродошли</translation>
+        <translation>Добро дошли</translation>
     </message>
     <message>
         <source>Welcome to the gLabels Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Добро дошли у Дизајнера шаблона производа gLabels-а.</translation>
     </message>
 </context>
 <context>
@@ -2277,7 +2277,7 @@
     </message>
     <message>
         <source>Please select the number of layouts required.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите број потребних распореда.</translation>
     </message>
 </context>
 <context>
@@ -2288,11 +2288,11 @@
     </message>
     <message>
         <source>Please enter the following identifying information about the product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Унесите следеће информације препознавања о производу.</translation>
     </message>
     <message>
         <source>Brand and part number match an existing built-in product template!</source>
-        <translation type="unfinished"></translation>
+        <translation>Марка и број дела одговара постојећем уграђеном шаблону производа!</translation>
     </message>
 </context>
 <context>
@@ -2303,70 +2303,70 @@
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Унесите параметре за ваш један распоред.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerPageSizePage</name>
     <message>
         <source>Page Size</source>
-        <translation>Величина странице</translation>
+        <translation>Величина стране</translation>
     </message>
     <message>
         <source>Please select the product page size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите величину странице производа.</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation>Друга</translation>
+        <translation>Друго</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Замотај</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerPathPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Неподржан стил производа</translation>
     </message>
     <message>
         <source>Path based product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Дизајнер шаблона производа тренутно не подржава шаблоне производа засноване на путањи.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerRectPage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина производа</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подесите параметре величине јединствене ставке производа.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerRoundPage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина производа</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подесите параметре величине јединствене ставке производа.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerShapePage</name>
     <message>
         <source>Product Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Облик производа</translation>
     </message>
     <message>
         <source>Please select the basic product shape.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изаберите основни облик производа.</translation>
     </message>
 </context>
 <context>
@@ -2377,42 +2377,42 @@
     </message>
     <message>
         <source>Please enter parameters for your two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Унесите параметре за ваша два распореда.</translation>
     </message>
 </context>
 <context>
     <name>glabels::VariablesView</name>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Променљиве</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Назив</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Врста</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Повећање</translation>
     </message>
     <message>
         <source>Step Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Величина корака</translation>
     </message>
     <message>
         <source>Add Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Додај променљиву</translation>
     </message>
     <message>
         <source>Edit Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Уреди променљиву</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Вредност</translation>
     </message>
 </context>
 <context>
@@ -2427,95 +2427,95 @@
     </message>
     <message>
         <source>UPC-A</source>
-        <translation>УПЦ-А</translation>
+        <translation>UPC-А</translation>
     </message>
     <message>
         <source>EAN-13</source>
-        <translation>ЕАН-13</translation>
+        <translation>EAN-13</translation>
     </message>
     <message>
         <source>POSTNET (any)</source>
-        <translation>ПОСТНЕТ (било који)</translation>
+        <translation>POSTNET (било који)</translation>
     </message>
     <message>
         <source>POSTNET-5 (ZIP only)</source>
-        <translation>ПОСТНЕТ-5 (ЗИП само)</translation>
+        <translation>POSTNET-5 (само ZIP)</translation>
     </message>
     <message>
         <source>POSTNET-9 (ZIP+4)</source>
-        <translation>ПОСТНЕТ-9 (ЗИП+4)</translation>
+        <translation>POSTNET-9 (ZIP+4)</translation>
     </message>
     <message>
         <source>POSTNET-11 (DPBC)</source>
-        <translation>ПОСТНЕТ-11 (ДПБЦ)</translation>
+        <translation>POSTNET-11 (DPBC)</translation>
     </message>
     <message>
         <source>CEPNET</source>
-        <translation>ЦЕПНЕТ</translation>
+        <translation>CEPNET</translation>
     </message>
     <message>
         <source>USPS Intelligent Mail</source>
-        <translation type="unfinished"></translation>
+        <translation>USPS Интелигентна пошта</translation>
     </message>
     <message>
         <source>IEC16022 (DataMatrix)</source>
-        <translation>ИЕЦ16022 (Матрица података)</translation>
+        <translation>IEC16022 (Матрица података)</translation>
     </message>
     <message>
         <source>EAN (any)</source>
-        <translation>ЕАН (било који)</translation>
+        <translation>EAN (било који)</translation>
     </message>
     <message>
         <source>EAN-8</source>
-        <translation>ЕАН-8</translation>
+        <translation>EAN-8</translation>
     </message>
     <message>
         <source>EAN-8+2</source>
-        <translation>ЕАН-8+2</translation>
+        <translation>EAN-8+2</translation>
     </message>
     <message>
         <source>EAN-8+5</source>
-        <translation>ЕАН-8+5</translation>
+        <translation>EAN-8+5</translation>
     </message>
     <message>
         <source>EAN-13+2</source>
-        <translation>ЕАН-13+2</translation>
+        <translation>EAN-13+2</translation>
     </message>
     <message>
         <source>EAN-13+5</source>
-        <translation>ЕАН-13+5</translation>
+        <translation>EAN-13+5</translation>
     </message>
     <message>
         <source>UPC (UPC-A or UPC-E)</source>
-        <translation>УПЦ (УПЦ-А или УПЦ-Е)</translation>
+        <translation>UPC (UPC-A или UPC-E)</translation>
     </message>
     <message>
         <source>UPC-A +2</source>
-        <translation>УПЦ-А +2</translation>
+        <translation>UPC-A +2</translation>
     </message>
     <message>
         <source>UPC-A +5</source>
-        <translation>УПЦ-А +5</translation>
+        <translation>UPC-A +5</translation>
     </message>
     <message>
         <source>UPC-E</source>
-        <translation>УПЦ-Е</translation>
+        <translation>UPC-E</translation>
     </message>
     <message>
         <source>UPC-E +2</source>
-        <translation>УПЦ-Е +2</translation>
+        <translation>UPC-E +2</translation>
     </message>
     <message>
         <source>UPC-E +5</source>
-        <translation>УПЦ-Е +5</translation>
+        <translation>UPC-E +5</translation>
     </message>
     <message>
         <source>ISBN</source>
-        <translation>ИСБН</translation>
+        <translation>ISBN</translation>
     </message>
     <message>
         <source>ISBN +5</source>
-        <translation>ИСБН +5</translation>
+        <translation>ISBN +5</translation>
     </message>
     <message>
         <source>Code 128</source>
@@ -2523,11 +2523,11 @@
     </message>
     <message>
         <source>Code 128C</source>
-        <translation>Шифра 128Ц</translation>
+        <translation>Шифра 128C</translation>
     </message>
     <message>
         <source>Code 128B</source>
-        <translation>Шифра 128Б</translation>
+        <translation>Шифра 128B</translation>
     </message>
     <message>
         <source>Interleaved 2 of 5</source>
@@ -2539,11 +2539,11 @@
     </message>
     <message>
         <source>MSI</source>
-        <translation>МСИ</translation>
+        <translation>MSI</translation>
     </message>
     <message>
         <source>Plessey</source>
-        <translation>Плеси</translation>
+        <translation>Plessey</translation>
     </message>
     <message>
         <source>Code 93</source>
@@ -2551,7 +2551,7 @@
     </message>
     <message>
         <source>IEC18004 (QRCode)</source>
-        <translation>ИЕЦ18004 (КуР шифра)</translation>
+        <translation>IEC18004 (QR шифра)</translation>
     </message>
     <message>
         <source>Australia Post Standard</source>
@@ -2587,7 +2587,7 @@
     </message>
     <message>
         <source>Code 2 of 5 IATA</source>
-        <translation>Шифра 2 од 5 ИАТА</translation>
+        <translation>Шифра 2 од 5 IATA</translation>
     </message>
     <message>
         <source>Code 2 of 5 Data Logic</source>
@@ -2603,11 +2603,11 @@
     </message>
     <message>
         <source>Code 128 (Mode C suppression)</source>
-        <translation>Шифра 128 (Потискивање Ц режима)</translation>
+        <translation>Шифра 128 (Потискивање C режима)</translation>
     </message>
     <message>
         <source>DAFT Code</source>
-        <translation>Шифра ДАФТ</translation>
+        <translation>Шифра DAFT</translation>
     </message>
     <message>
         <source>Data Matrix</source>
@@ -2623,11 +2623,11 @@
     </message>
     <message>
         <source>Dutch Post KIX Code</source>
-        <translation>Шифра КИКс немачке поште</translation>
+        <translation>KIX шифра холандске поште</translation>
     </message>
     <message>
         <source>EAN</source>
-        <translation>ЕАН</translation>
+        <translation>EAN</translation>
     </message>
     <message>
         <source>Grid Matrix</source>
@@ -2635,35 +2635,35 @@
     </message>
     <message>
         <source>GS1-128</source>
-        <translation>ГС1-128</translation>
+        <translation>GS1-128</translation>
     </message>
     <message>
         <source>HIBC Code 128</source>
-        <translation>ХИБЦ шифра 128</translation>
+        <translation>HIBC шифра 128</translation>
     </message>
     <message>
         <source>HIBC Code 39</source>
-        <translation>ХИБЦ шифра 39</translation>
+        <translation>HIBC шифра 39</translation>
     </message>
     <message>
         <source>HIBC Data Matrix</source>
-        <translation>ХИБЦ матрица података</translation>
+        <translation>HIBC матрица података</translation>
     </message>
     <message>
         <source>HIBC QR Code</source>
-        <translation>ХИБЦ шифра КуР</translation>
+        <translation>HIBC QR шифра</translation>
     </message>
     <message>
         <source>HIBC PDF417</source>
-        <translation>ХИБЦ ПДФ417</translation>
+        <translation>HIBC PDF417</translation>
     </message>
     <message>
         <source>HIBC Aztec Code</source>
-        <translation>ХИБЦ астешка шифра</translation>
+        <translation>HIBC астешка шифра</translation>
     </message>
     <message>
         <source>ITF-14</source>
-        <translation>ИТФ-14</translation>
+        <translation>ITF-14</translation>
     </message>
     <message>
         <source>Japanese Postal</source>
@@ -2675,7 +2675,7 @@
     </message>
     <message>
         <source>LOGMARS</source>
-        <translation>ЛОГМАРС</translation>
+        <translation>LOGMARS</translation>
     </message>
     <message>
         <source>Maxicode</source>
@@ -2683,19 +2683,19 @@
     </message>
     <message>
         <source>Micro QR Code</source>
-        <translation>Микро КуР шифра</translation>
+        <translation>Микро QR шифра</translation>
     </message>
     <message>
         <source>MSI Plessey</source>
-        <translation>МСИ Плеси</translation>
+        <translation>MSI Plessey</translation>
     </message>
     <message>
         <source>PDF417</source>
-        <translation>ПДФ417</translation>
+        <translation>PDF417</translation>
     </message>
     <message>
         <source>PLANET</source>
-        <translation>ПЛАНЕТ</translation>
+        <translation>PLANET</translation>
     </message>
     <message>
         <source>Pharmacode</source>
@@ -2707,7 +2707,7 @@
     </message>
     <message>
         <source>QR Code</source>
-        <translation>КуР шифра</translation>
+        <translation>QR шифра</translation>
     </message>
     <message>
         <source>Telepen</source>
@@ -2719,127 +2719,127 @@
     </message>
     <message>
         <source>UK Plessey</source>
-        <translation>Британски Плеси</translation>
+        <translation>UK Plessey</translation>
     </message>
     <message>
         <source>Aztec Runes</source>
-        <translation type="unfinished"></translation>
+        <translation>Астешке руне</translation>
     </message>
     <message>
         <source>CEPNet (Brazilian Post)</source>
-        <translation type="unfinished"></translation>
+        <translation>CEPNet (Бразилска пошта)</translation>
     </message>
     <message>
         <source>Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>Codablock-F</translation>
     </message>
     <message>
         <source>Code 2 of 5 Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Шифра 2 од 5 стандард</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 трака података наслагано</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked Omni.</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 трака података наслагано омни.</translation>
     </message>
     <message>
         <source>GS1 DataBar Expanded Stacked</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 трака података проширено наслагано</translation>
     </message>
     <message>
         <source>HIBC MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC MicroPDF417</translation>
     </message>
     <message>
         <source>MicroPDF417</source>
-        <translation type="unfinished"></translation>
+        <translation>MicroPDF417</translation>
     </message>
     <message>
         <source>NVE-18 (SSCC-18)</source>
-        <translation type="unfinished"></translation>
+        <translation>NVE-18 (SSCC-18)</translation>
     </message>
     <message>
         <source>PDF417 Compact</source>
-        <translation type="unfinished"></translation>
+        <translation>PDF417 збијено</translation>
     </message>
     <message>
         <source>Pharmazentralnummer (PZN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pharmazentralnummer (PZN)</translation>
     </message>
     <message>
         <source>Channel Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Канал шифра</translation>
     </message>
     <message>
         <source>Code 2 of 5 Industrial</source>
-        <translation type="unfinished"></translation>
+        <translation>Шифра 2 од 5 индустријски</translation>
     </message>
     <message>
         <source>DotCode</source>
-        <translation type="unfinished"></translation>
+        <translation>Тачкаста шифра</translation>
     </message>
     <message>
         <source>EAN-14</source>
-        <translation type="unfinished"></translation>
+        <translation>EAN-14</translation>
     </message>
     <message>
         <source>GS1 DataBar Omnidirectional</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 трака података омни усмерено</translation>
     </message>
     <message>
         <source>Han Xin</source>
-        <translation type="unfinished"></translation>
+        <translation>Han Xin</translation>
     </message>
     <message>
         <source>Flattermarken</source>
-        <translation type="unfinished"></translation>
+        <translation>Flattermarken</translation>
     </message>
     <message>
         <source>DPD Code</source>
-        <translation type="unfinished"></translation>
+        <translation>DPD шифра</translation>
     </message>
     <message>
         <source>POSTNET</source>
-        <translation type="unfinished"></translation>
+        <translation>POSTNET</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Mailmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Краљевска пошта 4-државни поштански знак</translation>
     </message>
     <message>
         <source>UPU S10</source>
-        <translation type="unfinished"></translation>
+        <translation>UPU S10</translation>
     </message>
     <message>
         <source>FIM (Facing ID Mark)</source>
-        <translation type="unfinished"></translation>
+        <translation>FIM (Facing ID Mark)</translation>
     </message>
     <message>
         <source>rMQR (Rectangular Micro QR)</source>
-        <translation type="unfinished"></translation>
+        <translation>rMQR (правоугаони микро QR)</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>Краљевска пошта 4–државни корисник</translation>
     </message>
     <message>
         <source>VIN (Vehicle ID Number)</source>
-        <translation type="unfinished"></translation>
+        <translation>VIN (ИД број возила)</translation>
     </message>
     <message>
         <source>HIBC Codablock-F</source>
-        <translation type="unfinished"></translation>
+        <translation>HIBC Codablock-F</translation>
     </message>
     <message>
         <source>Royal Mail 2-D Mailmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Краљевска пошта 2-D поштански знак</translation>
     </message>
     <message>
         <source>BC412 (SEMI TI-95)</source>
-        <translation type="unfinished"></translation>
+        <translation>BC412 (SEMI TI-95)</translation>
     </message>
 </context>
 <context>
@@ -2853,18 +2853,18 @@
     <name>glabels::model::ModelBarcodeObject</name>
     <message>
         <source>No barcode data</source>
-        <translation type="unfinished"></translation>
+        <translation>Нема података баркôда</translation>
     </message>
     <message>
         <source>Invalid barcode data</source>
-        <translation>Неисправни подаци баркода</translation>
+        <translation>Неисправни подаци баркôда</translation>
     </message>
 </context>
 <context>
     <name>glabels::model::ModelImageObject</name>
     <message>
         <source>No image</source>
-        <translation type="unfinished"></translation>
+        <translation>Нема слике</translation>
     </message>
 </context>
 <context>
@@ -2878,11 +2878,11 @@
     <name>main</name>
     <message>
         <source>gLabels Label Designer</source>
-        <translation type="unfinished"></translation>
+        <translation>Дизајнер налепница – gLabels</translation>
     </message>
     <message>
         <source>gLabels project files to open, optionally.</source>
-        <translation type="unfinished"></translation>
+        <translation>Датотеке пројекта за отварање, изборно.</translation>
     </message>
 </context>
 </TS>
