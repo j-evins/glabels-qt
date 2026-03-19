@@ -78,7 +78,7 @@
     <Meta category="round-label"/>
     <Meta category="media"/>
     <Label-round id="0" radius="29.15mm" waste="0">
-      <Markup-circle x0="58.3mm" y0="58.3mm" radius="58.3mm" /> <!-- Print Area -->
+      <Markup-circle x0="29.15mm" y0="29.15mm" radius="29.15mm" /> <!-- Print Area -->
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-round>
   </Template>
