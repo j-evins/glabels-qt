@@ -23,9 +23,10 @@
   <!-- Die-cut Labels                                                        -->
   <!-- ********************************************************************* -->
 
-  <Template brand="Brother" part="DK-1201" _description="Address labels"
+  <Template brand="Brother" part="DK-11201" _description="Address labels"
 	    size="roll" roll_width="32mm" width="28.96mm" height="89.83mm" >
     <Meta category="label"/>
+    <Meta category="rectangle-label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="28.96mm" height="89.83mm" round="1.5mm" x_waste="0" y_waste="0">
       <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
@@ -33,9 +34,12 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Brother" part="DK-1202" _description="Shipping labels"
+  <Template brand="Brother" part="DK-1201" equiv="DK-11201"/>
+
+  <Template brand="Brother" part="DK-11202" _description="Shipping labels"
 	    size="roll" roll_width="67mm" width="61.98mm" height="99.82mm" >
     <Meta category="label"/>
+    <Meta category="rectangle-label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="61.98mm" height="99.82mm" round="1.5mm" x_waste="0" y_waste="0">
       <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
@@ -43,20 +47,111 @@
     </Label-rectangle>
   </Template>
 
-  <Template brand="Brother" part="DK-1204" _description="Multipurpose labels"
+  <Template brand="Brother" part="DK-1202" equiv="DK-11202"/>
+
+  <Template brand="Brother" part="DK-11203" _description="Arch file labels"
+	    size="roll" roll_width="20mm" width="17.02mm" height="86.9mm" >
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Meta category="filing"/>
+    <Label-rectangle id="0" width="17.02mm" height="86.9mm" round="1.5mm" x_waste="0" y_waste="0">
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Brother" part="DK-11204" _description="Multipurpose labels"
 	    size="roll" roll_width="20mm" width="17.02mm" height="53.85mm" >
     <Meta category="label"/>
+    <Meta category="rectangle-label"/>
     <Label-rectangle id="0" width="17.02mm" height="53.85mm" round="1.5mm" x_waste="0" y_waste="0">
       <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-rectangle>
   </Template>
 
-  <Template brand="Brother" part="DK-1208" _description="Address labels"
+  <Template brand="Brother" part="DK-1204" equiv="DK-11204"/>
+
+  <Template brand="Brother" part="DK-11207" _description="CD/DVD labels (disc labels)"
+	    size="roll" roll_width="67mm" width="58.3mm" height="58.3mm" >
+    <Meta category="label"/>
+    <Meta category="round-label"/>
+    <Meta category="media"/>
+    <Label-round id="0" radius="29.15mm" waste="0">
+      <Markup-circle x0="58.3mm" y0="58.3mm" radius="58.3mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-round>
+  </Template>
+
+  <Template brand="Brother" part="DK-11208" _description="Address labels"
 	    size="roll" roll_width="43mm" width="38.01mm" height="89.83mm" >
     <Meta category="label"/>
     <Meta category="mail"/>
     <Label-rectangle id="0" width="38.01mm" height="89.83mm" round="1.5mm" x_waste="0" y_waste="0">
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Brother" part="DK-1208" equiv="DK-11208"/>
+
+  <Template brand="Brother" part="DK-11209" _description="Address labels"
+	    size="roll" roll_width="67mm" width="61.98mm" height="28.96mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Label-rectangle id="0" width="61.98mm" height="28.96mm" round="1.5mm" x_waste="0" y_waste="0">
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Brother" part="DK-11218" _description="Round labels"
+	    size="roll" roll_width="32mm" width="24mm" height="24mm" >
+    <Meta category="label"/>
+    <Meta category="round-label"/>
+    <Label-round id="0" radius="12mm" waste="0">
+      <Markup-circle x0="12mm" y0="12mm" radius="12mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-round>
+  </Template>
+
+  <Template brand="Brother" part="DK-11219" _description="Round labels"
+	    size="roll" roll_width="20mm" width="12mm" height="12mm" >
+    <Meta category="label"/>
+    <Meta category="round-label"/>
+    <Label-round id="0" radius="6mm" waste="0">
+      <Markup-circle x0="6mm" y0="6mm" radius="6mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-round>
+  </Template>
+
+  <Template brand="Brother" part="DK-11221" _description="Square labels"
+	    size="roll" roll_width="32mm" width="23mm" height="23mm" >
+    <Meta category="label"/>
+    <Meta category="square-label"/>
+    <Label-rectangle id="0" width="23mm" height="23mm" round="1.5mm" x_waste="0" y_waste="0">
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Brother" part="DK-11240" _description="Shipping labels"
+	    size="roll" roll_width="108mm" width="102mm" height="51mm" >
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Meta category="mail"/>
+    <Label-rectangle id="0" width="102mm" height="51mm" round="1.5mm" x_waste="0" y_waste="0">
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Brother" part="DK-11247" _description="Shipping labels"
+	    size="roll" roll_width="108mm" width="103mm" height="164mm" >
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Meta category="mail"/>
+    <Label-rectangle id="0" width="103mm" height="164mm" round="1.5mm" x_waste="0" y_waste="0">
       <Markup-margin x_size="1.5mm" y_size="3.0mm" /> <!-- Print Area -->
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-rectangle>
@@ -67,11 +162,87 @@
   <!-- Continuous Label Tapes                                                -->
   <!-- ********************************************************************* -->
 
-  <Template brand="Brother" part="DK-2205" _description="Continuous label tape"
+  <Template brand="Brother" part="DK-22205" _description="Continuous label tape"
 	    size="roll" roll_width="67mm" width="61.98mm" >
     <Meta category="label"/>
     <Meta category="mail"/>
+    <Meta category="filing"/>
     <Label-continuous id="0" width="61.98mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="DK-22113" equiv="DK-22205"/>
+  <Template brand="Brother" part="DK-22212" equiv="DK-22205"/>
+  <Template brand="Brother" part="DK-22251" equiv="DK-22205"/>
+  <Template brand="Brother" part="DK-22606" equiv="DK-22205"/>
+  <Template brand="Brother" part="DK-44205" equiv="DK-22205"/>
+  <Template brand="Brother" part="DK-44605" equiv="DK-22205"/>
+
+  <Template brand="Brother" part="DK-22210" _description="Continuous label tape"
+	    size="roll" roll_width="32mm" width="28.96mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Meta category="filing"/>
+    <Label-continuous id="0" width="28.96mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="DK-22211" equiv="DK-22210"/>
+
+  <Template brand="Brother" part="DK-22214" _description="Continuous label tape"
+	    size="roll" roll_width="20mm" width="12mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Meta category="filing"/>
+    <Label-continuous id="0" width="12mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="DK-22223" _description="Continuous label tape"
+	    size="roll" roll_width="67mm" width="50mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Meta category="filing"/>
+    <Label-continuous id="0" width="50mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="DK-22225" _description="Continuous label tape"
+	    size="roll" roll_width="43mm" width="38.01mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Meta category="filing"/>
+    <Label-continuous id="0" width="38.01mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="DK-22246" _description="Continuous label tape"
+	    size="roll" roll_width="108mm" width="103mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Meta category="filing"/>
+    <Label-continuous id="0" width="103mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+      <Markup-margin x_size="1.5mm" y_size="3.0mm" />
+      <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
+    </Label-continuous>
+  </Template>
+
+  <Template brand="Brother" part="DK-N44224" _description="Continuous label tape"
+	    size="roll" roll_width="67mm" width="54mm" >
+    <Meta category="label"/>
+    <Meta category="mail"/>
+    <Meta category="filing"/>
+    <Label-continuous id="0" width="54mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
       <Markup-margin x_size="1.5mm" y_size="3.0mm" />
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-continuous>
