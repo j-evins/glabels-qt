@@ -68,7 +68,7 @@
     </message>
     <message>
         <source>Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>კარაქი</translation>
     </message>
     <message>
         <source>Chameleon</source>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>ქლიავი</translation>
     </message>
     <message>
         <source>Chocolate</source>
@@ -254,7 +254,7 @@
     <name>FrameCd</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished"></translation>
+        <translation>დიამეტრი</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@
     <name>FrameRound</name>
     <message>
         <source>diameter</source>
-        <translation type="unfinished"></translation>
+        <translation>დიამეტრი</translation>
     </message>
 </context>
 <context>
@@ -437,7 +437,7 @@
     </message>
     <message>
         <source>Line/Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>ხაზი/შევსება</translation>
     </message>
     <message>
         <source>Line</source>
@@ -548,7 +548,7 @@
     </message>
     <message>
         <source>Picas</source>
-        <translation type="unfinished"></translation>
+        <translation>Picas</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -603,11 +603,11 @@
     </message>
     <message>
         <source>of</source>
-        <translation type="unfinished"></translation>
+        <translation>-დან</translation>
     </message>
     <message>
         <source>nn</source>
-        <translation type="unfinished"></translation>
+        <translation>nn</translation>
     </message>
     <message>
         <source>Pages</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>სადამდე</translation>
     </message>
     <message>
         <source>Merge control</source>
@@ -1112,7 +1112,7 @@
     </message>
     <message>
         <source>in</source>
-        <translation type="unfinished"></translation>
+        <translation>დუიმი</translation>
     </message>
 </context>
 <context>
