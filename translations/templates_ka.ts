@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Labels</source>
-        <translation type="unfinished"></translation>
+        <translation>ჭდეები</translation>
     </message>
     <message>
         <source>Large address labels</source>
