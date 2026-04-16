@@ -855,7 +855,7 @@
     <name>TemplateDesignerApplyPage</name>
     <message>
         <source>You have completed the gLabels Product Template Designer.  If you wish to accept and save your product template, click &quot;Save.&quot;</source>
-        <translation>Звршили сте са дизајнером шаблона производа gLabels-а.  Ако желите да прихватите и сачувате ваш шаблон производа, кликните „Сачувај“.</translation>
+        <translation>Звршили сте са дизајнером шаблона производа gLabels-а.  Ако желите да прихватите и сачувате ваш шаблон производа, кликните „Сачувај.“</translation>
     </message>
     <message>
         <source>Otherwise, you may click &quot;Cancel&quot; to abandon your design or &quot;Back&quot; to review or continue editing this product template.</source>
