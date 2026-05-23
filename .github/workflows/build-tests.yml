@@ -3,7 +3,7 @@
 #     - ubuntu-latest  - gcc
 #     - ubuntu-latest  - clang
 #     - ubuntu-24.04   - gcc   (For backwards compatablity)
-#     - windows-latest - cl
+#     - windows-2022   - cl    (build on windows-latest is currently broken - Qt-6.2.4 MSVC incompatability)
 #     - macos-latest   - clang
 #
       
