@@ -158,7 +158,12 @@ if (${CMAKE_CXX_COMPILER_ID} MATCHES "^.*Clang$")  # "Clang", "AppleClang", etc.
    # Uncomment to always compile with debug symbols
    add_compile_options("-g")
 endif ()
-
+if (${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
+    # Workaround for Qt 6.2.4 stdext namespace issues with MSVC 2019
+    # This defines _HAS_AUTO_PTR_ETC to suppress deprecation warnings
+    # and related issues in Qt's QVarLengthArray implementation
+    add_compile_options("/D_HAS_AUTO_PTR_ETC=1")
+endif ()
 
 #=======================================
 # Unit Testing
