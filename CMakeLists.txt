@@ -131,8 +131,7 @@ find_package (ZLIB 1.2 QUIET)
 find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
 find_package (LibZint 2.15 QUIET)
-# Unit testing support
-find_package (Qt5Test 5.6 QUIET)
+find_package (Sphinx QUIET) # Only for rebuilding user documentation
 
 
 #=======================================
@@ -221,13 +220,19 @@ else (LIBZINT_FOUND)
 endif (LIBZINT_FOUND)
 
 if (MSVC)
-   message (STATUS "MSVC Qt location ........ " ${QT_BASE_DIR})
+  message (STATUS "MSVC Qt location ........ " ${QT_BASE_DIR})
 endif (MSVC)
 
 if (MINGW)
-   message (STATUS "MinGW location .......... " ${MINGW_BASE_DIR})
-   message (STATUS "MinGW Qt location ....... " ${QT_BASE_DIR})
+  message (STATUS "MinGW location .......... " ${MINGW_BASE_DIR})
+  message (STATUS "MinGW Qt location ....... " ${QT_BASE_DIR})
 endif (MINGW)
+
+if (Sphinx_FOUND)
+  message (STATUS "Sphinx (optional)........ " ${SPHINX_EXECUTABLE})
+else (Sphinx_FOUND)
+  message (STATUS "Sphinx (optional)........ No.")
+endif (Sphinx_FOUND)
 
 message (STATUS "")
 

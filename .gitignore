@@ -20,6 +20,10 @@
 
 # Sphinx-build artifacts
 /user-docs/_build/doctrees
+/user-docs/_build/html
+/user-docs/_build/qthelp/*
+!/user-docs/_build/qthelp/gLabels.qch
+!/user-docs/_build/qthelp/gLabels.qhc
 
 #
 # Ignore artifacts from editors, patching, etc.
