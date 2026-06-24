@@ -136,9 +136,7 @@ namespace glabels
 
                 bool isChecked = static_cast<Qt::CheckState>(value.toInt()) != Qt::Unchecked;
 
-                mMerge->blockSignals( true );
                 mMerge->setSelected( index.row(), isChecked );
-                mMerge->blockSignals( false );
                 return true;
         }
 
