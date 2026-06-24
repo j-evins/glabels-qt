@@ -125,6 +125,11 @@ namespace glabels
                 pageSpin->setRange( 1, mRenderer.nPages() );
                 nPagesLabel->setText( QString::number( mRenderer.nPages() ) );
 
+                bool canPrint = mRenderer.nItems();
+                printButton->setEnabled( canPrint );
+                printDescriptionLabel->setEnabled( canPrint );
+                systemDialogButton->setEnabled( canPrint );
+
                 mRenderer.setIPage( pageSpin->value() - 1 ); // Update preview
         }
 

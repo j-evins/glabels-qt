@@ -221,7 +221,7 @@ namespace glabels::model
                         mNPages = 0;
                 }
 
-                mNPages = mLastItem/mNItemsPerPage + 1;
+                mNPages = mNItems ? mLastItem/mNItemsPerPage + 1 : 0;
         }
 
 
