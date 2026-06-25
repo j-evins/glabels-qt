@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" >
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="16" height="17" x="3.5" y="3.5" />
+
+  <path
+     style="fill:#333333;fill-opacity:1;stroke:none"
+     d="M 8,1 8,4 6,5 6,7 17,7 17,5 15,4 15,1 Z" />
+
+  <rect
+     style="fill:#fcfcfc;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="12" height="12" x="9.5" y="9.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="12.5" y1="12.5" x2="18.5" y2="12.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="12.5" y1="14.5" x2="18.5" y2="14.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="12.5" y1="16.5" x2="18.5" y2="16.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="12.5" y1="18.5" x2="15.5" y2="18.5" />
+
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 7.5,1.5 4.5,4.5 10.5,4.5 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 7.5,14.5 4.5,11.5 10.5,11.5 Z" />
+    
+    <line
+	style="fill:none;stroke:#333333;stroke-opacity:1;stroke-width:1"
+	x1="6.5" y1="4" x2="6.5" y2="12" />
+
+    <line
+	style="fill:none;stroke:#333333;stroke-opacity:1;stroke-width:1"
+	x1="8.5" y1="4" x2="8.5" y2="12" />
+
+</svg>

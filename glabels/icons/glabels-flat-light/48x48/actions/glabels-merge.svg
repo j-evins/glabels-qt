@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="48" height="48" >
+
+  <rect
+     style="fill:#fafafa;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="24" height="31" x="6" y="8" />
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="13" x2="26" y2="13"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="16" x2="26" y2="16"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="19" x2="26" y2="19"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="22" x2="26" y2="22"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="25" x2="26" y2="25"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="28" x2="26" y2="28"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="31" x2="26" y2="31"/>
+
+  <line
+     style="stroke:#999999;stroke-width:1;stroke-opacity:1"
+     x1="10" y1="34" x2="26" y2="34"/>
+
+  <rect
+     style="fill:#fafafa;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="20" height="10" x="16" y="19" />
+
+  <rect
+     style="fill:#fafafa;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="20" height="10" x="19" y="22" />
+
+  <rect
+     style="fill:#fafafa;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="20" height="10" x="22" y="25" />
+
+</svg>

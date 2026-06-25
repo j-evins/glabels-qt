@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" >
+
+  <circle
+     style="fill:none;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     r="3" cx="8" cy="18" />
+
+  <circle
+     style="fill:none;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     r="3" cx="17" cy="18" />
+
+  <path
+     style="fill:#333333;fill-opacity:1;stroke:none"
+     d="M 15,15 7,2 7,4 14,18 Z" />
+
+  <path
+     style="fill:#333333;fill-opacity:1;stroke:none"
+     d="M 10,15 18,2 18,4 11,18 Z" />
+
+</svg>

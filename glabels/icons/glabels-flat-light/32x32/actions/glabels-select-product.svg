@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" >
+
+  <rect
+     style="fill:#f8f8f8;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     height="18" width="14" x="4.5" y="2.5" />
+
+  <rect
+     style="fill:#fafafa;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     height="18" width="14" x="13.5" y="6.5" />
+
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     d="M 9.5,11.5 9.5,29.5 23.5,29.5 23.5,16.5 18.5,11.5 Z" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="11" y="13" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="11" y="17" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="11" y="21" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="11" y="25" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="3" x="17" y="13" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="17" y="17" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="17" y="21" />
+
+  <rect
+     style="fill:#eeeeee;fill-opacity:1;stroke:none"
+     height="3" width="5" x="17" y="25" />
+
+  <path
+     style="fill:#fcfcfc;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
+     d="M 23.5,16.5 18.5,11.5 18.5,16.5 Z" />
+
+</svg>
