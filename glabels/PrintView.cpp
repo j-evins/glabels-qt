@@ -23,6 +23,10 @@
 
 #include "PrinterMonitor.hpp"
 
+#include "ptouch/Device.hpp"
+#include "ptouch/DeviceMonitor.hpp"
+#include "ptouch/Printer.hpp"
+
 #include "model/Settings.hpp"
 
 #include <QDebug>
@@ -51,6 +55,12 @@ namespace glabels
                 connect( printerMonitor, SIGNAL(availablePrintersChanged(QStringList)),
                          this, SLOT(onAvailablePrintersChanged(QStringList)) );
 
+                // Wire up P-Touch USB device discovery
+                auto* ptouchMonitor = ptouch::DeviceMonitor::instance();
+                loadPtouchDestinations( ptouchMonitor->availableDevices() );
+                connect( ptouchMonitor, &ptouch::DeviceMonitor::availableDevicesChanged,
+                         this, &PrintView::onAvailablePtouchDevicesChanged );
+
                 setDestination( model::Settings::recentPrinter() );
 
                 preview->setRenderer( &mRenderer );
@@ -78,6 +88,19 @@ namespace glabels
         {
                 auto savedSelection = destinationCombo->currentText();
                 loadDestinations( printers );
+                loadPtouchDestinations( ptouch::DeviceMonitor::instance()->availableDevices() );
+                setDestination( savedSelection );
+        }
+
+
+        ///
+        /// Available P-Touch devices changed handler
+        ///
+        void PrintView::onAvailablePtouchDevicesChanged( QList<ptouch::UsbDeviceId> devices )
+        {
+                auto savedSelection = destinationCombo->currentText();
+                loadDestinations( PrinterMonitor::instance()->availablePrinters() );
+                loadPtouchDestinations( devices );
                 setDestination( savedSelection );
         }
 
@@ -213,18 +236,27 @@ namespace glabels
         ///
         void PrintView::onPrintButtonClicked()
         {
-                auto printerName = destinationCombo->currentText();
-                auto printerInfo = QPrinterInfo::printerInfo( printerName );
-                bool isPrinter = !printerInfo.isNull();
+                auto selectedName = destinationCombo->currentText();
+
+                // ── P-Touch direct USB path ──────────────────────────────────────────
+                if ( ptouch::DeviceMonitor::instance()->findByDisplayName(selectedName) )
+                {
+                        printToPtouch( selectedName );
+                        return;
+                }
+
+                // ── System printer / PDF path ────────────────────────────────────────
+                auto printerInfo = QPrinterInfo::printerInfo( selectedName );
+                bool isPrinter   = !printerInfo.isNull();
 
                 QPrinter printer( QPrinter::HighResolution );
                 printer.setColorMode( QPrinter::Color );
 
                 if ( isPrinter )
                 {
-                        printer.setPrinterName( printerName );
+                        printer.setPrinterName( selectedName );
                         mRenderer.print( &printer );
-                        model::Settings::setRecentPrinter( printerName );
+                        model::Settings::setRecentPrinter( selectedName );
                 }
                 else
                 {
@@ -262,6 +294,75 @@ namespace glabels
 
 
         ///
+        /// Print to a P-Touch device directly over USB.
+        ///
+        bool PrintView::printToPtouch( const QString& deviceDisplayName )
+        {
+                auto idOpt = ptouch::DeviceMonitor::instance()->findByDisplayName( deviceDisplayName );
+                if ( !idOpt )
+                {
+                        QMessageBox::critical( this, tr("P-Touch Print Error"),
+                                               tr("Device \"%1\" is no longer connected.").arg(deviceDisplayName) );
+                        return false;
+                }
+
+                QString openError;
+                auto device = ptouch::Device::open(
+                    ptouch::DeviceMonitor::instance()->usbContext(), *idOpt, openError);
+
+                if ( !device )
+                {
+                        QMessageBox::critical( this, tr("P-Touch Print Error"),
+                                               tr("Could not open device:\n%1").arg(openError) );
+                        return false;
+                }
+
+                ptouch::DeviceStatus status;
+                QString statusError;
+                if ( !device->queryStatus(status, statusError) )
+                {
+                        QMessageBox::critical( this, tr("P-Touch Print Error"),
+                                               tr("Could not read printer status:\n%1").arg(statusError) );
+                        return false;
+                }
+
+                if ( status.hasError() )
+                {
+                        QMessageBox::warning( this, tr("P-Touch"),
+                                              tr("Printer reports an error (code 0x%1).  "
+                                                 "Check that tape is loaded and the cover is closed.")
+                                              .arg(status.errorCode, 4, 16, QLatin1Char('0')) );
+                }
+
+                ptouch::Printer printer( *device, status, this );
+
+                // Show a simple progress dialog while printing
+                QMessageBox progress( this );
+                progress.setWindowTitle( tr("Printing…") );
+                progress.setText( tr("Sending %1 label(s) to %2…")
+                                   .arg(mRenderer.nItems())
+                                   .arg(device->displayName()) );
+                progress.setStandardButtons( QMessageBox::NoButton );
+                progress.show();
+                QCoreApplication::processEvents();
+
+                bool ok = printer.print( mRenderer );
+
+                progress.hide();
+
+                if ( !ok )
+                {
+                        QMessageBox::critical( this, tr("P-Touch Print Error"),
+                                               printer.lastError() );
+                        return false;
+                }
+
+                model::Settings::setRecentPrinter( deviceDisplayName );
+                return true;
+        }
+
+
+        ///
         /// System Dialog Button Clicked handler
         ///
         void PrintView::onSystemDialogButtonClicked()
@@ -291,7 +392,7 @@ namespace glabels
 
 
         ///
-        /// Load available printers
+        /// Load available printers (system spooler)
         ///
         void PrintView::loadDestinations( const QStringList& printers )
         {
@@ -308,6 +409,35 @@ namespace glabels
                         destinationCombo->insertSeparator( destinationCombo->count() );
                 }
                 destinationCombo->addItem( QIcon::fromTheme( "glabels-file-new" ), tr( "Print to file (PDF)" ) );
+
+                destinationCombo->blockSignals( false );
+        }
+
+
+        ///
+        /// Append directly-connected P-Touch USB devices to the destination combo.
+        ///
+        void PrintView::loadPtouchDestinations( const QList<ptouch::UsbDeviceId>& devices )
+        {
+                if ( devices.isEmpty() )  return;
+
+                destinationCombo->blockSignals( true );
+
+                // Insert a labelled separator before P-Touch entries (if not already present)
+                // by searching for the "Print to file (PDF)" item and inserting above it.
+                int pdfIndex = destinationCombo->findText( tr("Print to file (PDF)") );
+                if ( pdfIndex < 0 )  pdfIndex = destinationCombo->count();
+
+                destinationCombo->insertSeparator( pdfIndex );
+                ++pdfIndex;
+
+                for ( const auto& id : devices )
+                {
+                        destinationCombo->insertItem(
+                            pdfIndex++,
+                            QIcon::fromTheme( "glabels-print" ),
+                            QString::fromStdString( id.displayName() ) );
+                }
 
                 destinationCombo->blockSignals( false );
         }

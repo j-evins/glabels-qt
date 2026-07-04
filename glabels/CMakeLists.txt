@@ -1,6 +1,25 @@
 project (glabels LANGUAGES CXX)
 
 #=======================================
+# P-Touch USB backend (optional)
+#=======================================
+set (ptouch_sources
+  ptouch/UsbTransport.cpp
+  ptouch/Device.cpp
+  ptouch/Printer.cpp
+  ptouch/DeviceMonitor.cpp
+)
+
+set (ptouch_qobject_headers
+  ptouch/Printer.hpp
+  ptouch/DeviceMonitor.hpp
+)
+
+if (LibUSB1_FOUND)
+  add_definitions (-DHAVE_LIBUSB=1)
+endif ()
+
+#=======================================
 # Sources
 #=======================================
 set (glabels_sources
@@ -42,6 +61,7 @@ set (glabels_sources
   TemplatePickerItem.cpp
   UndoRedoModel.cpp
   VariablesView.cpp
+  ${ptouch_sources}
 )
 
 set (glabels_qobject_headers
@@ -110,7 +130,7 @@ set (glabels_resource_files
   images.qrc
 )
 
-qt6_wrap_cpp (glabels_moc_sources ${glabels_qobject_headers})
+qt6_wrap_cpp (glabels_moc_sources ${glabels_qobject_headers} ${ptouch_qobject_headers})
 qt6_wrap_ui (glabels_forms_headers ${glabels_forms})
 qt6_add_resources (glabels_qrc_sources ${glabels_resource_files})
 
@@ -143,6 +163,10 @@ target_link_libraries (glabels-qt
   Qt6::Concurrent
   Qt6::Widgets
 )
+
+if (LibUSB1_FOUND)
+  target_link_libraries (glabels-qt LibUSB1::LibUSB1)
+endif ()
 
 #=======================================
 # Install
