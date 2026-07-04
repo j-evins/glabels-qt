@@ -198,7 +198,7 @@
     <Meta category="label"/>
     <Meta category="mail"/>
     <Meta category="filing"/>
-    <Label-continuous id="0" width="12mm" min_height="25mm" max_height="1000mm" default_height="100mm" >
+    <Label-continuous id="0" width="12mm" min_height="10mm" max_height="1000mm" default_height="100mm" >
       <Markup-margin x_size="1.5mm" y_size="3.0mm" />
       <Layout nx="1" ny="1" x0="0" y0="0" dx="0" dy="0"/>
     </Label-continuous>
