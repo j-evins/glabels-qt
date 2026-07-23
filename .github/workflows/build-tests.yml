@@ -25,18 +25,23 @@ jobs:
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
+	    qt_version: '6.2.*'
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
+	    qt_version: '6.2.*'
           - os: ubuntu-22.04
             c_compiler: gcc
             cpp_compiler: g++
+	    qt_version: '6.2.*'
           - os: windows-2022
             c_compiler: cl
             cpp_compiler: cl
+	    qt_version: '6.2.*'
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
+	    qt_version: '6.8.*'
 
     steps:
     - name: Checkout
@@ -98,7 +103,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
-        version: '6.2.*'
+        version: ${{ matrix.qt_version }}
         install-deps: 'true'
         archives: 'qtbase qtsvg qttools icu qttranslations qtwayland'
 
