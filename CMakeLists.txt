@@ -136,7 +136,7 @@ find_package (Qt5Test 5.6 QUIET)
 
 
 #=======================================
-# Global compiler options
+# Global compiler/linker options
 #=======================================
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
    #
@@ -148,6 +148,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
    # Uncomment to always compile with debug symbols
    add_compile_options("-g")
 endif ()
+
 if (${CMAKE_CXX_COMPILER_ID} MATCHES "^.*Clang$")  # "Clang", "AppleClang", etc.
    #
    # Uncomment to compile everything with aggressively pedantic options
@@ -159,6 +160,11 @@ if (${CMAKE_CXX_COMPILER_ID} MATCHES "^.*Clang$")  # "Clang", "AppleClang", etc.
    add_compile_options("-g")
 endif ()
 
+if(APPLE)
+    # Fix for macOS: Qt6::PrintSupport may reference deprecated AGL framework
+    string(REGEX REPLACE "-framework AGL" "" CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+    string(REGEX REPLACE "-framework AGL" "" CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS}")
+endif()
 
 #=======================================
 # Unit Testing
