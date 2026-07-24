@@ -41,7 +41,7 @@ jobs:
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
-            qt_version: '6.10.*'
+            qt_version: '6.2.*'
 
     steps:
     - name: Checkout
