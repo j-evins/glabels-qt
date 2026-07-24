@@ -146,7 +146,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         ./glabels/glabels-qt --Version
-        ctest --build-config --output-on-failure Release
+        ctest --build-config Release --output-on-failure
 
     - name: Install render test dependencies (Ubuntu-latest)
       if: startsWith( matrix.os, 'ubuntu-latest' )
