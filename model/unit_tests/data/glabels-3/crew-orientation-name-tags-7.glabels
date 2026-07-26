@@ -20,6 +20,6 @@
     </Object-text>
     <Object-barcode x="0.150603in" y="1.395in" w="3.06944in" h="0.847222in" backend="built-in" style="Code39" text="True" checksum="True" color="0x000000ff" field="SN" format="10" a0="1" a1="0" a2="0" a3="1" a4="0" a5="0"/>
   </Objects>
-  <Merge type="Text/Comma/Line1Keys" src="../../../model/unit_tests/data/glabels-3/crew-orientation-list.csv" comment="Hacked to work relatively in unit tests only, should be absolute"/>
+  <Merge type="Text/Comma/Line1Keys" src="crew-orientation-list.csv" comment="Hacked to work relatively in unit tests only, should be absolute"/>
   <Data/>
 </Glabels-document>
