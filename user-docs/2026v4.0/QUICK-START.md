@@ -32,7 +32,7 @@ You're now looking at the **Edit** tab with a blank label outline, ready to go.
 
 ## 3. Add Some Objects
 
-The **Edit** tab is your canvas, and the toolbar on the left is your toy box:
+The **Edit** tab is your canvas, and the toolbar at the top is your toy box:
 
 | Tool     | Adds...                         |
 |----------|---------------------------------|
