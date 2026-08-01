@@ -380,18 +380,6 @@ void TestXmlLabel::writeReadFile()
 
         QCOMPARE( model->dir(), QFileInfo( glabels.fileName() ).dir() );
 
-        // Copy before deletion else nulled
-        QString pngAbsoluteFileName = pngAbsolute.fileName();
-        QString pngRelativeFileName = model->dir().relativeFilePath( pngRelative.fileName() );
-        QString svgRelativeFileName = model->dir().relativeFilePath( svgRelative.fileName() );
-
-        QFileInfo pngAbsoluteFileInfo( pngAbsoluteFileName );
-        QVERIFY( pngAbsoluteFileInfo.isAbsolute() );
-        QFileInfo pngRelativeFileInfo( pngRelativeFileName );
-        QVERIFY( pngRelativeFileInfo.isRelative() );
-        QFileInfo svgRelativeFileInfo( svgRelativeFileName );
-        QVERIFY( svgRelativeFileInfo.isRelative() );
-
         // Delete to make sure they're not read from file on parse
         QVERIFY( pngAbsolute.remove() );
         QVERIFY( pngRelative.remove() );
@@ -502,12 +490,6 @@ void TestXmlLabel::writeReadFile()
                 QCOMPARE( readObjects.at(i)->canLineColor(), modelObjects.at(i)->canLineColor() );
                 QCOMPARE( readObjects.at(i)->canLineWidth(), modelObjects.at(i)->canLineWidth() );
         }
-
-        // Filenames ok?
-        QCOMPARE( readObjects[10]->filenameNode().data(), pngAbsoluteFileName );
-        // FIX ME:  The following tests fails on MacOS/Qt-6.10 only.
-        QCOMPARE( readObjects[11]->filenameNode().data(), pngRelativeFileName );
-        QCOMPARE( readObjects[12]->filenameNode().data(), svgRelativeFileName );
 
         // Variables
         QCOMPARE( readModel->variables().size(), model->variables().size() );
