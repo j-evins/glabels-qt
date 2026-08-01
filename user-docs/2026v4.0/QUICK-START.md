@@ -72,7 +72,7 @@ Do you want to print MANY different labels at once?
 1. Go to the **Variables** tab, click **Add**.
 2. Give it a **Name** (e.g. `company`), a **Type** (String, Integer, Float, or Color), and a starting **Value**.
 3. Back on the **Edit** tab, type `${company}` anywhere you'd like that value to appear.
-4. Change the variable once — every instance updates. ✨
+4. Change the variable once — every instance updates.
 
 ### Merge — print a whole stack from a data file
 
