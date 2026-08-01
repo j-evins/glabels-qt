@@ -468,7 +468,7 @@ void TestXmlLabel::writeReadFile()
                 {
                         // FIX ME:  These tests are very difficult to follow and should be re-written to be more clear.  The following
                         //          test fails on MacOS/Qt-6.10 only.
-                        //QCOMPARE( readObjects.at(i)->filenameNode().data(), modelObjects.at(i)->filenameNode().data() );
+                        QCOMPARE( readObjects.at(i)->filenameNode().data(), modelObjects.at(i)->filenameNode().data() );
                 }
 
                 QCOMPARE( readObjects.at(i)->image(), modelObjects.at(i)->image() );
