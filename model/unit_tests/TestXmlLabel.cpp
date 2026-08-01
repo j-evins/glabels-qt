@@ -527,7 +527,7 @@ void TestXmlLabel::writeReadFile()
 
         // Merge
         QCOMPARE( readModel->merge()->id(), model->merge()->id() );
-        //QCOMPARE( readModel->merge()->source(), model->merge()->source() );
+        QCOMPARE( readModel->merge()->source(), model->merge()->source() );
         QCOMPARE( readModel->merge()->recordList().size(), model->merge()->recordList().size() );
         for ( int i = 0; i < model->merge()->recordList().size(); i++ )
         {
