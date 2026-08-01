@@ -329,8 +329,8 @@ and how to edit their properties.
 
 ### 4.1 Creating objects
 
-Objects are created from the **Edit** tab. The toolbar on the left side
-of the editor offers a tool for each object type:
+Objects are created from the **Edit** tab. The toolbar above
+the editor offers a tool for each object type:
 
 | Tool       | Creates                                         |
 |------------|-------------------------------------------------|
