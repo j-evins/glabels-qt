@@ -50,7 +50,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         # Checkout full-depth to facilitate auto versioning
         fetch-depth: 0
@@ -110,6 +110,7 @@ jobs:
       with:
         version: ${{ matrix.qt_version }}
         install-deps: 'true'
+# FIX ME:  determine dependencies that work across all platforms for a smaller footprint.  These no longer work on MacOS.
 #        archives: 'qtbase qtsvg qttools icu qttranslations qtwayland'
 
     - name: Set reusable strings
@@ -274,7 +275,7 @@ jobs:
 
     - name: Upload render tests for manual inspection
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}-${{ github.run_number }}
         path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
