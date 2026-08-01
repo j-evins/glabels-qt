@@ -130,7 +130,7 @@ namespace glabels::model
         {
                 // Guess at a suitable default
                 bool defaultValue;
-                switch (QLocale::system().country())
+                switch (QLocale::system().territory())
                 {
                 case QLocale::UnitedStates:
                 case QLocale::Canada:
@@ -164,7 +164,7 @@ namespace glabels::model
         {
                 // Guess at a suitable default
                 bool defaultValue;
-                switch (QLocale::system().country())
+                switch (QLocale::system().territory())
                 {
                 case QLocale::UnitedStates:
                 case QLocale::Canada:

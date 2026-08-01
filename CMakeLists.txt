@@ -148,6 +148,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
    # Uncomment to always compile with debug symbols
    add_compile_options("-g")
 endif ()
+
 if (${CMAKE_CXX_COMPILER_ID} MATCHES "^.*Clang$")  # "Clang", "AppleClang", etc.
    #
    # Uncomment to compile everything with aggressively pedantic options

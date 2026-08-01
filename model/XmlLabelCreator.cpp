@@ -58,6 +58,9 @@ namespace glabels::model
                                    << ": " << file.errorString();
                         return;
                 }
+                QFileInfo fileInfo( fileName );
+                auto canonName = fileInfo.canonicalFilePath();
+                model->setFileName( canonName );
 
                 QDomDocument doc;
                 createDoc( doc, model );
@@ -67,15 +70,13 @@ namespace glabels::model
 
                 file.close();
 
-                QFileInfo fileInfo( fileName );
+                fileInfo.refresh();
                 if ( !fileInfo.exists() )
                 {
                         qWarning() << "Error:" << fileName << "does not exist after writing!";
                         return;
                 }
-                auto canonName = fileInfo.canonicalFilePath();
 
-                model->setFileName( canonName );
                 model->clearModified();
         }
 

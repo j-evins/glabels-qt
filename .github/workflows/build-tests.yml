@@ -4,7 +4,8 @@
 #     - ubuntu-latest  - clang
 #     - ubuntu-24.04   - gcc   (For backwards compatablity)
 #     - windows-2022   - cl    (build on windows-latest is currently broken - Qt-6.2.4 MSVC incompatability)
-#     - macos-latest   - clang
+#     - macos-latest   - clang, qt-6.10 (Bump to 6.10 to workaround linker errors on macos-latest)
+#     - ubuntu-latest  - clang, qt-6.10 (For comparison to macos, only difference is OS)
 #
       
 
@@ -25,22 +26,31 @@ jobs:
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
+            qt_version: '6.2.*'
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
+            qt_version: '6.2.*'
           - os: ubuntu-22.04
             c_compiler: gcc
             cpp_compiler: g++
+            qt_version: '6.2.*'
           - os: windows-2022
             c_compiler: cl
             cpp_compiler: cl
+            qt_version: '6.2.*'
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
+            qt_version: '6.10.*'
+          - os: ubuntu-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+            qt_version: '6.10.*'
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         # Checkout full-depth to facilitate auto versioning
         fetch-depth: 0
@@ -65,7 +75,7 @@ jobs:
 
     - name: Restore vcpkg cache (Windows)
       if: startsWith(matrix.os, 'windows-')
-      uses: actions/cache@v4
+      uses: actions/cache@v6
       with:
         path: |
           ${{ github.workspace }}/vcpkg/installed
@@ -98,15 +108,17 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
-        version: '6.2.*'
+        version: ${{ matrix.qt_version }}
         install-deps: 'true'
-        archives: 'qtbase qtsvg qttools icu qttranslations qtwayland'
+# FIX ME:  determine dependencies that work across all platforms for a smaller footprint.  These no longer work on MacOS.
+#        archives: 'qtbase qtsvg qttools icu qttranslations qtwayland'
 
     - name: Set reusable strings
       id: strings
       shell: bash
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+        echo "qt_version=$(basename $(dirname "$QT_ROOT_DIR"))" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
       run: >
@@ -141,7 +153,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: |
         ./glabels/glabels-qt --Version
-        ctest --build-config Release
+        ctest --build-config Release --output-on-failure
 
     - name: Install render test dependencies (Ubuntu-latest)
       if: startsWith( matrix.os, 'ubuntu-latest' )
@@ -264,9 +276,9 @@ jobs:
 
     - name: Upload render tests for manual inspection
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
-        name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}-${{ github.run_number }}
+        name: render-tests_${{ matrix.os }}_${{ matrix.cpp_compiler }}_qt-${{ steps.strings.outputs.qt_version }}_run${{ github.run_number }}
         path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
 
 
