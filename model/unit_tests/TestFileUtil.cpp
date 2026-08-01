@@ -84,14 +84,14 @@ void TestFileUtil::makeRelativeIfInDir_data()
         QTest::addColumn<QString>( "filename" );
         QTest::addColumn<QString>( "expected" );
 
-        QTest::newRow( "1" ) << "/dir/subdir" << "/dir/subdir/filename" << "filename";
-        QTest::newRow( "2" ) << "/dir/subdir" << "filename" << "filename";
-        QTest::newRow( "3" ) << "/dir" << "subdir/filename" << "subdir/filename";
-        QTest::newRow( "4" ) << "/dir" << "/dir/subdir/subdir/filename" << "subdir/subdir/filename";
-        QTest::newRow( "5" ) << "/dir/subdir" << "/dir/subdir/subdir/filename" << "subdir/filename";
-        QTest::newRow( "6" ) << "/dir/subdir" << "/dir/subdir2/filename" << "/dir/subdir2/filename";
-        QTest::newRow( "7" ) << "/dir2/subdir" << "/dir/subdir/filename" << "/dir/subdir/filename";
-        QTest::newRow( "8" ) << "/dir/subdir" << "/dir/filename" << "/dir/filename";
+        QTest::newRow( "1" ) << "/dir/subdir"  << "/dir/subdir/filename"        << "filename";
+        QTest::newRow( "2" ) << "/dir/subdir"  << "filename"                    << "filename";
+        QTest::newRow( "3" ) << "/dir"         << "subdir/filename"             << "subdir/filename";
+        QTest::newRow( "4" ) << "/dir"         << "/dir/subdir/subdir/filename" << "subdir/subdir/filename";
+        QTest::newRow( "5" ) << "/dir/subdir"  << "/dir/subdir/subdir/filename" << "subdir/filename";
+        QTest::newRow( "6" ) << "/dir/subdir"  << "/dir/subdir2/filename"       << "/dir/subdir2/filename";
+        QTest::newRow( "7" ) << "/dir2/subdir" << "/dir/subdir/filename"        << "/dir/subdir/filename";
+        QTest::newRow( "8" ) << "/dir/subdir"  << "/dir/filename"               << "/dir/filename";
 }
 
 
