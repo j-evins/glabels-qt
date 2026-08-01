@@ -118,6 +118,7 @@ jobs:
       shell: bash
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+        echo "qt_version=$(basename $(dirname "$QT_ROOT_DIR"))" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
       run: >
@@ -277,7 +278,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v7
       with:
-        name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}-${{ github.run_number }}
+        name: render-tests-${{ matrix.os }}-${{ matrix.cpp_compiler }}-${{ github.run_number }}-${{ steps.strings.outputs.qt_version }}
         path: ${{ steps.strings.outputs.build-output-dir }}/*.pdf
 
 
