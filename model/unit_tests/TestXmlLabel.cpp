@@ -506,8 +506,8 @@ void TestXmlLabel::writeReadFile()
         // Filenames ok?
         QCOMPARE( readObjects[10]->filenameNode().data(), pngAbsoluteFileName );
         // FIX ME:  The following tests fails on MacOS/Qt-6.10 only.
-        //QCOMPARE( readObjects[11]->filenameNode().data(), pngRelativeFileName );
-        //QCOMPARE( readObjects[12]->filenameNode().data(), svgRelativeFileName );
+        QCOMPARE( readObjects[11]->filenameNode().data(), pngRelativeFileName );
+        QCOMPARE( readObjects[12]->filenameNode().data(), svgRelativeFileName );
 
         // Variables
         QCOMPARE( readModel->variables().size(), model->variables().size() );
