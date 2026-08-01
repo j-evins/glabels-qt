@@ -4,7 +4,8 @@
 #     - ubuntu-latest  - clang
 #     - ubuntu-24.04   - gcc   (For backwards compatablity)
 #     - windows-2022   - cl    (build on windows-latest is currently broken - Qt-6.2.4 MSVC incompatability)
-#     - macos-latest   - clang
+#     - macos-latest   - clang, qt-6.10 (Bump to 6.10 to workaround linker errors on macos-latest)
+#     - ubuntu-latest  - clang, qt-6.10 (For comparison to macos, only difference is OS)
 #
       
 
@@ -39,6 +40,10 @@ jobs:
             cpp_compiler: cl
             qt_version: '6.2.*'
           - os: macos-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+            qt_version: '6.10.*'
+          - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
             qt_version: '6.10.*'
