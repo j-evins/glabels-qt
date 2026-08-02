@@ -236,6 +236,14 @@
         <source>Text: Semicolon Separated Values, keys on line 1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Qt Printer System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Phomemo Bluetooth Printer</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Frame</name>
@@ -2149,7 +2157,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Searching for Bluetooth printers...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(Will print a total of %1 items on 1 page.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bluetooth Scanning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bluetooth device discovery is in progress. Please wait for devices to appear.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Print Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to print to Bluetooth device: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bluetooth device not available. Ensure device is paired and powered on.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

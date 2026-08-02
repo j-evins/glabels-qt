@@ -45,6 +45,19 @@ namespace glabels
 
                 mCurrentAvailablePrinters = QPrinterInfo::availablePrinterNames();
 
+#ifdef HAVE_BLUETOOTH_SUPPORT
+                // Initialize Bluetooth device discovery
+                mBtAgent.reset( new QBluetoothDeviceDiscoveryAgent( this ) );
+                connect( mBtAgent.get(), &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
+                         this, &PrinterMonitor::onBluetoothDeviceDiscovered );
+                connect( mBtAgent.get(), &QBluetoothDeviceDiscoveryAgent::finished,
+                         this, &PrinterMonitor::onBluetoothDiscoveryFinished );
+                connect( mBtAgent.get(), QOverload<QBluetoothDeviceDiscoveryAgent::Error>::of(&QBluetoothDeviceDiscoveryAgent::errorOccurred),
+                         this, &PrinterMonitor::onBluetoothDiscoveryError );
+
+                // Don't scan immediately - let the timer handle it to avoid blocking UI startup
+#endif
+
                 mTimer.reset( new QTimer( this ) );
                 connect( mTimer.get(), SIGNAL(timeout()), this, SLOT(onTimerTimeout()) );
                 mTimer->start( 10s );
@@ -80,6 +93,11 @@ namespace glabels
         ///
         void PrinterMonitor::onTimerTimeout()
         {
+#ifdef HAVE_BLUETOOTH_SUPPORT
+                // Trigger Bluetooth scan in main thread (Qt Bluetooth requires this)
+                scanBluetoothDevices();
+#endif
+
                 // Make sure previous poll is complete before starting a new one
                 if ( mPollStatus.isFinished() )
                 {
@@ -93,16 +111,125 @@ namespace glabels
         ///
         void PrinterMonitor::asyncPoll()
         {
-                auto newAvailablePrinters = QPrinterInfo::availablePrinterNames();
-                if ( newAvailablePrinters != mCurrentAvailablePrinters )
+                // Get CUPS printers
+                auto cupsPrinters = QPrinterInfo::availablePrinterNames();
+
+                // Combine with Bluetooth printers
+                QStringList combinedPrinters = cupsPrinters;
+
+#ifdef HAVE_BLUETOOTH_SUPPORT
+                // Add Bluetooth devices with "BT:DeviceName:MAC" format
+                // (Bluetooth scanning happens in main thread via onTimerTimeout)
+                QMutexLocker btMutex( &mBtDevicesMutex );
+                for ( const auto& device : mBtDevices )
+                {
+                        QString deviceId = QString("BT:%1:%2")
+                                           .arg( device.name() )
+                                           .arg( device.address().toString() );
+                        combinedPrinters.append( deviceId );
+                }
+#endif
+
+                // Check if printer list changed
+                if ( combinedPrinters != mCurrentAvailablePrinters )
                 {
                         QMutexLocker mutex( &mCurrentAvailablePrintersMutex );
 
-                        mCurrentAvailablePrinters = newAvailablePrinters;
+                        mCurrentAvailablePrinters = combinedPrinters;
 
                         emit availablePrintersChanged( mCurrentAvailablePrinters );
                 }
         }
+
+
+
+#ifdef HAVE_BLUETOOTH_SUPPORT
+        ///
+        /// Scan for Bluetooth devices
+        ///
+        void PrinterMonitor::scanBluetoothDevices()
+        {
+                if ( mBtAgent && !mBtAgent->isActive() )
+                {
+                        // Don't clear previous results - keep already discovered devices
+                        // to avoid flickering in the UI
+
+                        // Emit scanning started signal
+                        mBtScanning = true;
+                        emit bluetoothScanningChanged( true, !mBtDevices.isEmpty() );
+
+                        // Start discovery for classic Bluetooth devices (not BLE)
+                        mBtAgent->start( QBluetoothDeviceDiscoveryAgent::ClassicMethod );
+                }
+        }
+
+
+        ///
+        /// Bluetooth device discovered slot
+        ///
+        void PrinterMonitor::onBluetoothDeviceDiscovered( const QBluetoothDeviceInfo& device )
+        {
+                // Filter for Phomemo devices
+                if ( isPhomemoDevice( device.name() ) )
+                {
+                        QMutexLocker mutex( &mBtDevicesMutex );
+
+                        // Add if not already in list
+                        bool found = false;
+                        for ( const auto& existing : mBtDevices )
+                        {
+                                if ( existing.address() == device.address() )
+                                {
+                                        found = true;
+                                        break;
+                                }
+                        }
+
+                        if ( !found )
+                        {
+                                mBtDevices.append( device );
+                                qDebug() << "Found Phomemo device:" << device.name()
+                                         << "at" << device.address().toString();
+                        }
+                }
+        }
+
+
+        ///
+        /// Check if device name indicates a Phomemo printer
+        ///
+        bool PrinterMonitor::isPhomemoDevice( const QString& name )
+        {
+                return name.startsWith( "Phomemo", Qt::CaseInsensitive ) ||
+                       name.startsWith( "D30", Qt::CaseInsensitive ) ||
+                       name.startsWith( "D35", Qt::CaseInsensitive ) ||
+                       name.startsWith( "M02", Qt::CaseInsensitive );
+        }
+
+
+        ///
+        /// Bluetooth discovery finished slot
+        ///
+        void PrinterMonitor::onBluetoothDiscoveryFinished()
+        {
+                mBtScanning = false;
+                emit bluetoothScanningChanged( false, !mBtDevices.isEmpty() );
+
+                qDebug() << "Bluetooth discovery finished. Found" << mBtDevices.size() << "Phomemo device(s).";
+        }
+
+
+        ///
+        /// Bluetooth discovery error slot
+        ///
+        void PrinterMonitor::onBluetoothDiscoveryError( QBluetoothDeviceDiscoveryAgent::Error error )
+        {
+                mBtScanning = false;
+                emit bluetoothScanningChanged( false, !mBtDevices.isEmpty() );
+
+                qDebug() << "Bluetooth discovery error:" << error;
+        }
+#endif
 
 
 } // namespace glabels

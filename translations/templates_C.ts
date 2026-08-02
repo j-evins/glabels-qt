@@ -108,6 +108,70 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>D30 Cable Label 12mm x 45mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 100mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 20mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 30mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 40mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 50mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 60mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Label 12mm x 80mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Name Tag 12mm x 35mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D30 Price Tag 12mm x 25mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D35 Label 15mm x 100mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D35 Label 15mm x 30mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D35 Label 15mm x 40mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D35 Label 15mm x 50mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D35 Label 15mm x 60mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D35 Label 15mm x 80mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>DLT labels</source>
         <translation type="unfinished"></translation>
     </message>

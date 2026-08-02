@@ -140,9 +140,16 @@ target_include_directories (glabels-qt
 
 target_link_libraries (glabels-qt
   Model
+  Printer
   Qt6::Concurrent
   Qt6::Widgets
 )
+
+if (HAVE_BLUETOOTH_SUPPORT)
+  target_link_libraries (glabels-qt
+    Qt6::Bluetooth
+  )
+endif ()
 
 #=======================================
 # Install
