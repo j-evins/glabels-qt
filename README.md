@@ -42,7 +42,7 @@ Some third-party packages may be available:
 | Archlinux | [Archlinux User Repository Page](https://aur.archlinux.org/packages/glabels-qt-git/) | Maintained by [Maud Spierings](https://github.com/SpieringsAE) |
 | Ubuntu    | [PPA Page](https://code.launchpad.net/~krisives/+archive/ubuntu/glabels-qt)          | Maintained by [Kristopher Ives](https://github.com/krisives)  |
 | Fedora    | [Copr Repository Page](https://copr.fedorainfracloud.org/coprs/mariobl/glabels-qt/)  | Maintained by [Mario Blättermann](https://github.com/mariobl) |
-| Windows   | [Github Page]](https://github.com/ibsorn/glabels-windows)                            | Maintained by [ibsorn](https://github.com/ibsorn)             |
+| Windows   | [Github Page](https://github.com/ibsorn/glabels-windows)                             | Maintained by [ibsorn](https://github.com/ibsorn)             |
 
 
 
