@@ -34,7 +34,7 @@ There are currently no official releases of gLabels 4.
 
 Currently there are no self-hosted binary snapshot releases available.  I plan to make these available again once 4.0 is more imminent.  In the mean time, I encourage you to try building the code yourself.
 
-Some third-party packages may be available:
+Some third-party packages may also be available:
 
 
 | Platform  | Files                                                                                | Notes                                                         |
