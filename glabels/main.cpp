@@ -40,6 +40,8 @@
 #include <QTextStream>
 #include <QTranslator>
 
+#include <QStyleFactory>
+
 
 int main( int argc, char **argv )
 {
@@ -51,7 +53,7 @@ int main( int argc, char **argv )
         QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
         QApplication::setDesktopFileName( glabels::model::Version::DESKTOP_FILE_NAME );
 
-        QIcon::setThemeName( "glabels-flat" );
+        qDebug() << "Styles available = " << QStyleFactory::keys();
 
         //
         // Setup translators

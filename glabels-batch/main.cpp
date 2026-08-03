@@ -39,6 +39,8 @@
 #include <QTextStream>
 #include <QTranslator>
 
+#include <QStyleFactory>
+
 
 namespace
 {
@@ -65,6 +67,8 @@ int main( int argc, char **argv )
         QCoreApplication::setOrganizationDomain( "glabels.org" );
         QCoreApplication::setApplicationName( "glabels-batch-qt" );
         QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
+
+        qDebug() << "Styles available = " << QStyleFactory::keys();
 
         //
         // Setup translators
