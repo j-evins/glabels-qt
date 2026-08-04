@@ -24,43 +24,43 @@
     <name>Color name</name>
     <message>
         <source>Light Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый алый</translation>
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло-оранжевый</translation>
     </message>
     <message>
         <source>Light Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый жёлтый</translation>
     </message>
     <message>
         <source>Light Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый зелёный</translation>
     </message>
     <message>
         <source>Light Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый небесно-голубой</translation>
     </message>
     <message>
         <source>Light Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый сливовый</translation>
     </message>
     <message>
         <source>Light Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый шоколадный</translation>
     </message>
     <message>
         <source>Light Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый алюминиевый 1</translation>
     </message>
     <message>
         <source>Light Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Светлый алюминиевый 2</translation>
     </message>
     <message>
         <source>Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Алый</translation>
     </message>
     <message>
         <source>Orange</source>
@@ -68,67 +68,67 @@
     </message>
     <message>
         <source>Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Жёлтый</translation>
     </message>
     <message>
         <source>Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Зелёный</translation>
     </message>
     <message>
         <source>Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Небесно-голубой</translation>
     </message>
     <message>
         <source>Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Сливовый</translation>
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Шоколадный</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Алюминиевый 1</translation>
     </message>
     <message>
         <source>Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Алюминиевый 2</translation>
     </message>
     <message>
         <source>Dark Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный алый</translation>
     </message>
     <message>
         <source>Dark Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмно-оранжевый</translation>
     </message>
     <message>
         <source>Dark Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный жёлтый</translation>
     </message>
     <message>
         <source>Dark Chameleon</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный зелёный</translation>
     </message>
     <message>
         <source>Dark Sky Blue</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный небесно-голубой</translation>
     </message>
     <message>
         <source>Dark Plum</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный сливовый</translation>
     </message>
     <message>
         <source>Dark Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный шоколадный</translation>
     </message>
     <message>
         <source>Dark Aluminum 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный алюминиевый 1</translation>
     </message>
     <message>
         <source>Dark Aluminum 2</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмный алюминиевый 2</translation>
     </message>
     <message>
         <source>Black</source>
@@ -136,31 +136,31 @@
     </message>
     <message>
         <source>Very Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Очень тёмно-серый</translation>
     </message>
     <message>
         <source>Darker Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Более тёмный серый</translation>
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Тёмно-серый</translation>
     </message>
     <message>
         <source>Medium Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Средне-серый</translation>
     </message>
     <message>
         <source>Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Светло-серый</translation>
     </message>
     <message>
         <source>Lighter Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Более светлый серый</translation>
     </message>
     <message>
         <source>Very Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Очень светло-серый</translation>
     </message>
     <message>
         <source>White</source>
@@ -171,7 +171,7 @@
     <name>EditVariableDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Диалог</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -179,15 +179,15 @@
     </message>
     <message>
         <source>Step size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаг:</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Приращение</translation>
     </message>
     <message>
         <source>Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Переменная</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -202,7 +202,7 @@
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
@@ -210,7 +210,7 @@
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: значения, разделённые запятыми (CSV), ключи в строке 1</translation>
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV)</source>
@@ -218,23 +218,23 @@
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: значения, разделённые табуляцией (TSV), ключи в строке 1</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: значения, разделённые двоеточием</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: значения, разделённые двоеточием, ключи в строке 1</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: значения, разделённые точкой с запятой</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст: значения, разделённые точкой с запятой, ключи в строке 1</translation>
     </message>
 </context>
 <context>
@@ -261,7 +261,7 @@
     <name>FrameContinuous</name>
     <message>
         <source>wide</source>
-        <translation type="unfinished"></translation>
+        <translation>широкий</translation>
     </message>
 </context>
 <context>
@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Записи</translation>
     </message>
     <message>
         <source>Select all</source>
@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Обзор...</translation>
     </message>
 </context>
 <context>
@@ -322,19 +322,19 @@
     </message>
     <message>
         <source>Line spacing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Межстрочный интервал:</translation>
     </message>
     <message>
         <source>Wrap mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим переноса:</translation>
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>Слово</translation>
     </message>
     <message>
         <source>Anywhere</source>
-        <translation type="unfinished"></translation>
+        <translation>В любом месте</translation>
     </message>
     <message>
         <source>None</source>
@@ -342,7 +342,7 @@
     </message>
     <message>
         <source>Allow printing to shrink text to fit object</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить уменьшать текст при печати, чтобы он поместился в объекте</translation>
     </message>
     <message>
         <source>Font</source>
@@ -366,7 +366,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактор</translation>
     </message>
     <message>
         <source>Barcode</source>
@@ -382,7 +382,7 @@
     </message>
     <message>
         <source>Show text</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать текст</translation>
     </message>
     <message>
         <source>Checksum</source>
@@ -402,11 +402,11 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Обзор...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Линия/Заливка</translation>
     </message>
     <message>
         <source>Line</source>
@@ -422,7 +422,7 @@
     </message>
     <message>
         <source>Position/Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Позиция/Размер</translation>
     </message>
     <message>
         <source>Position</source>
@@ -454,11 +454,11 @@
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить</translation>
     </message>
     <message>
         <source>Lock aspect ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Зафиксировать соотношение сторон</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -485,7 +485,7 @@
     <name>PreferencesDialog</name>
     <message>
         <source>gLabels - Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels — Настройки</translation>
     </message>
     <message>
         <source>Locale</source>
@@ -517,7 +517,7 @@
     </message>
     <message>
         <source>Picas</source>
-        <translation type="unfinished"></translation>
+        <translation>Пики</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -525,27 +525,27 @@
     </message>
     <message>
         <source>Configure grid behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройка поведения сетки.</translation>
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>Начало координат</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>Центр</translation>
     </message>
     <message>
         <source>Spacing</source>
-        <translation type="unfinished"></translation>
+        <translation>Расстояние</translation>
     </message>
     <message>
         <source>Top left corner</source>
-        <translation type="unfinished"></translation>
+        <translation>Левый верхний угол</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить</translation>
     </message>
 </context>
 <context>
@@ -568,19 +568,19 @@
     </message>
     <message>
         <source>Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Страница</translation>
     </message>
     <message>
         <source>of</source>
-        <translation type="unfinished"></translation>
+        <translation>из</translation>
     </message>
     <message>
         <source>nn</source>
-        <translation type="unfinished"></translation>
+        <translation>нн</translation>
     </message>
     <message>
         <source>Pages</source>
-        <translation type="unfinished"></translation>
+        <translation>Страницы</translation>
     </message>
     <message>
         <source>Options</source>
@@ -588,58 +588,58 @@
     </message>
     <message>
         <source>Print range</source>
-        <translation type="unfinished"></translation>
+        <translation>Диапазон печати</translation>
     </message>
     <message>
         <source>Positions</source>
-        <translation type="unfinished"></translation>
+        <translation>Позиции</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>по</translation>
     </message>
     <message>
         <source>Merge control</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление слиянием</translation>
     </message>
     <message>
         <source>Uncollated (e.g.  1,1,1   2,2,2   3,3,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Несортированные (напр. 1,1,1 2,2,2 3,3,3)</translation>
     </message>
     <message>
         <source>Collated   (e.g.  1,2,3   1,2,3   1,2,3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сортированные (напр. 1,2,3 1,2,3 1,2,3)</translation>
     </message>
     <message>
         <source>Merge groups are contiguous</source>
-        <translation type="unfinished"></translation>
+        <translation>Группы слияния расположены непрерывно</translation>
     </message>
     <message>
         <source>Merge groups start on a new page</source>
-        <translation type="unfinished"></translation>
+        <translation>Группы слияния начинаются с новой страницы</translation>
     </message>
     <message>
         <source>Start groups at position:</source>
-        <translation type="unfinished"></translation>
+        <translation>Начинать группы с позиции:</translation>
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Назначение</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать</translation>
     </message>
     <message>
         <source>Use system print dialog...</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать системный диалог печати...</translation>
     </message>
 </context>
 <context>
     <name>PropertiesView</name>
     <message>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Продукт</translation>
     </message>
     <message>
         <source>Vendor:</source>
@@ -663,7 +663,7 @@
     </message>
     <message>
         <source>Label size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер этикетки:</translation>
     </message>
     <message>
         <source>Layout:</source>
@@ -671,31 +671,31 @@
     </message>
     <message>
         <source>Change product</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить продукт</translation>
     </message>
     <message>
         <source>Adjustable Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Регулируемые параметры</translation>
     </message>
     <message>
         <source>Label length:</source>
-        <translation type="unfinished"></translation>
+        <translation>Длина этикетки:</translation>
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Ориентация</translation>
     </message>
     <message>
         <source>Select horizontal or vertical orientation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите горизонтальную или вертикальную ориентацию.</translation>
     </message>
     <message>
         <source>Horizontal orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Горизонтальная ориентация</translation>
     </message>
     <message>
         <source>Vertical orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>Вертикальная ориентация</translation>
     </message>
     <message>
         <source>Similar Products</source>
@@ -703,14 +703,14 @@
     </message>
     <message>
         <source>Select another product for this gLabels project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите другой продукт для этого проекта gLabels.</translation>
     </message>
 </context>
 <context>
     <name>ReportBugDialog</name>
     <message>
         <source>gLabels - Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels — Сообщить об ошибке</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -718,18 +718,18 @@
     </message>
     <message>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <source>&amp;Launch Issue Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Открыть систему отслеживания ошибок</translation>
     </message>
 </context>
 <context>
     <name>SelectProductDialog</name>
     <message>
         <source>gLabels - Select Product</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels — Выбор продукта</translation>
     </message>
     <message>
         <source>Search all</source>
@@ -737,39 +737,39 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <source>Filter by paper size</source>
-        <translation type="unfinished"></translation>
+        <translation>Фильтр по размеру бумаги</translation>
     </message>
     <message>
         <source>ISO sizes</source>
-        <translation type="unfinished"></translation>
+        <translation>Размеры ISO</translation>
     </message>
     <message>
         <source>US sizes</source>
-        <translation type="unfinished"></translation>
+        <translation>Размеры US</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие</translation>
     </message>
     <message>
         <source>Filter by category</source>
-        <translation type="unfinished"></translation>
+        <translation>Фильтр по категории</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбранные</translation>
     </message>
     <message>
         <source>Search entire product database.</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск по всей базе данных продуктов.</translation>
     </message>
     <message>
         <source>Recent</source>
@@ -777,15 +777,15 @@
     </message>
     <message>
         <source>Select from recently used products.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбор из недавно использованных продуктов.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Отмена</translation>
     </message>
     <message>
         <source>Product information</source>
-        <translation type="unfinished"></translation>
+        <translation>Информация о продукте</translation>
     </message>
     <message>
         <source>Vendor:</source>
@@ -824,19 +824,19 @@
     <name>StartupView</name>
     <message>
         <source>Welcome to gLabels.  Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Добро пожаловать в gLabels. Приступим:</translation>
     </message>
     <message>
         <source>Create a new blank gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Создать новый пустой проект gLabels</translation>
     </message>
     <message>
         <source>Open a recent gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть недавний проект gLabels</translation>
     </message>
     <message>
         <source>Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Недавние</translation>
     </message>
     <message>
         <source>New...</source>
@@ -844,22 +844,22 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Обзор...</translation>
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть существующий проект gLabels</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerApplyPage</name>
     <message>
         <source>You have completed the gLabels Product Template Designer.  If you wish to accept and save your product template, click &quot;Save.&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы завершили работу в конструкторе шаблонов продуктов gLabels. Если вы хотите принять и сохранить ваш шаблон продукта, нажмите «Сохранить».</translation>
     </message>
     <message>
         <source>Otherwise, you may click &quot;Cancel&quot; to abandon your design or &quot;Back&quot; to review or continue editing this product template.</source>
-        <translation type="unfinished"></translation>
+        <translation>В противном случае вы можете нажать «Отмена», чтобы отказаться от вашего дизайна, или «Назад», чтобы просмотреть или продолжить редактирование этого шаблона продукта.</translation>
     </message>
 </context>
 <context>
@@ -893,7 +893,7 @@
     <name>TemplateDesignerContinuousPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите «Отмена», чтобы выйти, или нажмите «Назад», чтобы начать с другим продуктом.</translation>
     </message>
 </context>
 <context>
@@ -919,11 +919,11 @@
     <name>TemplateDesignerIntroPage</name>
     <message>
         <source>Copy/Edit Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать/Изменить продукт</translation>
     </message>
     <message>
         <source>Copy and edit an existing product template</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать и изменить существующий шаблон продукта</translation>
     </message>
     <message>
         <source>New Product</source>
@@ -931,38 +931,38 @@
     </message>
     <message>
         <source>Create a new product template from scratch</source>
-        <translation type="unfinished"></translation>
+        <translation>Создать новый шаблон продукта с нуля</translation>
     </message>
     <message>
         <source>This dialog will help you create a custom product template. Let&apos;s get started:</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот диалог поможет вам создать пользовательский шаблон продукта. Приступим:</translation>
     </message>
 </context>
 <context>
     <name>TemplateDesignerNLayoutsPage</name>
     <message>
         <source>A layout is a set of labels or cards that can be arranged in a simple grid.  Most products only need one layout, as in the first example below.  The second example illustrates when two layouts are needed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Макет — это набор этикеток или карточек, которые могут быть расположены в простой сетке. Большинству продуктов требуется только один макет, как в первом примере ниже. Второй пример иллюстрирует случай, когда требуются два макета.</translation>
     </message>
     <message>
         <source>Products needing only one layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Продукты, которым требуется только один макет.</translation>
     </message>
     <message>
         <source>Products needing two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Продукты, которым требуется два макета.</translation>
     </message>
     <message>
         <source>Note: if more than two layouts are required, the product template must be edited manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Примечание: если требуется более двух макетов, шаблон продукта должен быть отредактирован вручную.</translation>
     </message>
     <message>
         <source>One layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Один макет</translation>
     </message>
     <message>
         <source>Two layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Два макета</translation>
     </message>
 </context>
 <context>
@@ -1027,7 +1027,7 @@
     <name>TemplateDesignerPageSizePage</name>
     <message>
         <source>Roll width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ширина рулона:</translation>
     </message>
     <message>
         <source>Height:</source>
@@ -1046,7 +1046,7 @@
     <name>TemplateDesignerPathPage</name>
     <message>
         <source>Click &quot;Cancel&quot; to quit, or click &quot;Back&quot; to begin with a different product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите «Отмена», чтобы выйти, или нажмите «Назад», чтобы начать с другим продуктом.</translation>
     </message>
 </context>
 <context>
@@ -1081,7 +1081,7 @@
     </message>
     <message>
         <source>in</source>
-        <translation type="unfinished"></translation>
+        <translation>дюйм</translation>
     </message>
 </context>
 <context>
@@ -1176,31 +1176,31 @@
     <name>Variable</name>
     <message>
         <source>String</source>
-        <translation type="unfinished"></translation>
+        <translation>Строка</translation>
     </message>
     <message>
         <source>Integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Целое число</translation>
     </message>
     <message>
         <source>Floating Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Число с плавающей точкой</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Никогда</translation>
     </message>
     <message>
         <source>Per item</source>
-        <translation type="unfinished"></translation>
+        <translation>На элемент</translation>
     </message>
     <message>
         <source>Per copy</source>
-        <translation type="unfinished"></translation>
+        <translation>На копию</translation>
     </message>
     <message>
         <source>Per page</source>
-        <translation type="unfinished"></translation>
+        <translation>На страницу</translation>
     </message>
     <message>
         <source>Color</source>
@@ -1211,11 +1211,11 @@
     <name>VariablesView</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1223,26 +1223,26 @@
     </message>
     <message>
         <source>Add variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить переменную</translation>
     </message>
     <message>
         <source>Edit selected variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить выбранную переменную</translation>
     </message>
     <message>
         <source>Delete selected variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить выбранную переменную</translation>
     </message>
 </context>
 <context>
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
-        <translation type="unfinished"></translation>
+        <translation>Программа для создания этикеток и визитных карточек.</translation>
     </message>
     <message>
         <source>gLabels is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</source>
@@ -1257,22 +1257,22 @@
     <name>glabels::ColorHistory</name>
     <message>
         <source>color %1</source>
-        <translation type="unfinished"></translation>
+        <translation>цвет %1</translation>
     </message>
 </context>
 <context>
     <name>glabels::ColorPaletteDialog</name>
     <message>
         <source>Standard Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Стандартные цвета</translation>
     </message>
     <message>
         <source>Recent Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Недавно использованные цвета</translation>
     </message>
     <message>
         <source>Custom color...</source>
-        <translation type="unfinished"></translation>
+        <translation>Пользовательский цвет...</translation>
     </message>
     <message>
         <source>Custom Color</source>
@@ -1281,11 +1281,11 @@
     <message>
         <source>Custom Color %1</source>
         <extracomment>%1 = color specification in hex. String must not contain a colon (:).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Пользовательский цвет %1</translation>
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать поле подстановки</translation>
     </message>
 </context>
 <context>
@@ -1299,46 +1299,46 @@
     <name>glabels::FieldButton</name>
     <message>
         <source>Merge fields</source>
-        <translation type="unfinished"></translation>
+        <translation>Поля слияния</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Переменные</translation>
     </message>
 </context>
 <context>
     <name>glabels::File</name>
     <message>
         <source>gLabels - Open Project</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels — Открыть проект</translation>
     </message>
     <message>
         <source>glabels files (*.glabels);;All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы glabels (*.glabels);;Все файлы (*)</translation>
     </message>
     <message>
         <source>Unable to open &quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось открыть &quot;</translation>
     </message>
     <message>
         <source>&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;.</translation>
     </message>
     <message>
         <source>gLabels - Save Project As</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels — Сохранить проект как</translation>
     </message>
     <message>
         <source>Save Label As</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить этикетку как</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 уже существует.</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы хотите заменить его?</translation>
     </message>
 </context>
 <context>
@@ -1357,7 +1357,7 @@
     </message>
     <message>
         <source>Drop</source>
-        <translation type="unfinished"></translation>
+        <translation>Перетащить</translation>
     </message>
 </context>
 <context>
@@ -1368,7 +1368,7 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Правка</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -1376,15 +1376,15 @@
     </message>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Слияние</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Переменные</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать</translation>
     </message>
     <message>
         <source>&amp;New...</source>
@@ -1392,7 +1392,7 @@
     </message>
     <message>
         <source>Create a new gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Создать новый проект gLabels</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
@@ -1400,7 +1400,7 @@
     </message>
     <message>
         <source>Open an existing gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть существующий проект gLabels</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -1408,7 +1408,7 @@
     </message>
     <message>
         <source>Save current gLabels project</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить текущий проект gLabels</translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
@@ -1416,7 +1416,7 @@
     </message>
     <message>
         <source>Save current gLabels project to a different name</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить текущий проект gLabels под другим именем</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -1424,7 +1424,7 @@
     </message>
     <message>
         <source>Select project Edit mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать режим правки проекта</translation>
     </message>
     <message>
         <source>P&amp;roperties</source>
@@ -1432,23 +1432,23 @@
     </message>
     <message>
         <source>Select project Properties mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать режим свойств проекта</translation>
     </message>
     <message>
         <source>&amp;Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Слияние</translation>
     </message>
     <message>
         <source>Select project Merge mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать режим слияния проекта</translation>
     </message>
     <message>
         <source>&amp;Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Переменные</translation>
     </message>
     <message>
         <source>Select project Variables mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать режим переменных проекта</translation>
     </message>
     <message>
         <source>&amp;Print</source>
@@ -1456,15 +1456,15 @@
     </message>
     <message>
         <source>Select project Print mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать режим печати проекта</translation>
     </message>
     <message>
         <source>Product Template &amp;Designer...</source>
-        <translation type="unfinished"></translation>
+        <translation>Конструктор шаблонов &amp;продуктов...</translation>
     </message>
     <message>
         <source>Create custom templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Создание пользовательских шаблонов</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -1472,15 +1472,15 @@
     </message>
     <message>
         <source>Close the current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть текущее окно</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>В&amp;ыход</translation>
     </message>
     <message>
         <source>Exit glabels</source>
-        <translation type="unfinished"></translation>
+        <translation>Выйти из glabels</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -1548,7 +1548,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактор</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -1556,7 +1556,7 @@
     </message>
     <message>
         <source>Change visibility of the grid in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить видимость сетки в текущем окне</translation>
     </message>
     <message>
         <source>Markup</source>
@@ -1564,7 +1564,7 @@
     </message>
     <message>
         <source>Change visibility of markup lines in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить видимость разметочных линий в текущем окне</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -1692,7 +1692,7 @@
     </message>
     <message>
         <source>Flip object(s) horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>Отразить объект(ы) по горизонтали</translation>
     </message>
     <message>
         <source>Flip Vertically</source>
@@ -1700,7 +1700,7 @@
     </message>
     <message>
         <source>Flip object(s) vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Отразить объект(ы) по вертикали</translation>
     </message>
     <message>
         <source>Align Left</source>
@@ -1768,7 +1768,7 @@
     </message>
     <message>
         <source>Open gLabels manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть руководство gLabels</translation>
     </message>
     <message>
         <source>&amp;About...</source>
@@ -1788,7 +1788,7 @@
     </message>
     <message>
         <source>Toolbars</source>
-        <translation type="unfinished"></translation>
+        <translation>Панели инструментов</translation>
     </message>
     <message>
         <source>&amp;Objects</source>
@@ -1812,7 +1812,7 @@
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation>По центру</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1820,7 +1820,7 @@
     </message>
     <message>
         <source>&amp;Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Редактор</translation>
     </message>
     <message>
         <source>(modified)</source>
@@ -1828,7 +1828,7 @@
     </message>
     <message>
         <source>Save changes to project &quot;%1&quot; before closing?</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить изменения в проекте &quot;%1&quot; перед закрытием?</translation>
     </message>
     <message>
         <source>Your changes will be lost if you don&apos;t save them.</source>
@@ -1836,7 +1836,7 @@
     </message>
     <message>
         <source>Save project?</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить проект?</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -1872,68 +1872,68 @@
     </message>
     <message>
         <source>Quick Access</source>
-        <translation type="unfinished"></translation>
+        <translation>Быстрый доступ</translation>
     </message>
     <message>
         <source>&amp;Report Bug...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Сообщить об ошибке...</translation>
     </message>
     <message>
         <source>Report a bug to the developers</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщить об ошибке разработчикам</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Quick Access&quot; toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить видимость панели инструментов &quot;Быстрый доступ&quot; в текущем окне</translation>
     </message>
     <message>
         <source>Change visibility of the &quot;Editor&quot; toolbar in current window</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить видимость панели инструментов &quot;Редактор&quot; в текущем окне</translation>
     </message>
     <message>
         <source>&amp;User Manual...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Руководство пользователя...</translation>
     </message>
     <message>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть последние</translation>
     </message>
     <message>
         <source>Quick Access Toolbar</source>
-        <translation type="unfinished"></translation>
+        <translation>Панель быстрого доступа</translation>
     </message>
     <message>
         <source>Undo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to undo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Отменить %1</translation>
     </message>
     <message>
         <source>Redo %1</source>
         <extracomment>%1 is the action name/description (e.g. move, delete, ...) to redo.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Повторить %1</translation>
     </message>
     <message>
         <source>Center Both</source>
-        <translation type="unfinished"></translation>
+        <translation>По центру по обеим осям</translation>
     </message>
     <message>
         <source>Center objects in label</source>
-        <translation type="unfinished"></translation>
+        <translation>Центрировать объекты на этикетке</translation>
     </message>
 </context>
 <context>
     <name>glabels::MergeView</name>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Слияние</translation>
     </message>
     <message>
         <source>Select merge file</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файл для слияния</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы (*)</translation>
     </message>
 </context>
 <context>
@@ -1948,11 +1948,11 @@
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>По умолчанию</translation>
     </message>
     <message>
         <source>Original size</source>
-        <translation type="unfinished"></translation>
+        <translation>Исходный размер</translation>
     </message>
     <message>
         <source>Box object properties</source>
@@ -1960,11 +1960,11 @@
     </message>
     <message>
         <source>line/fill</source>
-        <translation type="unfinished"></translation>
+        <translation>линия/заливка</translation>
     </message>
     <message>
         <source>position/size</source>
-        <translation type="unfinished"></translation>
+        <translation>позиция/размер</translation>
     </message>
     <message>
         <source>shadow</source>
@@ -2016,55 +2016,55 @@
     </message>
     <message>
         <source>Image files (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений (*.png *.jpg *.jpeg *.gif *.bmp *.pbm *.pgm *.ppm *.xbm *.xpm *.svg)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы (*)</translation>
     </message>
     <message>
         <source>PNG - Portable Network Graphics (*.png)</source>
-        <translation type="unfinished"></translation>
+        <translation>PNG — переносимая сетевая графика (*.png)</translation>
     </message>
     <message>
         <source>BMP - Windows Bitmap (*.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>BMP — растровый формат Windows (*.bmp)</translation>
     </message>
     <message>
         <source>GIF - Graphics Interchange Format (*.gif)</source>
-        <translation type="unfinished"></translation>
+        <translation>GIF — формат обмена графическими данными (*.gif)</translation>
     </message>
     <message>
         <source>JPEG - Joint Photographic Experts Group (*.jpg *.jpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>JPEG — формат Объединённой группы экспертов по фотографии (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>PBM - Portable Bitmap (*.pbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBM — переносимый растровый формат (*.pbm)</translation>
     </message>
     <message>
         <source>PGM - Portable Graymap (*.pgm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PGM — переносимый формат полутоновых изображений (*.pgm)</translation>
     </message>
     <message>
         <source>PPM - Portable Pixmap (*.ppm)</source>
-        <translation type="unfinished"></translation>
+        <translation>PPM — переносимый формат цветных изображений (*.ppm)</translation>
     </message>
     <message>
         <source>SVG - Scalable Vector Graphics (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>SVG — масштабируемая векторная графика (*.svg)</translation>
     </message>
     <message>
         <source>XBM - X11 Bitmap (*.xbm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XBM — растровый формат X11 (*.xbm)</translation>
     </message>
     <message>
         <source>XPM - X11 Pixmap (*.xpm)</source>
-        <translation type="unfinished"></translation>
+        <translation>XPM — формат пиксельных изображений X11 (*.xpm)</translation>
     </message>
     <message>
         <source>gLabels - Select image file</source>
-        <translation type="unfinished"></translation>
+        <translation>gLabels — Выберите файл изображения</translation>
     </message>
     <message>
         <source>Set image</source>
@@ -2084,7 +2084,7 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Позиция</translation>
     </message>
     <message>
         <source>Barcode</source>
@@ -2092,95 +2092,95 @@
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить</translation>
     </message>
     <message>
         <source>Insert substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставить поле подстановки</translation>
     </message>
     <message>
         <source>Use substitution field</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать поле подстановки</translation>
     </message>
 </context>
 <context>
     <name>glabels::PrintView</name>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on %2 pages.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Будет напечатано %1 элементов на %2 страницах.)</translation>
     </message>
     <message>
         <source>(Will print a total of 1 item on 1 page.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Будет напечатан 1 элемент на 1 странице.)</translation>
     </message>
     <message>
         <source>(Will print a total of %1 items on 1 page.)</source>
-        <translation type="unfinished"></translation>
+        <translation>(Будет напечатано %1 элементов на 1 странице.)</translation>
     </message>
     <message>
         <source>Print to file (PDF)</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать в файл (PDF)</translation>
     </message>
     <message>
         <source>PDF files (*.pdf);;All files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы PDF (*.pdf);;Все файлы (*)</translation>
     </message>
     <message>
         <source>%1 already exists.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 уже существует.</translation>
     </message>
     <message>
         <source>Do you want to overwrite it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы хотите перезаписать его?</translation>
     </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
     <message>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Свойства</translation>
     </message>
     <message>
         <source>Product Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Поворот продукта</translation>
     </message>
     <message>
         <source>Change Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить продукт</translation>
     </message>
 </context>
 <context>
     <name>glabels::ReportBugDialog</name>
     <message>
         <source>How to Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Как сообщить об ошибке</translation>
     </message>
     <message>
         <source>To submit a bug report, click on the button below.  This will open a web browser to the gLabels github issue tracking page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Чтобы отправить отчёт об ошибке, нажмите на кнопку ниже. Это откроет веб-браузер на странице отслеживания проблем gLabels на GitHub.</translation>
     </message>
     <message>
         <source>Be sure to include a detailed description of the problem and how to recreate it.  Attach any screenshots and/or example glabels project files that may illustrate the problem.</source>
-        <translation type="unfinished"></translation>
+        <translation>Обязательно включите подробное описание проблемы и способы её воспроизведения. Приложите все скриншоты и/или примеры файлов проектов glabels, которые могут проиллюстрировать проблему.</translation>
     </message>
     <message>
         <source>Before submitting a report, look through the existing issues for similar or related bugs.  If the issue has already been reported, please consider contributing to its report instead.  Otherwise, create a new issue report. Please paste the following information into the issue description.</source>
-        <translation type="unfinished"></translation>
+        <translation>Перед отправкой отчёта просмотрите существующие проблемы на предмет похожих или связанных ошибок. Если проблема уже была сообщена, пожалуйста, рассмотрите возможность внести вклад в её отчёт. В противном случае создайте новый отчёт о проблеме. Пожалуйста, вставьте следующую информацию в описание проблемы.</translation>
     </message>
 </context>
 <context>
     <name>glabels::SelectProductDialog</name>
     <message>
         <source>List View</source>
-        <translation type="unfinished"></translation>
+        <translation>Список</translation>
     </message>
     <message>
         <source>Grid View</source>
-        <translation type="unfinished"></translation>
+        <translation>Сетка</translation>
     </message>
 </context>
 <context>
@@ -2194,11 +2194,11 @@
     <name>glabels::TemplateDesigner</name>
     <message>
         <source>Product Template Designer</source>
-        <translation type="unfinished"></translation>
+        <translation>Конструктор шаблонов продуктов</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Рулон</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -2209,53 +2209,53 @@
     <name>glabels::TemplateDesignerApplyPage</name>
     <message>
         <source>Save Product Template</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить шаблон продукта</translation>
     </message>
     <message>
         <source>Click &quot;Save&quot; to save your custom product template!</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите «Сохранить», чтобы сохранить ваш пользовательский шаблон продукта!</translation>
     </message>
     <message>
         <source>User product template (%1 %2) already exists.</source>
         <extracomment>%1 = brand name of product (e.g. Avery), %2 = part number of product (e.g. 5026).</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Пользовательский шаблон продукта (%1 %2) уже существует.</translation>
     </message>
     <message>
         <source>Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы хотите заменить его?</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerCdPage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер продукта</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, настройте параметры размера одного элемента продукта.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerContinuousPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Неподдерживаемый стиль продукта</translation>
     </message>
     <message>
         <source>Continuous tape product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблоны продуктов для непрерывной ленты в настоящее время не поддерживаются конструктором шаблонов продуктов.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerEllipsePage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер продукта</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, настройте параметры размера одного элемента продукта.</translation>
     </message>
 </context>
 <context>
@@ -2266,7 +2266,7 @@
     </message>
     <message>
         <source>Welcome to the gLabels Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Добро пожаловать в конструктор шаблонов продуктов gLabels.</translation>
     </message>
 </context>
 <context>
@@ -2277,7 +2277,7 @@
     </message>
     <message>
         <source>Please select the number of layouts required.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, выберите необходимое количество макетов.</translation>
     </message>
 </context>
 <context>
@@ -2288,11 +2288,11 @@
     </message>
     <message>
         <source>Please enter the following identifying information about the product.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, введите следующую идентификационную информацию о продукте.</translation>
     </message>
     <message>
         <source>Brand and part number match an existing built-in product template!</source>
-        <translation type="unfinished"></translation>
+        <translation>Бренд и номер детали соответствуют существующему встроенному шаблону продукта!</translation>
     </message>
 </context>
 <context>
@@ -2303,7 +2303,7 @@
     </message>
     <message>
         <source>Please enter parameters for your single layout.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, введите параметры для вашего единственного макета.</translation>
     </message>
 </context>
 <context>
@@ -2314,7 +2314,7 @@
     </message>
     <message>
         <source>Please select the product page size.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, выберите размер страницы продукта.</translation>
     </message>
     <message>
         <source>Other</source>
@@ -2322,69 +2322,69 @@
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"></translation>
+        <translation>Рулон</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerPathPage</name>
     <message>
         <source>Unsupported Product Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Неподдерживаемый стиль продукта</translation>
     </message>
     <message>
         <source>Path based product templates are not currently supported by the Product Template Designer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаблоны продуктов на основе контуров в настоящее время не поддерживаются конструктором шаблонов продуктов.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerRectPage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер продукта</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, настройте параметры размера одного элемента продукта.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerRoundPage</name>
     <message>
         <source>Product Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер продукта</translation>
     </message>
     <message>
         <source>Please adjust the size parameters of a single product item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, настройте параметры размера одного элемента продукта.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerShapePage</name>
     <message>
         <source>Product Shape</source>
-        <translation type="unfinished"></translation>
+        <translation>Форма продукта</translation>
     </message>
     <message>
         <source>Please select the basic product shape.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, выберите базовую форму продукта.</translation>
     </message>
 </context>
 <context>
     <name>glabels::TemplateDesignerTwoLayoutPage</name>
     <message>
         <source>Layouts</source>
-        <translation type="unfinished"></translation>
+        <translation>Макеты</translation>
     </message>
     <message>
         <source>Please enter parameters for your two layouts.</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, введите параметры для ваших двух макетов.</translation>
     </message>
 </context>
 <context>
     <name>glabels::VariablesView</name>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Переменные</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2396,23 +2396,23 @@
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Приращение</translation>
     </message>
     <message>
         <source>Step Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Шаг</translation>
     </message>
     <message>
         <source>Add Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить переменную</translation>
     </message>
     <message>
         <source>Edit Variable</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить переменную</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Значение</translation>
     </message>
 </context>
 <context>
@@ -2455,7 +2455,7 @@
     </message>
     <message>
         <source>USPS Intelligent Mail</source>
-        <translation type="unfinished"></translation>
+        <translation>USPS Intelligent Mail</translation>
     </message>
     <message>
         <source>IEC16022 (DataMatrix)</source>
@@ -2531,7 +2531,7 @@
     </message>
     <message>
         <source>Interleaved 2 of 5</source>
-        <translation type="unfinished"></translation>
+        <translation>Interleaved 2 of 5</translation>
     </message>
     <message>
         <source>Codabar</source>
@@ -2603,7 +2603,7 @@
     </message>
     <message>
         <source>Code 128 (Mode C suppression)</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 128 (режим C с подавлением)</translation>
     </message>
     <message>
         <source>DAFT Code</source>
@@ -2723,11 +2723,11 @@
     </message>
     <message>
         <source>Aztec Runes</source>
-        <translation type="unfinished"></translation>
+        <translation>Aztec Runes</translation>
     </message>
     <message>
         <source>CEPNet (Brazilian Post)</source>
-        <translation type="unfinished"></translation>
+        <translation>CEPNet (бразильская почта)</translation>
     </message>
     <message>
         <source>Codablock-F</source>
@@ -2735,19 +2735,19 @@
     </message>
     <message>
         <source>Code 2 of 5 Standard</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 2 of 5 Standard</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar Stacked</translation>
     </message>
     <message>
         <source>GS1 DataBar Stacked Omni.</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar Stacked Omni.</translation>
     </message>
     <message>
         <source>GS1 DataBar Expanded Stacked</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar Expanded Stacked</translation>
     </message>
     <message>
         <source>HIBC MicroPDF417</source>
@@ -2775,7 +2775,7 @@
     </message>
     <message>
         <source>Code 2 of 5 Industrial</source>
-        <translation type="unfinished"></translation>
+        <translation>Code 2 of 5 Industrial</translation>
     </message>
     <message>
         <source>DotCode</source>
@@ -2787,7 +2787,7 @@
     </message>
     <message>
         <source>GS1 DataBar Omnidirectional</source>
-        <translation type="unfinished"></translation>
+        <translation>GS1 DataBar Omnidirectional</translation>
     </message>
     <message>
         <source>Han Xin</source>
@@ -2807,7 +2807,7 @@
     </message>
     <message>
         <source>Royal Mail 4-State Mailmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Royal Mail 4-State Mailmark</translation>
     </message>
     <message>
         <source>UPU S10</source>
@@ -2815,19 +2815,19 @@
     </message>
     <message>
         <source>FIM (Facing ID Mark)</source>
-        <translation type="unfinished"></translation>
+        <translation>FIM (Facing ID Mark)</translation>
     </message>
     <message>
         <source>rMQR (Rectangular Micro QR)</source>
-        <translation type="unfinished"></translation>
+        <translation>rMQR (Rectangular Micro QR)</translation>
     </message>
     <message>
         <source>Royal Mail 4-State Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>Royal Mail 4-State Customer</translation>
     </message>
     <message>
         <source>VIN (Vehicle ID Number)</source>
-        <translation type="unfinished"></translation>
+        <translation>VIN (идентификационный номер транспортного средства)</translation>
     </message>
     <message>
         <source>HIBC Codablock-F</source>
@@ -2835,7 +2835,7 @@
     </message>
     <message>
         <source>Royal Mail 2-D Mailmark</source>
-        <translation type="unfinished"></translation>
+        <translation>Royal Mail 2-D Mailmark</translation>
     </message>
     <message>
         <source>BC412 (SEMI TI-95)</source>
@@ -2853,7 +2853,7 @@
     <name>glabels::model::ModelBarcodeObject</name>
     <message>
         <source>No barcode data</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет данных для штрихкода</translation>
     </message>
     <message>
         <source>Invalid barcode data</source>
@@ -2864,7 +2864,7 @@
     <name>glabels::model::ModelImageObject</name>
     <message>
         <source>No image</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет изображения</translation>
     </message>
 </context>
 <context>
@@ -2878,11 +2878,11 @@
     <name>main</name>
     <message>
         <source>gLabels Label Designer</source>
-        <translation type="unfinished"></translation>
+        <translation>Конструктор этикеток gLabels</translation>
     </message>
     <message>
         <source>gLabels project files to open, optionally.</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы проектов gLabels для открытия (опционально).</translation>
     </message>
 </context>
 </TS>
