@@ -9,15 +9,15 @@
     </message>
     <message>
         <source>&amp;License</source>
-        <translation>Licenza</translation>
+        <translation>&amp;Licenza</translation>
     </message>
     <message>
         <source>&amp;Website</source>
-        <translation>Sito web</translation>
+        <translation>&amp;Sito web</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Chiudi</translation>
+        <translation>&amp;Chiudi</translation>
     </message>
 </context>
 <context>
