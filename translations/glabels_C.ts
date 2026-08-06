@@ -523,10 +523,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select locale specific behavior.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Units</source>
         <translation type="unfinished"></translation>
     </message>
@@ -555,10 +551,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Configure grid behavior.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Origin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -576,6 +568,22 @@
     </message>
     <message>
         <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

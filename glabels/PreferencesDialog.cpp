@@ -81,6 +81,20 @@ namespace glabels
                 gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
 
 
+                switch ( model::Settings::appearanceMode() )
+                {
+                case model::Settings::LIGHT_MODE:
+                        appearanceLightRadio->setChecked( true );
+                        break;
+                case model::Settings::DARK_MODE:
+                        appearanceDarkRadio->setChecked( true );
+                        break;
+                default:
+                        appearanceLightRadio->setChecked( true );
+                        break;
+                }
+
+
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
         }
@@ -149,6 +163,22 @@ namespace glabels
         void PreferencesDialog::onGridSpacingResetButtonClicked()
         {
                 model::Settings::resetGridSpacing();
+        }
+
+
+        ///
+        /// Appearance Mode Radios Changed
+        ///
+        void PreferencesDialog::onAppearanceModeRadiosChanged()
+        {
+                if ( appearanceLightRadio->isChecked() )
+                {
+                        model::Settings::setAppearanceMode( model::Settings::LIGHT_MODE );
+                }
+                else if ( appearanceDarkRadio->isChecked() )
+                {
+                        model::Settings::setAppearanceMode( model::Settings::DARK_MODE );
+                }
         }
 
 

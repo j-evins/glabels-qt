@@ -451,4 +451,37 @@ namespace glabels::model
         }
 
 
+        Settings::AppearanceMode Settings::appearanceMode()
+        {
+                mInstance->beginGroup( "Appearance" );
+                QString value = mInstance->value( "mode", "light" ).toString();
+                mInstance->endGroup();
+
+                if ( value == "light" ) return LIGHT_MODE;
+                if ( value == "dark" ) return DARK_MODE;
+                return LIGHT_MODE;
+        }
+
+
+        void Settings::setAppearanceMode( AppearanceMode mode )
+        {
+
+                mInstance->beginGroup( "Appearance" );
+                switch ( mode )
+                {
+                case LIGHT_MODE:
+                        mInstance->setValue( "mode", "light" );
+                        break;
+                case DARK_MODE:
+                        mInstance->setValue( "mode", "dark" );
+                        break;
+                default:
+                        mInstance->setValue( "mode", "light" );
+                        break;
+                }
+                mInstance->endGroup();
+
+                emit mInstance->changed();
+        }
+
 }

@@ -1,6 +1,6 @@
-//  PreferencesDialog.hpp
+//  AppearanceModel.hpp
 //
-//  Copyright (C) 2016-2026  Jaye Evins <evins@snaught.com>
+//  Copyright (C) 2026  Jaye Evins <evins@snaught.com>
 //
 //  This file is part of gLabels-qt.
 //
@@ -18,44 +18,62 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef PreferencesDialog_hpp
-#define PreferencesDialog_hpp
+#ifndef AppearanceModel_hpp
+#define AppearanceModel_hpp
 
 
-#include "ui_PreferencesDialog.h"
+#include "model/Settings.hpp"
+
+#include <QObject>
+
+#include <memory>
 
 
 namespace glabels
 {
 
         ///
-        /// New Label Dialog Widget
+        /// Settings Singleton Class
         ///
-        class PreferencesDialog : public QDialog, public Ui_PreferencesDialog
+        class AppearanceModel : public QObject
         {
                 Q_OBJECT
 
                 /////////////////////////////////
                 // Life Cycle
                 /////////////////////////////////
+        private:
+                AppearanceModel();
+
         public:
-                PreferencesDialog( QWidget *parent = nullptr );
+                static void init();
+                static AppearanceModel* instance();
+
+
+                /////////////////////////////////
+                // Private methods
+                /////////////////////////////////
+        private:
+                static void setMode( model::Settings::AppearanceMode mode );
+
+                static void setLightMode();
+                static void setDarkMode();
 
 
                 /////////////////////////////////
                 // Slots
                 /////////////////////////////////
         private slots:
-                void onUnitsRadiosChanged();
-                void onGridOriginRadiosChanged();
-                void onGridSpacingSpinChanged();
-                void onGridSpacingResetButtonClicked();
-                void onAppearanceModeRadiosChanged();
                 void onSettingsChanged();
+
+
+        private:
+                static std::unique_ptr<AppearanceModel> mInstance;
+                static model::Settings::AppearanceMode mMode;
 
         };
 
 }
 
 
-#endif // PreferencesDialog_hpp
+#endif // AppearanceModel_hpp

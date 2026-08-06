@@ -21,6 +21,8 @@
 
 #include "MainWindow.hpp"
 
+#include "AppearanceModel.hpp"
+
 #include "model/Db.hpp"
 #include "model/FileUtil.hpp"
 #include "model/Model.hpp"
@@ -107,6 +109,7 @@ int main( int argc, char **argv )
         glabels::model::Db::init();
         glabels::merge::Factory::init();
         glabels::barcode::Backends::init();
+        glabels::AppearanceModel::init();
 
 
         //
