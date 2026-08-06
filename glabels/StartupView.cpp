@@ -21,6 +21,7 @@
 
 #include "StartupView.hpp"
 
+#include "AppearanceModel.hpp"
 #include "File.hpp"
 #include "MainWindow.hpp"
 
@@ -43,14 +44,21 @@ namespace glabels
         {
                 setupUi( this );
 
-                QString titleImage = ":images/glabels-label-designer.png";
-                titleLabel->setPixmap( QPixmap( titleImage ) );
+                if ( AppearanceModel::style() != AppearanceModel::STYLE_DARK )
+                {
+                        titleLabel->setPixmap( QPixmap( ":images/glabels-label-designer.png" ) );
+                }
+                else
+                {
+                        titleLabel->setPixmap( QPixmap( ":images/glabels-label-designer-dark.png" ) );
+                }
 
                 recentProjectButton->setEnabled( model::Settings::recentFileList().size() > 0 );
 
                 loadRecentsMenu();
 
                 connect( model::Settings::instance(), SIGNAL(changed()), this, SLOT(onSettingsChanged()) );
+                connect( AppearanceModel::instance(), SIGNAL(changed()), this, SLOT(onAppearanceChanged()) );
         }
 
 
@@ -92,6 +100,22 @@ namespace glabels
         {
                 // reload recents menu
                 loadRecentsMenu();
+        }
+
+
+        ///
+        /// Appearance changed Slot
+        ///
+        void StartupView::onAppearanceChanged()
+        {
+                if ( AppearanceModel::style() != AppearanceModel::STYLE_DARK )
+                {
+                        titleLabel->setPixmap( QPixmap( ":images/glabels-label-designer.png" ) );
+                }
+                else
+                {
+                        titleLabel->setPixmap( QPixmap( ":images/glabels-label-designer-dark.png" ) );
+                }
         }
 
 

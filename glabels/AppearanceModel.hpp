@@ -39,6 +39,10 @@ namespace glabels
         {
                 Q_OBJECT
 
+        public:
+                enum Style { STYLE_LIGHT, STYLE_DARK };
+
+
                 /////////////////////////////////
                 // Life Cycle
                 /////////////////////////////////
@@ -48,6 +52,20 @@ namespace glabels
         public:
                 static void init();
                 static AppearanceModel* instance();
+
+
+                /////////////////////////////////
+                // Signals
+                /////////////////////////////////
+        signals:
+                void changed();
+
+
+                /////////////////////////////////
+                // Accessors
+                /////////////////////////////////
+        public:
+                static Style style();
 
 
                 /////////////////////////////////

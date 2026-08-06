@@ -75,6 +75,25 @@ namespace glabels
 
 
         //
+        // Query current style
+        //
+        AppearanceModel::Style AppearanceModel::style()
+        {
+                switch ( mMode )
+                {
+                case model::Settings::LIGHT_MODE: return STYLE_LIGHT;
+                case model::Settings::DARK_MODE:  return STYLE_DARK;
+
+                // TODO: FOLLOW_SYSTEM_MODE, return current style based on current system style
+
+                default:
+                        qWarning() << "Unknown appearance mode: " << mMode;
+                        return STYLE_LIGHT;
+                }
+        }
+
+
+        //
         // Set appearance mode
         //
         void AppearanceModel::setMode( model::Settings::AppearanceMode mode )
@@ -123,6 +142,8 @@ namespace glabels
                 lightPalette.setColor(                     QPalette::HighlightedText, Qt::white );
                 lightPalette.setColor( QPalette::Disabled, QPalette::HighlightedText, QColor(127,127,127) ); //?
                 qApp->setPalette( lightPalette );
+
+                if ( mInstance ) emit mInstance->changed();
         }
 
 
@@ -158,6 +179,8 @@ namespace glabels
                 darkPalette.setColor(                     QPalette::HighlightedText, Qt::white );
                 darkPalette.setColor( QPalette::Disabled, QPalette::HighlightedText, QColor(127,127,127) );
                 qApp->setPalette( darkPalette );
+
+                if ( mInstance ) emit mInstance->changed();
         }
 
 
