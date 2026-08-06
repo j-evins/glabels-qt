@@ -1,14 +1,6 @@
 [Desktop Entry]
 Name=gLabels Label Designer 4
 Comment=Create labels and business cards
-Comment[de]=Entwurf von Etiketten und Visitenkarten
-Comment[es]=Crear etiquetas y tarjetas de visita
-Comment[fr]=Créer des étiquettes et des cartes de visite
-Comment[it]=Crea etichette e biglietti da visita
-Comment[pl]=Twórz etykiety i wizytówki
-Comment[pt]=Crie etiquetas e cartões de visita
-Comment[pt_BR]=Crie etiquetas e cartões de visita
-Comment[uk]=Створюйте етикетки та візитки
 Keywords=label;card;print;office;barcode;
 Exec=glabels-qt %F
 Icon=glabels
