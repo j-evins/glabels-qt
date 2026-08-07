@@ -86,7 +86,8 @@ namespace glabels
                 mContents->setIconSize( QSize(48,48) );
                 mContents->setSizePolicy( QSizePolicy::MinimumExpanding,
                                           QSizePolicy::Preferred );
-                mContents->setStyleSheet( "* { background: #CCCCCC }" );
+                mContents->setAutoFillBackground( true );
+                mContents->setBackgroundRole( QPalette::Mid );
 
                 // Table of contents button group
                 auto group = new QButtonGroup( this );
