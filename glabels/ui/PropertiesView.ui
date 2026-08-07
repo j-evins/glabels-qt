@@ -250,9 +250,6 @@
           <property name="toolTip">
            <string>Select another product for this gLabels project.</string>
           </property>
-          <property name="styleSheet">
-           <string notr="true">text-align:left; padding:3px;</string>
-          </property>
           <property name="text">
            <string>Change product</string>
           </property>

@@ -523,7 +523,7 @@ namespace glabels
                 connect( objectsAlignLeftAction, SIGNAL(triggered()), this, SLOT(objectsAlignLeft()) );
 
                 objectsAlignHCenterAction = new QAction( tr("Align Center"), this );
-                objectsAlignHCenterAction->setIcon( QIcon::fromTheme( "glabels-align-center" ) );
+                objectsAlignHCenterAction->setIcon( QIcon::fromTheme( "glabels-align-hcenter" ) );
                 objectsAlignHCenterAction->setStatusTip( tr("Align objects to horizontal centers") );
                 connect( objectsAlignHCenterAction, SIGNAL(triggered()), this, SLOT(objectsAlignHCenter()) );
 

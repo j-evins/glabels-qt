@@ -43,7 +43,7 @@ namespace glabels
         //
         AppearanceModel::AppearanceModel()
         {
-                qApp->setStyle( QStyleFactory::create( "Fusion" ) );
+                QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
 
                 setMode( model::Settings::appearanceMode() );
 
@@ -167,7 +167,15 @@ namespace glabels
                 lightPalette.setColor( QPalette::Disabled, QPalette::Shadow,     gray177 );
                 lightPalette.setColor( QPalette::Disabled, QPalette::Highlight,  gray145 );
 
-                qApp->setPalette( lightPalette );
+                QApplication::setPalette( lightPalette );
+
+                // Re-polish?
+                auto style = QApplication::style();
+                if ( style )
+                {
+                        style->unpolish( qApp );
+                        style->polish( qApp );
+                }
 
                 if ( mInstance ) emit mInstance->changed();
         }
@@ -229,7 +237,15 @@ namespace glabels
                 darkPalette.setColor( QPalette::Disabled, QPalette::Shadow,     gray35 ); //??
                 darkPalette.setColor( QPalette::Disabled, QPalette::Highlight,  gray80 );
 
-                qApp->setPalette( darkPalette );
+                QApplication::setPalette( darkPalette );
+
+                // Re-polish?
+                auto style = QApplication::style();
+                if ( style )
+                {
+                        style->unpolish( qApp );
+                        style->polish( qApp );
+                }
 
                 if ( mInstance ) emit mInstance->changed();
         }

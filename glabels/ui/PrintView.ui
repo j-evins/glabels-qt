@@ -61,8 +61,8 @@
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QComboBox" name="destinationCombo">
-          <property name="styleSheet">
-           <string notr="true">text-align:left; padding:3px;</string>
+          <property name="autoFillBackground">
+           <bool>false</bool>
           </property>
           <property name="currentText">
            <string/>
@@ -277,9 +277,6 @@
         </item>
         <item row="1" column="0">
          <widget class="QComboBox" name="mergeCollateCombo">
-          <property name="styleSheet">
-           <string notr="true">text-align:left; padding:3px;</string>
-          </property>
           <property name="iconSize">
            <size>
             <width>32</width>
@@ -308,9 +305,6 @@
         </item>
         <item row="2" column="0">
          <widget class="QComboBox" name="mergeGroupCombo">
-          <property name="styleSheet">
-           <string notr="true">text-align:left; padding:3px;</string>
-          </property>
           <property name="iconSize">
            <size>
             <width>32</width>
@@ -472,9 +466,6 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">text-align:left; padding:3px;</string>
        </property>
        <property name="text">
         <string>Print</string>
