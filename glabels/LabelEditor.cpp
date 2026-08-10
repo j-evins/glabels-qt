@@ -56,6 +56,7 @@ namespace
 
         const double  ZOOM_TO_FIT_PAD = 16.0;
 
+        const QColor  shadowColor( 0, 0, 0, 64 );
         const double  shadowOffsetPixels = 4;
 
         const QColor  labelColor( 255, 255, 255 );
@@ -1006,7 +1007,7 @@ namespace glabels
                         painter.setRenderHint( QPainter::SmoothPixmapTransform, true );
 
                         /* Fill background before any transformations */
-                        painter.setBrush( QBrush( palette().color(QPalette::Dark) ) );
+                        painter.setBrush( QBrush( palette().color(QPalette::Midlight) ) );
                         painter.setPen( Qt::NoPen );
                         painter.drawRect( rect() );
 
@@ -1116,7 +1117,7 @@ namespace glabels
                  */
                 painter->save();
 
-                painter->setBrush( QBrush( palette().color(QPalette::Shadow) ) );
+                painter->setBrush( QBrush( shadowColor ) );
                 painter->setPen( Qt::NoPen );
 
                 painter->translate( shadowOffsetPixels/mScale, shadowOffsetPixels/mScale );

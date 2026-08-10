@@ -38,7 +38,7 @@ namespace
         const QColor  paperOutlineColor( 0, 0, 0 );
         const double  paperOutlineWidthPixels = 1;
 
-        const QColor  shadowColor( 64, 64, 64 );
+        const QColor  shadowColor( 0, 0, 0, 64 );
         const double  shadowOffsetPixels = 3;
         const double  shadowRadiusPixels = 12;
 
