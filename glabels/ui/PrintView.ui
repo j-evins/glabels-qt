@@ -460,9 +460,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="printButton">
+      <widget class="QToolButton" name="printButton">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -471,8 +471,7 @@
         <string>Print</string>
        </property>
        <property name="icon">
-        <iconset theme="glabels-print">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset theme="glabels-print"/>
        </property>
        <property name="iconSize">
         <size>
@@ -480,8 +479,8 @@
          <height>32</height>
         </size>
        </property>
-       <property name="default">
-        <bool>false</bool>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
        </property>
       </widget>
      </item>
@@ -671,8 +670,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>164</x>
-     <y>260</y>
+     <x>160</x>
+     <y>204</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -687,8 +686,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>216</x>
-     <y>574</y>
+     <x>250</x>
+     <y>499</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -703,8 +702,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>186</x>
-     <y>608</y>
+     <x>220</x>
+     <y>530</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -719,8 +718,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>190</x>
-     <y>642</y>
+     <x>224</x>
+     <y>561</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -745,30 +744,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>printButton</sender>
-   <signal>clicked()</signal>
-   <receiver>PrintView</receiver>
-   <slot>onPrintButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>312</x>
-     <y>724</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>5</x>
-     <y>277</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>mergeCopiesSpin</sender>
    <signal>valueChanged(int)</signal>
    <receiver>PrintView</receiver>
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>156</x>
-     <y>390</y>
+     <x>154</x>
+     <y>325</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -783,8 +766,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>93</x>
-     <y>258</y>
+     <x>98</x>
+     <y>202</y>
     </hint>
     <hint type="destinationlabel">
      <x>6</x>
@@ -799,8 +782,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>188</x>
-     <y>299</y>
+     <x>186</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -815,8 +798,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>275</x>
-     <y>299</y>
+     <x>272</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>8</x>
@@ -831,8 +814,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>85</x>
-     <y>401</y>
+     <x>118</x>
+     <y>372</y>
     </hint>
     <hint type="destinationlabel">
      <x>3</x>
@@ -847,8 +830,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>264</x>
-     <y>449</y>
+     <x>297</x>
+     <y>418</y>
     </hint>
     <hint type="destinationlabel">
      <x>5</x>
@@ -863,8 +846,8 @@
    <slot>onFormChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>254</x>
-     <y>679</y>
+     <x>244</x>
+     <y>595</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
@@ -901,6 +884,22 @@
     <hint type="destinationlabel">
      <x>373</x>
      <y>871</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>printButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PrintView</receiver>
+   <slot>onPrintButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>644</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>669</y>
     </hint>
    </hints>
   </connection>
