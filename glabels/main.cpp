@@ -22,6 +22,7 @@
 #include "MainWindow.hpp"
 
 #include "AppearanceModel.hpp"
+#include "PrintPalette.hpp" // Temporary
 
 #include "model/Db.hpp"
 #include "model/FileUtil.hpp"
@@ -98,6 +99,7 @@ int main( int argc, char **argv )
         if ( parser.isSet( "Version" ) )
         {
                 QTextStream(stdout) << glabels::model::Version::details() << Qt::endl;
+                glabels::printPalette(); // Temporary
                 return 0;
         }
 

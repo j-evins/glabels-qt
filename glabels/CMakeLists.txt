@@ -29,6 +29,7 @@ set (glabels_sources
   ObjectEditor.cpp
   PreferencesDialog.cpp
   PrinterMonitor.cpp
+  PrintPalette.cpp
   PrintView.cpp
   PropertiesView.cpp
   Preview.cpp
