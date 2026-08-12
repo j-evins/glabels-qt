@@ -27,6 +27,11 @@
 #include <QSettings>
 #include <QStyleFactory>
 
+#include <QtVersionChecks>
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+#include <QStyleHints>
+#endif
+
 
 namespace glabels
 {
@@ -119,6 +124,7 @@ namespace glabels
 
                 QIcon::setThemeName( "glabels-flat" );
 
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
                 QColor white( 255, 255, 255 );
                 QColor gray239( 239, 239, 239 );
                 QColor gray247( 247, 247, 247 );
@@ -168,6 +174,10 @@ namespace glabels
                 lightPalette.setColor( QPalette::Disabled, QPalette::Highlight,  gray145 );
 
                 QApplication::setPalette( lightPalette );
+#else
+                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Unknown );
+                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Light );
+#endif
 
                 // Re-polish?
                 auto style = QApplication::style();
@@ -190,6 +200,7 @@ namespace glabels
 
                 QIcon::setThemeName( "glabels-flat-dark"  );
 
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
                 QColor white( 255, 255, 255 );
                 QColor gray127( 127, 127, 127 );
                 QColor gray80( 80, 80, 80 );
@@ -238,6 +249,11 @@ namespace glabels
                 darkPalette.setColor( QPalette::Disabled, QPalette::Highlight,  gray80 );
 
                 QApplication::setPalette( darkPalette );
+
+#else
+                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Unknown );
+                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Dark );
+#endif
 
                 // Re-polish?
                 auto style = QApplication::style();
