@@ -23,6 +23,9 @@
 
 #include "AppearanceModel.hpp"
 #include "PrintPalette.hpp" // Temporary
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+#include <QStyleHints> // Temporary
+#endif
 
 #include "model/Db.hpp"
 #include "model/FileUtil.hpp"
@@ -99,7 +102,16 @@ int main( int argc, char **argv )
         if ( parser.isSet( "Version" ) )
         {
                 QTextStream(stdout) << glabels::model::Version::details() << Qt::endl;
+////////////////////////////////////////////////////////////////////////////////
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Light );
+#endif
                 glabels::printPalette(); // Temporary
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Dark );
+                glabels::printPalette(); // Temporary
+#endif
+////////////////////////////////////////////////////////////////////////////////
                 return 0;
         }
 
