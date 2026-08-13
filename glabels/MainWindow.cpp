@@ -87,7 +87,7 @@ namespace glabels
                 mContents->setSizePolicy( QSizePolicy::MinimumExpanding,
                                           QSizePolicy::Preferred );
                 mContents->setAutoFillBackground( true );
-                mContents->setBackgroundRole( QPalette::Mid );
+                mContents->setBackgroundRole( QPalette::AlternateBase );
 
                 // Table of contents button group
                 auto group = new QButtonGroup( this );

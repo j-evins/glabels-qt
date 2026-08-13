@@ -1007,7 +1007,7 @@ namespace glabels
                         painter.setRenderHint( QPainter::SmoothPixmapTransform, true );
 
                         /* Fill background before any transformations */
-                        painter.setBrush( QBrush( palette().color(QPalette::Midlight) ) );
+                        painter.setBrush( QBrush( palette().color(QPalette::AlternateBase).darker(110) ) );
                         painter.setPen( Qt::NoPen );
                         painter.drawRect( rect() );
 
