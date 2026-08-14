@@ -27,9 +27,9 @@ set (glabels_sources
   MiniPreviewPixmap.cpp
   NotebookUtil.cpp
   ObjectEditor.cpp
+  PaletteUtil.cpp
   PreferencesDialog.cpp
   PrinterMonitor.cpp
-  PrintPalette.cpp
   PrintView.cpp
   PropertiesView.cpp
   Preview.cpp

@@ -1,4 +1,4 @@
-//  PrintPalette.cpp
+//  PaletteUtil.cpp
 //
 //  Copyright (C) 2026  Jaye Evins <evins@snaught.com>
 //
@@ -19,7 +19,7 @@
 //
 
 
-#include "PrintPalette.hpp"
+#include "PaletteUtil.hpp"
 
 #include <QApplication>
 #include <QDebug>
@@ -35,7 +35,7 @@
 namespace glabels
 {
 
-        void printPalette()
+        void PaletteUtil::printPalette()
         {
                 QMetaEnum metaEnum = QMetaEnum::fromType<QPalette::ColorRole>();
                 QList<QPalette::ColorRole> roleList =

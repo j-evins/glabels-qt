@@ -28,6 +28,88 @@
 #include <QStyleFactory>
 
 
+namespace
+{
+        //
+        // Fusion light palette
+        //
+        QPalette fusionLightPalette()
+        {
+                QPalette p;
+
+                p.setColor( QPalette::Window,          QColor( 250, 249, 248 ) );
+                p.setColor( QPalette::WindowText,      QColor(   0,   0,   0 ) );
+                p.setColor( QPalette::Base,            QColor( 250, 249, 248 ) );
+                p.setColor( QPalette::AlternateBase,   QColor( 234, 233, 232 ) );
+                p.setColor( QPalette::ToolTipBase,     QColor( 255, 255, 220 ) );
+                p.setColor( QPalette::ToolTipText,     QColor(   0,   0,   0 ) );
+                p.setColor( QPalette::PlaceholderText, QColor( 100, 100, 100 ) );
+                p.setColor( QPalette::Text,            QColor(   0,   0,   0 ) );
+                p.setColor( QPalette::Button,          QColor( 250, 249, 248 ) );
+                p.setColor( QPalette::ButtonText,      QColor(   0,   0,   0 ) );
+                p.setColor( QPalette::BrightText,      QColor( 255, 255, 255 ) );
+                p.setColor( QPalette::Light,           QColor( 255, 255, 255 ) );
+                p.setColor( QPalette::Midlight,        QColor( 255, 255, 255 ) );
+                p.setColor( QPalette::Dark,            QColor( 219, 218, 218 ) );
+                p.setColor( QPalette::Mid,             QColor( 255, 255, 255 ) );
+                p.setColor( QPalette::Shadow,          QColor(  12,  12,  12 ) );
+                p.setColor( QPalette::Highlight,       QColor(  53, 132, 228 ) );
+                p.setColor( QPalette::HighlightedText, QColor( 255, 255, 255 ) );
+                p.setColor( QPalette::Link,            QColor(   0,   0, 255 ) );
+                p.setColor( QPalette::LinkVisited,     QColor( 255,   0, 255 ) );
+
+                p.setColor( QPalette::Disabled, QPalette::WindowText,      QColor( 125, 124, 124 ) );
+                p.setColor( QPalette::Disabled, QPalette::Text,            QColor( 125, 124, 124 ) );
+                p.setColor( QPalette::Disabled, QPalette::ButtonText,      QColor( 125, 124, 124 ) );
+                p.setColor( QPalette::Disabled, QPalette::HighlightedText, QColor(   0,   0,   0 ) );
+
+                p.setColor( QPalette::Inactive, QPalette::WindowText,      QColor( 146, 149, 149 ) );
+
+                return p;
+        }
+
+
+        //
+        // Fusion dark palette
+        //
+        QPalette fusionDarkPalette()
+        {
+                QPalette p;
+
+                p.setColor( QPalette::Window,          QColor(  50,  50,  50 ) );
+                p.setColor( QPalette::WindowText,      QColor( 240, 240, 240 ) );
+                p.setColor( QPalette::Base,            QColor(  36,  36,  36 ) );
+                p.setColor( QPalette::AlternateBase,   QColor(  43,  43,  43 ) );
+                p.setColor( QPalette::ToolTipBase,     QColor( 255, 255, 220 ) );
+                p.setColor( QPalette::ToolTipText,     QColor(   0,   0,   0 ) );
+                p.setColor( QPalette::PlaceholderText, QColor( 240, 240, 240 ) );
+                p.setColor( QPalette::Text,            QColor( 240, 240, 240 ) );
+                p.setColor( QPalette::Button,          QColor(  50,  50,  50 ) );
+                p.setColor( QPalette::ButtonText,      QColor( 240, 240, 240 ) );
+                p.setColor( QPalette::BrightText,      QColor(  75,  75,  75 ) );
+                p.setColor( QPalette::Light,           QColor(  75,  75,  75 ) );
+                p.setColor( QPalette::Midlight,        QColor(  42,  42,  42 ) );
+                p.setColor( QPalette::Dark,            QColor(  33,  33,  33 ) );
+                p.setColor( QPalette::Mid,             QColor(  38,  38,  38 ) );
+                p.setColor( QPalette::Shadow,          QColor(  25,  25,  25 ) );
+                p.setColor( QPalette::Highlight,       QColor(  48, 140, 198 ) );
+                p.setColor( QPalette::HighlightedText, QColor( 240, 240, 240 ) );
+                p.setColor( QPalette::Link,            QColor(  48, 140, 198 ) );
+                p.setColor( QPalette::LinkVisited,     QColor( 255,   0, 255 ) );
+
+                p.setColor( QPalette::Disabled, QPalette::WindowText, QColor( 130, 130, 130 ) );
+                p.setColor( QPalette::Disabled, QPalette::Base,       QColor(  50,  50,  50 ) );
+                p.setColor( QPalette::Disabled, QPalette::Text,       QColor( 130, 130, 130 ) );
+                p.setColor( QPalette::Disabled, QPalette::ButtonText, QColor( 130, 130, 130 ) );
+                p.setColor( QPalette::Disabled, QPalette::Dark,       QColor( 190, 190, 190 ) );
+                p.setColor( QPalette::Disabled, QPalette::Shadow,     QColor(  37,  37,  37 ) );
+                p.setColor( QPalette::Disabled, QPalette::Highlight,  QColor( 145, 145, 145 ) );
+
+                return p;
+        }
+}
+
+
 namespace glabels
 {
 
@@ -43,6 +125,9 @@ namespace glabels
         //
         AppearanceModel::AppearanceModel()
         {
+                // FIXME: style is currently hardcoded to "Fusion"
+                QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
+
                 setMode( model::Settings::appearanceMode() );
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
@@ -117,37 +202,7 @@ namespace glabels
 
                 QIcon::setThemeName( "glabels-flat" );
 
-                QPalette p;
-                
-                p.setColor( QPalette::Window,          QColor( 250, 249, 248 ) );
-                p.setColor( QPalette::WindowText,      QColor(   0,   0,   0 ) );
-                p.setColor( QPalette::Base,            QColor( 250, 249, 248 ) );
-                p.setColor( QPalette::AlternateBase,   QColor( 234, 233, 232 ) );
-                p.setColor( QPalette::ToolTipBase,     QColor( 255, 255, 220 ) );
-                p.setColor( QPalette::ToolTipText,     QColor(   0,   0,   0 ) );
-                p.setColor( QPalette::PlaceholderText, QColor( 100, 100, 100 ) );
-                p.setColor( QPalette::Text,            QColor(   0,   0,   0 ) );
-                p.setColor( QPalette::Button,          QColor( 250, 249, 248 ) );
-                p.setColor( QPalette::ButtonText,      QColor(   0,   0,   0 ) );
-                p.setColor( QPalette::BrightText,      QColor( 255, 255, 255 ) );
-                p.setColor( QPalette::Light,           QColor( 255, 255, 255 ) );
-                p.setColor( QPalette::Midlight,        QColor( 255, 255, 255 ) );
-                p.setColor( QPalette::Dark,            QColor( 219, 218, 218 ) );
-                p.setColor( QPalette::Mid,             QColor( 255, 255, 255 ) );
-                p.setColor( QPalette::Shadow,          QColor(  12,  12,  12 ) );
-                p.setColor( QPalette::Highlight,       QColor(  53, 132, 228 ) );
-                p.setColor( QPalette::HighlightedText, QColor( 255, 255, 255 ) );
-                p.setColor( QPalette::Link,            QColor(   0,   0, 255 ) );
-                p.setColor( QPalette::LinkVisited,     QColor( 255,   0, 255 ) );
- 
-                p.setColor( QPalette::Disabled, QPalette::WindowText,      QColor( 125, 124, 124 ) );
-                p.setColor( QPalette::Disabled, QPalette::Text,            QColor( 125, 124, 124 ) );
-                p.setColor( QPalette::Disabled, QPalette::ButtonText,      QColor( 125, 124, 124 ) );
-                p.setColor( QPalette::Disabled, QPalette::HighlightedText, QColor(   0,   0,   0 ) );
- 
-                p.setColor( QPalette::Inactive, QPalette::WindowText,      QColor( 146, 149, 149 ) );
-
-                QApplication::setPalette( p );
+                QApplication::setPalette( fusionLightPalette() );
 
                 // Re-polish?
                 auto style = QApplication::style();
@@ -170,38 +225,7 @@ namespace glabels
 
                 QIcon::setThemeName( "glabels-flat-dark"  );
 
-                QPalette p;
-
-                p.setColor( QPalette::Window, QColor( 50, 50, 50 ) );
-                p.setColor( QPalette::WindowText,      QColor( 240, 240, 240 ) );
-                p.setColor( QPalette::Base,            QColor(  36,  36,  36 ) );
-                p.setColor( QPalette::AlternateBase,   QColor(  43,  43,  43 ) );
-                p.setColor( QPalette::ToolTipBase,     QColor( 255, 255, 220 ) );
-                p.setColor( QPalette::ToolTipText,     QColor(   0,   0,   0 ) );
-                p.setColor( QPalette::PlaceholderText, QColor( 240, 240, 240 ) );
-                p.setColor( QPalette::Text,            QColor( 240, 240, 240 ) );
-                p.setColor( QPalette::Button,          QColor(  50,  50,  50 ) );
-                p.setColor( QPalette::ButtonText,      QColor( 240, 240, 240 ) );
-                p.setColor( QPalette::BrightText,      QColor(  75,  75,  75 ) );
-                p.setColor( QPalette::Light,           QColor(  75,  75,  75 ) );
-                p.setColor( QPalette::Midlight,        QColor(  42,  42,  42 ) );
-                p.setColor( QPalette::Dark,            QColor(  33,  33,  33 ) );
-                p.setColor( QPalette::Mid,             QColor(  38,  38,  38 ) );
-                p.setColor( QPalette::Shadow,          QColor(  25,  25,  25 ) );
-                p.setColor( QPalette::Highlight,       QColor(  48, 140, 198 ) );
-                p.setColor( QPalette::HighlightedText, QColor( 240, 240, 240 ) );
-                p.setColor( QPalette::Link,            QColor(  48, 140, 198 ) );
-                p.setColor( QPalette::LinkVisited,     QColor( 255,   0, 255 ) );
- 
-                p.setColor( QPalette::Disabled, QPalette::WindowText, QColor( 130, 130, 130 ) );
-                p.setColor( QPalette::Disabled, QPalette::Base,       QColor(  50,  50,  50 ) );
-                p.setColor( QPalette::Disabled, QPalette::Text,       QColor( 130, 130, 130 ) );
-                p.setColor( QPalette::Disabled, QPalette::ButtonText, QColor( 130, 130, 130 ) );
-                p.setColor( QPalette::Disabled, QPalette::Dark,       QColor( 190, 190, 190 ) );
-                p.setColor( QPalette::Disabled, QPalette::Shadow,     QColor(  37,  37,  37 ) );
-                p.setColor( QPalette::Disabled, QPalette::Highlight,  QColor( 145, 145, 145 ) );
-
-                QApplication::setPalette( p );
+                QApplication::setPalette( fusionDarkPalette() );
 
                 // Re-polish?
                 auto style = QApplication::style();

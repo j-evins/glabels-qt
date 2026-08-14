@@ -1,4 +1,4 @@
-//  PrintPalette.hpp
+//  PaletteUtil.hpp
 //
 //  Copyright (C) 2026  Jaye Evins <evins@snaught.com>
 //
@@ -18,14 +18,17 @@
 //  along with gLabels-qt.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef PrintPalette_hpp
-#define PrintPalette_hpp
+#ifndef PaletteUtil_hpp
+#define PaletteUtil_hpp
 
 
 namespace glabels
 {
-        void printPalette();
+        namespace PaletteUtil
+        {
+                void printPalette();
+        }
 }
 
 
-#endif // PrintPalette_hpp
+#endif // PaletteUtil_hpp
