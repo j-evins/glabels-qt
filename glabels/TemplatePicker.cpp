@@ -97,7 +97,7 @@ namespace
                 QTextDocument doc;
                 doc.setHtml( opt.text );
                 doc.setTextWidth( opt.rect.width() );
-                return QSize( doc.idealWidth(), doc.size().height() );
+                return QSize( doc.idealWidth(), std::max( doc.size().height(), qreal(glabels::TemplatePickerItem::SIZE) ) );
         }
 
 }
