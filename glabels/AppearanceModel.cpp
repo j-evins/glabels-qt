@@ -145,8 +145,8 @@ namespace glabels
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
 #if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
-                connect( QGuiApplication::styleHints(), SIGNAL(colorSchemeChanged(Qt::ColorScheme)),
-                         this, SLOT(onSystemColorSchemeChanged(Qt::ColorScheme)) );
+                connect( QGuiApplication::styleHints(), &QStyleHints::colorSchemeChanged,
+                         this, &AppearanceModel::onSystemColorSchemeChanged );
 #endif
         }
 
@@ -173,17 +173,6 @@ namespace glabels
         }
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
-        //
-        // Handle system color scheme changes
-        //
-	void AppearanceModel::onSystemColorSchemeChanged( Qt::ColorScheme scheme )
-	{
-		qDebug() << "System color scheme changed : " << scheme;
-	}
-#endif
-
-	
         //
         // Query current style
         //
@@ -306,5 +295,16 @@ namespace glabels
                         setMode( newMode );
                 }
         }
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+        //
+        // Handle system color scheme changes
+        //
+	void AppearanceModel::onSystemColorSchemeChanged( Qt::ColorScheme scheme )
+	{
+		qDebug() << "System color scheme changed : " << scheme;
+	}
+#endif
 
 }
