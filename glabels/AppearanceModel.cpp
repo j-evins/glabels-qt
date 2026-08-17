@@ -26,6 +26,7 @@
 #include <QPalette>
 #include <QSettings>
 #include <QStyleFactory>
+#include <QStyleHints>
 
 
 namespace
@@ -125,13 +126,28 @@ namespace glabels
         //
         AppearanceModel::AppearanceModel()
         {
-                // FIXME: style is currently hardcoded to "Fusion"
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                auto currentStyleName = QApplication::style()->name();
+                if ( ( currentStyleName.compare( "windows", Qt::CaseInsensitive ) != 0 ) &&
+                     ( currentStyleName.compare( "macos",   Qt::CaseInsensitive ) != 0 ) &&
+                     ( currentStyleName.compare( "fusion",  Qt::CaseInsensitive ) != 0 ) )
+                {
+	                // Default to and hardcode to "fusion", if not one of the above
+	                QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
+                }
+#else
+                // Hardcode style to "fusion"
                 QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
+#endif
 
                 setMode( model::Settings::appearanceMode() );
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                connect( QGuiApplication::styleHints(), SIGNAL(colorSchemeChanged(Qt::ColorScheme)),
+                         this, SLOT(onSystemColorSchemeChanged(Qt::ColorScheme)) );
+#endif
         }
 
 
@@ -157,6 +173,17 @@ namespace glabels
         }
 
 
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+        //
+        // Handle system color scheme changes
+        //
+	void AppearanceModel::onSystemColorSchemeChanged( Qt::ColorScheme scheme )
+	{
+		qDebug() << "System color scheme changed : " << scheme;
+	}
+#endif
+
+	
         //
         // Query current style
         //
@@ -202,7 +229,21 @@ namespace glabels
 
                 QIcon::setThemeName( "glabels-flat" );
 
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                auto currentStyleName = QApplication::style()->name();
+                if ( ( currentStyleName.compare( "windows", Qt::CaseInsensitive ) == 0 ) ||
+                     ( currentStyleName.compare( "macos",   Qt::CaseInsensitive ) == 0 ) )
+                {
+	                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Light );
+                }
+                else
+                {
+	                // Otherwise default to "fusion", and set appropriate palette
+	                QApplication::setPalette( fusionLightPalette() );
+                }
+#else
                 QApplication::setPalette( fusionLightPalette() );
+#endif
 
                 // Re-polish?
                 auto style = QApplication::style();
@@ -225,7 +266,21 @@ namespace glabels
 
                 QIcon::setThemeName( "glabels-flat-dark"  );
 
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                auto currentStyleName = QApplication::style()->name();
+                if ( ( currentStyleName.compare( "windows", Qt::CaseInsensitive ) == 0 ) ||
+                     ( currentStyleName.compare( "macos",   Qt::CaseInsensitive ) == 0 ) )
+                {
+	                QGuiApplication::styleHints()->setColorScheme( Qt::ColorScheme::Dark );
+                }
+                else
+                {
+	                // Otherwise default to "fusion", and set appropriate palette
+	                QApplication::setPalette( fusionDarkPalette() );
+                }
+#else
                 QApplication::setPalette( fusionDarkPalette() );
+#endif
 
                 // Re-polish?
                 auto style = QApplication::style();

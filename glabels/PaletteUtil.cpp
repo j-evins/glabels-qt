@@ -26,10 +26,7 @@
 #include <QMetaEnum>
 #include <QPalette>
 #include <QStyle>
-
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
 #include <QStyleHints>
-#endif
 
 
 namespace glabels
@@ -67,7 +64,7 @@ namespace glabels
                 qDebug().nospace() << " ";
 
                 qDebug().nospace() << "style = " << QApplication::style()->name();
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
                 qDebug().nospace() << "scheme = " << QGuiApplication::styleHints()->colorScheme();
 #endif
                 qDebug().nospace() << " ";
