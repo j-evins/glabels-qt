@@ -21,6 +21,8 @@
 
 #include "PreferencesDialog.hpp"
 
+#include "AppearanceModel.hpp"
+
 #include "model/Settings.hpp"
 
 
@@ -81,9 +83,8 @@ namespace glabels
                 gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
 
 
-#if QT_VERSION < QT_VERSION_CHECK(6,8,0)
-                appearanceSystemRadio->setVisible( false );
-#endif
+                appearanceSystemRadio->setVisible( AppearanceModel::supportsSystemColorScheme() );
+
 
                 switch ( model::Settings::colorScheme() )
                 {

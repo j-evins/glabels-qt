@@ -66,7 +66,7 @@ namespace glabels
                 /////////////////////////////////
         public:
                 static Style style();
-
+	        static bool supportsSystemColorScheme();
 
                 /////////////////////////////////
                 // Private methods
@@ -76,7 +76,10 @@ namespace glabels
 
                 static void setLightColorScheme();
                 static void setDarkColorScheme();
-
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                static void setSystemColorScheme();
+	        void onSystemColorSchemeChanged( Qt::ColorScheme scheme );
+#endif
 
                 /////////////////////////////////
                 // Slots
@@ -88,10 +91,6 @@ namespace glabels
                 /////////////////////////////////
                 // pseudo-Slot
                 /////////////////////////////////
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
-        private:
-	        void onSystemColorSchemeChanged( Qt::ColorScheme scheme );
-#endif
 
 
         private:
