@@ -45,7 +45,7 @@ namespace glabels::model
         public:
                 enum PageSizeFamily { ISO, US, };
                 enum GridOrigin { ORIGIN_TL, ORIGIN_CENTER };
-                enum AppearanceMode { LIGHT_MODE, DARK_MODE, FOLLOW_SYSTEM_MODE };
+                enum ColorScheme { LIGHT_COLOR_SCHEME, DARK_COLOR_SCHEME, SYSTEM_COLOR_SCHEME };
 
 
                 /////////////////////////////////
@@ -112,8 +112,8 @@ namespace glabels::model
                 static void setGridSpacing( Distance spacing );
                 static void resetGridSpacing();
 
-                static AppearanceMode appearanceMode();
-                static void setAppearanceMode( AppearanceMode );
+                static ColorScheme colorScheme();
+                static void setColorScheme( ColorScheme scheme );
 
 
         private:

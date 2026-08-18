@@ -583,7 +583,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mode</source>
+        <source>Color scheme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use a light appearance for user interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use a dark appearance for user interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically adjust appearance based on system color scheme.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

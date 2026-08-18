@@ -72,10 +72,10 @@ namespace glabels
                 // Private methods
                 /////////////////////////////////
         private:
-                static void setMode( model::Settings::AppearanceMode mode );
+                static void setColorScheme( model::Settings::ColorScheme );
 
-                static void setLightMode();
-                static void setDarkMode();
+                static void setLightColorScheme();
+                static void setDarkColorScheme();
 
 
                 /////////////////////////////////
@@ -96,7 +96,7 @@ namespace glabels
 
         private:
                 static std::unique_ptr<AppearanceModel> mInstance;
-                static model::Settings::AppearanceMode mMode;
+                static model::Settings::ColorScheme mColorScheme;
 
         };
 

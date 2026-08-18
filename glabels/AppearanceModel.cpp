@@ -118,7 +118,7 @@ namespace glabels
         // Static data
         //
         std::unique_ptr<AppearanceModel> AppearanceModel::mInstance;
-        model::Settings::AppearanceMode AppearanceModel::mMode = model::Settings::LIGHT_MODE;
+        model::Settings::ColorScheme AppearanceModel::mColorScheme = model::Settings::LIGHT_COLOR_SCHEME;
 
 
         //
@@ -140,7 +140,7 @@ namespace glabels
                 QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
 #endif
 
-                setMode( model::Settings::appearanceMode() );
+                setColorScheme( model::Settings::colorScheme() );
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
@@ -178,32 +178,32 @@ namespace glabels
         //
         AppearanceModel::Style AppearanceModel::style()
         {
-                switch ( mMode )
+                switch ( mColorScheme )
                 {
-                case model::Settings::LIGHT_MODE: return STYLE_LIGHT;
-                case model::Settings::DARK_MODE:  return STYLE_DARK;
+                case model::Settings::LIGHT_COLOR_SCHEME: return STYLE_LIGHT;
+                case model::Settings::DARK_COLOR_SCHEME:  return STYLE_DARK;
 
-                // TODO: FOLLOW_SYSTEM_MODE, return current style based on current system style
+                // TODO: FOLLOW_SYSTEM_MODE, return current style based on current system color scheme
 
                 default:
-                        qWarning() << "Unknown appearance mode: " << mMode;
+                        qWarning() << "Unknown color scheme: " << mColorScheme;
                         return STYLE_LIGHT;
                 }
         }
 
 
         //
-        // Set appearance mode
+        // Set appearance color scheme
         //
-        void AppearanceModel::setMode( model::Settings::AppearanceMode mode )
+        void AppearanceModel::setColorScheme( model::Settings::ColorScheme scheme )
         {
-                switch ( mode )
+                switch ( scheme )
                 {
-                case model::Settings::LIGHT_MODE: setLightMode(); break;
-                case model::Settings::DARK_MODE:  setDarkMode(); break;
+                case model::Settings::LIGHT_COLOR_SCHEME: setLightColorScheme(); break;
+                case model::Settings::DARK_COLOR_SCHEME:  setDarkColorScheme(); break;
 
                 default:
-                        qWarning() << "Unknown appearance mode: " << mode;
+                        qWarning() << "Unknown color scheme: " << scheme;
                         break;
                 }
         }
@@ -212,9 +212,9 @@ namespace glabels
         //
         // Set Light Mode
         //
-        void AppearanceModel::setLightMode()
+        void AppearanceModel::setLightColorScheme()
         {
-                mMode = model::Settings::LIGHT_MODE;
+                mColorScheme = model::Settings::LIGHT_COLOR_SCHEME;
 
                 QIcon::setThemeName( "glabels-flat" );
 
@@ -249,9 +249,9 @@ namespace glabels
         //
         // Set Dark Mode
         //
-        void AppearanceModel::setDarkMode( )
+        void AppearanceModel::setDarkColorScheme( )
         {
-                mMode = model::Settings::DARK_MODE;
+                mColorScheme = model::Settings::DARK_COLOR_SCHEME;
 
                 QIcon::setThemeName( "glabels-flat-dark"  );
 
@@ -289,10 +289,10 @@ namespace glabels
         void AppearanceModel::onSettingsChanged()
         {
 
-                auto newMode = model::Settings::appearanceMode();
-                if ( newMode != mMode )
+                auto newScheme = model::Settings::colorScheme();
+                if ( newScheme != mColorScheme )
                 {
-                        setMode( newMode );
+                        setColorScheme( newScheme );
                 }
         }
 

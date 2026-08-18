@@ -175,11 +175,14 @@
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>Mode</string>
+          <string>Color scheme</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QRadioButton" name="appearanceLightRadio">
+            <property name="toolTip">
+             <string>Use a light appearance for user interface.</string>
+            </property>
             <property name="text">
              <string>Light</string>
             </property>
@@ -187,8 +190,24 @@
           </item>
           <item>
            <widget class="QRadioButton" name="appearanceDarkRadio">
+            <property name="toolTip">
+             <string>Use a dark appearance for user interface.</string>
+            </property>
             <property name="text">
              <string>Dark</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="appearanceSystemRadio">
+            <property name="toolTip">
+             <string>Automatically adjust appearance based on system color scheme.</string>
+            </property>
+            <property name="statusTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>System</string>
             </property>
            </widget>
           </item>
@@ -426,6 +445,22 @@
     <hint type="destinationlabel">
      <x>295</x>
      <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>appearanceSystemRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onAppearanceModeRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>162</y>
     </hint>
    </hints>
   </connection>
