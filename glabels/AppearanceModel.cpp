@@ -139,16 +139,11 @@ namespace glabels
                 // Hardcode style to "fusion"
                 QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
 #endif
-                qDebug() << "Style = " << QApplication::style()->name();
 
                 setColorScheme( model::Settings::colorScheme() );
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
-                connect( QGuiApplication::styleHints(), &QStyleHints::colorSchemeChanged,
-                         this, &AppearanceModel::onSystemColorSchemeChanged );
-#endif
         }
 
 
@@ -183,20 +178,9 @@ namespace glabels
                 {
                 case model::Settings::LIGHT_COLOR_SCHEME: return STYLE_LIGHT;
                 case model::Settings::DARK_COLOR_SCHEME:  return STYLE_DARK;
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
                 case model::Settings::SYSTEM_COLOR_SCHEME:
-                {
-	                auto systemColorScheme = QGuiApplication::styleHints()->colorScheme();
-	                switch ( systemColorScheme )
-	                {
-	                case Qt::ColorScheme::Light: return STYLE_LIGHT;
-	                case Qt::ColorScheme::Dark:  return STYLE_DARK;
-	                default:
-		                qWarning() << "Unknown system color scheme: " << systemColorScheme;
-		                return STYLE_LIGHT;
-	                }
-                }
-#endif
+	                qWarning() << "System color scheme not yet supported.";
+                        return STYLE_LIGHT;
                 default:
                         qWarning() << "Unknown color scheme: " << mColorScheme;
                         return STYLE_LIGHT;
@@ -209,31 +193,21 @@ namespace glabels
         //
         bool AppearanceModel::supportsSystemColorScheme()
         {
-#if QT_VERSION < QT_VERSION_CHECK(6,8,0)
+	        // FIXME: Currently do not support a system color scheme.
 	        return false;
-#else
-                auto styleName = QApplication::style()->name();
-                if ( styleName.compare( "fusion", Qt::CaseInsensitive ) == 0 )
-                {
-	                return false;
-                }
-                return true;
-#endif
         }
 
 
         //
-        // Set appearance color scheme
+        // Set Color Scheme
         //
         void AppearanceModel::setColorScheme( model::Settings::ColorScheme scheme )
         {
                 switch ( scheme )
                 {
-                case model::Settings::LIGHT_COLOR_SCHEME:  setLightColorScheme(); break;
-                case model::Settings::DARK_COLOR_SCHEME:   setDarkColorScheme(); break;
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                case model::Settings::LIGHT_COLOR_SCHEME:  setLightColorScheme();  break;
+                case model::Settings::DARK_COLOR_SCHEME:   setDarkColorScheme();   break;
                 case model::Settings::SYSTEM_COLOR_SCHEME: setSystemColorScheme(); break;
-#endif
                 default:
                         qWarning() << "Unknown color scheme: " << scheme;
                         break;
@@ -246,7 +220,6 @@ namespace glabels
         //
         void AppearanceModel::setLightColorScheme()
         {
-		qDebug() << "Set light color scheme";
                 mColorScheme = model::Settings::LIGHT_COLOR_SCHEME;
 
                 QIcon::setThemeName( "glabels-flat" );
@@ -280,7 +253,6 @@ namespace glabels
         //
         void AppearanceModel::setDarkColorScheme( )
         {
-		qDebug() << "Set dark color scheme";
                 mColorScheme = model::Settings::DARK_COLOR_SCHEME;
 
                 QIcon::setThemeName( "glabels-flat-dark"  );
@@ -309,84 +281,17 @@ namespace glabels
         }
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
         //
         // Set System Color Scheme
         //
         void AppearanceModel::setSystemColorScheme( )
         {
-		qDebug() << "Set system color scheme";
-
-                auto styleName = QApplication::style()->name();
-                if ( styleName.compare( "fusion", Qt::CaseInsensitive ) == 0 )
-                {
-	                qWarning() << "System color scheme not currently supported for fusion style";
-	                setLightColorScheme();
-	                return;
-                }
-                
-                mColorScheme = model::Settings::SYSTEM_COLOR_SCHEME;
-
-                QGuiApplication::styleHints()->unsetColorScheme();
-
-                auto scheme =  QGuiApplication::styleHints()->colorScheme();
-                qDebug() << "New scheme = " << scheme;
-		if ( scheme == Qt::ColorScheme::Dark )
-		{
-			QIcon::setThemeName( "glabels-flat-dark"  );
-		}
-		else
-		{
-			QIcon::setThemeName( "glabels-flat"  );
-		}
-
-                // Re-polish?
-                auto style = QApplication::style();
-                if ( style )
-                {
-                        style->unpolish( qApp );
-                        style->polish( qApp );
-                }
-
-                if ( mInstance ) emit mInstance->changed();
-	}
+	        qWarning() << "System color scheme not yet supported.";
+        }
 
 
         //
-        // Handle system color scheme changes
-        //
-	void AppearanceModel::onSystemColorSchemeChanged( Qt::ColorScheme scheme )
-	{
-		qDebug() << "System color scheme changed : " << scheme;
-
-		if ( mColorScheme != model::Settings::SYSTEM_COLOR_SCHEME ) return;
-
-		if ( scheme == Qt::ColorScheme::Dark )
-		{
-			QIcon::setThemeName( "glabels-flat-dark"  );
-		}
-		else
-		{
-			QIcon::setThemeName( "glabels-flat"  );
-		}
-
-		QGuiApplication::styleHints()->setColorScheme( scheme );
-
-                // Re-polish?
-                auto style = QApplication::style();
-                if ( style )
-                {
-                        style->unpolish( qApp );
-                        style->polish( qApp );
-                }
-
-                if ( mInstance ) emit mInstance->changed();
-	}
-#endif
-
-
-        //
-        // Slot to handle Settings "changed"
+        // Handle Settings "changed" signal
         //
         void AppearanceModel::onSettingsChanged()
         {

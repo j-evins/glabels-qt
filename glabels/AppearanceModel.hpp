@@ -68,29 +68,22 @@ namespace glabels
                 static Style style();
 	        static bool supportsSystemColorScheme();
 
+
                 /////////////////////////////////
                 // Private methods
                 /////////////////////////////////
         private:
                 static void setColorScheme( model::Settings::ColorScheme );
-
                 static void setLightColorScheme();
                 static void setDarkColorScheme();
-#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
                 static void setSystemColorScheme();
-	        void onSystemColorSchemeChanged( Qt::ColorScheme scheme );
-#endif
+
 
                 /////////////////////////////////
                 // Slots
                 /////////////////////////////////
         private slots:
                 void onSettingsChanged();
-
-
-                /////////////////////////////////
-                // pseudo-Slot
-                /////////////////////////////////
 
 
         private:
