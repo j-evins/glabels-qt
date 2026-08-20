@@ -21,6 +21,8 @@
 
 #include "AboutDialog.hpp"
 
+#include "AppearanceModel.hpp"
+
 #include "model/Version.hpp"
 
 #include <QDebug>
@@ -38,6 +40,15 @@ namespace glabels
                 : QDialog(parent)
         {
                 setupUi( this );
+
+                if ( AppearanceModel::style() != AppearanceModel::STYLE_DARK )
+                {
+                        titleLabel->setPixmap( QPixmap( ":images/glabels-label-designer.png" ) );
+                }
+                else
+                {
+                        titleLabel->setPixmap( QPixmap( ":images/glabels-label-designer-dark.png" ) );
+                }
 
                 QString version = tr("Version") + " " + model::Version::LONG_STRING;
 

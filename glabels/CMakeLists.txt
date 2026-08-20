@@ -6,6 +6,7 @@ project (glabels LANGUAGES CXX)
 set (glabels_sources
   main.cpp
   AboutDialog.cpp
+  AppearanceModel.cpp
   BarcodeMenu.cpp
   BarcodeMenuButton.cpp
   BarcodeMenuItem.cpp
@@ -26,6 +27,7 @@ set (glabels_sources
   MiniPreviewPixmap.cpp
   NotebookUtil.cpp
   ObjectEditor.cpp
+  PaletteUtil.cpp
   PreferencesDialog.cpp
   PrinterMonitor.cpp
   PrintView.cpp
@@ -46,6 +48,7 @@ set (glabels_sources
 
 set (glabels_qobject_headers
   AboutDialog.hpp
+  AppearanceModel.hpp
   BarcodeMenu.hpp
   BarcodeMenuButton.hpp
   BarcodeMenuItem.hpp

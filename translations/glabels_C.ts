@@ -523,10 +523,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select locale specific behavior.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Units</source>
         <translation type="unfinished"></translation>
     </message>
@@ -555,10 +551,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Configure grid behavior.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Origin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -576,6 +568,38 @@
     </message>
     <message>
         <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color scheme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use a light appearance for user interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use a dark appearance for user interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically adjust appearance based on system color scheme.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

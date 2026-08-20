@@ -240,18 +240,15 @@
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="changeProductButton">
-          <property name="minimumSize">
-           <size>
-            <width>330</width>
-            <height>0</height>
-           </size>
+         <widget class="QToolButton" name="changeProductButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
           <property name="toolTip">
            <string>Select another product for this gLabels project.</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">text-align:left; padding:3px;</string>
           </property>
           <property name="text">
            <string>Change product</string>
@@ -265,6 +262,9 @@
             <width>32</width>
             <height>32</height>
            </size>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextBesideIcon</enum>
           </property>
          </widget>
         </item>
@@ -435,7 +435,6 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>changeProductButton</tabstop>
   <tabstop>lengthSpin</tabstop>
   <tabstop>orientationCombo</tabstop>
   <tabstop>similarBrowser</tabstop>
@@ -446,30 +445,14 @@
  </resources>
  <connections>
   <connection>
-   <sender>changeProductButton</sender>
-   <signal>clicked()</signal>
-   <receiver>PropertiesView</receiver>
-   <slot>onChangeProductButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>342</x>
-     <y>291</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>728</x>
-     <y>201</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>orientationCombo</sender>
    <signal>activated(int)</signal>
    <receiver>PropertiesView</receiver>
    <slot>onOrientationActivated()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>342</x>
-     <y>467</y>
+     <x>307</x>
+     <y>441</y>
     </hint>
     <hint type="destinationlabel">
      <x>802</x>
@@ -484,12 +467,28 @@
    <slot>onLengthSpinChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>188</x>
-     <y>349</y>
+     <x>212</x>
+     <y>348</y>
     </hint>
     <hint type="destinationlabel">
      <x>801</x>
      <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>changeProductButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PropertiesView</receiver>
+   <slot>onChangeProductButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>257</y>
     </hint>
    </hints>
   </connection>

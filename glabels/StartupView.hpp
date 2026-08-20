@@ -55,6 +55,7 @@ namespace glabels
                 void onOpenProjectButtonClicked();
                 void onOpenRecentAction();
                 void onSettingsChanged();
+                void onAppearanceChanged();
 
 
                 /////////////////////////////////

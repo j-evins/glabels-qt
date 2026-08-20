@@ -21,6 +21,8 @@
 
 #include "PreferencesDialog.hpp"
 
+#include "AppearanceModel.hpp"
+
 #include "model/Settings.hpp"
 
 
@@ -79,6 +81,28 @@ namespace glabels
                 gridSpacingSpin->setMinimum( units.resolution() );
                 gridSpacingSpin->setSuffix( " " + units.toIdString() );
                 gridSpacingSpin->setValue( gridSpacing.inUnits( units ) );
+
+
+                appearanceSystemRadio->setVisible( AppearanceModel::supportsSystemColorScheme() );
+
+
+                switch ( model::Settings::colorScheme() )
+                {
+                case model::Settings::LIGHT_COLOR_SCHEME:
+                        appearanceLightRadio->setChecked( true );
+                        break;
+                case model::Settings::DARK_COLOR_SCHEME:
+                        appearanceDarkRadio->setChecked( true );
+                        break;
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                case model::Settings::SYSTEM_COLOR_SCHEME:
+                        appearanceSystemRadio->setChecked( true );
+                        break;
+#endif
+                default:
+                        appearanceLightRadio->setChecked( true );
+                        break;
+                }
 
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
@@ -149,6 +173,28 @@ namespace glabels
         void PreferencesDialog::onGridSpacingResetButtonClicked()
         {
                 model::Settings::resetGridSpacing();
+        }
+
+
+        ///
+        /// Appearance Mode Radios Changed
+        ///
+        void PreferencesDialog::onAppearanceModeRadiosChanged()
+        {
+                if ( appearanceLightRadio->isChecked() )
+                {
+                        model::Settings::setColorScheme( model::Settings::LIGHT_COLOR_SCHEME );
+                }
+                else if ( appearanceDarkRadio->isChecked() )
+                {
+                        model::Settings::setColorScheme( model::Settings::DARK_COLOR_SCHEME );
+                }
+#if QT_VERSION >= QT_VERSION_CHECK(6,8,0)
+                else if ( appearanceSystemRadio->isChecked() )
+                {
+                        model::Settings::setColorScheme( model::Settings::SYSTEM_COLOR_SCHEME );
+                }
+#endif
         }
 
 

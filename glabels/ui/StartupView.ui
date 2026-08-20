@@ -87,9 +87,6 @@
             <height>53</height>
            </size>
           </property>
-          <property name="styleSheet">
-           <string notr="true">padding:8px;</string>
-          </property>
           <property name="text">
            <string notr="true"/>
           </property>
@@ -139,7 +136,8 @@
            <string>New...</string>
           </property>
           <property name="icon">
-           <iconset theme="glabels-file-new"/>
+           <iconset theme="glabels-file-new">
+            <normaloff>.</normaloff>.</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -170,7 +168,8 @@
            <string>Browse...</string>
           </property>
           <property name="icon">
-           <iconset theme="glabels-file-open"/>
+           <iconset theme="glabels-file-open">
+            <normaloff>.</normaloff>.</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -195,7 +194,8 @@
            <string>Recent</string>
           </property>
           <property name="icon">
-           <iconset theme="glabels-file-recent"/>
+           <iconset theme="glabels-file-recent">
+            <normaloff>.</normaloff>.</iconset>
           </property>
           <property name="iconSize">
            <size>

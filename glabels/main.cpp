@@ -21,6 +21,8 @@
 
 #include "MainWindow.hpp"
 
+#include "AppearanceModel.hpp"
+
 #include "model/Db.hpp"
 #include "model/FileUtil.hpp"
 #include "model/Model.hpp"
@@ -51,7 +53,6 @@ int main( int argc, char **argv )
         QCoreApplication::setApplicationVersion( glabels::model::Version::LONG_STRING );
         QApplication::setDesktopFileName( glabels::model::Version::DESKTOP_FILE_NAME );
 
-        QIcon::setThemeName( "glabels-flat" );
 
         //
         // Setup translators
@@ -107,6 +108,7 @@ int main( int argc, char **argv )
         glabels::model::Db::init();
         glabels::merge::Factory::init();
         glabels::barcode::Backends::init();
+        glabels::AppearanceModel::init();
 
 
         //

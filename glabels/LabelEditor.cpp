@@ -42,6 +42,7 @@
 #include <QDebug>
 #include <QMimeData>
 #include <QMouseEvent>
+#include <QPalette>
 #include <QtMath>
 
 
@@ -55,9 +56,7 @@ namespace
 
         const double  ZOOM_TO_FIT_PAD = 16.0;
 
-        const QColor  backgroundColor( 192, 192, 192 );
-
-        const QColor  shadowColor( 64, 64, 64, 128 );
+        const QColor  shadowColor( 0, 0, 0, 64 );
         const double  shadowOffsetPixels = 4;
 
         const QColor  labelColor( 255, 255, 255 );
@@ -1008,7 +1007,7 @@ namespace glabels
                         painter.setRenderHint( QPainter::SmoothPixmapTransform, true );
 
                         /* Fill background before any transformations */
-                        painter.setBrush( QBrush( backgroundColor ) );
+                        painter.setBrush( QBrush( palette().color(QPalette::AlternateBase).darker(110) ) );
                         painter.setPen( Qt::NoPen );
                         painter.drawRect( rect() );
 

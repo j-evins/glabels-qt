@@ -211,15 +211,15 @@ namespace glabels
                 {
                         templatePicker->setMode( QListView::ListMode );
 
-                        viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-list" ) );
-                        viewModeButton->setToolTip( tr( "List View" ) );
+                        viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-grid" ) );
+                        viewModeButton->setToolTip( tr( "Grid View" ) );
                 }
                 else
                 {
                         templatePicker->setMode( QListView::IconMode );
 
-                        viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-grid" ) );
-                        viewModeButton->setToolTip( tr( "Grid View" ) );
+                        viewModeButton->setIcon( QIcon::fromTheme( "glabels-view-list" ) );
+                        viewModeButton->setToolTip( tr( "List View" ) );
                 }
         }
 

@@ -95,7 +95,6 @@ namespace glabels
                 mDefaultColor = defaultColor;
                 mColorNode = model::ColorNode( color );
 
-                setStyleSheet( ".glabels--ColorPaletteDialog {background: white; border: 1px solid black}" );
                 setWindowFlags( Qt::Popup | Qt::FramelessWindowHint );
 
                 auto* vLayout = new QVBoxLayout();
@@ -249,15 +248,16 @@ namespace glabels
 
         void ColorPaletteDialog::onCustomColorButtonClicked()
         {
-                QColorDialog dlg( mColorNode.color(), this );
-                dlg.setWindowTitle( tr("Custom Color") );
+                QColor color = QColorDialog::getColor( Qt::white,
+                                                       nullptr,
+                                                       tr("Custom Color"),
+                                                       QColorDialog::ShowAlphaChannel );
 
-                if ( dlg.exec() )
+                if ( color.isValid() )
                 {
                         model::ColorNode newColorNode;
-
                         newColorNode.setField( false );
-                        newColorNode.setColor( dlg.currentColor() );
+                        newColorNode.setColor( color );
                         newColorNode.setKey( "" );
 
                         if ( newColorNode != mColorNode )
@@ -270,6 +270,7 @@ namespace glabels
                                                          QString(tr("Custom Color %1")).arg(mColorNode.color().name()) );
 
                                 emit colorChanged( mColorNode, false );
+
                                 accept();
                         }
                 }

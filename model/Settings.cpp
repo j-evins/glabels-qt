@@ -451,4 +451,41 @@ namespace glabels::model
         }
 
 
+        Settings::ColorScheme Settings::colorScheme()
+        {
+                mInstance->beginGroup( "Appearance" );
+                QString value = mInstance->value( "colorScheme", "light" ).toString();
+                mInstance->endGroup();
+
+                if ( value == "light" ) return LIGHT_COLOR_SCHEME;
+                if ( value == "dark" ) return DARK_COLOR_SCHEME;
+                if ( value == "system" ) return SYSTEM_COLOR_SCHEME;
+                return LIGHT_COLOR_SCHEME;
+        }
+
+
+        void Settings::setColorScheme( ColorScheme mode )
+        {
+
+                mInstance->beginGroup( "Appearance" );
+                switch ( mode )
+                {
+                case LIGHT_COLOR_SCHEME:
+                        mInstance->setValue( "colorScheme", "light" );
+                        break;
+                case DARK_COLOR_SCHEME:
+                        mInstance->setValue( "colorScheme", "dark" );
+                        break;
+                case SYSTEM_COLOR_SCHEME:
+                        mInstance->setValue( "colorScheme", "system" );
+                        break;
+                default:
+                        mInstance->setValue( "colorScheme", "light" );
+                        break;
+                }
+                mInstance->endGroup();
+
+                emit mInstance->changed();
+        }
+
 }
