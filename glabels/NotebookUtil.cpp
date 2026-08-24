@@ -48,6 +48,15 @@ namespace glabels
                 int iTabSaved = notebook->currentIndex();
                 int nTabs = notebook->count();
 
+                // Set WA_DontShowOnScreen to stop the window->show() and
+                // window->hide() racing with async window managers.
+                //
+                // Without this, with some window managers window->show()
+                // will trigger real rendering and window->hide() might
+                // cause the window to disappear. The end result is that
+                // the user will never see the window and the application
+                // will appear to be stuck.
+                window->setAttribute( Qt::WA_DontShowOnScreen, true );
                 window->show();
                 for ( int iTab = 0; iTab < nTabs; iTab++ )
                 {
@@ -55,6 +64,7 @@ namespace glabels
                         window->layout()->invalidate();
                 }
                 window->hide();
+                window->setAttribute( Qt::WA_DontShowOnScreen, false );
 
                 notebook->setCurrentIndex( iTabSaved );
         }
