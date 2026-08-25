@@ -51,6 +51,8 @@ namespace glabels
                 void onGridSpacingSpinChanged();
                 void onGridSpacingResetButtonClicked();
                 void onAppearanceModeRadiosChanged();
+                void onStartupLocationRadiosChanged();
+                void onStartupOtherBrowseButtonClicked();
                 void onSettingsChanged();
 
         };

@@ -488,4 +488,22 @@ namespace glabels::model
                 emit mInstance->changed();
         }
 
+
+        QString Settings::startupPath()
+        {
+                mInstance->beginGroup( "Startup" );
+                QString path = mInstance->value( "path", QString("") ).toString();
+                mInstance->endGroup();
+
+                return path;
+        }
+
+
+        void Settings::setStartupPath( const QString& path )
+        {
+                mInstance->beginGroup( "Startup" );
+                mInstance->setValue( "path", path );
+                mInstance->endGroup();
+        }
+
 }

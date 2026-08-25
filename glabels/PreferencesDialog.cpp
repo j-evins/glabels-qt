@@ -25,6 +25,9 @@
 
 #include "model/Settings.hpp"
 
+#include <QFileDialog>
+#include <QStandardPaths>
+
 
 namespace glabels
 {
@@ -103,6 +106,26 @@ namespace glabels
                         appearanceLightRadio->setChecked( true );
                         break;
                 }
+
+
+                auto path = model::Settings::startupPath();
+                if ( path.isEmpty() )
+                {
+                        startupParentRadio->setChecked( true );
+                }
+                else if ( path == QStandardPaths::writableLocation( QStandardPaths::HomeLocation ) )
+                {
+                        startupHomeRadio->setChecked( true );
+                }
+                else if ( path == QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) )
+                {
+                        startupDocumentsRadio->setChecked( true );
+                }
+                else
+                {
+                        startupOtherRadio->setChecked( true );
+                }
+                startupOtherLineEdit->setText( path );
 
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
@@ -195,6 +218,42 @@ namespace glabels
                         model::Settings::setColorScheme( model::Settings::SYSTEM_COLOR_SCHEME );
                 }
 #endif
+        }
+
+
+        ///
+        /// Startup Location Radios Changed
+        ///
+        void PreferencesDialog::onStartupLocationRadiosChanged()
+        {
+                if ( startupParentRadio->isChecked() )
+                {
+                        model::Settings::setStartupPath( "" );
+                }
+                else if ( startupHomeRadio->isChecked() )
+                {
+                        model::Settings::setStartupPath( QStandardPaths::writableLocation( QStandardPaths::HomeLocation ) );
+                } if ( startupDocumentsRadio->isChecked() )
+                {
+                        model::Settings::setStartupPath( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
+                } if ( startupOtherRadio->isChecked() )
+                {
+                        model::Settings::setStartupPath( startupOtherLineEdit->text() );
+                }
+        }
+
+
+        ///
+        /// Startup Location Radios Changed
+        ///
+        void PreferencesDialog::onStartupOtherBrowseButtonClicked()
+        {
+                auto path = QFileDialog::getExistingDirectory( this,
+                                                               tr("Select startup directory"),
+                                                               QStandardPaths::writableLocation( QStandardPaths::HomeLocation ),
+                                                               QFileDialog::ShowDirsOnly );
+                startupOtherLineEdit->setText( path );
+                model::Settings::setStartupPath( path );
         }
 
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>303</width>
+    <width>422</width>
     <height>409</height>
    </rect>
   </property>
@@ -14,6 +14,16 @@
    <string>gLabels - Preferences</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Close</set>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
@@ -229,16 +239,138 @@
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Close</set>
-     </property>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Startup</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Location</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QRadioButton" name="startupParentRadio">
+              <property name="toolTip">
+               <string>Inherit current working directory from parent process.</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="toolTip">
+               <string>Inherit current working directory from parent process.</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Parent working directory&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="startupHomeRadio">
+            <property name="toolTip">
+             <string>Startup in user's home directory.</string>
+            </property>
+            <property name="text">
+             <string>Home</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="startupDocumentsRadio">
+            <property name="toolTip">
+             <string>Startup in user's docments directory.</string>
+            </property>
+            <property name="text">
+             <string>Documents</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QRadioButton" name="startupOtherRadio">
+              <property name="toolTip">
+               <string>User defined startup directory.</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="startupOtherLineEdit">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="toolTip">
+               <string>User defined startup directory.</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="startupOtherBrowseButton">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="toolTip">
+               <string>User defined startup directory.</string>
+              </property>
+              <property name="text">
+               <string>Browse...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>161</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -359,8 +491,8 @@
    <slot>onGridSpacingSpinChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>146</x>
-     <y>186</y>
+     <x>119</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -375,8 +507,8 @@
    <slot>onGridOriginRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>108</y>
+     <x>119</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>311</x>
@@ -391,8 +523,8 @@
    <slot>onGridOriginRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>139</y>
+     <x>119</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>318</x>
@@ -407,8 +539,8 @@
    <slot>onGridSpacingResetButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>232</x>
-     <y>185</y>
+     <x>119</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>313</x>
@@ -423,8 +555,8 @@
    <slot>onAppearanceModeRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>97</x>
-     <y>107</y>
+     <x>108</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -439,8 +571,8 @@
    <slot>onAppearanceModeRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>234</x>
-     <y>125</y>
+     <x>119</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>295</x>
@@ -455,12 +587,124 @@
    <slot>onAppearanceModeRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>76</x>
-     <y>154</y>
+     <x>87</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
      <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupHomeRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onStartupLocationRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>219</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>331</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupDocumentsRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onStartupLocationRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>328</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupOtherRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onStartupLocationRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>331</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupOtherRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startupOtherLineEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>193</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupOtherRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startupOtherBrowseButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupParentRadio</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onStartupLocationRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startupOtherBrowseButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onStartupOtherBrowseButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>330</x>
+     <y>252</y>
     </hint>
    </hints>
   </connection>
@@ -471,5 +715,7 @@
   <slot>onGridOriginRadiosChanged()</slot>
   <slot>onGridSpacingResetButtonClicked()</slot>
   <slot>onAppearanceModeRadiosChanged()</slot>
+  <slot>onStartupLocationRadiosChanged()</slot>
+  <slot>onStartupOtherBrowseButtonClicked()</slot>
  </slots>
 </ui>
