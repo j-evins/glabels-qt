@@ -125,7 +125,17 @@ namespace glabels
                 {
                         startupOtherRadio->setChecked( true );
                 }
-                startupOtherLineEdit->setText( path );
+
+                if ( path.isEmpty() )
+                {
+                        // Start with ${HOME} when browsing for user-defined startup location
+                        startupOtherLineEdit->setText( QStandardPaths::writableLocation( QStandardPaths::HomeLocation ) );
+                }
+                else
+                {
+                        // Otherwise, start from previously set startup path
+                        startupOtherLineEdit->setText( path );
+                }
 
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
@@ -250,10 +260,13 @@ namespace glabels
         {
                 auto path = QFileDialog::getExistingDirectory( this,
                                                                tr("Select startup directory"),
-                                                               QStandardPaths::writableLocation( QStandardPaths::HomeLocation ),
+                                                               startupOtherLineEdit->text(),
                                                                QFileDialog::ShowDirsOnly );
-                startupOtherLineEdit->setText( path );
-                model::Settings::setStartupPath( path );
+                if ( !path.isEmpty() )
+                {
+                        startupOtherLineEdit->setText( path );
+                        model::Settings::setStartupPath( path );
+                }
         }
 
 
