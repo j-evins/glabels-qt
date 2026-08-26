@@ -236,19 +236,34 @@ namespace glabels
         ///
         void PreferencesDialog::onStartupLocationRadiosChanged()
         {
+                QString path;
+
                 if ( startupParentRadio->isChecked() )
                 {
-                        model::Settings::setStartupPath( "" );
+                        path = "";
                 }
                 else if ( startupHomeRadio->isChecked() )
                 {
-                        model::Settings::setStartupPath( QStandardPaths::writableLocation( QStandardPaths::HomeLocation ) );
-                } if ( startupDocumentsRadio->isChecked() )
+                        path = QStandardPaths::writableLocation( QStandardPaths::HomeLocation );
+                }
+                else if ( startupDocumentsRadio->isChecked() )
                 {
-                        model::Settings::setStartupPath( QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation ) );
-                } if ( startupOtherRadio->isChecked() )
+                        path = QStandardPaths::writableLocation( QStandardPaths::DocumentsLocation );
+                }
+                else if ( startupOtherRadio->isChecked() )
                 {
-                        model::Settings::setStartupPath( startupOtherLineEdit->text() );
+                        path = startupOtherLineEdit->text();
+                }
+                else
+                {
+                        qWarning() << "No startup location selected.  Should not happen!";
+                        return;
+                }
+
+                model::Settings::setStartupPath( path );
+                if ( !path.isEmpty() )
+                {
+                        QDir::setCurrent( path );
                 }
         }
 
@@ -266,6 +281,7 @@ namespace glabels
                 {
                         startupOtherLineEdit->setText( path );
                         model::Settings::setStartupPath( path );
+                        QDir::setCurrent( path );
                 }
         }
 

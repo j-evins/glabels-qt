@@ -274,7 +274,7 @@
                <string>Inherit current working directory from parent process.</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Parent working directory&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;i&gt;Parent working directory&lt;/i&gt;</string>
               </property>
              </widget>
             </item>

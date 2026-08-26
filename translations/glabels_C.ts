@@ -627,10 +627,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Parent working directory&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Startup in user&apos;s home directory.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -640,6 +636,10 @@
     </message>
     <message>
         <source>User defined startup directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;i&gt;Parent working directory&lt;/i&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
