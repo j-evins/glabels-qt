@@ -639,7 +639,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;i&gt;Parent working directory&lt;/i&gt;</source>
+        <source>Parent working directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>422</width>
+    <width>477</width>
     <height>409</height>
    </rect>
   </property>
@@ -264,32 +264,9 @@
                <string>Inherit current working directory from parent process.</string>
               </property>
               <property name="text">
-               <string/>
+               <string>Parent working directory</string>
               </property>
              </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label">
-              <property name="toolTip">
-               <string>Inherit current working directory from parent process.</string>
-              </property>
-              <property name="text">
-               <string>&lt;i&gt;Parent working directory&lt;/i&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </item>
@@ -321,7 +298,7 @@
                <string>User defined startup directory.</string>
               </property>
               <property name="text">
-               <string/>
+               <string>Other:</string>
               </property>
              </widget>
             </item>
