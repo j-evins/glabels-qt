@@ -115,6 +115,9 @@ namespace glabels::model
                 static ColorScheme colorScheme();
                 static void setColorScheme( ColorScheme scheme );
 
+                static QString startupPath();
+                static void setStartupPath( const QString& path );
+
 
         private:
                 static std::unique_ptr<Settings> mInstance;

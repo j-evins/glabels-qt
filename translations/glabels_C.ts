@@ -602,6 +602,50 @@
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Documents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inherit current working directory from parent process.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup in user&apos;s home directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Startup in user&apos;s docments directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User defined startup directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent working directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrintView</name>
@@ -1594,10 +1638,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Preferences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Configure the application</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1975,6 +2015,10 @@
         <source>Center objects in label</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Preferences...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>glabels::MergeView</name>
@@ -2155,6 +2199,13 @@
     </message>
     <message>
         <source>Use substitution field</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>glabels::PreferencesDialog</name>
+    <message>
+        <source>Select startup directory</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

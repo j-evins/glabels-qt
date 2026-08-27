@@ -112,6 +112,16 @@ int main( int argc, char **argv )
 
 
         //
+        // Set initial working directory
+        //
+        auto path = glabels::model::Settings::startupPath();
+        if ( !path.isEmpty() )
+        {
+                QDir::setCurrent( path );
+        }
+
+
+        //
         // Open each file in its own main window
         //
         bool openedFiles = false;

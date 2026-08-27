@@ -399,7 +399,7 @@ namespace glabels
                 editUnSelectAllAction->setStatusTip( tr("Remove all selections") );
                 connect( editUnSelectAllAction, SIGNAL(triggered()), this, SLOT(editUnSelectAll()) );
 
-                editPreferencesAction = new QAction( tr("Preferences"), this );
+                editPreferencesAction = new QAction( tr("Preferences..."), this );
                 editPreferencesAction->setIcon( QIcon::fromTheme( "edit-preferences" ) );
                 editPreferencesAction->setShortcut( QKeySequence::Preferences );
                 editPreferencesAction->setStatusTip( tr("Configure the application") );
