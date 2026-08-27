@@ -1638,10 +1638,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Preferences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Configure the application</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2017,6 +2013,10 @@
     </message>
     <message>
         <source>Center objects in label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
