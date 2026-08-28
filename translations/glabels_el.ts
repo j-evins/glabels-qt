@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανοικτό πορτοκαλί</translation>
     </message>
     <message>
         <source>Light Butter</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Σοκολατί</translation>
     </message>
     <message>
         <source>Aluminum 1</source>
@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Dark Chocolate</source>
-        <translation type="unfinished"></translation>
+        <translation>Σκούρο σοκολατί</translation>
     </message>
     <message>
         <source>Dark Aluminum 1</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Αύξηση</translation>
     </message>
     <message>
         <source>Variable</source>
@@ -330,11 +330,11 @@
     </message>
     <message>
         <source>Word</source>
-        <translation type="unfinished"></translation>
+        <translation>Λέξη</translation>
     </message>
     <message>
         <source>Anywhere</source>
-        <translation type="unfinished"></translation>
+        <translation>Οπουδήποτε</translation>
     </message>
     <message>
         <source>None</source>
@@ -517,7 +517,7 @@
     </message>
     <message>
         <source>Picas</source>
-        <translation type="unfinished"></translation>
+        <translation>Picas</translation>
     </message>
     <message>
         <source>Grid</source>
@@ -529,7 +529,7 @@
     </message>
     <message>
         <source>Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>Προέλευση</translation>
     </message>
     <message>
         <source>Center</source>
@@ -545,7 +545,7 @@
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Επαναφορά</translation>
     </message>
 </context>
 <context>
@@ -576,7 +576,7 @@
     </message>
     <message>
         <source>nn</source>
-        <translation type="unfinished"></translation>
+        <translation>nn</translation>
     </message>
     <message>
         <source>Pages</source>
@@ -624,7 +624,7 @@
     </message>
     <message>
         <source>Destination</source>
-        <translation type="unfinished"></translation>
+        <translation>Προορισμός</translation>
     </message>
     <message>
         <source>Print</source>
@@ -1180,7 +1180,7 @@
     </message>
     <message>
         <source>Integer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ακέραιος</translation>
     </message>
     <message>
         <source>Floating Point</source>
@@ -1188,7 +1188,7 @@
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>Ποτέ</translation>
     </message>
     <message>
         <source>Per item</source>
@@ -1211,7 +1211,7 @@
     <name>VariablesView</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -1238,7 +1238,7 @@
     <name>glabels::AboutDialog</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Έκδοση</translation>
     </message>
     <message>
         <source>A program to create labels and business cards.</source>
@@ -1303,7 +1303,7 @@
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Μεταβλητές</translation>
     </message>
 </context>
 <context>
@@ -1322,7 +1322,7 @@
     </message>
     <message>
         <source>&quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;.</translation>
     </message>
     <message>
         <source>gLabels - Save Project As</source>
@@ -1376,11 +1376,11 @@
     </message>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Συγχώνευση</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>Μεταβλητές</translation>
     </message>
     <message>
         <source>Print</source>
@@ -1436,7 +1436,7 @@
     </message>
     <message>
         <source>&amp;Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Συ&amp;γχώνευση</translation>
     </message>
     <message>
         <source>Select project Merge mode</source>
@@ -1444,7 +1444,7 @@
     </message>
     <message>
         <source>&amp;Variables</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Μεταβλητές</translation>
     </message>
     <message>
         <source>Select project Variables mode</source>
@@ -1476,7 +1476,7 @@
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished"></translation>
+        <translation>Έ&amp;ξοδος</translation>
     </message>
     <message>
         <source>Exit glabels</source>
@@ -1925,7 +1925,7 @@
     <name>glabels::MergeView</name>
     <message>
         <source>Merge</source>
-        <translation type="unfinished"></translation>
+        <translation>Συγχώνευση</translation>
     </message>
     <message>
         <source>Select merge file</source>
@@ -1964,11 +1964,11 @@
     </message>
     <message>
         <source>position/size</source>
-        <translation type="unfinished"></translation>
+        <translation>θέση/μέγεθος</translation>
     </message>
     <message>
         <source>shadow</source>
-        <translation type="unfinished"></translation>
+        <translation>σκιά</translation>
     </message>
     <message>
         <source>Ellipse object properties</source>
@@ -1980,7 +1980,7 @@
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>εικόνα</translation>
     </message>
     <message>
         <source>Line object properties</source>
@@ -1992,7 +1992,7 @@
     </message>
     <message>
         <source>text</source>
-        <translation type="unfinished"></translation>
+        <translation>κείμενο</translation>
     </message>
     <message>
         <source>Barcode object properties</source>
@@ -2396,7 +2396,7 @@
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Αύξηση</translation>
     </message>
     <message>
         <source>Step Size</source>
