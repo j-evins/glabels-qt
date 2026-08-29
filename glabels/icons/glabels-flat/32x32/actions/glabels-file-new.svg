@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" >
 
   <path
-     style="fill:#ffffff;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     style="fill:#ffffff;fill-opacity:1;stroke:#cccccd;stroke-width:1;stroke-opacity:1"
      d="M 7.5,3.5 7.5,27.5 26,27.5 26,10 19.5,3.5 Z" />
 
   <rect
@@ -37,7 +37,7 @@
      height="4" width="6.5" x="17.5" y="21" />
 
   <path
-     style="fill:#fcfcfc;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
+     style="fill:#030304;fill-opacity:1;stroke:#cccccd;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
      d="M 26,10 19.5,3.5 19.5,10 Z" />
 
 </svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="48" height="48" >
+
+
+  <circle
+      style="stroke:#333333;stroke-opacity:1;stroke-width:6;fill:none"
+      cx="24" cy="24" r="9" />
+
+  <g transform="rotate(22.5,24,24)" >
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(0,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(45,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(90,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(135,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(180,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(225,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(270,24,24)" />
+
+    <rect
+	style="fill:#333333;fill-opacity:1;stroke:none"
+	width="6" height="6" x="8" y="21" rx="2" ry="2"
+	transform="rotate(315,24,24)" />
+
+  </g>
+
+</svg>

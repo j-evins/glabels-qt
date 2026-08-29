@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 1,1 1,4 2,4 2,2 4,2 4,1 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 12,1 12,2 14,2 14,4 15,4 15,1 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 12,14 12,15 15,15 15,12 14,12 14,14 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 1,12 1,15 4,15 4,14 2,14 2,12 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 8,2 5,5 11,5 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 2,8 5,5 5,11 Z" />
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 14,8 11,5 11,11 Z" />
+    
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 8,14 5,11 11,11 Z" />
+    
+</svg>

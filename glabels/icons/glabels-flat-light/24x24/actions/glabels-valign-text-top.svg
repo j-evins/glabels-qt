@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
+
+  <rect x="2" y="5" width="20" height="2"
+     style="fill:#333333;fill-opacity:1;stroke:none" />
+  
+  <rect x="2" y="9" width="20" height="2"
+     style="fill:#333333;fill-opacity:1;stroke:none" />
+
+  <path d="M 11.5,12 10,14 11,14 11,21 12,21 12,14 13,14 Z"
+     style="fill:#333333;fill-opacity:1;stroke:none" />
+
+</svg>

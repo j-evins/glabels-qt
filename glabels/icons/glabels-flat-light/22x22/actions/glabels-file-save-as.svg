@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
+
+  <path
+     style="fill:#516aea;fill-opacity:1;stroke:none"
+     d="M 3,3 3,17 5,19 19,19 19,3 Z" />
+
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none"
+     height="7" width="12" x="5" y="4" />
+
+  <rect
+     style="fill:#ffffff;fill-opacity:1;stroke:none"
+     height="5" width="7" x="7" y="13" />
+
+  <rect
+     style="fill:#516aea;fill-opacity:1;stroke:none"
+     height="3" width="2" x="9" y="14" />
+
+  <path
+     style="fill:#f6e04a;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     d="M 13,1 8,7 8,9 10,9 15,3 Z" />
+
+</svg>

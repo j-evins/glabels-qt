@@ -1,6 +1,6 @@
 [Icon Theme]
-Name=glabels-flat
-Comment=gLabels flat icon theme (light)
+Name=glabels-flat-dark
+Comment=gLabels flat icon theme (dark)
 Directories=16x16/actions,16x16/apps,22x22/actions,22x22/apps,24x24/actions,24x24/apps,32x32/actions,32x32/apps,48x48/actions,48x48/apps,128x128/apps,scalable/apps
 
 

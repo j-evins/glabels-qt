@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
+
+  <rect
+     style="fill:#f8f8f8;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="9" height="9" x="6.5" y="6.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="8.5" y1="8.5" x2="12.5" y2="8.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="8.5" y1="10.5" x2="12.5" y2="10.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="8.5" y1="12.5" x2="10.5" y2="12.5" />
+
+  <rect
+     style="fill:#fcfcfc;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="9" height="9" x="0.5" y="0.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="2.5" y1="2.5" x2="7.5" y2="2.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="2.5" y1="4.5" x2="7.5" y2="4.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="2.5" y1="6.5" x2="5.5" y2="6.5" />
+
+</svg>
