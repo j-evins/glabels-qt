@@ -98,14 +98,14 @@ namespace glabels::merge
         ///
         Record VCardSimple::readNextRecord()
         {
-                auto buffer = VCardSimpleParser::extractRawRecord( mFile );
+                auto buffer = VCardSimpleParser::extractRawVCard( mFile );
 
                 if ( buffer.isEmpty() )
                 {
                         return NullRecord();
                 }
 
-                auto record = VCardSimpleParser::parseRawRecord( buffer );
+                auto record = VCardSimpleParser::parseRawVCard( buffer );
                 mNFieldsMax = std::max( mNFieldsMax, record.size() );
 
                 return record;

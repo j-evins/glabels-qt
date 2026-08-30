@@ -26,14 +26,9 @@
 #include <QBuffer>
 
 
-QTEST_MAIN(TestVCardSimpleParser)
-
-
-void TestVCardSimpleParser::extractRawRecord()
+namespace
 {
-        using namespace glabels::merge;
-
-        QByteArray testData =
+        QByteArray multiCardTestData =
                 "BEGIN:VCARD\r\n"
                 "VERSION:3.0\r\n"
                 "FN:Alice Anderson\r\n"
@@ -67,42 +62,9 @@ void TestVCardSimpleParser::extractRawRecord()
                 "EMAIL;TYPE=INTERNET:dave@example.com\r\n"
                 "TEL;TYPE=CELL:+1-555-0104\r\n"
                 "END:VCARD\r\n";
-        QBuffer testFile( &testData );
-
-        testFile.open( QIODevice::ReadOnly);
-
-        auto rawRecord1 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord2 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord3 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord4 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord5 = VCardSimpleParser::extractRawRecord( testFile );
-
-        //
-        // Verify size of each raw record
-        //
-        QCOMPARE( rawRecord1.size(), 7 );
-        QCOMPARE( rawRecord2.size(), 7 );
-        QCOMPARE( rawRecord3.size(), 11 );
-        QCOMPARE( rawRecord4.size(), 7 );
-        QVERIFY( rawRecord5.isEmpty() );
-
-        //
-        // Verify some random lines
-        //
-        QCOMPARE( rawRecord1[5], "TEL;TYPE=CELL:+1-555-0101" );
-        QCOMPARE( rawRecord2[1], "VERSION:3.0" );
-        QCOMPARE( rawRecord3[2], "FN:Frank Dawson" );
-        QCOMPARE( rawRecord3[4], "ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U.S.A." ); // Folded line
-        QCOMPARE( rawRecord4[3], "N:Davis;Dave;;;" );
-}
-
-
-void TestVCardSimpleParser::extractRawRecord_Embedded()
-{
-        using namespace glabels::merge;
 
         // Simulates VCards embedded in a text document (e.g. email)
-        QByteArray testData =
+        QByteArray embeddedMultiCardTestData =
                 "...Some text before the first VCard...\r\n"
                 "...\r\n"
                 "BEGIN:VCARD\r\n"
@@ -144,33 +106,100 @@ void TestVCardSimpleParser::extractRawRecord_Embedded()
                 "...after last VCard...\r\n"
                 "...\r\n"
                 "...\r\n";
-        QBuffer testFile( &testData );
+}
+
+
+
+QTEST_MAIN(TestVCardSimpleParser)
+
+
+void TestVCardSimpleParser::extractRawVCard()
+{
+        using namespace glabels::merge;
+
+        QBuffer testFile( &multiCardTestData );
 
         testFile.open( QIODevice::ReadOnly);
 
-        auto rawRecord1 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord2 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord3 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord4 = VCardSimpleParser::extractRawRecord( testFile );
-        auto rawRecord5 = VCardSimpleParser::extractRawRecord( testFile );
+        auto rawVCard1 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard2 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard3 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard4 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard5 = VCardSimpleParser::extractRawVCard( testFile );
+
+        testFile.close();
 
         //
         // Verify size of each raw record
         //
-        QCOMPARE( rawRecord1.size(), 7 );
-        QCOMPARE( rawRecord2.size(), 7 );
-        QCOMPARE( rawRecord3.size(), 11 );
-        QCOMPARE( rawRecord4.size(), 7 );
-        QVERIFY( rawRecord5.isEmpty() );
+        QCOMPARE( rawVCard1.size(), 7 );
+        QCOMPARE( rawVCard2.size(), 7 );
+        QCOMPARE( rawVCard3.size(), 11 );
+        QCOMPARE( rawVCard4.size(), 7 );
+        QVERIFY( rawVCard5.isEmpty() );
 
         //
         // Verify some random lines
         //
-        QCOMPARE( rawRecord1[5], "TEL;TYPE=CELL:+1-555-0101" );
-        QCOMPARE( rawRecord2[1], "VERSION:3.0" );
-        QCOMPARE( rawRecord3[2], "FN:Frank Dawson" );
-        QCOMPARE( rawRecord3[4], "ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U.S.A." ); // Folded line
-        QCOMPARE( rawRecord4[3], "N:Davis;Dave;;;" );
+        QCOMPARE( rawVCard1[5], "TEL;TYPE=CELL:+1-555-0101" );
+        QCOMPARE( rawVCard2[1], "VERSION:3.0" );
+        QCOMPARE( rawVCard3[2], "FN:Frank Dawson" );
+        QCOMPARE( rawVCard3[4], "ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U.S.A." ); // Folded line
+        QCOMPARE( rawVCard4[3], "N:Davis;Dave;;;" );
 }
 
 
+void TestVCardSimpleParser::extractRawVCard_Embedded()
+{
+        using namespace glabels::merge;
+
+        QBuffer testFile( &embeddedMultiCardTestData );
+
+        testFile.open( QIODevice::ReadOnly);
+
+        auto rawVCard1 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard2 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard3 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard4 = VCardSimpleParser::extractRawVCard( testFile );
+        auto rawVCard5 = VCardSimpleParser::extractRawVCard( testFile );
+
+        testFile.close();
+
+        //
+        // Verify size of each raw record
+        //
+        QCOMPARE( rawVCard1.size(), 7 );
+        QCOMPARE( rawVCard2.size(), 7 );
+        QCOMPARE( rawVCard3.size(), 11 );
+        QCOMPARE( rawVCard4.size(), 7 );
+        QVERIFY( rawVCard5.isEmpty() );
+
+        //
+        // Verify some random lines
+        //
+        QCOMPARE( rawVCard1[5], "TEL;TYPE=CELL:+1-555-0101" );
+        QCOMPARE( rawVCard2[1], "VERSION:3.0" );
+        QCOMPARE( rawVCard3[2], "FN:Frank Dawson" );
+        QCOMPARE( rawVCard3[4], "ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U.S.A." ); // Folded line
+        QCOMPARE( rawVCard4[3], "N:Davis;Dave;;;" );
+}
+
+
+void TestVCardSimpleParser::parseRawVCard()
+{
+        using namespace glabels::merge;
+
+        QBuffer testFile( &multiCardTestData );
+
+        testFile.open( QIODevice::ReadOnly);
+
+        auto vCard = VCardSimpleParser::extractRawVCard( testFile );
+        while ( !vCard.isEmpty()  )
+        {
+                auto record = VCardSimpleParser::parseRawVCard( vCard );
+
+                vCard = VCardSimpleParser::extractRawVCard( testFile );
+        }
+
+        testFile.close();
+}

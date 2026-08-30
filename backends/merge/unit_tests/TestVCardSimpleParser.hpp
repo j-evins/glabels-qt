@@ -27,8 +27,9 @@ class TestVCardSimpleParser : public QObject
         Q_OBJECT
 
 private slots:
-        void extractRawRecord();
-        void extractRawRecord_Embedded();
+        void extractRawVCard();
+        void extractRawVCard_Embedded();
+        void parseRawVCard();
 
 };
 

@@ -23,14 +23,133 @@
 
 #include <QDebug>
 
+#include <utility>
+
+
+namespace
+{
+
+        //
+        // Line tokens
+        //
+        struct LineTokens
+        {
+                bool           valid{ false };
+                QByteArray     group;
+                QByteArray     name;
+                QByteArray     paramName;
+                QByteArrayList paramValues;
+                QByteArrayList values;
+        };
+
+
+        ///
+        /// Split into two byte arrays at first occurrence of delimiter, default into first
+        ///
+        std::pair<QByteArray,QByteArray> split2First( const QByteArray& in, char delim )
+        {
+                std::pair<QByteArray,QByteArray> out;
+                auto iDelim = in.indexOf( delim );
+
+                if ( iDelim != -1 )
+                {
+                        out.first = in.sliced( 0, iDelim );
+                        out.second = in.sliced( iDelim+1 );
+                }
+                else
+                {
+                        out.first = in;
+                }
+
+                return out;
+        }
+
+
+        ///
+        /// Split into two byte arrays at first occurrence of delimiter, default into second
+        ///
+        std::pair<QByteArray,QByteArray> split2Second( const QByteArray& in, char delim )
+        {
+                std::pair<QByteArray,QByteArray> out;
+                auto iDelim = in.indexOf( delim );
+
+                if ( iDelim != -1 )
+                {
+                        out.first = in.sliced( 0, iDelim );
+                        out.second = in.sliced( iDelim+1 );
+                }
+                else
+                {
+                        out.second = in;
+                }
+
+                return out;
+        }
+
+
+        ///
+        /// Split into two byte arrays at first occurrence of delimiter, default to empty values
+        ///
+        std::pair<QByteArray,QByteArray> split2None( const QByteArray& in, char delim )
+        {
+                std::pair<QByteArray,QByteArray> out;
+                auto iDelim = in.indexOf( delim );
+
+                if ( iDelim != -1 )
+                {
+                        out.first = in.sliced( 0, iDelim );
+                        out.second = in.sliced( iDelim+1 );
+                }
+
+                return out;
+        }
+
+
+        LineTokens tokenizeLine( const QByteArray& line )
+        {
+                //
+                // line = [ group "." ] name [ ";" param-name "=" param-value { "," param-value } ":" value { ";" value }
+                //
+                // TODO: possibly replace with a more robust parser.  Currently just looks for delimeters, but does no
+                //       other validation of tokens.
+                //
+                // REFERENCES:
+                //   [1] RFC2426
+                //
+                if ( !line.contains( ':' ) )
+                {
+                        return LineTokens();
+                }
+
+                const auto& [nameWithGroupWithParam, values] = split2First( line, ':' );
+
+                const auto& [nameWithGroup, param] = split2First( nameWithGroupWithParam, ';' );
+
+                const auto& [group, name] = split2Second( nameWithGroup, '.' );
+
+                const auto& [paramName, paramValues] = split2None( param, '=' );
+
+                LineTokens tokens;
+                tokens.valid         = true;
+                tokens.group         = group;
+                tokens.name          = name;
+                tokens.paramName     = paramName;
+                tokens.paramValues   = paramValues.split( ',' );
+                tokens.values        = values.split( ';' );
+
+                return tokens;
+        }
+
+}
+
 
 namespace glabels::merge
 {
 
         ///
-        /// Extract raw record
+        /// Extract raw vCard
         ///
-        QByteArrayList VCardSimpleParser::extractRawRecord( QIODevice& file )
+        QByteArrayList VCardSimpleParser::extractRawVCard( QIODevice& file )
         {
                 QByteArrayList buffer;
 
@@ -47,11 +166,11 @@ namespace glabels::merge
 
                         if ( foundBegin )
                         {
-                                if ( line.toLower().startsWith( "end:vcard" ) )
+                                if ( line.toUpper().contains( "END:VCARD" ) )
                                 {
                                         foundEnd = true;
                                 }
-                                else if ( line.toLower().startsWith( "begin:vcard" ) )
+                                else if ( line.toUpper().contains( "BEGIN:VCARD" ) )
                                 {
                                         // Unexpected "begin" before "end", vcard is malformed
                                         break;
@@ -59,7 +178,7 @@ namespace glabels::merge
                         }
                         else
                         {
-                                if ( line.toLower().startsWith( "begin:vcard" ) )
+                                if ( line.toUpper().contains( "BEGIN:VCARD" ) )
                                 {
                                         foundBegin = true;
                                 }
@@ -92,11 +211,28 @@ namespace glabels::merge
 
 
         ///
-        /// Parse record
+        /// Parse raw vCard
         ///
-        Record VCardSimpleParser::parseRawRecord( const QByteArrayList& buffer )
+        Record VCardSimpleParser::parseRawVCard( const QByteArrayList& buffer )
         {
                 Record record;
+
+                qDebug() << "";
+                qDebug() << "#################################################";
+
+                for ( auto& line : buffer )
+                {
+                        auto tokens = tokenizeLine( line );
+
+                        qDebug() << "----------------------------------------";
+                        qDebug() << "valid = " << tokens.valid;
+                        qDebug() << "group= " << tokens.group;
+                        qDebug() << "name = " << tokens.name;
+                        qDebug() << "param = " << tokens.paramName;
+                        qDebug() << "paramValues = " << tokens.paramValues;
+                        qDebug() << "values = " << tokens.values;
+                        qDebug() << "----------------------------------------";
+                }
 
                 return record;
         }
