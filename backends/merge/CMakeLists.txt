@@ -17,6 +17,8 @@ set (merge_sources
   TextColonKeys.cpp
   TextSemicolon.cpp
   TextSemicolonKeys.cpp
+  VCardSimple.cpp
+  VCardSimpleParser.cpp
 )
 
 set (merge_qobject_headers
@@ -44,3 +46,10 @@ target_include_directories (Merge
 target_link_libraries (Merge
   Qt6::Core
 )
+
+#=======================================
+# Subdirectories
+#=======================================
+add_subdirectory (unit_tests)
+
+
