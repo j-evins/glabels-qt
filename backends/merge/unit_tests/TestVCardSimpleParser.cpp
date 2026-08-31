@@ -141,7 +141,7 @@ void TestVCardSimpleParser::extractRawVCard()
         //
         // Verify some random lines
         //
-        QCOMPARE( rawVCard1[5], "TEL;TYPE=CELL:+1-555-0101" );
+        QCOMPARE( rawVCard1[5], "TEL;TYPE=CELL;TYPE=WORK:+1-555-0101" );
         QCOMPARE( rawVCard2[1], "VERSION:3.0" );
         QCOMPARE( rawVCard3[2], "FN:Frank Dawson" );
         QCOMPARE( rawVCard3[4], "ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U.S.A." ); // Folded line
@@ -177,7 +177,7 @@ void TestVCardSimpleParser::extractRawVCard_Embedded()
         //
         // Verify some random lines
         //
-        QCOMPARE( rawVCard1[5], "TEL;TYPE=CELL:+1-555-0101" );
+        QCOMPARE( rawVCard1[5], "TEL;TYPE=CELL;TYPE=WORK:+1-555-0101" );
         QCOMPARE( rawVCard2[1], "VERSION:3.0" );
         QCOMPARE( rawVCard3[2], "FN:Frank Dawson" );
         QCOMPARE( rawVCard3[4], "ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U.S.A." ); // Folded line
