@@ -1,0 +1,56 @@
+// The following Types are structural or meta information, probably don't need
+// to expose to end user as substitution fields.
+//
+//     BEGIN          ""                                      "VCARD"
+//     END            ""                                      "VCARD"
+//     VERSION        ""                                      text-value
+//     NAME           ""                                      text-value
+//     PROFILE        ""                                      text-value
+//     SOURCE         source-param                            uri
+//
+// The following are simple text types, and require minimal processing.
+//
+//     FN             text-param                              text-value
+//     MAILER         text-param                              text-value
+//     TITLE          text-param                              text-value
+//     ROLE           text-param                              text-value
+//     NOTE           text-param                              text-value
+//     PRODID         text-param                              text-value
+//     SORT-STRING    text-param                              text-value
+//
+// Similar simple types, require minimal processing. Should not need to
+// interpret the value and use as-is.
+//
+//     N              text-param                              n-value
+//     NICKNAME       text-param                              text-list
+//     UID            ""                                      text-value
+//     URL            ""                                      uri
+//     TZ             ""                                      utc-offset-value
+//     ORG            text-param                              org-value
+//     BDAY           VALUE=date|VALUE=date-time              date-value|date-time-value
+//     GEO            ""                                      float-value","float-value
+//     CATEGORIES     text-param                              text-parameters
+//     REV            VALUE=date|VALUE=date-time              date-value|date-time-value
+//     CLASS          ""                                      "PUBLIC"|"PRIVATE"|"CONFIDENTIAL"|iana-token|x-name
+//
+// Non-standard types. Should be able to expose thes as-is, without
+// processing the non-standard parameters.
+//
+//     X-name         text-param|(x-name"="param-value")      text-value
+//
+// The following types may appear multiple times, parameters are used to
+// further classify the type.  (E.g. work vs. home)
+//
+//     EMAIL          email-param                             text-value
+//     TEL            tel-param                               phone-number-value
+//     ADR            adr-param,text-param                    adr-value
+//     LABEL          adr-param,text-param                    text-value
+//
+// The following types do not contain values currently useful to, or usable by
+// glabels.
+//
+//     PHOTO          img-inline-param|img-refer-param        img-inline-value|img-refer-value
+//     LOGO           img-inline-param|img-refer-param        img-inline-value|img-refer-value
+//     SOUND          snd-inline-param|snd-refer-param        snd-inline-value|snd-refer-value
+//     KEY            key-txt-param|key-bin-param             text-value|binary-value
+//     AGENT          agent-inline-param|agent-refer-param    agent-inline-value|agent-refer-value

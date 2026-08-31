@@ -34,7 +34,7 @@ namespace
                 "FN:Alice Anderson\r\n"
                 "N:Anderson;Alice;;;\r\n"
                 "EMAIL;TYPE=INTERNET:alice@example.com\r\n"
-                "TEL;TYPE=CELL:+1-555-0101\r\n"
+                "TEL;TYPE=CELL;TYPE=WORK:+1-555-0101\r\n"  // Multiple paramaters vs. list of values for a single parameter
                 "END:VCARD\r\n"
                 "BEGIN:VCARD\r\n"
                 "VERSION:3.0\r\n"
@@ -72,7 +72,7 @@ namespace
                 "FN:Alice Anderson\r\n"
                 "N:Anderson;Alice;;;\r\n"
                 "EMAIL;TYPE=INTERNET:alice@example.com\r\n"
-                "TEL;TYPE=CELL:+1-555-0101\r\n"
+                "TEL;TYPE=CELL;TYPE=WORK:+1-555-0101\r\n"  // Multiple paramaters vs. list of values for a single parameter
                 "END:VCARD\r\n"
                 "...\r\n"
                 "...Some text between VCards...\r\n"

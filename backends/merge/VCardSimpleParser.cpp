@@ -30,16 +30,36 @@ namespace
 {
 
         //
+        // Parameter tokens
+        //
+        struct ParamTokens
+        {
+                QByteArray     name;
+                QByteArrayList values;
+        };
+
+
+        //
         // Line tokens
         //
         struct LineTokens
         {
-                bool           valid{ false };
-                QByteArray     group;
-                QByteArray     name;
-                QByteArray     paramName;
-                QByteArrayList paramValues;
-                QByteArrayList values;
+                bool               valid{ false };
+                QByteArray         group;
+                QByteArray         name;
+                QList<ParamTokens> params;
+                QByteArray         value;
+                QByteArrayList     values;  // Split out version of value, for list and structured types
+        };
+
+
+        //
+        // Key-value pair
+        //
+        struct KeyValuePair
+        {
+                QString key;
+                QString value;
         };
 
 
@@ -108,7 +128,8 @@ namespace
         LineTokens tokenizeLine( const QByteArray& line )
         {
                 //
-                // line = [ group "." ] name [ ";" param-name "=" param-value { "," param-value } ":" value { ";" value }
+                // line = [ group "." ] name [ ";" params ] ":" value { ";" value }
+                // params = param-name "=" param-value { "," param-value } { ";" "param-name "=" param-value }
                 //
                 // TODO: possibly replace with a more robust parser.  Currently just looks for delimeters, but does no
                 //       other validation of tokens.
@@ -121,23 +142,104 @@ namespace
                         return LineTokens();
                 }
 
-                const auto& [nameWithGroupWithParam, values] = split2First( line, ':' );
+                const auto& [nameWithGroupWithParams, value] = split2First( line, ':' );
 
-                const auto& [nameWithGroup, param] = split2First( nameWithGroupWithParam, ';' );
+                const auto& [nameWithGroup, params] = split2First( nameWithGroupWithParams, ';' );
 
                 const auto& [group, name] = split2Second( nameWithGroup, '.' );
 
-                const auto& [paramName, paramValues] = split2None( param, '=' );
-
                 LineTokens tokens;
-                tokens.valid         = true;
-                tokens.group         = group;
-                tokens.name          = name;
-                tokens.paramName     = paramName;
-                tokens.paramValues   = paramValues.split( ',' );
-                tokens.values        = values.split( ';' );
+                tokens.valid  = true;
+                tokens.group  = group;
+                tokens.name   = name;
+
+                ParamTokens paramTokens;
+                for ( auto& param : params.split( ';' ) )
+                {
+                        const auto& [paramName, paramValues] = split2None( param, '=' );
+                        if ( !paramName.isEmpty() )
+                        {
+                                paramTokens.name = paramName;
+                                paramTokens.values = paramValues.split( ',' );
+
+                                tokens.params.append( paramTokens );
+                        }
+                }
+
+                tokens.value  = value;
+                tokens.values = value.split( ';' );
 
                 return tokens;
+        }
+
+
+        KeyValuePair parseTokens( const LineTokens& tokens )
+        {
+                //
+                // Types not parsed into key-value pairs
+                //
+                //    - BEGIN
+                //    - END
+                //    - VERSION
+                //    - NAME
+                //    - PROFILE
+                //    - SOURCE
+                //    - PHOTO
+                //    - LOGO
+                //    - SOUND
+                //    - KEY
+                //    - AGENT
+
+                //
+                // Simple text types, no/ignore parameters, single text value
+                //
+                if ( ( tokens.name == "FN" )          ||
+                     ( tokens.name == "MAILER" )      ||
+                     ( tokens.name == "TITLE" )       ||
+                     ( tokens.name == "ROLE" )        ||
+                     ( tokens.name == "NOTE" )        ||
+                     ( tokens.name == "PRODID" )      ||
+                     ( tokens.name == "SORT-STRING" ) ||
+                     ( tokens.name == "N" )           ||
+                     ( tokens.name == "NICKNAME" )    ||
+                     ( tokens.name == "UID" )         ||
+                     ( tokens.name == "URL" )         ||
+                     ( tokens.name == "TZ" )          ||
+                     ( tokens.name == "ORG" )         ||
+                     ( tokens.name == "BDAY" )        ||
+                     ( tokens.name == "GEO" )         ||
+                     ( tokens.name == "CATEGORIES" )  ||
+                     ( tokens.name == "REV" )         ||
+                     ( tokens.name == "CLASS" )       ||
+                     ( tokens.name.startsWith( "X-" ) ) )
+                {
+                        return { tokens.name, tokens.value };
+                }
+
+                //
+                // Email/Adress/Lable
+                //
+                if ( ( tokens.name == "EMAIL" ) ||
+                     ( tokens.name == "TEL" )   ||
+                     ( tokens.name == "ADR" )   ||
+                     ( tokens.name == "LABEL" ) )
+                {
+                        QString qName = tokens.name;
+                        for ( auto& paramTokens : tokens.params )
+                        {
+                                if ( paramTokens.name == "TYPE" )
+                                {
+                                        for ( auto& value : paramTokens.values )
+                                        {
+                                                qName += "_" + value.toUpper();
+                                        }
+                                }
+                        }
+
+                        return { qName, tokens.value };
+                }
+
+                return { "", "" };
         }
 
 }
@@ -166,11 +268,13 @@ namespace glabels::merge
 
                         if ( foundBegin )
                         {
-                                if ( line.toUpper().contains( "END:VCARD" ) )
+                                if ( ( line.toUpper().startsWith( "END:VCARD" ) ) ||
+                                     ( line.toUpper().contains( ".END:VCARD" ) ) )
                                 {
                                         foundEnd = true;
                                 }
-                                else if ( line.toUpper().contains( "BEGIN:VCARD" ) )
+                                else if ( ( line.toUpper().startsWith( "BEGIN:VCARD" ) ) ||
+                                          ( line.toUpper().contains( ".BEGIN:VCARD" ) ) )
                                 {
                                         // Unexpected "begin" before "end", vcard is malformed
                                         break;
@@ -178,7 +282,8 @@ namespace glabels::merge
                         }
                         else
                         {
-                                if ( line.toUpper().contains( "BEGIN:VCARD" ) )
+                                if ( ( line.toUpper().startsWith( "BEGIN:VCARD" ) ) ||
+                                     ( line.toUpper().contains( ".BEGIN:VCARD" ) ) )
                                 {
                                         foundBegin = true;
                                 }
@@ -220,18 +325,38 @@ namespace glabels::merge
                 qDebug() << "";
                 qDebug() << "#################################################";
 
+                int i = 0;
                 for ( auto& line : buffer )
                 {
                         auto tokens = tokenizeLine( line );
 
+#if 0
                         qDebug() << "----------------------------------------";
+
                         qDebug() << "valid = " << tokens.valid;
                         qDebug() << "group= " << tokens.group;
                         qDebug() << "name = " << tokens.name;
-                        qDebug() << "param = " << tokens.paramName;
-                        qDebug() << "paramValues = " << tokens.paramValues;
+                        for ( auto& paramTokens : tokens.params )
+                        {
+                                qDebug() << "param = " << paramTokens.name;
+                                qDebug() << "    paramValues = " << paramTokens.values;
+                        }
                         qDebug() << "values = " << tokens.values;
+
                         qDebug() << "----------------------------------------";
+#endif
+
+                        auto pair = parseTokens( tokens );
+                        if ( !pair.key.isEmpty() )
+                        {
+                                qDebug() << i << ". " << pair.key << " = " << pair.value;
+                        }
+                        else
+                        {
+                                qDebug() << i << ".";
+                        }
+                        i++;
+
                 }
 
                 return record;
