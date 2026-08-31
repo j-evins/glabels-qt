@@ -47,6 +47,18 @@ namespace glabels::model
 
                 // First, try finding templates directory relative to application path
                 dir.cd( QApplication::applicationDirPath() );
+
+#ifdef Q_OS_MACOS
+                // macOS: Look in .app/Contents/Resources/templates
+                if ( (dir.dirName() == "MacOS") &&
+                     dir.cdUp() && dir.cd( "Resources" ) && dir.cd( "templates" ) )
+                {
+                        return dir;
+                }
+                dir.cd( QApplication::applicationDirPath() );
+#endif
+
+                // Linux/Unix: Look in ../share/glabels-qt/templates
                 if ( (dir.dirName() == "bin") &&
                      dir.cdUp() && dir.cd( "share" ) && dir.cd( "glabels-qt" ) && dir.cd( "templates" ) )
                 {
@@ -91,6 +103,18 @@ namespace glabels::model
 
                 // First, try finding translations directory relative to application path
                 dir.cd( QApplication::applicationDirPath() );
+
+#ifdef Q_OS_MACOS
+                // macOS: Look in .app/Contents/Resources/translations
+                if ( (dir.dirName() == "MacOS") &&
+                     dir.cdUp() && dir.cd( "Resources" ) && dir.cd( "translations" ) )
+                {
+                        return dir;
+                }
+                dir.cd( QApplication::applicationDirPath() );
+#endif
+
+                // Linux/Unix: Look in ../share/glabels-qt/translations
                 if ( (dir.dirName() == "bin") &&
                      dir.cdUp() && dir.cd( "share" ) && dir.cd( "glabels-qt" ) && dir.cd( "translations" ) )
                 {
@@ -103,7 +127,7 @@ namespace glabels::model
                         return dir;
                 }
 
-                qFatal( "Cannot locate system template directory!" );
+                qFatal( "Cannot locate translations directory!" );
                 return QDir("/");
         }
 
