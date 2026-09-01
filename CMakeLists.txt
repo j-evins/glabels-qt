@@ -131,6 +131,7 @@ find_package (ZLIB 1.2 QUIET)
 find_package (GnuBarcode 0.98 QUIET)
 find_package (LibQrencode 3.4 QUIET)
 find_package (LibZint 2.15 QUIET)
+find_package (LibUSB1 QUIET)
 # Unit testing support
 find_package (Qt5Test 5.6 QUIET)
 
@@ -220,6 +221,12 @@ if (LIBZINT_FOUND)
 else (LIBZINT_FOUND)
   message (STATUS "libzint (optional)....... No.")
 endif (LIBZINT_FOUND)
+
+if (LibUSB1_FOUND)
+  message (STATUS "libusb-1.0 (optional).... " ${LibUSB1_VERSION} " (P-Touch USB printing enabled)")
+else ()
+  message (STATUS "libusb-1.0 (optional).... Not found. P-Touch direct USB printing disabled.")
+endif ()
 
 if (MSVC)
    message (STATUS "MSVC Qt location ........ " ${QT_BASE_DIR})

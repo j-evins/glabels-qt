@@ -28,6 +28,8 @@
 #include "merge/Record.hpp"
 
 #include <QDebug>
+#include <QImage>
+#include <QPainter>
 
 
 //
@@ -590,6 +592,123 @@ namespace glabels::model
                 mModel->draw( painter, false, record, variables );
 
                 painter->restore();
+        }
+
+
+        ///
+        /// Enumerate all label items as rendered QImages (for tape/direct printers).
+        ///
+        void PageRenderer::enumerateLabels( double                                    dpi,
+                                            const std::function<bool(const QImage&)>& callback ) const
+        {
+                if ( !mModel )  return;
+
+                const double scale = dpi / 72.0;            // PostScript points → device pixels
+                const int    wPx   = qRound( mModel->w().pt() * scale );
+                const int    hPx   = qRound( mModel->h().pt() * scale );
+
+                // Render one label into a QImage and invoke the callback.
+                // Returns false if the callback requests abort.
+                // For P-Touch tape printing the image must be oriented as:
+                //   image width  = tape feed direction  (the LONG label dimension)
+                //   image height = tape print direction (the SHORT label dimension)
+                //
+                // "Vertical orientation" labels (portrait, h > w):
+                //   Long dim = h → image width,  Short dim = w → image height
+                //   Requires axis-swap: model-x → image-y, model-y → image-x
+                //
+                // "Horizontal orientation" labels (landscape, w >= h):
+                //   Long dim = w → image width,  Short dim = h → image height
+                //   Plain scale: no axis swap needed
+                //
+                // QTransform(m11, m12, m21, m22, dx, dy):
+                //   x' = m11*x + m21*y + dx
+                //   y' = m12*x + m22*y + dy
+
+                const bool swapAxes = (hPx > wPx);
+                const int  imgW     = swapAxes ? hPx : wPx;
+                const int  imgH     = swapAxes ? wPx : hPx;
+
+                QTransform baseTransform;
+                if ( swapAxes )
+                {
+                        // Axis-swap (vertical/portrait label)
+                        // Normal:  model-x→img-y, model-y→img-x
+                        // Reverse: mirror tape-feed (model y-axis)
+                        baseTransform = mPrintReverse
+                                ? QTransform( 0.0, scale, -scale, 0.0, static_cast<double>(hPx), 0.0 )
+                                : QTransform( 0.0, scale,  scale, 0.0, 0.0,                      0.0 );
+                }
+                else
+                {
+                        // Plain scale (horizontal/landscape label)
+                        // Normal:  model-x→img-x, model-y→img-y
+                        // Reverse: mirror tape-feed (model x-axis)
+                        baseTransform = mPrintReverse
+                                ? QTransform( -scale, 0.0, 0.0, scale, static_cast<double>(wPx), 0.0 )
+                                : QTransform(  scale, 0.0, 0.0, scale, 0.0,                      0.0 );
+                }
+
+                auto renderOne = [&]( const merge::Record& record,
+                                      Variables&           variables ) -> bool
+                {
+                        QImage img( imgW, imgH, QImage::Format_RGB32 );
+                        img.fill( Qt::white );
+
+                        QPainter painter( &img );
+                        painter.setTransform( baseTransform );
+
+                        mModel->draw( &painter, false, record, variables );
+                        painter.end();
+
+                        return callback( img );
+                };
+
+                if ( !mIsMerge )
+                {
+                        // ── Simple (no merge) ──────────────────────────────────────────
+                        Variables variables( mModel->constVariables() );
+
+                        for ( int i = 0; i < mNCopies; ++i )
+                        {
+                                if ( !renderOne( merge::NullRecord(), variables ) )  return;
+                                variables.incrementVariablesOnItem();
+                                variables.incrementVariablesOnCopy();
+                        }
+                }
+                else if ( mIsCollated )
+                {
+                        // ── Collated merge: all records × copies ───────────────────────
+                        auto records = mMerge->selectedRecords();
+                        Variables variables( mModel->constVariables() );
+
+                        for ( int copy = 0; copy < mNCopies; ++copy )
+                        {
+                                for ( const auto& record : records )
+                                {
+                                        if ( !renderOne( record, variables ) )  return;
+                                        variables.incrementVariablesOnItem();
+                                }
+                                variables.incrementVariablesOnCopy();
+                        }
+                }
+                else
+                {
+                        // ── Un-collated merge: each record × copies ────────────────────
+                        auto records = mMerge->selectedRecords();
+                        Variables variables( mModel->constVariables() );
+
+                        for ( const auto& record : records )
+                        {
+                                for ( int copy = 0; copy < mNCopies; ++copy )
+                                {
+                                        if ( !renderOne( record, variables ) )  return;
+                                        variables.incrementVariablesOnItem();
+                                        variables.incrementVariablesOnCopy();
+                                }
+                                variables.resetOnCopyVariables();
+                        }
+                }
         }
 
 }

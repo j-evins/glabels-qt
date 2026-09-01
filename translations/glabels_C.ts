@@ -2243,6 +2243,40 @@
         <source>Do you want to overwrite it?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>P-Touch Print Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Device &quot;%1&quot; is no longer connected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not open device:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not read printer status:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>P-Touch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Printer reports an error (code 0x%1).  Check that tape is loaded and the cover is closed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Printing…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sending %1 label(s) to %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>glabels::PropertiesView</name>
