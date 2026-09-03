@@ -1,5 +1,15 @@
 # My cmake build directory
 /build
+/install
+
+# Flatpak build directories
+/.flatpak-builder
+/.cache
+/repo
+/builddir
+
+# Flatpak packages
+*.flatpak
 
 # Compiled Object files
 *.slo
