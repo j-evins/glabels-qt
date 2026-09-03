@@ -30,8 +30,6 @@
 
 namespace glabels::merge::VCardSimpleParser
 {
-        QByteArrayList extractRawVCard( QIODevice& file );
-
         Record parseRawVCard( const QByteArrayList& buffer );
 }
 

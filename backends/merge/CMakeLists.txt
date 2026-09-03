@@ -8,6 +8,7 @@ set (merge_sources
   Record.cpp
   Merge.cpp
   None.cpp
+  RawVCard.cpp
   Text.cpp
   TextCsv.cpp
   TextCsvKeys.cpp

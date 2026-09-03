@@ -21,8 +21,8 @@
 
 #include "VCardSimple.hpp"
 
+#include "RawVCard.hpp"
 #include "Record.hpp"
-#include "VCardSimpleParser.hpp"
 
 #include <QDebug>
 
@@ -98,15 +98,18 @@ namespace glabels::merge
         ///
         Record VCardSimple::readNextRecord()
         {
-                auto buffer = VCardSimpleParser::extractRawVCard( mFile );
+                auto buffer = RawVCard::readNextRawVCard( mFile );
 
                 if ( buffer.isEmpty() )
                 {
                         return NullRecord();
                 }
 
+#if 0
                 auto record = VCardSimpleParser::parseRawVCard( buffer );
                 mNFieldsMax = std::max( mNFieldsMax, record.size() );
+#endif
+                Record record;
 
                 return record;
         }

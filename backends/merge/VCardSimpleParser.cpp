@@ -21,6 +21,8 @@
 
 #include "VCardSimpleParser.hpp"
 
+#include "RawVCard.hpp"
+
 #include <QDebug>
 
 #include <utility>
@@ -28,30 +30,6 @@
 
 namespace
 {
-
-        //
-        // Parameter tokens
-        //
-        struct ParamTokens
-        {
-                QByteArray     name;
-                QByteArrayList values;
-        };
-
-
-        //
-        // Line tokens
-        //
-        struct LineTokens
-        {
-                bool               valid{ false };
-                QByteArray         group;
-                QByteArray         name;
-                QList<ParamTokens> params;
-                QByteArray         value;
-                QByteArrayList     values;  // Split out version of value, for list and structured types
-        };
-
 
         //
         // Structured contact
@@ -152,133 +130,6 @@ namespace
         };
 
 
-        ///
-        /// Split into two byte arrays at first occurrence of delimiter, default into first
-        ///
-        std::pair<QByteArray,QByteArray> split2First( const QByteArray& in, char delim )
-        {
-                std::pair<QByteArray,QByteArray> out;
-                auto iDelim = in.indexOf( delim );
-
-                if ( iDelim != -1 )
-                {
-                        out.first = in.sliced( 0, iDelim );
-                        out.second = in.sliced( iDelim+1 );
-                }
-                else
-                {
-                        out.first = in;
-                }
-
-                return out;
-        }
-
-
-        ///
-        /// Split into two byte arrays at first occurrence of delimiter, default into second
-        ///
-        std::pair<QByteArray,QByteArray> split2Second( const QByteArray& in, char delim )
-        {
-                std::pair<QByteArray,QByteArray> out;
-                auto iDelim = in.indexOf( delim );
-
-                if ( iDelim != -1 )
-                {
-                        out.first = in.sliced( 0, iDelim );
-                        out.second = in.sliced( iDelim+1 );
-                }
-                else
-                {
-                        out.second = in;
-                }
-
-                return out;
-        }
-
-
-        ///
-        /// Split into two byte arrays at first occurrence of delimiter, default to empty values
-        ///
-        std::pair<QByteArray,QByteArray> split2None( const QByteArray& in, char delim )
-        {
-                std::pair<QByteArray,QByteArray> out;
-                auto iDelim = in.indexOf( delim );
-
-                if ( iDelim != -1 )
-                {
-                        out.first = in.sliced( 0, iDelim );
-                        out.second = in.sliced( iDelim+1 );
-                }
-
-                return out;
-        }
-
-
-        LineTokens tokenizeLine( const QByteArray& line )
-        {
-                //
-                // line = [ group "." ] name [ ";" params ] ":" value { ";" value }
-                // params = param-name "=" param-value { "," param-value } { ";" "param-name "=" param-value }
-                //
-                // TODO: possibly replace with a more robust parser.  Currently just looks for delimeters, but does no
-                //       other validation of tokens.
-                //
-                // REFERENCES:
-                //   [1] RFC2426
-                //
-                if ( !line.contains( ':' ) )
-                {
-                        return LineTokens();
-                }
-
-                const auto& [nameWithGroupWithParams, value] = split2First( line, ':' );
-
-                const auto& [nameWithGroup, params] = split2First( nameWithGroupWithParams, ';' );
-
-                const auto& [group, name] = split2Second( nameWithGroup, '.' );
-
-                LineTokens tokens;
-                tokens.valid  = true;
-                tokens.group  = group;
-                tokens.name   = name;
-
-                ParamTokens paramTokens;
-                for ( auto& param : params.split( ';' ) )
-                {
-                        const auto& [paramName, paramValues] = split2None( param, '=' );
-                        if ( !paramName.isEmpty() )
-                        {
-                                paramTokens.name = paramName;
-                                paramTokens.values = paramValues.split( ',' );
-
-                                tokens.params.append( paramTokens );
-                        }
-                }
-
-                tokens.value  = value;
-                tokens.values = value.split( ';' );
-
-                return tokens;
-        }
-
-
-        bool paramsHas( const QList<ParamTokens>& params, const QString& name, const QString& value )
-        {
-                for ( auto& p : params )
-                {
-                        if ( p.name == name )
-                        {
-                                for ( auto& v : p.values )
-                                {
-                                        if ( v == value ) return true;
-                                }
-                        }
-                }
-
-                return false;
-        }
-
-
         QString formatLatLonDms( const QByteArrayList& values )
         {
                 if ( values.size() < 2 ) return "";
@@ -341,7 +192,7 @@ namespace
         };
 
 
-        KeyValuePair parseTokens( const LineTokens& tokens )
+        KeyValuePair parseTokens( const glabels::merge::RawVCard::LineTokens& tokens )
         {
                 //
                 // Types not parsed into key-value pairs
@@ -417,7 +268,7 @@ namespace
 
                 for ( auto& line : rawVCard )
                 {
-                        auto t = tokenizeLine( line );
+                        auto t = glabels::merge::RawVCard::tokenizeLine( line );
 
                         if ( t.name == "FN" )
                         {
@@ -456,13 +307,13 @@ namespace
                         }
                         if ( t.name == "EMAIL" )
                         {
-                                bool isPref = paramsHas( t.params, "TYPE", "PREF" );
+                                bool isPref = glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "PREF" );
 
-                                if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                 {
                                         addToList( c.emailWork, isPref, t.value );
                                 }
-                                else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                 {
                                         addToList( c.emailHome, isPref, t.value );
                                 }
@@ -479,15 +330,15 @@ namespace
                         }
                         if ( t.name == "TEL" )
                         {
-                                bool isPref = paramsHas( t.params, "TYPE", "PREF" );
+                                bool isPref = glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "PREF" );
 
-                                if ( paramsHas( t.params, "TYPE", "CELL" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "CELL" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkCell, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeCell, isPref, t.value );
                                         }
@@ -497,13 +348,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "FAX" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "FAX" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkFax, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeFax, isPref, t.value );
                                         }
@@ -513,13 +364,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "PAGER" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "PAGER" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkPager, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomePager, isPref, t.value );
                                         }
@@ -529,13 +380,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "MSG" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "MSG" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkMsg, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeMsg, isPref, t.value );
                                         }
@@ -545,13 +396,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "BBS" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "BBS" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkBbs, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeBbs, isPref, t.value );
                                         }
@@ -561,13 +412,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "MODEM" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "MODEM" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkModem, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeModem, isPref, t.value );
                                         }
@@ -577,13 +428,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "CAR" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "CAR" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkCar, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeCar, isPref, t.value );
                                         }
@@ -593,13 +444,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "ISDN" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "ISDN" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkIsdn, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeIsdn, isPref, t.value );
                                         }
@@ -609,13 +460,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "VIDEO" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "VIDEO" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkVideo, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomeVideo, isPref, t.value );
                                         }
@@ -625,13 +476,13 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "PCS" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "PCS" ) )
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWorkPcs, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHomePcs, isPref, t.value );
                                         }
@@ -641,18 +492,18 @@ namespace
                                         }
                                         continue;
                                 }
-                                if ( paramsHas( t.params, "TYPE", "MAIN" ) )
+                                if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "MAIN" ) )
                                 {
                                         addToList( c.telMain, isPref, t.value );
                                         continue;
                                 }
                                 // VOICE
                                 {
-                                        if ( paramsHas( t.params, "TYPE", "WORK" ) )
+                                        if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                                         {
                                                 addToList( c.telWork, isPref, t.value );
                                         }
-                                        else if ( paramsHas( t.params, "TYPE", "HOME" ) )
+                                        else if ( glabels::merge::RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                                         {
                                                 addToList( c.telHome, isPref, t.value );
                                         }
@@ -711,73 +562,6 @@ namespace glabels::merge
 {
 
         ///
-        /// Extract raw vCard
-        ///
-        QByteArrayList VCardSimpleParser::extractRawVCard( QIODevice& file )
-        {
-                QByteArrayList buffer;
-
-                bool foundBegin = false;
-                bool foundEnd = false;
-
-                while ( !foundEnd )
-                {
-                        auto line = file.readLine();
-                        if ( line.isEmpty() )
-                        {
-                                break;
-                        }
-
-                        if ( foundBegin )
-                        {
-                                if ( ( line.toUpper().startsWith( "END:VCARD" ) ) ||
-                                     ( line.toUpper().contains( ".END:VCARD" ) ) )
-                                {
-                                        foundEnd = true;
-                                }
-                                else if ( ( line.toUpper().startsWith( "BEGIN:VCARD" ) ) ||
-                                          ( line.toUpper().contains( ".BEGIN:VCARD" ) ) )
-                                {
-                                        // Unexpected "begin" before "end", vcard is malformed
-                                        break;
-                                }
-                        }
-                        else
-                        {
-                                if ( ( line.toUpper().startsWith( "BEGIN:VCARD" ) ) ||
-                                     ( line.toUpper().contains( ".BEGIN:VCARD" ) ) )
-                                {
-                                        foundBegin = true;
-                                }
-                                else
-                                {
-                                        continue; // skip lines not in vcard
-                                }
-                        }
-
-                        if ( ( (line[0] == ' ') || (line[0] == '\t') ) && !buffer.isEmpty() )
-                        {
-                                // Folded line
-                                auto& lastLine = buffer.last();
-                                lastLine.append( line.trimmed() );
-                        }
-                        else
-                        {
-
-                                buffer.append( line.trimmed() );
-                        }
-                }
-
-                if ( !foundBegin || !foundEnd )
-                {
-                        return QByteArrayList(); // Empty.  No record found or it's malformed (possibly truncated)
-                }
-
-                return buffer;
-        }
-
-
-        ///
         /// Parse raw vCard
         ///
         Record VCardSimpleParser::parseRawVCard( const QByteArrayList& buffer )
@@ -790,7 +574,7 @@ namespace glabels::merge
                 int i = 0;
                 for ( auto& line : buffer )
                 {
-                        auto tokens = tokenizeLine( line );
+                        auto tokens = RawVCard::tokenizeLine( line );
 
 #if 0
                         qDebug() << "----------------------------------------";

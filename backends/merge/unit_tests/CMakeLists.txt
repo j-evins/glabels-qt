@@ -1,11 +1,11 @@
 if (Qt6Test_FOUND)
 
   #=======================================
-  # Test VCardSimpleParser class
+  # Test RawVCard class
   #=======================================
-  qt6_wrap_cpp (TestVCardSimpleParser_moc_sources TestVCardSimpleParser.hpp)
-  add_executable (TestVCardSimpleParser TestVCardSimpleParser.cpp ${TestVCardSimpleParser_moc_sources})
-  target_link_libraries (TestVCardSimpleParser Model Qt6::Test)
-  add_test (NAME VCardSimpleParser COMMAND TestVCardSimpleParser)
+  qt6_wrap_cpp (TestRawVCard_moc_sources TestRawVCard.hpp)
+  add_executable (TestRawVCard TestRawVCard.cpp ${TestRawVCard_moc_sources})
+  target_link_libraries (TestRawVCard Model Qt6::Test)
+  add_test (NAME RawVCard COMMAND TestRawVCard)
 
 endif (Qt6Test_FOUND)

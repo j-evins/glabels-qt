@@ -1,4 +1,4 @@
-//  TestVCardSimpleParser.hpp
+//  TestRawVCard.hpp
 //
 //  Copyright (C) 2018-2026  Jaye Evins <evins@snaught.com>
 //
@@ -22,13 +22,13 @@
 #include <QtTest/QtTest>
 
 
-class TestVCardSimpleParser : public QObject
+class TestRawVCard : public QObject
 {
         Q_OBJECT
 
 private slots:
-        void extractRawVCard();
-        void extractRawVCard_Embedded();
+        void readNextRawVCard();
+        void readNextRawVCard_Embedded();
         void parseRawVCard();
 
 };
