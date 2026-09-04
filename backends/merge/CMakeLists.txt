@@ -18,6 +18,7 @@ set (merge_sources
   TextColonKeys.cpp
   TextSemicolon.cpp
   TextSemicolonKeys.cpp
+  VCardContact.cpp
   VCardSimple.cpp
   VCardSimpleParser.cpp
 )
