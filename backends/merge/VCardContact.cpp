@@ -33,7 +33,8 @@ namespace
         using namespace glabels::merge;
 
 
-        void addToList( QStringList& list, bool prepend, const QByteArray& value )
+        template <class T>
+        void addToList( QList<T>& list, bool prepend, const T& value )
         {
                 if ( prepend )
                 {
@@ -46,107 +47,174 @@ namespace
         }
 
 
-        VCardContact::NFields nExtractFields( const QByteArrayList& values )
+        VCardContact::NFields nExtractFields( const RawVCard::LineTokens& t )
         {
                 VCardContact::NFields nFields;
 
-                if ( values.size() >= 1 ) nFields.family     = values[0];
-                if ( values.size() >= 2 ) nFields.given      = values[1];
-                if ( values.size() >= 3 ) nFields.additional = values[2];
-                if ( values.size() >= 4 ) nFields.prefixes   = values[3];
-                if ( values.size() >= 5 ) nFields.suffixes   = values[4];
+                nFields.raw = t.value;
+
+                if ( t.values.size() >= 1 ) nFields.family     = t.values[0];
+                if ( t.values.size() >= 2 ) nFields.given      = t.values[1];
+                if ( t.values.size() >= 3 ) nFields.additional = t.values[2];
+                if ( t.values.size() >= 4 ) nFields.prefixes   = t.values[3];
+                if ( t.values.size() >= 5 ) nFields.suffixes   = t.values[4];
 
                 return nFields;
         }
 
 
-        void addEmail( VCardContact::EmailStruct& email, const QList<RawVCard::ParamTokens>& params, const QByteArray& value )
+        void addEmail( VCardContact::EmailStruct& email, const RawVCard::LineTokens& t )
         {
-                bool isPref = RawVCard::paramsHas( params, "TYPE", "PREF" );
+                bool isPref = RawVCard::paramsHas( t.params, "TYPE", "PREF" );
 
-                if ( RawVCard::paramsHas( params, "TYPE", "WORK" ) )
+                if ( RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                 {
-                        addToList( email.work, isPref, value );
+                        addToList<QString>( email.work, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "HOME" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                 {
-                        addToList( email.home, isPref, value );
+                        addToList<QString>( email.home, isPref, t.value );
                 }
                 else
                 {
-                        addToList( email.other, isPref, value );
+                        // Other
+                        addToList<QString>( email.other, isPref, t.value );
                 }
         }
 
 
-        void addTelType( VCardContact::TelLocation& loc, const QList<RawVCard::ParamTokens>& params, bool isPref, const QByteArray& value )
+        void addTelType( VCardContact::TelLocation& loc, const RawVCard::LineTokens& t )
         {
-                if ( RawVCard::paramsHas( params, "TYPE", "CELL" ) )
+                bool isPref = RawVCard::paramsHas( t.params, "TYPE", "PREF" );
+
+                if ( RawVCard::paramsHas( t.params, "TYPE", "VOICE" ) )
                 {
-                        addToList( loc.cell, isPref, value );
+                        addToList<QString>( loc.voice, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "FAX" ) )
+                if ( RawVCard::paramsHas( t.params, "TYPE", "CELL" ) )
                 {
-                        addToList( loc.fax, isPref, value );
+                        addToList<QString>( loc.cell, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "PAGER" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "FAX" ) )
                 {
-                        addToList( loc.pager, isPref, value );
+                        addToList<QString>( loc.fax, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "MSG" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "PAGER" ) )
                 {
-                        addToList( loc.msg, isPref, value );
+                        addToList<QString>( loc.pager, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "BBS" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "MSG" ) )
                 {
-                        addToList( loc.bbs, isPref, value );
+                        addToList<QString>( loc.msg, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "MODEM" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "BBS" ) )
                 {
-                        addToList( loc.modem, isPref, value );
+                        addToList<QString>( loc.bbs, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "CAR" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "MODEM" ) )
                 {
-                        addToList( loc.car, isPref, value );
+                        addToList<QString>( loc.modem, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "ISDN" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "CAR" ) )
                 {
-                        addToList( loc.isdn, isPref, value );
+                        addToList<QString>( loc.car, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "VIDEO" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "ISDN" ) )
                 {
-                        addToList( loc.video, isPref, value );
+                        addToList<QString>( loc.isdn, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "PCS" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "VIDEO" ) )
                 {
-                        addToList( loc.pcs, isPref, value );
+                        addToList<QString>( loc.video, isPref, t.value );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "MAIN" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "PCS" ) )
                 {
-                        addToList( loc.main, isPref, value );
+                        addToList<QString>( loc.pcs, isPref, t.value );
+                }
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "MAIN" ) )
+                {
+                        addToList<QString>( loc.main, isPref, t.value );
                 }
                 else
                 {
-                        addToList( loc.voice, isPref, value );
+                        // Default to VOICE, if none of the above present
+                        addToList<QString>( loc.voice, isPref, t.value );
                 }
         }
 
 
-        void addTel( VCardContact::TelStruct& tel, const QList<RawVCard::ParamTokens>& params, const QByteArray& value )
+        void addTel( VCardContact::TelStruct& tel, const RawVCard::LineTokens& t )
         {
-                bool isPref = RawVCard::paramsHas( params, "TYPE", "PREF" );
-
-                if ( RawVCard::paramsHas( params, "TYPE", "WORK" ) )
+                if ( RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
                 {
-                        addTelType( tel.work, params, isPref, value );
+                        addTelType( tel.work, t );
                 }
-                else if ( RawVCard::paramsHas( params, "TYPE", "HOME" ) )
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
                 {
-                        addTelType( tel.home, params, isPref, value );
+                        addTelType( tel.home, t );
                 }
                 else
                 {
-                        addTelType( tel.other, params, isPref, value );
+                        // Other
+                        addTelType( tel.other, t );
+                }
+        }
+
+
+        VCardContact::AdrFields adrExtractFields( const RawVCard::LineTokens& t )
+        {
+                VCardContact::AdrFields adrFields;
+
+                adrFields.raw = t.value;
+
+                if ( t.values.size() >= 1 ) adrFields.poBox      = t.values[0];
+                if ( t.values.size() >= 2 ) adrFields.extended   = t.values[1];
+                if ( t.values.size() >= 3 ) adrFields.street     = t.values[2];
+                if ( t.values.size() >= 4 ) adrFields.locality   = t.values[3];
+                if ( t.values.size() >= 5 ) adrFields.region     = t.values[4];
+                if ( t.values.size() >= 6 ) adrFields.postalCode = t.values[5];
+                if ( t.values.size() >= 7 ) adrFields.country    = t.values[6];
+
+                return adrFields;
+        }
+
+
+        void addAdr( VCardContact::AdrStruct& adr, const RawVCard::LineTokens& t )
+        {
+                bool isPref = RawVCard::paramsHas( t.params, "TYPE", "PREF" );
+
+                if ( RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
+                {
+                        addToList( adr.work, isPref, adrExtractFields( t ) );
+                }
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
+                {
+                        addToList( adr.home, isPref, adrExtractFields( t ) );
+                }
+                else
+                {
+                        // Other
+                        addToList( adr.other, isPref, adrExtractFields( t ) );
+                }
+        }
+
+
+        void addLabel( VCardContact::LabelStruct& label, const RawVCard::LineTokens& t )
+        {
+                bool isPref = RawVCard::paramsHas( t.params, "TYPE", "PREF" );
+
+                if ( RawVCard::paramsHas( t.params, "TYPE", "WORK" ) )
+                {
+                        addToList<QString>( label.work, isPref, t.value );
+                }
+                else if ( RawVCard::paramsHas( t.params, "TYPE", "HOME" ) )
+                {
+                        addToList<QString>( label.home, isPref, t.value );
+                }
+                else
+                {
+                        // Other
+                        addToList<QString>( label.other, isPref, t.value );
                 }
         }
 
@@ -212,8 +280,7 @@ namespace glabels::merge
                         }
                         else if ( t.name == "N" )
                         {
-                                c.n = t.value;
-                                c.nFields = nExtractFields( t.values );
+                                c.n = nExtractFields( t );
                         }
                         else if ( t.name == "NICKNAME" )
                         {
@@ -233,7 +300,7 @@ namespace glabels::merge
                         }
                         else if ( t.name == "EMAIL" )
                         {
-                                addEmail( c.email, t.params, t.value );
+                                addEmail( c.email, t );
                         }
                         else if ( t.name == "MAILER" )
                         {
@@ -241,36 +308,64 @@ namespace glabels::merge
                         }
                         else if ( t.name == "TEL" )
                         {
-                                addTel( c.tel, t.params, t.value );
+                                addTel( c.tel, t );
                         }
-                        else if ( t.name == "UID" )
+                        else if ( t.name == "ADR" )
                         {
-                                c.uid = t.value;
+                                addAdr( c.adr, t );
                         }
-                        else if ( t.name == "NOTE" )
+                        else if ( t.name == "LABEL" )
                         {
-                                c.note = t.value;
+                                addLabel( c.label, t );
                         }
-                        else if ( t.name == "PRODID" )
+                        else if ( t.name == "BDAY" )
                         {
-                                c.prodId = t.value;
-                        }
-                        else if ( t.name == "SORT-STRING" )
-                        {
-                                c.sortString = t.value;
-                        }
-                        else if ( t.name == "URL" )
-                        {
-                                c.url = t.value;
-                        }
-                        else if ( t.name == "CLASS" )
-                        {
-                                c.classification = t.value;
+                                c.bday = t.value;
                         }
                         else if ( t.name == "GEO" )
                         {
                                 c.geo = t.value;
                                 c.geoDms = formatLatLonDms( t.values );
+                        }
+                        else if ( t.name == "TZ" )
+                        {
+                                c.tz = t.value;
+                        }
+                        else if ( t.name == "URL" )
+                        {
+                                c.url = t.value;
+                        }
+                        else if ( t.name == "CATEGORIES" )
+                        {
+                                c.categories = t.value;
+                        }
+                        else if ( t.name == "NOTE" )
+                        {
+                                c.note.append( t.value );
+                        }
+                        else if ( t.name == "CLASS" )
+                        {
+                                c.classification = t.value;
+                        }
+                        else if ( t.name == "UID" )
+                        {
+                                c.uid = t.value;
+                        }
+                        else if ( t.name == "SORT-STRING" )
+                        {
+                                c.sortString = t.value;
+                        }
+                        else if ( t.name == "REV" )
+                        {
+                                c.rev = t.value;
+                        }
+                        else if ( t.name == "VERSION" )
+                        {
+                                c.version = t.value;
+                        }
+                        else if ( t.name == "PRODID" )
+                        {
+                                c.prodId = t.value;
                         }
                 }
 
