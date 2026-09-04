@@ -75,4 +75,22 @@ void TestVCardContact::vCardContactSet1()
         QCOMPARE( contact2.nFields.suffixes,   "" );
         QCOMPARE( contact2.email.other[0],     "bob@example.com" );
         QCOMPARE( contact2.tel.other.cell[0],  "+1-555-0102" );
+
+        QCOMPARE( contact3.fn,                 "Frank Dawson" );
+        QCOMPARE( contact3.org,                "Lotus Development Corporation" );
+        QCOMPARE( contact3.tel.work.msg[0],    "+1-919-676-9515" );
+        QCOMPARE( contact3.tel.work.fax[0],    "+1-919-676-9564" );
+        QCOMPARE( contact3.email.other[0],     "Frank_Dawson@Lotus.com" );
+        QCOMPARE( contact3.email.other[1],     "fdawson@earthlink.net" );
+        QCOMPARE( contact3.url,                "http://home.earthlink.net/~fdawson" );
+
+        QCOMPARE( contact4.fn,                 "Dave Davis" );
+        QCOMPARE( contact4.n,                  "Davis;Dave;;;" );
+        QCOMPARE( contact4.nFields.family,     "Davis" );
+        QCOMPARE( contact4.nFields.given,      "Dave" );
+        QCOMPARE( contact4.nFields.additional, "" );
+        QCOMPARE( contact4.nFields.prefixes,   "" );
+        QCOMPARE( contact4.nFields.suffixes,   "" );
+        QCOMPARE( contact4.email.other[0],     "dave@example.com" );
+        QCOMPARE( contact4.tel.other.cell[0],  "+1-555-0104" );
 }
