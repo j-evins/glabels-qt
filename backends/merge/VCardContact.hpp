@@ -37,8 +37,7 @@ namespace glabels::merge
         //               single vCard:
         //
         //                   FN, N, NICKNAME, ORG, TITLE, ROLE, MAILER, CLASS, UID,
-        //                   SORT-STRING, PRODID, URL, CATEGORIES, NOTE, REV, GEO,
-        //                   and TZ.
+        //                   SORT-STRING, PRODID, URL, CATEGORIES, REV, GEO, and TZ.
         //
         // Assumption 2: There may be any number of the following lines in single vCard:
         //
