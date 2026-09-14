@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 5,17 7,17 12,3 10,3 Z" />
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 15,17 17,17 12,3 10,3 Z" />
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 8,12 7,14 14,14 14,12 Z" />
+
+    <path
+       style="fill:#333333;fill-opacity:1;stroke:none"
+       d="M 5,18 5,20 17,20 17,18 Z" />
+
+</svg>

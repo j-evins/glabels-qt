@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+
+  <defs>
+
+    <linearGradient id="a" x1="0" x2="0" y1="40" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bd8d48"/>
+      <stop offset="1" stop-color="#e8b971"/>
+    </linearGradient>
+    
+    <linearGradient id="b" x1="0" x2="40" y1="0" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#333333" stop-opacity="0.5" />
+      <stop offset="1" stop-opacity="0.125"/>
+    </linearGradient>
+    
+    <linearGradient id="c" x1="0" x2="40" y1="0" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e0e0e0"/>
+    </linearGradient>
+    
+  </defs>
+
+  <g transform="translate(4 4)">
+
+    <rect fill="url(#a)" x="0" y="0" width="40" height="40" />
+    <rect fill="#a77734" x="0" y="39" width="40" height="1" />
+
+    <rect fill="url(#b)" x="6"  y="6"  rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#b)" x="24" y="6"  rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#b)" x="6"  y="17" rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#b)" x="24" y="17" rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#b)" x="6"  y="28" rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#b)" x="24" y="28" rx="1.5" ry="1.5" width="14" height="9" />
+
+    <rect fill="url(#c)" x="4"  y="4"  rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#c)" x="22" y="4"  rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#c)" x="4"  y="15" rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#c)" x="22" y="15" rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#c)" x="4"  y="26" rx="1.5" ry="1.5" width="14" height="9" />
+    <rect fill="url(#c)" x="22" y="26" rx="1.5" ry="1.5" width="14" height="9" />
+
+  </g>
+
+</svg>

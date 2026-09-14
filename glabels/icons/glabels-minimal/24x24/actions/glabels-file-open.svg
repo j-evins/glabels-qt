@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" >
+
+  <path
+     style="fill:#333333;fill-opacity:1;stroke:none"
+     d="M 3,3 3,21 21,21 21,5 12,5 10,3 Z" />
+
+  <path
+     style="fill:#efde99;fill-opacity:1;stroke:none"
+     d="M 4,14 4,20 20,20 20,12 11,12 9,14 Z" />
+
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none"
+     d="M 6,8 6,13 9,13 11,11 18,11 18,8 Z" />
+
+</svg>

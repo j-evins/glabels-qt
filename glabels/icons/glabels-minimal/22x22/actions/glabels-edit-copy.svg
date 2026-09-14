@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
+
+  <rect
+     style="fill:#f8f8f8;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="12" height="12" x="8.5" y="8.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="11.5" y1="11.5" x2="17.5" y2="11.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="11.5" y1="13.5" x2="17.5" y2="13.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="11.5" y1="15.5" x2="17.5" y2="15.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="11.5" y1="17.5" x2="14.5" y2="17.5" />
+
+  <rect
+     style="fill:#fcfcfc;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     width="12" height="12" x="1.5" y="1.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="3.5" y1="3.5" x2="10.5" y2="3.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="3.5" y1="5.5" x2="10.5" y2="5.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="3.5" y1="7.5" x2="10.5" y2="7.5" />
+
+  <line
+     style="stroke:#333333;stroke-width:1;stroke-opacity:1"
+     x1="3.5" y1="9.5" x2="7.5" y2="9.5" />
+
+</svg>
