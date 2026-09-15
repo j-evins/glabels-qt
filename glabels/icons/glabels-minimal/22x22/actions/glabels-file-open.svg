@@ -1,15 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
 
   <path
-     style="fill:#333333;fill-opacity:1;stroke:none"
-     d="M 2,2 2,20 20,20 20,4 11,4 9,2 Z" />
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
+     d="M 1.5,1.5 1.5,10.5 3.5,10.5 3.5,5.5 18.5,5.5 18.5,8.5 20.5,8.5 20.5,3.5 11.5,3.5 9.5,1.5 Z" />
 
   <path
-     style="fill:#efde99;fill-opacity:1;stroke:none"
-     d="M 3,13 3,19 19,19 19,11 10,11 8,13 Z" />
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
+     d="M 1.5,10.5 8.5,10.5 11.5,8.5 20.5,8.5 20.5,20.5 1.5,20.5 Z" />
 
+<!--
   <path
      style="fill:#ffffff;fill-opacity:1;stroke:none"
      d="M 5,7 5,12 8,12 10,10 17,10 17,7 Z" />
+-->
 
 </svg>
