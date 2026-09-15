@@ -1,23 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
 
   <path
-     style="fill:#516aea;fill-opacity:1;stroke:none"
-     d="M 2,2 2,12 4,14 14,14 14,2 Z" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="5" width="8" x="4" y="3" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="4" width="5" x="5" y="9" />
-
-  <rect
-     style="fill:#516aea;fill-opacity:1;stroke:none"
-     height="2" width="1" x="6" y="10" />
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     d="M 7.5,1.5 1.5,1.5 1.5,11.5 4.5,14.5 14.5,14.5 14.5,1.5 12.5,1.5" />
 
   <path
-     style="fill:#f6e04a;fill-opacity:1;stroke:#333333;stroke-width:1;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1"
+     d="M 4.5,1.5 4.5,6.5 11.5,6.5 11.5,3.5" />
+
+  <path
+     style="fill:#000000;fill-opacity:1;stroke:none"
+     d="M 5,10 11,10 11,14 5,14 Z M 6,11 6,14 8,14 8,11 Z" />
+
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1"
      d="M 10,1 6,5 6,6 7,6 11,2 Z" />
 
 </svg>
