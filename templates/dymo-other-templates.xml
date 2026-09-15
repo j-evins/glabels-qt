@@ -269,4 +269,17 @@
     </Label-rectangle>
   </Template>
   
+  <!-- =================================================================== -->
+  <!-- Dymo 0722530 LabelWriter Multipurpose Labels 13 x 25mm              -->
+  <!-- =================================================================== -->
+  <Template brand="Dymo" part="0722530" size="Other" width="30mm" height="30mm" _description="LabelWriter Multipurpose Labels 13 x 25mm">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="12mm" height="24mm" round="4mm" x_waste="0.5mm" y_waste="0.5mm">
+      <Markup-margin size="0mm"/>
+      <Layout nx="1" ny="1" x0="0.5mm" y0="0.5mm" dx="13mm" dy="25mm"/>
+      <Layout nx="1" ny="1" x0="12.6mm" y0="0.5mm" dx="13mm" dy="25mm"/>
+    </Label-rectangle>
+  </Template>
+  
 </Glabels-templates>
