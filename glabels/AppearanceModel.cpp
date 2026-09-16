@@ -223,7 +223,7 @@ namespace glabels
                 mColorScheme = model::Settings::LIGHT_COLOR_SCHEME;
 
                 //QIcon::setThemeName( "glabels-flat" );
-                QIcon::setThemeName( "glabels-minimal" );
+                QIcon::setThemeName( "glabels-vector" );
 
                 auto styleName = QApplication::style()->name();
                 if ( styleName.compare( "fusion", Qt::CaseInsensitive ) == 0 )

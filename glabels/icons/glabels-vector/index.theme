@@ -1,6 +1,6 @@
 [Icon Theme]
-Name=glabels-minimal
-Comment=gLabels minimal icon theme (light)
+Name=glabels-vector
+Comment=gLabels vector icon theme (light)
 Inherits=glabels-flat,hicolor
 Directories=16x16/actions,22x22/actions,24x24/actions,32x32/actions,48x48/actions
 
