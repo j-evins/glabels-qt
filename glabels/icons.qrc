@@ -311,8 +311,6 @@
 	<file>icons/glabels-minimal/16x16/actions/glabels-zoom-out.svg</file>
 	<file>icons/glabels-minimal/16x16/actions/glabels-zoom-to-fit.svg</file>
 
-	<file>icons/glabels-minimal/16x16/apps/glabels.svg</file>
-
 	<!-- minimal: 22 x 22 -->
 	<file>icons/glabels-minimal/22x22/actions/glabels-align-text-center.svg</file>
 	<file>icons/glabels-minimal/22x22/actions/glabels-align-text-left.svg</file>
@@ -344,8 +342,6 @@
 	<file>icons/glabels-minimal/22x22/actions/glabels-zoom-one-to-one.svg</file>
 	<file>icons/glabels-minimal/22x22/actions/glabels-zoom-out.svg</file>
 	<file>icons/glabels-minimal/22x22/actions/glabels-zoom-to-fit.svg</file>
-
-	<file>icons/glabels-minimal/22x22/apps/glabels.svg</file>
 
 	<!-- minimal: 24 x 24 -->
 	<file>icons/glabels-minimal/24x24/actions/glabels-align-text-center.svg</file>
@@ -387,22 +383,12 @@
 	<file>icons/glabels-minimal/32x32/actions/glabels-select-product.svg</file>
 	<file>icons/glabels-minimal/32x32/actions/glabels-uncollated.svg</file>
 
-	<file>icons/glabels-minimal/32x32/apps/glabels.svg</file>
-
 	<!-- minimal: 48 x 48 -->
 	<file>icons/glabels-minimal/48x48/actions/glabels-edit.svg</file>
 	<file>icons/glabels-minimal/48x48/actions/glabels-merge.svg</file>
 	<file>icons/glabels-minimal/48x48/actions/glabels-print.svg</file>
 	<file>icons/glabels-minimal/48x48/actions/glabels-properties.svg</file>
 	<file>icons/glabels-minimal/48x48/actions/glabels-variables.svg</file>
-
-	<file>icons/glabels-minimal/48x48/apps/glabels.svg</file>
-
-	<!-- minimal: 128 x 128 -->
-	<file>icons/glabels-minimal/128x128/apps/glabels.svg</file>
-
-	<!-- minimal: scalable -->
-	<file>icons/glabels-minimal/scalable/apps/glabels.svg</file>
 
 
 	<!-- mimetypes -->
