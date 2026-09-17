@@ -6,10 +6,10 @@
   <rect x="1" y="12" width="20" height="2"
      style="fill:#ffffff;fill-opacity:1;stroke:none" />
 
-  <path d="M 10.5,7 9,5 10,5 10,2 11,2 11,5 12,5 Z"
+  <path d="M 10.5,7 8,4 10,4 10,1 11,1 11,4 13,4 Z"
      style="fill:#ffffff;fill-opacity:1;stroke:none" />
 
-  <path d="M 10.5,15 9,17 10,17 10,20 11,20 11,17 12,17 Z"
+  <path d="M 10.5,15 8,18 10,18 10,21 11,21 11,18 13,18 Z"
      style="fill:#ffffff;fill-opacity:1;stroke:none" />
 
 </svg>
