@@ -256,7 +256,8 @@ namespace glabels
         {
                 mColorScheme = model::Settings::DARK_COLOR_SCHEME;
 
-                QIcon::setThemeName( "glabels-flat-dark"  );
+                //QIcon::setThemeName( "glabels-flat-dark"  );
+                QIcon::setThemeName( "glabels-vector-dark" );
 
                 auto styleName = QApplication::style()->name();
                 if ( styleName.compare( "fusion", Qt::CaseInsensitive ) == 0 )

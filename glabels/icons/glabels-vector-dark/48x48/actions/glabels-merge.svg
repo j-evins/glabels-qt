@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="48" height="48" >
+
+  <path
+     style="fill:none;stroke:#ffffff;stroke-width:2;stroke-opacity:1"
+     d="M 29,35 29,38 5,38 5,7 29,7 29,19" />
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="13.5" x2="23.5" y2="13.5"/>
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="16.5" x2="23.5" y2="16.5"/>
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="19.5" x2="16.5" y2="19.5"/>
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="22.5" x2="16.5" y2="22.5"/>
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="25.5" x2="16.5" y2="25.5"/>
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="28.5" x2="16.5" y2="28.5"/>
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="10.5" y1="31.5" x2="19.5" y2="31.5"/>
+
+  <path
+     style="fill:none;stroke:#ffffff;stroke-width:2;stroke-opacity:1"
+     d="M 19,29 16,29 16,19 36,19 36,22" />
+
+  <path
+     style="fill:none;stroke:#ffffff;stroke-width:2;stroke-opacity:1"
+     d="M 22,32 19,32 19,22 39,22 39,25" />
+
+  <rect
+     style="fill:none;stroke:#ffffff;stroke-width:2;stroke-opacity:1"
+     width="20" height="10" x="22" y="25" />
+
+</svg>

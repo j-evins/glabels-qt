@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
+
+  <path
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     d="M 6.5,13.5 1.5,13.5 1.5,1.5 12.5,1.5 12.5,6.5" />
+
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none"
+     d="M 4,0 4,3 3,3 3,4 11,4 11,3 10,3 10,0 Z" />
+
+  <rect
+     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     width="9" height="9" x="6.5" y="6.5" />
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="8.5" y1="8.5" x2="12.5" y2="8.5" />
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="8.5" y1="10.5" x2="12.5" y2="10.5" />
+
+  <line
+     style="stroke:#ffffff;stroke-width:1;stroke-opacity:1"
+     x1="8.5" y1="12.5" x2="10.5" y2="12.5" />
+
+</svg>
