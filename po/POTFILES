@@ -1,0 +1,5 @@
+# List of source files containing translatable strings.
+# Please keep this list in alphabetical order.
+../data/org.glabels.glabels-qt.desktop
+../data/org.glabels.glabels-qt.metainfo.xml
+../data/org.glabels.glabels-qt.mime.xml

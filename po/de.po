@@ -1,0 +1,90 @@
+# German translation of glabels-qt-data
+# Copyright (C) 2026 Jaye Evins <evins@snaught.com>
+# This file is distributed under the same license as the glabels-qt package.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: glabels-qt\n"
+"Report-Msgid-Bugs-To: https://github.com/j-evins/glabels-qt/issues\n"
+"POT-Creation-Date: 2026-02-05 14:04+0100\n"
+"PO-Revision-Date: 2026-02-05 14:08+0100\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.12.1\n"
+
+#: ../data/org.glabels.glabels-qt.desktop:2
+msgid "gLabels Label Designer 4"
+msgstr "gLabels Label Designer 4"
+
+#: ../data/org.glabels.glabels-qt.desktop:3
+#: ../data/org.glabels.glabels-qt.metainfo.xml:11
+msgid "Create labels and business cards"
+msgstr "Etiketten und Visitenkarten entwerfen"
+
+#: ../data/org.glabels.glabels-qt.desktop:4
+msgid "label;card;print;office;barcode;"
+msgstr "Etikett;Karte;Drucken;Büro;Barcode;"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:5
+msgid "Jaye Evins"
+msgstr "Jaye Evins"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:10
+msgid "gLabels"
+msgstr "gLabels"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:13
+msgid ""
+"gLabels is a program for creating labels, business cards and media covers. It "
+"is designed to work with various laser/ink-jet peel-off label and business "
+"card sheets that you'll find at most office supply stores."
+msgstr ""
+"gLabels ist ein Programm zur Erstellung von Etiketten, Visitenkarten und "
+"Medienhüllen.Es ist für die Verwendung mit verschiedenen Laser-/Tintenstrahl-"
+"Etiketten- und -Visitenkartenbögen konzipiert, die in den meisten "
+"Bürobedarfsgeschäften erhältlich sind."
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:16
+msgid ""
+"gLabels can be used to design address labels, name tags, price tags, cd/dvd "
+"labels, or just about anything else that is organized in a regular pattern on "
+"a sheet of paper. Labels (or cards) can contain text, images, lines, shapes, "
+"and barcodes. gLabels also includes a document-merge feature which lets you "
+"print a unique label for each record from an external data source, such as a "
+"CSV file."
+msgstr ""
+"gLabels eignet sich zum Gestalten von Adressetiketten, Namensschildern, "
+"Preisschildern, CD-/DVD-Etiketten und vielem mehr, was regelmäßig auf einem "
+"Blatt Papier angeordnet ist. Etiketten (oder Karten) können Text, Bilder, "
+"Linien, Formen und Barcodes enthalten. gLabels bietet außerdem eine "
+"Seriendruckfunktion, mit der Sie für jeden Datensatz aus einer externen "
+"Datenquelle, z.B. einer CSV-Datei, ein individuelles Etikett drucken können."
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:27
+msgid "label"
+msgstr "Etikett"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:28
+msgid "card"
+msgstr "Karte"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:29
+msgid "print"
+msgstr "Drucken"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:30
+msgid "office"
+msgstr "Büro"
+
+#: ../data/org.glabels.glabels-qt.metainfo.xml:31
+msgid "barcode"
+msgstr "Barcode"
+
+#: ../data/org.glabels.glabels-qt.mime.xml:4
+msgid "gLabels Project File"
+msgstr "gLabels-Projektdatei"
