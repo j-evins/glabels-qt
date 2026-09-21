@@ -646,6 +646,18 @@
         <source>Other:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Icon style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrintView</name>

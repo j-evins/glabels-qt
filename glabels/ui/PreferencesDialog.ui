@@ -225,6 +225,29 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>Icon style</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QRadioButton" name="appearanceIconFlatRadio">
+            <property name="text">
+             <string>Flat</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="appearanceIconVectorRadio">
+            <property name="text">
+             <string>Vector</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -468,8 +491,8 @@
    <slot>onGridSpacingSpinChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>78</y>
+     <x>146</x>
+     <y>186</y>
     </hint>
     <hint type="destinationlabel">
      <x>7</x>
@@ -484,8 +507,8 @@
    <slot>onGridOriginRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>78</y>
+     <x>143</x>
+     <y>108</y>
     </hint>
     <hint type="destinationlabel">
      <x>311</x>
@@ -500,8 +523,8 @@
    <slot>onGridOriginRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>78</y>
+     <x>143</x>
+     <y>139</y>
     </hint>
     <hint type="destinationlabel">
      <x>318</x>
@@ -516,8 +539,8 @@
    <slot>onGridSpacingResetButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>78</y>
+     <x>232</x>
+     <y>185</y>
     </hint>
     <hint type="destinationlabel">
      <x>313</x>
@@ -532,8 +555,8 @@
    <slot>onAppearanceModeRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>108</x>
-     <y>78</y>
+     <x>131</x>
+     <y>107</y>
     </hint>
     <hint type="destinationlabel">
      <x>298</x>
@@ -548,8 +571,8 @@
    <slot>onAppearanceModeRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>78</y>
+     <x>142</x>
+     <y>138</y>
     </hint>
     <hint type="destinationlabel">
      <x>295</x>
@@ -564,8 +587,8 @@
    <slot>onAppearanceModeRadiosChanged()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>87</x>
-     <y>78</y>
+     <x>110</x>
+     <y>169</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
@@ -648,8 +671,8 @@
      <y>194</y>
     </hint>
     <hint type="destinationlabel">
-     <x>298</x>
-     <y>200</y>
+     <x>443</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>
@@ -676,12 +699,44 @@
    <slot>onStartupOtherBrowseButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>271</x>
-     <y>181</y>
+     <x>443</x>
+     <y>205</y>
     </hint>
     <hint type="destinationlabel">
      <x>330</x>
      <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>appearanceIconFlatRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onAppearanceModeRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>appearanceIconVectorRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>onAppearanceModeRadiosChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>472</x>
+     <y>284</y>
     </hint>
    </hints>
   </connection>

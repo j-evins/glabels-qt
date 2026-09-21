@@ -489,6 +489,40 @@ namespace glabels::model
         }
 
 
+        Settings::IconStyle Settings::iconStyle()
+        {
+                mInstance->beginGroup( "Appearance" );
+                QString value = mInstance->value( "iconStyle", "flat" ).toString();
+                mInstance->endGroup();
+
+                if ( value == "flat" ) return FLAT_ICON_STYLE;
+                if ( value == "vector" ) return VECTOR_ICON_STYLE;
+                return FLAT_ICON_STYLE;
+        }
+
+
+        void Settings::setIconStyle( IconStyle style )
+        {
+
+                mInstance->beginGroup( "Appearance" );
+                switch ( style )
+                {
+                case FLAT_ICON_STYLE:
+                        mInstance->setValue( "iconStyle", "flat" );
+                        break;
+                case VECTOR_ICON_STYLE:
+                        mInstance->setValue( "iconStyle", "vector" );
+                        break;
+                default:
+                        mInstance->setValue( "iconStyle", "flat" );
+                        break;
+                }
+                mInstance->endGroup();
+
+                emit mInstance->changed();
+        }
+
+
         QString Settings::startupPath()
         {
                 mInstance->beginGroup( "Startup" );

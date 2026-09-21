@@ -73,10 +73,14 @@ namespace glabels
                 // Private methods
                 /////////////////////////////////
         private:
-                static void setColorScheme( model::Settings::ColorScheme );
-                static void setLightColorScheme();
-                static void setDarkColorScheme();
-                static void setSystemColorScheme();
+                static void setColorScheme( model::Settings::ColorScheme colorScheme,
+                                            model::Settings::IconStyle   iconStyle );
+                static void setLightColorScheme( model::Settings::IconStyle iconStyle );
+                static void setDarkColorScheme( model::Settings::IconStyle iconStyle );
+                static void setSystemColorScheme( model::Settings::IconStyle iconStyle );
+
+                static void repolishStyle();
+                static void redrawAll();
 
 
                 /////////////////////////////////
@@ -89,6 +93,7 @@ namespace glabels
         private:
                 static std::unique_ptr<AppearanceModel> mInstance;
                 static model::Settings::ColorScheme mColorScheme;
+                static model::Settings::IconStyle mIconStyle;
 
         };
 

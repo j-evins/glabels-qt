@@ -119,6 +119,7 @@ namespace glabels
         //
         std::unique_ptr<AppearanceModel> AppearanceModel::mInstance;
         model::Settings::ColorScheme AppearanceModel::mColorScheme = model::Settings::LIGHT_COLOR_SCHEME;
+        model::Settings::IconStyle AppearanceModel::mIconStyle = model::Settings::FLAT_ICON_STYLE;
 
 
         //
@@ -140,7 +141,7 @@ namespace glabels
                 QApplication::setStyle( QStyleFactory::create( "Fusion" ) );
 #endif
 
-                setColorScheme( model::Settings::colorScheme() );
+                setColorScheme( model::Settings::colorScheme(), model::Settings::iconStyle() );
 
                 connect( model::Settings::instance(), SIGNAL(changed()),
                          this, SLOT(onSettingsChanged()) );
@@ -201,13 +202,14 @@ namespace glabels
         //
         // Set Color Scheme
         //
-        void AppearanceModel::setColorScheme( model::Settings::ColorScheme scheme )
+        void AppearanceModel::setColorScheme( model::Settings::ColorScheme scheme,
+                                              model::Settings::IconStyle iconStyle )
         {
                 switch ( scheme )
                 {
-                case model::Settings::LIGHT_COLOR_SCHEME:  setLightColorScheme();  break;
-                case model::Settings::DARK_COLOR_SCHEME:   setDarkColorScheme();   break;
-                case model::Settings::SYSTEM_COLOR_SCHEME: setSystemColorScheme(); break;
+                case model::Settings::LIGHT_COLOR_SCHEME:  setLightColorScheme( iconStyle );  break;
+                case model::Settings::DARK_COLOR_SCHEME:   setDarkColorScheme( iconStyle );   break;
+                case model::Settings::SYSTEM_COLOR_SCHEME: setSystemColorScheme( iconStyle ); break;
                 default:
                         qWarning() << "Unknown color scheme: " << scheme;
                         break;
@@ -218,12 +220,19 @@ namespace glabels
         //
         // Set Light Color Scheme
         //
-        void AppearanceModel::setLightColorScheme()
+        void AppearanceModel::setLightColorScheme( model::Settings::IconStyle iconStyle )
         {
                 mColorScheme = model::Settings::LIGHT_COLOR_SCHEME;
+                mIconStyle = iconStyle;
 
-                //QIcon::setThemeName( "glabels-flat" );
-                QIcon::setThemeName( "glabels-vector" );
+                switch ( iconStyle )
+                {
+                case model::Settings::FLAT_ICON_STYLE:   QIcon::setThemeName( "glabels-flat" ); break;
+                case model::Settings::VECTOR_ICON_STYLE: QIcon::setThemeName( "glabels-vector" ); break;
+                default:
+                        qWarning() << "Unknown icon style: " << iconStyle;
+                        break;
+                }
 
                 auto styleName = QApplication::style()->name();
                 if ( styleName.compare( "fusion", Qt::CaseInsensitive ) == 0 )
@@ -237,13 +246,8 @@ namespace glabels
                 }
 #endif
 
-                // Re-polish?
-                auto style = QApplication::style();
-                if ( style )
-                {
-                        style->unpolish( qApp );
-                        style->polish( qApp );
-                }
+                repolishStyle();
+                redrawAll();
 
                 if ( mInstance ) emit mInstance->changed();
         }
@@ -252,12 +256,19 @@ namespace glabels
         //
         // Set Dark Color Scheme
         //
-        void AppearanceModel::setDarkColorScheme( )
+        void AppearanceModel::setDarkColorScheme( model::Settings::IconStyle iconStyle )
         {
                 mColorScheme = model::Settings::DARK_COLOR_SCHEME;
+                mIconStyle = iconStyle;
 
-                //QIcon::setThemeName( "glabels-flat-dark"  );
-                QIcon::setThemeName( "glabels-vector-dark" );
+                switch ( iconStyle )
+                {
+                case model::Settings::FLAT_ICON_STYLE:   QIcon::setThemeName( "glabels-flat-dark" ); break;
+                case model::Settings::VECTOR_ICON_STYLE: QIcon::setThemeName( "glabels-vector-dark" ); break;
+                default:
+                        qWarning() << "Unknown icon style: " << iconStyle;
+                        break;
+                }
 
                 auto styleName = QApplication::style()->name();
                 if ( styleName.compare( "fusion", Qt::CaseInsensitive ) == 0 )
@@ -271,13 +282,8 @@ namespace glabels
                 }
 #endif
 
-                // Re-polish?
-                auto style = QApplication::style();
-                if ( style )
-                {
-                        style->unpolish( qApp );
-                        style->polish( qApp );
-                }
+                repolishStyle();
+                redrawAll();
 
                 if ( mInstance ) emit mInstance->changed();
         }
@@ -286,9 +292,37 @@ namespace glabels
         //
         // Set System Color Scheme
         //
-        void AppearanceModel::setSystemColorScheme( )
+        void AppearanceModel::setSystemColorScheme( model::Settings::IconStyle iconStyle )
         {
 	        qWarning() << "System color scheme not yet supported.";
+        }
+
+
+        //
+        // Re-polish style?
+        //
+        void AppearanceModel::repolishStyle()
+        {
+                auto style = QApplication::style();
+                if ( style )
+                {
+                        style->unpolish( qApp );
+                        style->polish( qApp );
+                }
+        }
+
+
+        //
+        // Trigger redraw of all windows
+        //
+        void AppearanceModel::redrawAll()
+        {
+                for ( auto* widget : QApplication::topLevelWidgets() )
+                {
+                        QEvent event( QEvent::StyleChange );
+                        QApplication::sendEvent( widget, &event );
+                        widget->update();
+                }
         }
 
 
@@ -299,9 +333,10 @@ namespace glabels
         {
 
                 auto newScheme = model::Settings::colorScheme();
-                if ( newScheme != mColorScheme )
+                auto newIconStyle = model::Settings::iconStyle();
+                if ( (newScheme != mColorScheme) || (newIconStyle != mIconStyle) )
                 {
-                        setColorScheme( newScheme );
+                        setColorScheme( newScheme, newIconStyle );
                 }
         }
 

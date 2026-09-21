@@ -107,6 +107,19 @@ namespace glabels
                         break;
                 }
 
+                switch ( model::Settings::iconStyle() )
+                {
+                case model::Settings::FLAT_ICON_STYLE:
+                        appearanceIconFlatRadio->setChecked( true );
+                        break;
+                case model::Settings::VECTOR_ICON_STYLE:
+                        appearanceIconVectorRadio->setChecked( true );
+                        break;
+                default:
+                        appearanceIconFlatRadio->setChecked( true );
+                        break;
+                }
+
 
                 auto path = model::Settings::startupPath();
                 if ( path.isEmpty() )
@@ -214,6 +227,7 @@ namespace glabels
         ///
         void PreferencesDialog::onAppearanceModeRadiosChanged()
         {
+                // Color scheme
                 if ( appearanceLightRadio->isChecked() )
                 {
                         model::Settings::setColorScheme( model::Settings::LIGHT_COLOR_SCHEME );
@@ -228,6 +242,15 @@ namespace glabels
                         model::Settings::setColorScheme( model::Settings::SYSTEM_COLOR_SCHEME );
                 }
 #endif
+                // Icon style
+                if ( appearanceIconFlatRadio->isChecked() )
+                {
+                        model::Settings::setIconStyle( model::Settings::FLAT_ICON_STYLE );
+                }
+                else if ( appearanceIconVectorRadio->isChecked() )
+                {
+                        model::Settings::setIconStyle( model::Settings::VECTOR_ICON_STYLE );
+                }
         }
 
 
