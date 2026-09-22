@@ -317,12 +317,8 @@ namespace glabels
         //
         void AppearanceModel::redrawAll()
         {
-                for ( auto* widget : QApplication::topLevelWidgets() )
-                {
-                        QEvent event( QEvent::StyleChange );
-                        QApplication::sendEvent( widget, &event );
-                        widget->update();
-                }
+                auto* currentStyle = QApplication::style();
+                QApplication::setStyle( QStyleFactory::create( currentStyle->name() ) );
         }
 
 
