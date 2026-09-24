@@ -44,6 +44,18 @@
   </Template>
 
   <!-- =================================================================== -->
+  <!-- Zweckform 3481: Multipurpose labels, 70 x 41 mm, 21 per sheet       -->
+  <!-- =================================================================== -->
+  <Template brand="Zweckform" part="3481" size="A4" _description="Multipurpose labels">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="70mm" height="41mm" round="0mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="2mm"/>
+      <Layout nx="3" ny="7" x0="0mm" y0="5mm" dx="70mm" dy="41mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <!-- =================================================================== -->
   <!-- Zweckform 3651: Rectangular labels, 52 x 29.5 mm, 40 per sheet      -->
   <!-- =================================================================== -->
   <Template brand="Zweckform" part="3651" size="A4" _description="Rectangular labels">
