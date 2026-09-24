@@ -57,6 +57,31 @@
 
 
   <!-- =================================================================== -->
+  <!-- Herma 4360: Multipurpose labels 70mm x 36mm, 24 per sheet           -->
+  <!-- =================================================================== -->
+  <Template brand="Herma" part="4360" size="A4" _description="Multipurpose labels">
+    <Meta category="label"/>
+    <Meta category="rectangle-label"/>
+    <Label-rectangle id="0" width="70mm" height="36mm" round="0mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="2mm"/>
+      <Layout nx="3" ny="8" x0="0mm" y0="4.5mm" dx="70mm" dy="36mm"/>
+    </Label-rectangle>
+  </Template>
+
+  <Template brand="Herma" part="4414" equiv="4360"/>
+  <Template brand="Herma" part="4453" equiv="4360"/>
+  <Template brand="Herma" part="4633" equiv="4360"/>
+  <Template brand="Herma" part="8418" equiv="4360"/>
+  <Template brand="Herma" part="8638" equiv="4360"/>
+  <Template brand="Herma" part="8705" equiv="4360"/>
+  <Template brand="Herma" part="10703" equiv="4360"/>
+  <Template brand="Herma" part="10728" equiv="4360"/>
+  <Template brand="Herma" part="10753" equiv="4360"/>
+  <Template brand="Herma" part="10823" equiv="4360"/>
+  <Template brand="Herma" part="10905" equiv="4360"/>
+
+
+  <!-- =================================================================== -->
   <!-- Herma 4464: Mailing labels - 3 columns, 70 x 37.125 mm, 24 per sheet-->
   <!-- =================================================================== -->
   <Template brand="Herma" part="4464" size="A4" _description="Mailing labels">
