@@ -19,7 +19,6 @@
 	<file>icons/glabels-flat/16x16/actions/glabels-center-horiz.svg</file>
 	<file>icons/glabels-flat/16x16/actions/glabels-center.svg</file>
 	<file>icons/glabels-flat/16x16/actions/glabels-center-vert.svg</file>
-	<file>icons/glabels-flat/16x16/actions/glabels-edit-clear.svg</file>
 	<file>icons/glabels-flat/16x16/actions/glabels-edit-copy.svg</file>
 	<file>icons/glabels-flat/16x16/actions/glabels-edit-cut.svg</file>
 	<file>icons/glabels-flat/16x16/actions/glabels-edit-paste.svg</file>
@@ -153,7 +152,6 @@
 	<file>icons/glabels-flat-dark/16x16/actions/glabels-center-horiz.svg</file>
 	<file>icons/glabels-flat-dark/16x16/actions/glabels-center.svg</file>
 	<file>icons/glabels-flat-dark/16x16/actions/glabels-center-vert.svg</file>
-	<file>icons/glabels-flat-dark/16x16/actions/glabels-edit-clear.svg</file>
 	<file>icons/glabels-flat-dark/16x16/actions/glabels-edit-copy.svg</file>
 	<file>icons/glabels-flat-dark/16x16/actions/glabels-edit-cut.svg</file>
 	<file>icons/glabels-flat-dark/16x16/actions/glabels-edit-paste.svg</file>
@@ -273,7 +271,6 @@
 	<file>icons/glabels-vector/16x16/actions/glabels-center-horiz.svg</file>
 	<file>icons/glabels-vector/16x16/actions/glabels-center.svg</file>
 	<file>icons/glabels-vector/16x16/actions/glabels-center-vert.svg</file>
-	<file>icons/glabels-vector/16x16/actions/glabels-edit-clear.svg</file>
 	<file>icons/glabels-vector/16x16/actions/glabels-edit-copy.svg</file>
 	<file>icons/glabels-vector/16x16/actions/glabels-edit-cut.svg</file>
 	<file>icons/glabels-vector/16x16/actions/glabels-edit-paste.svg</file>
@@ -393,7 +390,6 @@
 	<file>icons/glabels-vector-dark/16x16/actions/glabels-center-horiz.svg</file>
 	<file>icons/glabels-vector-dark/16x16/actions/glabels-center.svg</file>
 	<file>icons/glabels-vector-dark/16x16/actions/glabels-center-vert.svg</file>
-	<file>icons/glabels-vector-dark/16x16/actions/glabels-edit-clear.svg</file>
 	<file>icons/glabels-vector-dark/16x16/actions/glabels-edit-copy.svg</file>
 	<file>icons/glabels-vector-dark/16x16/actions/glabels-edit-cut.svg</file>
 	<file>icons/glabels-vector-dark/16x16/actions/glabels-edit-paste.svg</file>
