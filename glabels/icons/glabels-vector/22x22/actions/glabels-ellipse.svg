@@ -1,7 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
 
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#000000; }
+  </style>
+
   <circle
-     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1"
-     r="8" cx="11" cy="11" />
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1"
+      r="8" cx="11" cy="11" />
 
 </svg>

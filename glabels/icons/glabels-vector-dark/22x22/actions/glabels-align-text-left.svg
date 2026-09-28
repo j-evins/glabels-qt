@@ -1,15 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
 
-  <rect x="1" y="4" width="15" height="2"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#f0f0f0; }
+  </style>
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      x="1" y="4" width="15" height="2" />
   
-  <rect x="1" y="8" width="20" height="2"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      x="1" y="8" width="20" height="2" />
 
-  <rect x="1" y="12" width="17" height="2"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      x="1" y="12" width="17" height="2" />
 
-  <rect x="1" y="16" width="12" height="2"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      x="1" y="16" width="12" height="2" />
 
 </svg>

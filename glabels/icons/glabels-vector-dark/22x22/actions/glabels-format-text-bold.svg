@@ -1,15 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
 
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       d="M 4,17 7,17 12,3 9,3 Z" />
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#f0f0f0; }
+  </style>
 
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       d="M 15,17 18,17 13,3 10,3 Z" />
+  <path
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      d="M 4,17 7,17 12,3 9,3 Z" />
 
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       d="M 8,10 7,13 15,13 14,10 Z" />
+  <path
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      d="M 15,17 18,17 13,3 10,3 Z" />
+
+  <path
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      d="M 8,10 7,13 15,13 14,10 Z" />
 
 </svg>

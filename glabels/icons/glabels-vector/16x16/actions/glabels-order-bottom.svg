@@ -1,11 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
 
-    <path
-	style="fill:none;stroke:#000000;stroke-opacity:1;stroke-width:1"
-	d="M 7.5,3.5 1.5,3.5 1.5,12.5 10.5,12.5 10.5,8.5" />
-    
-    <rect
-	style="fill:none;stroke:#000000;stroke-opacity:1;stroke-width:1"
-	x="7.5" y="1.5" width="7" height="7" />
-    
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#000000; }
+  </style>
+
+  <path
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-opacity:1;stroke-width:1"
+      d="M 7.5,3.5 1.5,3.5 1.5,12.5 10.5,12.5 10.5,8.5" />
+  
+  <rect
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-opacity:1;stroke-width:1"
+      x="7.5" y="1.5" width="7" height="7" />
+  
 </svg>

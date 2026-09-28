@@ -1,18 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" >
 
-  <rect x="2" y="1" width="1" height="14"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#f0f0f0; }
+  </style>
 
-  <rect x="4" y="1" width="2" height="14"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      x="2" y="1" width="1" height="14"
+      style="fill:currentColor;fill-opacity:1;stroke:none" />
 
-  <rect x="7" y="1" width="3" height="14"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      x="4" y="1" width="2" height="14"
+      style="fill:currentColor;fill-opacity:1;stroke:none" />
 
-  <rect x="11" y="1" width="1" height="14"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      x="7" y="1" width="3" height="14"
+      style="fill:currentColor;fill-opacity:1;stroke:none" />
 
-  <rect x="13" y="1" width="1" height="14"
-     style="fill:#ffffff;fill-opacity:1;stroke:none" />
+  <rect
+      class="ColorScheme-Text"
+      x="11" y="1" width="1" height="14"
+      style="fill:currentColor;fill-opacity:1;stroke:none" />
+
+  <rect
+      class="ColorScheme-Text"
+      x="13" y="1" width="1" height="14"
+      style="fill:currentColor;fill-opacity:1;stroke:none" />
 
 </svg>

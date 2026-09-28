@@ -1,43 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="22" height="22" >
 
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1"
-     d="M 4.5,1.5 4.5,19.5 18.5,19.5 18.5,6.5 13.5,1.5 Z" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="6" y="3" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="6" y="7" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="6" y="11" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="6" y="15" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="1" x="12" y="3" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="12" y="7" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="12" y="11" />
-
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none"
-     height="3" width="5" x="12" y="15" />
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#000000; }
+  </style>
 
   <path
-     style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
-     d="M 18.5,6.5 13.5,1.5 13.5,6.5 Z" />
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1"
+      d="M 4.5,1.5 4.5,19.5 18.5,19.5 18.5,6.5 13.5,1.5 Z" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="6" y="3" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="6" y="7" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="6" y="11" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="6" y="15" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="1" x="12" y="3" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="12" y="7" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="12" y="11" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="12" y="15" />
+
+  <path
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
+      d="M 18.5,6.5 13.5,1.5 13.5,6.5 Z" />
 
 </svg>

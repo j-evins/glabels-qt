@@ -1,51 +1,67 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" >
 
-  <path
-     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-opacity:1"
-     d="M 9.5,20.5 4.5,20.5 4.5,2.5 18.5,2.5 18.5,6.5" />
+  <style type="text/css" id="current-color-scheme" >
+    .ColorScheme-Text { color:#f0f0f0; }
+  </style>
 
   <path
-     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-opacity:1"
-     d="M 13.5,11.5 13.5,6.5 27.5,6.5 27.5,24.5 23.5,24.5" />
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1"
+      d="M 9.5,20.5 4.5,20.5 4.5,2.5 18.5,2.5 18.5,6.5" />
 
   <path
-     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-opacity:1"
-     d="M 9.5,11.5 9.5,29.5 23.5,29.5 23.5,16.5 18.5,11.5 Z" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="11" y="13" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="11" y="17" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="11" y="21" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="11" y="25" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="1" x="17" y="13" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="17" y="17" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="17" y="21" />
-
-  <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:none"
-     height="3" width="5" x="17" y="25" />
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1"
+      d="M 13.5,11.5 13.5,6.5 27.5,6.5 27.5,24.5 23.5,24.5" />
 
   <path
-     style="fill:none;stroke:#ffffff;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
-     d="M 23.5,16.5 18.5,11.5 18.5,16.5 Z" />
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1"
+      d="M 9.5,11.5 9.5,29.5 23.5,29.5 23.5,16.5 18.5,11.5 Z" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="11" y="13" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="11" y="17" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="11" y="21" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="11" y="25" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="1" x="17" y="13" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="17" y="17" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="17" y="21" />
+
+  <rect
+      class="ColorScheme-Text"
+      style="fill:currentColor;fill-opacity:1;stroke:none"
+      height="3" width="5" x="17" y="25" />
+
+  <path
+      class="ColorScheme-Text"
+      style="fill:none;stroke:currentColor;stroke-width:1;stroke-opacity:1;stroke-linejoin:bevel"
+      d="M 23.5,16.5 18.5,11.5 18.5,16.5 Z" />
 
 </svg>
