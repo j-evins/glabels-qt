@@ -24,6 +24,8 @@
 
 #include "ui_PrintView.h"
 
+#include "ptouch/DeviceMonitor.hpp"
+
 #include "model/Model.hpp"
 #include "model/PageRenderer.hpp"
 
@@ -58,6 +60,7 @@ namespace glabels
                 /////////////////////////////////
         private slots:
                 void onAvailablePrintersChanged( QStringList printers );
+                void onAvailablePtouchDevicesChanged( QList<ptouch::UsbDeviceId> devices );
                 void onModelChanged();
                 void updateView();
                 void onFormChanged();
@@ -70,8 +73,10 @@ namespace glabels
                 /////////////////////////////////
         private:
                 void loadDestinations( const QStringList& printers );
+                void loadPtouchDestinations( const QList<ptouch::UsbDeviceId>& devices );
                 QString defaultPdf();
                 void setDestination( const QString& printerName );
+                bool printToPtouch( const QString& deviceDisplayName );
 
 
                 /////////////////////////////////

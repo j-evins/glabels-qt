@@ -28,8 +28,10 @@
 #include "merge/Merge.hpp"
 #include "merge/Record.hpp"
 
+#include <functional>
 #include <QPainter>
 #include <QPrinter>
+#include <QImage>
 #include <QRect>
 #include <QVector>
 
@@ -75,6 +77,17 @@ namespace glabels::model
                 void print( QPrinter* printer ) const;
                 void printPage( QPainter* painter ) const;
                 void printPage( QPainter* painter, int iPage ) const;
+
+                /// Enumerate every label item in this print job, rendering each one to
+                /// a QImage at @p dpi resolution and invoking @p callback with it.
+                ///
+                /// Image orientation for tape printers:
+                ///   width  = tape feed direction (the LONG / label-length dimension)
+                ///   height = across the tape     (the SHORT / tape-width dimension)
+                ///
+                /// The callback should return @c true to continue or @c false to abort.
+                void enumerateLabels( double dpi,
+                                      const std::function<bool(const QImage&)>& callback ) const;
 
 
                 /////////////////////////////////
