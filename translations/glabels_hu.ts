@@ -28,11 +28,11 @@
     </message>
     <message>
         <source>Light Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Világos narancssárga</translation>
     </message>
     <message>
         <source>Light Butter</source>
-        <translation type="unfinished"></translation>
+        <translation>Világos vajszín</translation>
     </message>
     <message>
         <source>Light Chameleon</source>
@@ -96,7 +96,7 @@
     </message>
     <message>
         <source>Dark Scarlet Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Sötét skarlátvörös</translation>
     </message>
     <message>
         <source>Dark Orange</source>
@@ -136,31 +136,31 @@
     </message>
     <message>
         <source>Very Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagyon sötét szürke</translation>
     </message>
     <message>
         <source>Darker Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Sötétebb szürke</translation>
     </message>
     <message>
         <source>Dark Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Sötét szürke</translation>
     </message>
     <message>
         <source>Medium Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Közepes szürke</translation>
     </message>
     <message>
         <source>Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Világosszürke</translation>
     </message>
     <message>
         <source>Lighter Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Világosabb szürke</translation>
     </message>
     <message>
         <source>Very Light Gray</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagyon világos szürke</translation>
     </message>
     <message>
         <source>White</source>
@@ -179,11 +179,11 @@
     </message>
     <message>
         <source>Step size:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lépés mérete:</translation>
     </message>
     <message>
         <source>Increment</source>
-        <translation type="unfinished"></translation>
+        <translation>Érték növelése</translation>
     </message>
     <message>
         <source>Variable</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Típus:</translation>
     </message>
     <message>
         <source>Value:</source>
@@ -202,7 +202,7 @@
     <name>Factory</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs</translation>
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV)</source>
@@ -210,7 +210,7 @@
     </message>
     <message>
         <source>Text: Comma Separated Values (CSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg: Vesszővel elválasztott értékek (CSV), a kulcsok az 1. sorban szerepelnek</translation>
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV)</source>
@@ -218,23 +218,23 @@
     </message>
     <message>
         <source>Text: Tab Separated Values (TSV), keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg: tabulátorral elválasztott értékek (TSV), a kulcsok az 1. sorban szerepelnek</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg: Kettősponttal elválasztott értékek</translation>
     </message>
     <message>
         <source>Text: Colon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg: Kettősponttal elválasztott értékek, a kulcsok az 1. sorban szerepelnek</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg: Pontosvesszővel elválasztott értékek</translation>
     </message>
     <message>
         <source>Text: Semicolon Separated Values, keys on line 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg: Pontosvesszővel elválasztott értékek, a kulcsok az 1. sorban</translation>
     </message>
 </context>
 <context>
@@ -261,7 +261,7 @@
     <name>FrameContinuous</name>
     <message>
         <source>wide</source>
-        <translation type="unfinished"></translation>
+        <translation>széles</translation>
     </message>
 </context>
 <context>
@@ -342,7 +342,7 @@
     </message>
     <message>
         <source>Allow printing to shrink text to fit object</source>
-        <translation type="unfinished"></translation>
+        <translation>Engedélyezem, hogy a nyomtatás során a szöveg az objektumhoz igazodva kicsinyedjen</translation>
     </message>
     <message>
         <source>Font</source>
@@ -366,7 +366,7 @@
     </message>
     <message>
         <source>Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztő</translation>
     </message>
     <message>
         <source>Barcode</source>
@@ -402,7 +402,7 @@
     </message>
     <message>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Böngészés...</translation>
     </message>
     <message>
         <source>Line/Fill</source>
@@ -454,7 +454,7 @@
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Visszaállítás</translation>
     </message>
     <message>
         <source>Lock aspect ratio</source>

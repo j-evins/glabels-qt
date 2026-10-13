@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>Cassette labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Kazetta címkék</translation>
     </message>
     <message>
         <source>Coffee and tea labels</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>Full-page labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Egész oldalas címkék</translation>
     </message>
     <message>
         <source>Full-page labels with back slit</source>
@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Magnet stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Mágneses matricák</translation>
     </message>
     <message>
         <source>Mailing labels</source>
@@ -233,11 +233,11 @@
     </message>
     <message>
         <source>Name badge labels</source>
-        <translation type="unfinished"></translation>
+        <translation>Névcímke-címkék</translation>
     </message>
     <message>
         <source>Name badges</source>
-        <translation type="unfinished"></translation>
+        <translation>Névkártyák</translation>
     </message>
     <message>
         <source>Name plates</source>
