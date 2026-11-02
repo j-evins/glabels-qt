@@ -17,6 +17,15 @@
 
   <Template brand="Dymo" part="99010" equiv="30252" />
 
+  <!-- =================================================================== -->
+  <!-- 13mm x 25mm Multipurpose labels.                                  -->
+  <!-- =================================================================== -->
+  <Template brand="Dymo" part="30333" size="Other" width="31.75mm" height="31.75mm" description="13mm x 25mm 2-Up">
+    <Label-rectangle id="0" width="12.7mm" height="25.4mm" round="1.905mm" x_waste="0mm" y_waste="0mm">
+      <Markup-margin size="0mm"/>
+      <Layout nx="2" ny="1" x0="-1.27mm" y0="-1.397mm" dx="12.7mm" dy="25.4mm"/>
+    </Label-rectangle>
+  </Template>
 
   <!-- =================================================================== -->
   <!-- 57mm x 32mm Return address labels.                                  -->
